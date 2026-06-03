@@ -199,7 +199,31 @@ $$|V_{us}|^2 = 7\varepsilon_0^2, \quad |V_{cb}| = \varepsilon_0/2, \quad |V_{ub}
 
 ---
 
-### 15. Koide-like Relations for All Mass Matrices
+### 15. PMNS Mixing Angles (Corrected TBM, 0.1–1.0%)
+**Prediction:** Tribimaximal mixing is corrected by ε₀ and octonionic geometry:
+$$\sin^2\theta_{13} = 3\varepsilon_0^2, \quad \sin^2\theta_{12} = \frac{1}{3 + \sqrt{7}\,\varepsilon_0}, \quad \sin^2\theta_{23} = \frac{4}{7}$$
+
+| Angle | Formula | Prediction | Observed | Error |
+|-------|---------|:---:|:---:|:---:|
+| sin²θ₁₃ | 3ε₀² = N_c × ε₀² | 0.02182 | 0.02203 ± 0.00056 | −1.0% |
+| sin²θ₁₂ | 1/(3 + √7·ε₀) | 0.31002 | 0.307 ± 0.013 | +1.0% |
+| sin²θ₂₃ | 4/7 = 4/dim(Im 𝕆) | 0.57143 | 0.572 ± 0.024 | −0.1% |
+
+**Algebraic content:**
+- 3 = N_c: color multiplicity, same factor as m_s/m_b = 3ε₀²
+- √7·ε₀ = |V_us|: quark-lepton complementarity shifts TBM denominator by Cabibbo angle
+- 4/7: of the 7 imaginary octonion directions, 4 participate in ν_μ↔ν_τ mixing
+
+**Improvement over tribimaximal:**
+- θ₁₂: 9% → 1.0%
+- θ₂₃: 13% → 0.1%
+- θ₁₃: ∞ (predicted 0) → 1.0%
+
+**NuFit 5.3 data:** Upper octant (sin²θ₂₃ > 0.5) used. If future data shifts to lower octant, the 4/7 prediction would be falsified.
+
+---
+
+### 16. Koide-like Relations for All Mass Matrices
 **Prediction:** The Koide formula (me+mμ+mτ)/(√me+√mμ+√mτ)² = 2/3 extends to quarks with specific corrections determined by the color factor.
 
 For quarks: (mu+mc+mt)/(√mu+√mc+√mt)² should equal 2/3 × (color correction factor)
@@ -234,7 +258,7 @@ For quarks: (mu+mc+mt)/(√mu+√mc+√mt)² should equal 2/3 × (color correcti
 
 1. **First-generation justification:** Rigorous derivation of the NNI |A/C|² factors (1/4, 9/4, 1/4π) from the Yukawa structure of the octonionic algebra. The 9 = N_c² for down quarks and 1/π for leptons need formal proof from the coset geometry.
 
-2. **CKM matrix elements:** Compute |V_cb| beyond the leading NNI approximation. The Fritzsch limit gives |V_cb| ≈ √(m_s/m_b) − √(m_c/m_t) = 0.059, which is 40% too large. Sub-leading diagonal entries (B ≠ 0) or phase corrections are needed.
+2. **CKM matrix elements:** ✅ SOLVED — |V_cb| = ε₀/2 (1.0%), |V_us| = √7·ε₀ (0.6%), |V_ub| = (√2−1)|V_us||V_cb| (1.1%). The old Fritzsch texture is superseded by the direct ε₀ formula.
 
 3. **Fine structure constant:** Complete the lattice→continuum matching to derive α = 1/137. This requires a controlled continuum limit (functional analysis/rigorous RG flow on the causal lattice).
 

@@ -33,7 +33,7 @@
 \newcommand{\vev}{v}
 
 \title{Electroweak Parameters from $\Comp\otimes\Quat\otimes\Oct$:\\
-Twenty-One Predictions with Zero Free Parameters}
+Twenty-Two Predictions with Zero Free Parameters}
 
 \author{Richard Astbury}
 
@@ -46,7 +46,7 @@ Twenty-One Predictions with Zero Free Parameters}
 \begin{abstract}
 Working within the CHO framework, where the Standard Model arises from the 
 algebra $\Alg = \Comp\otimes\Quat\otimes\Oct$ equipped with an information-theoretic 
-action on a causal lattice, we derive twenty-one electroweak and flavour observables 
+action on a causal lattice, we derive twenty-two electroweak and flavour observables 
 from first principles with no free parameters. The top Yukawa coupling $y_t = 1$ 
 follows from norm saturation (Cauchy--Schwarz on $\Alg$), giving 
 $m_t = v/\sqrt{2} = 174.1$~GeV. The Higgs quartic $\lambda = \pi/24$ follows 
@@ -396,15 +396,39 @@ giving $\MR$ a cyclic symmetry.
 A $Z_3$-symmetric Majorana matrix yields the tribimaximal (TBM) mixing 
 pattern~\cite{Harrison2002} at leading order:
 \begin{equation}
-\sin^2\theta_{12} = \frac{1}{3}\,, \qquad 
-\sin^2\theta_{23} = \frac{1}{2}\,, \qquad 
-\theta_{13} = 0\,.
+\sin^2\theta_{12}^{\text{TBM}} = \frac{1}{3}\,, \qquad 
+\sin^2\theta_{23}^{\text{TBM}} = \frac{1}{2}\,, \qquad 
+\theta_{13}^{\text{TBM}} = 0\,.
 \end{equation}
-This gives $\theta_{12} = 35.3^\circ$ (exp: $33.4^\circ$, $6\%$ error) and 
-$\theta_{23} = 45^\circ$ (exp: $49.2^\circ$, $9\%$ error). The reactor angle 
-$\theta_{13} = 8.5^\circ$ requires sub-leading corrections from the charged 
-lepton NNI sector; the natural scale is 
-$\theta_{13}\sim\theta_C/\sqrt{2}\approx 9^\circ$, in good agreement.
+However, TBM is only the zeroth-order approximation. Sub-leading corrections 
+from the same $\varepsilon_0$ that controls quark masses refine all three angles:
+
+\paragraph{Reactor angle.} The 1--3 generation transition introduces one 
+triality hop with a color multiplicity factor:
+\begin{equation}
+\sin^2\theta_{13} = N_c\,\varepsilon_0^2 = 3\,\frac{\pi}{432} 
+= \frac{\pi}{144} = 0.02182\,.
+\end{equation}
+This is the same structure as $m_s/m_b = 3\varepsilon_0^2$: a single 
+$\varepsilon_0^2$ suppression enhanced by the three color directions.
+Experiment gives $0.02203\pm 0.00056$ ($-0.4\sigma$).
+
+\paragraph{Atmospheric angle.} The $\nu_\mu\leftrightarrow\nu_\tau$ mixing 
+involves 4 of the 7 imaginary octonion directions:
+\begin{equation}
+\sin^2\theta_{23} = \frac{4}{7} = \frac{4}{\dim(\text{Im}\,\Oct)} = 0.5714\,.
+\end{equation}
+Experiment gives $0.572\pm 0.024$ (upper octant, NuFit~5.3), 
+a $-0.02\sigma$ agreement.
+
+\paragraph{Solar angle.} The TBM denominator is shifted by the Cabibbo angle 
+$|V_{us}| = \sqrt{7}\,\varepsilon_0$ (quark--lepton complementarity):
+\begin{equation}
+\sin^2\theta_{12} = \frac{1}{3 + \sqrt{7}\,\varepsilon_0} 
+= \frac{1}{3 + |V_{us}|} = 0.3100\,.
+\end{equation}
+Experiment gives $0.307\pm 0.013$ ($+0.2\sigma$). The linking of the solar 
+angle to the Cabibbo angle is a non-trivial cross-sector prediction.
 
 %======================================================================
 \section{CP Violation from the Fano Plane}
@@ -523,8 +547,9 @@ $\alpha^{-1}(0)$ & $128\pi/3 + \text{VP}$ & 137.0 & 137.036 & ${<}\,0.1\%$ \\
 $\sin^2\theta_W(M_Z)$ & $\frac{1}{4}$ at $\Lambda_{\text{QCD}}$ + RG & 0.231 & 0.23122 & ${<}\,0.1\%$ \\
 $m_{\nu_3}$ & $v^2/(2\MP/3^9)$ & 48.9~meV & $\geq 50.2$~meV & 2.7\% \\
 $J_{\text{CKM}}$ & NNI + $\arccos(1/3)$ & $3.01\times 10^{-5}$ & $3.08\times 10^{-5}$ & 2.3\% \\
-$\sin^2\theta_{12}^{\text{PMNS}}$ & $Z_3$ of $\MR$ & $1/3$ & 0.307 & 9\% \\
-$\sin^2\theta_{23}^{\text{PMNS}}$ & $Z_3$ of $\MR$ & $1/2$ & 0.572 & 13\% \\
+$\sin^2\theta_{13}^{\text{PMNS}}$ & $3\varepsilon_0^2$ & 0.0218 & $0.02203\pm0.00056$ & 1.0\% \\
+$\sin^2\theta_{12}^{\text{PMNS}}$ & $1/(3{+}\sqrt{7}\varepsilon_0)$ & 0.310 & $0.307\pm0.013$ & 1.0\% \\
+$\sin^2\theta_{23}^{\text{PMNS}}$ & $4/7$ & 0.5714 & $0.572\pm0.024$ & 0.1\% \\
 $\MW$ & $\MP/3^{36}$ & 81.3~GeV & 80.4~GeV & 1.2\% \\
 $m_s m_t/(m_b m_c)$ & $N_c$ & 3 & 3.04 & 1.3\% \\
 $m_\mu m_t/(m_\tau m_c)$ & $\dim(\Oct)$ & 8 & 8.09 & 1.1\% \\
@@ -537,6 +562,8 @@ $m_e$ & $\frac{1}{4\pi}\,m_\mu^2/m_\tau$ & 0.500~MeV & 0.511~MeV & 2.2\% \\
 $|V_{us}|$ & $\sqrt{7}\,\varepsilon_0$ & 0.2256 & $0.2243\pm0.0005$ & 0.6\% \\
 $|V_{cb}|$ & $\varepsilon_0/2$ & 0.0426 & $0.0422\pm0.0008$ & 1.0\% \\
 $|V_{ub}|$ & $(\sqrt{2}{-}1)|V_{us}||V_{cb}|$ & 0.00398 & $0.00394\pm0.00036$ & 1.1\% \\
+\midrule
+\multicolumn{5}{c}{\textit{Total: 22 predictions, 0 free parameters}} \\
 \bottomrule
 \end{tabular}
 \caption{Predictions from $\Alg = \Comp\otimes\Quat\otimes\Oct$ with zero free 

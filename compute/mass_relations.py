@@ -342,6 +342,61 @@ def ckm_predictions():
     return V_us_pred, V_cb_pred, V_ub_pred
 
 
+def pmns_predictions():
+    """PMNS neutrino mixing angles from ε₀ corrections to tribimaximal.
+    
+    TBM (tribimaximal) gives sin²θ₁₂ = 1/3, sin²θ₂₃ = 1/2, sin²θ₁₃ = 0.
+    The CHO framework corrects these via the same ε₀ = √(π/432):
+    
+        sin²θ₁₃ = 3ε₀²              (N_c × ε₀²: color-enhanced triality hop)
+        sin²θ₁₂ = 1/(3 + √7·ε₀)    (TBM denominator shifted by |V_us|)
+        sin²θ₂₃ = 4/7               (4 of 7 imaginary octonion directions)
+    """
+    print("\nPMNS MIXING ANGLES (TBM + ε₀ corrections)")
+    print("=" * 60)
+    print()
+    
+    eps0 = np.sqrt(EPS0_SQ)
+    
+    # sin²θ₁₃ = 3ε₀² = N_c × ε₀²
+    s2_13 = 3 * EPS0_SQ
+    s2_13_obs = 0.02203
+    s2_13_unc = 0.00056
+    
+    # sin²θ₁₂ = 1/(3 + √7·ε₀) — TBM corrected by Cabibbo angle
+    s2_12 = 1 / (3 + np.sqrt(7) * eps0)
+    s2_12_obs = 0.307
+    s2_12_unc = 0.013
+    
+    # sin²θ₂₃ = 4/7 = 4/dim(Im O)
+    s2_23 = 4.0 / 7
+    s2_23_obs = 0.572
+    s2_23_unc = 0.024
+    
+    print(f"  sin²θ₁₃ = 3ε₀² = N_c × (π/432)")
+    print(f"    Predicted: {s2_13:.5f}")
+    print(f"    Observed:  {s2_13_obs} ± {s2_13_unc}")
+    print(f"    Error:     {(s2_13-s2_13_obs)/s2_13_obs*100:+.2f}% ({(s2_13-s2_13_obs)/s2_13_unc:.1f}σ)")
+    print()
+    print(f"  sin²θ₁₂ = 1/(3 + √7·ε₀) = 1/(3 + |V_us|)")
+    print(f"    Predicted: {s2_12:.5f}")
+    print(f"    Observed:  {s2_12_obs} ± {s2_12_unc}")
+    print(f"    Error:     {(s2_12-s2_12_obs)/s2_12_obs*100:+.2f}% ({(s2_12-s2_12_obs)/s2_12_unc:.1f}σ)")
+    print()
+    print(f"  sin²θ₂₃ = 4/7 = 4/dim(Im O)")
+    print(f"    Predicted: {s2_23:.5f}")
+    print(f"    Observed:  {s2_23_obs} ± {s2_23_unc} (upper octant)")
+    print(f"    Error:     {(s2_23-s2_23_obs)/s2_23_obs*100:+.2f}% ({(s2_23-s2_23_obs)/s2_23_unc:.1f}σ)")
+    print()
+    print("  Physical interpretation:")
+    print("    θ₁₃: triality breaking with N_c enhancement (same as m_s/m_b)")
+    print("    θ₂₃: 4 of 7 Im(O) directions participate in ν_μ↔ν_τ mixing")
+    print("    θ₁₂: TBM 1/3 corrected by quark-lepton complementarity (|V_us|)")
+    print()
+    
+    return s2_13, s2_12, s2_23
+
+
 def full_prediction_chain():
     """Predict 8 fermion masses from m_t + algebra alone."""
     print("\nFULL PREDICTION CHAIN (input: m_t only)")
@@ -399,5 +454,6 @@ if __name__ == "__main__":
     third_generation()
     first_generation()
     ckm_predictions()
+    pmns_predictions()
     full_prediction_chain()
     rg_invariance()
