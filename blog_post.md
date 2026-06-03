@@ -10,7 +10,7 @@ This project began as a question: *what happens if you point a generative AI at 
 
 I'm not a professional physicist. I have a background in software and mathematics, and a long-standing obsession with the question of *why* the Standard Model has the structure it does — why three generations, why these masses, why these mixing angles. These are questions that decades of conventional research have failed to answer.
 
-Over several weeks, I worked with Claude (Anthropic's AI) in an unusual collaboration. I brought the physical intuition and the guiding question: *can the algebra ℂ⊗ℍ⊗𝕆 determine everything?* The AI brought the ability to rapidly compute, cross-check against experimental data, explore algebraic identities, spot errors in derivations, and maintain consistency across a growing web of interconnected predictions.
+Over several hours, I worked with Claude (Anthropic's AI) in an unusual collaboration. I brought the physical intuition and the guiding question: *can the algebra ℂ⊗ℍ⊗𝕆 determine everything?* The AI brought the ability to rapidly compute, cross-check against experimental data, explore algebraic identities, spot errors in derivations, and maintain consistency across a growing web of interconnected predictions.
 
 The result surprised me. What started as exploratory numerology gradually locked into a rigid structure with zero free parameters and 23 quantitative predictions — all matching experiment to 0.1–7%. The AI didn't hallucinate these agreements; it computed them from explicit algebraic formulas and checked them against published PDG and NuFit data. When a prediction was wrong, we found out immediately and either fixed the derivation or acknowledged the discrepancy.
 
@@ -306,4 +306,4 @@ The result is a theory with *fewer* moving parts than the Standard Model (zero f
 - *[Electroweak Parameters from ℂ⊗ℍ⊗𝕆: Twenty-Three Predictions with Zero Free Parameters](papers/electroweak_parameters.pdf)*
 - *[The Cosmological Constant from ℂ⊗ℍ⊗𝕆: Resolution of the Hierarchy](papers/cosmological_constant.pdf)*
 
-*This work was produced in collaboration with Claude (Anthropic). The full derivations, numerical checks, and LaTeX sources are available on GitHub.*
+*This work was produced in collaboration with Claude (Anthropic). All calculations, numerical checks, LaTeX sources, and derivation code are available on [GitHub](https://github.com/richorama/toe).*
