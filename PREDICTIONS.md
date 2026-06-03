@@ -263,17 +263,18 @@ $$\frac{\Delta m^2_{21}}{\Delta m^2_{31}} = \left(\frac{m_{\nu_2}}{m_{\nu_3}}\ri
 
 ---
 
-### 18. Koide-like Relations for All Mass Matrices
-**Prediction:** The Koide formula (me+mμ+mτ)/(√me+√mμ+√mτ)² = 2/3 extends to quarks with specific corrections determined by the color factor.
+### 18. Koide Relation: Open Problem
+**Status:** The Koide formula Q = Σmᵢ/(Σ√mᵢ)² = 2/3 holds for charged leptons to 0.0009%, but:
 
-For quarks: (mu+mc+mt)/(√mu+√mc+√mt)² should equal 2/3 × (color correction factor)
+- CHO mass formulas give Q = 0.669 (0.38% from 2/3) — close but not exact
+- Quarks: up-sector Q = 0.849 (27% off), down-sector Q = 0.731 (10% off)
+- Koide is specific to leptons, not a universal mass relation
 
-**Numerical check:**
-- Leptons: 0.6666 ✓ (exact to 0.01%)  
-- Up quarks (2.2, 1275, 173000 MeV): gives ~0.654 (close to 2/3!)
-- Down quarks (4.7, 95, 4180 MeV): gives ~0.687 (close!)
+**Interpretation:** The Koide angle θ₀ = 61.14° is close to π/3 = 60° (the Z₃-symmetric value). The 1.14° displacement may relate to ε₀ but no clean algebraic connection has been found. The CHO formulas (m_μ/m_τ = 8ε₀², m_e/m_τ = (8ε₀²)²/4π) are more predictive (determining all 3 masses individually) but do not exactly reproduce Q = 2/3.
 
-**Test:** Improved quark mass determinations from lattice QCD.
+**Possible resolution:** A constraint from J₃(𝕆) eigenvalue geometry (Koide = midpoint between democratic and hierarchical on the eigenvalue simplex) might provide a sub-percent correction to the 1/4π factor.
+
+**Test:** If Koide holds exactly, the CHO m_e formula needs a ~2% correction.
 
 ---
 
