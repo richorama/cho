@@ -245,7 +245,25 @@ $$\frac{\Delta m^2_{21}}{\Delta m^2_{31}} = \left(\frac{m_{\nu_2}}{m_{\nu_3}}\ri
 
 ---
 
-### 17. Koide-like Relations for All Mass Matrices
+### 17. Strong CP: θ̄ = 0 (No Axion)
+**Prediction:** The strong CP parameter θ̄ = θ_QCD + arg(det(Y_u·Y_d)) vanishes exactly.
+
+**Mechanism (two independent parts):**
+1. **θ_QCD = 0 from Fano parity:** G₂ = Aut(𝕆) has a Z₂ (Fano line reversal = octonionic conjugation). This acts on SU(3)_c ⊂ G₂ as the outer automorphism 3↔3̄, under which F∧F̃ → −F∧F̃. Invariance of the action → θ_QCD = 0.
+
+2. **arg(det(Y_u·Y_d)) = 0 from NNI:** All Yukawa entries determined by ε₀ ∈ ℝ. det(Y_u) = m_u·m_c·m_t > 0, det(Y_d) = m_d·m_s·m_b > 0. CKM CP phase δ = arccos(1/3) is a geometric phase from relative basis rotation, not from complex Yukawa entries.
+
+**Why weak CP survives:** Fano parity is a COLOR symmetry only. It commutes with SU(2)_L transformations that generate CKM mixing. Therefore J_CKM ≠ 0 while θ̄ = 0.
+
+**Experimental status:**
+- Current bound: |θ̄| < 10⁻¹⁰ (neutron EDM) ✓
+- Prediction: θ̄ = 0 exactly, NO AXION exists
+
+**Falsification:** Any measurement of θ̄ ≠ 0, or detection of an axion.
+
+---
+
+### 18. Koide-like Relations for All Mass Matrices
 **Prediction:** The Koide formula (me+mμ+mτ)/(√me+√mμ+√mτ)² = 2/3 extends to quarks with specific corrections determined by the color factor.
 
 For quarks: (mu+mc+mt)/(√mu+√mc+√mt)² should equal 2/3 × (color correction factor)
