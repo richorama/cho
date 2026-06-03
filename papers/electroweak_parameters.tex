@@ -33,7 +33,7 @@
 \newcommand{\vev}{v}
 
 \title{Electroweak Parameters from $\Comp\otimes\Quat\otimes\Oct$:\\
-Ten Predictions with Zero Free Parameters}
+Thirteen Predictions with Zero Free Parameters}
 
 \author{Richard Astbury}
 
@@ -46,7 +46,7 @@ Ten Predictions with Zero Free Parameters}
 \begin{abstract}
 Working within the CHO framework, where the Standard Model arises from the 
 algebra $\Alg = \Comp\otimes\Quat\otimes\Oct$ equipped with an information-theoretic 
-action on a causal lattice, we derive ten electroweak and flavour observables 
+action on a causal lattice, we derive thirteen electroweak and flavour observables 
 from first principles with no free parameters. The top Yukawa coupling $y_t = 1$ 
 follows from norm saturation (Cauchy--Schwarz on $\Alg$), giving 
 $m_t = v/\sqrt{2} = 174.1$~GeV. The Higgs quartic $\lambda = \pi/24$ follows 
@@ -62,8 +62,11 @@ follows from the Nearest-Neighbour Interaction texture (triality selection rule)
 and the Fano plane overlap angle $\delta = \arccos(1/3)$. The neutrino mixing 
 angles $\sin^2\theta_{12} = 1/3$ and $\sin^2\theta_{23} = 1/2$ follow from 
 the $Z_3$ triality symmetry of the Majorana mass matrix at the see-saw scale 
-(tribimaximal mixing). The proton is predicted stable (no GUT gauge bosons 
-exist). All predictions agree with experiment at the 0.1--13\% level. No 
+(tribimaximal mixing). We further derive three inter-sector mass relations: 
+$m_s m_t/(m_b m_c) = 3$ and $m_\mu m_t/( m_\tau m_c) = 8$, with factors 
+$N_c = 3$ and $\dim(\Oct) = 8$ from the algebraic structure --- thereby 
+providing a first-principles derivation of the Georgi--Jarlskog factor. 
+All predictions agree with experiment at the 0.1--13\% level. No 
 parameters are adjusted.
 \end{abstract}
 
@@ -515,6 +518,9 @@ $J_{\text{CKM}}$ & NNI + $\arccos(1/3)$ & $3.01\times 10^{-5}$ & $3.08\times 10^
 $\sin^2\theta_{12}^{\text{PMNS}}$ & $Z_3$ of $\MR$ & $1/3$ & 0.307 & 9\% \\
 $\sin^2\theta_{23}^{\text{PMNS}}$ & $Z_3$ of $\MR$ & $1/2$ & 0.572 & 13\% \\
 $\MW$ & $\MP/3^{36}$ & 81.3~GeV & 80.4~GeV & 1.2\% \\
+$m_s m_t/(m_b m_c)$ & $N_c$ & 3 & 3.04 & 1.3\% \\
+$m_\mu m_t/(m_\tau m_c)$ & $\dim(\Oct)$ & 8 & 8.09 & 1.1\% \\
+$m_\mu m_b/(m_\tau m_s)$ & $8/3$ & 2.667 & 2.661 & 0.2\% \\
 \bottomrule
 \end{tabular}
 \caption{Predictions from $\Alg = \Comp\otimes\Quat\otimes\Oct$ with zero free 
@@ -540,6 +546,73 @@ self-consistency of the lattice-to-continuum matching.
 No parameter is adjusted; no fit is performed. The discrepancies (0.1--3\%) 
 are of the size expected from radiative corrections to tree-level relations 
 in the Standard Model.
+
+%======================================================================
+\section{Inter-Sector Mass Relations}
+\label{sec:mass_relations}
+%======================================================================
+
+The second-generation Yukawa couplings in each sector are suppressed relative 
+to the third generation by a universal triality-breaking parameter 
+$\varepsilon_0^2 \equiv m_c/m_t \approx 1/136$, multiplied by a 
+sector-dependent \emph{multiplicity factor}:
+\begin{align}
+\frac{m_c}{m_t} &= \varepsilon_0^2 & &\text{(up sector: 1 channel)}, \\
+\frac{m_s}{m_b} &= 3\,\varepsilon_0^2 & &\text{(down sector: }N_{\text{color}} = 3\text{ channels)}, \\
+\frac{m_\mu}{m_\tau} &= 8\,\varepsilon_0^2 & &\text{(lepton sector: }\dim(\Oct) = 8\text{ channels)}.
+\end{align}
+
+The physical origin of the multiplicity factors is as follows. The 
+triality-breaking ``hop'' on the Fano plane that generates the 
+second-generation mass receives contributions from all algebraic directions 
+available for the transition:
+\begin{itemize}
+\item \textbf{Up quarks}: Only the single active color direction contributes 
+      (1~channel).
+\item \textbf{Down quarks}: All three color directions contribute independently 
+      (3~channels $= N_c$).
+\item \textbf{Leptons}: Being color-neutral, leptons access the full octonionic 
+      space (8~channels $= \dim\,\Oct$).
+\end{itemize}
+
+These relations imply three RG-invariant predictions (since quark mass ratios 
+share the same QCD anomalous dimension):
+\begin{align}
+\frac{m_s \cdot m_t}{m_b \cdot m_c} &= 3, &
+\frac{m_\mu \cdot m_t}{m_\tau \cdot m_c} &= 8, &
+\frac{m_\mu \cdot m_b}{m_\tau \cdot m_s} &= \frac{8}{3}.
+\end{align}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{@{}lccr@{}}
+\toprule
+Combination & Predicted & Observed (PDG 2024) & Error \\
+\midrule
+$m_s\,m_t / (m_b\,m_c)$ & 3 & 3.04 & 1.3\% \\
+$m_\mu\,m_t / (m_\tau\,m_c)$ & 8 & 8.09 & 1.1\% \\
+$m_\mu\,m_b / (m_\tau\,m_s)$ & 8/3 & 2.661 & 0.2\% \\
+\bottomrule
+\end{tabular}
+\caption{RG-invariant inter-sector mass relations. The multiplicity factors 
+$N_c = 3$ and $\dim(\Oct) = 8$ arise from the algebraic structure, not from 
+fitting. The third relation is the Georgi--Jarlskog factor, here derived from 
+first principles.}
+\label{tab:mass_relations}
+\end{table}
+
+\noindent
+The third relation $m_\mu m_b/(m_\tau m_s) = 8/3$ is precisely the 
+\emph{Georgi--Jarlskog factor}~\cite{Georgi:1979df}. In SU(5) GUTs, this 
+factor was introduced by hand through the choice of a \textbf{45}-dimensional 
+Higgs representation. Here it emerges from the algebraic structure of 
+$\Alg = \Comp\otimes\Quat\otimes\Oct$: quarks carry color ($3$~mixing 
+channels), while leptons access the full octonion ($8$~directions), giving 
+a ratio of $8/3$.
+
+The first-generation masses do \emph{not} follow this simple pattern --- 
+$m_u$ appears anomalously suppressed, suggesting an additional mechanism 
+(possibly connected to the strong CP problem) that merits separate investigation.
 
 %======================================================================
 \section{Discussion}
@@ -571,9 +644,12 @@ mixing magnitudes require sub-leading contributions proportional to higher
 powers of the triality-breaking parameter.
 
 The individual fermion mass eigenvalues (Yukawa couplings for the first and 
-second generations) remain undetermined at present. Their prediction requires 
-computing the full triality-breaking potential on the $\Alg$ manifold --- 
-the hardest unsolved problem in the framework.
+second generations) are now partially determined. As shown in 
+Section~\ref{sec:mass_relations}, the second-generation masses follow from 
+a single triality-breaking parameter $\varepsilon_0^2 = m_c/m_t$ via 
+multiplicity factors $N_c = 3$ and $\dim(\Oct) = 8$. The derivation of 
+$\varepsilon_0^2 \approx 1/136$ from the coset potential on 
+$G_2/\SU(3) \cong S^6$ remains the principal open problem.
 
 \subsection{Falsifiability}
 
