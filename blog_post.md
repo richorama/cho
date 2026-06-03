@@ -300,6 +300,10 @@ The result is a theory with *fewer* moving parts than the Standard Model (zero f
 
 ---
 
-*Technical details are available in three companion papers: "Three Generations from Octonion Triality: Three Independent Proofs," "Electroweak Parameters from ℂ⊗ℍ⊗𝕆: Twenty-Three Predictions with Zero Free Parameters," and "The Cosmological Constant from ℂ⊗ℍ⊗𝕆: Resolution of the Hierarchy." PDFs available on request or at [link to your hosting].*
+*Technical details are available in three companion papers:*
+
+- *[Three Generations from Octonion Triality: Three Independent Proofs](papers/three_generations.pdf)*
+- *[Electroweak Parameters from ℂ⊗ℍ⊗𝕆: Twenty-Three Predictions with Zero Free Parameters](papers/electroweak_parameters.pdf)*
+- *[The Cosmological Constant from ℂ⊗ℍ⊗𝕆: Resolution of the Hierarchy](papers/cosmological_constant.pdf)*
 
 *This work was produced in collaboration with Claude (Anthropic). The full derivations, numerical checks, and LaTeX sources are available on GitHub.*
