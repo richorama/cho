@@ -167,6 +167,44 @@ formulation of the theory~\cite{Paper2}, each plaquette contributes a
 suppression factor equal to $1/(q+1)$ where $q = |\mathbb{F}_2| = 2$ is the 
 order of the field underlying the Fano plane. Thus $1/(q+1) = 1/3$.
 
+More concretely: the lattice action assigns to each link $(x,y)$ a label 
+$\phi(x), \phi(y) \in \Alg$, and the weight of a configuration is 
+$\prod_{\langle xy \rangle} \cos^2(\theta_{xy}/2)$ where $\theta_{xy}$ is 
+the angle between labels. For a single algebraic direction (one real 
+component of $\Alg$), the partition function on a minimal plaquette (3 
+sites forming a triangle on the Fano plane) evaluates to:
+\begin{equation}
+\frac{Z_{\mathrm{plaquette}}}{Z_{\mathrm{free}}} 
+= \frac{1}{q+1} = \frac{1}{3}.
+\label{eq:one_third}
+\end{equation}
+This is not an assumption but a calculation: the $q+1 = 3$ values correspond 
+to the three states of a single $\mathbb{F}_2$-projective coordinate 
+(the two field elements plus the point at infinity). Each such mode contributes 
+one factor of $1/3$ to the vacuum amplitude. The EW hierarchy uses 36 such 
+modes (the gauge/Yukawa sector counted by $E_6$ roots); the cosmological 
+constant uses all 64 (the full real dimension of $\Alg$).
+
+The \emph{assumption} that remains underived is the extension from 36 to 64: 
+while the lattice calculation clearly gives each active mode a $1/3$ factor, 
+the claim that \emph{all} 64 algebraic directions are active for vacuum energy 
+(vs.\ only the 36 that are active for the EW hierarchy) rests on the 
+physical argument that vacuum fluctuations sample the full algebra, not just 
+its gauge-projected subspace. We state this as:
+
+\medskip
+\noindent\textbf{Conjecture (Vacuum completeness):} \emph{The zero-point 
+energy of the CHO lattice action receives contributions from all 
+$\dim_\Real(\Alg) = 64$ independent directions, each contributing the 
+same $1/(q+1) = 1/3$ suppression factor established by the plaquette 
+calculation~\eqref{eq:one_third}.}
+\medskip
+
+\noindent If this conjecture is correct, the CC formula follows with no 
+free parameters. If it fails --- for instance, if some directions decouple 
+from vacuum energy --- the formula would need modification, and the 
+exponent would differ from 64.
+
 %======================================================================
 \section{The Cosmological Constant}
 \label{sec:cc}
