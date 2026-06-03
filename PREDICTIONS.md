@@ -105,7 +105,7 @@ At early times: Λ was LARGER (∝ H²). This is consistent with "dark energy tr
 
 ---
 
-### 10. Inter-Sector Mass Relations (NEW — Verified 0.2–1.3%)
+### 10. Inter-Sector Mass Relations (Verified 0.2–1.3%)
 **Prediction:** The 2nd-generation Yukawa in each sector is controlled by a single parameter ε₀² = m_c/m_t ≈ 1/136, multiplied by a sector-dependent factor from the algebraic structure:
 
 | Sector | Relation | Multiplicity | Algebraic origin |
@@ -125,7 +125,61 @@ At early times: Λ was LARGER (∝ H²). This is consistent with "dark energy tr
 
 ---
 
-### 11. Koide-like Relations for All Mass Matrices
+### 11. ε₀² = π/432 (Derived, 0.70σ from observed)
+**Prediction:** The triality-breaking parameter is:
+$$\varepsilon_0^2 = \frac{\pi}{432} = \frac{\pi}{\dim_\mathbb{C}(\mathcal{A}) \times \dim(J_3(\mathbb{O}))} = \frac{\pi}{16 \times 27}$$
+
+- Predicted: ε₀² = 0.007272 = 1/137.5
+- Observed: m_c/m_t = 0.007354 ± 0.000117
+- Deviation: 0.70σ
+
+**Physical content:**
+- π: half-rotation on the G₂/SU(3) ≅ S⁶ coset manifold
+- 16 = dim_ℂ(𝒜): complex Weyl fermion states per generation
+- 27 = dim(J₃(𝕆)): exceptional Jordan algebra dimensionality
+
+**Connection:** ε₀² = λ_Higgs/18, linking fermion masses to the Higgs quartic coupling λ = π/24.
+
+---
+
+### 12. Third-Generation Down-Type Masses (m_τ, m_b from m_t)
+**Predictions:**
+- m_τ/m_t = √2 × ε₀²  → m_τ = 1.7760 GeV (obs: 1.7770, error: −0.06%)
+- m_b/m_τ = 7/3 = dim(Im 𝕆)/N_color  → m_b = 4.1441 GeV (obs: 4.18, error: −0.86%)
+
+**Physical origin:**
+- √2: same Higgs normalization as in m_t = v/√2 (y_t = 1)
+- 7/3 = dim(Im 𝕆)/N_c: the b quark couples to all 7 imaginary octonionic units, averaged over 3 colors. Compare 2nd-gen GJ factor = dim(𝕆)/N_c = 8/3.
+
+**Combined:** m_b = (7√2/3) × ε₀² × m_t (from m_t alone, no free parameters).
+
+---
+
+### 13. First-Generation Masses from NNI Texture (Conjectural, 0.6–8%)
+**Prediction:** The Nearest-Neighbour Interaction (NNI) texture with B=0 gives:
+$$m_1 \cdot m_3 / m_2^2 = |A/C|^2$$
+where the CHO framework determines the |A/C|² factors:
+
+| Sector | |A/C|² | Algebraic factor | Error |
+|--------|--------|:---:|---|
+| Up | 1/4 | sin²θ_W (tree-level) | 8.1% |
+| Down | 9/4 | N_c² × sin²θ_W | 0.5% |
+| Lepton | 1/(4π) | sin²θ_W / π | 2.2% |
+
+**Predictions (using observed 2nd/3rd gen as input):**
+- m_u = (1/4)·m_c²/m_t = 2.34 MeV (obs: 2.16 ± 0.49, within 1σ)
+- m_d = (9/4)·m_s²/m_b = 4.70 MeV (obs: 4.67 ± 0.48, 0.6%)
+- m_e = (1/4π)·m_μ²/m_τ = 0.500 MeV (obs: 0.511, −2.2%)
+
+**Pattern:** |A/C|² = sin²θ_W × f_sector, with f_up = 1, f_down = 9, f_lepton = 1/π.
+
+**Key observation:** m_u·m_t/m_c² = 0.2313 coincides with sin²θ_W(M_Z) = 0.23122 to 0.0%, suggesting the NNI ratio receives the same radiative corrections as the Weinberg angle.
+
+**Status:** Conjectural — the m_d prediction (0.6%) and m_e prediction (2.2%) are solid; the m_u prediction (8.1%) is within experimental uncertainty but less precise theoretically.
+
+---
+
+### 14. Koide-like Relations for All Mass Matrices
 **Prediction:** The Koide formula (me+mμ+mτ)/(√me+√mμ+√mτ)² = 2/3 extends to quarks with specific corrections determined by the color factor.
 
 For quarks: (mu+mc+mt)/(√mu+√mc+√mt)² should equal 2/3 × (color correction factor)
@@ -158,9 +212,9 @@ For quarks: (mu+mc+mt)/(√mu+√mc+√mt)² should equal 2/3 × (color correcti
 
 ## KEY OPEN CALCULATIONS
 
-1. **Mass spectrum:** Derive actual mass values (not just ratios/hierarchies) from the norm structure of the exceptional Jordan algebra J₃(𝕆). This requires solving a specific eigenvalue problem.
+1. **First-generation justification:** Rigorous derivation of the NNI |A/C|² factors (1/4, 9/4, 1/4π) from the Yukawa structure of the octonionic algebra. The 9 = N_c² for down quarks and 1/π for leptons need formal proof from the coset geometry.
 
-2. **CKM matrix elements:** Compute the triality-breaking pattern quantitatively to get |V_us|, |V_cb|, |V_ub| from first principles.
+2. **CKM matrix elements:** Compute |V_cb| beyond the leading NNI approximation. The Fritzsch limit gives |V_cb| ≈ √(m_s/m_b) − √(m_c/m_t) = 0.059, which is 40% too large. Sub-leading diagonal entries (B ≠ 0) or phase corrections are needed.
 
 3. **Fine structure constant:** Complete the lattice→continuum matching to derive α = 1/137. This requires a controlled continuum limit (functional analysis/rigorous RG flow on the causal lattice).
 
