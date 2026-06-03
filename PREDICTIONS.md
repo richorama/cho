@@ -179,7 +179,27 @@ where the CHO framework determines the |A/C|² factors:
 
 ---
 
-### 14. Koide-like Relations for All Mass Matrices
+### 14. CKM Mixing Angles from ε₀ (0.4–1.1%)
+**Prediction:** The CKM mixing magnitudes are controlled by ε₀ = √(π/432):
+$$|V_{us}|^2 = 7\varepsilon_0^2, \quad |V_{cb}| = \varepsilon_0/2, \quad |V_{ub}| = (\sqrt{2}-1)|V_{us}||V_{cb}|$$
+
+| Element | Formula | Prediction | Observed | Error |
+|---------|---------|:---:|:---:|:---:|
+| \|V_us\| | √7·ε₀ | 0.2256 | 0.2243 ± 0.0005 | +0.6% |
+| \|V_cb\| | ε₀/2 | 0.0426 | 0.0422 ± 0.0008 | +1.0% |
+| \|V_ub\| | (√2−1)·\|V_us\|·\|V_cb\| | 0.00398 | 0.00394 ± 0.00036 | +1.1% |
+| \|V_cb\|/\|V_us\| | 1/(2√7) | 0.1890 | 0.1881 | +0.4% |
+
+**Algebraic content:**
+- 7 = dim(Im 𝕆): the 1→2 generation transition is mediated by all imaginary octonionic directions
+- 1/4 = sin²θ_W (tree): the 2→3 transition carries additional electroweak suppression
+- √2−1 = tan(π/8): the 1→3 transition involves the sub-leading CP phase angle
+
+**Significance:** This FIXES the previous 40% |V_cb| discrepancy from the Fritzsch texture. The formula |V_cb| = ε₀/2 replaces the old √(m_s/m_b)−√(m_c/m_t) = 0.063. The pure ratio |V_cb|/|V_us| = 1/(2√7) is a parameter-free algebraic prediction.
+
+---
+
+### 15. Koide-like Relations for All Mass Matrices
 **Prediction:** The Koide formula (me+mμ+mτ)/(√me+√mμ+√mτ)² = 2/3 extends to quarks with specific corrections determined by the color factor.
 
 For quarks: (mu+mc+mt)/(√mu+√mc+√mt)² should equal 2/3 × (color correction factor)

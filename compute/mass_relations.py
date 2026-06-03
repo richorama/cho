@@ -278,6 +278,70 @@ def first_generation():
     return m_u_pred, m_d_pred, m_e_pred
 
 
+def ckm_predictions():
+    """CKM mixing angles from ε₀ = √(π/432).
+    
+    The CKM matrix elements are controlled by ε₀ with algebraic factors:
+        |V_us|² = 7ε₀² = dim(Im O) × ε₀²    (1→2 mixing: all imaginary octonions)
+        |V_cb|² = ε₀²/4 = sin²θ_W × ε₀²      (2→3 mixing: Weinberg suppression)
+        |V_ub|  = (√2-1) × |V_us| × |V_cb|    (1→3 mixing: tan(π/8) factor)
+    
+    The pure ratio |V_cb|/|V_us| = 1/(2√7) is a parameter-free prediction.
+    """
+    print("\nCKM MIXING FROM ε₀ = √(π/432)")
+    print("=" * 60)
+    print()
+    
+    eps0 = np.sqrt(EPS0_SQ)  # ε₀ ≈ 0.0853
+    
+    # |V_us|² = 7ε₀² (7 = dim Im O)
+    V_us_pred = np.sqrt(7) * eps0
+    V_us_obs = 0.2243
+    
+    # |V_cb| = ε₀/2 (factor 1/2 = sin θ_W at tree level)
+    V_cb_pred = eps0 / 2
+    V_cb_obs = 0.0422
+    
+    # |V_ub| = (√2-1) × |V_us| × |V_cb| (factor = tan(π/8))
+    V_ub_pred = (np.sqrt(2) - 1) * V_us_pred * V_cb_pred
+    V_ub_obs = 0.00394
+    
+    print(f"  ε₀ = √(π/432) = {eps0:.6f}")
+    print()
+    print(f"  |V_us|² = 7ε₀² = 7π/432 (dim Im O × ε₀²)")
+    print(f"    Predicted: {V_us_pred:.5f}")
+    print(f"    Observed:  {V_us_obs:.5f} ± 0.0005")
+    print(f"    Error:     {(V_us_pred-V_us_obs)/V_us_obs*100:+.2f}%")
+    print()
+    print(f"  |V_cb| = ε₀/2 = √(π/1728) (sin θ_W × ε₀)")
+    print(f"    Predicted: {V_cb_pred:.5f}")
+    print(f"    Observed:  {V_cb_obs:.5f} ± 0.0008")
+    print(f"    Error:     {(V_cb_pred-V_cb_obs)/V_cb_obs*100:+.2f}%")
+    print()
+    print(f"  |V_ub| = (√2-1)·|V_us|·|V_cb| = tan(π/8)·√(7/4)·ε₀²")
+    print(f"    Predicted: {V_ub_pred:.5f}")
+    print(f"    Observed:  {V_ub_obs:.5f} ± 0.00036")
+    print(f"    Error:     {(V_ub_pred-V_ub_obs)/V_ub_obs*100:+.2f}%")
+    print()
+    
+    # Parameter-free ratio
+    ratio_pred = 1 / (2 * np.sqrt(7))
+    ratio_obs = V_cb_obs / V_us_obs
+    print(f"  Parameter-free ratio: |V_cb|/|V_us| = 1/(2√7)")
+    print(f"    Predicted: {ratio_pred:.5f}")
+    print(f"    Observed:  {ratio_obs:.5f}")
+    print(f"    Error:     {(ratio_pred-ratio_obs)/ratio_obs*100:+.2f}%")
+    print()
+    
+    print("  Algebraic content:")
+    print("    7 = dim(Im O): all imaginary octonionic directions mediate 1→2")
+    print("    1/4 = sin²θ_W: electroweak suppression of 2→3 transition")
+    print("    √2-1 = tan(π/8): sub-leading phase from CP angle δ = arccos(1/3)")
+    print()
+    
+    return V_us_pred, V_cb_pred, V_ub_pred
+
+
 def full_prediction_chain():
     """Predict 8 fermion masses from m_t + algebra alone."""
     print("\nFULL PREDICTION CHAIN (input: m_t only)")
@@ -334,5 +398,6 @@ if __name__ == "__main__":
     epsilon_analysis()
     third_generation()
     first_generation()
+    ckm_predictions()
     full_prediction_chain()
     rg_invariance()
