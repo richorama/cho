@@ -79,6 +79,16 @@ This algebra has been proposed as the algebraic foundation of one generation
 of Standard Model fermions by Dixon \cite{Dixon1994}, Furey 
 \cite{Furey2016,Furey2018}, and others \cite{Boyle2020,Todorov2019,Dray2015}.
 
+The key physical identification, established in \cite{Furey2016,Furey2018}, 
+is that a minimal left ideal of $\Alg$ provides the representation space 
+for one generation of SM fermions: the 16 Weyl spinor states 
+($\nu_L, e_L, u_L^{rgb}, d_L^{rgb}, \nu_R, e_R, u_R^{rgb}, d_R^{rgb}$) arise 
+as basis elements under the action of the ladder operators constructed from 
+the algebraic units. In this identification, extending the algebra (e.g.\ to 
+a fourth tensor factor) would correspond to introducing a fourth generation 
+of matter. Our three proofs show that every such extension is algebraically 
+obstructed.
+
 Our contribution is to provide \emph{three independent proofs} of 
 $N_{\mathrm{gen}} = 3$, each using different mathematical machinery:
 \begin{enumerate}
@@ -103,6 +113,27 @@ In Section~\ref{sec:discussion}, we show that the triality structure not only
 fixes $N_{\mathrm{gen}} = 3$ but also constrains the \emph{pattern} of mixing 
 between generations (CKM texture, CP phase, and PMNS structure). The 
 quantitative predictions are developed in a companion paper~\cite{Paper2}.
+A third companion paper~\cite{Paper3} shows that the same algebraic structure 
+resolves the cosmological constant hierarchy ($\Lambda^{1/4} = 2.31$~meV 
+from zero free parameters).
+
+\subsection*{Inputs and outputs}
+
+\begin{center}
+\begin{tabular}{ll}
+\hline
+\textbf{Inputs (assumptions)} & \textbf{Outputs (derived)} \\
+\hline
+The algebra $\Alg = \Comp\otimes\Quat\otimes\Oct$ & $N_{\mathrm{gen}} = 3$ (three proofs) \\
+Fermions $=$ minimal left ideal of $\Alg$ & No 4th generation at any mass \\
+Hurwitz theorem, Cartan classification, & Normal neutrino mass ordering \\
+\quad Albert--Zorn theorem & Jarlskog $J = 3.01\times 10^{-5}$ \\
+\hline
+\end{tabular}
+\end{center}
+\noindent No free parameters are introduced; the only mathematical inputs are 
+the algebraic structure and the identification of fermion states with ideal 
+elements.
 
 % ============================================================
 \section{Preliminaries}
@@ -235,11 +266,13 @@ $\alpha^\dagger = x$ and $\omega \propto y$ gives $\alpha^\dagger \omega = 0$ de
 $\alpha^\dagger \neq 0$ and $\omega \neq 0$. The state is annihilated.
 \end{proof}
 
-\textbf{Physical consequence:} The octonionic directions in $\Oct$ provide exactly 
-three independent ``color channels'' (the three Fano lines through any fixed point), 
-which via the $\Alg$ construction give three generations. A hypothetical fourth 
-generation would require extending to $\Sed$, where zero divisors collapse the 
-construction. Therefore $N_{\mathrm{gen}} \leq 3$.
+\textbf{Physical consequence:} In our physical model, the octonionic directions 
+in $\Oct$ are identified with the three independent color channels (the three 
+Fano lines through any fixed point). Via the left-ideal construction of 
+\cite{Furey2016}, these give three generations of fermion representations. 
+A hypothetical fourth generation would require extending to $\Sed$, where 
+zero divisors collapse the state construction (Corollary~\ref{cor:noladder}). 
+Therefore $N_{\mathrm{gen}} \leq 3$.
 
 % ============================================================
 \section{Proof II: Triality}
@@ -300,10 +333,13 @@ the $\SU(3) \subset G_2$ that defines color, corresponding to the three
 distinct mass sectors (generations).
 \end{theorem}
 
-\textbf{Fano plane interpretation:} Through any point $e_k$ of the Fano plane, 
-exactly 3 lines pass. This is a theorem of finite projective geometry ($PG(2,2)$ 
-has uniform valence 3). The three lines through the ``color-fixed'' direction 
-$e_7$ define three color doublets, which under triality become three generations.
+\textbf{Fano plane interpretation:} In our framework, the choice of a 
+preferred imaginary unit $e_7$ (stabilized by $\SU(3)_c \subset G_2$) is 
+identified with the color direction. Through any point $e_k$ of the Fano 
+plane, exactly 3 lines pass --- a theorem of finite projective geometry 
+($PG(2,2)$ has uniform valence 3). The three lines through the color-fixed 
+direction $e_7$ define three color doublets, which under triality become 
+three generations.
 
 \begin{proposition}
 \label{prop:fano}
@@ -368,10 +404,12 @@ where $\Tr$, $S$, $\det$ are the trace, symmetric function, and Freudenthal
 determinant respectively.
 \end{corollary}
 
-\textbf{Physical interpretation:} The eigenvalues of an element $A \in J_3(\Oct)$ 
-are the roots of the cubic characteristic polynomial. There are exactly 3 real 
-eigenvalues (since $A$ is Hermitian). These eigenvalues correspond to the three 
-fermion masses within a sector (e.g., $m_e, m_\mu, m_\tau$ for charged leptons).
+\textbf{Physical interpretation:} In our framework, the fermion mass matrix 
+for each charge sector is identified with a Hermitian element $A \in J_3(\Oct)$. 
+Its eigenvalues --- the roots of the cubic characteristic polynomial --- are 
+exactly 3 real numbers, corresponding to the three fermion masses within that 
+sector (e.g., $m_e, m_\mu, m_\tau$ for charged leptons). The rank-3 constraint 
+is not imposed but follows from the algebra.
 
 The automorphism group of $J_3(\Oct)$ is the exceptional Lie group $F_4$ 
 (52-dimensional), and its ``reduced structure group'' is $E_6$ (78-dimensional, 
