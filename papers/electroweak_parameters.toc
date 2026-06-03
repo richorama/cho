@@ -1,0 +1,41 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}The Top Yukawa Coupling}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Yukawa as algebraic inner product}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Saturation by the top quark}{4}{subsection.2.2}%
+\contentsline {section}{\numberline {3}The Higgs Mass}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The quartic coupling from $D_4$}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}The Higgs mass prediction}{5}{subsection.3.2}%
+\contentsline {section}{\numberline {4}The Fine Structure Constant}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}The algebraic formula}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Running to $q^2 = 0$}{6}{subsection.4.2}%
+\contentsline {section}{\numberline {5}The Weinberg Angle}{6}{section.5}%
+\contentsline {section}{\numberline {6}Neutrino Masses}{6}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Right-handed neutrinos from the algebra}{6}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}The see-saw scale from the hierarchy formula}{7}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}The see-saw prediction}{7}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Testable predictions}{7}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Neutrino mixing from triality symmetry of $M_R$}{7}{subsection.6.5}%
+\contentsline {paragraph}{Reactor angle.}{8}{section*.3}%
+\contentsline {paragraph}{Atmospheric angle.}{8}{section*.4}%
+\contentsline {paragraph}{Solar angle.}{8}{section*.5}%
+\contentsline {paragraph}{Mass splitting ratio.}{8}{section*.6}%
+\contentsline {section}{\numberline {7}CP Violation from the Fano Plane}{8}{section.7}%
+\contentsline {subsection}{\numberline {7.1}The NNI texture from triality}{8}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}The CP phase from quaternionic overlap}{9}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}The Jarlskog invariant}{9}{subsection.7.3}%
+\contentsline {section}{\numberline {8}The Electroweak Hierarchy}{10}{section.8}%
+\contentsline {section}{\numberline {9}Summary of Predictions}{10}{section.9}%
+\contentsline {section}{\numberline {10}Inter-Sector Mass Relations}{10}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Derivation of $\varepsilon _0^2$}{12}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Third-generation down-type masses}{12}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}First-generation masses from NNI texture}{13}{subsection.10.3}%
+\contentsline {section}{\numberline {11}Discussion}{14}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Comparison with other frameworks}{14}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}On the question of numerology}{14}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Uniqueness of the algebraic choice}{14}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Rigidity and falsifiability}{15}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}What remains}{16}{subsection.11.5}%
+\contentsline {subsection}{\numberline {11.6}Strong CP problem}{16}{subsection.11.6}%
+\contentsline {subsection}{\numberline {11.7}Falsifiability}{17}{subsection.11.7}%
+\contentsline {subsection}{\numberline {11.8}The cosmological constant}{17}{subsection.11.8}%
+\contentsline {subsection}{\numberline {11.9}Conclusion}{18}{subsection.11.9}%
