@@ -10,7 +10,9 @@ This project began as a question: *what happens if you point a generative AI at 
 
 I'm not a professional physicist. I have a background in software and mathematics, and a long-standing obsession with the question of *why* the Standard Model has the structure it does — why three generations, why these masses, why these mixing angles. These are questions that decades of conventional research have failed to answer.
 
-Over several hours, I worked with Claude (Anthropic's AI) in an unusual collaboration. I brought the physical intuition and the guiding question:
+Over several hours, I worked with Claude (Anthropic's AI) in an unusual collaboration.
+
+I brought the guiding question:
 
 > ok, let's think about some theories for finding a theory of everything that unites quantum mechanics and particle physics. We need an approach that tries some new marths, new ideas, and is based on all current observations and data. Make a plan (PLAN.MD) on how we're going to solve this.
 
