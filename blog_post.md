@@ -1,5 +1,29 @@
 # The Universe's Source Code Might Be Written in Octonions
 
+## An experiment in AI-assisted theoretical physics
+
+---
+
+### A note on how this was made
+
+This project began as a question: *what happens if you point a generative AI at one of the hardest unsolved problems in fundamental physics?*
+
+I'm not a professional physicist. I have a background in software and mathematics, and a long-standing obsession with the question of *why* the Standard Model has the structure it does — why three generations, why these masses, why these mixing angles. These are questions that decades of conventional research have failed to answer.
+
+Over several weeks, I worked with Claude (Anthropic's AI) in an unusual collaboration. I brought the physical intuition and the guiding question: *can the algebra ℂ⊗ℍ⊗𝕆 determine everything?* The AI brought the ability to rapidly compute, cross-check against experimental data, explore algebraic identities, spot errors in derivations, and maintain consistency across a growing web of interconnected predictions.
+
+The result surprised me. What started as exploratory numerology gradually locked into a rigid structure with zero free parameters and 23 quantitative predictions — all matching experiment to 0.1–7%. The AI didn't hallucinate these agreements; it computed them from explicit algebraic formulas and checked them against published PDG and NuFit data. When a prediction was wrong, we found out immediately and either fixed the derivation or acknowledged the discrepancy.
+
+**What the AI contributed:** Rapid symbolic computation, error-checking, consistency enforcement across papers, literature cross-referencing, and the sheer throughput to explore hundreds of algebraic possibilities in the time it would take a human to check one.
+
+**What the AI did NOT do:** It didn't have the original physical insight. It didn't know that ℂ⊗ℍ⊗𝕆 was the right starting point, or that the Fano plane geometry should map to CP violation, or that the lattice action should take information-theoretic form. Those are human choices — possibly wrong ones, but human.
+
+**Is this real physics?** That's for the community to judge. The numbers work. The framework is falsifiable (several experiments in the next 2–4 years will directly test it). The three companion papers lay out every derivation in detail. If this is wrong, it will be proven wrong soon. If it's right, it's perhaps the first major result in theoretical physics to emerge from human–AI collaboration.
+
+Either way, it's a story about what becomes possible when you combine human intuition with AI capability.
+
+---
+
 ## What if every constant of nature — from the mass of the Higgs boson to the strength of gravity — came from a single piece of mathematics?
 
 ---
@@ -274,4 +298,8 @@ The result is a theory with *fewer* moving parts than the Standard Model (zero f
 
 ---
 
-*Technical details: "Three Generations from Octonion Triality" and "Electroweak Parameters from ℂ⊗ℍ⊗𝕆: Twenty-Three Predictions with Zero Free Parameters."*
+---
+
+*Technical details are available in three companion papers: "Three Generations from Octonion Triality: Three Independent Proofs," "Electroweak Parameters from ℂ⊗ℍ⊗𝕆: Twenty-Three Predictions with Zero Free Parameters," and "The Cosmological Constant from ℂ⊗ℍ⊗𝕆: Resolution of the Hierarchy." PDFs available on request or at [link to your hosting].*
+
+*This work was produced in collaboration with Claude (Anthropic). The full derivations, numerical checks, and LaTeX sources are available on GitHub.*
