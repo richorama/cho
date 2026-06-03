@@ -223,7 +223,29 @@ $$\sin^2\theta_{13} = 3\varepsilon_0^2, \quad \sin^2\theta_{12} = \frac{1}{3 + \
 
 ---
 
-### 16. Koide-like Relations for All Mass Matrices
+### 16. Neutrino Mass Splitting Ratio (−1.4%, −0.5σ)
+**Prediction:** The seesaw with Z₃-degenerate M_R eigenvalues gives:
+$$\frac{\Delta m^2_{21}}{\Delta m^2_{31}} = \left(\frac{m_{\nu_2}}{m_{\nu_3}}\right)^2 = (2\varepsilon_0)^2 = 4\varepsilon_0^2 = \frac{\pi}{108}$$
+
+| Quantity | Formula | Prediction | Observed | Error |
+|----------|---------|:---:|:---:|:---:|
+| Δm²₂₁/Δm²₃₁ | 4ε₀² = π/108 | 0.02909 | 0.02950 ± 0.00086 | −1.4% |
+| m_ν₂/m_ν₃ | 2ε₀ | 0.1706 | 0.1718 | −0.7% |
+
+**Physical content:**
+- m_ν₂/m_ν₃ = 2ε₀: one triality step with SU(2) doublet factor
+- Compare charged sector: m_c/m_t = ε₀² (Dirac: quadratic suppression)
+- Seesaw inverts the hierarchy: m_ν ∝ y_ν² → linear in ε₀ not quadratic
+
+**Combined neutrino sector predictions:**
+- m_ν₃ = v²/(2M_P/3⁹) = 48.9 meV (obs: ≥50.2 meV, 2.7%)
+- m_ν₂ = 2ε₀·m_ν₃ = 8.3 meV
+- m_ν₁ ≈ 0 (normal hierarchy)
+- Σmᵢ ≈ 57 meV (testable by Euclid/DESI)
+
+---
+
+### 17. Koide-like Relations for All Mass Matrices
 **Prediction:** The Koide formula (me+mμ+mτ)/(√me+√mμ+√mτ)² = 2/3 extends to quarks with specific corrections determined by the color factor.
 
 For quarks: (mu+mc+mt)/(√mu+√mc+√mt)² should equal 2/3 × (color correction factor)

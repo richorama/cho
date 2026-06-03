@@ -397,6 +397,36 @@ def pmns_predictions():
     return s2_13, s2_12, s2_23
 
 
+def neutrino_splitting():
+    """Predict Δm²₂₁/Δm²₃₁ = 4ε₀² from seesaw with Z₃-broken Dirac Yukawas.
+    
+    In the seesaw with Z₃-symmetric M_R, the physical neutrino mass ratio
+    m_ν₂/m_ν₃ = y_ν₂/y_ν₃ (since M_R eigenvalues are degenerate at leading order).
+    The Dirac neutrino Yukawa ratio is y_ν₂/y_ν₃ = 2ε₀, giving:
+        Δm²₂₁/Δm²₃₁ = (m₂/m₃)² = 4ε₀² = π/108
+    """
+    print("\nNEUTRINO MASS SPLITTING RATIO")
+    print("=" * 60)
+    print()
+    
+    ratio_pred = 4 * EPS0_SQ  # = π/108
+    ratio_obs = 7.42e-5 / 2.515e-3  # Δm²₂₁/Δm²₃₁ (NuFit 5.3, NO)
+    ratio_unc = ratio_obs * np.sqrt((0.20/7.42)**2 + (0.028/2.515)**2)
+    
+    print(f"  Δm²₂₁/Δm²₃₁ = 4ε₀² = (2ε₀)² = π/108")
+    print(f"    Predicted: {ratio_pred:.5f}")
+    print(f"    Observed:  {ratio_obs:.5f} ± {ratio_unc:.5f} (NuFit 5.3, NO)")
+    print(f"    Error:     {(ratio_pred-ratio_obs)/ratio_obs*100:+.2f}% ({(ratio_pred-ratio_obs)/ratio_unc:.1f}σ)")
+    print()
+    print("  Physical interpretation:")
+    print("    m_ν₂/m_ν₃ = 2ε₀ (one triality step with SU(2) doublet factor)")
+    print("    Compare: m_c/m_t = ε₀² (Dirac: quadratic suppression)")
+    print("             m_ν₂/m_ν₃ = 2ε₀ (Majorana seesaw: linear suppression)")
+    print()
+    
+    return ratio_pred
+
+
 def full_prediction_chain():
     """Predict 8 fermion masses from m_t + algebra alone."""
     print("\nFULL PREDICTION CHAIN (input: m_t only)")
@@ -455,5 +485,6 @@ if __name__ == "__main__":
     first_generation()
     ckm_predictions()
     pmns_predictions()
+    neutrino_splitting()
     full_prediction_chain()
     rg_invariance()
