@@ -141,20 +141,43 @@ three independently-chosen pieces (`pi`, `16`, `27`). They triangulate:
   embeddings in `gl(16)` (combined span `51`-dim), so the link is the
   uniqueness theorem rather than a literal identity — leaving one honest seam.
 
+- `compute/epsilon_spin9_embedding.py` — **the seam, closed to a frame.** The
+  flavour `so(9)` carries a UNIQUE positive-definite invariant metric `Q`
+  (1-dim solution space), so in the `Q`-orthonormal frame the flavour Spin(9) is
+  a literal subgroup of `SO(16)`. Its octonionic `Cl(9)` Clifford system is then
+  RECOVERED as the 9-dim "vector" eigenspace of the quadratic Casimir on
+  symmetric `16x16` matrices (multiplicities come out exactly `1, 9, 126`),
+  satisfies `{Gamma_mu, Gamma_nu} = 2 delta` (error `~1e-14`), and its bivectors
+  `span{(1/2)Gamma Gamma}` reproduce the flavour `so(9)` **exactly** (combined
+  rank `36`, not `51`). So the flavour Spin(9) is the SAME octonionic Cl(9)
+  spinor construction as the gauge side, and since `Cl^0(9) ~= R(16)` is simple
+  with a unique 16-dim irrep (both commutants `1`), the two are conjugate in
+  `O(16)`. The seam shrinks to one frame choice on the octonion pair.
+
+- `compute/epsilon_rank_one_kernel.py` — **R1, reframed.** The rank-one kernel
+  `|tau><tau|` is a PRIMITIVE idempotent of `J3(O)`: its spectrum is `(1,0,0)`,
+  it is a zero-entropy PURE vacuum, and it is the minimal nonzero idempotent.
+  This is the SAME rank-3 spectral fact (three orthogonal primitive idempotents
+  resolve the identity) that forces `N_gen = 3` — so "rank one" = "primitive" =
+  "one generation" = "pure". A rank-`r` kernel would switch on `r` generations at
+  once (`eps0^2 -> r * pi/432`, degenerate, no hierarchy) and the info action
+  `S_link = -1/2 log r` is maximised at `r=1`. Rank one is forced up to vacuum
+  purity (the breaking selects one ray), the minimal content of a spurion.
+
 **Net effect on the proof obligations below:** the `pi` (obligation 3) is
-geometric and action-selected; the trace space (obligation 1) is reduced from a
-free `16 x 27` to a **product of two geometric dimensions whose 16s are now
-proven to be the same Spin(9) spinor**. The named isomorphism `A_Weyl ~= T(OP^2)`
-is discharged by `epsilon_weyl_isomorphism.py`; the `27`'s discriminant origin is
-closed off as a dead end. What remains is obligation 2 (rank-one kernel) and a
-single **subgroup-embedding** seam: that the gauge `Spin(9)` and the
-idempotent-stabiliser `Spin(9)` are the same subgroup (no longer a dimension or
-representation-type question).
+geometric and action-selected; the trace space (obligation 1) is a **product of
+two geometric dimensions whose 16s are the same octonionic `Delta_9` subgroup**
+(isomorphism discharged, the gauge-vs-flavour seam closed to a frame choice);
+the rank (obligation 2) is reframed — rank one is **dual to `N_gen = 3`** (a
+primitive idempotent), no longer a value chosen to fit `m_c/m_t`. The `27`'s
+discriminant origin is closed off as a dead end. What remains for F0 are two
+minimal residuals: vacuum **purity** (R1) and one **frame choice** on the
+octonion pair (the seam), plus the action-level lifts of obligations 4–5.
 
 ## Proof Obligations
 
-1. **Trace space:** prove that the transition trace really runs over `A_Weyl x J3(O)`, not `A_R x J3(O)`, `A_Weyl x Im(J3(O))`, or another nearby space. *(Advanced: the two `16`s are proven the same Spin(9) spinor `Delta_9` in `epsilon_weyl_isomorphism.py`; residual is the gauge-vs-stabiliser Spin(9) subgroup embedding.)*
-2. **Rank:** derive `rank(P_transition) = 1` from triality adjacency plus the normalized action rank penalty, not by choosing the value that fits `m_c/m_t`.
+1. **Trace space:** prove that the transition trace really runs over `A_Weyl x J3(O)`, not `A_R x J3(O)`, `A_Weyl x Im(J3(O))`, or another nearby space. *(Advanced: the two `16`s are proven the same octonionic `Delta_9` subgroup — isomorphism discharged in `epsilon_weyl_isomorphism.py`, gauge-vs-flavour Spin(9) seam closed to a frame choice in `epsilon_spin9_embedding.py`.)*
+2. **Rank:** derive `rank(P_transition) = 1` from triality adjacency plus the normalized action rank penalty, not by choosing the value that fits `m_c/m_t`. *(Reframed in `epsilon_rank_one_kernel.py`: rank one = primitive idempotent = pure single-generation vacuum, dual to `N_gen=3`; residual is vacuum purity.)*
 3. **Holonomy:** derive the `pi` factor from the minimal path on `G2/SU(3)` or from the CHO information action.
 4. **Operator embedding:** construct `P_transition` as a projector or matrix element inside the CHO Yukawa operator.
 5. **Sector coupling:** show why the same `epsilon0` feeds charged masses, CKM magnitudes, PMNS corrections, and neutrino splitting.

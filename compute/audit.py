@@ -24,7 +24,9 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  14. epsilon_state_count          — eps0 route 4: 432 as a geometric state count
  15. epsilon_product_space        — eps0 route 4b: is 432 a genuine product?
  16. epsilon_weyl_isomorphism     — eps0 route 4c: A_Weyl ~= T(OP^2) as Spin(9) spinors
- 17. prediction_registry           — tamper-evident pre-registration hashes
+ 17. epsilon_spin9_embedding      — eps0 seam: gauge & flavour Spin(9) same subgroup
+ 18. epsilon_rank_one_kernel      — eps0 R1: rank-one kernel = primitive idempotent
+ 19. prediction_registry           — tamper-evident pre-registration hashes
 
 Run all:
     PYTHONDONTWRITEBYTECODE=1 python3 compute/audit.py
@@ -53,6 +55,8 @@ import epsilon_heat_kernel
 import epsilon_state_count
 import epsilon_product_space
 import epsilon_weyl_isomorphism
+import epsilon_spin9_embedding
+import epsilon_rank_one_kernel
 import prediction_registry
 
 
@@ -114,6 +118,12 @@ ARTIFACTS = [
     ("epsilon_weyl_isomorphism",
      "Eps0 route 4c: A_Weyl ~= T(OP^2) -- both are the unique 16-dim real Spin(9) spinor.",
      epsilon_weyl_isomorphism.main),
+    ("epsilon_spin9_embedding",
+     "Eps0 seam: gauge & flavour Spin(9) are the same subgroup (octonionic Cl(9), O(16)-conjugate).",
+     epsilon_spin9_embedding.main),
+    ("epsilon_rank_one_kernel",
+     "Eps0 R1: the rank-one kernel is a primitive idempotent = pure single-generation vacuum.",
+     epsilon_rank_one_kernel.main),
     ("prediction_registry",
      "Tamper-evident pre-registration: SHA-256 digests of the frozen predictions.",
      prediction_registry.main),

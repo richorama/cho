@@ -60,17 +60,19 @@ to "derivation." A clean failure here is the most valuable negative result avail
 - **Kill condition:** the trace space requires a choice not fixed by `S` → record as a
   residual input in the ledger.
 
-> **Progress (eps0 routes 4–4c).** The `16 × 27` factorisation is no longer a hand
+> **Progress (eps0 routes 4–4c, seam, R1).** The `16 × 27` factorisation is no longer a hand
 > multiplication. `compute/epsilon_state_count.py` derives `16 = dim OP² = F₄/Spin(9)`
 > as the rank-one idempotent manifold of `J₃(𝕆)`; `compute/epsilon_product_space.py`
 > stratifies `27 = 1 + 16 + 10` and shows the `16` is the off-diagonal octonion pair
-> inside the flavour `27`; and `compute/epsilon_weyl_isomorphism.py` builds
+> inside the flavour `27`; `compute/epsilon_weyl_isomorphism.py` builds
 > `f₄ = Der(J₃𝕆)` (dim 52) and its idempotent-stabiliser `spin(9)` (dim 36, semisimple)
 > from scratch and proves the gauge `A_Weyl` and the flavour `T(OP²)` are the **same**
-> Spin(9) spinor `Δ₉` (both 16-dim irreducible, real type; Spin(9)'s 16 is unique). The
-> trace-space residual R3 is thereby reduced to a single subgroup-embedding statement
-> (gauge Spin(9) = idempotent-stabiliser Spin(9)) — exactly the `S`-derived selection
-> rule this task asks for, now needing only the embedding rather than a hand list.
+> Spin(9) spinor `Δ₉`; and `compute/epsilon_spin9_embedding.py` closes the last seam by
+> recovering the flavour octonionic `Cl(9)` (Casimir multiplicities `1, 9, 126`,
+> `{Γ,Γ}=2δ`, bivectors = flavour `so(9)`) and showing gauge and flavour Spin(9) are
+> `O(16)`-conjugate — the same subgroup up to one frame choice on the octonion pair.
+> The trace-space residual R3 is thereby reduced to that single frame choice — exactly
+> the `S`-derived selection rule this task asks for.
 
 ### T1.2 — Derive `theta = pi` as a forced (not minimal-by-assumption) holonomy
 - **Deliverable:** upgrade Block 4 of `spurion_bridge.py`.
@@ -250,7 +252,7 @@ project's existing strength is its honesty; this roadmap is built to preserve it
 |---|---|---|
 | **T1.0** | **Done.** First written-down CHO action: free-particle + Wess-Zumino functional on the rank-one transition sphere. | [foundations/02_action.md](foundations/02_action.md) |
 | **T1.2** | **Partial success (positive).** The `π` holonomy is now the Berry phase of the action's unique **closed geodesic** (great circle) — variational, not "shortest loop." Verified numerically (geodesic curvature zero only at the equator). | [compute/action_derivation.py](compute/action_derivation.py) |
-| **T1.1 / T1.3** | **Open (documented).** The `432 = 16×27` trace space (R3), the rank-one kernel (R1), and the free-action weight (R2) remain inputs. F0 ledger status upgraded to "action-selected `π` factor, full theorem pending R1–R3" — **not** demoted to ansatz, but explicitly not a completed proof. | ledger F0, 02_action.md §6 |
+| **T1.1 / T1.3** | **Substantial progress (R3, R1).** The `432 = 16×27` trace space is no longer a hand multiplication: `16 = dim OP²` and `27 = dim J₃(𝕆)` are geometric, the two `16`s (gauge `A_Weyl`, flavour `T(OP²)`) are proven the **same** octonionic Spin(9) spinor `Δ₉` and the gauge-vs-flavour seam is closed to one frame choice; R1's rank-one kernel is reframed as a primitive idempotent (pure, single-generation vacuum) dual to `N_gen=3`. R3 residual = one octonion-pair frame; R1 residual = vacuum purity. R2 (free-action weight) and the channel coefficients (T1.3) remain inputs. | ledger F0, [compute/epsilon_state_count.py](compute/epsilon_state_count.py), [compute/epsilon_product_space.py](compute/epsilon_product_space.py), [compute/epsilon_weyl_isomorphism.py](compute/epsilon_weyl_isomorphism.py), [compute/epsilon_spin9_embedding.py](compute/epsilon_spin9_embedding.py), [compute/epsilon_rank_one_kernel.py](compute/epsilon_rank_one_kernel.py) |
 | **T2.1** | **Done.** Three frozen, dated falsifiers with kill conditions: `m_ν₃` vs oscillation floor (2.5% internal tension), `m_ββ = 1.5–3.7 meV`, `κ_λ ≈ 1.01`. | [compute/forward_predictions.py](compute/forward_predictions.py), FUTURE_TESTS Q6/Q7 |
 | **T2.2** | **Done (honest negative-ish).** Full covariance with a shared-`eps0` common mode: 22 rows collapse to **`N_eff ~ 10`**; correlated reduced `χ² ~ 1.8` against `N_eff` (`p ~ 0.06`) — consistent but borderline, and **less impressive** than the diagonal figure. Closes STAT1. | [compute/covariance_gof.py](compute/covariance_gof.py) |
 | **T2.3** | **Done.** Counting language made consistent (`grouped` qualifier added; one "zero adjustable parameters" claim corrected to few-input language). | papers/electroweak_parameters.tex |

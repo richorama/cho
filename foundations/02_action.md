@@ -136,9 +136,9 @@ the proof obligations that keep F0 short of theorem status, and they are tracked
 
 | ID | Residual input | What would close it |
 |---|---|---|
-| R1 | The configuration space **is** the rank-one two-level transition sphere `ℂP¹`. | Derive the rank-one transition kernel `|τ⟩⟨τ|` from the CHO Yukawa map, not from the spurion ansatz. |
+| R1 | The configuration space **is** the rank-one two-level transition sphere `ℂP¹`. | **Reframed (`compute/epsilon_rank_one_kernel.py`).** The rank-one kernel `|τ⟩⟨τ|` is a *primitive idempotent* of `J₃(𝕆)` (spectrum `(1,0,0)`, a zero-entropy pure vacuum) — the same rank-3 spectral fact that forces `N_gen=3`. Rank one = primitive = one generation = pure; a rank-`r` kernel is `r` generations at once (`ε₀²→r·π/432`, no hierarchy). Residual shrinks to vacuum **purity** (the breaking selects one ray). |
 | R2 | The weight is the **free** action `S_free` (round metric, no potential). | Derive the kinetic term and the absence of a competing potential from the CHO lattice/information action `A4`. |
-| R3 | The trace space has `dim = 432 = 16 × 27`. | Promote `spurion_bridge.py` Block 2 from an equivariance/closure **checklist** to a selection rule that `S` enforces. |
+| R3 | The trace space has `dim = 432 = 16 × 27`. | **Substantially closed (`epsilon_state_count`/`product_space`/`weyl_isomorphism`/`spin9_embedding`).** `16 = dim OP²` and `27 = dim J₃(𝕆)` are geometric; the gauge `A_Weyl` and flavour `T(OP²)` are the *same* octonionic Spin(9) spinor `Δ₉` (isomorphism discharged, embedding seam closed to one frame choice on the octonion pair). Residual shrinks to that single **frame choice**. |
 
 **Verdict (for the ledger).** F0 moves from *"open bridge / conditional projector
 derivation"* to *"action-selected `π` factor; full theorem pending R1–R3."* This is a
