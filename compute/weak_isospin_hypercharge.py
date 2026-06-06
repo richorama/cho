@@ -59,6 +59,11 @@ No scipy. Reuses octonion_toolkit (the SAME octonion table, restricted to the
 quaternion Fano line), ladder_charges (Lever C charge operator) and
 ko_dimension_chirality (Lever B chirality).
 
+This module is the machine-checked witness for the hand-written proof in
+foundations/05_electroweak_su2_theorem.md: Theorems 1-3 (su(2) from H, the so(4)
+chiral split, direct product with colour) are closed; Proposition 4 (the
+hypercharge spectrum) is conditional on the chiral assignment (the named seam).
+
 Run:
     PYTHONDONTWRITEBYTECODE=1 python3 compute/weak_isospin_hypercharge.py
 """
