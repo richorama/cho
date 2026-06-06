@@ -174,6 +174,22 @@ def main():
     print("  (Distler-Garibaldi 2009). Surviving it would make N_gen = 3 CHO's")
     print("  strongest rigorous result; as it stands, the bridge is open.")
     print()
+    print("  UPDATE -- the obstruction is EVADED, not by surviving triality, but")
+    print("  by changing the identification (see three_generations_frame.py):")
+    print("   * generations are NOT the triality-permuted reps 8v/8s/8c. They are")
+    print("     the three primitive IDEMPOTENTS of a J3(O) frame -- three identical")
+    print("     points of OP^2 = F4/Spin(9), each with a 16-dim tangent that is one")
+    print("     REAL Spin(9) spinor Delta_9 (= C(x)O, the KO-dim-6 module).")
+    print("   * the symmetry permuting them is the INNER frame S3 < F4 (F4 is")
+    print("     connected, no outer automorphism), which CANNOT map a rep to an")
+    print("     inequivalent one -- so Obstruction 1 cannot be posed; and three")
+    print("     identical copies of a self-conjugate real spinor share one")
+    print("     chirality -- so Obstruction 2 (the mirror) cannot arise.")
+    print("   * the 8v/8s/8c attacked here are the OFF-DIAGONAL Peirce slots, a")
+    print("     DIFFERENT decomposition; three_generations_frame.py PART D confirms")
+    print("     they really do mix chirality. COUNT + CHIRALITY are now obstruction-")
+    print("     free; the SPECTRUM (Yukawas) remains the open obligation.")
+    print()
 
 
 if __name__ == "__main__":
