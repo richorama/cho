@@ -19,7 +19,10 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
   9. bayesian_evidence             — model-comparison Bayes factor vs a null
  10. spectral_action              — one algebra-internal Dirac operator (knobs)
  11. cross_generation_count       — inter-gen Yukawa knob count under triality
- 12. prediction_registry           — tamper-evident pre-registration hashes
+ 12. epsilon_cubic_discriminant   — eps0 route 2: is the 27 the cubic discriminant?
+ 13. epsilon_heat_kernel          — eps0 route 1: which pi (Berry vs heat-kernel)?
+ 14. epsilon_state_count          — eps0 route 4: 432 as a geometric state count
+ 15. prediction_registry           — tamper-evident pre-registration hashes
 
 Run all:
     PYTHONDONTWRITEBYTECODE=1 python3 compute/audit.py
@@ -43,6 +46,9 @@ import ladder_charges
 import bayesian_evidence
 import spectral_action
 import cross_generation_count
+import epsilon_cubic_discriminant
+import epsilon_heat_kernel
+import epsilon_state_count
 import prediction_registry
 
 
@@ -89,6 +95,15 @@ ARTIFACTS = [
     ("cross_generation_count",
      "Inverse-spectral: inter-generation Yukawa knob count under NNI + triality.",
      cross_generation_count.main),
+    ("epsilon_cubic_discriminant",
+     "Eps0 route 2: tests whether the 27 in pi/432 is the Freudenthal-cubic discriminant.",
+     epsilon_cubic_discriminant.main),
+    ("epsilon_heat_kernel",
+     "Eps0 route 1: which pi -- bare Berry flux vs heat-kernel (4pi)^(-d/2).",
+     epsilon_heat_kernel.main),
+    ("epsilon_state_count",
+     "Eps0 route 4: 432 = dim(OP^2) x dim(J3(O)) as a geometric state count.",
+     epsilon_state_count.main),
     ("prediction_registry",
      "Tamper-evident pre-registration: SHA-256 digests of the frozen predictions.",
      prediction_registry.main),
