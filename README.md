@@ -24,7 +24,9 @@ This project was developed as a human–AI collaboration (with Claude, Anthropic
 - [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md) — caveats on postdictions, statistical dependence, continuum/RG gaps, dimensional counting, and null tests
 - [EPSILON_BRIDGE.md](EPSILON_BRIDGE.md) — focused bridge target for deriving `epsilon0^2 = pi / 432` as an operator trace or transition amplitude
 - [YUKAWA_BRIDGE.md](YUKAWA_BRIDGE.md) — charged-flavour bridge scaffold deriving the NNI adjacency and cascade mass relation
-- [PMNS_BRIDGE.md](PMNS_BRIDGE.md) — neutrino-mixing bridge scaffold deriving TBM residual symmetries and the broken-`Z3` perturbation target
+- [PMNS_BRIDGE.md](PMNS_BRIDGE.md) — neutrino-mixing bridge scaffold deriving TBM residual symmetries and the broken-triality perturbation target
+- [CHO_OPERATOR.md](CHO_OPERATOR.md) — unified candidate Yukawa/seesaw bridge operator collecting epsilon, sector projectors, CKM, and PMNS targets
+- [OPERATOR_GAP_AUDIT.md](OPERATOR_GAP_AUDIT.md) — hard audit of what the candidate operator still does not derive
 - [FUTURE_TESTS.md](FUTURE_TESTS.md) — dated register of future-facing falsifiable predictions frozen on 2026-06-06
 - [FLAVOUR_DERIVATION.md](FLAVOUR_DERIVATION.md) — bridge memo for the explicit flavour derivation scaffold
 
@@ -49,6 +51,8 @@ METHODOLOGY_LIMITS.md    Methodology caveats and statistical interpretation
 EPSILON_BRIDGE.md        Triality-breaking epsilon bridge target
 YUKAWA_BRIDGE.md         Charged-flavour Yukawa bridge scaffold
 PMNS_BRIDGE.md           Neutrino-mixing bridge scaffold
+CHO_OPERATOR.md          Unified candidate CHO Yukawa/seesaw operator
+OPERATOR_GAP_AUDIT.md    Remaining proof blockers for the candidate operator
 FUTURE_TESTS.md          Frozen future-test register
 FLAVOUR_DERIVATION.md    Flavour-sector derivation scaffold and proof gaps
 blog_post.md             Public-facing writeup

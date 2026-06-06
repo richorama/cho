@@ -230,7 +230,7 @@ $$\sin^2\theta_{13} = 3\varepsilon_0^2, \quad \sin^2\theta_{12} = \frac{1}{3 + \
 ---
 
 ### 16. Neutrino Mass Splitting Ratio (−1.4%, −0.5σ)
-**Prediction:** The seesaw with Z₃-degenerate M_R eigenvalues gives:
+**Bridge target:** The normalized seesaw scaffold gives:
 $$\frac{\Delta m^2_{21}}{\Delta m^2_{31}} = \left(\frac{m_{\nu_2}}{m_{\nu_3}}\right)^2 = (2\varepsilon_0)^2 = 4\varepsilon_0^2 = \frac{\pi}{108}$$
 
 | Quantity | Formula | Prediction | Observed | Error |
@@ -242,6 +242,7 @@ $$\frac{\Delta m^2_{21}}{\Delta m^2_{31}} = \left(\frac{m_{\nu_2}}{m_{\nu_3}}\ri
 - m_ν₂/m_ν₃ = 2ε₀: one triality step with SU(2) doublet factor
 - Compare charged sector: m_c/m_t = ε₀² (Dirac: quadratic suppression)
 - Seesaw inverts the hierarchy: m_ν ∝ y_ν² → linear in ε₀ not quadratic
+- The residual Majorana symmetry and broken-triality perturbation still need the operator-level derivation tracked in `OPERATOR_GAP_AUDIT.md`.
 
 **Combined neutrino sector predictions:**
 - m_ν₃ = v²/(2M_P/3⁹) = 48.9 meV (obs: ≥50.2 meV, 2.7%)

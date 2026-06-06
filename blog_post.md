@@ -241,7 +241,7 @@ Via the see-saw mechanism, this gives:
 - Normal mass ordering (m₁ < m₂ < m₃)
 - Sum of neutrino masses Σmᵢ ≈ 57 meV — testable by the Euclid satellite
 
-The large neutrino mixing angles (unlike the small CKM angles) arise because the Majorana sector preserves the full Z₃ triality symmetry, giving nearly-democratic mixing as a zeroth-order pattern. The small corrections from ε₀ bring all three angles to sub-percent agreement with experiment.
+The large neutrino mixing angles (unlike the small CKM angles) are modeled by residual TBM symmetries in the Majorana sector, with broken-triality corrections from ε₀ bringing all three angles to sub-percent agreement with experiment. The exact residual symmetry still needs the operator-level derivation.
 
 ---
 

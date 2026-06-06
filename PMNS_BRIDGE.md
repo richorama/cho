@@ -2,7 +2,7 @@
 
 Frozen date: 2026-06-06
 
-Purpose: separate the part of the lepton-mixing bridge that can already be derived from residual symmetries from the broken-`Z3` perturbation that still needs a CHO operator.
+Purpose: separate the part of the lepton-mixing bridge that can already be derived from residual TBM symmetries from the broken-triality perturbation that still needs a CHO operator.
 
 ## Derived Inside The Scaffold
 
@@ -28,7 +28,7 @@ G_i = 2 v_i v_i^T - I.
 
 This gives a genuine matrix derivation of the leading TBM pattern. It does not yet derive the observed deviations.
 
-## Broken-`Z3` Perturbation Target
+## Broken-Triality Perturbation Target
 
 The corrected CHO targets are
 
@@ -46,7 +46,7 @@ M_corr = U_corr diag(0, 2 epsilon0, 1) U_corr^T
 DeltaM = M_corr - M_TBM
 ```
 
-Derive `DeltaM` from a broken-`Z3` CHO seesaw operator rather than inserting the corrected angles by hand.
+Derive `DeltaM` from a broken-triality CHO seesaw operator rather than inserting the corrected angles by hand. A simple cyclic `Z3` action has not yet been shown to be the residual symmetry of this TBM mass matrix; see `OPERATOR_GAP_AUDIT.md`.
 
 ## Diagnostic Script
 
@@ -56,4 +56,4 @@ Run:
 python3 compute/pmns_bridge.py
 ```
 
-The script verifies the TBM residual symmetries, constructs the corrected PMNS target matrix, and prints the perturbation matrix that the future broken-`Z3` operator must produce.
+The script verifies the TBM residual symmetries, constructs the corrected PMNS target matrix, and prints the perturbation matrix that the future broken-triality operator must produce.

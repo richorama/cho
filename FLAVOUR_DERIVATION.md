@@ -6,7 +6,9 @@ This note describes `compute/flavour_derivation.py`, the first bridge artifact a
 
 For the shared triality-breaking quantity itself, see `EPSILON_BRIDGE.md` and `compute/epsilon_bridge.py`. Those artifacts isolate the separate proof target for deriving `epsilon0^2 = pi / 432` as an operator trace or transition amplitude.
 
-For the charged-sector operator target, see `YUKAWA_BRIDGE.md` and `compute/yukawa_bridge.py`. For the neutrino-mixing operator target, see `PMNS_BRIDGE.md` and `compute/pmns_bridge.py`.
+For the charged-sector operator target, see `YUKAWA_BRIDGE.md` and `compute/yukawa_bridge.py`. For the neutrino-mixing operator target, see `PMNS_BRIDGE.md` and `compute/pmns_bridge.py`. The unified candidate operator that collects both is `CHO_OPERATOR.md` with `compute/cho_bridge_operator.py`.
+
+For the remaining blockers in that candidate, see `OPERATOR_GAP_AUDIT.md` and `compute/operator_gap_audit.py`.
 
 ## Goal
 
@@ -76,11 +78,11 @@ Ledger implications:
 - M9-M11 are `Open bridge / scaffolded`: the cascade relation is explicit, while the sector shape factors still need the CHO Yukawa operator.
 - C1-C3 are implemented as a CKM unitary scaffold.
 - C4 remains open at the operator level because the simple PDG phase placement does not yet reproduce the Paper 2 Jarlskog target.
-- N2-N5 are implemented as a PMNS unitary scaffold, but still need a broken-`Z3` seesaw matrix derivation.
+- N2-N5 are implemented as a PMNS unitary scaffold, but still need a broken-triality seesaw matrix derivation and a clarified residual symmetry.
 
 ## Next Proof Target
 
-The next proof should replace the diagnostic adjacent-transition matrices with a real CHO Yukawa operator:
+The next proof should promote the candidate operator in `CHO_OPERATOR.md` into a real CHO Yukawa operator:
 
 ```text
 Y_f : ideal_i x Higgs x ideal_j -> scalar
@@ -91,4 +93,4 @@ That operator should derive all of the following in one construction:
 - `M13 = 0`
 - sector factors `1`, `N_c^2`, and `1/pi`
 - CKM phase placement yielding `J = 3.01e-5`
-- corrected PMNS angles from a broken-`Z3` seesaw matrix
+- corrected PMNS angles from a broken-triality seesaw matrix

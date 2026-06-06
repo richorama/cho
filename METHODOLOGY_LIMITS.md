@@ -63,11 +63,11 @@ Factors such as `16`, `27`, `64`, `3`, `7`, `8`, and `11/12` are suggestive only
 
 Priority bridge upgrades:
 
-1. Prove the `EPSILON_BRIDGE.md` trace target for `epsilon0^2 = pi/432` as an operator trace or transition amplitude.
-2. Promote `YUKAWA_BRIDGE.md` by deriving first-generation NNI shape factors `1/4`, `9/4`, and `1/(4 pi)` from a CHO Yukawa operator.
-3. Derive CKM Jarlskog phase placement from the full NNI matrices.
-4. Promote `PMNS_BRIDGE.md` by deriving corrected PMNS angles from a broken-`Z3` seesaw matrix.
-5. Derive continuum/RG matching from the lattice action.
+1. Prove the candidate operator in `CHO_OPERATOR.md` from the CHO action or representation theory.
+2. Derive the rank-one epsilon transition, sector projectors, and NNI shape factors inside that one operator.
+3. Reconcile CKM Jarlskog phase placement and corrected magnitudes in one full charged-Yukawa diagonalization.
+4. Resolve the PMNS gap in `OPERATOR_GAP_AUDIT.md`: derive `DeltaY` dynamically and replace simple cyclic-`Z3` language with the actual residual symmetry if needed.
+5. Derive continuum/RG matching from the lattice action for `alpha`, `sin^2(theta_W)`, `M_W`, and `Lambda`.
 
 ## Null Claims
 

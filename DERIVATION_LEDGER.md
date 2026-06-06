@@ -47,27 +47,27 @@ Do not mix these counts without explaining the grouping.
 | S3 | Higgs mass | `m_H = v sqrt(pi/12)` | Derived bridge | Derive Higgs quartic normalization from D4/root geometry in the field theory action |
 | S4 | Fine structure constant | `alpha^-1(0) = 128 pi / 3 + VP` | Open bridge | Complete lattice-to-continuum matching and vacuum-polarization calculation |
 | S5 | Weinberg angle | `sin^2(theta_W) = 1/4 + RG` | Open bridge | Fix the matching scale and thresholds from CHO, not by inverse running |
-| F0 | Triality-breaking parameter | `epsilon_0^2 = pi/432` | Open bridge / scaffolded | Prove the trace target in `EPSILON_BRIDGE.md`: a rank-one adjacent transition over `dim_C(A) * dim(J3(O)) = 16 * 27` with angular weight `pi` |
-| M1 | Charm mass | `m_c = epsilon_0^2 m_t` | Open bridge / scaffolded | Derive the single up-sector projector in the CHO Yukawa operator; see `YUKAWA_BRIDGE.md` |
-| M2 | Strange mass | `m_s = 3 epsilon_0^2 m_b` | Open bridge / scaffolded | Derive the three color-channel projector trace inside the CHO Yukawa operator |
-| M3 | Muon mass | `m_mu = 8 epsilon_0^2 m_tau` | Open bridge / scaffolded | Derive why color-neutral leptons trace over all 8 octonionic directions |
+| F0 | Triality-breaking parameter | `epsilon_0^2 = pi/432` | Open bridge / candidate operator | `CHO_OPERATOR.md` embeds the rank-one trace target; prove the rank, trace space, and `pi` holonomy from CHO |
+| M1 | Charm mass | `m_c = epsilon_0^2 m_t` | Open bridge / candidate operator | `CHO_OPERATOR.md` embeds the single up-sector projector; derive it from the CHO Yukawa map |
+| M2 | Strange mass | `m_s = 3 epsilon_0^2 m_b` | Open bridge / candidate operator | Derive the three color-channel projector trace inside the CHO Yukawa map |
+| M3 | Muon mass | `m_mu = 8 epsilon_0^2 m_tau` | Open bridge / candidate operator | Derive why color-neutral leptons trace over all 8 octonionic directions |
 | M4 | Tau mass | `m_tau/m_t = sqrt(2) epsilon_0^2` | Open bridge | Derive the tau alignment and normalization directly from CHO Yukawa structure |
 | M5 | Bottom mass | `m_b/m_tau = 7/3` | Open bridge | Derive `dim(Im O)/N_c` as an operator ratio, not only a counting rule |
 | M6 | Inter-sector ratio | `m_s m_t/(m_b m_c) = 3` | Derived bridge / dependent | Track scheme dependence and covariance with `m_s`, `m_b`, `m_c`, `m_t` |
 | M7 | Inter-sector ratio | `m_mu m_t/(m_tau m_c) = 8` | Derived bridge / dependent | Same covariance treatment as M6 |
 | M8 | Georgi-Jarlskog ratio | `m_mu m_b/(m_tau m_s) = 8/3` | Derived bridge / dependent | Same covariance treatment as M6 |
-| M9 | Up mass | `m_u = (1/4) m_c^2/m_t` | Open bridge / scaffolded | Cascade relation is derived in `YUKAWA_BRIDGE.md`; derive the `1/4` shape operator |
-| M10 | Down mass | `m_d = (9/4) m_s^2/m_b` | Open bridge / scaffolded | Cascade relation is derived; derive the `N_c^2/4` shape operator |
-| M11 | Electron mass | `m_e = (1/4 pi) m_mu^2/m_tau` | Open bridge / scaffolded | Cascade relation is derived; derive the `1/(4 pi)` lepton coset average and check Koide correction |
+| M9 | Up mass | `m_u = (1/4) m_c^2/m_t` | Open bridge / candidate operator | `CHO_OPERATOR.md` embeds the `1/4` weak projector shape; derive uniqueness |
+| M10 | Down mass | `m_d = (9/4) m_s^2/m_b` | Open bridge / candidate operator | Candidate gives `(1/4) N_c^2`; derive the sector-square rule |
+| M11 | Electron mass | `m_e = (1/4 pi) m_mu^2/m_tau` | Open bridge / candidate operator | Candidate gives `(1/4)(1/pi)`; derive the lepton coset average and check Koide correction |
 | C1 | Cabibbo angle | `|V_us| = sqrt(7) epsilon_0` | Derived bridge | Build and diagonalize the CHO mass matrices directly |
 | C2 | CKM 2-3 mixing | `|V_cb| = epsilon_0/2` | Derived bridge | Derive the `1/2` from the same mass-matrix construction |
 | C3 | CKM 1-3 mixing | `|V_ub| = (sqrt(2)-1)|V_us||V_cb|` | Open bridge | Derive `sqrt(2)-1 = tan(pi/8)` as a subleading triality/phase effect |
-| C4 | Jarlskog invariant | `J = 3.01e-5` | Derived bridge | Derive CKM phase and angles from one explicit unitary matrix |
+| C4 | Jarlskog invariant | `J = 3.01e-5` | Open bridge / candidate operator | `CHO_OPERATOR.md` derives the Fano phase and shows the Fritzsch placement gives the right J; derive corrected CKM magnitudes and J from one matrix |
 | N1 | Heaviest neutrino mass | `m_nu3 = v^2/(2 M_P/3^9)` | Derived bridge | Derive `M_R = M_P/3^9` from the representation/lattice scale hierarchy |
-| N2 | Neutrino splitting ratio | `Delta m21^2/Delta m31^2 = 4 epsilon_0^2` | Open bridge / scaffolded | `PMNS_BRIDGE.md` gives the broken-`Z3` matrix target; derive it from the seesaw operator |
-| N3 | PMNS reactor angle | `sin^2(theta13) = 3 epsilon_0^2` | Open bridge / scaffolded | Same broken-`Z3` matrix target as N2 |
-| N4 | PMNS solar angle | `sin^2(theta12) = 1/(3 + sqrt(7) epsilon_0)` | Open bridge / scaffolded | Derive quark-lepton complementarity from the shared triality operator |
-| N5 | PMNS atmospheric angle | `sin^2(theta23) = 4/7` | Open bridge / scaffolded, future sensitive | Derive the `4 of 7` direction count dynamically and track octant data |
+| N2 | Neutrino splitting ratio | `Delta m21^2/Delta m31^2 = 4 epsilon_0^2` | Open bridge / candidate operator | Candidate factorizes the broken-triality target through `Y_nu`; derive `DeltaY` dynamically and identify the actual residual symmetry |
+| N3 | PMNS reactor angle | `sin^2(theta13) = 3 epsilon_0^2` | Open bridge / candidate operator | Same `DeltaY` target as N2 |
+| N4 | PMNS solar angle | `sin^2(theta12) = 1/(3 + sqrt(7) epsilon_0)` | Open bridge / candidate operator | Derive quark-lepton complementarity from the shared triality operator |
+| N5 | PMNS atmospheric angle | `sin^2(theta23) = 4/7` | Open bridge / candidate operator, future sensitive | Derive the `4 of 7` direction count dynamically and track octant data |
 | CP1 | Strong CP | `theta_bar = 0` | Derived bridge | Formalize Fano parity as a symmetry of the QCD path-integral measure |
 | CC1 | Cosmological constant | `Lambda^(1/4) = (11/12) M_P/(sqrt(2) 3^64)` | Open bridge | Derive free-energy factorization and the `11/12` screening factor without tuning |
 | D1 | No WIMP/axion/SUSY/proton decay | Null exclusion claims | Future test | Tie each claim to mass/coupling/lifetime reach and state lower evidential weight than positive quantitative targets |
@@ -75,11 +75,12 @@ Do not mix these counts without explaining the grouping.
 
 ## Highest-Value Next Proofs
 
-1. Prove the `EPSILON_BRIDGE.md` trace target for `epsilon_0^2 = pi/432` as a transition amplitude over `A` and `J3(O)`.
-2. Promote `YUKAWA_BRIDGE.md` from scaffold to theorem by constructing the CHO trilinear Yukawa operator and deriving the sector projectors and shape factors.
-3. Promote `PMNS_BRIDGE.md` from scaffold to theorem by deriving the printed broken-`Z3` perturbation from the seesaw operator.
-4. Produce a continuum/RG matching note for `alpha`, `sin^2(theta_W)`, and `M_W`.
+1. Prove that the candidate operator in `CHO_OPERATOR.md` is forced by the CHO action or representation theory.
+2. Derive the rank-one epsilon transition, sector projectors, and shape factors inside that one operator.
+3. Reconcile CKM corrected magnitudes with the Fritzsch-level Jarlskog phase placement in one charged-Yukawa diagonalization.
+4. Resolve the PMNS gap in `OPERATOR_GAP_AUDIT.md`: derive `DeltaY` dynamically and clarify the residual symmetry beyond simple cyclic `Z3`.
 5. Rework the statistics around an independent observable set with covariance for mass-derived ratios.
+6. Produce continuum/RG matching artifacts for `alpha`, `sin^2(theta_W)`, `M_W`, and `Lambda`.
 
 ## Bridge Artifacts
 
@@ -87,6 +88,8 @@ Do not mix these counts without explaining the grouping.
 - `compute/epsilon_bridge.py` — diagnostic scaffold for the `epsilon0^2 = pi/432` trace target, empirical bridge estimates, nearby trace normalizations, and proof obligations.
 - `EPSILON_BRIDGE.md` — companion memo defining the `epsilon0^2` bridge state space, proposed trace formula, failure modes, and next proof steps.
 - `compute/yukawa_bridge.py` and `YUKAWA_BRIDGE.md` — charged-flavour scaffold deriving leading NNI adjacency and the cascade relation, while isolating sector shape factors as operator targets.
-- `compute/pmns_bridge.py` and `PMNS_BRIDGE.md` — PMNS scaffold deriving TBM residual symmetries and printing the broken-`Z3` Majorana perturbation target.
+- `compute/pmns_bridge.py` and `PMNS_BRIDGE.md` — PMNS scaffold deriving TBM residual symmetries and printing the broken-triality Majorana perturbation target.
+- `compute/cho_bridge_operator.py` and `CHO_OPERATOR.md` — unified candidate operator embedding the epsilon trace, sector projectors, NNI shape factors, Fano phase diagnostics, and PMNS seesaw target.
+- `compute/operator_gap_audit.py` and `OPERATOR_GAP_AUDIT.md` — explicit audit of unsolved operator, CKM, PMNS, and continuum/RG gaps.
 - `FLAVOUR_DERIVATION.md` — companion memo explaining the scaffold, its inputs, and what remains to be proven by a full CHO Yukawa operator.
 - `METHODOLOGY_LIMITS.md` — caveat document for few-input parameter language, postdictions, dependent audit rows, continuum/RG gaps, dimensional-counting risks, and null-test scales.
