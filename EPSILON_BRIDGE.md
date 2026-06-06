@@ -164,23 +164,49 @@ three independently-chosen pieces (`pi`, `16`, `27`). They triangulate:
   `S_link = -1/2 log r` is maximised at `r=1`. Rank one is forced up to vacuum
   purity (the breaking selects one ray), the minimal content of a spurion.
 
+- `compute/epsilon_free_action.py` — **R2, reframed (the weight).** The rank-one
+  kernel plus its complement is a two-level system whose natural `U(2) -> SO(3)`
+  Bloch-sphere symmetry, assumed alone, forces the weight: invariant potentials
+  are CONSTANT (transitivity of `SO(3)` on `S^2`; the invariant subspace of
+  functions up to quadratic order is exactly 1-dim), the invariant metric is
+  ROUND and unique up to scale (`SO(2)` isotropy on the tangent plane is
+  irreducible; invariant symmetric 2-tensors are 1-dim), and `theta = pi` is
+  INDEPENDENT of that one undetermined scale (the Berry term is topological and
+  great circles stay geodesic under rescaling). So the free kinetic action plus
+  the topological term is the UNIQUE symmetric weight — a competing potential is
+  forbidden. R2 shrinks to the microscopic origin of the two-level symmetry.
+
+- `compute/epsilon_channel_coefficients.py` — **the lepton `8`, derived (M3).**
+  Using this repo's octonionic Witt ladder (the same basis `ladder_charges.py`
+  finds inside `C (x) O`), the number operator `N = sum_k alpha_k^dag alpha_k`
+  has Fock-grade spectral projectors with traces `(1, 3, 3, 1)` on
+  `Lambda^*(C^3)`. The three mass-sector coefficients are all `N`-spectral
+  traces: `up = Tr P_0 = 1`, `down = Tr P_1 = 3`, `lepton = Tr I_Fock = 2^3 = 8`.
+  The lepton `8` is the FULL Fock dimension, not a hand-chosen Yukawa rank —
+  closing M3 for the mass sector. The CKM/PMNS/nu coefficients `sqrt7, 1/2, 4`
+  and the lepton shape factor `1/pi` (M11) remain open as documented.
+
 **Net effect on the proof obligations below:** the `pi` (obligation 3) is
-geometric and action-selected; the trace space (obligation 1) is a **product of
-two geometric dimensions whose 16s are the same octonionic `Delta_9` subgroup**
-(isomorphism discharged, the gauge-vs-flavour seam closed to a frame choice);
-the rank (obligation 2) is reframed — rank one is **dual to `N_gen = 3`** (a
-primitive idempotent), no longer a value chosen to fit `m_c/m_t`. The `27`'s
-discriminant origin is closed off as a dead end. What remains for F0 are two
-minimal residuals: vacuum **purity** (R1) and one **frame choice** on the
-octonion pair (the seam), plus the action-level lifts of obligations 4–5.
+geometric and action-selected, and its WEIGHT is now forced — the free action +
+topological term is the unique two-level-symmetric weight (R2); the trace space
+(obligation 1) is a **product of two geometric dimensions whose 16s are the same
+octonionic `Delta_9` subgroup** (isomorphism discharged, the gauge-vs-flavour
+seam closed to a frame choice); the rank (obligation 2) is reframed — rank one is
+**dual to `N_gen = 3`** (a primitive idempotent), no longer a value chosen to fit
+`m_c/m_t`; and the mass-sector **sector coefficients** `(1, 3, 8)` (obligation 5)
+are derived as number-operator Fock-grade traces (the lepton `8 = 2^3`). The
+`27`'s discriminant origin is closed off as a dead end. What remains for F0 are
+minimal residuals: vacuum **purity** (R1), one **frame choice** on the octonion
+pair (the seam), the microscopic **origin** of the two-level symmetry (R2), and
+the `sqrt7, 1/2, 4`/`1/pi` mixing-sector coefficients (M11).
 
 ## Proof Obligations
 
 1. **Trace space:** prove that the transition trace really runs over `A_Weyl x J3(O)`, not `A_R x J3(O)`, `A_Weyl x Im(J3(O))`, or another nearby space. *(Advanced: the two `16`s are proven the same octonionic `Delta_9` subgroup — isomorphism discharged in `epsilon_weyl_isomorphism.py`, gauge-vs-flavour Spin(9) seam closed to a frame choice in `epsilon_spin9_embedding.py`.)*
 2. **Rank:** derive `rank(P_transition) = 1` from triality adjacency plus the normalized action rank penalty, not by choosing the value that fits `m_c/m_t`. *(Reframed in `epsilon_rank_one_kernel.py`: rank one = primitive idempotent = pure single-generation vacuum, dual to `N_gen=3`; residual is vacuum purity.)*
-3. **Holonomy:** derive the `pi` factor from the minimal path on `G2/SU(3)` or from the CHO information action.
+3. **Holonomy:** derive the `pi` factor from the minimal path on `G2/SU(3)` or from the CHO information action. *(Advanced: `pi` is the Berry phase of the action's unique closed geodesic, and `epsilon_free_action.py` shows the free-action weight that carries it is the unique two-level-symmetric weight, up to a `theta`-irrelevant scale.)*
 4. **Operator embedding:** construct `P_transition` as a projector or matrix element inside the CHO Yukawa operator.
-5. **Sector coupling:** show why the same `epsilon0` feeds charged masses, CKM magnitudes, PMNS corrections, and neutrino splitting.
+5. **Sector coupling:** show why the same `epsilon0` feeds charged masses, CKM magnitudes, PMNS corrections, and neutrino splitting. *(Advanced for the mass sector: `epsilon_channel_coefficients.py` derives the ranks `(1, 3, 8)` as number-operator Fock-grade traces — `up=Tr P_0`, `down=Tr P_1`, `lepton=Tr I_Fock=2^3` — closing M3; the `sqrt7, 1/2, 4`/`1/pi` mixing coefficients (M11) stay open.)*
 
 ## Failure Modes
 

@@ -68,9 +68,11 @@ def print_fock_derivation() -> None:
     print(f"  total:   {sum(counts.values())}")
     print()
     print("Bridge multiplicity map now supported by this representation:")
-    print("  up     -> grade-0 singlet rank 1")
-    print("  down   -> grade-1 color triplet rank 3")
-    print("  lepton -> full Fock trace rank 8, still an extra Yukawa-trace assumption")
+    print("  up     -> grade-0 singlet rank 1   = Tr P_0")
+    print("  down   -> grade-1 color triplet rank 3 = Tr P_1")
+    print("  lepton -> full Fock trace rank 8   = Tr I_Fock = 2^3")
+    print("  (the lepton 8 is now derived as a number-operator Fock trace in")
+    print("   compute/epsilon_channel_coefficients.py -- closes ledger M3)")
     print()
 
 

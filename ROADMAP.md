@@ -85,6 +85,18 @@ to "derivation." A clean failure here is the most valuable negative result avail
 - **Kill condition:** the great circle is only minimal *geometrically*, not
   *dynamically* → `pi` remains an assumption; document it.
 
+> **Progress (R2, the free-action weight).** `compute/epsilon_free_action.py` removes
+> the last "we just chose the free action" input. The rank-one kernel plus its
+> complement is a two-level system whose natural `U(2) → SO(3)` Bloch-sphere symmetry,
+> assumed alone, forces: invariant potentials are **constant** (transitivity, verified
+> to quadratic order — invariant subspace dim `1`), the invariant metric is **round,
+> unique up to scale** (`SO(2)` isotropy irreducibility — invariant symmetric 2-tensors
+> dim `1`), and `θ = π` is **independent** of that one scale (topological Berry term +
+> scale-free geodesics). So the free kinetic action plus the topological term is the
+> *unique* symmetric weight; a competing potential is forbidden. R2 shrinks to the
+> microscopic origin of the two-level symmetry from `A4` — a symmetry question, not a
+> chosen functional.
+
 ### T1.3 — Derive the channel coefficients `(1, 3, 8, sqrt7, 1/2, 3, 4)` as traces
 - **Deliverable:** upgrade Block 5 + `sector_projector_derivation.py`.
 - **Method:** you already derive `1` and `3` as Fock-grade ranks. Push for `8` (lepton
@@ -93,6 +105,16 @@ to "derivation." A clean failure here is the most valuable negative result avail
 - **Acceptance:** at least the lepton `8` is derived as a trace, closing M3 in the ledger.
 - **Kill condition:** `8` and `1/pi` still require hand-chosen projectors → keep M3/M11
   as open and do not claim the lepton sector.
+
+> **Progress (M3, the lepton 8).** `compute/epsilon_channel_coefficients.py` closes the
+> mass-sector half of T1.3. Using this repo's octonionic Witt ladder (the same basis
+> `ladder_charges.py` finds inside `ℂ ⊗ 𝕆`), the number operator `N = Σ αₖ†αₖ` has
+> spectral projectors with traces `(1, 3, 3, 1)` on the Fock module `Λ•(ℂ³)`. The three
+> mass-sector ranks are then all `N`-spectral traces: `up = Tr P₀ = 1`,
+> `down = Tr P₁ = 3`, and `lepton = Tr I_Fock = 2³ = 8` — the lepton `8` is the full Fock
+> dimension, not a hand-chosen Yukawa rank. **M3 closed for the mass sector.** What is
+> NOT addressed: the CKM/PMNS/ν coefficients `√7, ½, 4` and the lepton shape factor `1/π`
+> (M11), which remain open as documented.
 
 **Tier 1 exit report:** one short memo `foundations/02_action.md` plus updated
 `PASS/FAIL` flags in `spurion_bridge.py`, and a one-line verdict in
@@ -252,7 +274,7 @@ project's existing strength is its honesty; this roadmap is built to preserve it
 |---|---|---|
 | **T1.0** | **Done.** First written-down CHO action: free-particle + Wess-Zumino functional on the rank-one transition sphere. | [foundations/02_action.md](foundations/02_action.md) |
 | **T1.2** | **Partial success (positive).** The `π` holonomy is now the Berry phase of the action's unique **closed geodesic** (great circle) — variational, not "shortest loop." Verified numerically (geodesic curvature zero only at the equator). | [compute/action_derivation.py](compute/action_derivation.py) |
-| **T1.1 / T1.3** | **Substantial progress (R3, R1).** The `432 = 16×27` trace space is no longer a hand multiplication: `16 = dim OP²` and `27 = dim J₃(𝕆)` are geometric, the two `16`s (gauge `A_Weyl`, flavour `T(OP²)`) are proven the **same** octonionic Spin(9) spinor `Δ₉` and the gauge-vs-flavour seam is closed to one frame choice; R1's rank-one kernel is reframed as a primitive idempotent (pure, single-generation vacuum) dual to `N_gen=3`. R3 residual = one octonion-pair frame; R1 residual = vacuum purity. R2 (free-action weight) and the channel coefficients (T1.3) remain inputs. | ledger F0, [compute/epsilon_state_count.py](compute/epsilon_state_count.py), [compute/epsilon_product_space.py](compute/epsilon_product_space.py), [compute/epsilon_weyl_isomorphism.py](compute/epsilon_weyl_isomorphism.py), [compute/epsilon_spin9_embedding.py](compute/epsilon_spin9_embedding.py), [compute/epsilon_rank_one_kernel.py](compute/epsilon_rank_one_kernel.py) |
+| **T1.1 / T1.3** | **Substantial progress (R1, R2, R3, M3).** The `432 = 16×27` trace space is no longer a hand multiplication: `16 = dim OP²` and `27 = dim J₃(𝕆)` are geometric, the two `16`s (gauge `A_Weyl`, flavour `T(OP²)`) are proven the **same** octonionic Spin(9) spinor `Δ₉` and the gauge-vs-flavour seam is closed to one frame choice; R1's rank-one kernel is reframed as a primitive idempotent (pure, single-generation vacuum) dual to `N_gen=3`; R2's free action is forced by the two-level `U(2)→SO(3)` symmetry (invariant potential constant, metric round up to a `θ`-irrelevant scale); and the **mass-sector channel ranks (1, 3, 8) are derived as number-operator Fock-grade traces** (`up=Tr P₀=1`, `down=Tr P₁=3`, `lepton=Tr I_Fock=2³=8`), closing M3. Remaining inputs: the microscopic origin of the two-level symmetry (R2), and the CKM/PMNS/nu coefficients `√7, ½, 4` plus the lepton shape factor `1/π` (M11). | ledger F0/M3, [compute/epsilon_state_count.py](compute/epsilon_state_count.py), [compute/epsilon_product_space.py](compute/epsilon_product_space.py), [compute/epsilon_weyl_isomorphism.py](compute/epsilon_weyl_isomorphism.py), [compute/epsilon_spin9_embedding.py](compute/epsilon_spin9_embedding.py), [compute/epsilon_rank_one_kernel.py](compute/epsilon_rank_one_kernel.py), [compute/epsilon_free_action.py](compute/epsilon_free_action.py), [compute/epsilon_channel_coefficients.py](compute/epsilon_channel_coefficients.py) |
 | **T2.1** | **Done.** Three frozen, dated falsifiers with kill conditions: `m_ν₃` vs oscillation floor (2.5% internal tension), `m_ββ = 1.5–3.7 meV`, `κ_λ ≈ 1.01`. | [compute/forward_predictions.py](compute/forward_predictions.py), FUTURE_TESTS Q6/Q7 |
 | **T2.2** | **Done (honest negative-ish).** Full covariance with a shared-`eps0` common mode: 22 rows collapse to **`N_eff ~ 10`**; correlated reduced `χ² ~ 1.8` against `N_eff` (`p ~ 0.06`) — consistent but borderline, and **less impressive** than the diagonal figure. Closes STAT1. | [compute/covariance_gof.py](compute/covariance_gof.py) |
 | **T2.3** | **Done.** Counting language made consistent (`grouped` qualifier added; one "zero adjustable parameters" claim corrected to few-input language). | papers/electroweak_parameters.tex |

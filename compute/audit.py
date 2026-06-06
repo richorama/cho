@@ -26,7 +26,9 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  16. epsilon_weyl_isomorphism     — eps0 route 4c: A_Weyl ~= T(OP^2) as Spin(9) spinors
  17. epsilon_spin9_embedding      — eps0 seam: gauge & flavour Spin(9) same subgroup
  18. epsilon_rank_one_kernel      — eps0 R1: rank-one kernel = primitive idempotent
- 19. prediction_registry           — tamper-evident pre-registration hashes
+ 19. epsilon_free_action          — eps0 R2: free action forced by two-level symmetry
+ 20. epsilon_channel_coefficients — T1.3: mass-sector ranks (1,3,8) as Fock traces
+ 21. prediction_registry           — tamper-evident pre-registration hashes
 
 Run all:
     PYTHONDONTWRITEBYTECODE=1 python3 compute/audit.py
@@ -57,6 +59,8 @@ import epsilon_product_space
 import epsilon_weyl_isomorphism
 import epsilon_spin9_embedding
 import epsilon_rank_one_kernel
+import epsilon_free_action
+import epsilon_channel_coefficients
 import prediction_registry
 
 
@@ -124,6 +128,12 @@ ARTIFACTS = [
     ("epsilon_rank_one_kernel",
      "Eps0 R1: the rank-one kernel is a primitive idempotent = pure single-generation vacuum.",
      epsilon_rank_one_kernel.main),
+    ("epsilon_free_action",
+     "Eps0 R2: the free action + topological term is the unique two-level-symmetric action.",
+     epsilon_free_action.main),
+    ("epsilon_channel_coefficients",
+     "T1.3: mass-sector ranks (1,3,8) as number-operator Fock-grade traces (closes M3).",
+     epsilon_channel_coefficients.main),
     ("prediction_registry",
      "Tamper-evident pre-registration: SHA-256 digests of the frozen predictions.",
      prediction_registry.main),

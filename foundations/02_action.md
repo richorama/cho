@@ -137,15 +137,19 @@ the proof obligations that keep F0 short of theorem status, and they are tracked
 | ID | Residual input | What would close it |
 |---|---|---|
 | R1 | The configuration space **is** the rank-one two-level transition sphere `ℂP¹`. | **Reframed (`compute/epsilon_rank_one_kernel.py`).** The rank-one kernel `|τ⟩⟨τ|` is a *primitive idempotent* of `J₃(𝕆)` (spectrum `(1,0,0)`, a zero-entropy pure vacuum) — the same rank-3 spectral fact that forces `N_gen=3`. Rank one = primitive = one generation = pure; a rank-`r` kernel is `r` generations at once (`ε₀²→r·π/432`, no hierarchy). Residual shrinks to vacuum **purity** (the breaking selects one ray). |
-| R2 | The weight is the **free** action `S_free` (round metric, no potential). | Derive the kinetic term and the absence of a competing potential from the CHO lattice/information action `A4`. |
+| R2 | The weight is the **free** action `S_free` (round metric, no potential). | **Reframed (`compute/epsilon_free_action.py`).** The rank-one kernel plus its complement is a two-level system with `U(2)→SO(3)` Bloch-sphere symmetry. Assuming only that symmetry: invariant potentials are *constant* (transitivity, verified to quadratic order — invariant subspace dim 1), the invariant metric is *round, unique up to scale* (isotropy `SO(2)` irreducibility — invariant symmetric 2-tensors dim 1), and `θ=π` is *independent* of that scale (topological + geodesic). Residual shrinks to the microscopic **origin** of the two-level symmetry from `A4`. |
 | R3 | The trace space has `dim = 432 = 16 × 27`. | **Substantially closed (`epsilon_state_count`/`product_space`/`weyl_isomorphism`/`spin9_embedding`).** `16 = dim OP²` and `27 = dim J₃(𝕆)` are geometric; the gauge `A_Weyl` and flavour `T(OP²)` are the *same* octonionic Spin(9) spinor `Δ₉` (isomorphism discharged, embedding seam closed to one frame choice on the octonion pair). Residual shrinks to that single **frame choice**. |
 
 **Verdict (for the ledger).** F0 moves from *"open bridge / conditional projector
-derivation"* to *"action-selected `π` factor; full theorem pending R1–R3."* This is a
-real, bounded upgrade — one of the three numerical inputs (`θ`) is now variational —
-but it is explicitly **not** a completed derivation of `ε₀² = π/432`. If R1–R3 cannot
-be closed, the honest fallback is to demote F0 to *ansatz*, exactly as the roadmap's
-T1.0 kill condition requires.
+derivation"* to *"action-selected `π` factor; `16`, `27` geometric; R1, R2, R3 all
+reframed."* All three of the original numerical inputs are now bounded: `θ=π` is
+variational (T1.2), R3 shrinks to one octonion-pair frame choice (routes 4–4c +
+seam), R1 is primitivity dual to `N_gen=3` (vacuum purity), and R2's free action is
+forced by the two-level symmetry up to a `θ`-irrelevant scale. The honest residuals
+that remain are *vacuum purity* (R1), *one frame choice* (R3), and the *microscopic
+origin of the two-level symmetry from `A4`* (R2) — symmetry-level questions, not free
+integers. This is **not** yet a single closed theorem `ε₀²=π/432`, but every symbol
+is now either derived or reduced to a named symmetry residual.
 
 ---
 
