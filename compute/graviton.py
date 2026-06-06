@@ -2,6 +2,13 @@
 Graviton Construction — Spin-2 from Causal Information Geometry
 ================================================================
 
+NOTE (2026-06-06): This script is a PLACEHOLDER / sketch and is NOT a
+derivation. The first non-placeholder gravity brick is now
+`compute/gravity_curvature.py` (milestone M-GRAV, ledger row GR1), which builds
+a symmetric, positive-semidefinite, G2-covariant rank-2 metric perturbation
+from the octonionic associator and verifies its transformation law exactly.
+Prefer that module; this file is kept only for the conformal/causal-set sketch.
+
 In our framework, gravity is NOT a fundamental force.
 It EMERGES from the information geometry of the causal lattice.
 

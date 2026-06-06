@@ -2,15 +2,20 @@
 
 Created: 2026-06-06 (roadmap Tier 4, item T4.2)
 
-Status: **research line, not a result.** CHO currently has **no dynamical
-gravity.** This note states honestly what exists (a candidate mechanism and a
-conjecture), what a minimal computable deliverable would be, and the kill
-condition that would make the down-scoped branding (README.md, "an algebraic
-framework for Standard Model parameters") permanent.
+Status: **research line, not a result.** CHO still has **no dynamical
+gravity.** A first *kinematic* brick now exists, however
+([`compute/gravity_curvature.py`](../compute/gravity_curvature.py), milestone
+M-GRAV below, ledger row GR1): a symmetric, positive-semidefinite, **G₂-covariant
+rank-2 metric perturbation** emerges from the octonionic associator with **no
+hand-inserted geometric input**. This note states honestly what exists (now a
+candidate mechanism *plus* a verified kinematic metric) and what remains (the
+load-bearing continuum conjecture, the reduction to 4-d spacetime, and all
+dynamics).
 
 This note exists so the word "gravity" — and by extension "Theory of Everything"
 in [PLAN.MD](../PLAN.MD) — is backed by an explicit, bounded research target
-rather than by the placeholder script [`compute/graviton.py`](../compute/graviton.py).
+backed by a real computation rather than by the placeholder script
+[`compute/graviton.py`](../compute/graviton.py).
 
 ---
 
@@ -22,7 +27,8 @@ rather than by the placeholder script [`compute/graviton.py`](../compute/gravito
 | Curvature decomposition `Ω = Ω_grav + Ω_color + Ω_weak + Ω_em` | `01_algebra.md` §4, Thm 4.1 | **Claim**, not derived; `Ω_grav` = scalar/norm part of the associator |
 | Information action `I[C,≺,φ]` and "maximal causal information" | `01_algebra.md` §6 | **Definition + variational principle**, no continuum proof |
 | Continuum limit `I → ∫√-g (R/16πG − ¼F² + ψ̄(iD̸−m)ψ − Λ)` | `01_algebra.md` §6, Conj 6.1 | **Conjecture**, unproven — this is the whole game |
-| `compute/graviton.py` | repo | **Placeholder**, not a derivation of graviton dynamics |
+| `compute/graviton.py` | repo | **Placeholder**, superseded by `gravity_curvature.py` for the metric brick |
+| Emergent metric `g_μν(a,b) = ⟨[e_μ,a,b],[e_ν,a,b]⟩` (Gram of associator) | `compute/gravity_curvature.py` | **Verified kinematic result** (symmetric, PSD, G₂-covariant rank-2; `tr g = 16|a∧b|²`); reduction to spacetime still open |
 
 The honest summary: there is a *candidate* mechanism (non-associativity →
 curvature; information action → Einstein–Hilbert in the continuum) but **no
@@ -77,6 +83,53 @@ Concretely, in code this means extending `octonion_toolkit.py` to:
 Steps 1–3 are achievable now and would be a genuine first brick. Step 4 is the
 hard part and is where the line either progresses or stalls.
 
+### STATUS (actioned, 2026-06-06): M-GRAV met and partly exceeded
+
+[`compute/gravity_curvature.py`](../compute/gravity_curvature.py) implements a
+*stronger* version of this milestone. The key move is that the associator
+`[a,b,c]` is totally **antisymmetric**, so it cannot directly be a symmetric
+metric; instead the module pulls the octonion inner product back through the
+associator **map**. Fixing two "matter" labels `a,b`, the transport defect is the
+linear operator `M_{a,b}(x) = [x,a,b]` on `Im(𝕆)`, and the emergent metric is its
+**Gram matrix**
+
+$$ g_{\mu\nu}(a,b) \;=\; \big\langle\, [e_\mu,a,b],\,[e_\nu,a,b] \,\big\rangle
+   \;=\; \sum_k [e_\mu,a,b]_k\,[e_\nu,a,b]_k . $$
+
+Verified numerically (each is a `PASS` line in the module):
+
+1. **Symmetric, positive-semidefinite** by construction — a genuine metric
+   perturbation, not just a curvature scalar.
+2. **Curvature is transverse:** `Re[a,b,c] = 0` (no scalar/trace part), and
+   `S = |[a,b,c]|² = 0` iff the three labels share a quaternionic (associative)
+   subalgebra (Artin), `> 0` otherwise — the original flat/curved test.
+3. **Step 4 — the transformation law — is met (internally):**
+   `g(Ra,Rb) = R·g(a,b)·Rᵀ` *exactly* on all **1344 finite signed-permutation
+   automorphisms** of `𝕆`. So `g` is a genuine **rank-2 tensor under the
+   structure group `G₂ ⊂ SO(7)`**, with **no independent geometric input
+   inserted by hand** (this is what the kill condition demanded).
+4. **Clean scalar curvature density:**
+   `tr g = 16·(|a|²|b|² − ⟨a,b⟩²) = 16·|a∧b|²` — an area law whose constant is
+   the *same* `16 = dim 𝕆ℙ²` that fixes `ε₀² = π/432`.
+5. **Graviton-like mode:** by alternativity `g` annihilates its source labels
+   (`g·a = g·b = 0`), so the perturbation is **transverse** to the source
+   bivector `a∧b`; `g` has rank `4`, and its 3-dim null space is exactly the
+   associative subalgebra `span{a, b, Im(ab)}` — the flat directions, Artin made
+   geometric.
+
+The module also includes the **spacetime arena** side (the part this note's §2
+did not address): `ℂ⊗ℍ ≅ M₂(ℂ)`, whose Hermitian elements are Minkowski
+`ℝ^{3,1}` (`det = ` the `(+---)` norm) with `SL(2,ℂ)` acting as the Lorentz group
+`SO(3,1)`.
+
+What is **still open** (step 4's truly hard part, untouched): the metric lives on
+the 7-dim *internal* `Im(𝕆)` with structure group `G₂ ⊂ SO(7)`. Reducing it to a
+**4-dim spacetime** metric with Lorentz `SO(3,1)` signature — i.e. joining the
+`ℂ⊗ℍ` arena to the `𝕆` curvature, fixing which 4 of the 7 internal directions
+become spacetime — is **not** done, and is the remaining content of
+Conjecture 6.1. There is also still **no dynamics** (no field equation, no Newton
+constant).
+
 ---
 
 ## 4. Kill condition (when to stop and down-scope permanently)
@@ -86,6 +139,17 @@ hard part and is where the line either progresses or stalls.
 > geometric input by hand**, then gravity is **out of scope**: adopt the
 > down-scoped branding (README.md option (a)) permanently, retitle PLAN.MD, and
 > label `compute/graviton.py` as a non-derivation.
+
+**Update (2026-06-06):** the *internal* half of this condition is now **passed** —
+`gravity_curvature.py` produces a symmetric rank-2 tensor that transforms
+correctly (`g(Ra,Rb)=R g Rᵀ`) under the structure group `G₂`, with no
+hand-inserted geometric input. The kill condition therefore **sharpens** to its
+remaining half:
+
+> If the internal `Im(𝕆)` metric (structure group `G₂ ⊂ SO(7)`) cannot be
+> reduced to a **4-dim Lorentzian** spacetime metric (structure group `SO(3,1)`)
+> — joining the `ℂ⊗ℍ` arena to the `𝕆` curvature — without inserting an
+> independent geometric input by hand, then gravity stays out of scope.
 
 This is the honest fallback. CHO's defensible contribution does not depend on
 gravity; the Standard Model parameter program (Tiers 1–3) stands on its own. The
