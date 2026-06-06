@@ -16,6 +16,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
   6. jordan_eigenvalue_generations — spectral route to three (Lever A)
   7. ko_dimension_chirality        — KO-dimension 6 chirality test (Lever B)
   8. ladder_charges                — SM charges {0,1/3,2/3,1} (Lever C)
+  *  weak_isospin_hypercharge      — weak SU(2) + hypercharge Y (Lever D)
   9. bayesian_evidence             — model-comparison Bayes factor vs a null
  10. spectral_action              — one algebra-internal Dirac operator (knobs)
  11. cross_generation_count       — inter-gen Yukawa knob count under triality
@@ -54,6 +55,7 @@ import first_generation_audit
 import jordan_eigenvalue_generations
 import ko_dimension_chirality
 import ladder_charges
+import weak_isospin_hypercharge
 import bayesian_evidence
 import spectral_action
 import cross_generation_count
@@ -108,6 +110,9 @@ ARTIFACTS = [
     ("ladder_charges",
      "Lever C: SM charges {0,1/3,2/3,1} from the C x O number operator.",
      ladder_charges.main),
+    ("weak_isospin_hypercharge",
+     "Lever D: weak SU(2) from H + Gell-Mann-Nishijima Y=2(Q-T3) gives one generation's hypercharges.",
+     weak_isospin_hypercharge.main),
     ("bayesian_evidence",
      "Model-comparison Bayes factor: CHO vs an O(1)-numerology null.",
      bayesian_evidence.main),
