@@ -67,6 +67,21 @@ where:
 
 The ℤ₆ quotient matches exactly the SM quotient (the actual gauge group of nature is [SU(3)×SU(2)×U(1)]/ℤ₆, not the covering group).
 
+**Provenance (not a novel CHO result — cite, do not claim).** Everything in §2 — the
+SM gauge group as a subgroup of Aut(ℂ⊗ℍ⊗𝕆), the charge spectrum, and the
+one-generation minimal-ideal state space (§5, A2/Q1) — is *established prior work* in
+the division-algebra Standard Model literature, and peers grant it. It must be cited,
+not presented as new:
+- C. Furey (2012–2024) — SM gauge representations as minimal left ideals of ℂ⊗𝕆; the ladder-operator derivation of `SU(3)×U(1)` and `SU(2)×U(1)` and the electric-charge spectrum `Q ∈ {0, 1/3, 2/3, 1}` reproduced numerically in `compute/ladder_charges.py`.
+- G. M. Dixon (1994–) — SM representation content from `ℝ⊗ℂ⊗ℍ⊗𝕆`.
+- I. Todorov & M. Dubois-Violette (2018) — SM gauge group from the automorphism/structure groups of the exceptional Jordan algebra `J₃(𝕆)`.
+- L. Boyle & K. Krasnov (2020–) — gauge-group and representation-level results.
+
+CHO's own contribution begins *after* this section (the action, mass numbers, mixing
+angles, and the physical three-generation identification); the gauge sector is the
+shared, well-supported foundation it builds on. See `COMPARISON.md` for the
+claim-by-claim grant/dispute matrix.
+
 ---
 
 ## 3. The Causal Lattice
