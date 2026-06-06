@@ -1,24 +1,31 @@
 # CHO: ℂ⊗ℍ⊗𝕆
 
-A parameter-free algebraic framework for the Standard Model, built from the tensor product of the three largest normed division algebras.
+A few-input algebraic framework for the Standard Model, built from the tensor product of the three largest normed division algebras.
 
 ## What is this?
 
-From the single algebra **𝒜 = ℂ⊗ℍ⊗𝕆** (64 real dimensions) and one measured input (the Planck mass), this framework derives **23 quantitative predictions** — particle masses, mixing angles, coupling constants — with zero free parameters. Median error: 1.0%.
+From the algebra **𝒜 = ℂ⊗ℍ⊗𝕆** (64 real dimensions), the Planck scale, and a small set of explicit bridge assumptions, this framework produces **23 grouped quantitative relations** — particle masses, mixing angles, coupling constants — without fitting a separate continuous parameter for each observable. The computational audit table lists 25 rows because several grouped mass relations are displayed explicitly. Median descriptive error: 1.0%.
 
 This project was developed as a human–AI collaboration (with Claude, Anthropic) exploring whether division algebra structure alone can determine the constants of nature.
 
 ## Papers
 
 - [Paper 1: Three Generations from Octonion Triality](papers/three_generations.pdf) — proves N_gen = 3 from three independent algebraic theorems
-- [Paper 2: Electroweak Parameters from ℂ⊗ℍ⊗𝕆](papers/electroweak_parameters.pdf) — 23 predictions with zero free parameters
+- [Paper 2: Electroweak Parameters from ℂ⊗ℍ⊗𝕆](papers/electroweak_parameters.pdf) — 23 grouped low-energy relations from few inputs
 - [Paper 3: The Cosmological Constant from ℂ⊗ℍ⊗𝕆](papers/cosmological_constant.pdf) — resolves the 122-order-of-magnitude hierarchy
 
 ## Blog post
 
 - [blog_post.md](blog_post.md) — accessible overview of the framework and its results
 
-## Key predictions
+## Audit trail
+
+- [DERIVATION_LEDGER.md](DERIVATION_LEDGER.md) — canonical status ledger for theorem-level claims, bridge assumptions, open derivations, and ansaetze
+- [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md) — caveats on postdictions, statistical dependence, continuum/RG gaps, dimensional counting, and null tests
+- [FUTURE_TESTS.md](FUTURE_TESTS.md) — dated register of future-facing falsifiable predictions frozen on 2026-06-06
+- [FLAVOUR_DERIVATION.md](FLAVOUR_DERIVATION.md) — bridge memo for the explicit flavour derivation scaffold
+
+## Key relations
 
 | Observable | Predicted | Measured | Error |
 |---|---|---|---|
@@ -34,6 +41,10 @@ This project was developed as a human–AI collaboration (with Claude, Anthropic
 ```
 papers/                  LaTeX sources and compiled PDFs
 compute/                 Numerical verification scripts (Python 3 + NumPy)
+DERIVATION_LEDGER.md     Logical status of each claim and proof obligation
+METHODOLOGY_LIMITS.md    Methodology caveats and statistical interpretation
+FUTURE_TESTS.md          Frozen future-test register
+FLAVOUR_DERIVATION.md    Flavour-sector derivation scaffold and proof gaps
 blog_post.md             Public-facing writeup
 ```
 
@@ -46,16 +57,16 @@ pdflatex electroweak_parameters.tex && pdflatex electroweak_parameters.tex
 pdflatex cosmological_constant.tex && pdflatex cosmological_constant.tex
 ```
 
-## Falsifiable predictions
+## Future-facing tests and null exclusions
 
 - Normal neutrino mass ordering (JUNO, ~2027–28)
-- No WIMP dark matter (LZ/XENONnT)
-- No proton decay (Hyper-Kamiokande)
-- No axion (various experiments)
-- No supersymmetric particles (HL-LHC)
+- No confirmed WIMP-like recoil in next-generation direct-detection windows (LZ/XENONnT/DARWIN)
+- No proton decay through Hyper-Kamiokande-scale lifetime bounds
+- No QCD axion in covered haloscope/helioscope mass-coupling windows
+- No supersymmetric particles within HL-LHC-scale direct reach
 - Σmν ≈ 60 meV (Euclid/DESI)
 
-Any one of these failing would falsify the framework.
+Positive discoveries in these channels would put direct pressure on the framework. Null results are consistency checks, not confirmations by themselves.
 
 ## License
 

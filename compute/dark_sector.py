@@ -589,7 +589,7 @@ def beyond_sm_summary():
   • One algebra (C⊗H⊗O) → all particles
   • One action (S = Σ log cos θ) → all dynamics
   • One scale (M_P) → all masses via powers of 1/3
-  • Zero free parameters → all couplings
+  • Few explicit inputs → constrained couplings
   
   If dark matter is discovered to be a new particle, the framework is
   FALSIFIED (or must be extended, which would break its minimality).

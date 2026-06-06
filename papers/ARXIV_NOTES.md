@@ -65,7 +65,7 @@ Do the same in Paper 3's `\bibitem{Paper1}`.
 3. **Cross-list**: `hep-th`, `math-ph`
 4. **Upload**: `electroweak_parameters.tex`
 5. **Metadata**:
-   - Title: `Electroweak Parameters from C⊗H⊗O: Twenty-Three Predictions with Zero Free Parameters`
+   - Title: `Electroweak Parameters from C⊗H⊗O: Twenty-Three Low-Energy Relations from Few Inputs`
    - Comments: `19 pages, no figures. Companion to arXiv:2406.XXXXX`
    - MSC-class: `81V22, 17A75, 81T13`
 6. **Note the arXiv ID** for Paper 3

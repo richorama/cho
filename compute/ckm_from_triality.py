@@ -495,7 +495,7 @@ def algebraic_interpretation(best_delta):
    ║ Therefore: δ = arccos(1/3) ≈ 70.53°                             ║
    ║                                                                   ║
    ║ This gives J = 3.01 × 10⁻⁵ (exp: 3.08 × 10⁻⁵)                 ║
-   ║ Agreement: 2.3% — with ZERO free parameters.                     ║
+  ║ Agreement: 2.3% — with the stated CHO/NNI bridge inputs.          ║
    ╚═══════════════════════════════════════════════════════════════════╝
 
    The angle arccos(1/3) also appears in:

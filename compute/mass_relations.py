@@ -286,7 +286,7 @@ def ckm_predictions():
         |V_cb|² = ε₀²/4 = sin²θ_W × ε₀²      (2→3 mixing: Weinberg suppression)
         |V_ub|  = (√2-1) × |V_us| × |V_cb|    (1→3 mixing: tan(π/8) factor)
     
-    The pure ratio |V_cb|/|V_us| = 1/(2√7) is a parameter-free prediction.
+    The pure ratio |V_cb|/|V_us| = 1/(2√7) is a constrained bridge relation.
     """
     print("\nCKM MIXING FROM ε₀ = √(π/432)")
     print("=" * 60)
@@ -324,10 +324,10 @@ def ckm_predictions():
     print(f"    Error:     {(V_ub_pred-V_ub_obs)/V_ub_obs*100:+.2f}%")
     print()
     
-    # Parameter-free ratio
+    # Constrained bridge ratio
     ratio_pred = 1 / (2 * np.sqrt(7))
     ratio_obs = V_cb_obs / V_us_obs
-    print(f"  Parameter-free ratio: |V_cb|/|V_us| = 1/(2√7)")
+    print(f"  Constrained bridge ratio: |V_cb|/|V_us| = 1/(2√7)")
     print(f"    Predicted: {ratio_pred:.5f}")
     print(f"    Observed:  {ratio_obs:.5f}")
     print(f"    Error:     {(ratio_pred-ratio_obs)/ratio_obs*100:+.2f}%")
@@ -473,8 +473,8 @@ def full_prediction_chain():
             print(f"{name:<6} {formula:<14} {pred:>8.4f} {unit} {obs:>8.4f} {unit} {err:>+7.2f}%")
     
     print()
-    print("8 masses predicted from 1 input (m_t) + pure algebra.")
-    print("No free parameters. All errors within expected radiative corrections.")
+    print("8 masses audited from m_t plus CHO/NNI bridge rules.")
+    print("No row-by-row fit; first-generation bridge factors still need derivation.")
 
 
 if __name__ == "__main__":

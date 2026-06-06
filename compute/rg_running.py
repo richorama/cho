@@ -111,8 +111,8 @@ def run_all_to_2GeV():
     print(f"    m_d(2 GeV) = {m_d_at_2*1e3:.2f} MeV")
     print(f"    m_u(2 GeV) = {m_u_at_2*1e3:.2f} MeV")
     
-    # Step 3: Check CHO predictions using masses at common scale
-    print(f"\n  CHO PREDICTIONS vs EXPERIMENT (all at μ = 2 GeV):")
+    # Step 3: Check CHO relations using masses at common scale
+    print(f"\n  CHO RELATIONS vs EXPERIMENT (all at μ = 2 GeV):")
     print(f"  {'Ratio':<30} {'CHO':>8} {'Obs(2GeV)':>10} {'Error':>7}")
     print(f"  {'-'*60}")
     

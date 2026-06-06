@@ -1,9 +1,15 @@
 """
-Master Summary: All 23 Predictions of the CHO Framework
-=========================================================
+Master Summary: CHO Framework Prediction Audit Table
+=====================================================
 
-Prints every prediction vs experiment in a single table.
-Input: M_P (equivalently G_N). All else is derived.
+Prints every CHO audit row vs experiment in a single table.
+Inputs: the CHO algebra, explicit bridge assumptions, and M_P
+(equivalently G_N). No row-by-row low-energy fit is performed.
+
+Counting convention:
+- Paper 2 uses 23 grouped predictions.
+- This audit table has 25 rows because it displays several grouped
+    sector relations as explicit mass entries for traceability.
 """
 import numpy as np
 
@@ -17,7 +23,7 @@ EPS0 = np.sqrt(EPS0_SQ)
 
 
 def predictions():
-    """Generate all 23 predictions."""
+    """Generate all audit-table rows."""
     eps = EPS0_SQ
     eps0 = EPS0
     
@@ -114,10 +120,11 @@ def print_table():
     
     print()
     print("=" * 80)
-    print("  CHO FRAMEWORK: COMPLETE PREDICTION TABLE (25 predictions, 0 free params)")
-    print("  Input: M_P = 1.221×10¹⁹ GeV (equivalently, G_N)")
+    print("  CHO FRAMEWORK: CORRELATED AUDIT TABLE (25 rows, few inputs)")
+    print("  Input scale: M_P = 1.221×10¹⁹ GeV (equivalently, G_N)")
     print("  Parameter: ε₀² = π/432 = π/(dim_ℂ(A)×dim(J₃(O)))")
-    print("  [Paper Table 1 lists 23; this table adds m_c, m_s, m_μ explicitly]")
+    print("  [Paper 2 uses 23 grouped relations; this table expands grouped rows]")
+    print("  [Rows are correlated; this is an audit table, not 25 independent hits]")
     print("=" * 80)
     print()
     print(f"{'#':>2} {'Observable':<22} {'Formula':<20} {'Pred':>10} {'Obs':>10} {'Err%':>6} {'σ':>5}")
@@ -162,9 +169,10 @@ def print_table():
     print(f"  Median |error|: {np.median(errors):.1f}%")
     print(f"  Mean |error|:   {np.mean(errors):.1f}%")
     print(f"  Max |error|:    {max(errors):.1f}% (m_u, within 1σ)")
-    print(f"  Predictions ≤ 1%:  {sum(1 for e in errors if e <= 1.0)}/{len(errors)}")
-    print(f"  Predictions ≤ 3%:  {sum(1 for e in errors if e <= 3.0)}/{len(errors)}")
-    print(f"  All within 1σ experimental uncertainty or <3% (tree-level radiative)")
+    print(f"  Rows ≤ 1%:  {sum(1 for e in errors if e <= 1.0)}/{len(errors)}")
+    print(f"  Rows ≤ 3%:  {sum(1 for e in errors if e <= 3.0)}/{len(errors)}")
+    print("  Caveat: many rows share ε₀, masses, or bridge rules; use covariance")
+    print("  before treating this as a global statistical goodness-of-fit.")
     print()
 
 

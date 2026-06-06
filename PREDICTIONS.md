@@ -2,9 +2,15 @@
 
 ## Theory: Algebraic Emergence from Octonionic Causal Information Geometry
 
+For the logical status of each claim, see [DERIVATION_LEDGER.md](DERIVATION_LEDGER.md). For methodology caveats on postdictions, statistical dependence, continuum/RG gaps, dimensional counting, and null tests, see [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md). For future-facing tests frozen before the next generation of data, see [FUTURE_TESTS.md](FUTURE_TESTS.md).
+
+Counting convention: the papers use **23 grouped predictions**. The compute summary table lists **25 rows** because `m_c`, `m_s`, and `m_mu` are displayed explicitly rather than only through the grouped sector relations.
+
+Language convention: most numerical agreements below are **retrodictive relations** against already-known constants, not confirmed predictions in the historical sense. The project now uses **few-input** wording: the audit does not fit a separate continuous low-energy parameter for each observable, but it does rely on explicit algebraic inputs and bridge assumptions.
+
 ---
 
-## DEFINITE PREDICTIONS (Falsifiable)
+## CLAIMS AND TESTS (Status-Marked)
 
 ### 1. Right-Handed Neutrino Exists
 **Prediction:** A sterile right-handed neutrino ν_R must exist to complete the algebraic representation (fills dim_ℂ(𝒜) = 32).
@@ -27,27 +33,27 @@
 ---
 
 ### 3. No Proton Decay (or very specific rate)
-**Prediction:** In standard GUTs, proton decay occurs via X/Y bosons at rate ~ M_X⁻⁴. Our theory predicts:
+**Claim:** In standard GUTs, proton decay occurs via X/Y bosons at rate ~ M_X⁻⁴. This framework currently claims:
 - If unification is at ~10⁴ GeV: proton should decay FAST (already ruled out → this specific scenario is excluded)
 - If the algebraic constraints impose selection rules: proton may be STABLE (because baryon number = topological charge in the lattice)
 
-**Most likely prediction:** Proton is stable because baryon number is an exact algebraic quantum number (related to the orientation of the octonionic label chain), not an accidental symmetry.
+**Most likely target:** Proton is stable because baryon number is an exact algebraic quantum number (related to the orientation of the octonionic label chain), not an accidental symmetry.
 
-**Test:** Hyper-Kamiokande proton decay search (τ_p > 10³⁴ years currently).
+**Test scale:** Hyper-Kamiokande-style searches should push key modes such as `p -> e+ pi0` toward ~10^35 year sensitivity.
 
 **Falsification:** If proton decay is observed at ANY rate, our "algebraic stability" prediction is wrong (would need revision of how B is encoded).
 
 ---
 
 ### 4. Dark Matter is Non-Standard
-**Prediction:** Dark matter consists of "algebraic defects" — stable configurations in 𝕆 that don't project onto any SM subalgebra. Properties:
+**Claim:** Dark matter, if described inside the CHO sector, would be an algebraic-defect phenomenon rather than a standard weakly-interacting particle. Properties:
 - Gravitational interaction only (no EM, no strong, no weak) ✓ (matches observations)
 - Potentially SELF-interacting via the G₂ connection (at suppressed rate)
 - Mass spectrum determined by octonionic norm structure (likely in GeV–TeV range)
 - NOT a WIMP (no weak interaction), NOT an axion
 
-**Test:** 
-- Direct detection: NULL results predicted (no nuclear recoil via SM forces)
+**Test scale:** 
+- Direct detection: no confirmed WIMP-like nuclear recoil above next-generation reach over the usual ~10 GeV-10 TeV weak-scale mass window
 - Self-interaction: may show effects in galaxy cluster collisions (Bullet cluster bounds)
 - Production: cannot be produced at LHC via SM interactions
 
@@ -56,7 +62,7 @@
 ---
 
 ### 5. Cosmological Constant from Lattice Fluctuations
-**Prediction:** Λ ~ ℓ_P⁻² × N⁻¹/² where N ~ (R_H/ℓ_P)⁴ is the number of causal atoms in the observable universe.
+**Bridge claim:** Λ ~ ℓ_P⁻² × N⁻¹/² where N ~ (R_H/ℓ_P)⁴ is the number of causal atoms in the observable universe. The continuum/free-energy derivation is still an open bridge problem.
 
 **Numerical prediction:** Λ ~ (10⁻³³ cm)⁻² × (10²⁴⁴)⁻¹/² ~ 10⁻⁶⁶ cm⁻² × 10⁻¹²² ~ 10⁻¹²² ℓ_P⁻² ✓
 
@@ -106,7 +112,7 @@ At early times: Λ was LARGER (∝ H²). This is consistent with "dark energy tr
 ---
 
 ### 10. Inter-Sector Mass Relations (Verified 0.2–1.3%)
-**Prediction:** The 2nd-generation Yukawa in each sector is controlled by a single parameter ε₀² = m_c/m_t ≈ 1/136, multiplied by a sector-dependent factor from the algebraic structure:
+**Retrodictive relation:** The 2nd-generation Yukawa in each sector is controlled by a single bridge quantity ε₀² = m_c/m_t ≈ 1/136, multiplied by a sector-dependent factor from the algebraic structure:
 
 | Sector | Relation | Multiplicity | Algebraic origin |
 |--------|----------|:---:|---|
@@ -126,7 +132,7 @@ At early times: Λ was LARGER (∝ H²). This is consistent with "dark energy tr
 ---
 
 ### 11. ε₀² = π/432 (Derived, 0.70σ from observed)
-**Prediction:** The triality-breaking parameter is:
+**Bridge rule:** The triality-breaking parameter is:
 $$\varepsilon_0^2 = \frac{\pi}{432} = \frac{\pi}{\dim_\mathbb{C}(\mathcal{A}) \times \dim(J_3(\mathbb{O}))} = \frac{\pi}{16 \times 27}$$
 
 - Predicted: ε₀² = 0.007272 = 1/137.5
@@ -151,7 +157,7 @@ $$\varepsilon_0^2 = \frac{\pi}{432} = \frac{\pi}{\dim_\mathbb{C}(\mathcal{A}) \t
 - √2: same Higgs normalization as in m_t = v/√2 (y_t = 1)
 - 7/3 = dim(Im 𝕆)/N_c: the b quark couples to all 7 imaginary octonionic units, averaged over 3 colors. Compare 2nd-gen GJ factor = dim(𝕆)/N_c = 8/3.
 
-**Combined:** m_b = (7√2/3) × ε₀² × m_t (from m_t alone, no free parameters).
+**Combined:** m_b = (7√2/3) × ε₀² × m_t (from the top-scale relation plus the ε₀ bridge, with no row-by-row fitted parameter).
 
 ---
 
@@ -195,7 +201,7 @@ $$|V_{us}|^2 = 7\varepsilon_0^2, \quad |V_{cb}| = \varepsilon_0/2, \quad |V_{ub}
 - 1/4 = sin²θ_W (tree): the 2→3 transition carries additional electroweak suppression
 - √2−1 = tan(π/8): the 1→3 transition involves the sub-leading CP phase angle
 
-**Significance:** This FIXES the previous 40% |V_cb| discrepancy from the Fritzsch texture. The formula |V_cb| = ε₀/2 replaces the old √(m_s/m_b)−√(m_c/m_t) = 0.063. The pure ratio |V_cb|/|V_us| = 1/(2√7) is a parameter-free algebraic prediction.
+**Significance:** This fixes the previous 40% |V_cb| discrepancy from the Fritzsch texture. The formula |V_cb| = ε₀/2 replaces the old √(m_s/m_b)−√(m_c/m_t) = 0.063. The pure ratio |V_cb|/|V_us| = 1/(2√7) is a constrained algebraic relation, pending a full CHO mass-matrix derivation.
 
 ---
 
@@ -257,7 +263,7 @@ $$\frac{\Delta m^2_{21}}{\Delta m^2_{31}} = \left(\frac{m_{\nu_2}}{m_{\nu_3}}\ri
 
 **Experimental status:**
 - Current bound: |θ̄| < 10⁻¹⁰ (neutron EDM) ✓
-- Prediction: θ̄ = 0 exactly, NO AXION exists
+- Target: θ̄ = 0 exactly, so no QCD axion is required. Axion exclusion remains parameter-window dependent because no single experiment covers the full axion mass-coupling space.
 
 **Falsification:** Any measurement of θ̄ ≠ 0, or detection of an axion.
 
@@ -297,21 +303,23 @@ $$\frac{\Delta m^2_{21}}{\Delta m^2_{31}} = \left(\frac{m_{\nu_2}}{m_{\nu_3}}\ri
 
 ## KEY OPEN CALCULATIONS
 
-1. **First-generation justification:** Rigorous derivation of the NNI |A/C|² factors (1/4, 9/4, 1/4π) from the Yukawa structure of the octonionic algebra. The 9 = N_c² for down quarks and 1/π for leptons need formal proof from the coset geometry.
+1. **Continuum/action/RG derivation:** Strengthen the lattice action, continuum limit, matching scale, and threshold calculations for α, sin²θ_W, M_W, and Λ. These are not yet strong enough to carry the full theory.
 
-2. **CKM matrix elements:** ✅ SOLVED — |V_cb| = ε₀/2 (1.0%), |V_us| = √7·ε₀ (0.6%), |V_ub| = (√2−1)|V_us||V_cb| (1.1%). The old Fritzsch texture is superseded by the direct ε₀ formula.
+2. **First-generation justification:** Rigorous derivation of the NNI |A/C|² factors (1/4, 9/4, 1/4π) from the Yukawa structure of the octonionic algebra. The 9 = N_c² for down quarks and 1/π for leptons need formal proof from the coset geometry.
 
-3. **Fine structure constant:** Complete the lattice→continuum matching to derive α = 1/137. This requires a controlled continuum limit (functional analysis/rigorous RG flow on the causal lattice).
+3. **CKM matrix elements:** Magnitudes are captured by |V_cb| = ε₀/2 (1.0%), |V_us| = √7·ε₀ (0.6%), |V_ub| = (√2−1)|V_us||V_cb| (1.1%). The full Jarlskog phase placement still needs the CHO Yukawa operator.
 
-4. **Dark matter mass:** Determine the mass of the lightest algebraic defect (the DM candidate). Requires enumerating stable non-subalgebra configurations.
+4. **Statistical independence:** Build a minimal independent observable set with covariance for mass-derived ratios. The current 25-row table is an audit table, not 25 independent hits.
 
-5. **Gravitational corrections:** Compute the first quantum correction to Newton's law from the lattice. Should give a specific coefficient for the R² term in the effective gravitational action.
+5. **Dark matter mass/signature:** Determine the mass, abundance, and self-interaction scale of the lightest algebraic defect candidate. Null WIMP searches are weaker than a positive quantitative signature.
+
+6. **Gravitational corrections:** Compute the first quantum correction to Newton's law from the lattice. Should give a specific coefficient for the R² term in the effective gravitational action.
 
 ---
 
 ## WHAT WOULD KILL THIS THEORY
 
-The theory is definitively falsified if ANY of the following are established:
+The theory would be strongly falsified or require a major bridge revision if any of the following are established:
 
 1. A 4th generation of fermions is discovered
 2. Dark matter interacts via weak or electromagnetic forces (confirmed WIMP)

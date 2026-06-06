@@ -171,7 +171,7 @@ The dynamics (equations of motion) should not be imposed but derived from an inf
 ## Success Criteria
 
 The theory succeeds if it can:
-- [ ] Derive all 19 free parameters of the SM from ≤ 3 free parameters (ideally zero)
+- [ ] Derive all 19 free parameters of the SM from a few explicit inputs/bridge assumptions, with no row-by-row fitted low-energy parameters
 - [ ] Predict at least one currently unmeasured quantity that is subsequently verified
 - [ ] Resolve the cosmological constant problem (predict Λ within an order of magnitude)
 - [ ] Be falsifiable — state clearly what observations would rule it out

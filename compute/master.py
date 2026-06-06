@@ -2,15 +2,16 @@
 MASTER COMPUTATION: From Algebra to the Standard Model
 =======================================================
 
-This single script takes the physics algebra A = C*H*O as input
-and derives ALL measurable parameters of the Standard Model.
+This exploratory script takes the physics algebra A = C*H*O as input
+and prints a few-input audit against Standard Model parameters.
 
-NO free parameters. Everything follows from:
+No row-by-row low-energy fit is performed. The audit relies on:
 1. The octonion multiplication table (7 Fano triples)
 2. The information action principle (maximize mutual info)
 3. The causal set hypothesis (discrete spacetime)
+4. Bridge assumptions that still need independent derivation
 
-Output: A table comparing predicted vs measured values for every SM parameter.
+Output: A table comparing computed relations vs measured values.
 """
 
 import numpy as np
@@ -306,7 +307,7 @@ def print_results_table(results):
     
     print("\n" + "=" * 80)
     print("   STANDARD MODEL PARAMETERS: PREDICTED vs MEASURED")
-    print("   (All predictions from A = C*H*O, zero free parameters)")
+    print("   (Few-input CHO audit; no row-by-row fitted parameters)")
     print("=" * 80)
     
     print(f"\n   {'Parameter':<20} {'Predicted':<18} {'Measured':<18} {'Error':<10}")
@@ -453,13 +454,13 @@ def scorecard(results):
    │ Sum(m_nu) ~ 61 meV                      (testable by 2030)    │
    └────────────────────────────────────────────────────────────────┘
    
-   FREE PARAMETERS: 0
-   (The only "input" is the octonion multiplication table, which is 
-   UNIQUE up to automorphisms by Hurwitz's theorem.)
+    FREE INPUTS/PARAMETERS: few
+    (The algebra is fixed, but the physics map uses bridge assumptions
+    such as the information action, continuum/RG matching, and flavour rules.)
    
    COMPARISON WITH STANDARD MODEL:
    Standard Model: 19 free parameters (masses, couplings, angles)
-   Our theory:     0 free parameters
+    CHO audit:      few explicit inputs/bridge assumptions
    
    Of the 19 SM parameters, we can currently compute:
    - 3 gauge couplings (alpha_em, alpha_s, sin2_W): ✓ (2-5% accuracy)
@@ -488,7 +489,7 @@ if __name__ == "__main__":
     print("+" * 80)
     print("+                                                                              +")
     print("+   THEORY OF EVERYTHING: COMPLETE COMPUTATION                                 +")
-    print("+   From C*H*O to the Standard Model — Zero Free Parameters                   +")
+    print("+   From C*H*O to the Standard Model — Few-Input Audit                        +")
     print("+                                                                              +")
     print("+" * 80)
     

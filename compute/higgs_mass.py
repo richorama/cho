@@ -459,7 +459,7 @@ def consistency_checks():
    m_t = v/√2  [y_t = 1]         = 174.1 GeV (exp: 172.8, err: 0.8%)
    m_Z = m_W / cos(θ_W)          = 92.7 GeV  (exp: 91.2, err: 1.7%)
    
-   ALL within 0.1-2% of experiment, from ZERO free parameters.
+   ALL within 0.1-2% of experiment, from few explicit CHO inputs.
 """)
 
 
@@ -647,7 +647,7 @@ if __name__ == "__main__":
    │                                                                │
    └──────────────────────────────────────────────────────────────┘
    
-   Updated scorecard (zero free parameters):
+   Updated scorecard (few-input audit):
    
    Parameter        Formula                   Predicted    Measured   Error
    ─────────────────────────────────────────────────────────────────────────

@@ -18,11 +18,11 @@ I brought the guiding question:
 
 The AI brought the ability to rapidly compute, cross-check against experimental data, explore algebraic identities, spot errors in derivations, and maintain consistency across a growing web of interconnected predictions.
 
-The result surprised me. What started as exploratory numerology gradually locked into a rigid structure with zero free parameters and 23 quantitative predictions — all matching experiment to 0.1–7%. The AI didn't hallucinate these agreements; it computed them from explicit algebraic formulas and checked them against published PDG and NuFit data. When a prediction was wrong, we found out immediately and either fixed the derivation or acknowledged the discrepancy.
+The result surprised me. What started as exploratory numerology gradually locked into a rigid few-input structure with 23 grouped quantitative relations — all matching known experimental values to 0.1–7%. These are mostly postdictions, not historical predictions: the constants were already known. The AI didn't hallucinate these agreements; it computed them from explicit algebraic formulas and checked them against published PDG and NuFit data. When a relation was wrong, we found out immediately and either fixed the derivation or acknowledged the discrepancy.
 
 **What the AI contributed:** Rapid symbolic computation, error-checking, consistency enforcement across papers, literature cross-referencing, and the sheer throughput to explore hundreds of algebraic possibilities in the time it would take a human to check one.
 
-**Is this real physics?** That's for the community to judge. The numbers work. The framework is falsifiable (several experiments in the next 2–4 years will directly test it). The three companion papers lay out every derivation in detail. If this is wrong, it will be proven wrong soon. If it's right, it's perhaps the first major result in theoretical physics to emerge from human–AI collaboration.
+**Is this real physics?** That's for the community to judge. The numbers are intriguing, but the continuum/RG derivation and several algebra-to-physics bridge rules still need hardening. The framework is falsifiable (several experiments in the next decade will test parts of it), and the companion papers plus audit documents lay out what is derived, what is assumed, and what remains open.
 
 Either way, it's a story about what becomes possible when you combine human intuition with AI capability.
 
@@ -151,9 +151,9 @@ Each sector gets a different multiplicity factor from the algebra:
 
 The factors 1, 3, 8 aren't arbitrary — they're the dimensions of the three "layers" of the algebra accessible to each particle type.
 
-### Predictions vs experiment
+### Relations vs experiment
 
-With zero free parameters (the only input is the Planck mass G_N), the framework produces **23 quantitative predictions**:
+With a few explicit inputs and bridge assumptions, and no row-by-row fitted low-energy parameters, the framework produces **23 grouped quantitative relations**:
 
 | What | Formula | Predicted | Measured | Error |
 |---|---|---|---|---|
@@ -173,7 +173,7 @@ With zero free parameters (the only input is the Planck mass G_N), the framework
 | Cosmological constant | 3⁻²⁵⁶ suppression | ~2.3 meV | ~2.3 meV | ~3% |
 | + 9 more | — | — | — | 0.2–7% |
 
-**Median error: 1.0%. All within 3σ experimental uncertainty** (for the 16 predictions where experimental precision allows a meaningful test).
+**Median descriptive error: 1.0%. All within 3σ experimental uncertainty** for the 16 audit rows where experimental precision allows a meaningful pull calculation. These rows are correlated, so this is not a global independent-observable fit.
 
 ---
 
@@ -192,7 +192,7 @@ In the CHO framework, θ̄ = 0 is a *symmetry*, not a coincidence:
 
 Meanwhile, the CKM phase that gives *weak* CP violation is preserved — it comes from a geometric angle between different Fano plane lines, which is unaffected by the Z₂.
 
-**Prediction: No axion exists.** All axion search experiments should yield null results.
+**Null target: no QCD axion.** Axion searches should keep returning null results in the mass-coupling windows they cover; no single experiment covers the entire axion parameter space.
 
 ---
 
@@ -218,7 +218,7 @@ The CHO framework offers a resolution: the vacuum energy is suppressed by 3⁻�
 
 ---
 
-## Dark Matter: A Sharp Negative Prediction
+## Dark Matter: A Null Exclusion Target
 
 The algebra is saturated — all 64 dimensions map to known particles. There is no algebraic "slot" for a new particle that carries Standard Model charges. Therefore:
 
@@ -226,7 +226,7 @@ The algebra is saturated — all 64 dimensions map to known particles. There is 
 - **Dark matter is not a new particle in the usual sense**
 - It may be topological defects in the causal lattice structure — gravitationally interacting but otherwise invisible
 
-This explains 40 years of null results from direct detection experiments (LUX, XENON, PandaX, LZ). The framework predicts these will *continue* to find nothing.
+This is consistent with 40 years of null results from direct detection experiments (LUX, XENON, PandaX, LZ). The useful future test is more specific: no confirmed WIMP-like recoil in the usual weak-scale mass window above next-generation experimental reach.
 
 ---
 
@@ -257,7 +257,7 @@ Gravity isn't a force to be quantised — it's what octonionic non-associativity
 
 ## What Would Falsify This Framework
 
-Good theories make sharp predictions. This framework is vulnerable to:
+Good theories expose themselves to clear failure modes. This framework is vulnerable to:
 
 1. **Discovery of a 4th-generation particle** (the algebra can't support it)
 2. **Proton decay observed** (baryon number is algebraically exact)
@@ -266,7 +266,7 @@ Good theories make sharp predictions. This framework is vulnerable to:
 5. **Axion detected** (strong CP is already solved by Fano parity)
 6. **Higgs self-coupling far from λ = π/24** (HL-LHC, ~2030s)
 
-Several of these directly contradict other popular theories: supersymmetry predicts superpartners; grand unification predicts proton decay; the axion hypothesis predicts an axion. This framework says none of these exist.
+Several of these directly contradict other popular theories: supersymmetry predicts superpartners; grand unification predicts proton decay; the axion hypothesis predicts an axion. These null claims are useful, but weaker than a positive quantitative prediction unless tied to explicit experimental reach.
 
 ---
 
@@ -286,7 +286,7 @@ This is a framework with extraordinary initial results, not a finished theory:
 
 - The **continuum limit** (showing smooth spacetime emerges from the discrete lattice) hasn't been proven rigorously. This is a hard mathematical problem.
 - The **gravitational sector** is conceptual rather than calculational. Claiming gravity = emergent non-associativity is compelling but not yet at the level of, say, computing graviton scattering amplitudes.
-- All predictions are at **tree level** (lowest order). The 0.1–6% discrepancies should shrink when 1-loop corrections are computed from within the framework. This work hasn't been done yet.
+- The numerical relations are mostly **tree level** (lowest order). The 0.1–6% discrepancies should shrink when 1-loop corrections are computed from within the framework. This work hasn't been done yet.
 - The **dark matter story** is more "what it isn't" than "what it is." The algebraic-defect picture needs quantitative development.
 - The **m_e prediction** (electron mass from 1st-gen formula) has the largest error at ~6%, suggesting the lepton NNI factor needs refinement or a proper loop calculation.
 
@@ -298,7 +298,7 @@ For decades, attempts to go beyond the Standard Model have generally added struc
 
 The CHO framework goes in the opposite direction. It asks: *what is the minimal mathematical structure from which the Standard Model must emerge?* The answer turns out to be three division algebras combined in the only way they can be.
 
-The result is a theory with *fewer* moving parts than the Standard Model (zero free parameters vs 19), yet it reproduces — and in some cases extends — all the Standard Model's successful predictions. The 64 dimensions of ℂ⊗ℍ⊗𝕆 aren't extra spatial dimensions to be hidden or compactified. They're the internal quantum numbers of the particles we already know, organised by the deepest structure that mathematics allows.
+The result is a theory with *fewer* moving parts than the Standard Model (few explicit inputs rather than 19 fitted low-energy parameters), yet it reproduces — and in some cases extends — many of the Standard Model's successful numerical relations. The 64 dimensions of ℂ⊗ℍ⊗𝕆 aren't extra spatial dimensions to be hidden or compactified. They're the internal quantum numbers of the particles we already know, organised by the deepest structure that mathematics allows.
 
 ---
 
@@ -307,7 +307,7 @@ The result is a theory with *fewer* moving parts than the Standard Model (zero f
 *Technical details are available in three companion papers:*
 
 - *[Three Generations from Octonion Triality: Three Independent Proofs](papers/three_generations.pdf)*
-- *[Electroweak Parameters from ℂ⊗ℍ⊗𝕆: Twenty-Three Predictions with Zero Free Parameters](papers/electroweak_parameters.pdf)*
+- *[Electroweak Parameters from ℂ⊗ℍ⊗𝕆: Twenty-Three Low-Energy Relations from Few Inputs](papers/electroweak_parameters.pdf)*
 - *[The Cosmological Constant from ℂ⊗ℍ⊗𝕆: Resolution of the Hierarchy](papers/cosmological_constant.pdf)*
 
 *This work was produced in collaboration with Claude (Anthropic). All calculations, numerical checks, LaTeX sources, and derivation code are available on [GitHub](https://github.com/richorama/cho).*

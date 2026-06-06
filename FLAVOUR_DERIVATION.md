@@ -1,0 +1,90 @@
+# Flavour Derivation Scaffold
+
+Frozen date: 2026-06-06
+
+This note describes `compute/flavour_derivation.py`, the first bridge artifact after the derivation ledger. Its purpose is to turn the flavour sector from a list of successful formulas into a small derivation engine with explicit inputs, matrices, and remaining proof obligations.
+
+## Goal
+
+The scaffold starts from CHO algebraic data only:
+
+- `epsilon0^2 = pi / (16 * 27)`
+- `N_color = 3`
+- `dim(O) = 8`
+- `dim(Im O) = 7`
+- `sin^2(theta_W)_tree = 1/4`
+- `delta_Fano = arccos(1/3)`
+- triality nearest-neighbor rule: `M13 = 0`
+
+Experimental values are isolated in a final comparison dictionary and are not used to derive the predictions.
+
+## What It Builds
+
+1. **Charged-sector NNI bridge rules**
+
+   For each sector, the script derives dimensionless ratios normalized by the third-generation mass:
+
+   | Sector | `m2/m3` | `|A/C|^2` | `m1/m3` |
+   |---|---:|---:|---:|
+   | up | `epsilon0^2` | `1/4` | `(1/4) epsilon0^4` |
+   | down | `3 epsilon0^2` | `9/4` | `(9/4)(3 epsilon0^2)^2` |
+   | lepton | `8 epsilon0^2` | `1/(4 pi)` | `(1/(4 pi))(8 epsilon0^2)^2` |
+
+   It also constructs minimal adjacent-transition matrices with `M13 = 0` and `|A/C|^2` equal to the sector bridge rule. These matrices are diagnostic: they encode the bridge rule, but they are not yet claimed to be the final CHO Yukawa operator.
+
+2. **CKM unitary scaffold**
+
+   The script constructs a PDG-parameterized CKM matrix from:
+
+   - `|V_us| = sqrt(7) epsilon0`
+   - `|V_cb| = epsilon0 / 2`
+   - `|V_ub| = (sqrt(2) - 1) |V_us| |V_cb|`
+   - `delta = arccos(1/3)`
+
+   This reproduces the CKM magnitudes. The Jarlskog value from this simple PDG phase placement is intentionally reported separately because Paper 2's `J = 3.01e-5` requires the full NNI phase placement. That is now an explicit proof obligation instead of an implicit step.
+
+3. **PMNS unitary scaffold**
+
+   The script constructs a corrected-TBM PMNS matrix from:
+
+   - `sin^2(theta13) = 3 epsilon0^2`
+   - `sin^2(theta12) = 1 / (3 + sqrt(7) epsilon0)`
+   - `sin^2(theta23) = 4/7`
+   - `delta_PMNS = pi + arccos(1/3)` as a scaffold convention
+
+## How To Run
+
+```bash
+python3 compute/flavour_derivation.py
+```
+
+The script prints algebraic inputs, charged-sector NNI bridge tables, diagnostic nearest-neighbor matrices, CKM magnitudes and unitary matrix, and PMNS angles and unitary matrix.
+
+## Current Bridge Status
+
+This scaffold improves the project in two ways:
+
+- It makes the first-generation NNI factors local and auditable instead of scattered through prose and summary scripts.
+- It separates the CKM magnitude success from the still-open CKM phase-placement proof for the Jarlskog invariant.
+
+Ledger implications:
+
+- M9-M11 remain `Ansatz / open bridge`, but now have a concrete bridge representation to attack.
+- C1-C3 are implemented as a CKM unitary scaffold.
+- C4 remains open at the operator level because the simple PDG phase placement does not yet reproduce the Paper 2 Jarlskog target.
+- N2-N5 are implemented as a PMNS unitary scaffold, but still need a broken-`Z3` seesaw matrix derivation.
+
+## Next Proof Target
+
+The next proof should replace the diagnostic adjacent-transition matrices with a real CHO Yukawa operator:
+
+```text
+Y_f : ideal_i x Higgs x ideal_j -> scalar
+```
+
+That operator should derive all of the following in one construction:
+
+- `M13 = 0`
+- sector factors `1`, `N_c^2`, and `1/pi`
+- CKM phase placement yielding `J = 3.01e-5`
+- corrected PMNS angles from a broken-`Z3` seesaw matrix

@@ -1,10 +1,11 @@
 """
-χ² Statistical Analysis of CHO Framework Predictions
-======================================================
+Descriptive Pull Audit of CHO Framework Relations
+=================================================
 
-HONEST APPROACH: No inflated theory uncertainties.
+HONEST APPROACH: No inflated theory uncertainties, and no claim that the
+25 rows are statistically independent.
 
-We separate predictions into two classes:
+We separate audit rows into two classes:
   A) TESTABLE: σ_exp is large enough that tree-level theory can be
      meaningfully compared (σ_exp > ~1% of the observable).
      → Compute χ² using experimental errors ONLY.
@@ -12,13 +13,15 @@ We separate predictions into two classes:
      → These cannot be tested at this level. Report % deviation only.
      → Would need loop calculations to make meaningful σ-pulls.
 
-The 5σ gold standard applies to DISCOVERY claims. For a 0-parameter
-theory predicting 25 observables, the question is: are the deviations
+The 5σ gold standard applies to DISCOVERY claims. For a few-input framework
+with correlated audit rows, the question is descriptive: are the deviations
 consistent with the known size of missing radiative corrections?
 - QCD 1-loop: αs/π ≈ 3-4%
 - QED 1-loop: α/π ≈ 0.23%
 - EW threshold: ~0.5-1%
-If all deviations fall below these scales, the theory passes.
+If deviations fall below these scales, the current formulas are not ruled out.
+A formal global goodness-of-fit would require an independent observable set
+and covariance matrix for mass-derived ratios and shared bridge parameters.
 """
 import numpy as np
 
@@ -114,17 +117,18 @@ def get_predictions():
 
 def full_analysis():
     """
-    Honest χ² analysis: experimental errors only, with proper classification.
+    Descriptive pull analysis: experimental errors only, with classification.
     """
     data = get_predictions()
     
     print()
     print("=" * 95)
-    print("  CHO FRAMEWORK: HONEST STATISTICAL ANALYSIS (0 free parameters)")
+    print("  CHO FRAMEWORK: DESCRIPTIVE CORRELATED AUDIT (few inputs)")
     print("  Using EXPERIMENTAL uncertainties only — no inflated theory errors")
+    print("  Rows share inputs/bridge rules; χ² below is not a global likelihood")
     print("=" * 95)
     
-    # Classify predictions
+    # Classify audit rows
     testable = []     # σ_exp/obs > 0.5%  → meaningful pull
     precision = []    # σ_exp/obs < 0.5%  → tree-level limited
     
@@ -138,7 +142,7 @@ def full_analysis():
     
     # === Section A: Testable predictions (experiment limited) ===
     print(f"\n  ┌─────────────────────────────────────────────────────────────┐")
-    print(f"  │ A. TESTABLE PREDICTIONS (σ_exp > 0.5% of observable)        │")
+    print(f"  │ A. TESTABLE AUDIT ROWS (σ_exp > 0.5% of observable)         │")
     print(f"  │    These can be meaningfully compared using σ-pulls.         │")
     print(f"  └─────────────────────────────────────────────────────────────┘")
     print()
@@ -188,7 +192,7 @@ def full_analysis():
     
     # === Section B: Precision-limited predictions ===
     print(f"\n  ┌─────────────────────────────────────────────────────────────┐")
-    print(f"  │ B. PRECISION-LIMITED (σ_exp < 0.5% → tree-level untestable) │")
+    print(f"  │ B. PRECISION-LIMITED (σ_exp < 0.5% → tree-level limited)    │")
     print(f"  │    Pulls are meaningless here; report % deviation only.      │")
     print(f"  │    Need 1-loop calculation to compare at this precision.     │")
     print(f"  └─────────────────────────────────────────────────────────────┘")
@@ -240,37 +244,44 @@ def full_analysis():
     all_pcts = [(pred - obs)/obs*100 for name, pred, obs, sig, cat in data]
     all_pcts_abs = [abs(p) for p in all_pcts]
     
-    print(f"""
-  Total predictions: 25 (0 free parameters)
-  ─────────────────────────────────────────
+    min_precision = min(abs((pred - obs) / obs * 100) for _, pred, obs, _, _ in precision)
+    max_precision = max(abs((pred - obs) / obs * 100) for _, pred, obs, _, _ in precision)
 
-  CLASS A (testable, N={N_test}):
-    χ²/dof = {chi2:.1f}/{N_test} = {chi2_per_dof:.2f}
-    p-value = {p_val:.4f}
-    Largest pull: {np.max(np.abs(pulls_arr)):.1f}σ
-    {"PASSES at 3σ level" if np.all(np.abs(pulls_arr) < 3) else "FAILS: pull > 3σ detected"}
-    {"PASSES at 5σ level" if np.all(np.abs(pulls_arr) < 5) else "Does NOT pass 5σ"}
-
-  CLASS B (precision-limited, N={len(precision)}):
-    All deviations: {min(abs(p) for _, p, o, s, c in precision for p in [(p-o)/o*100]):.2f}% – {max(abs((p-o)/o*100) for _, p, o, s, c in precision):.1f}%
-    These are within expected 1-loop corrections.
-    NO prediction is ruled out — each would need loop calculation to test.
-
-  ALL 25 PREDICTIONS:
-    Median |% error|: {np.median(all_pcts_abs):.2f}%
-    Mean |% error|:   {np.mean(all_pcts_abs):.2f}%
-    Max |% error|:    {max(all_pcts_abs):.1f}%
-    Within 3%: {sum(1 for e in all_pcts_abs if e < 3)}/25
-    Within 5%: {sum(1 for e in all_pcts_abs if e < 5)}/25
-
-  HONEST ASSESSMENT:
-    • The theory has NO adjustable parameters.
-    • {np.sum(np.abs(pulls_arr) < 2)}/{N_test} testable predictions agree within 2σ (exp. only).
-    • {np.sum(np.abs(pulls_arr) < 3)}/{N_test} testable predictions agree within 3σ (exp. only).
-    • Precision-limited deviations (0.03–5.6%) are consistent with
-      missing 1-loop radiative corrections (αs/π ≈ 3% for QCD).
-    • The theory is NOT falsified by any current measurement.
-""")
+    print()
+    print("  Total audit rows: 25 (few-input framework; no row-by-row fit)")
+    print("  Paper 2 convention: 23 grouped relations")
+    print("  ─────────────────────────────────────────")
+    print()
+    print(f"  CLASS A (testable rows, N={N_test}):")
+    print(f"    Descriptive χ²/row = {chi2:.1f}/{N_test} = {chi2_per_dof:.2f}")
+    print(f"    Naive independent-row p-value = {p_val:.4f}")
+    print(f"    Largest pull: {np.max(np.abs(pulls_arr)):.1f}σ")
+    print(f"    {'PASSES at 3σ level' if np.all(np.abs(pulls_arr) < 3) else 'FAILS: pull > 3σ detected'}")
+    print(f"    {'PASSES at 5σ level' if np.all(np.abs(pulls_arr) < 5) else 'Does NOT pass 5σ'}")
+    print()
+    print(f"  CLASS B (precision-limited, N={len(precision)}):")
+    print(f"    All deviations: {min_precision:.2f}% – {max_precision:.1f}%")
+    print("    These are within expected 1-loop corrections.")
+    print("    No row is ruled out by this diagnostic; each needs loop calculation to test.")
+    print()
+    print("  ALL 25 AUDIT ROWS:")
+    print(f"    Median |% error|: {np.median(all_pcts_abs):.2f}%")
+    print(f"    Mean |% error|:   {np.mean(all_pcts_abs):.2f}%")
+    print(f"    Max |% error|:    {max(all_pcts_abs):.1f}%")
+    print(f"    Within 3%: {sum(1 for e in all_pcts_abs if e < 3)}/25")
+    print(f"    Within 5%: {sum(1 for e in all_pcts_abs if e < 5)}/25")
+    print()
+    print("  HONEST ASSESSMENT:")
+    print("    • The audit uses few explicit inputs and bridge assumptions.")
+    print("    • It does not fit a separate continuous parameter for each observable.")
+    print(f"    • {np.sum(np.abs(pulls_arr) < 2)}/{N_test} testable rows agree within 2σ (exp. only).")
+    print(f"    • {np.sum(np.abs(pulls_arr) < 3)}/{N_test} testable rows agree within 3σ (exp. only).")
+    print("    • Precision-limited deviations (0.03–5.6%) are consistent with")
+    print("      missing 1-loop radiative corrections (αs/π ≈ 3% for QCD).")
+    print("    • The χ² line is descriptive only because rows are correlated.")
+    print("    • The framework is not falsified by this audit, but a covariance")
+    print("      analysis is needed before quoting a global goodness-of-fit.")
+    print()
     
     return chi2, N_test, p_val, pulls_arr
 

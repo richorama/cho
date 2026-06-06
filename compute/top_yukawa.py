@@ -928,7 +928,7 @@ if __name__ == "__main__":
     m_H_exp = 125.09
     
     print(f"""
-   THE LOGICAL CHAIN (no free parameters):
+    THE LOGICAL CHAIN (few-input audit):
    
    1. A = C⊗H⊗O has multiplicative norm: |xy| = |x||y|
       → Cauchy-Schwarz gives |y_f| ≤ 1 for all Yukawa couplings
@@ -955,5 +955,5 @@ if __name__ == "__main__":
    EVERYTHING IS CONNECTED:
    M_Planck → (hierarchy) → v → (y_t=1) → m_t → (λ=π/24) → m_H
    
-   Zero free parameters. Five measured quantities matched within ~1%.
+    No row-by-row low-energy fit. Five measured quantities matched within ~1%.
 """)
