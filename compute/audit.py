@@ -2,14 +2,22 @@
 CHO ROBUSTNESS AUDIT — single entry point.
 ==========================================
 
-Runs the five robustness artifacts that stress-test the framework instead of
-just displaying agreements. Each answers a specific skeptic's question:
+Runs the robustness artifacts that stress-test the framework instead of just
+displaying agreements. Each answers a specific skeptic's question:
 
   1. look_elsewhere        — "Is this physics or numerology?" (hardness-to-vary)
   2. model_complexity      — "How many parameters, really?" (honest MDL count)
   3. independent_observables — "What's the real goodness-of-fit?" (covariance)
   4. derived_vs_residual   — "Where's the error bar on the DERIVED part?"
   5. predict_neutrino_sum  — "What can future data falsify?" (frozen prediction)
+
+plus the derivation-frontier experiments (the "can the algebra do more?" set):
+
+  6. jordan_eigenvalue_generations — spectral route to three (Lever A)
+  7. ko_dimension_chirality        — KO-dimension 6 chirality test (Lever B)
+  8. ladder_charges                — SM charges {0,1/3,2/3,1} (Lever C)
+  9. bayesian_evidence             — model-comparison Bayes factor vs a null
+ 10. prediction_registry           — tamper-evident pre-registration hashes
 
 Run all:
     PYTHONDONTWRITEBYTECODE=1 python3 compute/audit.py
@@ -27,6 +35,11 @@ import derived_vs_residual
 import predict_neutrino_sum
 import forward_predictions
 import first_generation_audit
+import jordan_eigenvalue_generations
+import ko_dimension_chirality
+import ladder_charges
+import bayesian_evidence
+import prediction_registry
 
 
 ARTIFACTS = [
@@ -54,13 +67,28 @@ ARTIFACTS = [
     ("forward_predictions",
      "Three more frozen falsifiers: m_nu3 tension, m_betabeta, Higgs self-coupling.",
      forward_predictions.main),
+    ("jordan_eigenvalue_generations",
+     "Lever A: spectral route to three (degree of the J3(O) cubic norm).",
+     jordan_eigenvalue_generations.main),
+    ("ko_dimension_chirality",
+     "Lever B: KO-dimension 6 test -- chirality without fermion doubling.",
+     ko_dimension_chirality.main),
+    ("ladder_charges",
+     "Lever C: SM charges {0,1/3,2/3,1} from the C x O number operator.",
+     ladder_charges.main),
+    ("bayesian_evidence",
+     "Model-comparison Bayes factor: CHO vs an O(1)-numerology null.",
+     bayesian_evidence.main),
+    ("prediction_registry",
+     "Tamper-evident pre-registration: SHA-256 digests of the frozen predictions.",
+     prediction_registry.main),
 ]
 
 
 def run_all():
     print("#" * 78)
     print("#  CHO ROBUSTNESS AUDIT")
-    print("#  Five artifacts that stress-test the framework, not just display it.")
+    print("#  Artifacts that stress-test the framework, not just display it.")
     print("#  These report HONEST numbers; read them before quoting headline percentages.")
     print("#" * 78)
     for i, (name, desc, fn) in enumerate(ARTIFACTS, 1):
@@ -73,6 +101,11 @@ def run_all():
     print("#  but it is a ~17-parameter framework with marginal compression today.")
     print("#  The m_e -3.75 sigma outlier is mostly error propagation through squared")
     print("#  first-gen ratios; the genuine 1/(4pi) proof obligation is a ~2% effect.")
+    print("#  Derivation frontier (Levers A-C): 'three' is also the rank of J3(O)")
+    print("#  (spectral, obstruction-free); the internal space sits at KO-dimension 6")
+    print("#  (chirality without doubling); and the C x O number operator yields the")
+    print("#  SM charges {0,1/3,2/3,1}. But the model-comparison Bayes factor still")
+    print("#  favours an O(1) null until the prefactors are DERIVED, not chosen.")
     print("#  The payoff is gated on DERIVING the prefactors, per DERIVATION_LEDGER.")
     print("#" * 78)
 
