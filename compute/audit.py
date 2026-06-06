@@ -22,8 +22,10 @@ import sys
 import look_elsewhere
 import model_complexity
 import independent_observables
+import covariance_gof
 import derived_vs_residual
 import predict_neutrino_sum
+import forward_predictions
 import first_generation_audit
 
 
@@ -37,6 +39,9 @@ ARTIFACTS = [
     ("independent_observables",
      "Goodness-of-fit on the independent observable set with a theory floor.",
      independent_observables.main),
+    ("covariance_gof",
+     "Covariance GoF: effective N_eff observables and correlated chi-square.",
+     covariance_gof.main),
     ("derived_vs_residual",
      "Error bars on the DERIVED term vs the underived continuum/RG residual.",
      derived_vs_residual.main),
@@ -46,6 +51,9 @@ ARTIFACTS = [
     ("predict_neutrino_sum",
      "Frozen, falsifiable forward prediction: Sigma m_nu.",
      predict_neutrino_sum.main),
+    ("forward_predictions",
+     "Three more frozen falsifiers: m_nu3 tension, m_betabeta, Higgs self-coupling.",
+     forward_predictions.main),
 ]
 
 

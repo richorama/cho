@@ -48,6 +48,8 @@ The 25 audit rows are not 25 independent measurements. Several rows share the sa
 
 Therefore the summary statistics are descriptive diagnostics, not a formal global likelihood. A stronger next statistical artifact should define a minimal independent observable set and include covariance for mass-derived ratios.
 
+**Update (2026-06-06): this is now done.** `compute/covariance_gof.py` builds the full covariance with a shared-`eps0` common-mode error (each row enters with sensitivity equal to the power of `eps0` in its CHO formula). Result: the 22 independent rows collapse to an effective `N_eff ~ 10` observables, and the correlated reduced `chi^2 ~ 1.8` against `N_eff` (`p ~ 0.06`) -- statistically consistent but borderline, and notably less impressive than the diagonal figure. Quote `N_eff ~ 10` and the correlated `chi^2`, not the raw row count, for any external goodness-of-fit claim.
+
 ## Continuum/RG Status
 
 The continuum action and RG matching are not yet strong enough to carry the whole theory. In particular:

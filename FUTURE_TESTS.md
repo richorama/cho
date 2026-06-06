@@ -24,6 +24,13 @@ This file records future-facing tests whose decisive data are still ahead. The p
 | Q3 | `lambda_H = pi/24` at the CHO matching level | HL-LHC, future Higgs factories | Higgs self-coupling consistent after threshold/RG corrections | Large confirmed deviation incompatible with plausible loop corrections |
 | Q4 | `theta_bar = 0` exactly | nEDM and storage-ring EDM searches | Continued null neutron EDM limits | Nonzero strong CP phase inferred |
 | Q5 | No fractional electric charges | millicharge/fractional-charge searches | Continued null results | Free fractional charge discovered |
+| Q6 | `m_betabeta = 1.5-3.7 meV` (normal ordering, light `m1`) | LEGEND-1000, nEXO | Continued null `0nubetabeta` at ~9-21 meV reach (consistent: CHO band sits below) | A confirmed signal implying `m_betabeta > ~10 meV` (needs inverted ordering or heavy lightest state, both excluded) |
+| Q7 | `kappa_lambda ~= 1.01` (SM-like Higgs self-coupling) | HL-LHC, FCC-ee/hh | Self-coupling consistent with SM after measurement | Large confirmed `|kappa_lambda - 1|` from an extended Higgs sector |
+
+The three sharpest forward predictions (the `m_nu3` vs oscillation-floor internal
+tension, `m_betabeta`, and `kappa_lambda`) are computed with explicit kill conditions
+in `compute/forward_predictions.py`, alongside the frozen `Sigma m_nu` in
+`compute/predict_neutrino_sum.py`.
 
 ## Interpretation Rules
 

@@ -40,14 +40,14 @@ Do not mix these counts without explaining the grouping.
 
 | ID | Observable or claim | Formula or value | Status | Main proof obligation |
 |---|---|---|---|---|
-| G1 | Number of generations | `N_gen = 3` | Theorem, conditional on A2-A3 | Show the three triality reps are physically the three fermion generations, not merely three related reps |
-| G2 | No fourth generation | sedenion/J4(O) obstruction | Theorem, conditional on A2-A3 | Clarify why any fourth family must require the obstructed extension |
+| G1 | Number of generations | `N_gen = 3` | Theorem (rep counting) conditional on A2-A3 bridge (open) | `three_generations_nogo_audit.py` confirms the SOUND part (D4 triality = S3 gives exactly three inequivalent 8-dim reps 8v, 8s, 8c) but shows the physical bridge A3 faces two Distler-Garibaldi-style obstructions: triality mixes a vector (8v) with two spinors (8s, 8c), and the two spinors are opposite-chirality (mirror) partners. Until A3 selects only fermionic reps and avoids the mirror pairing, the '3 reps = 3 chiral generations' step is CONJECTURE-level, not theorem |
+| G2 | No fourth generation | sedenion/J4(O) obstruction | Theorem, conditional on A2-A3 | Clarify why any fourth family must require the obstructed extension; inherits the same A3 bridge caveat as G1 |
 | S1 | Electroweak hierarchy / W mass | `M_W = M_P / 3^36` | Derived bridge | Derive each `1/3` factor from the lattice action and fix normalization without using `v` |
 | S2 | Top mass | `m_t = v / sqrt(2)` | Derived bridge | Prove unique top Yukawa saturation and compute threshold correction |
 | S3 | Higgs mass | `m_H = v sqrt(pi/12)` | Derived bridge | Derive Higgs quartic normalization from D4/root geometry in the field theory action |
 | S4 | Fine structure constant | `alpha^-1(0) = 128 pi / 3 + VP` | Open bridge | Complete lattice-to-continuum matching and vacuum-polarization calculation |
 | S5 | Weinberg angle | `sin^2(theta_W) = 1/4 + RG` | Open bridge | Fix the matching scale and thresholds from CHO, not by inverse running |
-| F0 | Triality-breaking parameter | `epsilon_0^2 = pi/432` | Open bridge / conditional projector derivation | `ACTION_PROJECTOR_BRIDGE.md` derives rank-one Fano support after line-pair selection and `PRIMITIVE_PROJECTOR_BRIDGE.md` derives the primitive product from the normalized action once the transition ray exists; `SPURION_BRIDGE.md` adds failure-closed checks deriving the `pi` holonomy as a great-circle Berry phase, reducing the Fano-pair orbit to one vacuum-stabilizer orbit, fixing the trace space uniquely, and driving all flavour channels from one knob; still lift each numerical check to a CHO-action theorem |
+| F0 | Triality-breaking parameter | `epsilon_0^2 = pi/432` | Open bridge / action-selected `pi` factor, full theorem pending R1-R3 | `foundations/02_action.md` writes down an explicit free-particle-plus-Wess-Zumino action on the rank-one transition sphere and shows the `pi` holonomy is the Berry phase of its unique closed geodesic (great circle), upgrading `SPURION_BRIDGE.md` Block 4 from "minimal geometric loop" to "stationary configuration of `S`" (verified in `compute/action_derivation.py`). The trace space `432 = 16*27` (R3), the rank-one transition kernel (R1), and the free-action weight (R2) are still inputs; close R1-R3 or demote F0 to ansatz |
 | M1 | Charm mass | `m_c = epsilon_0^2 m_t` | Open bridge / partially derived projector | `sector_projector_derivation.py` gives the grade-0 singlet rank `1`; derive why the Yukawa map selects it |
 | M2 | Strange mass | `m_s = 3 epsilon_0^2 m_b` | Open bridge / partially derived projector | `sector_projector_derivation.py` gives the grade-1 color-triplet rank `3`; derive the Yukawa trace |
 | M3 | Muon mass | `m_mu = 8 epsilon_0^2 m_tau` | Open bridge / candidate operator | Candidate uses full Fock rank `8`; derive why charged leptons trace over the full eight-state space |
@@ -71,7 +71,7 @@ Do not mix these counts without explaining the grouping.
 | CP1 | Strong CP | `theta_bar = 0` | Derived bridge | Formalize Fano parity as a symmetry of the QCD path-integral measure |
 | CC1 | Cosmological constant | `Lambda^(1/4) = (11/12) M_P/(sqrt(2) 3^64)` | Open bridge | Derive free-energy factorization and the `11/12` screening factor without tuning |
 | D1 | No WIMP/axion/SUSY/proton decay | Null exclusion claims | Future test | Tie each claim to mass/coupling/lifetime reach and state lower evidential weight than positive quantitative targets |
-| STAT1 | 25-row audit table | Median error and pull summary | Descriptive diagnostic | Build minimal independent observable set with covariance; do not present all rows as independent hits |
+| STAT1 | 25-row audit table | Median error and pull summary | Descriptive diagnostic / covariance closed | `covariance_gof.py` builds the full covariance with a shared-`eps0` common mode: the 22 independent rows collapse to `N_eff ~ 10` effective observables, and the correlated reduced `chi^2 ~ 1.8` against `N_eff` (`p ~ 0.06`) -- consistent but borderline, superseding the diagonal-with-floor figure and the raw row count |
 
 ## Highest-Value Next Proofs
 

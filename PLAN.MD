@@ -1,5 +1,15 @@
 # Theory of Everything — Research Plan
 
+> **Scope note (2026-06-06).** The "Theory of Everything" title below is
+> **aspirational**. The framework currently has no dynamical gravity, so the
+> defensible present-day description is "an algebraic framework for Standard Model
+> parameters from division algebras" (see [README.md](README.md) and
+> [ROADMAP.md](ROADMAP.md) Tier 4). The gravity goals in Phase 3 are a scoped,
+> optional research line tracked in [foundations/03_gravity.md](foundations/03_gravity.md);
+> the "Theory of Everything" branding is conditional on that line producing a
+> metric/curvature sector. Treat Phases 1-2 (Standard Model parameters) as the
+> live program and Phase 3 (gravity/cosmology) as exploratory.
+
 ## The Problem
 
 Unite quantum mechanics, the Standard Model of particle physics, and general relativity into a single coherent mathematical framework that:

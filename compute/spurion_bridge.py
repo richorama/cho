@@ -85,10 +85,13 @@ OBSERVED = {
 # geometric (Pancharatnam-Berry) phase of a rank-one projector transported
 # around a closed loop equals minus half the enclosed solid angle.
 #
-# The minimal non-contractible triality-breaking loop is a great circle: it is
-# the geodesic loop on the transition sphere, it encloses a hemisphere of solid
-# angle 2*pi, and it is the shortest loop that exchanges the two triality-
-# adjacent rays. Its Berry phase is therefore
+# The minimal non-contractible triality-breaking loop is a great circle. NOTE:
+# `compute/action_derivation.py` + `foundations/02_action.md` upgrade this from
+# "shortest loop" to a variational statement -- the great circle is the unique
+# CLOSED GEODESIC of a written-down free action on the transition sphere, so the
+# loop is action-selected, not hand-picked. It is the geodesic loop on the
+# transition sphere, it encloses a hemisphere of solid angle 2*pi, and it is the
+# shortest loop that exchanges the two triality-adjacent rays. Its Berry phase is
 #
 #     gamma = -(1/2) * Omega = -(1/2) * 2*pi = -pi   (mod 2*pi)  ->  |gamma| = pi.
 #

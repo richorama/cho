@@ -2,6 +2,15 @@
 
 A few-input algebraic framework for the Standard Model, built from the tensor product of the three largest normed division algebras.
 
+> **Scope (decided 2026-06-06).** This project is framed as *an algebraic framework
+> for Standard Model parameters from division algebras* — **not** a completed Theory
+> of Everything. It has no dynamical gravity yet (see [foundations/03_gravity.md](foundations/03_gravity.md)
+> for the scoped, optional research line). The defensible claim is a constrained,
+> hard-to-vary parametrization of SM masses, mixings, and couplings plus a
+> conditional three-generations result. The "Theory of Everything" framing in
+> [PLAN.MD](PLAN.MD) is aspirational and gated on the gravity work; until a metric
+> sector is derived, prefer the down-scoped wording above.
+
 ## What is this?
 
 From the algebra **𝒜 = ℂ⊗ℍ⊗𝕆** (64 real dimensions), the Planck scale, and a small set of explicit bridge assumptions, this framework produces **23 grouped quantitative relations** — particle masses, mixing angles, coupling constants — without fitting a separate continuous parameter for each observable. The computational audit table lists 25 rows because several grouped mass relations are displayed explicitly. Median descriptive error: 1.0%.
@@ -23,6 +32,13 @@ This project was developed as a human–AI collaboration (with Claude, Anthropic
 - [DERIVATION_LEDGER.md](DERIVATION_LEDGER.md) — canonical status ledger for theorem-level claims, bridge assumptions, open derivations, and ansaetze
 - [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md) — caveats on postdictions, statistical dependence, continuum/RG gaps, dimensional counting, and null tests
 - [compute/audit.py](compute/audit.py) — single entry point for the five robustness artifacts (hardness-to-vary, honest MDL parameter count, independent-observable goodness-of-fit, derived-vs-residual error bars, and a frozen falsifiable neutrino-sum prediction); run `python3 compute/audit.py`
+- [ROADMAP.md](ROADMAP.md) — execution plan and log for the four prioritized upgrades (action derivation, forward predictions, covariance statistics, literature comparison, three-generations no-go, branding/gravity scope)
+- [foundations/02_action.md](foundations/02_action.md) and [compute/action_derivation.py](compute/action_derivation.py) — first written-down CHO action; derives the `pi` holonomy in `epsilon0^2 = pi/432` as the Berry phase of the action's unique closed geodesic (variational, not "shortest loop"); residuals R1–R3 left explicit
+- [compute/forward_predictions.py](compute/forward_predictions.py) — three frozen, dated falsifiers: `m_nu3` vs the oscillation floor, neutrinoless double-beta `m_betabeta`, and the Higgs self-coupling `kappa_lambda`
+- [compute/covariance_gof.py](compute/covariance_gof.py) — covariance goodness-of-fit (closes STAT1): the 22 independent rows collapse to `N_eff ~ 10` effective observables under the shared-`eps0` common mode
+- [COMPARISON.md](COMPARISON.md) — claim-by-claim grant/dispute matrix against the division-algebra literature (Furey, Dixon, Todorov/Dubois-Violette, Baez–Huerta, Boyle/Krasnov) and the Lisi/E8 no-go benchmark
+- [compute/three_generations_nogo_audit.py](compute/three_generations_nogo_audit.py) — Distler–Garibaldi-style stress test: triality rep-counting is sound, but the "3 reps = 3 chiral generations" bridge faces vector-vs-spinor and chirality obstructions, downgrading G1/G2 to conjecture-level on bridge A3
+- [foundations/03_gravity.md](foundations/03_gravity.md) — scoped, optional gravity research line with a minimal computable milestone and a permanent-down-scope kill condition
 - [EPSILON_BRIDGE.md](EPSILON_BRIDGE.md) — focused bridge target for deriving `epsilon0^2 = pi / 432` as an operator trace or transition amplitude
 - [ACTION_PROJECTOR_BRIDGE.md](ACTION_PROJECTOR_BRIDGE.md) — action-level audit of what a true rank-one epsilon projector on `A_Weyl x J3(O)` must derive
 - [compute/action_projector_derivation.py](compute/action_projector_derivation.py) — diagnostic showing rank-one Fano support and the remaining primitive `A_Weyl x J3(O)` embedding gap
