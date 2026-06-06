@@ -186,6 +186,22 @@ three independently-chosen pieces (`pi`, `16`, `27`). They triangulate:
   closing M3 for the mass sector. The CKM/PMNS/nu coefficients `sqrt7, 1/2, 4`
   and the lepton shape factor `1/pi` (M11) remain open as documented.
 
+- `compute/epsilon_mixing_coefficients.py` — **the mixing counts (M11),
+  advanced.** The mixing multiplicities are Fano-line counts read off the
+  octonion incidence table with the vacuum `omega = (1 + i e7)/2` fixing the
+  point `e7`: `7` = all Fano lines (`= dim Im(O)`), `3` = lines THROUGH the
+  vacuum (the SU(3) colour/stabiliser triplet), `4 = 7 - 3` = lines AVOIDING it
+  (the broken directions). These give `|V_us| ~ sqrt7 eps0` (an amplitude, so
+  `sqrt` of the count), `sin^2 th13 ~ 3 eps0^2`, `dm21^2/dm31^2 ~ 4 eps0^2`
+  (probabilities, so the plain count), and `sin^2 th23 = 4/7` — all within `~1.4%`.
+  The amplitude-vs-probability `sqrt`-rule is Monte-Carlo verified (RMS of an
+  `n`-direction random-phase sum is `sqrt n`). The lepton `1/(4 pi)` shape factor
+  is IDENTIFIED as the uniform measure on the transition Bloch sphere `S^2`
+  (`Int dOmega = 4 pi`), the unique `pi`-carrying partner of the full-Fock lepton
+  trace. Honest residuals: the `|V_cb|` coefficient `1/2` (weak isospin `T3`) is
+  an input, and the dynamical reduction of the lepton trace to the sphere average
+  is identified but not derived.
+
 **Net effect on the proof obligations below:** the `pi` (obligation 3) is
 geometric and action-selected, and its WEIGHT is now forced — the free action +
 topological term is the unique two-level-symmetric weight (R2); the trace space
@@ -194,11 +210,14 @@ octonionic `Delta_9` subgroup** (isomorphism discharged, the gauge-vs-flavour
 seam closed to a frame choice); the rank (obligation 2) is reframed — rank one is
 **dual to `N_gen = 3`** (a primitive idempotent), no longer a value chosen to fit
 `m_c/m_t`; and the mass-sector **sector coefficients** `(1, 3, 8)` (obligation 5)
-are derived as number-operator Fock-grade traces (the lepton `8 = 2^3`). The
-`27`'s discriminant origin is closed off as a dead end. What remains for F0 are
-minimal residuals: vacuum **purity** (R1), one **frame choice** on the octonion
-pair (the seam), the microscopic **origin** of the two-level symmetry (R2), and
-the `sqrt7, 1/2, 4`/`1/pi` mixing-sector coefficients (M11).
+are derived as number-operator Fock-grade traces (the lepton `8 = 2^3`), while
+the **mixing coefficients** `(7, 3, 4, 4/7)` are derived as Fano-line counts and
+the lepton `1/(4 pi)` is identified as the transition-sphere measure (advancing
+M11). The `27`'s discriminant origin is closed off as a dead end. What remains
+for F0 are minimal residuals: vacuum **purity** (R1), one **frame choice** on the
+octonion pair (the seam), the microscopic **origin** of the two-level symmetry
+(R2), the `|V_cb|` weak-isospin `1/2`, and the dynamical reduction of the lepton
+trace to the sphere measure (M11).
 
 ## Proof Obligations
 
@@ -206,7 +225,7 @@ the `sqrt7, 1/2, 4`/`1/pi` mixing-sector coefficients (M11).
 2. **Rank:** derive `rank(P_transition) = 1` from triality adjacency plus the normalized action rank penalty, not by choosing the value that fits `m_c/m_t`. *(Reframed in `epsilon_rank_one_kernel.py`: rank one = primitive idempotent = pure single-generation vacuum, dual to `N_gen=3`; residual is vacuum purity.)*
 3. **Holonomy:** derive the `pi` factor from the minimal path on `G2/SU(3)` or from the CHO information action. *(Advanced: `pi` is the Berry phase of the action's unique closed geodesic, and `epsilon_free_action.py` shows the free-action weight that carries it is the unique two-level-symmetric weight, up to a `theta`-irrelevant scale.)*
 4. **Operator embedding:** construct `P_transition` as a projector or matrix element inside the CHO Yukawa operator.
-5. **Sector coupling:** show why the same `epsilon0` feeds charged masses, CKM magnitudes, PMNS corrections, and neutrino splitting. *(Advanced for the mass sector: `epsilon_channel_coefficients.py` derives the ranks `(1, 3, 8)` as number-operator Fock-grade traces — `up=Tr P_0`, `down=Tr P_1`, `lepton=Tr I_Fock=2^3` — closing M3; the `sqrt7, 1/2, 4`/`1/pi` mixing coefficients (M11) stay open.)*
+5. **Sector coupling:** show why the same `epsilon0` feeds charged masses, CKM magnitudes, PMNS corrections, and neutrino splitting. *(Advanced: `epsilon_channel_coefficients.py` derives the mass ranks `(1, 3, 8)` as number-operator Fock-grade traces (closes M3); `epsilon_mixing_coefficients.py` derives the mixing counts `(7, 3, 4, 4/7)` as Fano-line incidences and identifies the lepton `1/(4 pi)` as the transition-sphere measure (advances M11). Open: the `|V_cb|` weak-isospin `1/2` and the dynamical reduction of the lepton trace to that measure.)*
 
 ## Failure Modes
 

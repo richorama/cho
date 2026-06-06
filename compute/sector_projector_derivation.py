@@ -90,6 +90,10 @@ def print_lepton_pi_gap() -> None:
     print()
     print("Conclusion: the lepton shape factor 1/(4*pi) remains open until the CHO")
     print("Yukawa/coset measure is derived and shown to reduce to that angle density.")
+    print("Update: compute/epsilon_mixing_coefficients.py identifies 1/(4 pi) as the")
+    print("uniform measure on the transition Bloch sphere S^2 (Int dOmega = 4 pi) --")
+    print("the pi-carrying partner of the full-Fock lepton trace; the dynamical")
+    print("reduction of the Yukawa trace to that average is the remaining open step.")
 
 
 def main() -> None:

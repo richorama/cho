@@ -28,7 +28,8 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  18. epsilon_rank_one_kernel      — eps0 R1: rank-one kernel = primitive idempotent
  19. epsilon_free_action          — eps0 R2: free action forced by two-level symmetry
  20. epsilon_channel_coefficients — T1.3: mass-sector ranks (1,3,8) as Fock traces
- 21. prediction_registry           — tamper-evident pre-registration hashes
+ 21. epsilon_mixing_coefficients  — M11: mixing counts (7,3,4,4/7) as Fano lines + 1/(4pi)
+ 22. prediction_registry           — tamper-evident pre-registration hashes
 
 Run all:
     PYTHONDONTWRITEBYTECODE=1 python3 compute/audit.py
@@ -61,6 +62,7 @@ import epsilon_spin9_embedding
 import epsilon_rank_one_kernel
 import epsilon_free_action
 import epsilon_channel_coefficients
+import epsilon_mixing_coefficients
 import prediction_registry
 
 
@@ -134,6 +136,9 @@ ARTIFACTS = [
     ("epsilon_channel_coefficients",
      "T1.3: mass-sector ranks (1,3,8) as number-operator Fock-grade traces (closes M3).",
      epsilon_channel_coefficients.main),
+    ("epsilon_mixing_coefficients",
+     "M11: mixing multiplicities (7,3,4,4/7) as Fano-line counts; lepton 1/(4pi) as the sphere measure.",
+     epsilon_mixing_coefficients.main),
     ("prediction_registry",
      "Tamper-evident pre-registration: SHA-256 digests of the frozen predictions.",
      prediction_registry.main),

@@ -77,7 +77,7 @@ This scaffold improves the project in two ways:
 
 Ledger implications:
 
-- M9-M11 are `Open bridge / scaffolded`: the cascade relation is explicit, while the sector shape factors still need the CHO Yukawa operator.
+- M9-M11 are `Open bridge / scaffolded`: the cascade relation is explicit, while the sector shape factors still need the CHO Yukawa operator. **Update:** `compute/epsilon_mixing_coefficients.py` now derives the mixing multiplicities `(7, 3, 4, 4/7)` as Fano-line counts (all lines / lines through the vacuum `e7` / lines avoiding it) and identifies the lepton `1/(4 pi)` shape factor as the uniform measure on the transition Bloch sphere `S^2` (`Int dOmega = 4 pi`) — advancing M11; the `|V_cb|` weak-isospin `1/2` and the dynamical reduction of the lepton trace to that measure remain open.
 - C1-C3 are implemented as a CKM unitary scaffold.
 - C4 remains open at the operator level because the simple PDG phase placement does not yet reproduce the Paper 2 Jarlskog target.
 - N2-N5 are implemented as a PMNS unitary scaffold, but still need a broken-triality seesaw matrix derivation and a clarified residual symmetry.
