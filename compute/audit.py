@@ -17,7 +17,22 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
   7. ko_dimension_chirality        — KO-dimension 6 chirality test (Lever B)
   8. ladder_charges                — SM charges {0,1/3,2/3,1} (Lever C)
   9. bayesian_evidence             — model-comparison Bayes factor vs a null
- 10. prediction_registry           — tamper-evident pre-registration hashes
+ 10. spectral_action              — one algebra-internal Dirac operator (knobs)
+ 11. cross_generation_count       — inter-gen Yukawa knob count under triality
+ 12. epsilon_cubic_discriminant   — eps0 route 2: is the 27 the cubic discriminant?
+ 13. epsilon_heat_kernel          — eps0 route 1: which pi (Berry vs heat-kernel)?
+ 14. epsilon_state_count          — eps0 route 4: 432 as a geometric state count
+ 15. epsilon_product_space        — eps0 route 4b: is 432 a genuine product?
+ 16. epsilon_weyl_isomorphism     — eps0 route 4c: A_Weyl ~= T(OP^2) as Spin(9) spinors
+ 17. epsilon_spin9_embedding      — eps0 seam: gauge & flavour Spin(9) same subgroup
+ 18. epsilon_rank_one_kernel      — eps0 R1: rank-one kernel = primitive idempotent
+ 19. epsilon_free_action          — eps0 R2: free action forced by two-level symmetry
+ 20. epsilon_channel_coefficients — T1.3: mass-sector ranks (1,3,8) as Fock traces
+ 21. epsilon_mixing_coefficients  — M11: mixing counts (7,3,4,4/7) as Fano lines + 1/(4pi)
+ 22. epsilon_vcb_halfangle        — C2: |V_cb| coefficient 1/2 = SU(2) spinor half-angle
+ 23. epsilon_a4_two_level         — R2 origin: two-level symmetry = SU(2) closure of A4
+ 24. prediction_registry           — tamper-evident pre-registration hashes
+  *  scoreboard                    — does deriving prefactors move the Bayes factor? (the one-number bottom line; runs last)
 
 Run all:
     PYTHONDONTWRITEBYTECODE=1 python3 compute/audit.py
@@ -39,7 +54,22 @@ import jordan_eigenvalue_generations
 import ko_dimension_chirality
 import ladder_charges
 import bayesian_evidence
+import spectral_action
+import cross_generation_count
+import epsilon_cubic_discriminant
+import epsilon_heat_kernel
+import epsilon_state_count
+import epsilon_product_space
+import epsilon_weyl_isomorphism
+import epsilon_spin9_embedding
+import epsilon_rank_one_kernel
+import epsilon_free_action
+import epsilon_channel_coefficients
+import epsilon_mixing_coefficients
+import epsilon_vcb_halfangle
+import epsilon_a4_two_level
 import prediction_registry
+import scoreboard
 
 
 ARTIFACTS = [
@@ -79,9 +109,54 @@ ARTIFACTS = [
     ("bayesian_evidence",
      "Model-comparison Bayes factor: CHO vs an O(1)-numerology null.",
      bayesian_evidence.main),
+    ("spectral_action",
+     "Inverse-spectral: one algebra-internal Dirac operator, knobs vs forced ratios.",
+     spectral_action.main),
+    ("cross_generation_count",
+     "Inverse-spectral: inter-generation Yukawa knob count under NNI + triality.",
+     cross_generation_count.main),
+    ("epsilon_cubic_discriminant",
+     "Eps0 route 2: tests whether the 27 in pi/432 is the Freudenthal-cubic discriminant.",
+     epsilon_cubic_discriminant.main),
+    ("epsilon_heat_kernel",
+     "Eps0 route 1: which pi -- bare Berry flux vs heat-kernel (4pi)^(-d/2).",
+     epsilon_heat_kernel.main),
+    ("epsilon_state_count",
+     "Eps0 route 4: 432 = dim(OP^2) x dim(J3(O)) as a geometric state count.",
+     epsilon_state_count.main),
+    ("epsilon_product_space",
+     "Eps0 route 4b: stratify 27=1+16+10; is 432 a genuine product? names the open isomorphism.",
+     epsilon_product_space.main),
+    ("epsilon_weyl_isomorphism",
+     "Eps0 route 4c: A_Weyl ~= T(OP^2) -- both are the unique 16-dim real Spin(9) spinor.",
+     epsilon_weyl_isomorphism.main),
+    ("epsilon_spin9_embedding",
+     "Eps0 seam: gauge & flavour Spin(9) are the same subgroup (octonionic Cl(9), O(16)-conjugate).",
+     epsilon_spin9_embedding.main),
+    ("epsilon_rank_one_kernel",
+     "Eps0 R1: the rank-one kernel is a primitive idempotent = pure single-generation vacuum.",
+     epsilon_rank_one_kernel.main),
+    ("epsilon_free_action",
+     "Eps0 R2: the free action + topological term is the unique two-level-symmetric action.",
+     epsilon_free_action.main),
+    ("epsilon_channel_coefficients",
+     "T1.3: mass-sector ranks (1,3,8) as number-operator Fock-grade traces (closes M3).",
+     epsilon_channel_coefficients.main),
+    ("epsilon_mixing_coefficients",
+     "M11: mixing multiplicities (7,3,4,4/7) as Fano-line counts; lepton 1/(4pi) as the sphere measure.",
+     epsilon_mixing_coefficients.main),
+    ("epsilon_vcb_halfangle",
+     "C2: the |V_cb| coefficient 1/2 is the SU(2) spinor half-angle (sin(eps/2)); tan(pi/8)=sqrt(2)-1.",
+     epsilon_vcb_halfangle.main),
+    ("epsilon_a4_two_level",
+     "R2 origin: the two-level symmetry is the SU(2) closure of A4 (Q8=lift of V4<A4; A4/V4=Z3).",
+     epsilon_a4_two_level.main),
     ("prediction_registry",
      "Tamper-evident pre-registration: SHA-256 digests of the frozen predictions.",
      prediction_registry.main),
+    ("scoreboard",
+     "Bottom line: does the eps0 derivation work move ln B? before/now/target in one number.",
+     scoreboard.main),
 ]
 
 
@@ -104,9 +179,12 @@ def run_all():
     print("#  Derivation frontier (Levers A-C): 'three' is also the rank of J3(O)")
     print("#  (spectral, obstruction-free); the internal space sits at KO-dimension 6")
     print("#  (chirality without doubling); and the C x O number operator yields the")
-    print("#  SM charges {0,1/3,2/3,1}. But the model-comparison Bayes factor still")
-    print("#  favours an O(1) null until the prefactors are DERIVED, not chosen.")
-    print("#  The payoff is gated on DERIVING the prefactors, per DERIVATION_LEDGER.")
+    print("#  SM charges {0,1/3,2/3,1}. The model-comparison Bayes factor has moved")
+    print("#  from ln B = -21 (only 8/3 closed) to -3 (today's closed theorems) to")
+    print("#  +6 once the geometric pi/432 is credited (see the scoreboard artifact,")
+    print("#  run: python3 compute/audit.py scoreboard): the verdict now HINGES on")
+    print("#  whether pi/432 is geometrically forced, a single named seam rather than")
+    print("#  a free knob, per DERIVATION_LEDGER.")
     print("#" * 78)
 
 

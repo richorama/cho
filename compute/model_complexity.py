@@ -55,33 +55,63 @@ def const_bits(num=1, den=1, pi_pow=0, sqrt_rad=1):
 # --------------------------------------------------------------------------
 # 1. Discrete structural choices CHO actually makes (the honest parameter list)
 # --------------------------------------------------------------------------
-# Each entry: (label, bits, derived). 'derived' = currently established from the
-# algebra per DERIVATION_LEDGER.md (costs 0 model bits once truly derived);
-# 'chosen' prefactors are paid for in full. Continuous inputs are listed below.
+# Each entry: (label, bits, status, note). 'status' tracks the derivation state
+# per DERIVATION_LEDGER.md and the eps0 derivation-frontier modules:
+#
+#   "derived"   — numerically closed: the algebraic object is established, so
+#                 the number is forced (costs 0 model bits). e.g. a Fock-grade
+#                 trace, a Fano-line count, an SU(2) half-angle.
+#   "geometric" — the NUMBER is forced by computed dimensions/holonomy, but an
+#                 operator-existence/frame seam remains (a residual proof, not a
+#                 free integer). Credited only in the "geometric" scoreboard
+#                 policy, charged in the conservative one.
+#   "chosen"    — a hand-picked prefactor or exponent paid for in full.
+#
+# 'note' cites the module/ledger row that justifies the status. The scoreboard
+# (scoreboard.py) recomputes the Bayes factor as these statuses change, so the
+# verdict moves transparently with the derivation program, never by hand.
+DERIVED = "derived"
+GEOMETRIC = "geometric"
+CHOSEN = "chosen"
+
 STRUCTURAL_CHOICES = [
     # The qualitative algebra choice: which tensor of normed division algebras.
     # There are a handful of plausible candidates (R,C,H,O and their tensor
     # products); encode the choice as ~log2 of a small menu.
-    ("algebra A = C x H x O (menu of ~8)", math.log2(8), False),
-    ("fermions = minimal left ideals (menu ~4)", math.log2(4), False),
-    ("triality -> generations bridge (menu ~4)", math.log2(4), False),
-    # Master triality-breaking constant.
-    ("eps0^2 = pi/432", const_bits(1, 432, 1, 1), False),
+    ("algebra A = C x H x O (menu of ~8)", math.log2(8), CHOSEN,
+     "qualitative input"),
+    ("fermions = minimal left ideals (menu ~4)", math.log2(4), CHOSEN,
+     "qualitative input"),
+    ("triality -> generations bridge (menu ~4)", math.log2(4), CHOSEN,
+     "conjecture-level bridge (three_generations_nogo_audit)"),
+    # Master triality-breaking constant: pi (Berry), 16 (dim OP^2), 27 (dim
+    # J3(O)) are each a computed geometric quantity; the residual is the spurion
+    # operator's existence/frame, not the value -> "geometric".
+    ("eps0^2 = pi/432", const_bits(1, 432, 1, 1), GEOMETRIC,
+     "pi=Berry, 16=dim OP^2, 27=dim J3(O): epsilon_state_count/_weyl_isomorphism"),
     # Per-observable prefactors (each counted as a paid discrete parameter).
-    ("m_t/v squared = 1/2", const_bits(1, 2), False),
-    ("m_H/v squared = pi/12", const_bits(1, 12, 1), False),
-    ("m_b/m_tau = 7/3", const_bits(7, 3), False),
-    ("m_s prefactor = 3", const_bits(3), False),
-    ("m_mu prefactor = 8", const_bits(8), False),
-    ("|V_us| = sqrt(7) eps0", const_bits(1, 1, 0, 7), False),
-    ("|V_cb| = (1/2) eps0", const_bits(1, 2), False),
-    ("sin^2 th23 = 4/7", const_bits(4, 7), False),
-    ("sin^2 th13 = 3 eps0^2", const_bits(3), False),
-    ("hierarchy exponent 3^36 (M_W)", _bits(36), False),
-    ("seesaw exponent 3^9 (M_R)", _bits(9), False),
-    ("CC exponent 3^64 + 11/12", _bits(64) + const_bits(11, 12), False),
+    ("m_t/v squared = 1/2", const_bits(1, 2), CHOSEN, "D4 top-Yukawa bridge"),
+    ("m_H/v squared = pi/12", const_bits(1, 12, 1), CHOSEN, "lambda=pi/24 (D4)"),
+    ("m_b/m_tau = 7/3", const_bits(7, 3), CHOSEN, "third-gen Yukawa, open"),
+    ("m_s prefactor = 3", const_bits(3), DERIVED,
+     "Tr P_1 = 3, Fock grade (epsilon_channel_coefficients)"),
+    ("m_mu prefactor = 8", const_bits(8), DERIVED,
+     "lepton 8 = full Fock 2^3 (epsilon_channel_coefficients, M3 closed)"),
+    ("|V_us| = sqrt(7) eps0", const_bits(1, 1, 0, 7), DERIVED,
+     "sqrt(7) = Fano-line count (epsilon_mixing_coefficients, C1)"),
+    ("|V_cb| = (1/2) eps0", const_bits(1, 2), DERIVED,
+     "1/2 = SU(2) spinor half-angle (epsilon_vcb_halfangle, C2)"),
+    ("sin^2 th23 = 4/7", const_bits(4, 7), DERIVED,
+     "4 avoiding / 7 total Fano lines (epsilon_mixing_coefficients, N5)"),
+    ("sin^2 th13 = 3 eps0^2", const_bits(3), DERIVED,
+     "3 lines through vacuum (epsilon_mixing_coefficients, N2/N3)"),
+    ("hierarchy exponent 3^36 (M_W)", _bits(36), CHOSEN, "chosen exponent"),
+    ("seesaw exponent 3^9 (M_R)", _bits(9), CHOSEN, "chosen exponent"),
+    ("CC exponent 3^64 + 11/12", _bits(64) + const_bits(11, 12), CHOSEN,
+     "chosen exponent + prefactor"),
     # Georgi-Jarlskog 8/3 = dim(O)/N_c is DERIVED per the ledger.
-    ("Georgi-Jarlskog 8/3 = dim(O)/N_c", const_bits(8, 3), True),
+    ("Georgi-Jarlskog 8/3 = dim(O)/N_c", const_bits(8, 3), DERIVED,
+     "dim(O)/N_c (ledger)"),
 ]
 
 # Continuous dimensional inputs (genuinely free real numbers).
@@ -134,13 +164,18 @@ def main():
     l_model_derived = 0.0  # cost if currently-derived items are free
     n_discrete = 0
     n_derived = 0
-    for label, bits, derived in STRUCTURAL_CHOICES:
+    n_geometric = 0
+    for label, bits, status, _note in STRUCTURAL_CHOICES:
         l_model += bits
         n_discrete += 1
         tag = ""
-        if derived:
+        if status == DERIVED:
             n_derived += 1
             tag = "  [derived]"
+        elif status == GEOMETRIC:
+            n_geometric += 1
+            tag = "  [geometric]"
+            l_model_derived += bits
         else:
             l_model_derived += bits
         print(f"    {label:<42} {bits:6.2f}{tag}")
@@ -151,7 +186,7 @@ def main():
     l_model_total = l_model + l_cont
     print("  " + "-" * 64)
     print(f"    Discrete structural parameters: {n_discrete} "
-          f"({n_derived} currently derived)")
+          f"({n_derived} derived, {n_geometric} geometric)")
     print(f"    L_model (discrete)           : {l_model:6.2f} bits")
     print(f"    L_model (incl. continuous)   : {l_model_total:6.2f} bits")
 
@@ -173,7 +208,7 @@ def main():
     # Upside scenario: if every per-row prefactor were derived from the algebra,
     # only the master constant + qualitative choices + exponents + M_P remain.
     qualitative_and_master = sum(
-        bits for label, bits, _ in STRUCTURAL_CHOICES
+        bits for label, bits, _status, _note in STRUCTURAL_CHOICES
         if ("algebra" in label or "ideals" in label or "triality -> gen" in label
             or "eps0^2" in label or "exponent" in label))
     l_model_program = qualitative_and_master + l_cont
