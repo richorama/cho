@@ -17,6 +17,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
   7. ko_dimension_chirality        — KO-dimension 6 chirality test (Lever B)
   8. ladder_charges                — SM charges {0,1/3,2/3,1} (Lever C)
   *  weak_isospin_hypercharge      — weak SU(2) + hypercharge Y (Lever D)
+  *  chiral_projector             — chiral idempotent closes the B<->D seam (C)
   9. bayesian_evidence             — model-comparison Bayes factor vs a null
  10. spectral_action              — one algebra-internal Dirac operator (knobs)
  11. cross_generation_count       — inter-gen Yukawa knob count under triality
@@ -33,6 +34,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  21. epsilon_mixing_coefficients  — M11: mixing counts (7,3,4,4/7) as Fano lines + 1/(4pi)
  22. epsilon_vcb_halfangle        — C2: |V_cb| coefficient 1/2 = SU(2) spinor half-angle
  23. epsilon_a4_two_level         — R2 origin: two-level symmetry = SU(2) closure of A4
+  *  gravity_curvature            — M-GRAV: emergent rank-2 metric from non-associativity
  24. prediction_registry           — tamper-evident pre-registration hashes
   *  scoreboard                    — does deriving prefactors move the Bayes factor? (the one-number bottom line; runs last)
 
@@ -56,6 +58,7 @@ import jordan_eigenvalue_generations
 import ko_dimension_chirality
 import ladder_charges
 import weak_isospin_hypercharge
+import chiral_projector
 import bayesian_evidence
 import spectral_action
 import cross_generation_count
@@ -72,6 +75,7 @@ import epsilon_channel_coefficients
 import epsilon_mixing_coefficients
 import epsilon_vcb_halfangle
 import epsilon_a4_two_level
+import gravity_curvature
 import prediction_registry
 import scoreboard
 
@@ -113,6 +117,9 @@ ARTIFACTS = [
     ("weak_isospin_hypercharge",
      "Lever D: weak SU(2) from H + Gell-Mann-Nishijima Y=2(Q-T3) gives one generation's hypercharges.",
      weak_isospin_hypercharge.main),
+    ("chiral_projector",
+     "Lever B<->D seam: one KO-6 idempotent G_a=T_a(x)P_L gives doublet(L)+singlet(R), [Q,gamma_Q]=0.",
+     chiral_projector.main),
     ("bayesian_evidence",
      "Model-comparison Bayes factor: CHO vs an O(1)-numerology null.",
      bayesian_evidence.main),
@@ -161,6 +168,9 @@ ARTIFACTS = [
     ("epsilon_a4_two_level",
      "R2 origin: the two-level symmetry is the SU(2) closure of A4 (Q8=lift of V4<A4; A4/V4=Z3).",
      epsilon_a4_two_level.main),
+    ("gravity_curvature",
+     "M-GRAV: a symmetric, G2-covariant rank-2 metric (tr g = 16|a^b|^2) emerges from the octonionic associator; transverse rank-4 graviton mode, flat dirs = associative subalgebra.",
+     gravity_curvature.main),
     ("prediction_registry",
      "Tamper-evident pre-registration: SHA-256 digests of the frozen predictions.",
      prediction_registry.main),

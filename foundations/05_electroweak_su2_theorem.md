@@ -243,6 +243,17 @@ status:
   that realises (C) — is the outstanding obligation, and is the natural next proof
   target.
 
+> **Update (2026-06-06): the dichotomy half of (C) is now closed.**
+> [`06_chiral_idempotent.md`](06_chiral_idempotent.md) constructs the single
+> KO-6 idempotent $P_L=\tfrac12(\mathbb 1+\gamma_Q)$ and proves the gauged
+> generators $G_a=T_a\otimes P_L$ close $\mathfrak{su}(2)$ (idempotency, not
+> commutativity, carries the bracket), act as a doublet on $\gamma_Q{=}{+}1$ and a
+> singlet on $\gamma_Q{=}{-}1$, with $[Q,\gamma_Q]=0$ so the split is
+> charge-definite. Input (C) is thereby reduced from eight per-field assignments
+> to **one chiral projector** plus an orientation convention. What remains open is
+> only the field-by-field **content map** (ledger G1), not the doublet/singlet
+> dichotomy itself.
+
 **Falsifier.** If no $\gamma$-compatible idempotent on
 $\mathbb C\otimes\mathbb H\otimes\mathbb O$ reproduces the left=doublet /
 right=singlet pattern (C), then the hypercharge spectrum is *not* forced by the
