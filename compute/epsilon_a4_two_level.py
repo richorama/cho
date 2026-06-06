@@ -56,6 +56,10 @@ module REDUCES the two-level symmetry to).
 
 numpy only.  No scipy.  Self-contained (no repo imports).
 
+This module is the machine-checked witness for the hand-written proof in
+foundations/04_generation_symmetry_theorem.md (Lemmas 1-4 + Theorem); each PASS
+below corresponds to a numbered lemma there.
+
 Run:
     PYTHONDONTWRITEBYTECODE=1 python3 compute/epsilon_a4_two_level.py
 """
