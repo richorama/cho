@@ -202,30 +202,58 @@ three independently-chosen pieces (`pi`, `16`, `27`). They triangulate:
   an input, and the dynamical reduction of the lepton trace to the sphere average
   is identified but not derived.
 
+- `compute/epsilon_vcb_halfangle.py` — **the `|V_cb|` `1/2`, derived (C2).** The
+  `1/2` in `|V_cb| = (1/2) eps0` is the spin-1/2 HALF-ANGLE of the `SU(2)` double
+  cover of the transition Bloch sphere: a single-qubit (inter-generation)
+  transition amplitude is `sin(eps0/2) ~ (1/2) eps0` (coefficient `1/2`), while
+  the `Im(O)` VECTOR channel of `|V_us|` carries the FULL angle `sin(eps0)`
+  (coefficient `1`, summed coherently to `sqrt7`). So `sqrt7` vs `1/2` is exactly
+  vector-vs-spinor, and its finite avatar at the octonionic 45-degree reflection
+  is `tan(pi/8) = sqrt(2) - 1` (the same `tan(theta/2)` half-angle, verified
+  exactly). The `1/2` is no longer a weak-isospin input; the residual is the
+  channel ASSIGNMENT (which channel is the spinor).
+
+- `compute/epsilon_a4_two_level.py` — **the two-level symmetry origin (R2),
+  derived.** The `U(2) -> SO(3)` symmetry that `epsilon_free_action.py` assumed
+  is the `SU(2)` closure of the `A4` flavour group. `A4` is the tetrahedral
+  rotation group in `SO(3)` (order 12, classes `1+3+4+4`); its normal Klein
+  subgroup `V4` (the three `pi`-rotations) lifts under the double cover
+  `SU(2) -> SO(3)` to the qubit Pauli group `Q8 = {+-I, +-i sigma}` (and `A4`
+  itself to the binary tetrahedral `2T`). By Burnside the irreducible 2-dim rep of
+  `Q8` spans the full matrix algebra `M2(C)`, so the continuous closure is exactly
+  `U(2)/su(2)` — the assumed two-level symmetry. And `A4/V4 = Z3` is the
+  three-generation grading, so the SAME `A4` symmetry forces both the free action
+  (R2) and `N_gen = 3` (cf. R1). R2's residual shrinks to the origin of `A4`
+  itself.
+
 **Net effect on the proof obligations below:** the `pi` (obligation 3) is
 geometric and action-selected, and its WEIGHT is now forced — the free action +
-topological term is the unique two-level-symmetric weight (R2); the trace space
+topological term is the unique two-level-symmetric weight (R2), and that two-level
+symmetry is itself the `SU(2)` closure of the `A4` flavour group (`Q8 = ` double
+cover of `V4 < A4`, irreducible by Burnside; `A4/V4 = Z3` the generation grading);
+the trace space
 (obligation 1) is a **product of two geometric dimensions whose 16s are the same
 octonionic `Delta_9` subgroup** (isomorphism discharged, the gauge-vs-flavour
 seam closed to a frame choice); the rank (obligation 2) is reframed — rank one is
 **dual to `N_gen = 3`** (a primitive idempotent), no longer a value chosen to fit
 `m_c/m_t`; and the mass-sector **sector coefficients** `(1, 3, 8)` (obligation 5)
 are derived as number-operator Fock-grade traces (the lepton `8 = 2^3`), while
-the **mixing coefficients** `(7, 3, 4, 4/7)` are derived as Fano-line counts and
-the lepton `1/(4 pi)` is identified as the transition-sphere measure (advancing
-M11). The `27`'s discriminant origin is closed off as a dead end. What remains
-for F0 are minimal residuals: vacuum **purity** (R1), one **frame choice** on the
-octonion pair (the seam), the microscopic **origin** of the two-level symmetry
-(R2), the `|V_cb|` weak-isospin `1/2`, and the dynamical reduction of the lepton
-trace to the sphere measure (M11).
+the **mixing coefficients** `(7, 3, 4, 4/7)` are derived as Fano-line counts, the
+`|V_cb|` `1/2` is derived as the `SU(2)` spinor half-angle (finite avatar
+`tan(pi/8) = sqrt(2)-1`), and the lepton `1/(4 pi)` is identified as the
+transition-sphere measure (advancing M11). The `27`'s discriminant origin is
+closed off as a dead end. What remains for F0 are minimal residuals: vacuum
+**purity** (R1), one **frame choice** on the octonion pair (the seam), the origin
+of the `A4` flavour symmetry itself (R2), the CKM channel **assignment**, and the
+dynamical reduction of the lepton trace to the sphere measure (M11).
 
 ## Proof Obligations
 
 1. **Trace space:** prove that the transition trace really runs over `A_Weyl x J3(O)`, not `A_R x J3(O)`, `A_Weyl x Im(J3(O))`, or another nearby space. *(Advanced: the two `16`s are proven the same octonionic `Delta_9` subgroup — isomorphism discharged in `epsilon_weyl_isomorphism.py`, gauge-vs-flavour Spin(9) seam closed to a frame choice in `epsilon_spin9_embedding.py`.)*
 2. **Rank:** derive `rank(P_transition) = 1` from triality adjacency plus the normalized action rank penalty, not by choosing the value that fits `m_c/m_t`. *(Reframed in `epsilon_rank_one_kernel.py`: rank one = primitive idempotent = pure single-generation vacuum, dual to `N_gen=3`; residual is vacuum purity.)*
-3. **Holonomy:** derive the `pi` factor from the minimal path on `G2/SU(3)` or from the CHO information action. *(Advanced: `pi` is the Berry phase of the action's unique closed geodesic, and `epsilon_free_action.py` shows the free-action weight that carries it is the unique two-level-symmetric weight, up to a `theta`-irrelevant scale.)*
+3. **Holonomy:** derive the `pi` factor from the minimal path on `G2/SU(3)` or from the CHO information action. *(Advanced: `pi` is the Berry phase of the action's unique closed geodesic; `epsilon_free_action.py` shows the free-action weight that carries it is the unique two-level-symmetric weight, up to a `theta`-irrelevant scale; and `epsilon_a4_two_level.py` traces that two-level symmetry to the `SU(2)` closure of the `A4` flavour group (`Q8 = ` double cover of `V4 < A4`; `A4/V4 = Z3`).)*
 4. **Operator embedding:** construct `P_transition` as a projector or matrix element inside the CHO Yukawa operator.
-5. **Sector coupling:** show why the same `epsilon0` feeds charged masses, CKM magnitudes, PMNS corrections, and neutrino splitting. *(Advanced: `epsilon_channel_coefficients.py` derives the mass ranks `(1, 3, 8)` as number-operator Fock-grade traces (closes M3); `epsilon_mixing_coefficients.py` derives the mixing counts `(7, 3, 4, 4/7)` as Fano-line incidences and identifies the lepton `1/(4 pi)` as the transition-sphere measure (advances M11). Open: the `|V_cb|` weak-isospin `1/2` and the dynamical reduction of the lepton trace to that measure.)*
+5. **Sector coupling:** show why the same `epsilon0` feeds charged masses, CKM magnitudes, PMNS corrections, and neutrino splitting. *(Advanced: `epsilon_channel_coefficients.py` derives the mass ranks `(1, 3, 8)` as number-operator Fock-grade traces (closes M3); `epsilon_mixing_coefficients.py` derives the mixing counts `(7, 3, 4, 4/7)` as Fano-line incidences and identifies the lepton `1/(4 pi)` as the transition-sphere measure (advances M11); `epsilon_vcb_halfangle.py` derives the `|V_cb|` coefficient `1/2` as the `SU(2)` spinor half-angle (`tan(pi/8) = sqrt(2)-1`). Open: the CKM channel assignment and the dynamical reduction of the lepton trace to that measure.)*
 
 ## Failure Modes
 

@@ -29,7 +29,9 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  19. epsilon_free_action          — eps0 R2: free action forced by two-level symmetry
  20. epsilon_channel_coefficients — T1.3: mass-sector ranks (1,3,8) as Fock traces
  21. epsilon_mixing_coefficients  — M11: mixing counts (7,3,4,4/7) as Fano lines + 1/(4pi)
- 22. prediction_registry           — tamper-evident pre-registration hashes
+ 22. epsilon_vcb_halfangle        — C2: |V_cb| coefficient 1/2 = SU(2) spinor half-angle
+ 23. epsilon_a4_two_level         — R2 origin: two-level symmetry = SU(2) closure of A4
+ 24. prediction_registry           — tamper-evident pre-registration hashes
 
 Run all:
     PYTHONDONTWRITEBYTECODE=1 python3 compute/audit.py
@@ -63,6 +65,8 @@ import epsilon_rank_one_kernel
 import epsilon_free_action
 import epsilon_channel_coefficients
 import epsilon_mixing_coefficients
+import epsilon_vcb_halfangle
+import epsilon_a4_two_level
 import prediction_registry
 
 
@@ -139,6 +143,12 @@ ARTIFACTS = [
     ("epsilon_mixing_coefficients",
      "M11: mixing multiplicities (7,3,4,4/7) as Fano-line counts; lepton 1/(4pi) as the sphere measure.",
      epsilon_mixing_coefficients.main),
+    ("epsilon_vcb_halfangle",
+     "C2: the |V_cb| coefficient 1/2 is the SU(2) spinor half-angle (sin(eps/2)); tan(pi/8)=sqrt(2)-1.",
+     epsilon_vcb_halfangle.main),
+    ("epsilon_a4_two_level",
+     "R2 origin: the two-level symmetry is the SU(2) closure of A4 (Q8=lift of V4<A4; A4/V4=Z3).",
+     epsilon_a4_two_level.main),
     ("prediction_registry",
      "Tamper-evident pre-registration: SHA-256 digests of the frozen predictions.",
      prediction_registry.main),
