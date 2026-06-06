@@ -61,18 +61,21 @@ from covariance_gof import (
 from model_complexity import STRUCTURAL_CHOICES
 
 
-def discrete_parameter_bits():
-    """Total description length (bits) of the NON-derived discrete choices.
+def discrete_parameter_bits(credited=("derived",)):
+    """Total description length (bits) of the discrete choices still PAID for.
 
-    Derived items (already established from the algebra per the ledger) cost
-    nothing; every chosen prefactor is paid for in full. This is the price CHO
-    pays in the Occam penalty.
+    `credited` is the set of derivation statuses that cost nothing (their numbers
+    are forced by the algebra). Every choice whose status is NOT in `credited` is
+    paid for in full. Default credits only the numerically-closed ("derived")
+    items — the defensible floor. scoreboard.py sweeps `credited` to show how the
+    Bayes factor moves as the derivation program credits more statuses.
     """
-    return sum(bits for _label, bits, derived in STRUCTURAL_CHOICES if not derived)
+    return sum(bits for _label, bits, status, _note in STRUCTURAL_CHOICES
+               if status not in credited)
 
 
-def log_bayes_factor(F):
-    """ln B for prior width factor F (R_i = F * |O_i|)."""
+def log_bayes_factor(F, credited=("derived",)):
+    """ln B for prior width factor F (R_i = F * |O_i|) and a credited status set."""
     names, preds, obs, sig_exp, powers = build_independent_set()
     cov = covariance(preds, sig_exp, powers)
     corr = correlation_from_cov(cov)
@@ -88,7 +91,7 @@ def log_bayes_factor(F):
     raw_sum = float(np.sum(ln_Bi))
     corrected = raw_sum * (n_eff / n)
 
-    k_bits = discrete_parameter_bits()
+    k_bits = discrete_parameter_bits(credited)
     penalty = k_bits * math.log(2.0)
 
     ln_B = corrected - penalty
@@ -160,22 +163,23 @@ def main():
     corrected = base["corrected"]
     k_breakeven = corrected / math.log(2.0)
     bits_to_derive = base["k_bits"] - k_breakeven
-    print("\n  HONEST READING (the result is NEGATIVE at full parameter cost)")
-    print(f"   * Charged the FULL Occam price for all {base['k_bits']:.0f} bits of")
-    print(f"     prefactor choices ({base['penalty']:.1f} nats), CHO does NOT beat O(1)")
-    print(f"     numerology: the evidence gain ({corrected:.1f} nats) is smaller than")
-    print(f"     the parameter penalty. This is the skeptic's strongest point, stated")
-    print("     plainly rather than hidden behind a row-count.")
+    print("\n  HONEST READING (conservative credit: only numerically-closed items)")
+    print(f"   * Credited only the DERIVED (numerically-closed) prefactors as free;")
+    print(f"     all remaining {base['k_bits']:.0f} bits of chosen/geometric choices are paid")
+    print(f"     in full ({base['penalty']:.1f} nats). Even so the evidence gain")
+    print(f"     ({corrected:.1f} nats) is smaller than the penalty, so at this credit")
+    print("     level CHO does not yet beat O(1) numerology. This is the skeptic's")
+    print("     strongest point, stated plainly rather than hidden behind a row-count.")
     print(f"   * BREAK-EVEN: ln B reaches 0 when the paid description length falls to")
-    print(f"     ~{k_breakeven:.0f} bits, i.e. when ~{bits_to_derive:.0f} of the current "
+    print(f"     ~{k_breakeven:.0f} bits, i.e. when ~{bits_to_derive:.0f} more of the current "
           f"{base['k_bits']:.0f} bits of")
     print("     prefactors are DERIVED from the algebra (cost -> 0) instead of chosen.")
     print("   * So the Bayesian verdict is a sharp target, not a death sentence: the")
     print("     derivation program (DERIVATION_LEDGER.md) is precisely what converts")
-    print("     paid bits into free ones. Levers A-C above each retire some bits")
-    print("     (e.g. charge quantisation and the '3' are no longer free choices).")
+    print("     paid bits into free ones. See scoreboard.py for the before/now/target")
+    print("     movement as the eps0 work credits the geometric pi/16/27 as well.")
     print("   * It also depends on the prior width F: only for implausibly wide")
-    print("     priors (F >~ 30) does the bare fit overcome the penalty. Honesty")
+    print("     priors does the bare fit overcome the penalty. Honesty")
     print("     demands quoting the F-dependence, shown above.")
     print()
 

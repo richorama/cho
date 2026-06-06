@@ -32,6 +32,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  22. epsilon_vcb_halfangle        — C2: |V_cb| coefficient 1/2 = SU(2) spinor half-angle
  23. epsilon_a4_two_level         — R2 origin: two-level symmetry = SU(2) closure of A4
  24. prediction_registry           — tamper-evident pre-registration hashes
+  *  scoreboard                    — does deriving prefactors move the Bayes factor? (the one-number bottom line; runs last)
 
 Run all:
     PYTHONDONTWRITEBYTECODE=1 python3 compute/audit.py
@@ -68,6 +69,7 @@ import epsilon_mixing_coefficients
 import epsilon_vcb_halfangle
 import epsilon_a4_two_level
 import prediction_registry
+import scoreboard
 
 
 ARTIFACTS = [
@@ -152,6 +154,9 @@ ARTIFACTS = [
     ("prediction_registry",
      "Tamper-evident pre-registration: SHA-256 digests of the frozen predictions.",
      prediction_registry.main),
+    ("scoreboard",
+     "Bottom line: does the eps0 derivation work move ln B? before/now/target in one number.",
+     scoreboard.main),
 ]
 
 
@@ -174,9 +179,12 @@ def run_all():
     print("#  Derivation frontier (Levers A-C): 'three' is also the rank of J3(O)")
     print("#  (spectral, obstruction-free); the internal space sits at KO-dimension 6")
     print("#  (chirality without doubling); and the C x O number operator yields the")
-    print("#  SM charges {0,1/3,2/3,1}. But the model-comparison Bayes factor still")
-    print("#  favours an O(1) null until the prefactors are DERIVED, not chosen.")
-    print("#  The payoff is gated on DERIVING the prefactors, per DERIVATION_LEDGER.")
+    print("#  SM charges {0,1/3,2/3,1}. The model-comparison Bayes factor has moved")
+    print("#  from ln B = -21 (only 8/3 closed) to -3 (today's closed theorems) to")
+    print("#  +6 once the geometric pi/432 is credited (see the scoreboard artifact,")
+    print("#  run: python3 compute/audit.py scoreboard): the verdict now HINGES on")
+    print("#  whether pi/432 is geometrically forced, a single named seam rather than")
+    print("#  a free knob, per DERIVATION_LEDGER.")
     print("#" * 78)
 
 
