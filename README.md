@@ -23,6 +23,9 @@ This project was developed as a human–AI collaboration (with Claude, Anthropic
 - [DERIVATION_LEDGER.md](DERIVATION_LEDGER.md) — canonical status ledger for theorem-level claims, bridge assumptions, open derivations, and ansaetze
 - [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md) — caveats on postdictions, statistical dependence, continuum/RG gaps, dimensional counting, and null tests
 - [EPSILON_BRIDGE.md](EPSILON_BRIDGE.md) — focused bridge target for deriving `epsilon0^2 = pi / 432` as an operator trace or transition amplitude
+- [ACTION_PROJECTOR_BRIDGE.md](ACTION_PROJECTOR_BRIDGE.md) — action-level audit of what a true rank-one epsilon projector on `A_Weyl x J3(O)` must derive
+- [compute/action_projector_derivation.py](compute/action_projector_derivation.py) — diagnostic showing rank-one Fano support and the remaining primitive `A_Weyl x J3(O)` embedding gap
+- [PRIMITIVE_PROJECTOR_BRIDGE.md](PRIMITIVE_PROJECTOR_BRIDGE.md) and [compute/primitive_projector_derivation.py](compute/primitive_projector_derivation.py) — conditional derivation showing the normalized `log cos` action selects the primitive Weyl x primitive Jordan product once a rank-one transition kernel exists
 - [YUKAWA_BRIDGE.md](YUKAWA_BRIDGE.md) — charged-flavour bridge scaffold deriving the NNI adjacency and cascade mass relation
 - [PMNS_BRIDGE.md](PMNS_BRIDGE.md) — neutrino-mixing bridge scaffold deriving TBM residual symmetries and the broken-triality perturbation target
 - [CHO_OPERATOR.md](CHO_OPERATOR.md) — unified candidate Yukawa/seesaw bridge operator collecting epsilon, sector projectors, CKM, and PMNS targets
@@ -50,6 +53,7 @@ compute/                 Numerical verification scripts (Python 3 + NumPy)
 DERIVATION_LEDGER.md     Logical status of each claim and proof obligation
 METHODOLOGY_LIMITS.md    Methodology caveats and statistical interpretation
 EPSILON_BRIDGE.md        Triality-breaking epsilon bridge target
+ACTION_PROJECTOR_BRIDGE.md Action-level rank-one projector audit
 YUKAWA_BRIDGE.md         Charged-flavour Yukawa bridge scaffold
 PMNS_BRIDGE.md           Neutrino-mixing bridge scaffold
 CHO_OPERATOR.md          Unified candidate CHO Yukawa/seesaw operator

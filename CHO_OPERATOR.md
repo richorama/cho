@@ -15,7 +15,7 @@ O_CHO = (H_triality, P_sector, W_H, A_gen, Phi_Fano, Y_nu)
 with components:
 
 ```text
-H_triality = pi |tau><tau| on A_Weyl x J3(O)
+H_triality = pi |tau><tau| on A_Weyl x J3(O), requiring rank 1 = Weyl rank 1 x Jordan/Fano rank 1
 P_sector   = Fock-grade projectors with traces 1, 3, and 8 after choosing omega=(1+i e7)/2
 W_H        = rank-one quaternionic weak/Higgs projector, Tr(W_H)/4 = 1/4
 A_gen      = one-step generation adjacency 1 <-> 2 <-> 3
@@ -79,7 +79,8 @@ where `M_TBM` is fixed by residual TBM reflections and `DeltaM` is the broken-tr
 
 The strongest objections are tracked in `OPERATOR_GAP_AUDIT.md` and quantified by `compute/operator_gap_audit.py`. In particular:
 
-- adjacent Fano lines give a natural rank-one intersection, but the bridge projector on `A_Weyl x J3(O)` is still not derived;
+- adjacent Fano lines give a natural rank-one intersection, and the normalized `log cos` action conditionally selects the primitive `A_Weyl x J3(O)` product over larger projectors;
+- `compute/action_projector_derivation.py` shows that all `21` Fano-line pairs have rank-one local support in one automorphism orbit, while `compute/primitive_projector_derivation.py` shows the action rank penalty that favors the primitive product;
 - sector ranks `1` and `3` are partially supported by the Fock-grade orbit count, while the lepton rank `8` remains a full-trace assumption;
 - the lepton `1/pi` factor remains an unevaluated coset-average target and is not the reciprocal of the uniform `S6` volume;
 - simple NNI deformation scans at fixed Fano phase do not reconcile corrected CKM magnitudes with the good Jarlskog value;
@@ -90,7 +91,7 @@ The strongest objections are tracked in `OPERATOR_GAP_AUDIT.md` and quantified b
 
 This candidate does not yet escape every numerology risk. It removes a lot of freedom by forcing the bridges into one object, but these remain open:
 
-- derive the rank-one transition `|tau><tau|` from the CHO action, not by choosing rank one;
+- derive the physical transition ray `|tau>` and exact trace space from the CHO action, not merely the primitive rank once the ray is present;
 - derive why the CHO Yukawa map selects the grade-0 singlet, grade-1 color triplet, and full lepton Fock trace;
 - derive the lepton `1/pi` average from the coset measure;
 - produce one charged-Yukawa diagonalization that gives both the corrected CKM magnitudes and the Fritzsch-level Jarlskog phase placement;

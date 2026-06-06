@@ -344,6 +344,8 @@ def print_epsilon_component(operator: CHOBridgeOperator) -> None:
     print(f"adjacent Fano-line intersection = {intersection}")
     print(f"intersection rank              = {fano_rank}")
     print(f"rank(H_triality/pi) = {np.linalg.matrix_rank(h_triality / operator.dims.theta_break)}")
+    print("bridge-rank factorization = Weyl rank 1 x Jordan/Fano rank 1 (assumed)")
+    print(f"if Weyl rank stayed 16: pi*16/432 = {np.pi * 16.0 / operator.dims.bridge_dim:.10f}")
     print(f"Tr(H_triality)      = {np.trace(h_triality).real:.10f}")
     print(f"Tr(H)/dim           = {operator.epsilon_sq():.10f}")
     print(f"target pi/432       = {np.pi / 432.0:.10f}")
@@ -447,7 +449,8 @@ def print_status() -> None:
     print("  - epsilon0, sector traces, shape factors, Fano phase, and PMNS target now sit in one composite operator diagnostic.")
     print("  - the operator gives concrete projectors and perturbation matrices to derive or falsify.")
     print("Still open:")
-    print("  - derive the rank-one transition, sector projectors, and lepton 1/pi average from the CHO action.")
+    print("  - derive the rank-one transition, including Weyl rank one and Jordan/Fano embedding, from the CHO action.")
+    print("  - derive the sector projectors and lepton 1/pi average from the CHO action.")
     print("  - produce one diagonalization that gives both corrected CKM magnitudes and the Fritzsch-level Jarlskog placement.")
     print("  - derive the PMNS DeltaY perturbation dynamically from broken triality, not from target angles.")
 

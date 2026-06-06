@@ -12,7 +12,7 @@ Current status by blocker:
 
 | Blocker | Current status | What would close it |
 |---|---|---|
-| Rank-one transition | Fano-line intersection gives a natural rank-one adjacent overlap, but the embedding into `A_Weyl x J3(O)` is still assumed | Derive the transition projector from the CHO action or representation category |
+| Rank-one transition | Fano incidence gives rank-one local support for every non-identical Fano-line transition. The `21` line pairs form one Fano-automorphism orbit, and the normalized `log cos` action conditionally selects the primitive `A_Weyl x J3(O)` product over larger projectors by a `-1/2 log(rank)` penalty | Derive the physical transition ray, exact trace space, physical vacuum/representative selection, and `pi` holonomy from the CHO action or representation category |
 | Sector projectors | Ranks `1` and `3` now have a conditional Fock-grade/orbit count from the chosen idempotent `omega=(1+i e7)/2`; rank `8` is still a full-Fock trace assumption | Derive the selected Fock grades from the CHO Yukawa trilinear and prove the charged-lepton trace is the full Fock space |
 | Lepton `1/pi` | Still inserted as a coset-average rule; uniform `S6` volume normalization does not give `1/pi` | Compute the relevant `G2/SU(3)` or Yukawa-measure integral and show it reduces to a one-dimensional angle density `1/pi` |
 | CKM reconciliation | Fano phase plus Fritzsch texture gives good `J`, while corrected magnitudes require a different projection | One charged-Yukawa matrix must give `|V_us|`, `|V_cb|`, `|V_ub|`, and `J` together |
@@ -30,6 +30,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 compute/operator_gap_audit.py
 The script prints:
 
 - the Fano intersection rank that partially explains why a rank-one transition is plausible;
+- the incidence-action degeneracy, Fano-automorphism orbit check, primitive bridge-rank ladder, and normalized action rank penalty behind that rank-one transition, via `ACTION_PROJECTOR_BRIDGE.md`, `PRIMITIVE_PROJECTOR_BRIDGE.md`, `compute/action_projector_derivation.py`, and `compute/primitive_projector_derivation.py`;
 - the Fock-grade orbit count that partially explains sector ranks `1` and `3`, while leaving rank `8` as a full-trace assumption;
 - CKM scans at fixed Fano phase showing that simple NNI diagonal deformations do not reconcile all CKM observables;
 - singular values and cyclic-`Z3` residuals for the PMNS perturbation, showing it is a target matrix rather than a dynamically generated perturbation;

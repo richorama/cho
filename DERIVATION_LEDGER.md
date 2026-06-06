@@ -47,7 +47,7 @@ Do not mix these counts without explaining the grouping.
 | S3 | Higgs mass | `m_H = v sqrt(pi/12)` | Derived bridge | Derive Higgs quartic normalization from D4/root geometry in the field theory action |
 | S4 | Fine structure constant | `alpha^-1(0) = 128 pi / 3 + VP` | Open bridge | Complete lattice-to-continuum matching and vacuum-polarization calculation |
 | S5 | Weinberg angle | `sin^2(theta_W) = 1/4 + RG` | Open bridge | Fix the matching scale and thresholds from CHO, not by inverse running |
-| F0 | Triality-breaking parameter | `epsilon_0^2 = pi/432` | Open bridge / candidate operator | `CHO_OPERATOR.md` embeds the rank-one trace target; prove the rank, trace space, and `pi` holonomy from CHO |
+| F0 | Triality-breaking parameter | `epsilon_0^2 = pi/432` | Open bridge / conditional projector derivation | `ACTION_PROJECTOR_BRIDGE.md` derives rank-one Fano support after line-pair selection and `PRIMITIVE_PROJECTOR_BRIDGE.md` derives the primitive product from the normalized action once the transition ray exists; still prove the ray, trace space, vacuum selection, and `pi` holonomy from CHO |
 | M1 | Charm mass | `m_c = epsilon_0^2 m_t` | Open bridge / partially derived projector | `sector_projector_derivation.py` gives the grade-0 singlet rank `1`; derive why the Yukawa map selects it |
 | M2 | Strange mass | `m_s = 3 epsilon_0^2 m_b` | Open bridge / partially derived projector | `sector_projector_derivation.py` gives the grade-1 color-triplet rank `3`; derive the Yukawa trace |
 | M3 | Muon mass | `m_mu = 8 epsilon_0^2 m_tau` | Open bridge / candidate operator | Candidate uses full Fock rank `8`; derive why charged leptons trace over the full eight-state space |
@@ -86,6 +86,7 @@ Do not mix these counts without explaining the grouping.
 
 - `compute/flavour_derivation.py` — first scaffold for M9-M11, C1-C4, and N2-N5. It derives charged-sector NNI bridge factors, builds CKM/PMNS unitary matrices, and exposes the remaining CKM Jarlskog phase-placement task.
 - `compute/epsilon_bridge.py` — diagnostic scaffold for the `epsilon0^2 = pi/432` trace target, empirical bridge estimates, nearby trace normalizations, and proof obligations.
+- `ACTION_PROJECTOR_BRIDGE.md`, `PRIMITIVE_PROJECTOR_BRIDGE.md`, `compute/action_projector_derivation.py`, and `compute/primitive_projector_derivation.py` — action/projector diagnostics showing rank-one Fano support, the Fano-pair automorphism orbit, and the normalized action rank penalty that conditionally selects the primitive `A_Weyl x J3(O)` product.
 - `EPSILON_BRIDGE.md` — companion memo defining the `epsilon0^2` bridge state space, proposed trace formula, failure modes, and next proof steps.
 - `compute/yukawa_bridge.py` and `YUKAWA_BRIDGE.md` — charged-flavour scaffold deriving leading NNI adjacency and the cascade relation, while isolating sector shape factors as operator targets.
 - `compute/pmns_bridge.py` and `PMNS_BRIDGE.md` — PMNS scaffold deriving TBM residual symmetries and printing the broken-triality Majorana perturbation target.

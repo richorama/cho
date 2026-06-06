@@ -71,10 +71,21 @@ This replaces the vague sentence "divide by `16 * 27`" with a falsifiable operat
 
 If a derived operator has rank `r != 1`, a different holonomy than `pi`, or a different trace space than `16 * 27`, the bridge changes numerically and the current mass/mixing relations must be revised.
 
+## Action Projector Diagnostic
+
+The memo `ACTION_PROJECTOR_BRIDGE.md` and script `compute/action_projector_derivation.py` ask how much of the rank-one projector is already forced by Fano incidence. They find:
+
+- every non-identical Fano-line pair has a one-dimensional intersection, so local octonionic transition support is rank one;
+- this is incidence-degenerate: there are `21` unordered line pairs with the same rank-one overlap, and the diagnostic shows they form one Fano-automorphism orbit;
+- the primitive Weyl and primitive Jordan factors have a conditional normalized-action derivation: larger projectors dilute the transition by `S_link=-1/2 log(rank)`;
+- using the full Weyl or full Jordan trace would multiply `epsilon0^2` by `16`, `27`, or `432`.
+
+So the status is sharper but not closed: Fano incidence supplies the local rank-one support, the line-pair degeneracy is symmetry-equivalent, and the normalized information action selects the primitive product once a rank-one transition kernel is present. The CHO action must still derive the physical transition ray, the exact trace space, vacuum/representative selection, and `pi` holonomy.
+
 ## Proof Obligations
 
 1. **Trace space:** prove that the transition trace really runs over `A_Weyl x J3(O)`, not `A_R x J3(O)`, `A_Weyl x Im(J3(O))`, or another nearby space.
-2. **Rank:** derive `rank(P_transition) = 1` from triality adjacency, not by choosing the value that fits `m_c/m_t`.
+2. **Rank:** derive `rank(P_transition) = 1` from triality adjacency plus the normalized action rank penalty, not by choosing the value that fits `m_c/m_t`.
 3. **Holonomy:** derive the `pi` factor from the minimal path on `G2/SU(3)` or from the CHO information action.
 4. **Operator embedding:** construct `P_transition` as a projector or matrix element inside the CHO Yukawa operator.
 5. **Sector coupling:** show why the same `epsilon0` feeds charged masses, CKM magnitudes, PMNS corrections, and neutrino splitting.
@@ -95,6 +106,8 @@ Run:
 
 ```bash
 python3 compute/epsilon_bridge.py
+python3 compute/action_projector_derivation.py
+python3 compute/primitive_projector_derivation.py
 ```
 
-The script prints the normalized-trace ansatz, compares it to `m_c/m_t`, and shows nearby alternatives such as `1/(16*27)`, `2pi/(16*27)`, and `pi/(64*27)`. Those alternatives are not proofs or disproofs, but they make the bridge pressure points visible.
+The scripts print the normalized-trace ansatz, compare it to `m_c/m_t`, show nearby alternatives such as `1/(16*27)`, `2pi/(16*27)`, and `pi/(64*27)`, expose the rank ladder from Fano incidence to the full bridge projector, and show the normalized action penalty that selects the primitive product. Those alternatives are not proofs or disproofs, but they make the bridge pressure points visible.
