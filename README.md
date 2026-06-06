@@ -22,6 +22,7 @@ This project was developed as a human–AI collaboration (with Claude, Anthropic
 
 - [DERIVATION_LEDGER.md](DERIVATION_LEDGER.md) — canonical status ledger for theorem-level claims, bridge assumptions, open derivations, and ansaetze
 - [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md) — caveats on postdictions, statistical dependence, continuum/RG gaps, dimensional counting, and null tests
+- [compute/audit.py](compute/audit.py) — single entry point for the five robustness artifacts (hardness-to-vary, honest MDL parameter count, independent-observable goodness-of-fit, derived-vs-residual error bars, and a frozen falsifiable neutrino-sum prediction); run `python3 compute/audit.py`
 - [EPSILON_BRIDGE.md](EPSILON_BRIDGE.md) — focused bridge target for deriving `epsilon0^2 = pi / 432` as an operator trace or transition amplitude
 - [ACTION_PROJECTOR_BRIDGE.md](ACTION_PROJECTOR_BRIDGE.md) — action-level audit of what a true rank-one epsilon projector on `A_Weyl x J3(O)` must derive
 - [compute/action_projector_derivation.py](compute/action_projector_derivation.py) — diagnostic showing rank-one Fano support and the remaining primitive `A_Weyl x J3(O)` embedding gap

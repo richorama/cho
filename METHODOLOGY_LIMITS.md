@@ -84,3 +84,18 @@ Examples:
 | No proton decay | No confirmed proton decay; Hyper-K style bounds should push `p -> e+ pi0` lifetimes toward `~10^35 yr` sensitivity |
 
 These tests constrain broad model classes unevenly. A null result is a consistency check, not a confirmation by itself.
+
+## Robustness Audit Artifacts
+
+The following scripts produce the honest figures of merit that should travel with any headline claim. Run them all via `python3 compute/audit.py` (or individually, e.g. `python3 compute/audit.py look_elsewhere`). Quote these numbers, not the raw percentage agreements, when describing how strong the framework is.
+
+| Artifact | Question it answers | Current honest result |
+|---|---|---|
+| `compute/look_elsewhere.py` | Is each constant the simplest number in CHO's own vocabulary that fits the data, or would many comparably-simple numbers fit? | **12/12 constants are the simplest fitter** (rank 1, no strictly simpler alternative). The per-row density column flags weak rows: `1/2` is cheap (density 0.33), `pi/432` is hard (0.001). This is the strongest, most choice-independent evidence the values are hard to vary. |
+| `compute/model_complexity.py` | How many parameters does CHO really have, and does it compress the data? | **17 discrete structural choices + 1 continuous input (M_P), not zero.** Compression ratio `R = L_data/L_model = 1.19` (1.04 including M_P) — a marginal compressor today. Target `R = 1.81` if the per-row prefactors get derived rather than chosen. |
+| `compute/independent_observables.py` | What is the real goodness-of-fit once dependent rows are removed and a theory error is stated? | On 22 independent rows with a stated 1.5% theory floor: **reduced chi^2 = 0.92, p = 0.57** (statistically consistent). The `m_e` first-generation row is a visible `-3.75 sigma` outlier. The naive "all rows independent, experimental error only" chi^2 is astronomically large — proof these are approximate relations, not precision predictions. |
+| `compute/derived_vs_residual.py` | Where is the error bar on the part CHO actually derives, separate from the underived continuum/RG residual? | The **derived terms** are off by **alpha: -2.2%, sin^2(theta_W): +8.1%, M_W: +1.2%.** The "<0.1%" sometimes quoted belongs to the full formula including the residual CHO has not yet derived. Quote the derived-term error until S1/S4/S5 in the ledger are closed. |
+| `compute/predict_neutrino_sum.py` | What can near-future data falsify? | **Frozen prediction (2026-06-06): Sigma m_nu = 60 meV (band 57-62), normal ordering.** Surfaces a real internal tension: CHO's `m_nu3 = 48.9 meV` sits ~2.5% below the oscillation floor `sqrt(Delta m31^2) = 50.1 meV`. Falsification conditions are listed in the script. |
+
+Bottom line for external-facing material: CHO's constants are genuinely hard to vary, but it is a few-input (~17 discrete parameters) framework with marginal compression and 2-8% errors on the underived continuum terms. The decisive upgrade — and the entire upside in `R` and goodness-of-fit — is gated on deriving the prefactors, exactly as tracked in `DERIVATION_LEDGER.md`.
+

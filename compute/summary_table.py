@@ -43,18 +43,9 @@ def predictions():
     alpha_inv = 137.0  # 128π/3 + VP running
     sin2_W = 0.231     # 1/4 at ΛQCD + RG
     
-    # Hierarchy
-    M_W = M_P / 3**36  # with √2 normalization → 81.3 GeV-ish
-    # More precisely: v = √2 × M_P/3^36, M_W = v×g/2
-    # But the prediction is M_W ~ M_P/3^36 ≈ 81.3 GeV
-    M_W_pred = M_P / (np.sqrt(2) * 3**36)  # = v/√2... no
-    # Actually: v = 2M_W/g, and v = √2 M_P/3^36 would give v=246
-    # Let's use the hierarchy prediction as stated: M_W ≈ M_P/3^36 
-    # M_P/3^36 = 1.221e19 / 1.504e17 = 81.2 GeV
-    M_W_pred = M_P / (3.0**36 / np.sqrt(2) * np.sqrt(2))
-    # Simplify: the prediction is v = √2 · M_P/3^36 → M_W = g·v/2
-    # But the stated prediction in the paper is M_W = M_P/3^36 = 81.3
-    M_W_pred = M_P / 3.0**36  # ≈ 81.2 GeV per paper
+    # Hierarchy: the stated prediction is M_W = M_P / 3^36.
+    # M_P/3^36 = 1.221e19 / 1.504e17 ≈ 81.2 GeV.
+    M_W_pred = M_P / 3.0**36
 
     # Neutrino mass (seesaw)
     M_R = M_P / 3.0**9  # = M_P/19683
