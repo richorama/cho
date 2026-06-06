@@ -48,9 +48,9 @@ Do not mix these counts without explaining the grouping.
 | S4 | Fine structure constant | `alpha^-1(0) = 128 pi / 3 + VP` | Open bridge | Complete lattice-to-continuum matching and vacuum-polarization calculation |
 | S5 | Weinberg angle | `sin^2(theta_W) = 1/4 + RG` | Open bridge | Fix the matching scale and thresholds from CHO, not by inverse running |
 | F0 | Triality-breaking parameter | `epsilon_0^2 = pi/432` | Open bridge / candidate operator | `CHO_OPERATOR.md` embeds the rank-one trace target; prove the rank, trace space, and `pi` holonomy from CHO |
-| M1 | Charm mass | `m_c = epsilon_0^2 m_t` | Open bridge / candidate operator | `CHO_OPERATOR.md` embeds the single up-sector projector; derive it from the CHO Yukawa map |
-| M2 | Strange mass | `m_s = 3 epsilon_0^2 m_b` | Open bridge / candidate operator | Derive the three color-channel projector trace inside the CHO Yukawa map |
-| M3 | Muon mass | `m_mu = 8 epsilon_0^2 m_tau` | Open bridge / candidate operator | Derive why color-neutral leptons trace over all 8 octonionic directions |
+| M1 | Charm mass | `m_c = epsilon_0^2 m_t` | Open bridge / partially derived projector | `sector_projector_derivation.py` gives the grade-0 singlet rank `1`; derive why the Yukawa map selects it |
+| M2 | Strange mass | `m_s = 3 epsilon_0^2 m_b` | Open bridge / partially derived projector | `sector_projector_derivation.py` gives the grade-1 color-triplet rank `3`; derive the Yukawa trace |
+| M3 | Muon mass | `m_mu = 8 epsilon_0^2 m_tau` | Open bridge / candidate operator | Candidate uses full Fock rank `8`; derive why charged leptons trace over the full eight-state space |
 | M4 | Tau mass | `m_tau/m_t = sqrt(2) epsilon_0^2` | Open bridge | Derive the tau alignment and normalization directly from CHO Yukawa structure |
 | M5 | Bottom mass | `m_b/m_tau = 7/3` | Open bridge | Derive `dim(Im O)/N_c` as an operator ratio, not only a counting rule |
 | M6 | Inter-sector ratio | `m_s m_t/(m_b m_c) = 3` | Derived bridge / dependent | Track scheme dependence and covariance with `m_s`, `m_b`, `m_c`, `m_t` |
@@ -58,7 +58,7 @@ Do not mix these counts without explaining the grouping.
 | M8 | Georgi-Jarlskog ratio | `m_mu m_b/(m_tau m_s) = 8/3` | Derived bridge / dependent | Same covariance treatment as M6 |
 | M9 | Up mass | `m_u = (1/4) m_c^2/m_t` | Open bridge / candidate operator | `CHO_OPERATOR.md` embeds the `1/4` weak projector shape; derive uniqueness |
 | M10 | Down mass | `m_d = (9/4) m_s^2/m_b` | Open bridge / candidate operator | Candidate gives `(1/4) N_c^2`; derive the sector-square rule |
-| M11 | Electron mass | `m_e = (1/4 pi) m_mu^2/m_tau` | Open bridge / candidate operator | Candidate gives `(1/4)(1/pi)`; derive the lepton coset average and check Koide correction |
+| M11 | Electron mass | `m_e = (1/4 pi) m_mu^2/m_tau` | Open bridge / candidate operator | Candidate gives `(1/4)(1/pi)`; `sector_projector_derivation.py` shows naive `S6` volume does not derive `1/pi`; compute the actual measure |
 | C1 | Cabibbo angle | `|V_us| = sqrt(7) epsilon_0` | Derived bridge | Build and diagonalize the CHO mass matrices directly |
 | C2 | CKM 2-3 mixing | `|V_cb| = epsilon_0/2` | Derived bridge | Derive the `1/2` from the same mass-matrix construction |
 | C3 | CKM 1-3 mixing | `|V_ub| = (sqrt(2)-1)|V_us||V_cb|` | Open bridge | Derive `sqrt(2)-1 = tan(pi/8)` as a subleading triality/phase effect |
@@ -91,5 +91,6 @@ Do not mix these counts without explaining the grouping.
 - `compute/pmns_bridge.py` and `PMNS_BRIDGE.md` — PMNS scaffold deriving TBM residual symmetries and printing the broken-triality Majorana perturbation target.
 - `compute/cho_bridge_operator.py` and `CHO_OPERATOR.md` — unified candidate operator embedding the epsilon trace, sector projectors, NNI shape factors, Fano phase diagnostics, and PMNS seesaw target.
 - `compute/operator_gap_audit.py` and `OPERATOR_GAP_AUDIT.md` — explicit audit of unsolved operator, CKM, PMNS, and continuum/RG gaps.
+- `compute/sector_projector_derivation.py` — sector-count diagnostic deriving Fock-grade ranks `1` and `3`, while leaving lepton full-rank trace and `1/pi` as open measure problems.
 - `FLAVOUR_DERIVATION.md` — companion memo explaining the scaffold, its inputs, and what remains to be proven by a full CHO Yukawa operator.
 - `METHODOLOGY_LIMITS.md` — caveat document for few-input parameter language, postdictions, dependent audit rows, continuum/RG gaps, dimensional-counting risks, and null-test scales.

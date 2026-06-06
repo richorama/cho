@@ -10,6 +10,8 @@ For the charged-sector operator target, see `YUKAWA_BRIDGE.md` and `compute/yuka
 
 For the remaining blockers in that candidate, see `OPERATOR_GAP_AUDIT.md` and `compute/operator_gap_audit.py`.
 
+For the partial sector-rank derivation from the complex-octonion Fock grades, see `compute/sector_projector_derivation.py`.
+
 ## Goal
 
 The scaffold starts from CHO algebraic data only:

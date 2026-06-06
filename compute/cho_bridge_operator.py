@@ -67,6 +67,7 @@ class SectorDefinition:
     projector_indices: tuple[int, ...]
     observed_first_over_third: float
     observed_second_over_third: float
+    origin: str
 
     @property
     def rank(self) -> int:
@@ -119,6 +120,22 @@ def generation_adjacency() -> np.ndarray:
         [1, 0, 1],
         [0, 1, 0],
     ], dtype=int)
+
+
+def fock_grade_indices() -> dict[str, tuple[int, ...]]:
+    """Furey-style C tensor O ladder grades for one generation.
+
+    The chosen vacuum omega = (1 + i e7)/2 defines three color ladder
+    operators. Their exterior/Fock grades have dimensions C(3, k):
+    1, 3, 3, 1, with total rank 8.
+    """
+    return {
+        "vacuum_singlet": (0,),
+        "single_ladder_triplet": (1, 2, 3),
+        "double_ladder_triplet": (4, 5, 6),
+        "triple_ladder_singlet": (7,),
+        "full_fock_space": tuple(range(8)),
+    }
 
 
 def construct_fritzsch_matrix(masses: tuple[float, float, float], phase_a: float, phase_b: float) -> np.ndarray:
@@ -204,24 +221,28 @@ class CHOBridgeOperator:
         return normalized_trace(self.weak_shape_projector())
 
     def sectors(self) -> list[SectorDefinition]:
+        grades = fock_grade_indices()
         return [
             SectorDefinition(
                 "up",
-                (0,),
+                grades["vacuum_singlet"],
                 OBSERVED["m_u"] / OBSERVED["m_t"],
                 OBSERVED["m_c"] / OBSERVED["m_t"],
+                "grade-0 singlet from omega=(1+i e7)/2",
             ),
             SectorDefinition(
                 "down",
-                (1, 2, 3),
+                grades["single_ladder_triplet"],
                 OBSERVED["m_d"] / OBSERVED["m_b"],
                 OBSERVED["m_s"] / OBSERVED["m_b"],
+                "grade-1 color triplet from three alpha_i^dagger ladders",
             ),
             SectorDefinition(
                 "lepton",
-                tuple(range(self.dims.dim_octonion)),
+                grades["full_fock_space"],
                 OBSERVED["m_e"] / OBSERVED["m_tau"],
                 OBSERVED["m_mu"] / OBSERVED["m_tau"],
+                "full eight-state Fock trace; still a Yukawa-trace assumption",
             ),
         ]
 
@@ -305,7 +326,7 @@ def print_operator_header(operator: CHOBridgeOperator) -> None:
     print("Composite components")
     print("-" * 78)
     print("H_triality = pi |tau><tau| on A_Weyl x J3(O)")
-    print("P_sector   = octonion-sector projectors with traces 1, 3, 8")
+    print("P_sector   = Fock-grade projectors with traces 1, 3, 8")
     print("W_H        = rank-one quaternionic weak/Higgs projector with normalized trace 1/4")
     print("A_gen      = one-step generation adjacency path 1 <-> 2 <-> 3")
     print("Phi_Fano   = relative phase from adjacent Fano lines")
@@ -359,7 +380,12 @@ def print_sector_component(operator: CHOBridgeOperator) -> None:
             f"{pct_error(first, sector.observed_first_over_third):>+7.1f}%"
         )
     print()
-    print("Interpretation: sector traces now live in one composite operator, but the basis selection of P_sector is still a proof obligation.")
+    print("Projector origins:")
+    for sector in operator.sectors():
+        print(f"  {sector.name:<8} {sector.origin}")
+    print()
+    print("Interpretation: the 1 and 3 ranks now come from the chosen Fock-grade representation; proving that the CHO Yukawa map must use these grades remains open.")
+    print("The lepton rank-8 trace is still the strongest assumption: it uses the full Fock space rather than a derived charged-lepton ideal.")
     print()
 
 
@@ -410,7 +436,7 @@ def print_pmns_component(operator: CHOBridgeOperator) -> None:
     for row in scaled:
         print("  [" + ", ".join(f"{value.real:+.4f}{value.imag:+.4f}i" for value in row) + "]")
     print()
-    print("Interpretation: the seesaw factorization is explicit; deriving DeltaY from broken Z3 remains open.")
+    print("Interpretation: the seesaw factorization is explicit; deriving DeltaY from broken triality remains open.")
     print()
 
 
@@ -423,7 +449,7 @@ def print_status() -> None:
     print("Still open:")
     print("  - derive the rank-one transition, sector projectors, and lepton 1/pi average from the CHO action.")
     print("  - produce one diagonalization that gives both corrected CKM magnitudes and the Fritzsch-level Jarlskog placement.")
-    print("  - derive the PMNS DeltaY perturbation dynamically from broken Z3, not from target angles.")
+    print("  - derive the PMNS DeltaY perturbation dynamically from broken triality, not from target angles.")
 
 
 def main() -> None:

@@ -2,8 +2,8 @@
 PMNS bridge scaffold.
 
 This script derives the leading tribimaximal pattern from residual symmetry
-generators and turns the corrected CHO PMNS formulas into an explicit broken-Z3
-Majorana mass-matrix target.
+generators and turns the corrected CHO PMNS formulas into an explicit
+broken-triality Majorana mass-matrix target.
 """
 
 from __future__ import annotations
@@ -107,7 +107,7 @@ def print_tbm_derivation() -> np.ndarray:
 
 
 def print_corrected_target(inputs: Inputs, tbm: np.ndarray) -> None:
-    print("Broken-Z3 corrected PMNS target")
+    print("Broken-triality corrected PMNS target")
     print("-" * 78)
     theta12, theta23, theta13, delta = corrected_angles(inputs)
     corrected = mixing_matrix_from_angles(theta12, theta23, theta13, delta)
@@ -131,7 +131,7 @@ def print_corrected_target(inputs: Inputs, tbm: np.ndarray) -> None:
         print("  [" + ", ".join(f"{value.real:+.4f}{value.imag:+.4f}i" for value in row) + "]")
     print()
     print(f"||DeltaM|| / ||M_TBM|| = {np.linalg.norm(delta_m) / np.linalg.norm(m_tbm):.3f}")
-    print("Status: this perturbation is the broken-Z3 operator target; it is not yet derived from CHO.")
+    print("Status: this perturbation is the broken-triality operator target; it is not yet derived from CHO.")
     print()
 
 
@@ -140,7 +140,7 @@ def print_proof_obligations() -> None:
     print("-" * 78)
     obligations = [
         "Derive the TBM residual symmetries from the unbroken triality/Majorana sector.",
-        "Construct the broken-Z3 seesaw perturbation whose matrix equals DeltaM above.",
+        "Construct the broken-triality seesaw perturbation whose matrix equals DeltaM above.",
         "Show why the perturbation entries scale as epsilon0 and epsilon0^2 in the required places.",
         "Derive the 4/7 atmospheric factor dynamically from Im(O), not as a chosen angle.",
         "Connect the same perturbation to Delta m21^2 / Delta m31^2 = 4 epsilon0^2.",

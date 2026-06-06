@@ -62,7 +62,7 @@ down:   q_d = N_color * epsilon0^2 = 3 * epsilon0^2
 lepton: q_l = dim(O) * epsilon0^2 = 8 * epsilon0^2
 ```
 
-This converts `1`, `3`, and `8` from bare dimensional counts into trace targets. The remaining proof is to derive the sector projectors from the CHO trilinear Yukawa map.
+This converts `1`, `3`, and `8` from bare dimensional counts into trace targets. The current candidate operator partially improves the first two counts: after choosing the complex-octonion idempotent `omega=(1+i e7)/2`, the Fock grades have dimensions `1,3,3,1`. The `1` and `3` sector ranks can therefore be read as singlet/triplet orbit counts. The lepton `8` remains a full-Fock-space trace assumption until derived from the CHO trilinear Yukawa map.
 
 ## Open Operator Targets
 
@@ -75,6 +75,8 @@ lepton: k_l = 1/(4*pi)
 ```
 
 The final CHO Yukawa operator must derive these factors as traces, overlaps, or Schur-complement invariants. Until then M9-M11 stay `Open bridge / scaffolded`.
+
+For the sector-count diagnostic, run `python3 compute/sector_projector_derivation.py`.
 
 ## Diagnostic Script
 

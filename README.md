@@ -27,6 +27,7 @@ This project was developed as a human–AI collaboration (with Claude, Anthropic
 - [PMNS_BRIDGE.md](PMNS_BRIDGE.md) — neutrino-mixing bridge scaffold deriving TBM residual symmetries and the broken-triality perturbation target
 - [CHO_OPERATOR.md](CHO_OPERATOR.md) — unified candidate Yukawa/seesaw bridge operator collecting epsilon, sector projectors, CKM, and PMNS targets
 - [OPERATOR_GAP_AUDIT.md](OPERATOR_GAP_AUDIT.md) — hard audit of what the candidate operator still does not derive
+- [compute/sector_projector_derivation.py](compute/sector_projector_derivation.py) — diagnostic deriving sector ranks `1` and `3` from Fock-grade orbit counts and isolating the lepton `8`/`1_pi` assumptions
 - [FUTURE_TESTS.md](FUTURE_TESTS.md) — dated register of future-facing falsifiable predictions frozen on 2026-06-06
 - [FLAVOUR_DERIVATION.md](FLAVOUR_DERIVATION.md) — bridge memo for the explicit flavour derivation scaffold
 

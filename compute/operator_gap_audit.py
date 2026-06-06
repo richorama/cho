@@ -9,6 +9,7 @@ that the gaps are solved.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from math import comb
 
 import numpy as np
 
@@ -37,6 +38,13 @@ FANO_LINES = [
 ]
 
 
+LADDER_PAIRS = {
+    "alpha1": (5, 4),
+    "alpha2": (3, 1),
+    "alpha3": (6, 2),
+}
+
+
 @dataclass(frozen=True)
 class CKMScanResult:
     name: str
@@ -52,6 +60,14 @@ def pct_error(predicted: float, observed: float) -> float:
 def fano_intersection_rank(line_a: tuple[int, int, int], line_b: tuple[int, int, int]) -> tuple[int, tuple[int, ...]]:
     intersection = tuple(sorted(set(line_a).intersection(line_b)))
     return len(intersection), intersection
+
+
+def fano_lines_through(point: int) -> list[tuple[int, int, int]]:
+    return [line for line in FANO_LINES if point in line]
+
+
+def fock_grade_counts() -> dict[int, int]:
+    return {grade: comb(3, grade) for grade in range(4)}
 
 
 def construct_nni_matrix(masses: tuple[float, float, float], phase_a: float, phase_b: float, d_frac: float) -> np.ndarray | None:
@@ -181,9 +197,15 @@ def print_rank_and_projector_gaps() -> None:
     print(f"Adjacent Fano lines {FANO_LINES[0]} and {FANO_LINES[1]} intersect in {intersection}; rank = {rank}.")
     print("This makes a rank-one adjacent overlap natural, but it does not yet prove the bridge projector on A_Weyl x J3(O).")
     print()
-    print("Sector projectors currently use ranks 1, 3, and 8.")
-    print("They are still selected by the candidate basis; no minimal-ideal derivation exists in this repo yet.")
+    print("Sector projectors now have a partial Fock-grade derivation:")
+    print(f"  Fano lines through e7: {fano_lines_through(7)} (count 3)")
+    print(f"  ladder pairs: {LADDER_PAIRS}")
+    print(f"  grade dimensions C(3,k): {fock_grade_counts()} -> total 8")
+    print("This supports ranks 1 and 3 as singlet/triplet orbit counts after choosing omega=(1+i e7)/2.")
+    print("The lepton rank 8 is still a full-Fock trace assumption, not a charged-lepton ideal derivation.")
     print("The lepton 1/pi factor is likewise still an inserted coset-average target, not an evaluated measure integral.")
+    volume_s6 = 16.0 * np.pi**3 / 15.0
+    print(f"  Vol(S6)={volume_s6:.6f}, 1/Vol(S6)={1/volume_s6:.6f}, 1/pi={1/np.pi:.6f}")
     print()
 
 
