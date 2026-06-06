@@ -17,7 +17,9 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
   7. ko_dimension_chirality        — KO-dimension 6 chirality test (Lever B)
   8. ladder_charges                — SM charges {0,1/3,2/3,1} (Lever C)
   9. bayesian_evidence             — model-comparison Bayes factor vs a null
- 10. prediction_registry           — tamper-evident pre-registration hashes
+ 10. spectral_action              — one algebra-internal Dirac operator (knobs)
+ 11. cross_generation_count       — inter-gen Yukawa knob count under triality
+ 12. prediction_registry           — tamper-evident pre-registration hashes
 
 Run all:
     PYTHONDONTWRITEBYTECODE=1 python3 compute/audit.py
@@ -39,6 +41,8 @@ import jordan_eigenvalue_generations
 import ko_dimension_chirality
 import ladder_charges
 import bayesian_evidence
+import spectral_action
+import cross_generation_count
 import prediction_registry
 
 
@@ -79,6 +83,12 @@ ARTIFACTS = [
     ("bayesian_evidence",
      "Model-comparison Bayes factor: CHO vs an O(1)-numerology null.",
      bayesian_evidence.main),
+    ("spectral_action",
+     "Inverse-spectral: one algebra-internal Dirac operator, knobs vs forced ratios.",
+     spectral_action.main),
+    ("cross_generation_count",
+     "Inverse-spectral: inter-generation Yukawa knob count under NNI + triality.",
+     cross_generation_count.main),
     ("prediction_registry",
      "Tamper-evident pre-registration: SHA-256 digests of the frozen predictions.",
      prediction_registry.main),
