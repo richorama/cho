@@ -126,18 +126,34 @@ three independently-chosen pieces (`pi`, `16`, `27`). They triangulate:
   **inside** the flavour `27`. The external trace space `A_Weyl x J3(O) = 432`
   is therefore exact **iff** the gauge Weyl generation is isomorphic to the
   vacuum tangent, `A_Weyl ~= T(OP^2)`, as Spin(9) spinors (both are 16-dim
-  octonion pairs — necessary condition verified, equality open).
+  octonion pairs — necessary condition verified, equality named).
+
+- `compute/epsilon_weyl_isomorphism.py` — **the isomorphism, established.** Builds
+  `f4 = Der(J3(O))` (dim `52`) and its primitive-idempotent stabiliser
+  `spin(9)` (dim `36`, closed under bracket, Killing form nondegenerate ⇒ the
+  simple `so(9)`) entirely from the octonion table. Proves the `F4/Spin(9)`
+  isotropy action on `T(OP^2)` is **irreducible of real type** (commutant
+  dimension `1`), i.e. the spinor `Delta_9`; and independently builds `Delta_9`
+  from an octonionic `Cl(9)` on the octonion pair `O^2` (the gauge `A_Weyl`
+  carrier), also irreducible real (commutant `1`). Since **Spin(9) has a unique
+  16-dim irrep** (the real spinor), the two `16`s are the *same* representation:
+  `A_Weyl ~= T(OP^2) = Delta_9`, ESTABLISHED. The two `so(9)`'s sit as different
+  embeddings in `gl(16)` (combined span `51`-dim), so the link is the
+  uniqueness theorem rather than a literal identity — leaving one honest seam.
 
 **Net effect on the proof obligations below:** the `pi` (obligation 3) is
 geometric and action-selected; the trace space (obligation 1) is reduced from a
-free `16 x 27` to a **product of two geometric dimensions** with one named
-residual — the single representation isomorphism `A_Weyl ~= T(OP^2)`. The `27`'s
-discriminant origin is closed off as a dead end. What remains is obligation 2
-(rank-one kernel) and that one isomorphism.
+free `16 x 27` to a **product of two geometric dimensions whose 16s are now
+proven to be the same Spin(9) spinor**. The named isomorphism `A_Weyl ~= T(OP^2)`
+is discharged by `epsilon_weyl_isomorphism.py`; the `27`'s discriminant origin is
+closed off as a dead end. What remains is obligation 2 (rank-one kernel) and a
+single **subgroup-embedding** seam: that the gauge `Spin(9)` and the
+idempotent-stabiliser `Spin(9)` are the same subgroup (no longer a dimension or
+representation-type question).
 
 ## Proof Obligations
 
-1. **Trace space:** prove that the transition trace really runs over `A_Weyl x J3(O)`, not `A_R x J3(O)`, `A_Weyl x Im(J3(O))`, or another nearby space.
+1. **Trace space:** prove that the transition trace really runs over `A_Weyl x J3(O)`, not `A_R x J3(O)`, `A_Weyl x Im(J3(O))`, or another nearby space. *(Advanced: the two `16`s are proven the same Spin(9) spinor `Delta_9` in `epsilon_weyl_isomorphism.py`; residual is the gauge-vs-stabiliser Spin(9) subgroup embedding.)*
 2. **Rank:** derive `rank(P_transition) = 1` from triality adjacency plus the normalized action rank penalty, not by choosing the value that fits `m_c/m_t`.
 3. **Holonomy:** derive the `pi` factor from the minimal path on `G2/SU(3)` or from the CHO information action.
 4. **Operator embedding:** construct `P_transition` as a projector or matrix element inside the CHO Yukawa operator.
