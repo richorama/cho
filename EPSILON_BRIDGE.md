@@ -82,6 +82,17 @@ The memo `ACTION_PROJECTOR_BRIDGE.md` and script `compute/action_projector_deriv
 
 So the status is sharper but not closed: Fano incidence supplies the local rank-one support, the line-pair degeneracy is symmetry-equivalent, and the normalized information action selects the primitive product once a rank-one transition kernel is present. The CHO action must still derive the physical transition ray, the exact trace space, vacuum/representative selection, and `pi` holonomy.
 
+## Unified Spurion Attempt
+
+`SPURION_BRIDGE.md` and `compute/spurion_bridge.py` collapse the five proof
+obligations below into one parametric operator `T_break = theta * |tau><tau|` and
+attach a failure-closed `PASS`/`FAIL` check to each. That module derives the `pi`
+holonomy as a great-circle Berry phase, reduces the `21`-fold Fano-pair
+degeneracy to a single vacuum-stabilizer orbit, selects `A_Weyl x J3(O)` uniquely
+by equivariance plus Jordan closure, and verifies one operator drives every
+flavour channel at about `1.5%` RMS. It is still a numerical derivation attempt,
+not a CHO-action theorem.
+
 ## Proof Obligations
 
 1. **Trace space:** prove that the transition trace really runs over `A_Weyl x J3(O)`, not `A_R x J3(O)`, `A_Weyl x Im(J3(O))`, or another nearby space.

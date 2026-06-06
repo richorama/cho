@@ -26,6 +26,7 @@ This project was developed as a human–AI collaboration (with Claude, Anthropic
 - [ACTION_PROJECTOR_BRIDGE.md](ACTION_PROJECTOR_BRIDGE.md) — action-level audit of what a true rank-one epsilon projector on `A_Weyl x J3(O)` must derive
 - [compute/action_projector_derivation.py](compute/action_projector_derivation.py) — diagnostic showing rank-one Fano support and the remaining primitive `A_Weyl x J3(O)` embedding gap
 - [PRIMITIVE_PROJECTOR_BRIDGE.md](PRIMITIVE_PROJECTOR_BRIDGE.md) and [compute/primitive_projector_derivation.py](compute/primitive_projector_derivation.py) — conditional derivation showing the normalized `log cos` action selects the primitive Weyl x primitive Jordan product once a rank-one transition kernel exists
+- [SPURION_BRIDGE.md](SPURION_BRIDGE.md) and [compute/spurion_bridge.py](compute/spurion_bridge.py) — unified single-spurion operator with failure-closed checks for the transition ray, exact trace space, vacuum-orbit reduction, `pi` Berry-phase holonomy, and one-operator reuse across masses, CKM, PMNS, and neutrinos
 - [YUKAWA_BRIDGE.md](YUKAWA_BRIDGE.md) — charged-flavour bridge scaffold deriving the NNI adjacency and cascade mass relation
 - [PMNS_BRIDGE.md](PMNS_BRIDGE.md) — neutrino-mixing bridge scaffold deriving TBM residual symmetries and the broken-triality perturbation target
 - [CHO_OPERATOR.md](CHO_OPERATOR.md) — unified candidate Yukawa/seesaw bridge operator collecting epsilon, sector projectors, CKM, and PMNS targets

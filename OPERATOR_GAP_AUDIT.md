@@ -36,6 +36,24 @@ The script prints:
 - singular values and cyclic-`Z3` residuals for the PMNS perturbation, showing it is a target matrix rather than a dynamically generated perturbation;
 - the continuum/RG items outside the current flavour-operator scope.
 
+## Unified Spurion Attempt
+
+`SPURION_BRIDGE.md` and `compute/spurion_bridge.py` take the first four blockers
+above (rank-one transition, trace space, vacuum representative, `pi` holonomy) plus
+the operator-reuse target and turn them into one parametric spurion
+`T_break = theta * |tau><tau|` with explicit `PASS`/`FAIL` checks:
+
+- `pi` holonomy is computed as the great-circle Berry phase `-(1/2) Omega = -pi`;
+- the `21`-fold Fano-pair orbit reduces to a single vacuum-stabilizer orbit of
+  size `3` once `omega = (1 + i e7)/2` fixes `e7`;
+- `A_Weyl x J3(O)` is the unique trace space passing equivariance, Jordan
+  closure, and trace-direction tests;
+- one knob `epsilon0^2 = pi/432` drives all seven flavour channels at ~`1.5%` RMS.
+
+These are failure-closed numerical checks, not CHO-action theorems; the CKM
+magnitude/Jarlskog reconciliation and the lepton `1/pi` and rank-`8` traces
+remain open in the rows below.
+
 ## Interpretation
 
 The useful next theoretical move is not another formula. It is either:
