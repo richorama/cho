@@ -93,6 +93,48 @@ by equivariance plus Jordan closure, and verifies one operator drives every
 flavour channel at about `1.5%` RMS. It is still a numerical derivation attempt,
 not a CHO-action theorem.
 
+## Geometric Triangulation Progress (2026-06-06)
+
+Four experiments (wired into `compute/audit.py`) attack the assembly directly,
+on the thesis that `pi/432` must be produced as **one geometric object**, not
+three independently-chosen pieces (`pi`, `16`, `27`). They triangulate:
+
+- `compute/epsilon_heat_kernel.py` — **which `pi`?** Builds the algebra-internal
+  Dirac operator's heat trace `Tr exp(-t D^2)`. A spectral-action `pi` can only
+  enter as `(4 pi)^{-d/2}` (a Gaussian mode factor), never as a bare numerator
+  `pi`. The bare `pi` is instead the Berry half-solid-angle `(1/2)(2 pi)`.
+  **Heat-kernel origin ruled OUT; geometric/holonomy origin ruled IN.**
+  Consequence: the `432` must be a pure **state count**, not a heat-kernel
+  field-content coefficient.
+
+- `compute/epsilon_cubic_discriminant.py` — **which `27`?** The universal cubic
+  discriminant `Delta = -4 p^3 - 27 q^2` carries a `27`, but a rank-one triality
+  breaking gives a double root (`{1, 1, 1+eps}`), so `Delta = 0` and the
+  discriminant is blind to it. **The discriminant origin of the `27` is ruled
+  out;** the `27` is `dim J3(O)`, a state/trace count.
+
+- `compute/epsilon_state_count.py` — **the `16`, derived.** `16 = dim OP^2 =
+  dim(F4) - dim(Spin(9)) = 52 - 36` is reproduced numerically as the dimension
+  of the rank-one idempotent manifold of `J3(O)` (the manifold of triality vacua
+  `|tau>`), via the nullity of the idempotent-equation Jacobian (`16` at all
+  three primitive idempotents). The `16` is now a **geometric dimension**, not
+  `dim_C(A_Weyl)` chosen by hand.
+
+- `compute/epsilon_product_space.py` — **is `432` a genuine product?** Stratifies
+  `J3(O) = 27 = 1 + 16 + 10` (idempotent direction + vacuum-manifold tangent +
+  complement) and shows the geometric `16` is the off-diagonal octonion pair
+  **inside** the flavour `27`. The external trace space `A_Weyl x J3(O) = 432`
+  is therefore exact **iff** the gauge Weyl generation is isomorphic to the
+  vacuum tangent, `A_Weyl ~= T(OP^2)`, as Spin(9) spinors (both are 16-dim
+  octonion pairs — necessary condition verified, equality open).
+
+**Net effect on the proof obligations below:** the `pi` (obligation 3) is
+geometric and action-selected; the trace space (obligation 1) is reduced from a
+free `16 x 27` to a **product of two geometric dimensions** with one named
+residual — the single representation isomorphism `A_Weyl ~= T(OP^2)`. The `27`'s
+discriminant origin is closed off as a dead end. What remains is obligation 2
+(rank-one kernel) and that one isomorphism.
+
 ## Proof Obligations
 
 1. **Trace space:** prove that the transition trace really runs over `A_Weyl x J3(O)`, not `A_R x J3(O)`, `A_Weyl x Im(J3(O))`, or another nearby space.

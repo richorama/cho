@@ -22,7 +22,8 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  12. epsilon_cubic_discriminant   — eps0 route 2: is the 27 the cubic discriminant?
  13. epsilon_heat_kernel          — eps0 route 1: which pi (Berry vs heat-kernel)?
  14. epsilon_state_count          — eps0 route 4: 432 as a geometric state count
- 15. prediction_registry           — tamper-evident pre-registration hashes
+ 15. epsilon_product_space        — eps0 route 4b: is 432 a genuine product?
+ 16. prediction_registry           — tamper-evident pre-registration hashes
 
 Run all:
     PYTHONDONTWRITEBYTECODE=1 python3 compute/audit.py
@@ -49,6 +50,7 @@ import cross_generation_count
 import epsilon_cubic_discriminant
 import epsilon_heat_kernel
 import epsilon_state_count
+import epsilon_product_space
 import prediction_registry
 
 
@@ -104,6 +106,9 @@ ARTIFACTS = [
     ("epsilon_state_count",
      "Eps0 route 4: 432 = dim(OP^2) x dim(J3(O)) as a geometric state count.",
      epsilon_state_count.main),
+    ("epsilon_product_space",
+     "Eps0 route 4b: stratify 27=1+16+10; is 432 a genuine product? names the open isomorphism.",
+     epsilon_product_space.main),
     ("prediction_registry",
      "Tamper-evident pre-registration: SHA-256 digests of the frozen predictions.",
      prediction_registry.main),
