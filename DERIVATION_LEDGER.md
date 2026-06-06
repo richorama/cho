@@ -56,9 +56,9 @@ Do not mix these counts without explaining the grouping.
 | M6 | Inter-sector ratio | `m_s m_t/(m_b m_c) = 3` | Derived bridge / dependent | Track scheme dependence and covariance with `m_s`, `m_b`, `m_c`, `m_t` |
 | M7 | Inter-sector ratio | `m_mu m_t/(m_tau m_c) = 8` | Derived bridge / dependent | Same covariance treatment as M6 |
 | M8 | Georgi-Jarlskog ratio | `m_mu m_b/(m_tau m_s) = 8/3` | Derived bridge / dependent | Same covariance treatment as M6 |
-| M9 | Up mass | `m_u = (1/4) m_c^2/m_t` | Open bridge / candidate operator | `CHO_OPERATOR.md` embeds the `1/4` weak projector shape; derive uniqueness |
-| M10 | Down mass | `m_d = (9/4) m_s^2/m_b` | Open bridge / candidate operator | Candidate gives `(1/4) N_c^2`; derive the sector-square rule |
-| M11 | Electron mass | `m_e = (1/4 pi) m_mu^2/m_tau` | Open bridge / candidate operator | Candidate gives `(1/4)(1/pi)`; `sector_projector_derivation.py` shows naive `S6` volume does not derive `1/pi`; compute the actual measure |
+| M9 | Up mass | `m_u = (1/4) m_c^2/m_t` | Open bridge / candidate operator, compounding | `CHO_OPERATOR.md` embeds the `1/4` weak projector shape; derive uniqueness. Squared ratio of predicted masses; intrinsic factor error ~8% but loosely constrained (exp error ~20%). See `first_generation_audit.py` |
+| M10 | Down mass | `m_d = (9/4) m_s^2/m_b` | Open bridge / candidate operator, compounding | Candidate gives `(1/4) N_c^2`; derive the sector-square rule. Intrinsic factor error ~0.6%, propagation ~ -4.7%. See `first_generation_audit.py` |
+| M11 | Electron mass | `m_e = (1/4 pi) m_mu^2/m_tau` | Open bridge / candidate operator, dominant outlier | Candidate gives `(1/4)(1/pi)`; `sector_projector_derivation.py` shows naive `S6` volume does not derive `1/pi`; compute the actual measure. This is the `-3.75 sigma` audit outlier: intrinsic `1/(4pi)` factor is ~ -2.2%, the rest is propagation from squared predicted inputs. Because `m_e` is known to 8 digits it can NEVER be a precision claim until `1/pi` is derived EXACTLY; otherwise demote it. See `first_generation_audit.py` |
 | C1 | Cabibbo angle | `|V_us| = sqrt(7) epsilon_0` | Derived bridge | Build and diagonalize the CHO mass matrices directly |
 | C2 | CKM 2-3 mixing | `|V_cb| = epsilon_0/2` | Derived bridge | Derive the `1/2` from the same mass-matrix construction |
 | C3 | CKM 1-3 mixing | `|V_ub| = (sqrt(2)-1)|V_us||V_cb|` | Open bridge | Derive `sqrt(2)-1 = tan(pi/8)` as a subleading triality/phase effect |
@@ -93,5 +93,6 @@ Do not mix these counts without explaining the grouping.
 - `compute/cho_bridge_operator.py` and `CHO_OPERATOR.md` — unified candidate operator embedding the epsilon trace, sector projectors, NNI shape factors, Fano phase diagnostics, and PMNS seesaw target.
 - `compute/operator_gap_audit.py` and `OPERATOR_GAP_AUDIT.md` — explicit audit of unsolved operator, CKM, PMNS, and continuum/RG gaps.
 - `compute/sector_projector_derivation.py` — sector-count diagnostic deriving Fock-grade ranks `1` and `3`, while leaving lepton full-rank trace and `1/pi` as open measure problems.
+- `compute/first_generation_audit.py` — confronts the `m_e` `-3.75 sigma` audit outlier: decomposes each first-generation mass error (M9-M11) into intrinsic bridge-factor error (against measured inputs) vs propagated error (from feeding predicted 2nd/3rd-gen masses into squared ratios). Shows the headline `-5.6%` on `m_e` is mostly propagation and isolates the genuine `1/(4pi)` proof obligation at ~2%.
 - `FLAVOUR_DERIVATION.md` — companion memo explaining the scaffold, its inputs, and what remains to be proven by a full CHO Yukawa operator.
 - `METHODOLOGY_LIMITS.md` — caveat document for few-input parameter language, postdictions, dependent audit rows, continuum/RG gaps, dimensional-counting risks, and null-test scales.

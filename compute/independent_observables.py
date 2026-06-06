@@ -156,6 +156,26 @@ def main():
     print(f"  reduced chi-square           : {red:6.2f}")
     print(f"  p-value  P(chi2_{k} > obs)    : {p:8.4f}")
 
+    # --- outlier identification ---
+    ranked = sorted(zip([n for n, _, _, _ in indep], pulls),
+                    key=lambda t: -abs(t[1]))
+    print("\n  Largest pulls (worst-fitting rows):")
+    for name, pull in ranked[:3]:
+        print(f"    {name:<22} {pull:+.2f} sigma")
+    worst_name, worst_pull = ranked[0]
+    if abs(worst_pull) > 2.5:
+        print(f"\n  NOTE: '{worst_name}' is the dominant outlier. The first-generation")
+        print("  masses are SQUARED ratios of predicted 2nd/3rd-gen masses, so they")
+        print("  compound upstream ~1% errors. See first_generation_audit.py: the")
+        print("  intrinsic bridge-factor error is ~2%, the rest is propagation.")
+        # chi-square with the dominant outlier removed (honest sensitivity check).
+        chi2_excl = chi2 - worst_pull ** 2
+        k_excl = k - 1
+        red_excl = chi2_excl / k_excl
+        p_excl = chi2_sf(chi2_excl, k_excl)
+        print(f"  Excluding it: reduced chi^2 = {red_excl:.2f}, p = {p_excl:.2f}"
+              f" over {k_excl} rows.")
+
     # Inflation illustration: pretend all rows independent at exp-only error.
     chi2_naive = 0.0
     for name, formula, pred, obs, unc, unit in rows:

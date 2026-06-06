@@ -24,6 +24,7 @@ import model_complexity
 import independent_observables
 import derived_vs_residual
 import predict_neutrino_sum
+import first_generation_audit
 
 
 ARTIFACTS = [
@@ -39,6 +40,9 @@ ARTIFACTS = [
     ("derived_vs_residual",
      "Error bars on the DERIVED term vs the underived continuum/RG residual.",
      derived_vs_residual.main),
+    ("first_generation_audit",
+     "First-gen outlier: intrinsic factor error vs propagated error.",
+     first_generation_audit.main),
     ("predict_neutrino_sum",
      "Frozen, falsifiable forward prediction: Sigma m_nu.",
      predict_neutrino_sum.main),
@@ -59,6 +63,8 @@ def run_all():
     print("#  AUDIT COMPLETE")
     print("#  Bottom line: CHO constants are hard to vary (12/12 simplest fitters),")
     print("#  but it is a ~17-parameter framework with marginal compression today.")
+    print("#  The m_e -3.75 sigma outlier is mostly error propagation through squared")
+    print("#  first-gen ratios; the genuine 1/(4pi) proof obligation is a ~2% effect.")
     print("#  The payoff is gated on DERIVING the prefactors, per DERIVATION_LEDGER.")
     print("#" * 78)
 
