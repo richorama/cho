@@ -131,13 +131,13 @@ The algebra doesn't just explain *what* exists — it *calculates* the propertie
 
 ### A single parameter controls everything
 
-The framework derives one key number from the algebra:
+The framework is organized around one key bridge target from the algebra:
 
 $$\varepsilon_0^2 = \frac{\pi}{432} = \frac{\pi}{16 \times 27}$$
 
 where 16 = dim_ℂ(𝒜) (the complex dimension of the algebra) and 27 = dim(J₃(𝕆)) (the dimension of the exceptional Jordan algebra).
 
-This gives ε₀ ≈ 0.0853. From this single derived quantity — not a free parameter, but a *calculable number* — the entire mass hierarchy and mixing pattern follows.
+This gives ε₀ ≈ 0.0853. From this single algebraic bridge target — not treated as a fitted free parameter, but still awaiting its operator proof — the mass hierarchy and mixing pattern are audited.
 
 ### The mass hierarchy
 

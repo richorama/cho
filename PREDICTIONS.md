@@ -131,20 +131,20 @@ At early times: Λ was LARGER (∝ H²). This is consistent with "dark energy tr
 
 ---
 
-### 11. ε₀² = π/432 (Derived, 0.70σ from observed)
-**Bridge rule:** The triality-breaking parameter is:
+### 11. ε₀² = π/432 (Bridge target, 0.70σ from observed)
+**Trace target:** The triality-breaking parameter is scaffolded as:
 $$\varepsilon_0^2 = \frac{\pi}{432} = \frac{\pi}{\dim_\mathbb{C}(\mathcal{A}) \times \dim(J_3(\mathbb{O}))} = \frac{\pi}{16 \times 27}$$
 
 - Predicted: ε₀² = 0.007272 = 1/137.5
 - Observed: m_c/m_t = 0.007354 ± 0.000117
 - Deviation: 0.70σ
 
-**Physical content:**
+**Proposed physical content:**
 - π: half-rotation on the G₂/SU(3) ≅ S⁶ coset manifold
 - 16 = dim_ℂ(𝒜): complex Weyl fermion states per generation
 - 27 = dim(J₃(𝕆)): exceptional Jordan algebra dimensionality
 
-**Connection:** ε₀² = λ_Higgs/18, linking fermion masses to the Higgs quartic coupling λ = π/24.
+**Connection:** ε₀² = λ_Higgs/18, linking the fermion bridge target to the Higgs quartic coupling λ = π/24. The operator proof is tracked in `EPSILON_BRIDGE.md`.
 
 ---
 

@@ -4,11 +4,15 @@ Frozen date: 2026-06-06
 
 This note describes `compute/flavour_derivation.py`, the first bridge artifact after the derivation ledger. Its purpose is to turn the flavour sector from a list of successful formulas into a small derivation engine with explicit inputs, matrices, and remaining proof obligations.
 
+For the shared triality-breaking quantity itself, see `EPSILON_BRIDGE.md` and `compute/epsilon_bridge.py`. Those artifacts isolate the separate proof target for deriving `epsilon0^2 = pi / 432` as an operator trace or transition amplitude.
+
+For the charged-sector operator target, see `YUKAWA_BRIDGE.md` and `compute/yukawa_bridge.py`. For the neutrino-mixing operator target, see `PMNS_BRIDGE.md` and `compute/pmns_bridge.py`.
+
 ## Goal
 
 The scaffold starts from CHO algebraic data only:
 
-- `epsilon0^2 = pi / (16 * 27)`
+- `epsilon0^2 = pi / (16 * 27)` from the epsilon bridge trace target
 - `N_color = 3`
 - `dim(O) = 8`
 - `dim(Im O) = 7`
@@ -69,7 +73,7 @@ This scaffold improves the project in two ways:
 
 Ledger implications:
 
-- M9-M11 remain `Ansatz / open bridge`, but now have a concrete bridge representation to attack.
+- M9-M11 are `Open bridge / scaffolded`: the cascade relation is explicit, while the sector shape factors still need the CHO Yukawa operator.
 - C1-C3 are implemented as a CKM unitary scaffold.
 - C4 remains open at the operator level because the simple PDG phase placement does not yet reproduce the Paper 2 Jarlskog target.
 - N2-N5 are implemented as a PMNS unitary scaffold, but still need a broken-`Z3` seesaw matrix derivation.

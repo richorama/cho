@@ -22,6 +22,9 @@ This project was developed as a human–AI collaboration (with Claude, Anthropic
 
 - [DERIVATION_LEDGER.md](DERIVATION_LEDGER.md) — canonical status ledger for theorem-level claims, bridge assumptions, open derivations, and ansaetze
 - [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md) — caveats on postdictions, statistical dependence, continuum/RG gaps, dimensional counting, and null tests
+- [EPSILON_BRIDGE.md](EPSILON_BRIDGE.md) — focused bridge target for deriving `epsilon0^2 = pi / 432` as an operator trace or transition amplitude
+- [YUKAWA_BRIDGE.md](YUKAWA_BRIDGE.md) — charged-flavour bridge scaffold deriving the NNI adjacency and cascade mass relation
+- [PMNS_BRIDGE.md](PMNS_BRIDGE.md) — neutrino-mixing bridge scaffold deriving TBM residual symmetries and the broken-`Z3` perturbation target
 - [FUTURE_TESTS.md](FUTURE_TESTS.md) — dated register of future-facing falsifiable predictions frozen on 2026-06-06
 - [FLAVOUR_DERIVATION.md](FLAVOUR_DERIVATION.md) — bridge memo for the explicit flavour derivation scaffold
 
@@ -43,6 +46,9 @@ papers/                  LaTeX sources and compiled PDFs
 compute/                 Numerical verification scripts (Python 3 + NumPy)
 DERIVATION_LEDGER.md     Logical status of each claim and proof obligation
 METHODOLOGY_LIMITS.md    Methodology caveats and statistical interpretation
+EPSILON_BRIDGE.md        Triality-breaking epsilon bridge target
+YUKAWA_BRIDGE.md         Charged-flavour Yukawa bridge scaffold
+PMNS_BRIDGE.md           Neutrino-mixing bridge scaffold
 FUTURE_TESTS.md          Frozen future-test register
 FLAVOUR_DERIVATION.md    Flavour-sector derivation scaffold and proof gaps
 blog_post.md             Public-facing writeup

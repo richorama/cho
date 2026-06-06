@@ -63,10 +63,10 @@ Factors such as `16`, `27`, `64`, `3`, `7`, `8`, and `11/12` are suggestive only
 
 Priority bridge upgrades:
 
-1. Derive `epsilon0^2 = pi/432` as an operator trace or transition amplitude.
-2. Derive first-generation NNI factors `1/4`, `9/4`, and `1/(4 pi)` from a CHO Yukawa operator.
+1. Prove the `EPSILON_BRIDGE.md` trace target for `epsilon0^2 = pi/432` as an operator trace or transition amplitude.
+2. Promote `YUKAWA_BRIDGE.md` by deriving first-generation NNI shape factors `1/4`, `9/4`, and `1/(4 pi)` from a CHO Yukawa operator.
 3. Derive CKM Jarlskog phase placement from the full NNI matrices.
-4. Derive corrected PMNS angles from a broken-`Z3` seesaw matrix.
+4. Promote `PMNS_BRIDGE.md` by deriving corrected PMNS angles from a broken-`Z3` seesaw matrix.
 5. Derive continuum/RG matching from the lattice action.
 
 ## Null Claims
