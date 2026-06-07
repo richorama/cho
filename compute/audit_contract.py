@@ -566,6 +566,17 @@ CONTRACTS = {
                          "The distinction between 'unique maximizer in class' and "
                          "'class derived from action' is collapsed."),
     ),
+    "f0_direction_gate": contract(
+        "f0_direction_gate",
+        ("F0", "STAT1"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Use as project-direction governance only: continue F0 work only when a "
+        "next task retires a named live F0 bridge; otherwise pivot to falsification "
+        "or submission packaging.",
+        open_bridges=("Physical transition ray tau from action dynamics.",
+                      "Admissible epsilon-kernel class from full CHO action dynamics."),
+    ),
     "gravity_curvature": contract(
         "gravity_curvature",
         ("GR1",),

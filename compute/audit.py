@@ -98,6 +98,7 @@ import epsilon_measure_schur
 import epsilon_phase_space_product
 import epsilon_assumption_p_gate
 import epsilon_action_stationary
+import f0_direction_gate
 import gravity_curvature
 import gravity_gate_audit
 import prediction_registry
@@ -240,6 +241,9 @@ ARTIFACTS = [
     ("epsilon_action_stationary",
      "F0 action stationarity: in the normalized link-action class (O>=0, Tr O=pi), the primitive kernel O=pi|tau><tau| is the unique global maximizer; current scaffold saturates this bound exactly.",
      epsilon_action_stationary.main),
+    ("f0_direction_gate",
+     "F0 governance gate: reports whether the next step is closure-critical or should pivot away from theory-for-theory based on live F0 contracts and scoreboard state.",
+     f0_direction_gate.main),
     ("gravity_curvature",
      "M-GRAV: a symmetric, G2-covariant rank-2 metric (tr g = 16|a^b|^2) emerges from the octonionic associator; transverse rank-4 graviton mode, flat dirs = associative subalgebra.",
      gravity_curvature.main),
