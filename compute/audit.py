@@ -38,6 +38,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  22. epsilon_vcb_halfangle        — C2: |V_cb| coefficient 1/2 = SU(2) spinor half-angle
  23. epsilon_a4_two_level         — R2 origin: two-level symmetry = SU(2) closure of A4
  24. epsilon_measure_audit        — Phase 2 gate: pi/432 as one conditional transition measure
+    *  epsilon_measure_witness      — F0 H4 witness: normalized-measure seam isolated
   *  gravity_curvature            — M-GRAV: emergent rank-2 metric from non-associativity
   *  gravity_gate_audit           — Phase 5 gate: gravity remains exploratory unless Lorentzian dynamics close
  25. prediction_registry           — Phase 6 locked prediction registry + update protocol
@@ -84,6 +85,7 @@ import epsilon_mixing_coefficients
 import epsilon_vcb_halfangle
 import epsilon_a4_two_level
 import epsilon_measure_audit
+import epsilon_measure_witness
 import gravity_curvature
 import gravity_gate_audit
 import prediction_registry
@@ -190,6 +192,9 @@ ARTIFACTS = [
     ("epsilon_measure_audit",
      "Phase 2 gate: pi/432 as a conditional normalized transition trace; nearby alternatives excluded by named criteria.",
      epsilon_measure_audit.main),
+    ("epsilon_measure_witness",
+     "F0 witness: isolates H4, the invariant normalized-measure theorem seam.",
+     epsilon_measure_witness.main),
     ("gravity_curvature",
      "M-GRAV: a symmetric, G2-covariant rank-2 metric (tr g = 16|a^b|^2) emerges from the octonionic associator; transverse rank-4 graviton mode, flat dirs = associative subalgebra.",
      gravity_curvature.main),

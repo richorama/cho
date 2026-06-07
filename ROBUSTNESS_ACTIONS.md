@@ -43,6 +43,11 @@ The main open scientific seams are no longer hidden:
 
 **Acceptance:** a reviewer can run one command and see which claims are closed, open, future-facing, diagnostic, or out of scope.
 
+**Execution note (2026-06-07):** `compute/audit_contract.py --json` now exports
+machine-readable contracts; `compute/claim_status_report.py` groups artifacts by
+status; tests verify ledger-ID coverage and kill-condition discipline for open
+and exploratory contracts.
+
 ## Action Track B - Put `epsilon0^2 = pi/432` On Trial
 
 **Goal:** close or demote the F0 hinge.
@@ -55,6 +60,10 @@ The main open scientific seams are no longer hidden:
 4. If the measure still requires choosing the trace space by hand, demote F0 in the ledger and update `model_complexity.py` / `scoreboard.py`.
 
 **Acceptance:** F0 is either promoted with a named theorem and machine witness, or honestly charged as an input in the Bayes accounting.
+
+**Execution note (2026-06-07):** `compute/epsilon_measure_witness.py` is now a
+first-class audit artifact. It isolates H4, the invariant normalized-measure
+rule, as the remaining F0 seam and keeps theorem status open.
 
 ## Action Track C - Collapse Flavour Into One Operator
 
@@ -70,6 +79,11 @@ The main open scientific seams are no longer hidden:
 
 **Acceptance:** one operator produces charged masses, CKM, PMNS, and phase diagnostics, or the dependent claims are demoted in the contract and ledger.
 
+**Execution note (2026-06-07):** `compute/yukawa_operator_full.py` now prints a
+categorized parameter ledger and deformation/null tests showing which outputs
+fail together when epsilon, Fano phase, sector projectors, or PMNS perturbations
+are removed.
+
 ## Action Track D - Derive Or Demote Continuum Matching
 
 **Goal:** stop treating RG and threshold corrections as residual bookkeeping.
@@ -82,6 +96,10 @@ The main open scientific seams are no longer hidden:
 4. If no scale is selected by the action, keep S4/S5 phenomenological and remove any stronger public wording.
 
 **Acceptance:** low-energy residuals are computed from declared boundary conditions and thresholds, not inferred from observed targets.
+
+**Execution note (2026-06-07):** `compute/rg_matching_audit.py` exposes a
+structured matching report and the tests enforce that inverse-matched scales are
+not labelled as derived.
 
 ## Action Track E - Finish The Content Map
 
@@ -96,6 +114,11 @@ The main open scientific seams are no longer hidden:
 
 **Acceptance:** the project can say exactly what object carries three generations before asking it to carry masses.
 
+**Execution note (2026-06-07):** `compute/physics_map_audit.py` now prints the
+three idempotent-frame copies of the one-generation table and tests that the
+current extension uses no per-field arbitrary choices while keeping the functorial
+content map open.
+
 ## Action Track F - Keep Predictions Frozen And Readable
 
 **Goal:** make future data comparisons hard to retune.
@@ -107,6 +130,10 @@ The main open scientific seams are no longer hidden:
 3. Separate discovery pressure, null exclusions, and bridge sensitivities in the public docs.
 
 **Acceptance:** a future measurement can be compared against a frozen entry without interpreting prose or rerunning old code by hand.
+
+**Execution note (2026-06-07):** `compute/prediction_registry.py --markdown`
+generates a markdown summary from the locked registry rows, and `FUTURE_TESTS.md`
+points to that generated export path.
 
 ## Recommended Order
 

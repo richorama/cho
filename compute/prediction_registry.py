@@ -21,11 +21,13 @@ Run:
 
 from __future__ import annotations
 
+import argparse
 from dataclasses import dataclass
 import hashlib
 import io
 import json
 import math
+import sys
 from contextlib import redirect_stdout
 
 import forward_predictions
@@ -275,6 +277,50 @@ def print_category(rows, category, title):
     print()
 
 
+def _compact_values(values):
+    return ", ".join(
+        f"{key}={value:.5g}" if isinstance(value, float) else f"{key}={value}"
+        for key, value in values.items()
+    )
+
+
+def _markdown_cell(value):
+    return str(value).replace("|", "\\|").replace("\n", " ")
+
+
+def markdown_summary(rows=None):
+    rows = collect_registry_rows() if rows is None else rows
+    failures, current_manifest = validate_rows(rows)
+    lines = [
+        "# Locked Prediction Registry Summary",
+        "",
+        f"Registry version: `{REGISTRY_VERSION}`",
+        f"Manifest digest: `{current_manifest}`",
+        f"Audit status: `{'FAIL' if failures else 'PASS'}`",
+        "",
+        "> Generated from `compute/prediction_registry.py --markdown`. Do not edit frozen values by hand; add dated registry entries for revisions.",
+        "",
+    ]
+    for category, title in [
+        ("positive_quantitative", "Positive Quantitative Predictions"),
+        ("bridge_sensitivity", "Bridge Sensitivities"),
+    ]:
+        lines.append(f"## {title}")
+        lines.append("")
+        lines.append("| Name | Date | Values | Channel | Kill condition | SHA-256 |")
+        lines.append("|---|---|---|---|---|---|")
+        for row in rows:
+            entry = row["entry"]
+            if entry.category != category:
+                continue
+            lines.append(
+                f"| `{entry.name}` | {entry.frozen_date} | {_markdown_cell(_compact_values(row['values']))} | "
+                f"{_markdown_cell(entry.experimental_channel)} | {_markdown_cell(entry.kill_condition)} | `{row['digest']}` |"
+            )
+        lines.append("")
+    return "\n".join(lines)
+
+
 def validate_rows(rows):
     failures = []
     for row in rows:
@@ -287,7 +333,19 @@ def validate_rows(rows):
     return failures, current_manifest
 
 
-def main():
+def main(argv=None):
+    parser = argparse.ArgumentParser(description="Validate or export the CHO locked prediction registry.")
+    parser.add_argument("--markdown", action="store_true", help="emit a generated markdown summary")
+    args = parser.parse_args([] if argv is None else argv)
+
+    rows = collect_registry_rows()
+    if args.markdown:
+        print(markdown_summary(rows))
+        failures, _current_manifest = validate_rows(rows)
+        if failures:
+            raise SystemExit(1)
+        return
+
     print("=" * 78)
     print("  CHO PREDICTION REGISTRY -- Phase 6 locked future-test manifest")
     print(f"  Registry version: {REGISTRY_VERSION}")
@@ -296,7 +354,6 @@ def main():
     print(f"UPDATE PROTOCOL: {UPDATE_PROTOCOL}")
     print()
 
-    rows = collect_registry_rows()
     print_category(rows, "positive_quantitative", "POSITIVE QUANTITATIVE PREDICTIONS")
     print_category(rows, "bridge_sensitivity", "BRIDGE SENSITIVITIES / PRESSURE TESTS")
 
@@ -333,4 +390,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1:])

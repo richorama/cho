@@ -197,6 +197,14 @@ def candidate_scales():
     ]
 
 
+def structured_matching_report():
+    return {
+        "boundary_conditions": boundary_rows(),
+        "candidate_scales": candidate_scales(),
+        "gate_checks": gate_checks(),
+    }
+
+
 def gate_checks():
     target_scale, _ = scale_for_sin2(0.25)
     needed_delta, leptonic_qcd, hadronic_needed = qcd_scale_alpha_example()
@@ -258,7 +266,7 @@ def print_sm_running():
     print(f"  alpha_2^-1(M_Z) = {alpha2_inv:.3f}")
     print(f"  alpha_3^-1(M_Z) = {alpha3_inv:.3f}")
     print()
-    print(f"{'scale':<34} {'mu [GeV]':>13} {'sin^2_W(mu)':>14} status")
+    print(f"{'scale':<34} {'mu [GeV]':>13} {'sin^2_W(mu)':>14} provenance")
     print("-" * 78)
     for scale in candidate_scales():
         print(f"{scale.name:<34} {scale.scale_gev:>13.3e} {scale.sin2:>14.6f} {scale.status}")

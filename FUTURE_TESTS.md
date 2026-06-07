@@ -6,6 +6,8 @@ This file records future-facing tests whose decisive data are still ahead. The p
 
 Phase 6 status: the quantitative registry is locked by `compute/prediction_registry.py`. Re-running that artifact recomputes every value payload and fails if any stored hash changes without a new dated entry.
 
+Generated summary: run `PYTHONDONTWRITEBYTECODE=1 python3 compute/prediction_registry.py --markdown` to produce a markdown table directly from the locked registry rows.
+
 Update protocol: new data or a theoretical revision creates a dated addendum. Old frozen entries are never overwritten. If a target depends on an unfixed bridge that can move after data arrive, it is labelled a bridge sensitivity rather than a positive prediction.
 
 ## Null Exclusions / Hard Falsifiers

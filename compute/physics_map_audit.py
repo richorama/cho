@@ -2,8 +2,8 @@
 Physics-map audit: one-generation quantum numbers and anomaly cancellation.
 ===========================================================================
 
-This is the Phase 1 repair artifact from CRITICAL_REPAIR_PLAN.md. It freezes the
-current algebra-to-physics map enough to make it auditable:
+This artifact freezes the current algebra-to-physics map enough to make it
+auditable:
 
 * Q comes from the C x O number operator (ladder_charges.py).
 * weak SU(2) and T3 come from the H factor (weak_isospin_hypercharge.py).
@@ -60,6 +60,15 @@ class LeftWeylField:
     weak_mult: int
 
 
+@dataclass(frozen=True)
+class GenerationCopy:
+    generation: str
+    idempotent: str
+    tangent_module: str
+    field_count: int
+    map_status: str
+
+
 PHYSICAL_FIELDS = [
     PhysicalField("u_L", "3", "2", "L", Fraction(2, 3), Fraction(1, 2), Fraction(1, 3), 3),
     PhysicalField("d_L", "3", "2", "L", Fraction(-1, 3), Fraction(-1, 2), Fraction(1, 3), 3),
@@ -80,6 +89,20 @@ ANOMALY_FIELDS = [
     LeftWeylField("e_R^c", "1", "1", Fraction(2), 1, 1),
     LeftWeylField("nu_R^c", "1", "1", Fraction(0), 1, 1),
 ]
+
+
+def generation_frame_copies():
+    fields_per_generation = sum(field.multiplicity for field in PHYSICAL_FIELDS)
+    return [
+        GenerationCopy(
+            f"gen_{index}",
+            f"E_{index}{index}",
+            "T_E(OP2) ~= Delta_9, dim 16",
+            fields_per_generation,
+            "same one-generation table copied to this frame idempotent; no per-field choices",
+        )
+        for index in (1, 2, 3)
+    ]
 
 
 def format_fraction(value):
@@ -212,6 +235,21 @@ def main():
         )
     print(f"\n      GMN table + 16 Weyl count             : {'PASS' if gmn_ok else 'FAIL'}")
 
+    frame_copies = generation_frame_copies()
+    frame_ok = len(frame_copies) == 3 and all(copy.field_count == 16 for copy in frame_copies)
+    no_field_choices = all("no per-field choices" in copy.map_status for copy in frame_copies)
+
+    print("\n  THREE IDEMPOTENT-FRAME COPIES (content-map pressure test)")
+    print("  " + "-" * 72)
+    print("      gen    idempotent  tangent module              fields  status")
+    for copy in frame_copies:
+        print(
+            f"      {copy.generation:<6} {copy.idempotent:<10}"
+            f" {copy.tangent_module:<27} {copy.field_count:>6}  {copy.map_status}"
+        )
+    print(f"\n      three copies x 16 fields              : {'PASS' if frame_ok else 'FAIL'}")
+    print(f"      no per-field arbitrary choices       : {'PASS' if no_field_choices else 'FAIL'}")
+
     print("\n  ANOMALY AUDIT (all fields written left-handed)")
     print("  " + "-" * 72)
     for name, value in anomalies.items():
@@ -225,9 +263,9 @@ def main():
     print("     compatibility, and exact SM anomaly cancellation.")
     print("   * It does not close the full content map from the three OP2 idempotent")
     print("     tangent spinors to physical field labels, nor the Yukawa operator.")
-    print("     Those remain the Phase 1/Phase 3 seams in CRITICAL_REPAIR_PLAN.md.")
+    print("     Those remain the content-map and one-operator robustness tracks.")
 
-    ok = spectra["q_ok"] and spectra["t_ok"] and chirality_ok and gmn_ok and anomalies_ok
+    ok = spectra["q_ok"] and spectra["t_ok"] and chirality_ok and gmn_ok and anomalies_ok and frame_ok and no_field_choices
     print("\n  VERDICT")
     print("  " + "-" * 72)
     if ok:

@@ -25,6 +25,8 @@ def load_audit_module():
 AUDIT = load_audit_module()
 AUDIT_CONTRACT = importlib.import_module("audit_contract")
 PREDICTION_REGISTRY = importlib.import_module("prediction_registry")
+PHYSICS_MAP_AUDIT = importlib.import_module("physics_map_audit")
+RG_MATCHING_AUDIT = importlib.import_module("rg_matching_audit")
 
 
 def run_audit(*args, timeout=ARTIFACT_TIMEOUT_SECONDS):
@@ -46,6 +48,20 @@ def run_audit_contract(timeout=ARTIFACT_TIMEOUT_SECONDS):
     env["PYTHONDONTWRITEBYTECODE"] = "1"
     return subprocess.run(
         [PYTHON, "compute/audit_contract.py"],
+        cwd=ROOT,
+        env=env,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        timeout=timeout,
+    )
+
+
+def run_python_script(script, *args, timeout=ARTIFACT_TIMEOUT_SECONDS):
+    env = os.environ.copy()
+    env["PYTHONDONTWRITEBYTECODE"] = "1"
+    return subprocess.run(
+        [PYTHON, script, *args],
         cwd=ROOT,
         env=env,
         stdout=subprocess.PIPE,
@@ -127,6 +143,28 @@ class AuditCliTests(AuditAssertions):
         )
         self.assertIn("AUDIT STATUS: PASS", result.stdout)
 
+    def test_audit_contract_json_cli_completes(self):
+        result = run_python_script("compute/audit_contract.py", "--json", timeout=30)
+
+        self.assertEqual(
+            result.returncode,
+            0,
+            msg=result.stdout[-3000:],
+        )
+        self.assertIn('"audit_status": "PASS"', result.stdout)
+        self.assertIn('"contracts"', result.stdout)
+
+    def test_claim_status_report_cli_completes(self):
+        result = run_python_script("compute/claim_status_report.py", timeout=30)
+
+        self.assertEqual(
+            result.returncode,
+            0,
+            msg=result.stdout[-3000:],
+        )
+        self.assertIn("CHO CLAIM STATUS REPORT", result.stdout)
+        self.assertIn("OPEN_BRIDGE", result.stdout)
+
     def test_unknown_artifact_lists_available_artifacts(self):
         result = run_audit("not_a_real_artifact", timeout=30)
 
@@ -164,6 +202,34 @@ class AuditContractTests(unittest.TestCase):
                 bridge_sensitivity_names,
             ),
         )
+
+    def test_contract_ledger_ids_exist(self):
+        ledger_text = (ROOT / "DERIVATION_LEDGER.md").read_text()
+        ledger_ids = set(re.findall(r"^\|\s*([A-Z]+[0-9]+)\s*\|", ledger_text, flags=re.MULTILINE))
+        contract_ids = {
+            ledger_id
+            for contract in AUDIT_CONTRACT.CONTRACTS.values()
+            for ledger_id in contract.ledger_ids
+        }
+
+        self.assertEqual(
+            set(),
+            contract_ids - ledger_ids,
+            msg="Every contract ledger ID must exist in DERIVATION_LEDGER.md.",
+        )
+
+    def test_open_and_exploratory_contracts_have_kill_conditions(self):
+        statuses = {
+            AUDIT_CONTRACT.STATUS_OPEN_BRIDGE,
+            AUDIT_CONTRACT.STATUS_EXPLORATORY,
+        }
+        missing = [
+            contract.artifact
+            for contract in AUDIT_CONTRACT.CONTRACTS.values()
+            if contract.status in statuses and not contract.kill_conditions
+        ]
+
+        self.assertEqual([], missing)
 
     def test_epsilon_measure_remains_the_open_hinge(self):
         contract = AUDIT_CONTRACT.CONTRACTS["epsilon_measure_audit"]
@@ -229,6 +295,41 @@ class PredictionRegistryTests(AuditAssertions):
 
         self.assert_audit_success(result)
         self.assertIn("DERIVATION SCOREBOARD", result.stdout)
+
+    def test_prediction_registry_markdown_export(self):
+        result = run_python_script("compute/prediction_registry.py", "--markdown", timeout=60)
+
+        self.assertEqual(
+            result.returncode,
+            0,
+            msg=result.stdout[-3000:],
+        )
+        self.assertIn("# Locked Prediction Registry Summary", result.stdout)
+        self.assertIn("Positive Quantitative Predictions", result.stdout)
+        self.assertIn("Bridge Sensitivities", result.stdout)
+        self.assertIn("Sigma_m_nu", result.stdout)
+
+
+class RobustnessTrackTests(unittest.TestCase):
+    def test_rg_inverse_matches_are_not_labelled_derived(self):
+        inverse_scales = [
+            scale
+            for scale in RG_MATCHING_AUDIT.candidate_scales()
+            if "INVERSE" in scale.status
+        ]
+
+        self.assertTrue(inverse_scales)
+        for scale in inverse_scales:
+            with self.subTest(scale=scale.name):
+                self.assertIn("target-implied", scale.name)
+                self.assertNotIn("DERIVED", scale.status)
+
+    def test_physics_map_tracks_three_frame_copies(self):
+        copies = PHYSICS_MAP_AUDIT.generation_frame_copies()
+
+        self.assertEqual(3, len(copies))
+        self.assertEqual({16}, {copy.field_count for copy in copies})
+        self.assertTrue(all("no per-field choices" in copy.map_status for copy in copies))
 
 
 if __name__ == "__main__":

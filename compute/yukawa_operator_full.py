@@ -26,6 +26,7 @@ import numpy as np
 from cho_bridge_operator import (
     CHOBridgeOperator,
     OBSERVED,
+    ckm_matrix_from_sines,
     construct_fritzsch_matrix,
     diagonalize_hermitian,
     generation_adjacency,
@@ -36,6 +37,7 @@ from cho_bridge_operator import (
 
 @dataclass(frozen=True)
 class LedgerItem:
+    category: str
     component: str
     status: str
     value: str
@@ -46,6 +48,15 @@ class LedgerItem:
 class GateCheck:
     requirement: str
     status: str
+    metric: str
+    note: str
+
+
+@dataclass(frozen=True)
+class DeformationCheck:
+    ingredient_removed: str
+    status: str
+    affected_outputs: str
     metric: str
     note: str
 
@@ -119,46 +130,95 @@ def parameter_ledger(operator):
     _overlap, phase = operator.fano_phase()
     return [
         LedgerItem(
+            "bridge",
             "epsilon0^2",
             "GEOMETRIC/OPEN",
             f"{epsilon_sq:.10f}",
             "pi/(16*27); Phase 2 leaves normalized-measure H4 open",
         ),
         LedgerItem(
+            "fixed",
             "generation adjacency",
             "SCAFFOLD DERIVED",
             "1<->2<->3, M13=0",
             "one-step rule encoded; trilinear CHO origin still required",
         ),
         LedgerItem(
+            "fixed/open selection",
             "sector ranks",
             "DERIVED VALUE / OPEN SELECTION",
             "1, 3, 8",
             "Fock traces derived; one Yukawa map must select them dynamically",
         ),
         LedgerItem(
+            "chosen bridge",
             "weak shape trace",
             "OPEN SELECTION",
             f"{weak_trace:.6f}",
             "rank-one quaternionic trace gives 1/4 once selected",
         ),
         LedgerItem(
+            "bridge",
             "lepton sphere factor",
             "IDENTIFIED / OPEN DYNAMICS",
             "1/pi",
             "transition-sphere measure identified, not derived from Yukawa trace",
         ),
         LedgerItem(
+            "sign/phase",
             "Fano phase",
             "DERIVED VALUE / OPEN PLACEMENT",
             f"arccos(1/3) = {np.degrees(phase):.3f} deg",
             "incidence phase works for J only with a still-open matrix placement",
         ),
         LedgerItem(
+            "target bridge",
             "PMNS perturbation",
             "TARGET",
             "DeltaY, DeltaM",
             "explicit seesaw target; broken-triality derivation missing",
+        ),
+    ]
+
+
+def deformation_checks(operator, projected_ckm_metrics, pmns):
+    epsilon = np.sqrt(operator.epsilon_sq())
+    no_phase_matrix = ckm_matrix_from_sines(
+        projected_ckm_metrics["V_us"],
+        projected_ckm_metrics["V_cb"],
+        projected_ckm_metrics["V_ub"],
+        0.0,
+    )
+    no_phase_j = jarlskog(no_phase_matrix)
+    sector_multiplicities = {sector.name: operator.sector_multiplicity(sector) for sector in operator.sectors()}
+    return [
+        DeformationCheck(
+            "epsilon spurion",
+            "COUPLED FAILURE",
+            "M1-M3, C1-C3, N2-N3",
+            f"epsilon={epsilon:.6f}; setting epsilon=0 collapses hierarchy/mixing amplitudes",
+            "one spurion carries several outputs, so F0 demotion must propagate through flavour claims",
+        ),
+        DeformationCheck(
+            "Fano phase",
+            "COUPLED FAILURE",
+            "C4 Jarlskog",
+            f"J(delta=0)={no_phase_j:.3e}",
+            "the CKM CP diagnostic needs a nontrivial phase placement, not only magnitudes",
+        ),
+        DeformationCheck(
+            "sector projectors",
+            "COUPLED FAILURE",
+            "M1-M3, M9-M11",
+            "multiplicities=" + ",".join(f"{key}:{value:.0f}" for key, value in sector_multiplicities.items()),
+            "collapsing sector ranks would erase the 1,3,8 mass-channel distinction",
+        ),
+        DeformationCheck(
+            "PMNS perturbation",
+            "COUPLED FAILURE",
+            "N2-N5",
+            f"target sin2(theta13)={float(pmns['sin2_theta13']):.6f}; TBM gives 0",
+            "the neutrino angle corrections must come from dynamics, not target-angle insertion",
         ),
     ]
 
@@ -219,10 +279,21 @@ def gate_checks(operator, matrices, strict_ckm_metrics, projected_ckm_metrics, p
 def print_ledger(items):
     print("PARAMETER / COMPONENT LEDGER")
     print("=" * 78)
-    print(f"{'component':<24} {'status':<26} {'value':<24} note")
+    print(f"{'category':<20} {'component':<24} {'status':<26} {'value':<24} note")
     print("-" * 78)
     for item in items:
-        print(f"{item.component:<24} {item.status:<26} {item.value:<24} {item.note}")
+        print(f"{item.category:<20} {item.component:<24} {item.status:<26} {item.value:<24} {item.note}")
+    print()
+
+
+def print_deformations(checks):
+    print("DEFORMATION / NULL TESTS")
+    print("=" * 78)
+    print(f"{'removed ingredient':<22} {'status':<16} {'affected outputs':<22} metric")
+    print("-" * 78)
+    for check in checks:
+        print(f"{check.ingredient_removed:<22} {check.status:<16} {check.affected_outputs:<22} {check.metric}")
+        print(f"      {check.note}")
     print()
 
 
@@ -314,6 +385,7 @@ def main():
     projected_metrics = ckm_metrics(projected_ckm, projected_j)
     pmns = operator.pmns_seesaw_target()
     checks = gate_checks(operator, matrices, strict_metrics, projected_metrics, pmns)
+    deformations = deformation_checks(operator, projected_metrics, pmns)
 
     print("=" * 78)
     print("  PHASE 3 - FULL YUKAWA/SEESAW OPERATOR GATE")
@@ -324,6 +396,7 @@ def main():
     print_charged_matrices(charged_rows)
     print_ckm(strict_metrics, projected_metrics)
     print_pmns(pmns)
+    print_deformations(deformations)
     print_gate(checks)
 
 

@@ -13,7 +13,9 @@ Run:
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+import argparse
+from dataclasses import asdict, dataclass, field
+import json
 import re
 import sys
 from typing import Iterable
@@ -372,6 +374,15 @@ CONTRACTS = {
         open_bridges=("Hypothesis H4: the invariant normalized transition measure.",),
         kill_conditions=("The normalized measure cannot be derived without choosing the trace space by hand.",),
     ),
+    "epsilon_measure_witness": contract(
+        "epsilon_measure_witness",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Treat H4 as the live theorem seam; do not promote F0 from this witness alone.",
+        open_bridges=("Derive the invariant normalized transition measure from the CHO action.",),
+        kill_conditions=("If H4 remains a normalization choice, demote F0 in the Bayes accounting.",),
+    ),
     "gravity_curvature": contract(
         "gravity_curvature",
         ("GR1",),
@@ -379,6 +390,7 @@ CONTRACTS = {
         VERDICT_OPEN,
         "Describe only as a kinematic internal metric brick, not dynamical gravity.",
         open_bridges=("No canonical 4D Lorentzian reduction or Einstein/Newton dynamics.",),
+        kill_conditions=("Do not count this as gravity unless a future gate supplies Lorentzian dynamics.",),
     ),
     "gravity_gate_audit": contract(
         "gravity_gate_audit",
@@ -408,6 +420,26 @@ CONTRACTS = {
         open_bridges=("Whether epsilon0^2 = pi/432 is geometrically forced at theorem level.",),
     ),
 }
+
+
+def contract_records() -> list[dict[str, object]]:
+    return [asdict(contract_entry) for contract_entry in CONTRACTS.values()]
+
+
+def validation_payload(
+    artifact_names: Iterable[str],
+    positive_prediction_names: Iterable[str],
+    bridge_sensitivity_names: Iterable[str],
+) -> dict[str, object]:
+    errors = validate_contracts(artifact_names)
+    errors.extend(validate_prediction_contract(positive_prediction_names, bridge_sensitivity_names))
+    return {
+        "audit_status": "PASS" if not errors else "FAIL",
+        "registered_artifacts": list(artifact_names),
+        "contracted_artifacts": list(CONTRACTS),
+        "contracts": contract_records(),
+        "errors": errors,
+    }
 
 
 def validate_contract(contract_entry: AuditContract) -> list[str]:
@@ -497,10 +529,20 @@ def _prediction_names_from_registry() -> tuple[tuple[str, ...], tuple[str, ...]]
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description="Validate and export CHO audit contracts.")
+    parser.add_argument("--json", action="store_true", help="emit machine-readable contract JSON")
+    args = parser.parse_args()
+
     artifact_names = _artifact_names_from_audit()
     positive_prediction_names, bridge_sensitivity_names = _prediction_names_from_registry()
-    errors = validate_contracts(artifact_names)
-    errors.extend(validate_prediction_contract(positive_prediction_names, bridge_sensitivity_names))
+    payload = validation_payload(artifact_names, positive_prediction_names, bridge_sensitivity_names)
+    errors = payload["errors"]
+
+    if args.json:
+        print(json.dumps(payload, indent=2, sort_keys=True))
+        if errors:
+            sys.exit(1)
+        return
 
     print("CHO THEORY VALIDATION CONTRACT")
     print(f"registered audit artifacts : {len(artifact_names)}")
