@@ -31,7 +31,7 @@ python3 compute/cho_bridge_operator.py
 
 ## What It Actually Derives, Conditionally
 
-The current candidate gives the following if its component projectors are accepted. The `1` and `3` counts are now tied to the Fock-grade decomposition of the complex octonion particle states; the `8` lepton trace is still a full-Fock-space bridge assumption.
+The current candidate gives the following if its component projectors are accepted. The mass-sector integers `1`, `3`, and `8` are now tied to the number-operator/Fock-grade decomposition of the complex octonion particle states (`compute/epsilon_channel_coefficients.py`). What is still not proved is that one CHO Yukawa trilinear dynamically selects these traces.
 
 ```text
 epsilon0^2 = Tr(H_triality) / dim(A_Weyl x J3(O)) = pi / (16 * 27)
@@ -81,8 +81,8 @@ The strongest objections are tracked in `OPERATOR_GAP_AUDIT.md` and quantified b
 
 - adjacent Fano lines give a natural rank-one intersection, and the normalized `log cos` action conditionally selects the primitive `A_Weyl x J3(O)` product over larger projectors;
 - `compute/action_projector_derivation.py` shows that all `21` Fano-line pairs have rank-one local support in one automorphism orbit, while `compute/primitive_projector_derivation.py` shows the action rank penalty that favors the primitive product;
-- sector ranks `1` and `3` are partially supported by the Fock-grade orbit count, while the lepton rank `8` remains a full-trace assumption;
-- the lepton `1/pi` factor remains an unevaluated coset-average target and is not the reciprocal of the uniform `S6` volume;
+- sector ranks `1`, `3`, and `8` are supported by the number-operator/Fock-grade trace result, but still need to be selected by one CHO Yukawa trilinear;
+- the lepton `1/(4*pi)` factor is identified as the transition-sphere measure, but the dynamical reduction of the lepton trace to that measure is not yet proved;
 - simple NNI deformation scans at fixed Fano phase do not reconcile corrected CKM magnitudes with the good Jarlskog value;
 - the PMNS perturbation is full-rank and reverse-engineered from target angles;
 - continuum/RG issues for `alpha`, `sin^2(theta_W)`, `M_W`, and `Lambda` live outside this flavour operator.
@@ -92,8 +92,8 @@ The strongest objections are tracked in `OPERATOR_GAP_AUDIT.md` and quantified b
 This candidate does not yet escape every numerology risk. It removes a lot of freedom by forcing the bridges into one object, but these remain open:
 
 - derive the physical transition ray `|tau>` and exact trace space from the CHO action, not merely the primitive rank once the ray is present;
-- derive why the CHO Yukawa map selects the grade-0 singlet, grade-1 color triplet, and full lepton Fock trace;
-- derive the lepton `1/pi` average from the coset measure;
+- derive why the CHO Yukawa map selects the grade-0 singlet, grade-1 color triplet, and full lepton Fock trace inside one operator;
+- derive the lepton `1/(4*pi)` transition-sphere average from the same operator/action, rather than identifying it after the fact;
 - produce one charged-Yukawa diagonalization that gives both the corrected CKM magnitudes and the Fritzsch-level Jarlskog phase placement;
 - derive the PMNS `DeltaY` perturbation dynamically, not from the target angles;
 - construct separate continuum/RG derivations for `alpha`, `sin^2(theta_W)`, `M_W`, and `Lambda`.

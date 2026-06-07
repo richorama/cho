@@ -67,7 +67,7 @@ Priority bridge upgrades:
 
 1. Prove the candidate operator in `CHO_OPERATOR.md` from the CHO action or representation theory.
 2. Complete the action-projector proof: Fano incidence motivates rank-one octonionic support, but `epsilon0^2=pi/432` still requires CHO to derive the line-pair selection, Weyl rank-one channel, bridge trace space, and `pi` holonomy.
-3. Complete the sector-projector proof: `1` and `3` now have a Fock-grade diagnostic, but the Yukawa-map selection, lepton full-rank trace, and `1/pi` measure remain open.
+3. Complete the sector-projector/operator proof: `1`, `3`, and `8` now have number-operator/Fock-trace support, and the lepton `1/(4 pi)` is identified as a transition-sphere measure; the open problem is deriving their selection inside one CHO Yukawa trilinear.
 4. Reconcile CKM Jarlskog phase placement and corrected magnitudes in one full charged-Yukawa diagonalization.
 5. Resolve the PMNS gap in `OPERATOR_GAP_AUDIT.md`: derive `DeltaY` dynamically and replace simple cyclic-`Z3` language with the actual residual symmetry if needed.
 6. Derive continuum/RG matching from the lattice action for `alpha`, `sin^2(theta_W)`, `M_W`, and `Lambda`.

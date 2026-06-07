@@ -1,7 +1,7 @@
-# Theory of Everything — Research Plan
+# Aspirational Theory of Everything Research Plan
 
-> **Scope note (2026-06-06).** The "Theory of Everything" title below is
-> **aspirational**. The framework currently has no dynamical gravity, so the
+> **Scope note (2026-06-06).** The title is
+> **aspirational**, not a present-day claim. The framework currently has no dynamical gravity, so the
 > defensible present-day description is "an algebraic framework for Standard Model
 > parameters from division algebras" (see [README.md](README.md) and
 > [CRITICAL_REPAIR_PLAN.md](CRITICAL_REPAIR_PLAN.md) Phase 5). The gravity goals in Phase 3 are a scoped,

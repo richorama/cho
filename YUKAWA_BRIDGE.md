@@ -62,7 +62,7 @@ down:   q_d = N_color * epsilon0^2 = 3 * epsilon0^2
 lepton: q_l = dim(O) * epsilon0^2 = 8 * epsilon0^2
 ```
 
-This converts `1`, `3`, and `8` from bare dimensional counts into trace targets. The current candidate operator partially improves the first two counts: after choosing the complex-octonion idempotent `omega=(1+i e7)/2`, the Fock grades have dimensions `1,3,3,1`. The `1` and `3` sector ranks can therefore be read as singlet/triplet orbit counts. The lepton `8` remains a full-Fock-space trace assumption until derived from the CHO trilinear Yukawa map.
+This converts `1`, `3`, and `8` from bare dimensional counts into trace targets. Later repair work sharpened this point: after choosing the complex-octonion idempotent `omega=(1+i e7)/2`, the Fock grades have dimensions `1,3,3,1`, and `compute/epsilon_channel_coefficients.py` derives the mass-sector ranks as number-operator traces: `up = Tr P_0 = 1`, `down = Tr P_1 = 3`, and `lepton = Tr I_Fock = 2^3 = 8`. What remains open is not the integer `8` itself, but why the final CHO Yukawa trilinear dynamically selects these traces in one operator.
 
 ## Open Operator Targets
 
