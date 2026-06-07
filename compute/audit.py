@@ -9,6 +9,7 @@ displaying agreements. Each answers a specific skeptic's question:
   2. model_complexity      — "How many parameters, really?" (honest MDL count)
   3. independent_observables — "What's the real goodness-of-fit?" (covariance)
   4. derived_vs_residual   — "Where's the error bar on the DERIVED part?"
+    *  rg_matching_audit     — Phase 4 gate: are continuum/RG scales derived or inverse-matched?
   5. predict_neutrino_sum  — "What can future data falsify?" (frozen prediction)
 
 plus the derivation-frontier experiments (the "can the algebra do more?" set):
@@ -54,6 +55,7 @@ import model_complexity
 import independent_observables
 import covariance_gof
 import derived_vs_residual
+import rg_matching_audit
 import predict_neutrino_sum
 import forward_predictions
 import first_generation_audit
@@ -102,6 +104,9 @@ ARTIFACTS = [
     ("derived_vs_residual",
      "Error bars on the DERIVED term vs the underived continuum/RG residual.",
      derived_vs_residual.main),
+    ("rg_matching_audit",
+     "Phase 4 gate: continuum/RG matching scales, thresholds, and inverse matches made explicit.",
+     rg_matching_audit.main),
     ("first_generation_audit",
      "First-gen outlier: intrinsic factor error vs propagated error.",
      first_generation_audit.main),

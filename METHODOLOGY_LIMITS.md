@@ -59,6 +59,14 @@ The continuum action and RG matching are not yet strong enough to carry the whol
 - `M_W = M_P / 3^36` needs a normalization derivation that does not use the electroweak scale as hidden input.
 - The cosmological-constant formula needs a more rigorous derivation of free-energy factorization and the `11/12` screening factor.
 
+**Update (2026-06-07): Phase 4 gate added.** `compute/rg_matching_audit.py`
+separates algebraic boundary terms, standard one-loop running, VP/threshold
+inputs, and target-implied scales. It finds `sin^2(theta_W)=1/4` at
+`mu_* = 3.679e3 GeV` by inverse running, not from a CHO-derived scale. For
+`alpha^-1`, `128 pi/3` needs `Delta alpha^-1 = +2.995`; the legacy `0.700 GeV`
+QCD-scale example still needs a hadronic VP remainder of about `1.061`. This is
+useful bookkeeping, not a status upgrade.
+
 ## Dimensional Counting Warning
 
 Factors such as `16`, `27`, `64`, `3`, `7`, `8`, and `11/12` are suggestive only when they arise from an explicit operator, trace, path integral, or representation-theoretic map. Until then, they should be labeled as bridge rules or ansaetze rather than forced consequences.
@@ -70,7 +78,7 @@ Priority bridge upgrades:
 3. Complete the sector-projector/operator proof: `1`, `3`, and `8` now have number-operator/Fock-trace support, and the lepton `1/(4 pi)` is identified as a transition-sphere measure; the open problem is deriving their selection inside one CHO Yukawa trilinear.
 4. Reconcile CKM Jarlskog phase placement and corrected magnitudes in one full charged-Yukawa diagonalization.
 5. Resolve the PMNS gap in `OPERATOR_GAP_AUDIT.md`: derive `DeltaY` dynamically and replace simple cyclic-`Z3` language with the actual residual symmetry if needed.
-6. Derive continuum/RG matching from the lattice action for `alpha`, `sin^2(theta_W)`, `M_W`, and `Lambda`.
+6. Close the continuum/RG matching gate: derive the matching scale, VP/threshold scheme, electroweak normalization, and free-energy screen from the lattice action.
 
 ## Null Claims
 
@@ -97,6 +105,7 @@ The following scripts produce the honest figures of merit that should travel wit
 | `compute/model_complexity.py` | How many parameters does CHO really have, and does it compress the data? | **17 discrete structural choices + 1 continuous input (M_P), not zero.** Compression ratio `R = L_data/L_model = 1.19` (1.04 including M_P) — a marginal compressor today. Target `R = 1.81` if the per-row prefactors get derived rather than chosen. |
 | `compute/independent_observables.py` | What is the real goodness-of-fit once dependent rows are removed and a theory error is stated? | On 22 independent rows with a stated 1.5% theory floor: **reduced chi^2 = 0.92, p = 0.57** (statistically consistent). The `m_e` first-generation row is a visible `-3.75 sigma` outlier. The naive "all rows independent, experimental error only" chi^2 is astronomically large — proof these are approximate relations, not precision predictions. |
 | `compute/derived_vs_residual.py` | Where is the error bar on the part CHO actually derives, separate from the underived continuum/RG residual? | The **derived terms** are off by **alpha: -2.2%, sin^2(theta_W): +8.1%, M_W: +1.2%.** The "<0.1%" sometimes quoted belongs to the full formula including the residual CHO has not yet derived. Quote the derived-term error until S1/S4/S5 in the ledger are closed. |
+| `compute/rg_matching_audit.py` | Are the continuum/RG scales and thresholds derived before comparison, or inferred from the target? | **Phase 4 audit passes, theorem remains open.** Standard one-loop running gives `sin^2(theta_W)=1/4` at an inverse-matched `3.679e3 GeV`, not at the seesaw or Planck scale. `alpha^-1` still needs explicit VP/threshold input, and `M_W` still needs the electroweak normalization. |
 | `compute/first_generation_audit.py` | Why is `m_e` a `-3.75 sigma` outlier, and how bad is it really? | The first-generation masses are SQUARED ratios of *predicted* 2nd/3rd-gen masses, so they compound upstream ~1% errors. The `m_e` headline `-5.6%` decomposes into **~ -2.2% intrinsic** (the unproven `1/(4pi)` factor against measured inputs) **plus ~ -3.4% propagation**. Because the electron mass is known to 8 digits, `m_e` can never be a precision claim until `1/pi` is derived exactly; the honest move is to derive it or demote the row (ledger M11). Removing this single outlier leaves reduced chi^2 ~ 0.29 over the rest. |
 | `compute/predict_neutrino_sum.py` | What can near-future data falsify? | **Frozen prediction (2026-06-06): Sigma m_nu = 60 meV (band 57-62), normal ordering.** Surfaces a real internal tension: CHO's `m_nu3 = 48.9 meV` sits ~2.5% below the oscillation floor `sqrt(Delta m31^2) = 50.1 meV`. Falsification conditions are listed in the script. |
 

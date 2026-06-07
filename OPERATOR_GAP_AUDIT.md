@@ -17,7 +17,7 @@ Current status by blocker:
 | Lepton `1/pi` | The `1/(4 pi)` shape is now identified as the uniform transition-sphere measure in `compute/epsilon_mixing_coefficients.py`, but the dynamical reduction of the lepton Yukawa trace to that measure is not proved | Derive the sphere-measure reduction from the CHO Yukawa operator or action, not as a post-hoc normalization |
 | CKM reconciliation | `|V_us|` and `|V_cb|` coefficients have count/half-angle derivations, and the Fano phase gives a good `J`; one diagonalized charged-Yukawa matrix still has to produce all magnitudes and `J` together | One charged-Yukawa matrix must give `|V_us|`, `|V_cb|`, `|V_ub|`, and `J` together |
 | PMNS perturbation | `DeltaM` is constructed from target angles | Derive `DeltaY` or `DeltaM` from broken triality dynamics |
-| Continuum/RG | Not addressed by the flavour operator | Separate continuum/RG derivation for `alpha`, `sin^2(theta_W)`, `M_W`, and `Lambda` |
+| Continuum/RG | Phase 4 gate now makes inverse-matched scales and VP/threshold inputs explicit; theorem still open | Derive the matching scale, VP/threshold scheme, electroweak normalization, and free-energy screen for `alpha`, `sin^2(theta_W)`, `M_W`, and `Lambda` |
 
 ## Diagnostics
 
@@ -26,6 +26,7 @@ Run:
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python3 compute/operator_gap_audit.py
 PYTHONDONTWRITEBYTECODE=1 python3 compute/yukawa_operator_full.py
+PYTHONDONTWRITEBYTECODE=1 python3 compute/rg_matching_audit.py
 ```
 
 `compute/operator_gap_audit.py` prints:
@@ -43,6 +44,12 @@ compares strict CKM from one charged diagonalization with the separate CKM
 magnitude projection, and reports the PMNS `DeltaY`/`DeltaM` target. Its current
 theorem status is **OPEN**: CKM one-diagonalization and PMNS dynamics remain
 demotion triggers.
+
+`compute/rg_matching_audit.py` is the Phase 4 continuum/RG gate. It separates
+the algebraic boundary terms from standard one-loop running, VP/threshold
+inputs, and target-implied matching scales. Its current theorem status is
+**OPEN**: the electroweak and cosmological rows should remain boundary-plus-gap
+claims until those scales and thresholds are derived from CHO.
 
 ## Unified Spurion Attempt
 

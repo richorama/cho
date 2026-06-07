@@ -32,7 +32,7 @@ This project was developed as a human–AI collaboration (with Claude, Anthropic
 - [DERIVATION_LEDGER.md](DERIVATION_LEDGER.md) — canonical status ledger for theorem-level claims, bridge assumptions, open derivations, and ansaetze
 - [PUBLIC_CLAIMS.md](PUBLIC_CLAIMS.md) — public-facing claim table: what can be said today, what remains conditional, and what must not be claimed yet
 - [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md) — caveats on postdictions, statistical dependence, continuum/RG gaps, dimensional counting, and null tests
-- [compute/audit.py](compute/audit.py) — single entry point for the full robustness and derivation-frontier suite (hardness-to-vary, honest MDL parameter count, independent-observable goodness-of-fit, covariance goodness-of-fit, derived-vs-residual error bars, the first-generation outlier decomposition, frozen falsifiable forward predictions, the Lever A–C derivation experiments, the model-comparison Bayes factor, the inverse-spectral knob counts, a tamper-evident prediction registry, and a derivation scoreboard that reads the Bayes factor as one number); run all with `python3 compute/audit.py`, or one with `python3 compute/audit.py <name>`
+- [compute/audit.py](compute/audit.py) — single entry point for the full robustness and derivation-frontier suite (hardness-to-vary, honest MDL parameter count, independent-observable goodness-of-fit, covariance goodness-of-fit, derived-vs-residual error bars, Phase 4 continuum/RG matching, the first-generation outlier decomposition, frozen falsifiable forward predictions, the Lever A–C derivation experiments, the model-comparison Bayes factor, the inverse-spectral knob counts, a tamper-evident prediction registry, and a derivation scoreboard that reads the Bayes factor as one number); run all with `python3 compute/audit.py`, or one with `python3 compute/audit.py <name>`
 - [CRITICAL_REPAIR_PLAN.md](CRITICAL_REPAIR_PLAN.md) — next repair plan from the theoretical-physics review: claim hygiene, the algebra-to-physics map, the `epsilon0^2 = pi/432` measure theorem, one Yukawa/seesaw operator, continuum/RG matching, the gravity gate, and prediction discipline
 - [foundations/02_action.md](foundations/02_action.md) and [compute/action_derivation.py](compute/action_derivation.py) — first written-down CHO action; derives the `pi` holonomy in `epsilon0^2 = pi/432` as the Berry phase of the action's unique closed geodesic (variational, not "shortest loop"); residuals R1–R3 left explicit
 - [compute/forward_predictions.py](compute/forward_predictions.py) — three frozen, dated falsifiers: `m_nu3` vs the oscillation floor, neutrinoless double-beta `m_betabeta`, and the Higgs self-coupling `kappa_lambda`
@@ -77,6 +77,7 @@ The target `π/432` was an *assembly* of three independently-chosen pieces (`π`
 - [PMNS_BRIDGE.md](PMNS_BRIDGE.md) — neutrino-mixing bridge scaffold deriving TBM residual symmetries and the broken-triality perturbation target
 - [CHO_OPERATOR.md](CHO_OPERATOR.md) — unified candidate Yukawa/seesaw bridge operator collecting epsilon, sector projectors, CKM, and PMNS targets
 - [foundations/09_yukawa_operator_theorem.md](foundations/09_yukawa_operator_theorem.md) and [compute/yukawa_operator_full.py](compute/yukawa_operator_full.py) — Phase 3 one-operator gate: one composite object, charged-sector matrices, CKM/PMNS closure tests, and explicit open/demotion status
+- [foundations/10_continuum_rg.md](foundations/10_continuum_rg.md) and [compute/rg_matching_audit.py](compute/rg_matching_audit.py) — Phase 4 continuum/RG gate: separates algebraic boundary terms, standard one-loop running, threshold/VP inputs, and inverse-matched scales; theorem status remains open
 - [OPERATOR_GAP_AUDIT.md](OPERATOR_GAP_AUDIT.md) — hard audit of what the candidate operator still does not derive
 - [compute/sector_projector_derivation.py](compute/sector_projector_derivation.py) — diagnostic deriving sector ranks `1` and `3` from Fock-grade orbit counts and isolating the lepton `8`/`1_pi` assumptions
 - [FUTURE_TESTS.md](FUTURE_TESTS.md) — dated register of future-facing falsifiable predictions frozen on 2026-06-06
@@ -109,6 +110,7 @@ YUKAWA_BRIDGE.md         Charged-flavour Yukawa bridge scaffold
 PMNS_BRIDGE.md           Neutrino-mixing bridge scaffold
 CHO_OPERATOR.md          Unified candidate CHO Yukawa/seesaw operator
 foundations/09_yukawa_operator_theorem.md Phase 3 one-operator theorem gate
+foundations/10_continuum_rg.md Phase 4 continuum/RG matching gate
 OPERATOR_GAP_AUDIT.md    Remaining proof blockers for the candidate operator
 FUTURE_TESTS.md          Frozen future-test register
 FLAVOUR_DERIVATION.md    Flavour-sector derivation scaffold and proof gaps

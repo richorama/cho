@@ -85,7 +85,7 @@ The strongest objections are tracked in `OPERATOR_GAP_AUDIT.md` and quantified b
 - the lepton `1/(4*pi)` factor is identified as the transition-sphere measure, but the dynamical reduction of the lepton trace to that measure is not yet proved;
 - simple NNI deformation scans at fixed Fano phase do not reconcile corrected CKM magnitudes with the good Jarlskog value;
 - the PMNS perturbation is full-rank and reverse-engineered from target angles;
-- continuum/RG issues for `alpha`, `sin^2(theta_W)`, `M_W`, and `Lambda` live outside this flavour operator.
+- continuum/RG issues for `alpha`, `sin^2(theta_W)`, `M_W`, and `Lambda` live outside this flavour operator and are now gated separately by `compute/rg_matching_audit.py`.
 
 ## Phase 3 One-Operator Gate
 
@@ -112,7 +112,7 @@ This candidate does not yet escape every numerology risk. It removes a lot of fr
 - derive the lepton `1/(4*pi)` transition-sphere average from the same operator/action, rather than identifying it after the fact;
 - produce one charged-Yukawa diagonalization that gives both the corrected CKM magnitudes and the Fritzsch-level Jarlskog phase placement;
 - derive the PMNS `DeltaY` perturbation dynamically, not from the target angles;
-- construct separate continuum/RG derivations for `alpha`, `sin^2(theta_W)`, `M_W`, and `Lambda`.
+- close the separate Phase 4 continuum/RG gate for `alpha`, `sin^2(theta_W)`, `M_W`, and `Lambda` by deriving matching scales and thresholds from CHO.
 
 ## Why This Helps
 

@@ -20,6 +20,10 @@ A small residual fraction means the derived algebra already does most of the
 work and the remaining continuum calculation is a correction. A large residual
 fraction means the headline agreement is mostly carried by physics CHO has not
 yet derived.
+
+Phase 4 adds compute/rg_matching_audit.py, which checks the same rows from the
+scale-matching side: standard one-loop running, target-implied scales, and
+threshold inputs are printed separately so the residual cannot be hidden.
 """
 import math
 
@@ -84,8 +88,9 @@ def main():
     print("   * M_W: the bare algebraic scale already lands ~1.2% high with an")
     print("     O(1) normalization; the normalization itself is not yet derived.")
     print("   * Next proof obligation (per DERIVATION_LEDGER S1,S4,S5): derive")
-    print("     each residual from the lattice action + RG, then these become")
-    print("     genuine sub-percent predictions instead of derived-term + gap.")
+    print("     each residual from the lattice action + RG. Run")
+    print("     compute/rg_matching_audit.py for the Phase 4 matching-scale gate.")
+    print("     Until that gate closes, quote derived-term + open residual.")
     print()
 
 
