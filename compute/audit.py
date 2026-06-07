@@ -22,6 +22,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
   9. bayesian_evidence             — model-comparison Bayes factor vs a null
  10. spectral_action              — one algebra-internal Dirac operator (knobs)
  11. cross_generation_count       — inter-gen Yukawa knob count under triality
+    *  yukawa_operator_full        — Phase 3 gate: one operator or explicit flavour demotions
   *  three_generations_frame      — N_gen=3 crack: generations = 3 OP^2 idempotents, inner frame S3
  12. epsilon_cubic_discriminant   — eps0 route 2: is the 27 the cubic discriminant?
  13. epsilon_heat_kernel          — eps0 route 1: which pi (Berry vs heat-kernel)?
@@ -65,6 +66,7 @@ import physics_map_audit
 import bayesian_evidence
 import spectral_action
 import cross_generation_count
+import yukawa_operator_full
 import three_generations_frame
 import epsilon_cubic_discriminant
 import epsilon_heat_kernel
@@ -136,6 +138,9 @@ ARTIFACTS = [
     ("cross_generation_count",
      "Inverse-spectral: inter-generation Yukawa knob count under NNI + triality.",
      cross_generation_count.main),
+    ("yukawa_operator_full",
+     "Phase 3 gate: one composite Yukawa/seesaw operator with CKM/PMNS closure tests and explicit demotions.",
+     yukawa_operator_full.main),
     ("three_generations_frame",
      "N_gen=3 crack: generations = 3 OP^2 idempotents permuted by the INNER frame S3 (count + chirality obstruction-free).",
      three_generations_frame.main),

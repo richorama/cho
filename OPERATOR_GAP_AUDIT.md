@@ -25,9 +25,10 @@ Run:
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python3 compute/operator_gap_audit.py
+PYTHONDONTWRITEBYTECODE=1 python3 compute/yukawa_operator_full.py
 ```
 
-The script prints:
+`compute/operator_gap_audit.py` prints:
 
 - the Fano intersection rank that partially explains why a rank-one transition is plausible;
 - the incidence-action degeneracy, Fano-automorphism orbit check, primitive bridge-rank ladder, and normalized action rank penalty behind that rank-one transition, via `ACTION_PROJECTOR_BRIDGE.md`, `PRIMITIVE_PROJECTOR_BRIDGE.md`, `compute/action_projector_derivation.py`, and `compute/primitive_projector_derivation.py`;
@@ -35,6 +36,13 @@ The script prints:
 - CKM scans at fixed Fano phase showing that simple NNI diagonal deformations do not reconcile all CKM observables;
 - singular values and cyclic-`Z3` residuals for the PMNS perturbation, showing it is a target matrix rather than a dynamically generated perturbation;
 - the continuum/RG items outside the current flavour-operator scope.
+
+`compute/yukawa_operator_full.py` is the Phase 3 integration gate. It wraps the
+candidate pieces in one composite object, prints charged-sector matrices,
+compares strict CKM from one charged diagonalization with the separate CKM
+magnitude projection, and reports the PMNS `DeltaY`/`DeltaM` target. Its current
+theorem status is **OPEN**: CKM one-diagonalization and PMNS dynamics remain
+demotion triggers.
 
 ## Unified Spurion Attempt
 

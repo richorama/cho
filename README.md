@@ -76,6 +76,7 @@ The target `π/432` was an *assembly* of three independently-chosen pieces (`π`
 - [YUKAWA_BRIDGE.md](YUKAWA_BRIDGE.md) — charged-flavour bridge scaffold deriving the NNI adjacency and cascade mass relation
 - [PMNS_BRIDGE.md](PMNS_BRIDGE.md) — neutrino-mixing bridge scaffold deriving TBM residual symmetries and the broken-triality perturbation target
 - [CHO_OPERATOR.md](CHO_OPERATOR.md) — unified candidate Yukawa/seesaw bridge operator collecting epsilon, sector projectors, CKM, and PMNS targets
+- [foundations/09_yukawa_operator_theorem.md](foundations/09_yukawa_operator_theorem.md) and [compute/yukawa_operator_full.py](compute/yukawa_operator_full.py) — Phase 3 one-operator gate: one composite object, charged-sector matrices, CKM/PMNS closure tests, and explicit open/demotion status
 - [OPERATOR_GAP_AUDIT.md](OPERATOR_GAP_AUDIT.md) — hard audit of what the candidate operator still does not derive
 - [compute/sector_projector_derivation.py](compute/sector_projector_derivation.py) — diagnostic deriving sector ranks `1` and `3` from Fock-grade orbit counts and isolating the lepton `8`/`1_pi` assumptions
 - [FUTURE_TESTS.md](FUTURE_TESTS.md) — dated register of future-facing falsifiable predictions frozen on 2026-06-06
@@ -107,6 +108,7 @@ ACTION_PROJECTOR_BRIDGE.md Action-level rank-one projector audit
 YUKAWA_BRIDGE.md         Charged-flavour Yukawa bridge scaffold
 PMNS_BRIDGE.md           Neutrino-mixing bridge scaffold
 CHO_OPERATOR.md          Unified candidate CHO Yukawa/seesaw operator
+foundations/09_yukawa_operator_theorem.md Phase 3 one-operator theorem gate
 OPERATOR_GAP_AUDIT.md    Remaining proof blockers for the candidate operator
 FUTURE_TESTS.md          Frozen future-test register
 FLAVOUR_DERIVATION.md    Flavour-sector derivation scaffold and proof gaps

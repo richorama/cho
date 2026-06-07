@@ -87,6 +87,22 @@ The strongest objections are tracked in `OPERATOR_GAP_AUDIT.md` and quantified b
 - the PMNS perturbation is full-rank and reverse-engineered from target angles;
 - continuum/RG issues for `alpha`, `sin^2(theta_W)`, `M_W`, and `Lambda` live outside this flavour operator.
 
+## Phase 3 One-Operator Gate
+
+`foundations/09_yukawa_operator_theorem.md` and `compute/yukawa_operator_full.py`
+turn this candidate into an executable gate. The script builds one composite
+object, prints charged-sector matrices, compares strict CKM from one charged
+diagonalization against the separate CKM magnitude projection, and reports the
+PMNS `DeltaY` target. Its current status is deliberately conservative:
+
+```text
+AUDIT STATUS: PASS
+THEOREM STATUS: OPEN
+```
+
+That is, the scaffold is coherent enough to test, but it still does not prove
+that one CHO Yukawa/seesaw operator derives masses, CKM, and PMNS together.
+
 ## What Is Still Not Proven
 
 This candidate does not yet escape every numerology risk. It removes a lot of freedom by forcing the bridges into one object, but these remain open:
