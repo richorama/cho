@@ -131,6 +131,22 @@ limit is unchanged in kind: `(q,Q)` are NOT universal across quark sectors (up
 question is now discrete and two-dimensional, a much smaller target than an
 arbitrary mass profile.
 
+`compute/cascade_universality.py` then closes the second-generation half of that
+open question -- honestly, not by fitting. Written as a Freudenthal seesaw, the
+UNIVERSAL skeleton is `(0,2,4)` (`m2/m1 = eps0^2`, `m3/m1 = eps0^4`), and every
+sector deviation is a `log_{eps0}()` image of two prefactors. Dividing the
+measured middle exponent by the INDEPENDENTLY DERIVED Georgi-Jarlskog integers
+`c2 = {up:1, down:3, lepton:8}` (the `8/3 = dim(O)/N_color` relation -- not fitted;
+they reproduce the measured `m2/m1` to ~2%) gives a UNIVERSAL `2.00 +/- 0.01`
+across all three sectors, and the measured `(q,Q)` are reconstructed to `<1%` from
+`(2,4)` plus prefactors. So the second-generation suppression is universally
+`eps0^2`; the cascade's apparent `q` scatter was just the derived GJ factors. The
+loud caveat: the LIGHTEST generation does NOT become universal -- its reduced
+exponent is `4 + log_{eps0}(c3)`, and the first-generation prefactor `c3` is
+sector-dependent (lepton `~1/(4 pi)` identified, up `~1/4` and down `~2.2` are the
+existing open first-generation anomalies). The cascade's `(q,Q)` residue is thus
+reduced to the already-open first-generation O(1) prefactors, not eliminated.
+
 ## Dimensional Counting Warning
 
 Factors such as `16`, `27`, `64`, `3`, `7`, `8`, and `11/12` are suggestive only when they arise from an explicit operator, trace, path integral, or representation-theoretic map. Until then, they should be labeled as bridge rules or ansaetze rather than forced consequences.
@@ -181,6 +197,7 @@ The following scripts produce the honest figures of merit that should travel wit
 | `compute/epsilon_generation_ladder.py` | In the FORCED base `eps0 = sqrt(pi/432)`, what integer power is each generation mass? | **Scheme-clean leptons prefer a quadratic-in-index (triangular `(0,1,3)`) law** (worst miss 0.33 dec) over the geometric `(0,1,2)` ladder (1.40 dec), and that triangular hit is the ONLY one of 28 integer triples fitting within 0.4 dec (4% look-elsewhere). `m_c/m_t = eps0^2` to ~0.2%. **But no single law is universal** across up/down/lepton (quark sectors carry MS-bar/scale caveats), so it is a derived-looking pattern, not a theorem. Sharpens the open seed to "a log-mass curvature the dynamics must output". |
 | `compute/spurion_perturbation.py` | What algebraic structure could even PRODUCE a power-law generation ladder? | **Two theorems from the J3(O) tensor.** FACT 1: the rank-one spurion lifts exactly ONE level at first order, so a 3-tier hierarchy must be cumulative (orders `eps^1, eps^2, ...`). FACT 2: the canonical Jordan quadratic `U_X` gives MULTIPLICATIVE mixing `{ab,bc,ca}` (residual exactly 0), so log-mass is additive in exponents -- the prerequisite for any power law. The minimal nilpotent chain `c_n=(0,1,2)` then yields triangular `(0,1,3)`, matching leptons (0.33 dec). **Open (not faked):** a dynamical proof that the chain is `c_n=n` and universal. |
 | `compute/generation_cascade.py` | If generations are roots of the `J3(O)` cubic, what fixes the hierarchy? | **A derived seesaw + a 3->2 reduction.** The light-pair product equals the Freudenthal cubic norm over the heaviest mass EXACTLY (`m2*m3 = \|N3\|/m1`, residual `5e-15`), so the lightest fermion is a cubic-norm SEESAW; the heaviest equals the trace. The whole sector hierarchy reduces to TWO integer invariant-suppression orders `(q,Q)=(ord T2, ord N3)`, and the scheme-clean leptons read the clean `(1,4)` = triangular `(0,1,3)`. **Open (not faked):** `(q,Q)` are NOT universal across quark sectors (up `~(2,7)`, down `~(2,4)`) and not yet derived from dynamics. |
+| `compute/cascade_universality.py` | Is the cascade `(q,Q)` sector-dependence new free data? | **No -- the second-generation half is the already-derived flavour data.** The universal seesaw skeleton is `(0,2,4)`; dividing the measured middle exponent by the INDEPENDENTLY DERIVED Georgi-Jarlskog factors `{up:1, down:3, lepton:8}` (the `8/3 = dim(O)/N_color` relation, ~2% match) gives a UNIVERSAL `2.00 +/- 0.01` across all sectors, and the measured `(q,Q)` are reconstructed to `<1%` from `(2,4)` + prefactors. So the second-generation suppression is universally `eps0^2`. **Open (not faked):** the lightest exponent reduces to `4 + log_{eps0}(c3)` with the first-generation prefactor `c3` sector-dependent (lepton `~1/(4 pi)` identified; up `~1/4`, down `~2.2` remain the existing open first-generation anomalies). |
 | `compute/model_complexity.py` | How many parameters does CHO really have, and does it compress the data? | **17 discrete structural choices + 1 continuous input (M_P), not zero.** Compression ratio `R = L_data/L_model = 1.19` (1.04 including M_P) — a marginal compressor today. Target `R = 1.81` if the per-row prefactors get derived rather than chosen. |
 | `compute/independent_observables.py` | What is the real goodness-of-fit once dependent rows are removed and a theory error is stated? | On 22 independent rows with a stated 1.5% theory floor: **reduced chi^2 = 0.92, p = 0.57** (statistically consistent). The `m_e` first-generation row is a visible `-3.75 sigma` outlier. The naive "all rows independent, experimental error only" chi^2 is astronomically large — proof these are approximate relations, not precision predictions. |
 | `compute/derived_vs_residual.py` | Where is the error bar on the part CHO actually derives, separate from the underived continuum/RG residual? | The **derived terms** are off by **alpha: -2.2%, sin^2(theta_W): +8.1%, M_W: +1.2%.** The "<0.1%" sometimes quoted belongs to the full formula including the residual CHO has not yet derived. Quote the derived-term error until S1/S4/S5 in the ledger are closed. |

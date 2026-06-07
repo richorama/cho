@@ -341,6 +341,28 @@ CONTRACTS = {
             "sector-universal mass law rather than a reduction of the open seed.",
         ),
     ),
+    "cascade_universality": contract(
+        "cascade_universality",
+        ("A3", "M1", "S1"),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Quote as a consistency reduction, not a closed mass law: the cascade "
+        "(q,Q) sector-dependence is the independently-derived Georgi-Jarlskog "
+        "prefactors {1,3,8}, so the second-generation suppression is universally "
+        "eps0^2 (GJ-reduced middle exponent = 2.00 +/- 0.01). Always state WITH it "
+        "that the lightest generation does NOT become universal -- it reduces to "
+        "4 + logb(c3) with the first-generation prefactor c3 sector-dependent "
+        "(only the lepton 1/(4 pi) identified; up and down remain open anomalies).",
+        open_bridges=(
+            "Derive the first-generation prefactors c3 (up ~1/4, down ~2.2) from "
+            "dynamics; only the scheme-clean lepton c3 = 1/(4 pi) is identified.",
+        ),
+        kill_conditions=(
+            "Middle-generation universality is presented as a full sector-universal "
+            "mass law, or the still-open first-generation prefactors are treated as "
+            "derived.",
+        ),
+    ),
     "cross_generation_count": contract(
         "cross_generation_count",
         ("A3", "M1"),

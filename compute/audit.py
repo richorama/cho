@@ -75,6 +75,7 @@ import spectral_action_432
 import epsilon_generation_ladder
 import spurion_perturbation
 import generation_cascade
+import cascade_universality
 import cross_generation_count
 import yukawa_operator_full
 import three_generations_frame
@@ -168,6 +169,9 @@ ARTIFACTS = [
     ("generation_cascade",
      "Generations as roots of the J3(O) cubic: the light-pair product is EXACTLY the Freudenthal cubic norm over the heaviest mass (a seesaw), collapsing the open seed to two invariant-suppression orders (q,Q); leptons read (1,4)=triangular, but (q,Q) is not universal across quark sectors.",
      generation_cascade.main),
+    ("cascade_universality",
+     "The cascade (q,Q) sector-dependence is derived flavour data, not new freedom: the universal seesaw skeleton is (0,2,4) and dividing the middle exponent by the independently-derived Georgi-Jarlskog factors {1,3,8} gives a universal 2.00; the residual non-universality is the already-open first-generation prefactors (lepton 1/(4pi)).",
+     cascade_universality.main),
     ("cross_generation_count",
      "Inverse-spectral: inter-generation Yukawa knob count under NNI + triality.",
      cross_generation_count.main),
