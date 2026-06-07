@@ -504,6 +504,38 @@ CONTRACTS = {
         open_bridges=("Derive the invariant normalized transition measure from the CHO action.",),
         kill_conditions=("If H4 remains a normalization choice, demote F0 in the Bayes accounting.",),
     ),
+    "epsilon_measure_schur": contract(
+        "epsilon_measure_schur",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only that the 1/16 and 1/27 measure weights are FORCED by irreducibility "
+        "(Schur): Spin(9) acts irreducibly on Delta_9 and the full cubic-norm group E6 "
+        "(not F4 alone, which leaves 27 = 1+26) acts irreducibly on J3(O). Do NOT promote "
+        "F0 to derived: the product phase space Delta_9 (x) J3(O) is still identified by hand.",
+        open_bridges=("Derive why the transition phase space is the PRODUCT Delta_9 (x) J3(O) "
+                      "(the representation identification), not merely its flat normalization.",),
+        kill_conditions=("The flat 1/16 or 1/27 average is presented as a chosen normalization "
+                         "rather than the Schur consequence of Spin(9)- / E6-irreducibility.",
+                         "F4-on-27 reducibility (27 = 1 + 26) is glossed so that the full E6 "
+                         "looks optional for the clean 1/27."),
+    ),
+    "epsilon_phase_space_product": contract(
+        "epsilon_phase_space_product",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only that, under independent commuting sector actions (Spin(9) on Delta_9 and "
+        "E6 on J3(O)), the canonical carrier is the tensor product Delta_9 (x) J3(O), and the "
+        "factorized invariant average gives 1/432 exactly. Do NOT promote F0: deriving this "
+        "sector-independence from the CHO action remains open.",
+        open_bridges=("Derive Assumption P (independent commuting gauge/flavour sectors with "
+                      "minimal multiplicity) from the CHO action / one-operator dynamics.",),
+        kill_conditions=("The product carrier Delta_9 (x) J3(O) is presented as theorem-level "
+                         "without stating the sector-independence assumption.",
+                         "Direct-sum or single-sector alternatives are treated as equivalent to "
+                         "a shared one-operator transition density over both sectors."),
+    ),
     "gravity_curvature": contract(
         "gravity_curvature",
         ("GR1",),

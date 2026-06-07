@@ -39,6 +39,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  23. epsilon_a4_two_level         — R2 origin: two-level symmetry = SU(2) closure of A4
  24. epsilon_measure_audit        — Phase 2 gate: pi/432 as one conditional transition measure
     *  epsilon_measure_witness      — F0 H4 witness: normalized-measure seam isolated
+    *  epsilon_measure_schur        — F0 Schur: 1/16 (Spin9) and 1/27 (E6) forced by irreducibility
   *  gravity_curvature            — M-GRAV: emergent rank-2 metric from non-associativity
   *  gravity_gate_audit           — Phase 5 gate: gravity remains exploratory unless Lorentzian dynamics close
  25. prediction_registry           — Phase 6 locked prediction registry + update protocol
@@ -93,6 +94,8 @@ import epsilon_vcb_halfangle
 import epsilon_a4_two_level
 import epsilon_measure_audit
 import epsilon_measure_witness
+import epsilon_measure_schur
+import epsilon_phase_space_product
 import gravity_curvature
 import gravity_gate_audit
 import prediction_registry
@@ -223,6 +226,12 @@ ARTIFACTS = [
     ("epsilon_measure_witness",
      "F0 witness: isolates H4, the invariant normalized-measure theorem seam.",
      epsilon_measure_witness.main),
+    ("epsilon_measure_schur",
+     "F0 Schur: the 1/16 (Spin(9) on Delta_9) and 1/27 (E6 on J3(O)) measure weights are forced by irreducibility; F4 alone is insufficient (27 = 1+26).",
+     epsilon_measure_schur.main),
+    ("epsilon_phase_space_product",
+     "F0 product witness: under independent commuting Spin(9)/E6 sectors, the transition carrier is Delta_9 x J3(O), and the factorized invariant average gives exactly 1/432; live seam is deriving this sector-independence from the action.",
+     epsilon_phase_space_product.main),
     ("gravity_curvature",
      "M-GRAV: a symmetric, G2-covariant rank-2 metric (tr g = 16|a^b|^2) emerges from the octonionic associator; transverse rank-4 graviton mode, flat dirs = associative subalgebra.",
      gravity_curvature.main),
