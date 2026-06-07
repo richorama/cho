@@ -110,6 +110,18 @@ CONTRACTS = {
         VERDICT_DIAGNOSTIC,
         "Use as a hardness-to-vary diagnostic, not as a theorem promotion.",
     ),
+    "scale_look_elsewhere": contract(
+        "scale_look_elsewhere",
+        ("S1", "N1", "CC1", "STAT1"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Do not cite the 12/12-simplest figure for the power-of-three scale relations; "
+        "their log-axis coverage is ~93%, so quote the integer exponent as the only sharp content.",
+        open_bridges=(
+            "The scale relations M_W=M_P/3^36, M_R=M_P/3^9, Lambda=(11/12)M_P/(sqrt2 3^64) "
+            "are cheap log-axis hits; the O(1) prefactors are not forced.",
+        ),
+    ),
     "model_complexity": contract(
         "model_complexity",
         ("STAT1",),
@@ -151,6 +163,18 @@ CONTRACTS = {
             "Electroweak normalization and cosmological free-energy screen.",
         ),
         kill_conditions=("Inverse-matched scales remain selected to hit observed targets.",),
+    ),
+    "mass_ratio_rg_audit": contract(
+        "mass_ratio_rg_audit",
+        ("M5", "M6", "M7", "M8"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Quote five of six mass relations as 1-loop RG-invariant; quote m_b/m_tau=7/3 (M5) "
+        "only at a stated scale (mu ~ m_b).",
+        open_bridges=(
+            "m_b/m_tau=7/3 is scale-dependent and must carry a matching scale.",
+        ),
+        kill_conditions=("m_b/m_tau=7/3 is quoted as a scale-free prediction.",),
     ),
     "first_generation_audit": contract(
         "first_generation_audit",
@@ -241,6 +265,41 @@ CONTRACTS = {
         "Do not present the inverse-spectral scaffold as a forced mass operator.",
         open_bridges=("Find a chirality-odd algebra-internal Dirac operator with constants-out greater than knobs-in.",),
         kill_conditions=("The allowed operator class remains underconstrained.",),
+    ),
+    "spectral_action_432": contract(
+        "spectral_action_432",
+        ("A3", "M1"),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Quote only the parameter-free averaging law (mixing level = mean of two "
+        "generation levels) as derived; do NOT quote the eps0 ladder as the "
+        "measured Yukawa spectrum.",
+        open_bridges=(
+            "Supply a dynamical principle that selects the three diagonal J3(O) "
+            "eigenvalues; the single eps0 ladder misses the lepton hierarchy by "
+            "~1.4 decades.",
+        ),
+        kill_conditions=(
+            "The eps0 ladder is presented as reproducing the measured fermion "
+            "mass ratios.",
+        ),
+    ),
+    "epsilon_generation_ladder": contract(
+        "epsilon_generation_ladder",
+        ("M1", "S1"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Report the eps0-base generation exponents as a falsifiable target for a "
+        "dynamical seed; quote the lepton triangular (0,1,3) hit WITH its "
+        "look-elsewhere coverage and scheme caveats, not as a derived law.",
+        open_bridges=(
+            "Derive a (possibly sector-dependent) log-mass curvature law that "
+            "outputs the measured eps0-base generation exponents.",
+        ),
+        kill_conditions=(
+            "A non-universal per-sector integer-exponent fit is presented as a "
+            "universal derived mass law.",
+        ),
     ),
     "cross_generation_count": contract(
         "cross_generation_count",

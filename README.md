@@ -42,6 +42,8 @@ audits rather than patched forward from stale drafts.
 - [foundations/02_action.md](foundations/02_action.md) and [compute/action_derivation.py](compute/action_derivation.py) — first written-down CHO action; derives the `pi` holonomy in `epsilon0^2 = pi/432` as the Berry phase of the action's unique closed geodesic (variational, not "shortest loop"); residuals R1–R3 left explicit
 - [compute/forward_predictions.py](compute/forward_predictions.py) — frozen future targets with explicit kill conditions: `m_betabeta` as a positive quantitative prediction, plus `m_nu3` floor tension and `kappa_lambda` as bridge sensitivities
 - [compute/covariance_gof.py](compute/covariance_gof.py) — covariance goodness-of-fit (closes STAT1): the 22 independent rows collapse to `N_eff ~ 10` effective observables under the shared-`eps0` common mode
+- [compute/scale_look_elsewhere.py](compute/scale_look_elsewhere.py) — log-axis look-elsewhere for the power-of-three SCALE relations (`M_W`, `M_R`, `Lambda`), which the coefficient-level `look_elsewhere.py` excludes: a simple `prefactor x integer-exponent` already covers `~93%` of one exponent window, so those hierarchy hits are cheap (the cosmological-constant row is weakest). The honest counterpart to the `12/12 simplest fitter` headline
+- [compute/mass_ratio_rg_audit.py](compute/mass_ratio_rg_audit.py) — per-relation renormalization-scale audit: 5/6 headline mass relations are 1-loop RG-invariant (same-sector ratios cancel), but `m_b/m_tau = 7/3` (M5) is scale-dependent and only holds at `mu ~ m_b` (drifting to `-70%` at the GUT scale). Corrects a false RG-invariance claim previously in `rg_running.py`
 - [COMPARISON.md](COMPARISON.md) — claim-by-claim grant/dispute matrix against the division-algebra literature (Furey, Dixon, Todorov/Dubois-Violette, Baez–Huerta, Boyle/Krasnov) and the Lisi/E8 no-go benchmark
 - [compute/three_generations_nogo_audit.py](compute/three_generations_nogo_audit.py) — Distler–Garibaldi-style stress test: the original "3 triality reps = 3 chiral generations" bridge faces vector-vs-spinor and chirality obstructions; the later idempotent-frame route avoids the count/chirality obstruction, while the fermion-content map remains open
 - [foundations/07_physics_map.md](foundations/07_physics_map.md) and [compute/physics_map_audit.py](compute/physics_map_audit.py) — Phase 1 repair witness: freezes the one-generation quantum-number map, verifies algebraic `Q`/`T3`/`Y` consistency, and checks SM anomaly cancellation while leaving the three-generation content map and Yukawa spectrum open
@@ -93,14 +95,25 @@ The target `π/432` was an *assembly* of three independently-chosen pieces (`π`
 
 These are descriptive low-energy comparisons. Some entries include underived continuum/RG residuals or open bridge factors; use [DERIVATION_LEDGER.md](DERIVATION_LEDGER.md) and [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md) for the claim status before quoting them as derivations.
 
-| Observable | Predicted | Measured | Error |
-|---|---|---|---|
-| Higgs mass | 126.0 GeV | 125.09 GeV | 0.7% |
-| Top mass | 174.1 GeV | 172.76 GeV | 0.8% |
-| Weinberg angle | 0.231 | 0.23122 | <0.1% |
-| Cabibbo angle | 0.2256 | 0.2243 | 0.6% |
-| Jarlskog invariant | 3.01×10⁻⁵ | 3.08×10⁻⁵ | 2.3% |
-| Cosmological constant | 2.31 meV | 2.24–2.33 meV | ~3% |
+| Observable | Predicted | Measured | Error (full formula) | Error (derived term only) |
+|---|---|---|---|---|
+| Higgs mass | 126.0 GeV | 125.09 GeV | 0.7% | 0.7% |
+| Top mass | 174.1 GeV | 172.76 GeV | 0.8% | 0.8% |
+| Weinberg angle | 0.231 | 0.23122 | <0.1% | **+8.1%** (`1/4` before RG) |
+| Cabibbo angle | 0.2256 | 0.2243 | 0.6% | 0.6% |
+| Jarlskog invariant | 3.01×10⁻⁵ | 3.08×10⁻⁵ | 2.3% | 2.3% |
+| Cosmological constant | 2.31 meV | 2.24–2.33 meV | ~3% | ~3% |
+
+> **Why two error columns.** For the continuum/RG-gap observables the
+> "full formula" error hides an **underived** residual. The Weinberg angle
+> `<0.1%` is the agreement *after* an underived RG running of `1/4` to `M_Z`;
+> the part CHO actually derives (`sin²θ_W = 1/4`) is **+8.1%** from data, and
+> the matching scale in [compute/rg_matching_audit.py](compute/rg_matching_audit.py)
+> is currently obtained by inverse-running from the measured value, not derived
+> from the action. The same caveat applies to `α⁻¹ = 128π/3 + VP` (derived term
+> **−2.2%**) and `M_W = M_P/3³⁶ × norm` (derived term **+1.2%**), which are not
+> shown here. Quote the **derived-term** column until ledger rows S1/S4/S5 close;
+> see [compute/derived_vs_residual.py](compute/derived_vs_residual.py).
 
 ## Structure
 

@@ -53,11 +53,13 @@ Run one:
 import sys
 
 import look_elsewhere
+import scale_look_elsewhere
 import model_complexity
 import independent_observables
 import covariance_gof
 import derived_vs_residual
 import rg_matching_audit
+import mass_ratio_rg_audit
 import predict_neutrino_sum
 import forward_predictions
 import first_generation_audit
@@ -69,6 +71,8 @@ import chiral_projector
 import physics_map_audit
 import bayesian_evidence
 import spectral_action
+import spectral_action_432
+import epsilon_generation_ladder
 import cross_generation_count
 import yukawa_operator_full
 import three_generations_frame
@@ -96,6 +100,9 @@ ARTIFACTS = [
     ("look_elsewhere",
      "Hardness-to-vary: is each constant the simplest number that fits?",
      look_elsewhere.main),
+    ("scale_look_elsewhere",
+     "Log-axis look-elsewhere: the power-of-three scale relations (M_W, M_R, Lambda) are cheap hits (~93% coverage).",
+     scale_look_elsewhere.main),
     ("model_complexity",
      "Honest MDL: discrete parameter count and compression ratio.",
      model_complexity.main),
@@ -111,6 +118,9 @@ ARTIFACTS = [
     ("rg_matching_audit",
      "Phase 4 gate: continuum/RG matching scales, thresholds, and inverse matches made explicit.",
      rg_matching_audit.main),
+    ("mass_ratio_rg_audit",
+     "Per-relation scale audit: 5/6 mass relations are 1-loop RG-invariant; m_b/m_tau=7/3 is scale-dependent (holds at mu~m_b).",
+     mass_ratio_rg_audit.main),
     ("first_generation_audit",
      "First-gen outlier: intrinsic factor error vs propagated error.",
      first_generation_audit.main),
@@ -144,6 +154,12 @@ ARTIFACTS = [
     ("spectral_action",
      "Inverse-spectral: one algebra-internal Dirac operator, knobs vs forced ratios.",
      spectral_action.main),
+    ("spectral_action_432",
+     "Inverse-spectral II: cross-generation L_X on J3(O) forces the averaging law (3 relations) but one eps0 ladder misses the lepton hierarchy by ~1.4 decades.",
+     spectral_action_432.main),
+    ("epsilon_generation_ladder",
+     "Generation masses as exponents in the FORCED base eps0=sqrt(pi/432): scheme-clean leptons prefer triangular (0,1,3) (0.33 dec, 1/28 look-elsewhere) but no law is universal across quark sectors.",
+     epsilon_generation_ladder.main),
     ("cross_generation_count",
      "Inverse-spectral: inter-generation Yukawa knob count under NNI + triality.",
      cross_generation_count.main),
@@ -222,8 +238,13 @@ def run_all():
         fn()
     print("\n" + "#" * 78)
     print("#  AUDIT COMPLETE")
-    print("#  Bottom line: CHO constants are hard to vary (12/12 simplest fitters),")
-    print("#  but it is a ~17-parameter framework with marginal compression today.")
+    print("#  Bottom line: the dimensionless coefficients are hard to vary (12/12")
+    print("#  simplest fitters), BUT the power-of-three SCALE relations (M_W, M_R,")
+    print("#  Lambda) are NOT: a simple prefactor x integer-exponent covers ~93% of")
+    print("#  the log axis, so those hits are cheap (see scale_look_elsewhere; the")
+    print("#  CC row is weakest). 5/6 mass relations are 1-loop RG-invariant, but")
+    print("#  m_b/m_tau=7/3 is scale-dependent (mass_ratio_rg_audit). It is a")
+    print("#  ~17-parameter framework with marginal compression today.")
     print("#  The m_e -3.75 sigma outlier is mostly error propagation through squared")
     print("#  first-gen ratios; the genuine 1/(4pi) proof obligation is a ~2% effect.")
     print("#  Derivation frontier (Levers A-C): 'three' is also the rank of J3(O)")

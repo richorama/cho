@@ -145,10 +145,16 @@ def run_all_to_2GeV():
           f"{(2.25 - ratio_d)/ratio_d*100:>+6.1f}%")
     
     print(f"\n  NOTE: Mass RATIOS within the same sector are RG-invariant at")
-    print(f"  1-loop (same anomalous dimension cancels). This is why our")
+    print(f"  1-loop (same anomalous dimension cancels). This is why those")
     print(f"  predictions work without specifying a renormalization scale.")
-    print(f"  The inter-sector ratios (involving leptons) are exactly RG-invariant")
-    print(f"  since lepton masses don't run under QCD.")
+    print(f"  Inter-sector PRODUCTS that pair a quark ratio with a like-sector")
+    print(f"  quark/lepton ratio (m_s m_t/(m_b m_c), the Georgi-Jarlskog 8/3)")
+    print(f"  are also invariant because the QCD running cancels within each")
+    print(f"  same-type pair.")
+    print(f"  WARNING: a SINGLE quark/lepton ratio does NOT cancel. m_b/m_tau")
+    print(f"  = 7/3 (ledger M5) is scale-DEPENDENT: m_b runs under QCD while")
+    print(f"  m_tau effectively does not, so 7/3 only holds near mu ~ m_b. See")
+    print(f"  compute/mass_ratio_rg_audit.py for the per-relation classification.")
     
     # Step 4: What DOES depend on scale?
     print(f"\n  SCALE-DEPENDENT QUANTITIES:")

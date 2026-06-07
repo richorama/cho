@@ -28,6 +28,7 @@ import math
 # --- Experimental oscillation anchors (already-known inputs, NOT predictions) ---
 DM21_SQ = 7.42e-5   # eV^2, solar splitting (NuFit-class central value)
 DM31_SQ = 2.510e-3  # eV^2, atmospheric splitting, normal ordering
+DM31_SQ_ERR = 0.027e-3  # eV^2, 1-sigma on the atmospheric splitting (NuFit-class)
 
 # --- CHO seesaw prediction for the heaviest state ---
 M_P = 1.221e19      # GeV
@@ -49,6 +50,38 @@ def cho_internal_sum(m1):
     m3 = m_nu3_cho
     m2 = math.sqrt(max(m3**2 - DM31_SQ, 0.0) + DM21_SQ)
     return m1 + m2 + m3, (m1, m2, m3)
+
+
+def floor_violation():
+    """Quantify how far CHO's m_nu3 sits BELOW the normal-ordering floor.
+
+    In normal ordering the heaviest state obeys m3 >= sqrt(Delta m31^2)
+    exactly (attained only at m1 = 0). If the CHO seesaw value falls below
+    this floor it is not a soft percentage tension: m3 simply cannot take
+    that value while three-neutrino oscillation data hold. This function
+    reports the deficit, its significance in sigma (propagating the
+    Delta m31^2 error), and the O(1) seesaw-scale normalization that would
+    be required to lift m_nu3 onto the floor.
+    """
+    floor = math.sqrt(DM31_SQ)                      # eV, NO lower bound on m3
+    floor_err = 0.5 * DM31_SQ_ERR / DM31_SQ * floor  # eV, propagated 1-sigma
+    deficit = floor - m_nu3_cho                       # eV, >0 means below floor
+    n_sigma = deficit / floor_err if floor_err > 0 else float("inf")
+    # m_nu3 = v^2 / (2 M_R): to reach the floor, M_R must shrink by this factor.
+    mr_scale_factor = m_nu3_cho / floor               # <1 means M_R too large
+    # In base-3 exponent terms (M_R = M_P / 3^9): the integer 9 is unchanged;
+    # the miss is an O(1) normalization on the seesaw scale.
+    exponent_shift = math.log(1.0 / mr_scale_factor) / math.log(3.0)
+    return {
+        "floor_meV": floor * 1e3,
+        "floor_err_meV": floor_err * 1e3,
+        "m_nu3_cho_meV": m_nu3_cho * 1e3,
+        "deficit_meV": deficit * 1e3,
+        "n_sigma": n_sigma,
+        "mr_must_shrink_pct": (1.0 - mr_scale_factor) * 100.0,
+        "exponent_shift": exponent_shift,
+        "below_floor": deficit > 0.0,
+    }
 
 
 def main():
@@ -84,12 +117,26 @@ def main():
     print("  Ordering           :  NORMAL")
     print(f"  Basis              :  CHO seesaw m_nu3 = {m_nu3_cho*1e3:.1f} meV")
     print("  " + "-" * 60)
-    print(f"  Cross-check: using the oscillation floor instead of CHO m_nu3")
-    print(f"  gives a minimal sum of {s_osc*1e3:.0f} meV. The ~{(s_osc-s_lo)*1e3:.0f} meV")
-    print(f"  gap reflects a real internal tension: CHO m_nu3 = {m_nu3_cho*1e3:.1f} meV")
-    print(f"  sits ~{(math.sqrt(DM31_SQ)-m_nu3_cho)/math.sqrt(DM31_SQ)*100:.1f}% below sqrt(Delta m31^2) = "
-          f"{math.sqrt(DM31_SQ)*1e3:.1f} meV.")
-    print(f"  This 1.2 meV tension is itself a sharpenable test of the seesaw scale.")
+
+    # --- Honest floor accounting: m_nu3_cho sits BELOW the NO floor ---
+    fv = floor_violation()
+    print("\n  INTERNAL TENSION (do not soften):")
+    print(f"    NO floor   sqrt(Delta m31^2) = {fv['floor_meV']:.1f} "
+          f"+/- {fv['floor_err_meV']:.2f} meV  (lower bound on m3)")
+    print(f"    CHO seesaw m_nu3             = {fv['m_nu3_cho_meV']:.1f} meV")
+    if fv["below_floor"]:
+        print(f"    -> CHO m_nu3 is {fv['deficit_meV']:.1f} meV BELOW the floor "
+              f"= {fv['n_sigma']:.1f} sigma.")
+        print(f"       This is NOT a soft % tension: m3 cannot physically take")
+        print(f"       this value while 3-neutrino oscillation data hold. The")
+        print(f"       N1 seesaw bridge is under real falsification pressure.")
+        print(f"    -> To reach the floor, M_R = M_P/3^9 must shrink "
+              f"{fv['mr_must_shrink_pct']:.1f}%.")
+        print(f"       The integer exponent 9 is unchanged (it would shift by only")
+        print(f"       {fv['exponent_shift']:+.3f}); the miss is an O(1) seesaw")
+        print(f"       normalization, the SAME class of open gap as M_W (ledger S1).")
+    else:
+        print(f"    -> CHO m_nu3 is on or above the floor; no tension.")
 
     print("\n  FALSIFICATION CONDITIONS (any one falsifies or strongly pressures):")
     print("   1. Inverted ordering established at high significance.")
