@@ -97,6 +97,7 @@ import epsilon_measure_witness
 import epsilon_measure_schur
 import epsilon_phase_space_product
 import epsilon_assumption_p_gate
+import epsilon_action_stationary
 import gravity_curvature
 import gravity_gate_audit
 import prediction_registry
@@ -236,6 +237,9 @@ ARTIFACTS = [
     ("epsilon_assumption_p_gate",
      "F0 Assumption-P gate: the current epsilon bridge operator has exact 16x27 product-separable (operator-Schmidt rank-1) primitive factors and pi/432 normalized trace; live seam is deriving this separable structure from CHO action dynamics.",
      epsilon_assumption_p_gate.main),
+    ("epsilon_action_stationary",
+     "F0 action stationarity: in the normalized link-action class (O>=0, Tr O=pi), the primitive kernel O=pi|tau><tau| is the unique global maximizer; current scaffold saturates this bound exactly.",
+     epsilon_action_stationary.main),
     ("gravity_curvature",
      "M-GRAV: a symmetric, G2-covariant rank-2 metric (tr g = 16|a^b|^2) emerges from the octonionic associator; transverse rank-4 graviton mode, flat dirs = associative subalgebra.",
      gravity_curvature.main),

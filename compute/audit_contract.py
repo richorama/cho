@@ -551,6 +551,21 @@ CONTRACTS = {
                          "A non-separable mixed operator is treated as equivalent to the primitive "
                          "product kernel for the epsilon bridge value."),
     ),
+    "epsilon_action_stationary": contract(
+        "epsilon_action_stationary",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only that within the normalized link-action admissible class "
+        "(O>=0, Tr(O)=pi), the primitive kernel O=pi|tau><tau| is the unique "
+        "global maximizer and the current scaffold saturates that bound.",
+        open_bridges=("Derive the physical transition ray tau and admissible "
+                      "kernel class from full CHO action/one-operator dynamics.",),
+        kill_conditions=("A variational result inside the chosen link-action class is "
+                         "presented as full derivation of the CHO kernel dynamics.",
+                         "The distinction between 'unique maximizer in class' and "
+                         "'class derived from action' is collapsed."),
+    ),
     "gravity_curvature": contract(
         "gravity_curvature",
         ("GR1",),
