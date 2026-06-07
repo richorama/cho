@@ -96,6 +96,7 @@ import epsilon_measure_audit
 import epsilon_measure_witness
 import epsilon_measure_schur
 import epsilon_phase_space_product
+import epsilon_assumption_p_gate
 import gravity_curvature
 import gravity_gate_audit
 import prediction_registry
@@ -232,6 +233,9 @@ ARTIFACTS = [
     ("epsilon_phase_space_product",
      "F0 product witness: under independent commuting Spin(9)/E6 sectors, the transition carrier is Delta_9 x J3(O), and the factorized invariant average gives exactly 1/432; live seam is deriving this sector-independence from the action.",
      epsilon_phase_space_product.main),
+    ("epsilon_assumption_p_gate",
+     "F0 Assumption-P gate: the current epsilon bridge operator has exact 16x27 product-separable (operator-Schmidt rank-1) primitive factors and pi/432 normalized trace; live seam is deriving this separable structure from CHO action dynamics.",
+     epsilon_assumption_p_gate.main),
     ("gravity_curvature",
      "M-GRAV: a symmetric, G2-covariant rank-2 metric (tr g = 16|a^b|^2) emerges from the octonionic associator; transverse rank-4 graviton mode, flat dirs = associative subalgebra.",
      gravity_curvature.main),

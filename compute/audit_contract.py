@@ -536,6 +536,21 @@ CONTRACTS = {
                          "Direct-sum or single-sector alternatives are treated as equivalent to "
                          "a shared one-operator transition density over both sectors."),
     ),
+    "epsilon_assumption_p_gate": contract(
+        "epsilon_assumption_p_gate",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Treat this as operator-level evidence for Assumption P only: the scaffold epsilon "
+        "operator is exactly primitive product-separable across 16x27 with pi/432 normalized "
+        "trace. Do NOT promote F0 from this gate alone.",
+        open_bridges=("Derive the separable primitive epsilon operator structure from the CHO "
+                      "action / one-operator dynamics, rather than inserting it as scaffold data.",),
+        kill_conditions=("Operator-level separability evidence is presented as a full derivation "
+                         "of Assumption P without an action-level mechanism.",
+                         "A non-separable mixed operator is treated as equivalent to the primitive "
+                         "product kernel for the epsilon bridge value."),
+    ),
     "gravity_curvature": contract(
         "gravity_curvature",
         ("GR1",),
