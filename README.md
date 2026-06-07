@@ -107,6 +107,17 @@ FLAVOUR_DERIVATION.md    Flavour-sector derivation scaffold and proof gaps
 blog_post.md             Public-facing writeup
 ```
 
+## Validation
+
+Install the Python dependency and run the validation harness:
+
+```bash
+python3 -m pip install -r requirements.txt
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v
+```
+
+The tests run [compute/audit.py](compute/audit.py) end-to-end and also verify the single-artifact CLI. The same harness runs in GitHub Actions via [.github/workflows/validation.yml](.github/workflows/validation.yml).
+
 ## Building the papers
 
 ```bash
