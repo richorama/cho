@@ -35,8 +35,9 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  21. epsilon_mixing_coefficients  — M11: mixing counts (7,3,4,4/7) as Fano lines + 1/(4pi)
  22. epsilon_vcb_halfangle        — C2: |V_cb| coefficient 1/2 = SU(2) spinor half-angle
  23. epsilon_a4_two_level         — R2 origin: two-level symmetry = SU(2) closure of A4
+ 24. epsilon_measure_audit        — Phase 2 gate: pi/432 as one conditional transition measure
   *  gravity_curvature            — M-GRAV: emergent rank-2 metric from non-associativity
- 24. prediction_registry           — tamper-evident pre-registration hashes
+ 25. prediction_registry           — tamper-evident pre-registration hashes
   *  scoreboard                    — does deriving prefactors move the Bayes factor? (the one-number bottom line; runs last)
 
 Run all:
@@ -77,6 +78,7 @@ import epsilon_channel_coefficients
 import epsilon_mixing_coefficients
 import epsilon_vcb_halfangle
 import epsilon_a4_two_level
+import epsilon_measure_audit
 import gravity_curvature
 import prediction_registry
 import scoreboard
@@ -173,6 +175,9 @@ ARTIFACTS = [
     ("epsilon_a4_two_level",
      "R2 origin: the two-level symmetry is the SU(2) closure of A4 (Q8=lift of V4<A4; A4/V4=Z3).",
      epsilon_a4_two_level.main),
+    ("epsilon_measure_audit",
+     "Phase 2 gate: pi/432 as a conditional normalized transition trace; nearby alternatives excluded by named criteria.",
+     epsilon_measure_audit.main),
     ("gravity_curvature",
      "M-GRAV: a symmetric, G2-covariant rank-2 metric (tr g = 16|a^b|^2) emerges from the octonionic associator; transverse rank-4 graviton mode, flat dirs = associative subalgebra.",
      gravity_curvature.main),

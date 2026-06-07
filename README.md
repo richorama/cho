@@ -68,6 +68,7 @@ The target `π/432` was an *assembly* of three independently-chosen pieces (`π`
 - [compute/gravity_curvature.py](compute/gravity_curvature.py) — **gravity, first kinematic brick (M-GRAV).** Non-associativity IS curvature: in an associative algebra `(ab)c=a(bc)` is path-independent (flat transport), and the octonionic associator measures the failure. The metric perturbation is the Gram pullback of the transport defect `M_{a,b}(x)=[x,a,b]`, `g_{μν}=⟨[e_μ,a,b],[e_ν,a,b]⟩` — automatically symmetric and PSD, and verified **`G₂`-covariant** (`g(Ra,Rb)=R g Rᵀ` exact on all 1344 finite automorphisms): a genuine rank-2 tensor under the structure group with **no hand-inserted geometric input**, replacing the `graviton.py` placeholder. Scalar density `tr g = 16·|a∧b|²` (same `16=dim 𝕆ℙ²` as `ε₀²=π/432`); the mode is rank-4 and **transverse** to its source (`g·a=g·b=0`), null space = the associative subalgebra (Artin made geometric). The `ℂ⊗ℍ=M₂(ℂ)` Minkowski + `SL(2,ℂ)` Lorentz arena is included. Open (the whole game): reduce the internal `Im(𝕆)` `[G₂⊂SO(7)]` metric to 4-d spacetime `SO(3,1)`, and supply dynamics
 - [compute/prediction_registry.py](compute/prediction_registry.py) — tamper-evident pre-registration: SHA-256 digests of the frozen falsifiers (`Σmν`, P1–P3) plus a manifest digest, so any later silent retune of a "prediction" is detectable
 - [EPSILON_BRIDGE.md](EPSILON_BRIDGE.md) — focused bridge target for deriving `epsilon0^2 = pi / 432` as an operator trace or transition amplitude
+- [foundations/08_epsilon_measure_theorem.md](foundations/08_epsilon_measure_theorem.md) and [compute/epsilon_measure_audit.py](compute/epsilon_measure_audit.py) — Phase 2 theorem gate: states the named hypotheses for `pi/432` as one normalized transition measure, checks nearby alternatives, and keeps the scoreboard status conditional
 - [ACTION_PROJECTOR_BRIDGE.md](ACTION_PROJECTOR_BRIDGE.md) — action-level audit of what a true rank-one epsilon projector on `A_Weyl x J3(O)` must derive
 - [compute/action_projector_derivation.py](compute/action_projector_derivation.py) — diagnostic showing rank-one Fano support and the remaining primitive `A_Weyl x J3(O)` embedding gap
 - [PRIMITIVE_PROJECTOR_BRIDGE.md](PRIMITIVE_PROJECTOR_BRIDGE.md) and [compute/primitive_projector_derivation.py](compute/primitive_projector_derivation.py) — conditional derivation showing the normalized `log cos` action selects the primitive Weyl x primitive Jordan product once a rank-one transition kernel exists
@@ -101,6 +102,7 @@ compute/                 Numerical verification scripts (Python 3 + NumPy)
 DERIVATION_LEDGER.md     Logical status of each claim and proof obligation
 METHODOLOGY_LIMITS.md    Methodology caveats and statistical interpretation
 EPSILON_BRIDGE.md        Triality-breaking epsilon bridge target
+foundations/08_epsilon_measure_theorem.md Conditional epsilon measure theorem gate
 ACTION_PROJECTOR_BRIDGE.md Action-level rank-one projector audit
 YUKAWA_BRIDGE.md         Charged-flavour Yukawa bridge scaffold
 PMNS_BRIDGE.md           Neutrino-mixing bridge scaffold
