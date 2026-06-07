@@ -99,6 +99,7 @@ import epsilon_phase_space_product
 import epsilon_assumption_p_gate
 import epsilon_action_stationary
 import f0_vacuum_orbit_gate
+import f0_transition_ray_gate
 import f0_direction_gate
 import gravity_curvature
 import gravity_gate_audit
@@ -245,6 +246,9 @@ ARTIFACTS = [
     ("f0_vacuum_orbit_gate",
      "F0 vacuum-orbit gate: checks whether fixing the vacuum collapses the transition-ray degeneracy to one stabilizer orbit.",
      f0_vacuum_orbit_gate.main),
+    ("f0_transition_ray_gate",
+     "F0 transition-ray consistency gate: checks that vacuum orbit, action-selected holonomy, and trace space all point to the same ray representative.",
+     f0_transition_ray_gate.main),
     ("f0_direction_gate",
      "F0 governance gate: reports whether the next step is closure-critical or should pivot away from theory-for-theory based on live F0 contracts and scoreboard state.",
      f0_direction_gate.main),

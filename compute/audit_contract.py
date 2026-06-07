@@ -623,6 +623,16 @@ CONTRACTS = {
         "physical representative remains open.",
         open_bridges=("Physical transition ray representative from CHO action dynamics.",),
     ),
+    "f0_transition_ray_gate": contract(
+        "f0_transition_ray_gate",
+        ("F0", "Q1", "K1", "STAT1"),
+        STATUS_DERIVED_BRIDGE,
+        VERDICT_OPEN,
+        "Use as a consistency gate only: vacuum orbit, action-selected holonomy, "
+        "and unique trace space all agree on one ray representative, but the CHO "
+        "action still has not derived that representative from first principles.",
+        open_bridges=("Physical transition ray representative from CHO action dynamics.",),
+    ),
 }
 
 
