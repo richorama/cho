@@ -98,6 +98,7 @@ import epsilon_measure_schur
 import epsilon_phase_space_product
 import epsilon_assumption_p_gate
 import epsilon_action_stationary
+import f0_vacuum_orbit_gate
 import f0_direction_gate
 import gravity_curvature
 import gravity_gate_audit
@@ -241,6 +242,9 @@ ARTIFACTS = [
     ("epsilon_action_stationary",
      "F0 action stationarity: in the normalized link-action class (O>=0, Tr O=pi), the primitive kernel O=pi|tau><tau| is the unique global maximizer; current scaffold saturates this bound exactly.",
      epsilon_action_stationary.main),
+    ("f0_vacuum_orbit_gate",
+     "F0 vacuum-orbit gate: checks whether fixing the vacuum collapses the transition-ray degeneracy to one stabilizer orbit.",
+     f0_vacuum_orbit_gate.main),
     ("f0_direction_gate",
      "F0 governance gate: reports whether the next step is closure-critical or should pivot away from theory-for-theory based on live F0 contracts and scoreboard state.",
      f0_direction_gate.main),

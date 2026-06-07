@@ -613,6 +613,16 @@ CONTRACTS = {
         "Move Bayes credit only when ledger statuses change; F0 remains the sign-flip hinge.",
         open_bridges=("Whether epsilon0^2 = pi/432 is geometrically forced at theorem level.",),
     ),
+    "f0_vacuum_orbit_gate": contract(
+        "f0_vacuum_orbit_gate",
+        ("F0", "Q1"),
+        STATUS_DERIVED_BRIDGE,
+        VERDICT_OPEN,
+        "Use as a ray-selection checkpoint only: fixing the vacuum should collapse "
+        "the transition class to one stabilizer orbit, but the CHO action-derived "
+        "physical representative remains open.",
+        open_bridges=("Physical transition ray representative from CHO action dynamics.",),
+    ),
 }
 
 
