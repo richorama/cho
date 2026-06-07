@@ -633,6 +633,26 @@ CONTRACTS = {
         "action still has not derived that representative from first principles.",
         open_bridges=("Physical transition ray representative from CHO action dynamics.",),
     ),
+    "f0_action_ray_gate": contract(
+        "f0_action_ray_gate",
+        ("F0", "STAT1"),
+        STATUS_DERIVED_BRIDGE,
+        VERDICT_OPEN,
+        "Use as an effective-dynamics derivation gate: the transition ray is "
+        "derived as a unique stationary maximizer of the current action generator, "
+        "while derivation of that generator from full CHO action remains open.",
+        open_bridges=("Physical transition ray from full CHO action dynamics.",),
+    ),
+    "f0_action_kernel_dynamics_gate": contract(
+        "f0_action_kernel_dynamics_gate",
+        ("F0", "STAT1"),
+        STATUS_DERIVED_BRIDGE,
+        VERDICT_OPEN,
+        "Use as an effective-dynamics admissible-class gate: O>=0 and Tr(O)=pi "
+        "follow from action-flow closure in the current scaffold, while derivation "
+        "of this flow from full CHO action remains open.",
+        open_bridges=("Admissible epsilon-kernel class from full CHO action dynamics.",),
+    ),
     "f0_kernel_class_gate": contract(
         "f0_kernel_class_gate",
         ("F0", "STAT1"),
