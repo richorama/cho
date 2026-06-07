@@ -1,18 +1,16 @@
-# Aspirational Theory of Everything Research Plan
+# CHO Research Plan: Standard Model First, Gravity Exploratory
 
-> **Scope note (2026-06-06).** The title is
-> **aspirational**, not a present-day claim. The framework currently has no dynamical gravity, so the
-> defensible present-day description is "an algebraic framework for Standard Model
-> parameters from division algebras" (see [README.md](README.md) and
-> [CRITICAL_REPAIR_PLAN.md](CRITICAL_REPAIR_PLAN.md) Phase 5). The gravity goals in Phase 3 are a scoped,
-> optional research line tracked in [foundations/03_gravity.md](foundations/03_gravity.md);
-> the "Theory of Everything" branding is conditional on that line producing a
-> metric/curvature sector. Treat Phases 1-2 (Standard Model parameters) as the
-> live program and Phase 3 (gravity/cosmology) as exploratory.
+> **Scope note (updated 2026-06-07).** The defensible present-day description is
+> "an algebraic framework for Standard Model parameters from division algebras."
+> Phase 5 keeps gravity out of scope: [foundations/11_gravity_gate.md](foundations/11_gravity_gate.md)
+> and `compute/gravity_gate_audit.py` show that the internal `G2` metric brick
+> does not yet provide a canonical 4D Lorentzian metric, field equation, or
+> Newton constant. Treat the Standard Model parameter program as live and the
+> gravity/cosmology material below as exploratory historical planning.
 
 ## The Problem
 
-Unite quantum mechanics, the Standard Model of particle physics, and general relativity into a single coherent mathematical framework that:
+Explore whether the CHO algebraic framework can first explain the Standard Model parameter pattern, while keeping the older gravity/unification goals as speculative targets that are not part of the present result. A future full unification would have to:
 
 1. Reproduces all known physics (SM particle spectrum, coupling constants, GR in classical limit)
 2. Explains currently unexplained observations (dark matter, dark energy, baryon asymmetry, neutrino masses, hierarchy problem)
@@ -37,7 +35,7 @@ Any candidate theory MUST reproduce or explain:
 
 ## Core Thesis: Algebraic Emergence from Discrete Causal Information Geometry
 
-**Central idea:** Spacetime, particles, and forces all emerge from a single pre-geometric algebraic structure — a *causal information lattice* equipped with division algebra grading.
+**Historical central idea:** Spacetime, particles, and forces might emerge from a single pre-geometric algebraic structure — a *causal information lattice* equipped with division algebra grading. Phase 5 has not closed the spacetime/gravity part, so the current live claim is restricted to the Standard Model algebraic program.
 
 This combines three under-explored mathematical directions:
 
@@ -54,11 +52,11 @@ The four normed division algebras (ℝ, ℂ, ℍ, 𝕆) have deep unexploited co
 
 Replace continuous spacetime manifold with a locally-finite partial order (causal set), but enrich each element with division algebra-valued state:
 - Each "atom of spacetime" carries an octonionic label
-- Causal relations between atoms defined by algebraic compatibility (non-associativity of 𝕆 generates curvature)
+- Causal relations between atoms defined by algebraic compatibility, with octonionic non-associativity as a speculative curvature source
 - Particle worldlines = chains in the causal set where algebraic labels form coherent subalgebras
 - Gauge fields = holonomy of the algebraic grading around closed chains
 
-**New math needed:** *Non-associative causal combinatorics* — a theory of partially ordered sets with non-associative algebraic decorations, where macroscopic geometry emerges statistically.
+**New math needed:** *Non-associative causal combinatorics* — a theory of partially ordered sets with non-associative algebraic decorations, where macroscopic geometry might emerge statistically.
 
 ### Pillar 3 — Information-Theoretic Dynamics
 
@@ -85,13 +83,13 @@ The dynamics (equations of motion) should not be imposed but derived from an inf
 
 - [ ] **1.2** Develop non-associative differential calculus
   - Define discrete derivatives on causal sets with octonionic labels
-  - Show curvature emerges from non-associativity (the associator [a,b,c] = (ab)c - a(bc) as torsion/curvature analog)
-  - Prove continuum limit recovers Riemannian geometry + gauge connection
+  - Test whether curvature can emerge from non-associativity (the associator [a,b,c] = (ab)c - a(bc) as torsion/curvature analog)
+  - Prove or reject whether a continuum limit recovers Riemannian geometry + gauge connection
 
 - [ ] **1.3** Formulate the information-theoretic action
   - Define causal information integration for algebraic causal sets
   - Derive Euler-Lagrange-like equations from extremizing information measure
-  - Show equivalence to Einstein-Hilbert + Yang-Mills + Dirac in appropriate limits
+  - Test whether any equivalence to Einstein-Hilbert + Yang-Mills + Dirac can be derived in appropriate limits
 
 ### Phase 2: Particle Physics Derivation (Months 3–6)
 
@@ -108,13 +106,14 @@ The dynamics (equations of motion) should not be imposed but derived from an inf
 - [ ] **2.3** Address the hierarchy problem
   - Show the Higgs mass is stabilized by algebraic constraints (the norm in J₃(𝕆) is bounded)
   - Derive Higgs VEV from minimizing information measure over scalar sector
-  - Explain why gravity is weak: gravitational DOF = collective/emergent, suppressed by lattice density
+  - Keep gravity weakness outside the current framework unless a Lorentzian/dynamical gravity sector is derived
 
-### Phase 3: Gravity and Cosmology (Months 6–9)
+### Phase 3: Gravity and Cosmology (Exploratory / Currently Out of Scope)
 
-- [ ] **3.1** Derive general relativity
-  - Show Einstein equations emerge as thermodynamic/information equations of state for the causal lattice (extending Jacobson's thermodynamic derivation)
-  - Compute quantum corrections (these should be finite by construction — no UV divergences in discrete theory)
+- [ ] **3.1** Gravity gate before any GR claim
+  - Derive a canonical 4D Lorentzian metric and dynamics, or keep gravity out of scope as Phase 5 now does
+  - Only after that, test whether Einstein equations emerge as thermodynamic/information equations of state for the causal lattice
+  - Only after that, compute quantum corrections
   - Address background independence explicitly
 
 - [ ] **3.2** Cosmological predictions

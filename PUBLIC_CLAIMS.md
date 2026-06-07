@@ -17,7 +17,7 @@ Purpose: one public-facing source of truth for what the framework may claim toda
 | CKM/PMNS | Several CKM/PMNS coefficients are derived as counts/half-angles; full matrices remain operator targets | C1/C2/N2/N3/N5 advanced; `yukawa_operator_full.py` shows CKM one-diagonalization and PMNS `DeltaY` remain open | One CHO mass matrix already gives CKM and PMNS completely |
 | `alpha`, `sin^2(theta_W)`, `M_W` | Algebraic boundary terms plus underived continuum/RG residuals | Derived pieces are not sub-percent by themselves; Phase 4 now makes the inverse-matched scales and VP/threshold inputs explicit, but RG matching remains open | Sub-percent predictions independent of residual continuum physics |
 | Cosmological constant | A striking open bridge for the observed scale | Free-energy factorisation, `3^64`, and `11/12` screening remain proof obligations | Resolved the cosmological constant problem |
-| Gravity | A kinematic internal `G2`-covariant metric brick from the octonion associator | Interesting research line. No 4D Lorentzian metric, field equation, or Newton constant yet | Dynamical gravity or GR has been derived |
+| Gravity | A kinematic internal `G2`-covariant metric brick from the octonion associator, kept outside the present framework | Phase 5 gate confirms no canonical 4D Lorentzian reduction or dynamics yet. Treat gravity as an exploratory side project | Dynamical gravity, GR, or a completed ToE has been derived |
 | Null exclusions | Future-facing falsifiers and weaker consistency targets | Useful only with explicit windows and lower evidential weight than positive predictions | Null experimental results confirm CHO |
 | Statistics | Quote covariance and Bayes scoreboard, not raw row count | `N_eff ~ 10`, correlated `chi^2` borderline; `ln B` depends on crediting `pi/432` | 25 independent precision predictions |
 
@@ -28,4 +28,4 @@ When writing public prose:
 1. Pair every headline with its status in [DERIVATION_LEDGER.md](DERIVATION_LEDGER.md).
 2. Pair every statistical claim with [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md) or `compute/scoreboard.py`.
 3. Pair every future claim with [FUTURE_TESTS.md](FUTURE_TESTS.md) and the prediction registry.
-4. Pair every gravity claim with [foundations/03_gravity.md](foundations/03_gravity.md).
+4. Pair every gravity claim with [foundations/11_gravity_gate.md](foundations/11_gravity_gate.md) and [foundations/03_gravity.md](foundations/03_gravity.md).

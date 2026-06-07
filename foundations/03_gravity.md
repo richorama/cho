@@ -12,9 +12,15 @@ candidate mechanism *plus* a verified kinematic metric) and what remains (the
 load-bearing continuum conjecture, the reduction to 4-d spacetime, and all
 dynamics).
 
-This note exists so the word "gravity" — and by extension "Theory of Everything"
-in [PLAN.MD](../PLAN.MD) — is backed by an explicit, bounded research target
-backed by a real computation rather than by the placeholder script
+**Phase 5 update (2026-06-07):** [`foundations/11_gravity_gate.md`](11_gravity_gate.md)
+and [`compute/gravity_gate_audit.py`](../compute/gravity_gate_audit.py) trigger
+the down-scope condition. The internal metric is kinematically valid, but no
+canonical `G2`-invariant four-plane, Lorentzian signature, field equation, or
+Newton constant emerges. Gravity remains out of scope for the present framework
+and should be treated as a separate exploratory line.
+
+This note exists so the word "gravity" is backed by an explicit, bounded
+research target and by a real computation rather than by the placeholder script
 [`compute/graviton.py`](../compute/graviton.py).
 
 ---

@@ -9,7 +9,7 @@ displaying agreements. Each answers a specific skeptic's question:
   2. model_complexity      — "How many parameters, really?" (honest MDL count)
   3. independent_observables — "What's the real goodness-of-fit?" (covariance)
   4. derived_vs_residual   — "Where's the error bar on the DERIVED part?"
-    *  rg_matching_audit     — Phase 4 gate: are continuum/RG scales derived or inverse-matched?
+  *  rg_matching_audit     — Phase 4 gate: are continuum/RG scales derived or inverse-matched?
   5. predict_neutrino_sum  — "What can future data falsify?" (frozen prediction)
 
 plus the derivation-frontier experiments (the "can the algebra do more?" set):
@@ -19,7 +19,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
   8. ladder_charges                — SM charges {0,1/3,2/3,1} (Lever C)
   *  weak_isospin_hypercharge      — weak SU(2) + hypercharge Y (Lever D)
   *  chiral_projector             — chiral idempotent closes the B<->D seam (C)
-    *  physics_map_audit             — one-generation quantum-number map + anomaly cancellation
+  *  physics_map_audit             — one-generation quantum-number map + anomaly cancellation
   9. bayesian_evidence             — model-comparison Bayes factor vs a null
  10. spectral_action              — one algebra-internal Dirac operator (knobs)
  11. cross_generation_count       — inter-gen Yukawa knob count under triality
@@ -39,6 +39,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  23. epsilon_a4_two_level         — R2 origin: two-level symmetry = SU(2) closure of A4
  24. epsilon_measure_audit        — Phase 2 gate: pi/432 as one conditional transition measure
   *  gravity_curvature            — M-GRAV: emergent rank-2 metric from non-associativity
+  *  gravity_gate_audit           — Phase 5 gate: gravity remains exploratory unless Lorentzian dynamics close
  25. prediction_registry           — tamper-evident pre-registration hashes
   *  scoreboard                    — does deriving prefactors move the Bayes factor? (the one-number bottom line; runs last)
 
@@ -84,6 +85,7 @@ import epsilon_vcb_halfangle
 import epsilon_a4_two_level
 import epsilon_measure_audit
 import gravity_curvature
+import gravity_gate_audit
 import prediction_registry
 import scoreboard
 
@@ -191,6 +193,9 @@ ARTIFACTS = [
     ("gravity_curvature",
      "M-GRAV: a symmetric, G2-covariant rank-2 metric (tr g = 16|a^b|^2) emerges from the octonionic associator; transverse rank-4 graviton mode, flat dirs = associative subalgebra.",
      gravity_curvature.main),
+    ("gravity_gate_audit",
+     "Phase 5 gate: tests for canonical 4D Lorentzian reduction and dynamics; keeps gravity out of scope if absent.",
+     gravity_gate_audit.main),
     ("prediction_registry",
      "Tamper-evident pre-registration: SHA-256 digests of the frozen predictions.",
      prediction_registry.main),

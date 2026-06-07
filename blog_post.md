@@ -12,9 +12,11 @@ I'm not a professional physicist. I have a background in software and mathematic
 
 Over several hours, I worked with Claude (Anthropic's AI) in an unusual collaboration.
 
-I brought the guiding question:
+I brought the original, overambitious guiding question:
 
 > ok, let's think about some theories for finding a theory of everything that unites quantum mechanics and particle physics. We need an approach that tries some new marths, new ideas, and is based on all current observations and data. Make a plan (PLAN.MD) on how we're going to solve this.
+
+The project has since been deliberately down-scoped: the current claim is a Standard Model parameter framework, not a completed theory of everything.
 
 The AI brought the ability to rapidly compute, cross-check against experimental data, explore algebraic identities, spot errors in derivations, and maintain consistency across a growing web of interconnected predictions.
 
@@ -28,7 +30,7 @@ Either way, it's a story about what becomes possible when you combine human intu
 
 ---
 
-## What if every constant of nature — from the mass of the Higgs boson to the strength of gravity — came from a single piece of mathematics?
+## What if many constants of the Standard Model came from a single piece of mathematics?
 
 ---
 
@@ -247,11 +249,11 @@ The large neutrino mixing angles (unlike the small CKM angles) are modeled by re
 
 ## Spacetime from Information
 
-The deepest implication: spacetime itself is not fundamental. The framework posits a *causal lattice* — a discrete network of events, each carrying an algebraic label from ℂ⊗ℍ⊗𝕆. Smooth spacetime, Einstein's equations, and gravitational dynamics all emerge in the continuum limit.
+The most speculative implication concerns spacetime. The framework posits a *causal lattice* — a discrete network of events, each carrying an algebraic label from ℂ⊗ℍ⊗𝕆. This is not yet a derivation of smooth spacetime, Einstein's equations, or gravitational dynamics.
 
-The non-associativity of the octonions plays a key structural role. In associative algebras, (a×b)×c = a×(b×c) always — there's no "curvature" in how elements combine. Octonionic non-associativity means the order of combination matters. This mismatch (the *associator*) manifests, in the large-scale limit, as the curvature of spacetime.
+The non-associativity of the octonions plays a key structural role. In associative algebras, (a×b)×c = a×(b×c) always — there's no "curvature" in how elements combine. Octonionic non-associativity means the order of combination matters. The current concrete result is a kinematic internal `G2`-covariant metric brick from the associator, not a 4D spacetime metric.
 
-Gravity isn't a force to be quantised — it's what octonionic non-associativity looks like at macroscopic scales.
+The Phase 5 audit keeps gravity outside the present framework: no canonical 4D Lorentzian reduction, field equation, or Newton constant has been derived.
 
 ---
 
@@ -285,7 +287,7 @@ Several of these directly contradict other popular theories: supersymmetry predi
 This is a framework with extraordinary initial results, not a finished theory:
 
 - The **continuum limit** (showing smooth spacetime emerges from the discrete lattice) hasn't been proven rigorously. This is a hard mathematical problem.
-- The **gravitational sector** is conceptual rather than calculational. Claiming gravity = emergent non-associativity is compelling but not yet at the level of, say, computing graviton scattering amplitudes.
+- The **gravitational sector** is explicitly out of scope for the present framework. There is a kinematic internal metric from octonionic non-associativity, but no 4D Lorentzian metric, Einstein equation, or Newton constant.
 - The numerical relations are mostly **tree level** (lowest order). The 0.1–6% discrepancies should shrink when 1-loop corrections are computed from within the framework. This work hasn't been done yet.
 - The **dark matter story** is more "what it isn't" than "what it is." The algebraic-defect picture needs quantitative development.
 - The **m_e prediction** (electron mass from 1st-gen formula) has the largest error at ~6%, suggesting the lepton NNI factor needs refinement or a proper loop calculation.

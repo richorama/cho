@@ -152,6 +152,13 @@ with `pi`, `16`, and `27` entering as one forced measure statement, not three as
 
 **Kill/demotion condition:** if the 4D Lorentzian reduction requires a hand-picked four-plane or no dynamics emerges, keep gravity explicitly out of scope and remove any ToE framing from public-facing docs.
 
+**Phase 5 execution note (2026-06-07):** `compute/gravity_gate_audit.py` and
+`foundations/11_gravity_gate.md` trigger the demotion condition. The internal
+`G2` metric remains a useful kinematic brick, but no canonical invariant
+four-plane, Lorentzian signature, or Einstein/Newton dynamics emerge. Gravity is
+therefore out of scope for the present framework and kept as a separate
+exploratory line.
+
 ## Phase 6 - Prediction Discipline
 
 **Goal:** make future tests harder to retune and easier to interpret.

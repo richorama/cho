@@ -67,6 +67,16 @@ inputs, and target-implied scales. It finds `sin^2(theta_W)=1/4` at
 QCD-scale example still needs a hadronic VP remainder of about `1.061`. This is
 useful bookkeeping, not a status upgrade.
 
+## Gravity Status
+
+Gravity is explicitly out of scope for the present framework. The kinematic
+metric brick in `compute/gravity_curvature.py` is real and useful: it gives a
+positive-semidefinite, `G2`-covariant internal rank-4 metric from the octonion
+associator. But the Phase 5 gate `compute/gravity_gate_audit.py` shows the
+missing pieces are still load-bearing: no canonical invariant 4D spacetime plane
+is selected, the internal metric is not Lorentzian, and no field equation or
+Newton constant emerges. Public prose should not say CHO derives gravity or GR.
+
 ## Dimensional Counting Warning
 
 Factors such as `16`, `27`, `64`, `3`, `7`, `8`, and `11/12` are suggestive only when they arise from an explicit operator, trace, path integral, or representation-theoretic map. Until then, they should be labeled as bridge rules or ansaetze rather than forced consequences.
@@ -106,6 +116,7 @@ The following scripts produce the honest figures of merit that should travel wit
 | `compute/independent_observables.py` | What is the real goodness-of-fit once dependent rows are removed and a theory error is stated? | On 22 independent rows with a stated 1.5% theory floor: **reduced chi^2 = 0.92, p = 0.57** (statistically consistent). The `m_e` first-generation row is a visible `-3.75 sigma` outlier. The naive "all rows independent, experimental error only" chi^2 is astronomically large — proof these are approximate relations, not precision predictions. |
 | `compute/derived_vs_residual.py` | Where is the error bar on the part CHO actually derives, separate from the underived continuum/RG residual? | The **derived terms** are off by **alpha: -2.2%, sin^2(theta_W): +8.1%, M_W: +1.2%.** The "<0.1%" sometimes quoted belongs to the full formula including the residual CHO has not yet derived. Quote the derived-term error until S1/S4/S5 in the ledger are closed. |
 | `compute/rg_matching_audit.py` | Are the continuum/RG scales and thresholds derived before comparison, or inferred from the target? | **Phase 4 audit passes, theorem remains open.** Standard one-loop running gives `sin^2(theta_W)=1/4` at an inverse-matched `3.679e3 GeV`, not at the seesaw or Planck scale. `alpha^-1` still needs explicit VP/threshold input, and `M_W` still needs the electroweak normalization. |
+| `compute/gravity_gate_audit.py` | Does the internal `G2` metric become 4D Lorentzian gravity with dynamics? | **Phase 5 audit passes, gravity remains out of scope.** The `C x H` Lorentzian arena and internal PSD metric are coherent, but no canonical invariant four-plane is selected, no Lorentzian signature emerges from the associator metric, and no Einstein/Newton dynamics are derived. |
 | `compute/first_generation_audit.py` | Why is `m_e` a `-3.75 sigma` outlier, and how bad is it really? | The first-generation masses are SQUARED ratios of *predicted* 2nd/3rd-gen masses, so they compound upstream ~1% errors. The `m_e` headline `-5.6%` decomposes into **~ -2.2% intrinsic** (the unproven `1/(4pi)` factor against measured inputs) **plus ~ -3.4% propagation**. Because the electron mass is known to 8 digits, `m_e` can never be a precision claim until `1/pi` is derived exactly; the honest move is to derive it or demote the row (ledger M11). Removing this single outlier leaves reduced chi^2 ~ 0.29 over the rest. |
 | `compute/predict_neutrino_sum.py` | What can near-future data falsify? | **Frozen prediction (2026-06-06): Sigma m_nu = 60 meV (band 57-62), normal ordering.** Surfaces a real internal tension: CHO's `m_nu3 = 48.9 meV` sits ~2.5% below the oscillation floor `sqrt(Delta m31^2) = 50.1 meV`. Falsification conditions are listed in the script. |
 

@@ -2,14 +2,15 @@
 
 A few-input algebraic framework for the Standard Model, built from the tensor product of the three largest normed division algebras.
 
-> **Scope (decided 2026-06-06).** This project is framed as *an algebraic framework
-> for Standard Model parameters from division algebras* — **not** a completed Theory
-> of Everything. It has no dynamical gravity yet (see [foundations/03_gravity.md](foundations/03_gravity.md)
-> for the scoped, optional research line). The defensible claim is a constrained,
-> hard-to-vary parametrization of SM masses, mixings, and couplings plus a
-> conditional three-generations result. The "Theory of Everything" framing in
-> [PLAN.MD](PLAN.MD) is aspirational and gated on the gravity work; until a metric
-> sector is derived, prefer the down-scoped wording above.
+> **Scope (updated 2026-06-07).** This project is framed as *an algebraic
+> framework for Standard Model parameters from division algebras* — **not** a
+> completed Theory of Everything. Phase 5 explicitly keeps gravity out of scope:
+> [foundations/11_gravity_gate.md](foundations/11_gravity_gate.md) and
+> [compute/gravity_gate_audit.py](compute/gravity_gate_audit.py) show that the
+> internal `G2` metric brick does not yet supply a canonical 4D Lorentzian metric
+> or dynamics. The defensible claim is a constrained, hard-to-vary
+> parametrization of SM masses, mixings, and couplings plus a conditional
+> three-generations result.
 
 ## What is this?
 
@@ -32,7 +33,7 @@ This project was developed as a human–AI collaboration (with Claude, Anthropic
 - [DERIVATION_LEDGER.md](DERIVATION_LEDGER.md) — canonical status ledger for theorem-level claims, bridge assumptions, open derivations, and ansaetze
 - [PUBLIC_CLAIMS.md](PUBLIC_CLAIMS.md) — public-facing claim table: what can be said today, what remains conditional, and what must not be claimed yet
 - [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md) — caveats on postdictions, statistical dependence, continuum/RG gaps, dimensional counting, and null tests
-- [compute/audit.py](compute/audit.py) — single entry point for the full robustness and derivation-frontier suite (hardness-to-vary, honest MDL parameter count, independent-observable goodness-of-fit, covariance goodness-of-fit, derived-vs-residual error bars, Phase 4 continuum/RG matching, the first-generation outlier decomposition, frozen falsifiable forward predictions, the Lever A–C derivation experiments, the model-comparison Bayes factor, the inverse-spectral knob counts, a tamper-evident prediction registry, and a derivation scoreboard that reads the Bayes factor as one number); run all with `python3 compute/audit.py`, or one with `python3 compute/audit.py <name>`
+- [compute/audit.py](compute/audit.py) — single entry point for the full robustness and derivation-frontier suite (hardness-to-vary, honest MDL parameter count, independent-observable goodness-of-fit, covariance goodness-of-fit, derived-vs-residual error bars, Phase 4 continuum/RG matching, Phase 5 gravity gating, the first-generation outlier decomposition, frozen falsifiable forward predictions, the Lever A–C derivation experiments, the model-comparison Bayes factor, the inverse-spectral knob counts, a tamper-evident prediction registry, and a derivation scoreboard that reads the Bayes factor as one number); run all with `python3 compute/audit.py`, or one with `python3 compute/audit.py <name>`
 - [CRITICAL_REPAIR_PLAN.md](CRITICAL_REPAIR_PLAN.md) — next repair plan from the theoretical-physics review: claim hygiene, the algebra-to-physics map, the `epsilon0^2 = pi/432` measure theorem, one Yukawa/seesaw operator, continuum/RG matching, the gravity gate, and prediction discipline
 - [foundations/02_action.md](foundations/02_action.md) and [compute/action_derivation.py](compute/action_derivation.py) — first written-down CHO action; derives the `pi` holonomy in `epsilon0^2 = pi/432` as the Berry phase of the action's unique closed geodesic (variational, not "shortest loop"); residuals R1–R3 left explicit
 - [compute/forward_predictions.py](compute/forward_predictions.py) — three frozen, dated falsifiers: `m_nu3` vs the oscillation floor, neutrinoless double-beta `m_betabeta`, and the Higgs self-coupling `kappa_lambda`
@@ -41,6 +42,7 @@ This project was developed as a human–AI collaboration (with Claude, Anthropic
 - [compute/three_generations_nogo_audit.py](compute/three_generations_nogo_audit.py) — Distler–Garibaldi-style stress test: the original "3 triality reps = 3 chiral generations" bridge faces vector-vs-spinor and chirality obstructions; the later idempotent-frame route avoids the count/chirality obstruction, while the fermion-content map remains open
 - [foundations/07_physics_map.md](foundations/07_physics_map.md) and [compute/physics_map_audit.py](compute/physics_map_audit.py) — Phase 1 repair witness: freezes the one-generation quantum-number map, verifies algebraic `Q`/`T3`/`Y` consistency, and checks SM anomaly cancellation while leaving the three-generation content map and Yukawa spectrum open
 - [foundations/03_gravity.md](foundations/03_gravity.md) — scoped, optional gravity research line with a minimal computable milestone and a permanent-down-scope kill condition
+- [foundations/11_gravity_gate.md](foundations/11_gravity_gate.md) and [compute/gravity_gate_audit.py](compute/gravity_gate_audit.py) — Phase 5 gravity gate: verifies the internal kinematic metric brick but keeps gravity out of scope because no canonical 4D Lorentzian reduction or dynamics emerge
 
 ### Derivation frontier — bringing heavier mathematics to bear
 - [compute/jordan_eigenvalue_generations.py](compute/jordan_eigenvalue_generations.py) — **Lever A**: a spectral route to *three* generations that bypasses the triality mirror obstruction. The Freudenthal characteristic polynomial of `J₃(𝕆)` is a cubic with three real roots and three primitive idempotents resolving the identity, so "three" is the *rank* of the algebra (verified on 4000 random Hermitian samples). Structural checks PASS; an honest negative on physical content (a flavour-diagonal element returns only its seeded spectrum)
@@ -65,7 +67,7 @@ The target `π/432` was an *assembly* of three independently-chosen pieces (`π`
 - [compute/epsilon_mixing_coefficients.py](compute/epsilon_mixing_coefficients.py) — **the mixing counts, advanced (M11).** The vacuum `ω=(1+ie₇)/2` fixes `e₇`; the octonion Fano plane's `7` lines split into `3` through the vacuum (colour/stabiliser) and `4` avoiding it. Those counts ARE the mixing multiplicities: `|V_us|=√7·ε₀` (amplitude, `√` of `7`), `sin²θ₁₃=3·ε₀²`, `Δm²₂₁/Δm²₃₁=4·ε₀²`, `sin²θ₂₃=4/7` — all `~1.4%`. The lepton `1/(4π)` is identified as the uniform measure on the transition sphere `S²` (`∫dΩ=4π`). Open: the dynamical reduction of the lepton trace to that measure
 - [compute/epsilon_vcb_halfangle.py](compute/epsilon_vcb_halfangle.py) — **the `|V_cb|` ½, derived (C2).** The `½` in `|V_cb|=½·ε₀` is the spin-½ HALF-ANGLE of the `SU(2)` double cover of the transition Bloch sphere: a single-qubit (inter-generation) transition amplitude is `sin(ε₀/2)≈½ε₀` (coefficient `½`), while the `Im(𝕆)` VECTOR channel of `|V_us|` carries the full angle `sin(ε₀)` (coefficient `1`, summed to `√7`). So `√7` vs `½` is exactly vector-vs-spinor, its finite avatar `tan(π/8)=√2−1`. The `½` is no longer a weak-isospin input (open: the CKM channel assignment)
 - [compute/epsilon_a4_two_level.py](compute/epsilon_a4_two_level.py) — **the two-level symmetry origin (R2), derived.** The `U(2)→SO(3)` symmetry that the free-action argument assumed is the `SU(2)` closure of the `A₄` flavour group: `A₄`'s normal Klein subgroup `V₄` (the three π-rotations) lifts under `SU(2)→SO(3)` to the qubit Pauli group `Q₈={±I,±iσ}`, whose irreducible 2-dim rep spans `M₂(ℂ)` (Burnside) → continuous closure `U(2)/su(2)`. And `A₄/V₄=ℤ₃` is the three-generation grading — so the same `A₄` forces both the free action *and* `N_gen=3`. Residual: the origin of `A₄` itself
-- [compute/gravity_curvature.py](compute/gravity_curvature.py) — **gravity, first kinematic brick (M-GRAV).** Non-associativity IS curvature: in an associative algebra `(ab)c=a(bc)` is path-independent (flat transport), and the octonionic associator measures the failure. The metric perturbation is the Gram pullback of the transport defect `M_{a,b}(x)=[x,a,b]`, `g_{μν}=⟨[e_μ,a,b],[e_ν,a,b]⟩` — automatically symmetric and PSD, and verified **`G₂`-covariant** (`g(Ra,Rb)=R g Rᵀ` exact on all 1344 finite automorphisms): a genuine rank-2 tensor under the structure group with **no hand-inserted geometric input**, replacing the `graviton.py` placeholder. Scalar density `tr g = 16·|a∧b|²` (same `16=dim 𝕆ℙ²` as `ε₀²=π/432`); the mode is rank-4 and **transverse** to its source (`g·a=g·b=0`), null space = the associative subalgebra (Artin made geometric). The `ℂ⊗ℍ=M₂(ℂ)` Minkowski + `SL(2,ℂ)` Lorentz arena is included. Open (the whole game): reduce the internal `Im(𝕆)` `[G₂⊂SO(7)]` metric to 4-d spacetime `SO(3,1)`, and supply dynamics
+- [compute/gravity_curvature.py](compute/gravity_curvature.py) — **gravity, first kinematic brick (M-GRAV).** Non-associativity gives an internal metric perturbation: the Gram pullback of the transport defect `M_{a,b}(x)=[x,a,b]`, `g_{μν}=⟨[e_μ,a,b],[e_ν,a,b]⟩`, is symmetric, PSD, rank-4, transverse, and `G₂`-covariant. [compute/gravity_gate_audit.py](compute/gravity_gate_audit.py) then applies the Phase 5 decision gate: no canonical invariant four-plane is selected, the metric is not Lorentzian, and no dynamics/Newton constant emerges. Gravity remains an exploratory side project, not part of the present derived framework
 - [compute/prediction_registry.py](compute/prediction_registry.py) — tamper-evident pre-registration: SHA-256 digests of the frozen falsifiers (`Σmν`, P1–P3) plus a manifest digest, so any later silent retune of a "prediction" is detectable
 - [EPSILON_BRIDGE.md](EPSILON_BRIDGE.md) — focused bridge target for deriving `epsilon0^2 = pi / 432` as an operator trace or transition amplitude
 - [foundations/08_epsilon_measure_theorem.md](foundations/08_epsilon_measure_theorem.md) and [compute/epsilon_measure_audit.py](compute/epsilon_measure_audit.py) — Phase 2 theorem gate: states the named hypotheses for `pi/432` as one normalized transition measure, checks nearby alternatives, and keeps the scoreboard status conditional
@@ -111,6 +113,7 @@ PMNS_BRIDGE.md           Neutrino-mixing bridge scaffold
 CHO_OPERATOR.md          Unified candidate CHO Yukawa/seesaw operator
 foundations/09_yukawa_operator_theorem.md Phase 3 one-operator theorem gate
 foundations/10_continuum_rg.md Phase 4 continuum/RG matching gate
+foundations/11_gravity_gate.md Phase 5 gravity gate / out-of-scope decision
 OPERATOR_GAP_AUDIT.md    Remaining proof blockers for the candidate operator
 FUTURE_TESTS.md          Frozen future-test register
 FLAVOUR_DERIVATION.md    Flavour-sector derivation scaffold and proof gaps

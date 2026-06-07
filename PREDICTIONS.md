@@ -294,9 +294,9 @@ $$\frac{\Delta m^2_{21}}{\Delta m^2_{31}} = \left(\frac{m_{\nu_2}}{m_{\nu_3}}\ri
 | SU(3)×SU(2)×U(1) gauge group | From Aut(ℂ⊗ℍ⊗𝕆) | ✓ |
 | 16 fermions per generation | From dim_ℂ(𝒜) = 32 | ✓ |
 | Fractional quark charges | From octonionic structure | ✓ |
-| Gravity is universal | Emergent thermodynamics | ✓ |
-| S_BH = A/(4G) | From lattice link counting | ✓ |
-| Λ > 0 and tiny | From 1/√N fluctuations | ✓ |
+| Gravity is universal | Not derived in current framework | open |
+| S_BH = A/(4G) | Not derived in current framework | open |
+| Λ > 0 and tiny | Free-energy/screening bridge not yet derived | open |
 | CP violation exists | From non-associativity | ✓ |
 | Neutrinos have mass | ν_R required by algebra | ✓ |
 
@@ -314,7 +314,7 @@ $$\frac{\Delta m^2_{21}}{\Delta m^2_{31}} = \left(\frac{m_{\nu_2}}{m_{\nu_3}}\ri
 
 5. **Dark matter mass/signature:** Determine the mass, abundance, and self-interaction scale of the lightest algebraic defect candidate. Null WIMP searches are weaker than a positive quantitative signature.
 
-6. **Gravitational corrections:** Compute the first quantum correction to Newton's law from the lattice. Should give a specific coefficient for the R² term in the effective gravitational action.
+6. **Gravity gate:** Phase 5 keeps gravity out of scope until a canonical 4D Lorentzian reduction, field equation, and Newton constant are derived. Only then compute corrections to Newton's law or an `R^2` coefficient.
 
 ---
 

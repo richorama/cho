@@ -9,11 +9,16 @@ a symmetric, positive-semidefinite, G2-covariant rank-2 metric perturbation
 from the octonionic associator and verifies its transformation law exactly.
 Prefer that module; this file is kept only for the conformal/causal-set sketch.
 
-In our framework, gravity is NOT a fundamental force.
-It EMERGES from the information geometry of the causal lattice.
+NOTE (2026-06-07): Phase 5 (`compute/gravity_gate_audit.py` and
+`foundations/11_gravity_gate.md`) keeps gravity out of scope for the present
+framework. The missing pieces are a canonical 4D Lorentzian reduction and
+dynamics/Newton constant.
 
-The graviton (massless spin-2) appears as the CURVATURE MODE 
-of the information metric on the space of causal set labels.
+In the older speculative sketch, gravity was treated as emergent rather than
+fundamental. Phase 5 keeps that idea outside the present framework.
+
+The hoped-for graviton (massless spin-2) would have to appear as the curvature
+mode of an information metric on the space of causal set labels.
 
 Key idea: the "metric" g_μν at each point is reconstructed from 
 the density of causal links, weighted by their information content.
