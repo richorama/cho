@@ -3,7 +3,7 @@ FROZEN FORWARD PREDICTIONS — three dated, falsifiable CHO targets.
 ==================================================================
 
 Frozen date: 2026-06-06.  Companion to `predict_neutrino_sum.py` (which freezes
-Sigma m_nu).  Roadmap item T2.1.  Do NOT silently retune after new data; log any
+Sigma m_nu).  Legacy repair-pass item T2.1.  Do NOT silently retune after new data; log any
 revision with a new dated entry.
 
 A theory earns trust by what could KILL it, not by how many known constants it

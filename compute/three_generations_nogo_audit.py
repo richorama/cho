@@ -1,5 +1,5 @@
 """
-Distler-Garibaldi-style no-go stress test of N_gen = 3  (roadmap T3.2).
+Distler-Garibaldi-style no-go stress test of N_gen = 3  (legacy T3.2).
 =======================================================================
 
 `three_generations.py` argues N_gen = 3 from three legs. Leg 2 -- "SO(8)

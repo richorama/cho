@@ -2,7 +2,7 @@
 T1.3 — the mass-sector channel coefficients (1, 3, 8) as Fock-grade traces.
 ===========================================================================
 
-Context (ROADMAP T1.3, ledger M3, sector_projector_derivation.py)
+Context (legacy T1.3, ledger M3, sector_projector_derivation.py)
 -----------------------------------------------------------------
 The single spurion eps0^2 = pi/432 drives seven flavour channels through
 per-channel coefficients (spurion_bridge.py Block 5):

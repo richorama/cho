@@ -1,6 +1,6 @@
 # The CHO Spurion Action and the Derivation of ε₀² = π/432
 
-Created: 2026-06-06 (roadmap Tier 1, items T1.0–T1.2)
+Created: 2026-06-06 (legacy repair-pass Tier 1, items T1.0-T1.2)
 
 Status: **candidate action with one partial derivation.** This note writes down
 an explicit functional `S` and uses it to upgrade *one* step — the `π` holonomy —

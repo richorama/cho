@@ -1,6 +1,6 @@
 # CHO in Context: Comparison with the Division-Algebra Literature
 
-Created: 2026-06-06 (roadmap Tier 3, item T3.1)
+Created: 2026-06-06 (legacy repair-pass Tier 3, item T3.1)
 
 Purpose: locate every CHO headline claim relative to prior work, and state
 explicitly which claims the established programs would **grant**, which they
@@ -68,7 +68,7 @@ prior work or a known result would actively contest it.
    claims. This is CHO's genuine novelty *and* its exposure: it cannot borrow
    anyone else's rigor for these rows. Their credibility rests entirely on the
    internal audit (`DERIVATION_LEDGER.md`, `look_elsewhere.py`, `covariance_gof.py`)
-   and on closing the bridges (`02_action.md` and the T1 roadmap).
+  and on closing the bridges (`02_action.md` and the critical repair plan).
 
 ---
 
@@ -83,7 +83,7 @@ mirror/vector-like partners). The lesson for CHO is sharp:
 > obstruction is found. CHO's `N_gen = 3` must survive the *chirality* and
 > *embedding* tests, not merely the triality-counting test.
 
-This is why the roadmap pairs this comparison with an active stress-test of
+This is why the audit trail pairs this comparison with an active stress-test of
 G1/G2 (`compute/three_generations_nogo_audit.py`): the goal is to *try to break*
 the three-generations theorem the way `E8` was broken. If it survives, it becomes
 CHO's strongest rigorous result; if it does not, G1/G2 drop from *theorem* to

@@ -2,7 +2,7 @@
 Action-level derivation of the triality-breaking holonomy theta = pi.
 =====================================================================
 
-This module supports `foundations/02_action.md` (roadmap item T1.0-T1.2). It
+This module supports `foundations/02_action.md` (legacy repair-pass item T1.0-T1.2). It
 turns the weakest step of `spurion_bridge.py` -- "the great circle is the
 minimal GEOMETRIC loop, so theta = pi" -- into a stronger statement: the great
 circle is the loop selected by a written-down free-particle (geodesic) action on
@@ -193,7 +193,7 @@ def derive_theta_from_action() -> ActionResult:
 
 def main() -> None:
     print("=" * 78)
-    print("  ACTION-LEVEL DERIVATION OF theta = pi  (roadmap T1.0-T1.2)")
+    print("  ACTION-LEVEL DERIVATION OF theta = pi  (legacy T1.0-T1.2)")
     print("=" * 78)
     print()
     print("Candidate free-particle action on the transition sphere S^2:")

@@ -1,6 +1,6 @@
 # The Gravity Sector: Scoped Research Line (Currently Out of Scope)
 
-Created: 2026-06-06 (roadmap Tier 4, item T4.2)
+Created: 2026-06-06 (legacy repair-pass Tier 4, item T4.2)
 
 Status: **research line, not a result.** CHO still has **no dynamical
 gravity.** A first *kinematic* brick now exists, however
@@ -161,7 +161,7 @@ gravity line is **optional and exploratory**, to be pursued only if resourced.
 
 `01_algebra.md` §7 assigns the three fermion generations to the triality reps
 `{8v, 8s, 8c}` — one vector and two spinors. `compute/three_generations_nogo_audit.py`
-(roadmap T3.2) shows this exact assignment faces a vector-vs-spinor and a
+shows this exact assignment faces a vector-vs-spinor and a
 chirality obstruction. Any gravity construction that *also* wants `8v` to be the
 spacetime vector (the natural reading of "8v = the octonions = `Ω_grav`'s arena")
 would then be in direct competition with the generation assignment for the same
