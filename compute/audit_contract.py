@@ -633,6 +633,16 @@ CONTRACTS = {
         "action still has not derived that representative from first principles.",
         open_bridges=("Physical transition ray representative from CHO action dynamics.",),
     ),
+    "f0_kernel_class_gate": contract(
+        "f0_kernel_class_gate",
+        ("F0", "STAT1"),
+        STATUS_DERIVED_BRIDGE,
+        VERDICT_OPEN,
+        "Use as admissible-class consistency only: positivity + trace normalization "
+        "follow from current symmetry/convex closure assumptions, but deriving those "
+        "assumptions from full CHO action dynamics remains open.",
+        open_bridges=("Admissible epsilon-kernel class from full CHO action dynamics.",),
+    ),
 }
 
 
