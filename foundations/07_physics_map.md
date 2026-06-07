@@ -2,7 +2,7 @@
 
 Created: 2026-06-07
 
-Status: **partial closure of Critical Repair Plan Phase 1.** This note freezes the current algebra-to-physics map for one Standard Model generation and records exactly what is machine-checked. It closes the quantum-number/anomaly bookkeeping layer. It does **not** close the functorial map from the generation idempotents into `T(OP2)`, the Dirac/Yukawa operator, or the mass spectrum.
+Status: **partial closure of the algebra-to-physics map.** This note freezes the current map for one Standard Model generation and records exactly what is machine-checked. It closes the quantum-number/anomaly bookkeeping layer. It does **not** close the functorial map from the generation idempotents into `T(OP2)`, the Dirac/Yukawa operator, or the mass spectrum.
 
 Companion witness: [compute/physics_map_audit.py](../compute/physics_map_audit.py).
 
@@ -74,7 +74,7 @@ Open items:
 3. **Dirac/Yukawa domain:** define the allowed mass operators before using them to fit or derive masses.
 4. **Scale map:** classify which mass scales are algebraic, Planck-input, or continuum/RG matched.
 
-The next most valuable deliverable is the Dirac/Yukawa domain, because it feeds directly into the one-operator task in [CRITICAL_REPAIR_PLAN.md](../CRITICAL_REPAIR_PLAN.md).
+The next most valuable deliverable is the Dirac/Yukawa domain, because it feeds directly into the one-operator and content-map tracks in [ROBUSTNESS_ACTIONS.md](../ROBUSTNESS_ACTIONS.md).
 
 ## 6. Falsifier
 

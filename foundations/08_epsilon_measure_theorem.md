@@ -2,7 +2,7 @@
 
 Created: 2026-06-07
 
-Status: **conditional theorem gate, not a scoreboard promotion.** This note is Phase 2 of [CRITICAL_REPAIR_PLAN.md](../CRITICAL_REPAIR_PLAN.md). It states the strongest current form of the `epsilon0^2 = pi/432` bridge as one normalized transition-trace theorem with named hypotheses. The companion audit is [compute/epsilon_measure_audit.py](../compute/epsilon_measure_audit.py).
+Status: **conditional theorem gate, not a scoreboard promotion.** This note is now the live F0 target in [ROBUSTNESS_ACTIONS.md](../ROBUSTNESS_ACTIONS.md). It states the strongest current form of the `epsilon0^2 = pi/432` bridge as one normalized transition-trace theorem with named hypotheses. The companion audit is [compute/epsilon_measure_audit.py](../compute/epsilon_measure_audit.py).
 
 ## 1. Target Statement
 

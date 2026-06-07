@@ -68,7 +68,8 @@ prior work or a known result would actively contest it.
    claims. This is CHO's genuine novelty *and* its exposure: it cannot borrow
    anyone else's rigor for these rows. Their credibility rests entirely on the
    internal audit (`DERIVATION_LEDGER.md`, `look_elsewhere.py`, `covariance_gof.py`)
-  and on closing the bridges (`02_action.md` and the critical repair plan).
+  and on closing the bridges ([foundations/02_action.md](foundations/02_action.md)
+  and [ROBUSTNESS_ACTIONS.md](ROBUSTNESS_ACTIONS.md)).
 
 ---
 

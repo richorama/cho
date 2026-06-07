@@ -100,7 +100,7 @@ The gravity line remains an interesting kinematic research line, not a derived s
 
 ## Why No `gravity_lorentz_reduction.py`
 
-The repair plan asked for `compute/gravity_lorentz_reduction.py` only if the Lorentzian reduction was viable.
+The earlier scope review asked for `compute/gravity_lorentz_reduction.py` only if the Lorentzian reduction was viable.
 
 The gate shows it is not viable yet:
 
