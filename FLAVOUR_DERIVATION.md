@@ -49,7 +49,7 @@ Experimental values are isolated in a final comparison dictionary and are not us
    - `|V_ub| = (sqrt(2) - 1) |V_us| |V_cb|`
    - `delta = arccos(1/3)`
 
-   This reproduces the CKM magnitudes. The Jarlskog value from this simple PDG phase placement is intentionally reported separately because Paper 2's `J = 3.01e-5` requires the full NNI phase placement. That is now an explicit proof obligation instead of an implicit step.
+   This reproduces the CKM magnitudes. The Jarlskog value from this simple PDG phase placement is intentionally reported separately because the former electroweak draft's `J = 3.01e-5` target requires the full NNI phase placement. That is now an explicit proof obligation instead of an implicit step.
 
 3. **PMNS unitary scaffold**
 
@@ -79,7 +79,7 @@ Ledger implications:
 
 - M9-M11 are `Open bridge / scaffolded`: the cascade relation is explicit, while the sector shape factors still need the CHO Yukawa operator. **Update:** `compute/epsilon_mixing_coefficients.py` now derives the mixing multiplicities `(7, 3, 4, 4/7)` as Fano-line counts (all lines / lines through the vacuum `e7` / lines avoiding it) and identifies the lepton `1/(4 pi)` shape factor as the uniform measure on the transition Bloch sphere `S^2` (`Int dOmega = 4 pi`) — advancing M11; the dynamical reduction of the lepton trace to that measure remains open. **Further:** `compute/epsilon_vcb_halfangle.py` then derives the `|V_cb|` coefficient `1/2` as the `SU(2)` spinor half-angle `sin(eps0/2)` (vector-vs-spinor against the `sqrt(7)` `Im(O)` channel of `|V_us|`; finite avatar `tan(pi/8) = sqrt(2)-1`, which is also the `C3` `|V_ub|` factor), closing C2 down to the channel assignment.
 - C1-C3 are implemented as a CKM unitary scaffold.
-- C4 remains open at the operator level because the simple PDG phase placement does not yet reproduce the Paper 2 Jarlskog target.
+- C4 remains open at the operator level because the simple PDG phase placement does not yet reproduce the full NNI Jarlskog target.
 - N2-N5 are implemented as a PMNS unitary scaffold, but still need a broken-triality seesaw matrix derivation and a clarified residual symmetry.
 
 ## Next Proof Target

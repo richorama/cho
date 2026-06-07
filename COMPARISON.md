@@ -91,11 +91,10 @@ CHO's strongest rigorous result; if it does not, G1/G2 drop from *theorem* to
 
 ---
 
-## 5. References to add to the papers
+## 5. References to preserve in future writeups
 
-These should appear in `papers/three_generations.tex` and
-`papers/electroweak_parameters.tex` (currently the result docs cite no related
-division-algebra work):
+These should be preserved in any future paper rewrite or markdown exposition of
+the division-algebra background:
 
 - C. Furey, *Standard model physics from an algebra?* (PhD thesis, 2015) and
   *`SU(3)×SU(2)×U(1)(×U(1))` as a symmetry of division algebraic ladder operators* (2018).

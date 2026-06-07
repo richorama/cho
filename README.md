@@ -18,11 +18,13 @@ From the algebra **𝒜 = ℂ⊗ℍ⊗𝕆** (64 real dimensions), the Planck sc
 
 This project was developed as a human–AI collaboration (with Claude, Anthropic) exploring whether division algebra structure alone can determine the constants of nature.
 
-## Papers
+## Paper Drafts
 
-- [Paper 1: Three Generations from Octonion Triality](papers/three_generations.pdf) — develops the algebraic route to three generations; current ledger status is count/chirality obstruction-free, with the fermion-content map and Yukawa spectrum still open
-- [Paper 2: Electroweak Parameters from ℂ⊗ℍ⊗𝕆](papers/electroweak_parameters.pdf) — 23 grouped low-energy relations from few inputs
-- [Paper 3: The Cosmological Constant from ℂ⊗ℍ⊗𝕆](papers/cosmological_constant.pdf) — proposes a striking cosmological-constant bridge; free-energy factorization and the `11/12` screening factor remain open proof obligations
+The live project is now code and markdown first. Generated PDFs, LaTeX build
+outputs, arXiv submission notes, and the old LaTeX paper drafts have been
+removed. [papers/](papers/) is now only a placeholder for a future rewrite. Any
+future paper should be rebuilt from the ledger, foundation notes, and executable
+audits rather than patched forward from stale drafts.
 
 ## Blog post
 
@@ -101,7 +103,7 @@ These are descriptive low-energy comparisons. Some entries include underived con
 ## Structure
 
 ```
-papers/                  LaTeX sources and compiled PDFs
+papers/                  Reset paper placeholder; no generated PDFs or live LaTeX drafts
 compute/                 Numerical verification scripts (Python 3 + NumPy)
 DERIVATION_LEDGER.md     Logical status of each claim and proof obligation
 METHODOLOGY_LIMITS.md    Methodology caveats and statistical interpretation
@@ -131,14 +133,11 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v
 
 The tests run [compute/audit.py](compute/audit.py) end-to-end and also verify the single-artifact CLI. The same harness runs in GitHub Actions via [.github/workflows/validation.yml](.github/workflows/validation.yml).
 
-## Building the papers
+## Paper Policy
 
-```bash
-cd papers/
-pdflatex three_generations.tex && pdflatex three_generations.tex
-pdflatex electroweak_parameters.tex && pdflatex electroweak_parameters.tex
-pdflatex cosmological_constant.tex && pdflatex cosmological_constant.tex
-```
+Do not treat generated PDFs as source artifacts. Develop the ideas in markdown
+and executable audits first; rebuild papers only when a small theorem-level unit
+is ready and its open bridges are explicitly separated.
 
 ## Future-facing tests and null exclusions
 

@@ -7,3 +7,10 @@ __pycache__/
 htmlcov/
 .venv/
 venv/
+
+# Paper LaTeX build outputs stay out of source control.
+papers/*.aux
+papers/*.log
+papers/*.out
+papers/*.toc
+papers/*.pdf

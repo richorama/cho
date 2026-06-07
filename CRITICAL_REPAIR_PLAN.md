@@ -30,7 +30,7 @@ The decisive weaknesses are:
 
 **Goal:** make the repository impossible to overread.
 
-**Target files:** `README.md`, `PLAN.MD`, `DERIVATION_LEDGER.md`, `OPERATOR_GAP_AUDIT.md`, `papers/*.tex`, `blog_post.md`.
+**Target files:** `README.md`, `PLAN.MD`, `DERIVATION_LEDGER.md`, `OPERATOR_GAP_AUDIT.md`, `blog_post.md`; old `papers/*.tex` drafts were removed in Phase 7.
 
 **Tasks:**
 
@@ -197,6 +197,11 @@ the manifest digest is locked so silent retunes fail the audit.
 **Gravity should be:** a separate exploratory note unless Phase 5 passes.
 
 **Acceptance:** each paper has one theorem-level core and a separate section titled "Open Bridges". The abstract does not claim more than the ledger status.
+
+**Phase 7 execution note (2026-06-07):** generated paper artifacts, arXiv
+submission notes, and old LaTeX paper drafts have been removed. The project is
+now code/markdown first. Future papers should be rebuilt from the ledger,
+foundation notes, and audit outputs when a small theorem-level unit is ready.
 
 ## Suggested Execution Order
 

@@ -22,9 +22,9 @@ The AI brought the ability to rapidly compute, cross-check against experimental 
 
 The result surprised me. What started as exploratory numerology gradually locked into a rigid few-input structure with 23 grouped quantitative relations — all matching known experimental values to 0.1–7%. These are mostly postdictions, not historical predictions: the constants were already known. The AI didn't hallucinate these agreements; it computed them from explicit algebraic formulas and checked them against published PDG and NuFit data. When a relation was wrong, we found out immediately and either fixed the derivation or acknowledged the discrepancy.
 
-**What the AI contributed:** Rapid symbolic computation, error-checking, consistency enforcement across papers, literature cross-referencing, and the sheer throughput to explore hundreds of algebraic possibilities in the time it would take a human to check one.
+**What the AI contributed:** Rapid symbolic computation, error-checking, consistency enforcement across the code and notes, literature cross-referencing, and the sheer throughput to explore hundreds of algebraic possibilities in the time it would take a human to check one.
 
-**Is this real physics?** That's for the community to judge. The numbers are intriguing, but the continuum/RG derivation and several algebra-to-physics bridge rules still need hardening. The framework is falsifiable (several experiments in the next decade will test parts of it), and the companion papers plus audit documents lay out what is derived, what is assumed, and what remains open.
+**Is this real physics?** That's for the community to judge. The numbers are intriguing, but the continuum/RG derivation and several algebra-to-physics bridge rules still need hardening. The framework is falsifiable (several experiments in the next decade will test parts of it), and the markdown audit documents lay out what is derived, what is assumed, and what remains open.
 
 Either way, it's a story about what becomes possible when you combine human intuition with AI capability.
 
@@ -306,10 +306,9 @@ The result is a theory with *fewer* moving parts than the Standard Model (few ex
 
 ---
 
-*Technical details are available in three companion papers:*
+*Technical details live in the markdown foundation notes and executable audit
+scripts. The older LaTeX paper drafts have been removed; the authoritative form
+of the project is now code plus markdown.*
 
-- *[Three Generations from Octonion Triality: Three Independent Proofs](papers/three_generations.pdf)*
-- *[Electroweak Parameters from ℂ⊗ℍ⊗𝕆: Twenty-Three Low-Energy Relations from Few Inputs](papers/electroweak_parameters.pdf)*
-- *[The Cosmological Constant from ℂ⊗ℍ⊗𝕆: Resolution of the Hierarchy](papers/cosmological_constant.pdf)*
-
-*This work was produced in collaboration with Claude (Anthropic). All calculations, numerical checks, LaTeX sources, and derivation code are available on [GitHub](https://github.com/richorama/cho).*
+*This work was produced in collaboration with Claude (Anthropic). The calculations,
+numerical checks, markdown notes, and derivation code are available on [GitHub](https://github.com/richorama/cho).*

@@ -20,7 +20,7 @@ Parameter convention: describe CHO as a **few-input** framework. The audit does 
 
 The compute table currently contains 25 quantitative rows. The paper text often says 23 because some rows are grouped as sector relations rather than listed as individual masses. For external-facing material, use:
 
-- Headline claim: 23 grouped relations, matching Paper 2.
+- Headline claim: 23 grouped relations, matching the former electroweak draft's grouping convention.
 - Audit claim: 25 table rows in `compute/summary_table.py`, where `m_c`, `m_s`, and `m_mu` are displayed explicitly.
 
 Do not mix these counts without explaining the grouping.
