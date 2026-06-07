@@ -73,6 +73,8 @@ import bayesian_evidence
 import spectral_action
 import spectral_action_432
 import epsilon_generation_ladder
+import spurion_perturbation
+import generation_cascade
 import cross_generation_count
 import yukawa_operator_full
 import three_generations_frame
@@ -160,6 +162,12 @@ ARTIFACTS = [
     ("epsilon_generation_ladder",
      "Generation masses as exponents in the FORCED base eps0=sqrt(pi/432): scheme-clean leptons prefer triangular (0,1,3) (0.33 dec, 1/28 look-elsewhere) but no law is universal across quark sectors.",
      epsilon_generation_ladder.main),
+    ("spurion_perturbation",
+     "Two theorems from the J3(O) tensor: a rank-one spurion lifts exactly one level per order (tiers are cumulative), and the canonical quadratic U_X gives multiplicative mixing {ab,bc,ca} -- the structure a power-law ladder needs.",
+     spurion_perturbation.main),
+    ("generation_cascade",
+     "Generations as roots of the J3(O) cubic: the light-pair product is EXACTLY the Freudenthal cubic norm over the heaviest mass (a seesaw), collapsing the open seed to two invariant-suppression orders (q,Q); leptons read (1,4)=triangular, but (q,Q) is not universal across quark sectors.",
+     generation_cascade.main),
     ("cross_generation_count",
      "Inverse-spectral: inter-generation Yukawa knob count under NNI + triality.",
      cross_generation_count.main),

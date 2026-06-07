@@ -116,6 +116,21 @@ in log-mass -- a sharper, smaller target. The caveats stay loud: no single law i
 universal across up/down/lepton, and the quark exponents carry MS-bar/scale
 caveats, so this is a derived-looking PATTERN, not a theorem.
 
+`compute/generation_cascade.py` reduces that seed structurally rather than fitting
+it. Using only the framework's own commitment -- the three generations are the
+three roots of the `J3(O)` Freudenthal cubic, whose coefficients are the three F4
+invariants `(trace, quadratic, cubic norm)` -- it proves the heaviest generation
+equals the trace and that the light-pair PRODUCT is EXACTLY the cubic norm over
+the heaviest mass (`m2*m3 = |N3|/m1`, Vieta residual `5e-15`): the lightest
+fermion is a genuine cubic-norm SEESAW. In the seesaw regime the three exponents
+are `(0, ord T2, ord N3 - ord T2)`, so the open seed collapses from THREE
+continuous masses per sector to TWO integer suppression orders `(q,Q)`. The
+scheme-clean leptons read the clean `(1,4)` = triangular `(0,1,3)`. The honest
+limit is unchanged in kind: `(q,Q)` are NOT universal across quark sectors (up
+`~(2,7)`, down `~(2,4)`) and not yet derived from dynamics -- but the open
+question is now discrete and two-dimensional, a much smaller target than an
+arbitrary mass profile.
+
 ## Dimensional Counting Warning
 
 Factors such as `16`, `27`, `64`, `3`, `7`, `8`, and `11/12` are suggestive only when they arise from an explicit operator, trace, path integral, or representation-theoretic map. Until then, they should be labeled as bridge rules or ansaetze rather than forced consequences.
@@ -164,6 +179,8 @@ The following scripts produce the honest figures of merit that should travel wit
 | `compute/mass_ratio_rg_audit.py` | At what renormalization scale do the mass-ratio relations hold? | **5/6 are 1-loop RG-invariant** (same-sector ratios cancel) and need no scale. **`m_b/m_tau = 7/3` (M5) is scale-dependent** -- it holds at `mu ~ m_b` (0.8%) and drifts to `-70%` at the GUT scale, so it must be quoted at a stated scale. Corrects a false RG-invariance claim previously in `rg_running.py`. |
 | `compute/spectral_action_432.py` | Does the cross-generation 432 = 16x27 structure FORCE the Yukawa spectrum? | **Partly.** The algebra-internal Yukawa `L_X` on `J3(O)` obeys a verified parameter-free **averaging law** (mixing level = mean of two generation levels; `constants_out = 3`), and the single spurion `eps0^2 = pi/432` cuts the generation knobs from 3 to 1. **But no one-knob `eps0` ladder reproduces the measured lepton hierarchy** (best misses the lightest state by ~1.4 decades). The open problem is localised to ONE scalar seed function; closing it needs a dynamical selection principle. |
 | `compute/epsilon_generation_ladder.py` | In the FORCED base `eps0 = sqrt(pi/432)`, what integer power is each generation mass? | **Scheme-clean leptons prefer a quadratic-in-index (triangular `(0,1,3)`) law** (worst miss 0.33 dec) over the geometric `(0,1,2)` ladder (1.40 dec), and that triangular hit is the ONLY one of 28 integer triples fitting within 0.4 dec (4% look-elsewhere). `m_c/m_t = eps0^2` to ~0.2%. **But no single law is universal** across up/down/lepton (quark sectors carry MS-bar/scale caveats), so it is a derived-looking pattern, not a theorem. Sharpens the open seed to "a log-mass curvature the dynamics must output". |
+| `compute/spurion_perturbation.py` | What algebraic structure could even PRODUCE a power-law generation ladder? | **Two theorems from the J3(O) tensor.** FACT 1: the rank-one spurion lifts exactly ONE level at first order, so a 3-tier hierarchy must be cumulative (orders `eps^1, eps^2, ...`). FACT 2: the canonical Jordan quadratic `U_X` gives MULTIPLICATIVE mixing `{ab,bc,ca}` (residual exactly 0), so log-mass is additive in exponents -- the prerequisite for any power law. The minimal nilpotent chain `c_n=(0,1,2)` then yields triangular `(0,1,3)`, matching leptons (0.33 dec). **Open (not faked):** a dynamical proof that the chain is `c_n=n` and universal. |
+| `compute/generation_cascade.py` | If generations are roots of the `J3(O)` cubic, what fixes the hierarchy? | **A derived seesaw + a 3->2 reduction.** The light-pair product equals the Freudenthal cubic norm over the heaviest mass EXACTLY (`m2*m3 = \|N3\|/m1`, residual `5e-15`), so the lightest fermion is a cubic-norm SEESAW; the heaviest equals the trace. The whole sector hierarchy reduces to TWO integer invariant-suppression orders `(q,Q)=(ord T2, ord N3)`, and the scheme-clean leptons read the clean `(1,4)` = triangular `(0,1,3)`. **Open (not faked):** `(q,Q)` are NOT universal across quark sectors (up `~(2,7)`, down `~(2,4)`) and not yet derived from dynamics. |
 | `compute/model_complexity.py` | How many parameters does CHO really have, and does it compress the data? | **17 discrete structural choices + 1 continuous input (M_P), not zero.** Compression ratio `R = L_data/L_model = 1.19` (1.04 including M_P) — a marginal compressor today. Target `R = 1.81` if the per-row prefactors get derived rather than chosen. |
 | `compute/independent_observables.py` | What is the real goodness-of-fit once dependent rows are removed and a theory error is stated? | On 22 independent rows with a stated 1.5% theory floor: **reduced chi^2 = 0.92, p = 0.57** (statistically consistent). The `m_e` first-generation row is a visible `-3.75 sigma` outlier. The naive "all rows independent, experimental error only" chi^2 is astronomically large — proof these are approximate relations, not precision predictions. |
 | `compute/derived_vs_residual.py` | Where is the error bar on the part CHO actually derives, separate from the underived continuum/RG residual? | The **derived terms** are off by **alpha: -2.2%, sin^2(theta_W): +8.1%, M_W: +1.2%.** The "<0.1%" sometimes quoted belongs to the full formula including the residual CHO has not yet derived. Quote the derived-term error until S1/S4/S5 in the ledger are closed. |

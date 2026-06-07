@@ -301,6 +301,46 @@ CONTRACTS = {
             "universal derived mass law.",
         ),
     ),
+    "spurion_perturbation": contract(
+        "spurion_perturbation",
+        ("A3", "M1", "S1"),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Quote FACT 1 (rank-one spurion lifts one level per order) and FACT 2 "
+        "(quadratic U_X gives multiplicative mixing {a^2,b^2,c^2}u{ab,bc,ca}) as "
+        "theorems from the structure tensor; quote the triangular insertion chain "
+        "c_n=(0,1,2) only as the minimal hypothesis matching leptons, NOT as "
+        "derived or universal.",
+        open_bridges=(
+            "Derive (dynamically) that the spurion insertion-order chain is "
+            "exactly c_n=n and explain its sector dependence across quarks.",
+        ),
+        kill_conditions=(
+            "The triangular insertion chain is presented as a derived, "
+            "sector-universal mass law.",
+        ),
+    ),
+    "generation_cascade": contract(
+        "generation_cascade",
+        ("A3", "M1", "S1"),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Quote the Freudenthal seesaw as derived structure: generations are roots "
+        "of the J3(O) cubic, so m2*m3=|N3|/m1 EXACTLY (light-pair product = cubic "
+        "norm over heaviest) and the hierarchy reduces to two invariant-suppression "
+        "orders (q,Q)=(ord T2, ord N3). Quote the lepton (1,4)=triangular reading "
+        "WITH the explicit non-universality across quark sectors; do NOT present "
+        "(q,Q) as derived or sector-universal.",
+        open_bridges=(
+            "Derive, from a dynamical/variational principle, the spurion "
+            "suppression orders (q,Q) of the quadratic and cubic Freudenthal "
+            "invariants and their sector dependence.",
+        ),
+        kill_conditions=(
+            "The two-integer (q,Q) cascade is presented as a derived, "
+            "sector-universal mass law rather than a reduction of the open seed.",
+        ),
+    ),
     "cross_generation_count": contract(
         "cross_generation_count",
         ("A3", "M1"),

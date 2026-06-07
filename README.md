@@ -26,6 +26,8 @@ removed. [papers/](papers/) is now only a placeholder for a future rewrite. Any
 future paper should be rebuilt from the ledger, foundation notes, and executable
 audits rather than patched forward from stale drafts.
 
+- [PAPER_OPTION_A.md](PAPER_OPTION_A.md) — the conservative, falsifiable manuscript: claims only the *discrete* internal structure of one generation (charges, colour, weak isospin, hypercharge, anomaly freedom, chirality) plus `N_gen = 3` at the count-and-chirality level, and explicitly disclaims the Yukawa magnitudes, mixing magnitudes, couplings, scale hierarchies, and gravity. Every claim is pinned to an audit-PASS artifact.
+
 ## Blog post
 
 - [blog_post.md](blog_post.md) — accessible overview of the framework and its results
