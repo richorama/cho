@@ -128,7 +128,9 @@ def sphere_measure_normalisation(n_theta: int = 400) -> dict:
     """Int_{S^2} dOmega = 4 pi by direct numerical quadrature of sin(theta)."""
     theta = np.linspace(0.0, np.pi, n_theta)
     # Int_0^pi sin(theta) dtheta = 2, times the phi integral 2 pi -> 4 pi.
-    solid_angle = float(np.trapz(np.sin(theta), theta) * 2.0 * np.pi)
+    sin_theta = np.sin(theta)
+    integral = np.sum(0.5 * (sin_theta[:-1] + sin_theta[1:]) * np.diff(theta))
+    solid_angle = float(integral * 2.0 * np.pi)
     return {
         "solid_angle": solid_angle,        # -> 4 pi
         "normalisation": 1.0 / solid_angle,  # -> 1/(4 pi)
