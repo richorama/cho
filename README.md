@@ -39,6 +39,7 @@ This project was developed as a human–AI collaboration (with Claude, Anthropic
 - [compute/covariance_gof.py](compute/covariance_gof.py) — covariance goodness-of-fit (closes STAT1): the 22 independent rows collapse to `N_eff ~ 10` effective observables under the shared-`eps0` common mode
 - [COMPARISON.md](COMPARISON.md) — claim-by-claim grant/dispute matrix against the division-algebra literature (Furey, Dixon, Todorov/Dubois-Violette, Baez–Huerta, Boyle/Krasnov) and the Lisi/E8 no-go benchmark
 - [compute/three_generations_nogo_audit.py](compute/three_generations_nogo_audit.py) — Distler–Garibaldi-style stress test: the original "3 triality reps = 3 chiral generations" bridge faces vector-vs-spinor and chirality obstructions; the later idempotent-frame route avoids the count/chirality obstruction, while the fermion-content map remains open
+- [foundations/07_physics_map.md](foundations/07_physics_map.md) and [compute/physics_map_audit.py](compute/physics_map_audit.py) — Phase 1 repair witness: freezes the one-generation quantum-number map, verifies algebraic `Q`/`T3`/`Y` consistency, and checks SM anomaly cancellation while leaving the three-generation content map and Yukawa spectrum open
 - [foundations/03_gravity.md](foundations/03_gravity.md) — scoped, optional gravity research line with a minimal computable milestone and a permanent-down-scope kill condition
 
 ### Derivation frontier — bringing heavier mathematics to bear

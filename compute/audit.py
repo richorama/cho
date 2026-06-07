@@ -18,6 +18,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
   8. ladder_charges                — SM charges {0,1/3,2/3,1} (Lever C)
   *  weak_isospin_hypercharge      — weak SU(2) + hypercharge Y (Lever D)
   *  chiral_projector             — chiral idempotent closes the B<->D seam (C)
+    *  physics_map_audit             — one-generation quantum-number map + anomaly cancellation
   9. bayesian_evidence             — model-comparison Bayes factor vs a null
  10. spectral_action              — one algebra-internal Dirac operator (knobs)
  11. cross_generation_count       — inter-gen Yukawa knob count under triality
@@ -59,6 +60,7 @@ import ko_dimension_chirality
 import ladder_charges
 import weak_isospin_hypercharge
 import chiral_projector
+import physics_map_audit
 import bayesian_evidence
 import spectral_action
 import cross_generation_count
@@ -120,6 +122,9 @@ ARTIFACTS = [
     ("chiral_projector",
      "Lever B<->D seam: one KO-6 idempotent G_a=T_a(x)P_L gives doublet(L)+singlet(R), [Q,gamma_Q]=0.",
      chiral_projector.main),
+    ("physics_map_audit",
+     "Phase 1 repair: one-generation quantum-number map and anomaly cancellation.",
+     physics_map_audit.main),
     ("bayesian_evidence",
      "Model-comparison Bayes factor: CHO vs an O(1)-numerology null.",
      bayesian_evidence.main),
