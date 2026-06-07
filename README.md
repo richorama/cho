@@ -36,6 +36,7 @@ audits rather than patched forward from stale drafts.
 - [PUBLIC_CLAIMS.md](PUBLIC_CLAIMS.md) — public-facing claim table: what can be said today, what remains conditional, and what must not be claimed yet
 - [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md) — caveats on postdictions, statistical dependence, continuum/RG gaps, dimensional counting, and null tests
 - [compute/audit.py](compute/audit.py) — single entry point for the full robustness and derivation-frontier suite (hardness-to-vary, honest MDL parameter count, independent-observable goodness-of-fit, covariance goodness-of-fit, derived-vs-residual error bars, Phase 4 continuum/RG matching, Phase 5 gravity gating, the first-generation outlier decomposition, frozen falsifiable forward predictions, the Lever A–C derivation experiments, the model-comparison Bayes factor, the inverse-spectral knob counts, a tamper-evident prediction registry, and a derivation scoreboard that reads the Bayes factor as one number); run all with `python3 compute/audit.py`, or one with `python3 compute/audit.py <name>`
+- [compute/audit_contract.py](compute/audit_contract.py) — machine-readable theory-validation contract: every audit artifact is tied to ledger IDs, current scientific status, public-claim policy, open bridges, kill conditions, and prediction-lock discipline
 - [CRITICAL_REPAIR_PLAN.md](CRITICAL_REPAIR_PLAN.md) — next repair plan from the theoretical-physics review: claim hygiene, the algebra-to-physics map, the `epsilon0^2 = pi/432` measure theorem, one Yukawa/seesaw operator, continuum/RG matching, the gravity gate, and prediction discipline
 - [foundations/02_action.md](foundations/02_action.md) and [compute/action_derivation.py](compute/action_derivation.py) — first written-down CHO action; derives the `pi` holonomy in `epsilon0^2 = pi/432` as the Berry phase of the action's unique closed geodesic (variational, not "shortest loop"); residuals R1–R3 left explicit
 - [compute/forward_predictions.py](compute/forward_predictions.py) — frozen future targets with explicit kill conditions: `m_betabeta` as a positive quantitative prediction, plus `m_nu3` floor tension and `kappa_lambda` as bridge sensitivities
@@ -105,6 +106,7 @@ These are descriptive low-energy comparisons. Some entries include underived con
 ```
 papers/                  Reset paper placeholder; no generated PDFs or live LaTeX drafts
 compute/                 Numerical verification scripts (Python 3 + NumPy)
+compute/audit_contract.py Semantic contract for every audit artifact
 DERIVATION_LEDGER.md     Logical status of each claim and proof obligation
 METHODOLOGY_LIMITS.md    Methodology caveats and statistical interpretation
 EPSILON_BRIDGE.md        Triality-breaking epsilon bridge target
@@ -131,7 +133,7 @@ python3 -m pip install -r requirements.txt
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v
 ```
 
-The tests run [compute/audit.py](compute/audit.py) end-to-end and also verify the single-artifact CLI. The same harness runs in GitHub Actions via [.github/workflows/validation.yml](.github/workflows/validation.yml).
+The tests run one named unittest per registered artifact in [compute/audit.py](compute/audit.py), then enforce the semantic contract in [compute/audit_contract.py](compute/audit_contract.py): contract coverage, prediction-lock alignment, the open `epsilon0` hinge, the one-operator gate, and the gravity out-of-scope decision. The same harness runs in GitHub Actions via [.github/workflows/validation.yml](.github/workflows/validation.yml).
 
 ## Paper Policy
 

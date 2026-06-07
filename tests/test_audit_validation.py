@@ -23,6 +23,8 @@ def load_audit_module():
 
 
 AUDIT = load_audit_module()
+AUDIT_CONTRACT = importlib.import_module("audit_contract")
+PREDICTION_REGISTRY = importlib.import_module("prediction_registry")
 
 
 def run_audit(*args, timeout=ARTIFACT_TIMEOUT_SECONDS):
@@ -30,6 +32,20 @@ def run_audit(*args, timeout=ARTIFACT_TIMEOUT_SECONDS):
     env["PYTHONDONTWRITEBYTECODE"] = "1"
     return subprocess.run(
         [PYTHON, "compute/audit.py", *args],
+        cwd=ROOT,
+        env=env,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        timeout=timeout,
+    )
+
+
+def run_audit_contract(timeout=ARTIFACT_TIMEOUT_SECONDS):
+    env = os.environ.copy()
+    env["PYTHONDONTWRITEBYTECODE"] = "1"
+    return subprocess.run(
+        [PYTHON, "compute/audit_contract.py"],
         cwd=ROOT,
         env=env,
         stdout=subprocess.PIPE,
@@ -101,6 +117,16 @@ class AuditRegistryTests(unittest.TestCase):
 
 
 class AuditCliTests(AuditAssertions):
+    def test_audit_contract_cli_completes(self):
+        result = run_audit_contract(timeout=30)
+
+        self.assertEqual(
+            result.returncode,
+            0,
+            msg=result.stdout[-3000:],
+        )
+        self.assertIn("AUDIT STATUS: PASS", result.stdout)
+
     def test_unknown_artifact_lists_available_artifacts(self):
         result = run_audit("not_a_real_artifact", timeout=30)
 
@@ -108,6 +134,62 @@ class AuditCliTests(AuditAssertions):
         self.assertIn("Unknown artifact 'not_a_real_artifact'", result.stdout)
         self.assertIn("look_elsewhere", result.stdout)
         self.assertIn("scoreboard", result.stdout)
+
+
+class AuditContractTests(unittest.TestCase):
+    def test_contract_covers_registered_artifacts(self):
+        artifact_names = [name for name, _, _ in AUDIT.ARTIFACTS]
+
+        self.assertEqual(
+            [],
+            AUDIT_CONTRACT.validate_contracts(artifact_names),
+        )
+
+    def test_prediction_contract_matches_locked_registry(self):
+        positive_prediction_names = tuple(
+            entry.name
+            for entry in PREDICTION_REGISTRY.FROZEN_ENTRIES
+            if entry.category == "positive_quantitative"
+        )
+        bridge_sensitivity_names = tuple(
+            entry.name
+            for entry in PREDICTION_REGISTRY.FROZEN_ENTRIES
+            if entry.category == "bridge_sensitivity"
+        )
+
+        self.assertEqual(
+            [],
+            AUDIT_CONTRACT.validate_prediction_contract(
+                positive_prediction_names,
+                bridge_sensitivity_names,
+            ),
+        )
+
+    def test_epsilon_measure_remains_the_open_hinge(self):
+        contract = AUDIT_CONTRACT.CONTRACTS["epsilon_measure_audit"]
+
+        self.assertEqual(AUDIT_CONTRACT.STATUS_OPEN_BRIDGE, contract.status)
+        self.assertEqual(AUDIT_CONTRACT.VERDICT_OPEN, contract.verdict)
+        self.assertIn("F0", contract.ledger_ids)
+        self.assertTrue(contract.open_bridges)
+        self.assertIn("Bayes hinge", contract.public_claim_policy)
+
+    def test_gravity_gate_keeps_gravity_out_of_scope(self):
+        contract = AUDIT_CONTRACT.CONTRACTS["gravity_gate_audit"]
+
+        self.assertEqual(AUDIT_CONTRACT.STATUS_OUT_OF_SCOPE, contract.status)
+        self.assertEqual(AUDIT_CONTRACT.VERDICT_DEMOTED, contract.verdict)
+        self.assertIn("GR1", contract.ledger_ids)
+        self.assertTrue(contract.kill_conditions)
+        self.assertIn("out of scope", contract.public_claim_policy)
+
+    def test_one_operator_gate_remains_open(self):
+        contract = AUDIT_CONTRACT.CONTRACTS["yukawa_operator_full"]
+
+        self.assertEqual(AUDIT_CONTRACT.STATUS_OPEN_BRIDGE, contract.status)
+        self.assertEqual(AUDIT_CONTRACT.VERDICT_OPEN, contract.verdict)
+        self.assertIn("C4", contract.ledger_ids)
+        self.assertTrue(contract.open_bridges)
 
 
 class AuditArtifactTests(AuditAssertions):

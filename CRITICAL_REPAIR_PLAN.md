@@ -203,6 +203,36 @@ submission notes, and old LaTeX paper drafts have been removed. The project is
 now code/markdown first. Future papers should be rebuilt from the ledger,
 foundation notes, and audit outputs when a small theorem-level unit is ready.
 
+## Phase 8 - Theory Validation Harness
+
+**Goal:** make the validation suite enforce scientific claim status, not just
+script execution.
+
+**Deliverable:** `compute/audit_contract.py` plus semantic tests in
+`tests/test_audit_validation.py`.
+
+**Minimum contract for each audit artifact:**
+
+1. Ledger IDs touched by the artifact.
+2. Current status: theorem, derived bridge, open bridge, future test,
+   diagnostic, locked registry, exploratory, or out of scope.
+3. Public-claim policy: what can and cannot be said from this artifact.
+4. Remaining open bridges and kill conditions where the claim is not closed.
+5. Prediction-registry linkage for future-facing claims.
+
+**Acceptance:** every `compute/audit.py` artifact has exactly one structured
+contract; the locked prediction registry matches the contract; the tests fail if
+`epsilon0^2 = pi/432`, the one-operator flavour gate, or gravity scope silently
+change status without a deliberate contract update.
+
+**Kill/demotion condition:** if an artifact cannot be assigned a clear contract,
+it is not mature enough to carry a public claim.
+
+**Phase 8 execution note (2026-06-07):** `compute/audit_contract.py` now covers
+all 37 registered audit artifacts. The unittest harness enforces contract
+coverage, locked-prediction alignment, the open F0 epsilon hinge, the open
+one-operator Yukawa gate, and the gravity out-of-scope demotion.
+
 ## Suggested Execution Order
 
 ```text
@@ -214,6 +244,7 @@ Weeks 7-10  Phase 4: continuum/RG matching
 Weeks 9-12  Phase 5: gravity gate, only after SM map is stable
 Ongoing     Phase 6: prediction registry discipline
 After pass  Phase 7: paper rewrite
+Ongoing     Phase 8: theory-validation contract harness
 ```
 
 ## Project-Level Definition Of Done
@@ -227,5 +258,6 @@ The repair phase succeeds if all of the following are true:
 5. Continuum/RG residuals are computed from stated boundary conditions.
 6. Gravity is either a real 4D Lorentzian/dynamical construction or explicitly out of scope.
 7. The Bayes scoreboard remains visible and moves only when derivation statuses change.
+8. The test harness fails when audit artifacts drift away from their ledger-backed contracts.
 
 This is the path from "beautiful and suggestive" to "hard to dismiss." The point is not to protect every current claim. The point is to make the surviving claims sturdy.
