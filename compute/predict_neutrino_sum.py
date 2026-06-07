@@ -3,6 +3,7 @@ FROZEN PREDICTION: the neutrino mass sum  Sigma m_nu.
 =====================================================
 
 Frozen date: 2026-06-06.  Do NOT retune after new data; record revisions.
+The locked value hash is enforced by `compute/prediction_registry.py`.
 
 Most of the CHO audit table consists of POSTDICTIONS (constants known before
 the formulas were written). A framework earns trust by committing, in advance,
@@ -105,8 +106,8 @@ def main():
     print("   * The number is sharp (a ~10 meV window) and ordering-specific.")
     print("   * Near-future data (DESI/Euclid/CMB-S4) reach the required")
     print("     ~0.02-0.03 eV sensitivity, so this resolves this decade.")
-    print("   * The prediction is frozen here; revisions must be logged, not")
-    print("     silently retuned.")
+    print("   * The prediction is frozen here and hash-locked in prediction_registry.py;")
+    print("     revisions must be new dated entries, not silent retunes.")
     print()
 
 

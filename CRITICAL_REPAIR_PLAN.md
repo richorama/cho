@@ -176,6 +176,14 @@ exploratory line.
 
 **Kill/demotion condition:** if a future target depends on an unfixed bridge that can move after data arrive, do not call it a prediction; call it a bridge sensitivity.
 
+**Phase 6 execution note (2026-06-07):** `compute/prediction_registry.py`
+is now a locked manifest gate. Positive quantitative predictions (`Sigma m_nu`,
+`theta23` octant, `m_betabeta`) are separated from bridge sensitivities
+(`m_nu3` floor tension and `kappa_lambda` matching-level target), and null
+exclusions remain in `FUTURE_TESTS.md`. The registry records formula, frozen
+inputs, channel, kill condition, date, and SHA-256 value digest for each entry;
+the manifest digest is locked so silent retunes fail the audit.
+
 ## Phase 7 - Paper Rewrite Strategy
 
 **Goal:** make the publishable unit smaller, sharper, and more defensible.

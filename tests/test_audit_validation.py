@@ -56,6 +56,18 @@ class AuditValidationTests(unittest.TestCase):
         self.assertIn("DERIVATION SCOREBOARD", result.stdout)
         self.assertNotIn("Unknown artifact", result.stdout)
 
+    def test_prediction_registry_is_locked(self):
+        result = run_audit("prediction_registry", timeout=180)
+
+        self.assertEqual(
+            result.returncode,
+            0,
+            msg=result.stdout[-3000:],
+        )
+        self.assertIn("AUDIT STATUS: PASS", result.stdout)
+        self.assertIn("LOCKED", result.stdout)
+        self.assertNotIn("DRIFT", result.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

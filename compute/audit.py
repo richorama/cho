@@ -40,7 +40,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  24. epsilon_measure_audit        — Phase 2 gate: pi/432 as one conditional transition measure
   *  gravity_curvature            — M-GRAV: emergent rank-2 metric from non-associativity
   *  gravity_gate_audit           — Phase 5 gate: gravity remains exploratory unless Lorentzian dynamics close
- 25. prediction_registry           — tamper-evident pre-registration hashes
+ 25. prediction_registry           — Phase 6 locked prediction registry + update protocol
   *  scoreboard                    — does deriving prefactors move the Bayes factor? (the one-number bottom line; runs last)
 
 Run all:
@@ -116,7 +116,7 @@ ARTIFACTS = [
      "Frozen, falsifiable forward prediction: Sigma m_nu.",
      predict_neutrino_sum.main),
     ("forward_predictions",
-     "Three more frozen falsifiers: m_nu3 tension, m_betabeta, Higgs self-coupling.",
+        "Frozen future targets: m_betabeta prediction plus m_nu3/kappa bridge sensitivities.",
      forward_predictions.main),
     ("jordan_eigenvalue_generations",
      "Lever A: spectral route to three (degree of the J3(O) cubic norm).",
@@ -197,7 +197,7 @@ ARTIFACTS = [
      "Phase 5 gate: tests for canonical 4D Lorentzian reduction and dynamics; keeps gravity out of scope if absent.",
      gravity_gate_audit.main),
     ("prediction_registry",
-     "Tamper-evident pre-registration: SHA-256 digests of the frozen predictions.",
+        "Phase 6 locked registry: prediction hashes, bridge sensitivities, and update protocol.",
      prediction_registry.main),
     ("scoreboard",
      "Bottom line: does the eps0 derivation work move ln B? before/now/target in one number.",

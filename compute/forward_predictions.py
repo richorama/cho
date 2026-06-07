@@ -1,6 +1,6 @@
 """
-FROZEN FORWARD PREDICTIONS — three dated, falsifiable CHO targets.
-==================================================================
+FROZEN FUTURE TARGETS -- predictions plus bridge sensitivities.
+================================================================
 
 Frozen date: 2026-06-06.  Companion to `predict_neutrino_sum.py` (which freezes
 Sigma m_nu).  Legacy repair-pass item T2.1.  Do NOT silently retune after new data; log any
@@ -8,12 +8,12 @@ revision with a new dated entry.
 
 A theory earns trust by what could KILL it, not by how many known constants it
 reproduces. Most of the CHO audit table is postdiction. This module collects the
-three sharpest things CHO says about NOT-YET-DECISIVELY-MEASURED quantities, each
-with an explicit kill condition tied to a named experiment and reach.
+sharp things CHO says about NOT-YET-DECISIVELY-MEASURED quantities, each with an
+explicit kill condition tied to a named experiment and reach.
 
-  P1  m_nu3 vs the oscillation floor   -- an INTERNAL tension, the strongest test
-  P2  Neutrinoless double-beta m_betabeta (effective Majorana mass)
-  P3  Higgs self-coupling kappa_lambda from the CHO quartic lambda = pi/24
+    P1  m_nu3 vs the oscillation floor   -- BRIDGE SENSITIVITY / internal tension
+    P2  Neutrinoless double-beta m_betabeta -- POSITIVE QUANTITATIVE prediction
+    P3  Higgs self-coupling kappa_lambda -- BRIDGE SENSITIVITY at matching level
 
 Each prediction prints (value/band, basis, date, kill condition). Inputs that are
 already-measured experimental anchors (oscillation splittings, v, M_P) are
@@ -187,8 +187,8 @@ def predict_p3():
 
 def main():
     print("#" * 72)
-    print("#  CHO FROZEN FORWARD PREDICTIONS (2026-06-06)")
-    print("#  Three dated, falsifiable targets with explicit kill conditions.")
+    print("#  CHO FROZEN FUTURE TARGETS (2026-06-06)")
+    print("#  Positive predictions and bridge sensitivities with kill conditions.")
     print("#  Companion to predict_neutrino_sum.py (Sigma m_nu).")
     print("#" * 72)
     print()
@@ -197,9 +197,9 @@ def main():
     predict_p3()
     print("-" * 72)
     print("  Reading guide: these are the parts of CHO that future data can KILL.")
-    print("  P1 is the strongest test (an existing internal tension); P2 and P3 are")
-    print("  sharp, ordering/potential-specific targets below current reach. Revise")
-    print("  ONLY by adding a new dated entry, never by silent retuning.")
+    print("  P2 is a positive quantitative prediction. P1 and P3 are bridge")
+    print("  sensitivities because threshold/RG or matching pieces can still move.")
+    print("  Revise ONLY by adding a new dated registry entry, never by silent retuning.")
     print()
 
 
