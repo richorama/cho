@@ -351,3 +351,48 @@ KO-dimension does not drop from 6 to 4 (Obstruction 2, still open). Until both a
 ladder (`-21.3 / -3.2 / +5.6 / +36.2`) and the frozen registry manifest are untouched.
 Wired into `audit.py` and `audit_contract.py` (70/70 contracted, status PASS; pytest
 89 passed) as an `OPEN_BRIDGE` under F0.
+
+### Execution note (2026-06-09) — Phase 1.2 PROPER: associative rebuild carried out
+
+`compute/f0_associative_triple_gate.py` added: it CARRIES OUT the associative rebuild
+that the prerequisite only named, for the one-generation LEPTON sector, and closes both
+of the open bridges it had left. The question going in was genuinely open — a fresh
+CHO-specific obstruction (e.g. KO-6 together with order-one forcing `D = 0`) would have
+been an equally valid and equally reportable outcome. It did not occur. The finite
+geometry is `H = C^8` (basis `[nuR, eR, nuL, eL | ` antiparticles`]`), `A = C (+) H`
+acting on the left, `J = (`particle`<->`antiparticle swap`) . conj`, `gamma = ` chirality
+flipped on antiparticles. All numbers come out of explicit `8x8` / `6x6` / `9x9`
+matrices, none are hand-set:
+- **(A) Order-zero RESTORED for a noncommutative algebra.** `[a_L, b_R] = 0` holds
+  EXACTLY on `A (x) A^o` for the genuinely nonabelian summands `H` (`~9e-16`,
+  `||[x,y]|| = 14.7`) and `M_3(C)` (`~2e-15`, `||[x,y]|| = 15.3`), and for the actual SM
+  lepton rep (`~9e-16`). The colour `M_3(C)` factor commutes with the lepton sector by
+  construction (left-right multiplication on a matrix algebra commute) — generalising the
+  prerequisite's `H`-toy resolution to all three summands.
+- **(B) KO-dimension 6 RESTORED.** `J^2 = +I` (`eps = +1`) and `J gamma J^-1 = -gamma`
+  (`eps'' = -1`) give KO-dim 6 — chirality WITHOUT Connes-doubling. This is exactly the
+  grading the prerequisite's `J = kappa.conj` had destroyed; the associative route
+  recovers it because `gamma` now lives on the module, not on the octonions.
+- **(C) A NONZERO physical Dirac satisfies order-one.** The explicit Dirac with Dirac
+  Yukawas (`nuR<->nuL`, `eR<->eL`) AND a Majorana mass (`nuR<->nuRbar`) is Hermitian,
+  `gamma`-ODD, `J`-REAL (`J D J^-1 = D`) and satisfies order-one `[[D, a], b^o] = 0`
+  (`~9e-16`). So the seesaw lives in the real-structure (Majorana) sector and the finite
+  KO-dimension stays 6, not 4 — closing the second bridge (the Yukawa real-structure
+  embedding) the prerequisite left open.
+
+The associative SKELETON EXISTS: a consistent KO-dim-6 finite real spectral triple of
+Standard-Model type, with a nonzero Yukawa+Majorana Dirac, for a SINGLE real structure
+`J`. The Phase-1.1 "the triple does not exist" verdict is REPAIRED at the level of the
+associative skeleton. HONEST CAVEAT: this is the KNOWN Connes-Chamseddine-Marcolli
+skeleton recovered constructively — the complement to the no-go, NOT new physics — and it
+moves NO Bayes credit. Two CHO-specific bridges remain before `eps0^2 = pi/432` could be
+promoted: step C (replace the generic Yukawa by the SPECIFIC octonionic Jordan mass
+operator `L_X` and realise the full `432 = 16 (A_Weyl) x 27 (J3(O))` module — only the
+8-dim colour-singlet lepton slice is built here; the quark colour sector and three
+generations are not yet built), and Phase 1.3 (show `eps0^2 = pi/432` emerges as the
+spectral-action ratio `a4/a2` — `epsilon_heat_kernel` already warns the spectral `pi`
+enters only via the Gaussian `(4 pi)^(-d/2)`, so a bare `pi` numerator is unlikely from
+this route). Until both are done F0 stays GEOMETRIC/open; nothing here promotes it. The
+scoreboard ladder (`-21.3 / -3.2 / +5.6 / +36.2`) and the frozen registry manifest are
+untouched. Wired into `audit.py` and `audit_contract.py` (71/71 contracted, status PASS;
+pytest 90 passed) as an `OPEN_BRIDGE` under F0.

@@ -960,6 +960,48 @@ CONTRACTS = {
             "model_complexity/scoreboard credit is claimed on the back of this gate.",
         ),
     ),
+    "f0_associative_triple_gate": contract(
+        "f0_associative_triple_gate",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only that the associative rebuild NAMED by f0_real_structure_gate "
+        "is constructively realised for the one-generation LEPTON sector, and that "
+        "it forms a consistent KO-dimension-6 finite real spectral triple with a "
+        "nonzero Yukawa+Majorana Dirac for a SINGLE real structure J. Computed from "
+        "explicit matrices: order-zero [a_L,b_R]=0 holds exactly (~9e-16) on "
+        "A (x) A^o for the NONCOMMUTATIVE summands H and M_3(C) and for the SM "
+        "lepton rep; KO-dimension 6 is RESTORED (J^2=+I, J gamma J^-1 = -gamma), "
+        "chirality without doubling; and an explicit physical Dirac with Dirac "
+        "Yukawas plus a Majorana mass is Hermitian, gamma-odd, J-real and satisfies "
+        "order-one [[D,a],b^o]=0 (~9e-16), so the seesaw sits in the real-structure "
+        "sector and the finite KO-dim stays 6. This REPAIRS the Phase-1.1 'triple "
+        "does not exist' verdict at the level of the associative skeleton. It must "
+        "be stated HONESTLY that this recovers the KNOWN Connes-Chamseddine-Marcolli "
+        "skeleton -- the constructive complement to the no-go, NOT new physics -- "
+        "and that it moves NO Bayes credit: F0 stays GEOMETRIC/open, eps0^2 = pi/432 "
+        "is not promoted.",
+        open_bridges=(
+            "Replace the generic Dirac Yukawa by the SPECIFIC octonionic Jordan mass "
+            "operator L_X and realise the full 432 = 16 (A_Weyl) x 27 (J3(O)) module "
+            "(step C); only the 8-dim colour-singlet lepton slice is built here.",
+            "Extend the explicit construction to the quark colour sector (the M_3(C) "
+            "factor is only checked to commute) and to three generations, confirming "
+            "order-zero/order-one and KO-6 survive the full SM content.",
+            "Phase 1.3: show eps0^2 = pi/432 emerges as the spectral-action ratio "
+            "a4/a2 of this triple -- epsilon_heat_kernel warns the spectral pi enters "
+            "only via the Gaussian (4 pi)^(-d/2), so a bare pi numerator is unlikely.",
+        ),
+        kill_conditions=(
+            "The recovered skeleton is presented as new/CHO-specific physics rather "
+            "than the known Connes-Chamseddine-Marcolli construction.",
+            "The generic Yukawa+Majorana Dirac is described as if it were already the "
+            "octonionic Jordan mass operator L_X, or the 8-dim lepton slice is passed "
+            "off as the full 432-dimensional module.",
+            "F0 is promoted, eps0^2 = pi/432 is called geometrically forced, or "
+            "model_complexity/scoreboard credit is claimed on the back of this gate.",
+        ),
+    ),
     "f0_direction_gate": contract(
         "f0_direction_gate",
         ("F0", "STAT1"),
