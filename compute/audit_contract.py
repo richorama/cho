@@ -218,6 +218,29 @@ CONTRACTS = {
         "Quote only through the locked prediction registry.",
         kill_conditions=("Robust future neutrino mass data falsify the frozen normal-ordering band.",),
     ),
+    "neutrino_floor_resolution": contract(
+        "neutrino_floor_resolution",
+        ("N1",),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DEMOTED,
+        "State the m_nu3 floor deficit as a ~1.2-sigma undershoot (theory error folded), "
+        "NOT a 4.6-sigma falsification and NOT a precision success; the central value "
+        "sits just below the physical floor and N1 is demoted to order-1 consistency.",
+        assumptions=(
+            "Tree-level m_nu3 theory error is calibrated from the M_W (M_P/3^36) and "
+            "y_t=1 (m_t=v/sqrt2) sister rows: sqrt((2*0.78%)^2+(1.21%)^2) ~= 2.0%.",
+        ),
+        open_bridges=(
+            "Derive the O(1) seesaw normalization (M_R prefactor) and the y_nu3=1 "
+            "saturation, replacing the sister-calibrated theory error with a pinned value.",
+        ),
+        kill_conditions=(
+            "Theory error is inflated beyond the sister-calibrated ~2% to dodge the deficit.",
+            "The sub-floor central value (48.9 < 50.1 meV) is hidden or spun as a success.",
+            "N1 is quoted as a ~2% precision prediction after this demotion.",
+            "A pinned, DERIVED normalization still falls below the floor yet is reported as consistent.",
+        ),
+    ),
     "forward_predictions": contract(
         "forward_predictions",
         ("N1", "N5", "CC1"),

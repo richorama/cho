@@ -245,7 +245,7 @@ $$\frac{\Delta m^2_{21}}{\Delta m^2_{31}} = \left(\frac{m_{\nu_2}}{m_{\nu_3}}\ri
 - The residual Majorana symmetry and broken-triality perturbation still need the operator-level derivation tracked in `OPERATOR_GAP_AUDIT.md`.
 
 **Combined neutrino sector predictions:**
-- m_ν₃ = v²/(2M_P/3⁹) = 48.9 meV (obs: ≥50.2 meV, 2.7%)
+- m_ν₃ = v²/(2M_P/3⁹) = 48.9 meV (obs: ≥50.2 meV, 2.7%) — the central value sits just below the oscillation floor; folding the tree-level seesaw theory error calibrated from the `M_W` and `y_t=1` sister rows (~2.0%) makes this a ~1.2σ undershoot, not a 4.6σ falsification, so N1 is **demoted** to order-1 consistency (see `compute/neutrino_floor_resolution.py`, Item 4)
 - m_ν₂ = 2ε₀·m_ν₃ = 8.3 meV
 - m_ν₁ ≈ 0 (normal hierarchy)
 - Σmᵢ ≈ 57 meV (testable by Euclid/DESI)

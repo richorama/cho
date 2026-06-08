@@ -12,6 +12,7 @@ displaying agreements. Each answers a specific skeptic's question:
   *  rg_matching_audit     — Phase 4 gate: are continuum/RG scales derived or inverse-matched?
   *  rg_scale_derivation   — Item 3: the EW matching scale is over-determined, not one derived number
   5. predict_neutrino_sum  — "What can future data falsify?" (frozen prediction)
+  *  neutrino_floor_resolution — Item 4: the 4.6sigma floor deficit is 1.2sigma once tree-level theory error is folded
 
 plus the derivation-frontier experiments (the "can the algebra do more?" set):
 
@@ -65,6 +66,7 @@ import rg_matching_audit
 import rg_scale_derivation
 import mass_ratio_rg_audit
 import predict_neutrino_sum
+import neutrino_floor_resolution
 import forward_predictions
 import first_generation_audit
 import jordan_eigenvalue_generations
@@ -151,6 +153,9 @@ ARTIFACTS = [
     ("predict_neutrino_sum",
      "Frozen, falsifiable forward prediction: Sigma m_nu.",
      predict_neutrino_sum.main),
+    ("neutrino_floor_resolution",
+     "Item 4: the 4.6-sigma m_nu3 floor deficit is a 1.2-sigma undershoot once the tree-level seesaw theory error (M_W, m_t sisters) is folded in; N1 demoted, not falsified.",
+     neutrino_floor_resolution.main),
     ("forward_predictions",
         "Frozen future targets: m_betabeta prediction plus m_nu3/kappa bridge sensitivities.",
      forward_predictions.main),
