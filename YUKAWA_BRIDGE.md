@@ -76,6 +76,8 @@ lepton: k_l = 1/(4*pi)
 
 The final CHO Yukawa operator must derive these factors as traces, overlaps, or Schur-complement invariants. Until then M9-M11 stay `Open bridge / scaffolded`.
 
+**Lepton update (Item 2, `compute/lepton_yukawa_action.py`).** The lepton factor `k_l = 1/(4*pi)` is no longer chosen: it is FORCED as the `SU(2)` invariant-average (Schur) normalization `= 1/(total solid angle)` on the SAME two-level Bloch sphere `S^2` whose hemisphere solid angle `2*pi` gives the Berry `theta = pi` of `foundations/02_action.md`. That module assembles the WHOLE charged-lepton Yukawa as ONE Hermitian operator `Y = m_tau * diag(1, 8*epsilon0^2, k_l*(8*epsilon0^2)^2)`, reusing the derived Fock trace `8` (M3) and the rank-one "lift exactly one level" cascade. Spectrum: `tau` exact, `mu/tau` at `-2.2%`, `e/tau` at `-6.3%` (the known M11 first-generation outlier, reported honestly; only `mu` is asserted). Still open even for leptons: WHY the lepton channel takes the continuous-sphere average while the quark sectors take discrete weak-isospin projections (`k_u = 1/4`, `k_d = 9/4`, no `pi`), deriving the trilinear from the CHO equations of motion, and the `~6%` `m_e` residual. The up/down factors remain fully open.
+
 For the sector-count diagnostic, run `python3 compute/sector_projector_derivation.py`.
 
 ## Diagnostic Script

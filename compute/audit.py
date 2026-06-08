@@ -35,6 +35,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  19. epsilon_free_action          — eps0 R2: free action forced by two-level symmetry
  20. epsilon_channel_coefficients — T1.3: mass-sector ranks (1,3,8) as Fock traces
  21. epsilon_mixing_coefficients  — M11: mixing counts (7,3,4,4/7) as Fano lines + 1/(4pi)
+ 21b.lepton_yukawa_action        — Item 2: ONE action -> ONE charged-lepton Yukawa, end-to-end
  22. epsilon_vcb_halfangle        — C2: |V_cb| coefficient 1/2 = SU(2) spinor half-angle
  23. epsilon_a4_two_level         — R2 origin: two-level symmetry = SU(2) closure of A4
  24. epsilon_measure_audit        — Phase 2 gate: pi/432 as one conditional transition measure
@@ -90,12 +91,16 @@ import epsilon_rank_one_kernel
 import epsilon_free_action
 import epsilon_channel_coefficients
 import epsilon_mixing_coefficients
+import lepton_yukawa_action
 import epsilon_vcb_halfangle
 import epsilon_a4_two_level
 import epsilon_measure_audit
 import epsilon_measure_witness
 import epsilon_measure_schur
 import epsilon_phase_space_product
+import epsilon_product_irreducible
+import epsilon_symplectic_volume
+import epsilon_factor_forcedness
 import epsilon_assumption_p_gate
 import epsilon_action_stationary
 import f0_action_ray_gate
@@ -222,6 +227,9 @@ ARTIFACTS = [
     ("epsilon_mixing_coefficients",
      "M11: mixing multiplicities (7,3,4,4/7) as Fano-line counts; lepton 1/(4pi) as the sphere measure.",
      epsilon_mixing_coefficients.main),
+    ("lepton_yukawa_action",
+     "Item 2: assembles the SINGLE charged-lepton Yukawa from ONE action's Bloch sphere -- the same S^2 whose hemisphere solid angle gives the Berry pi supplies the 1/(4pi) first-generation shape factor as its total-solid-angle (Schur invariant-average) normalization; the 8 is the derived Fock trace and the cascade square is the rank-one bottleneck. Upgrades 1/(4pi) from identified to forced; tau:mu:e at mu -2.2%, e -6.3% (known M11 outlier). OPEN: sphere-vs-discrete sector resolution, the trilinear from CHO EoM.",
+     lepton_yukawa_action.main),
     ("epsilon_vcb_halfangle",
      "C2: the |V_cb| coefficient 1/2 is the SU(2) spinor half-angle (sin(eps/2)); tan(pi/8)=sqrt(2)-1.",
      epsilon_vcb_halfangle.main),
@@ -240,6 +248,15 @@ ARTIFACTS = [
     ("epsilon_phase_space_product",
      "F0 product witness: under independent commuting Spin(9)/E6 sectors, the transition carrier is Delta_9 x J3(O), and the factorized invariant average gives exactly 1/432; live seam is deriving this sector-independence from the action.",
      epsilon_phase_space_product.main),
+    ("epsilon_product_irreducible",
+     "F0 product-irreducibility witness: Delta_9 x J3(O) is irreducible under factor-wise Spin(9) x E6, so by Schur ANY spurion (separable OR entangled) averages to I/432; removes the separable-projector and minimal-multiplicity clauses of Assumption P (breaking the assumption-gate circularity) and a F4 control shows factor-wise E6 is necessary.",
+     epsilon_product_irreducible.main),
+    ("epsilon_symplectic_volume",
+     "F0 symplectic-volume route: 16 and 27 are Bohr-Sommerfeld counts of single Spin(9)-spinor and E6-minimal coadjoint orbits, so 432 is the Liouville volume of one PRODUCT orbit (factorization becomes a theorem of the orbit method, not an assumption); pi is the half-flux of the minimal transition orbit CP^1, giving pi/432; live seam is which two orbits the CHO action quantizes.",
+     epsilon_symplectic_volume.main),
+    ("epsilon_factor_forcedness",
+     "F0 factorization-forcedness audit: among all ten factorizations of 432, 16x27 is the UNIQUE split whose both factors are independently-derived carriers (16=Delta_9=dim OP^2, 27=dim J3(O)), and 432 is a fundamental rep of no single simple group (G2..E8 scan) while being the Spin(9)xE6 bifundamental, so a product is forced; removes factorization freedom.",
+     epsilon_factor_forcedness.main),
     ("epsilon_assumption_p_gate",
      "F0 Assumption-P gate: the current epsilon bridge operator has exact 16x27 product-separable (operator-Schmidt rank-1) primitive factors and pi/432 normalized trace; live seam is deriving this separable structure from CHO action dynamics.",
      epsilon_assumption_p_gate.main),

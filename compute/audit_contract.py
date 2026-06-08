@@ -470,6 +470,37 @@ CONTRACTS = {
         "Claim Fano counts and the lepton sphere-measure identification; keep the operator reduction open.",
         open_bridges=("Derive the lepton Yukawa trace reduction and PMNS perturbation dynamically.",),
     ),
+    "lepton_yukawa_action": contract(
+        "lepton_yukawa_action",
+        ("M11", "M3"),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only that the charged-lepton Yukawa is assembled as ONE Hermitian operator "
+        "from ONE action's two-level Bloch sphere: the SAME S^2 whose hemisphere solid angle "
+        "(2*pi) gives the Berry theta=pi supplies the first-generation shape factor "
+        "k_l=1/(4*pi) as its total-solid-angle (Schur invariant-average) normalization. The "
+        "second-generation 8 is the REUSED Fock trace (M3) and the cascade square is the "
+        "rank-one bottleneck. The genuine increment is that 1/(4*pi) is FORCED (an invariant "
+        "average), not chosen. Do NOT claim the trilinear is derived from CHO equations of "
+        "motion, that the sector resolution is explained, or that the m_e residual is resolved.",
+        open_bridges=(
+            "Derive WHY the lepton first-generation channel uses the continuous-sphere "
+            "(uniform SU(2)) average while the quark sectors use discrete weak-isospin "
+            "projections (k_u=1/4, k_d=9/4, no pi).",
+            "Derive the charged-lepton trilinear Yukawa from the CHO action's equations of "
+            "motion; this module uses the action's geometry plus the derived traces, not a "
+            "dynamical field equation.",
+            "Resolve the ~6% intrinsic m_e first-generation residual (ledger M11, "
+            "first_generation_audit.py).",
+        ),
+        kill_conditions=(
+            "The single-operator assembly is presented as a full action-level derivation of "
+            "the charged-lepton Yukawa rather than a geometry-plus-derived-traces assembly.",
+            "The sphere-vs-discrete sector resolution is glossed as derived, or the e/tau "
+            "-6.3% outlier is hidden behind the mu/tau -2.2% match.",
+            "F0 is promoted or the up/down sectors are claimed closed from this lepton unit.",
+        ),
+    ),
     "epsilon_vcb_halfangle": contract(
         "epsilon_vcb_halfangle",
         ("C2", "C3"),
@@ -535,6 +566,64 @@ CONTRACTS = {
                          "without stating the sector-independence assumption.",
                          "Direct-sum or single-sector alternatives are treated as equivalent to "
                          "a shared one-operator transition density over both sectors."),
+    ),
+    "epsilon_product_irreducible": contract(
+        "epsilon_product_irreducible",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only that Delta_9 (x) J3(O) is irreducible under the factor-wise product group "
+        "Spin(9) x E6, so by Schur ANY rank-one spurion (separable OR entangled) averages to "
+        "I_432/432. This removes the separable-projector and minimal-multiplicity clauses of "
+        "Assumption P, leaving the single clause 'factor-wise product invariance'. Do NOT promote "
+        "F0: deriving that product arena / factor-wise symmetry from the CHO action remains open.",
+        open_bridges=("Derive the factor-wise Spin(9) x E6 product symmetry (equivalently the "
+                      "432-dim product arena) from the CHO action; foundations/02_action.md selects "
+                      "theta=pi on the two-level sphere but does not supply the product arena.",),
+        kill_conditions=("Product irreducibility is presented as a full action-level derivation of "
+                         "Assumption P rather than a reduction of its clauses.",
+                         "The surviving factor-wise-invariance clause is glossed as already derived, "
+                         "or the F4 necessity control (factor-wise E6 is required) is omitted."),
+    ),
+    "epsilon_symplectic_volume": contract(
+        "epsilon_symplectic_volume",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only that 16 and 27 are the Bohr-Sommerfeld / Borel-Weil dimensions of single "
+        "coadjoint orbits (Spin(9) spinor, E6 minimal), so the product orbit's Liouville volume "
+        "is 16x27=432 by multiplicativity, and pi is the half-flux of the minimal transition orbit "
+        "CP^1 -- giving pi/432 as one geometric-quantization object. Do NOT promote F0: deriving "
+        "which two orbits the CHO action quantizes remains open, and OP^2=F4/Spin(9) is itself "
+        "non-symplectic (the carriers are orbits in so(9)^*, e6^*, not OP^2).",
+        open_bridges=("Derive from the CHO action that the triality-breaking transition quantizes "
+                      "exactly the Spin(9)-spinor and E6-minimal coadjoint orbits (which two orbits), "
+                      "rather than assuming them; the product-of-volumes factorization then follows.",),
+        kill_conditions=("The orbit-method factorization is presented as deriving the product arena "
+                         "from the action, rather than recasting the assumed product as one product "
+                         "orbit.",
+                         "OP^2 is treated as a symplectic carrier, or the bare pi half-flux is "
+                         "conflated with the full 2pi flux quantum."),
+    ),
+    "epsilon_factor_forcedness": contract(
+        "epsilon_factor_forcedness",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only that 16x27 is the unique factorization of 432 whose BOTH factors are "
+        "independently-derived transition carriers (16=Delta_9=dim OP^2, 27=dim J3(O)), and that "
+        "432 is a fundamental/minimal irrep of no single simple group (G2..E8 scan) while being the "
+        "Spin(9)xE6 bifundamental -- so a product realization is the economical one. This removes "
+        "the factorization freedom; it does NOT by itself derive the two carrier dimensions, and "
+        "does NOT promote F0.",
+        open_bridges=("Derive (via the symplectic/Schur work) that the two carriers are 16- and "
+                      "27-dimensional; this audit only shows no other split competes and that a "
+                      "single simple group cannot host 432 as a minimal rep.",),
+        kill_conditions=("The minimal/fundamental-rep scan is presented as an absolute no-go "
+                         "(large non-fundamental irreps of dimension 432 do exist).",
+                         "The derived-carrier ranking is presented as deriving 16 and 27 rather than "
+                         "ranking pre-derived structure, or the forcedness registry is silently "
+                         "tuned to make 16x27 win."),
     ),
     "epsilon_assumption_p_gate": contract(
         "epsilon_assumption_p_gate",
