@@ -79,6 +79,25 @@ mu_* = 3.679e3 GeV.
 
 That is an inverse-matched scale, not currently a CHO-derived scale. The seesaw scale `M_P/3^9` gives `sin^2(theta_W) = 0.401745` under the same one-loop running, and the Planck scale gives `0.471320`, so neither closes S5.
 
+### Over-determination: there is no single matching scale (Item 3)
+
+`compute/rg_scale_derivation.py` closes the sharper question behind S4/S5: can ONE matching scale carry both CHO electroweak boundaries at once? CHO posits two algebraic boundaries, `alpha_em^-1 = 128 pi/3` and `sin^2(theta_W) = 1/4`. Together these fix BOTH GUT-normalized gauge couplings at the would-be scale:
+
+```text
+alpha_2^-1(mu_*) = sin^2 . alpha_em^-1           = 32 pi/3 = 33.510
+alpha_1^-1(mu_*) = (3/5)(1 - sin^2) . alpha_em^-1 = 96 pi/5 = 60.319
+```
+
+Running each measured M_Z coupling to its CHO value INDEPENDENTLY under standard one-loop running gives two different scales:
+
+```text
+alpha_1^-1 -> 60.319 at mu ~ 1.2e1  GeV   (just below M_Z)
+alpha_2^-1 -> 33.510 at mu ~ 2.2e5  GeV
+ratio ~ 1.8e4   (a single scale would give ~1).
+```
+
+So NO single scale satisfies both boundaries: the matching scale is not one derived number, it is selected observable-by-observable. Two corroborating facts: the lone inverse-matched `sin^2 = 1/4` scale `3.679e3 GeV` is `M_P/3^32.5` (a NON-integer power of three, so not a clean CHO scale), and no independently-derived CHO scale (`v` -> `0.236`, `M_W = M_P/3^36` -> `0.231`, seesaw -> `0.402`, `M_P` -> `0.471`) lands at `1/4` (closest miss `0.0138`). This is the KILL branch of Item 3: the single-continuum-scale reading of the two CHO electroweak boundaries is falsified by ~4 orders of magnitude.
+
 ### W mass
 
 The algebraic scale is already close:
@@ -112,3 +131,5 @@ The current repair value is negative but important: the attractive electroweak r
 ## Kill/Demotion Rule
 
 If future work shows that the matching scale is chosen only to hit `alpha` or `sin^2(theta_W)`, then S4/S5 must stay `Open bridge` or be demoted to phenomenological fits. If standard running from a derived CHO scale misses the data beyond the stated theory floor, that mismatch is the result to quote.
+
+This rule is now TRIGGERED with quantification (`compute/rg_scale_derivation.py`, Item 3): the matching scale is demonstrably inverse-fit — the two electroweak boundaries over-determine it by `1.8e4` and no derived CHO scale reproduces `sin^2 = 1/4`. S4/S5 therefore stay `Open bridge`; promoting them now would require either deriving a single physical matching scale and threshold scheme from the CHO action, or accepting that `alpha` and `sin^2(theta_W)` are independent low/high-scale inputs and demoting the precision claims accordingly. No ledger row is promoted and the scoreboard is untouched on the basis of this negative.

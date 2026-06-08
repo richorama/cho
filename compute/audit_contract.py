@@ -164,6 +164,31 @@ CONTRACTS = {
         ),
         kill_conditions=("Inverse-matched scales remain selected to hit observed targets.",),
     ),
+    "rg_scale_derivation": contract(
+        "rg_scale_derivation",
+        ("S4", "S5"),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only the NEGATIVE/sharpening result: CHO's two electroweak boundaries "
+        "(alpha_em^-1 = 128*pi/3 and sin^2(theta_W) = 1/4) cannot both hold at one matching "
+        "scale -- one-loop running needs scales ~1.8e4 apart (alpha_1^-1 at ~12 GeV, "
+        "alpha_2^-1 at ~2.2e5 GeV); the lone sin^2=1/4 inverse match is M_P/3^32.5 (a "
+        "non-integer power of 3) and no independently-derived CHO scale (v, M_W, seesaw, "
+        "M_P) yields sin^2=1/4. This TRIGGERS the rg_matching_audit kill condition: the "
+        "matching scale is inverse-fit, not derived. Do NOT present this as deriving the "
+        "scale, and do NOT promote S4/S5 or touch the scoreboard.",
+        open_bridges=(
+            "Derive a single electroweak matching scale (and threshold/VP scheme) from the "
+            "CHO action, or accept that alpha and sin^2 are independent low/high-scale "
+            "inputs and demote the precision claims accordingly.",
+        ),
+        kill_conditions=(
+            "The over-determination negative is spun as a positive derivation of the scale.",
+            "sin^2=1/4 or alpha_em^-1=128*pi/3 is quoted as a closed prediction on the back "
+            "of an inverse-fit scale.",
+            "S4/S5 are promoted, or model_complexity/scoreboard credit is claimed.",
+        ),
+    ),
     "mass_ratio_rg_audit": contract(
         "mass_ratio_rg_audit",
         ("M5", "M6", "M7", "M8"),

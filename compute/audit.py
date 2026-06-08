@@ -10,6 +10,7 @@ displaying agreements. Each answers a specific skeptic's question:
   3. independent_observables — "What's the real goodness-of-fit?" (covariance)
   4. derived_vs_residual   — "Where's the error bar on the DERIVED part?"
   *  rg_matching_audit     — Phase 4 gate: are continuum/RG scales derived or inverse-matched?
+  *  rg_scale_derivation   — Item 3: the EW matching scale is over-determined, not one derived number
   5. predict_neutrino_sum  — "What can future data falsify?" (frozen prediction)
 
 plus the derivation-frontier experiments (the "can the algebra do more?" set):
@@ -61,6 +62,7 @@ import independent_observables
 import covariance_gof
 import derived_vs_residual
 import rg_matching_audit
+import rg_scale_derivation
 import mass_ratio_rg_audit
 import predict_neutrino_sum
 import forward_predictions
@@ -137,6 +139,9 @@ ARTIFACTS = [
     ("rg_matching_audit",
      "Phase 4 gate: continuum/RG matching scales, thresholds, and inverse matches made explicit.",
      rg_matching_audit.main),
+    ("rg_scale_derivation",
+     "Item 3: tests whether the EW matching scale is DERIVED. CHO's two boundaries (alpha_em^-1=128pi/3, sin^2=1/4) cannot both hold at one scale -- one-loop running needs scales ~1.8e4 apart; the lone sin^2=1/4 match sits at M_P/3^32.5 (non-integer) and no derived CHO scale lands at 1/4. KILL branch: scale not derived, S4/S5 stay open.",
+     rg_scale_derivation.main),
     ("mass_ratio_rg_audit",
      "Per-relation scale audit: 5/6 mass relations are 1-loop RG-invariant; m_b/m_tau=7/3 is scale-dependent (holds at mu~m_b).",
      mass_ratio_rg_audit.main),
