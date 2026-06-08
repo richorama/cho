@@ -22,7 +22,8 @@ This project was developed as a human–AI collaboration (with Claude, Anthropic
 
 The live project is now code and markdown first. Generated PDFs, LaTeX build
 outputs, arXiv submission notes, and the old LaTeX paper drafts have been
-removed. [papers/](papers/) is now only a placeholder for a future rewrite. Any
+removed. The old `papers/` tree was removed during the reset; future paper drafts
+should be rebuilt from the active markdown and audit artifacts. Any
 future paper should be rebuilt from the ledger, foundation notes, and executable
 audits rather than patched forward from stale drafts.
 
@@ -131,7 +132,6 @@ These are descriptive low-energy comparisons. Some entries include underived con
 ## Structure
 
 ```
-papers/                  Reset paper placeholder; no generated PDFs or live LaTeX drafts
 compute/                 Numerical verification scripts (Python 3 + NumPy)
 compute/audit_contract.py Semantic contract for every audit artifact
 ROBUSTNESS_ACTIONS.md    Live next-action plan for making the framework sturdier

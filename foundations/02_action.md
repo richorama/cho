@@ -7,8 +7,8 @@ an explicit functional `S` and uses it to upgrade *one* step — the `π` holono
 from "minimal geometric loop" to "stationary configuration of `S`." It does **not**
 claim `ε₀² = π/432` is now a closed theorem. The honest residuals are listed in §6.
 
-Companion code: [`compute/action_derivation.py`](compute/action_derivation.py).
-This note supersedes the weakest sentence of [`SPURION_BRIDGE.md`](SPURION_BRIDGE.md)
+Companion code: [`compute/action_derivation.py`](../compute/action_derivation.py).
+This note supersedes the weakest sentence of [`SPURION_BRIDGE.md`](../SPURION_BRIDGE.md)
 Block 4 ("the minimal non-contractible loop is a great circle") by giving the loop a
 variational origin.
 
@@ -16,12 +16,12 @@ variational origin.
 
 ## 1. Why this note exists
 
-The framework's central credibility gap (see [`METHODOLOGY_LIMITS.md`](METHODOLOGY_LIMITS.md),
+The framework's central credibility gap (see [`METHODOLOGY_LIMITS.md`](../METHODOLOGY_LIMITS.md),
 "Dimensional Counting Warning") is that factors like `π`, `432`, `16`, `27` are only
 meaningful if they fall out of an **explicit operator, trace, path integral, or
 action** — not if they are assembled from convenient algebraic pieces. Until now the
 project had no written-down action at all; `A4` in the
-[`DERIVATION_LEDGER.md`](DERIVATION_LEDGER.md) invoked "the CHO lattice/information
+[`DERIVATION_LEDGER.md`](../DERIVATION_LEDGER.md) invoked "the CHO lattice/information
 action" by name only.
 
 This note writes one down at the minimal level needed to test `ε₀² = π/432`, and
@@ -31,7 +31,7 @@ reports honestly which symbols it forces and which it still assumes.
 
 ## 2. The state space
 
-From [`SPURION_BRIDGE.md`](SPURION_BRIDGE.md) Block 2, the triality-breaking spurion
+From [`SPURION_BRIDGE.md`](../SPURION_BRIDGE.md) Block 2, the triality-breaking spurion
 lives on
 
 $$
@@ -132,7 +132,7 @@ This is the single knob that drives all seven flavour channels at ~1.5% RMS in
 
 The action above forces `θ = π` but still **takes three things as inputs**. These are
 the proof obligations that keep F0 short of theorem status, and they are tracked in
-[`OPERATOR_GAP_AUDIT.md`](OPERATOR_GAP_AUDIT.md) and the ledger.
+[`OPERATOR_GAP_AUDIT.md`](../OPERATOR_GAP_AUDIT.md) and the ledger.
 
 | ID | Residual input | What would close it |
 |---|---|---|
