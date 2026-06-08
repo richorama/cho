@@ -1280,6 +1280,144 @@ CONTRACTS = {
             "Promoting F0/G1/A3 or moving Bayes credit on the basis of this consolidation.",
         ),
     ),
+    "padic_hierarchy": contract(
+        "padic_hierarchy",
+        ("S1", "N1", "CC1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "BIG-BETS Bet 1. State only the EXACT arithmetic (9,36,64 are perfect squares; "
+        "increments +27=dim J3(O), +28=dim so(8); 3-adic unit-scale / archimedean "
+        "reframing) and the CONCEPTUAL gain (the hierarchy 'problem' is archimedean, "
+        "so a real-analytic spectral action over R could never emit these scales). Do "
+        "NOT present the arena-dimension labels as forcing the exponents: like the "
+        "repo's own labels they are post-hoc, the exponents stay CHOSEN in "
+        "model_complexity.py, and the look-elsewhere-corrected p (~0.018) is above the "
+        "promotion bar. Report the CC base-3 contamination (dist ~0.42) honestly, not "
+        "only the clean EW hit.",
+        assumptions=(
+            "The three stated exponents M_W=M_P/3^36, M_R=M_P/3^9, Lambda^1/4 ~ M_P/3^64 "
+            "are taken as source-of-truth integers from summary_table / dark_sector / "
+            "cc_prediction; only two (EW, CC) are data-anchored, the seesaw 9 is theory-internal.",
+            "The CHO_DIMS catalogue used for the increment test is declared BEFORE testing "
+            "so the look-elsewhere size is explicit; widening it weakens the increment hit.",
+        ),
+        open_bridges=(
+            "No DERIVATION forces the exponents from the arena dimensions {9,+27,+28}; the "
+            "identifications are post-hoc, so the exponents are not promotable from CHOSEN.",
+            "The adelic/3-adic reframing is conceptual; it does not yet supply a DYNAMICS or "
+            "measure that outputs the scales (the same missing object F0/Phase-1 localised).",
+            "CC and the seesaw scale are not base-3-clean without O(1) prefactors; only the "
+            "electroweak hierarchy is.",
+        ),
+        kill_conditions=(
+            "Presenting the {9,+27,+28} ladder as a derivation, or moving any Bayes credit / "
+            "changing a model_complexity status on the back of this EXPLORATORY module.",
+            "Quoting the clean electroweak base-3 hit while suppressing the CC contamination "
+            "or the look-elsewhere correction.",
+            "If the look-elsewhere-corrected p ever crosses the 0.001 promotion bar, treating "
+            "that as automatic promotion instead of re-deriving, widening the pattern menu, and "
+            "moving credit deliberately on the scoreboard.",
+        ),
+    ),
+    "causal_set_lambda": contract(
+        "causal_set_lambda",
+        ("CC1", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "BIG-BETS Bet 2. State only the EXACT arithmetic (Sorkin V=Lambda^-2 round-trips; "
+        "CHO's Lambda/M_P^4 is NOT exactly 3^-256 but 3^-257.6 once the (11/12)/sqrt2 "
+        "prefactor is kept; the observed cosmic 4-volume is ~10^244 in every standard "
+        "convention; Lambda^1/4 ~ V^(-1/8) recovers the CHOSEN exponent 64 to within ~0.5) "
+        "and the CONCEPTUAL gain (the causal-set counting law supplies a candidate DYNAMICAL "
+        "origin for the CC magnitude that the static algebra lacked). Do NOT present this as "
+        "a derivation of 64: it uses the OBSERVED 4-volume as input (trading 'why 64' for the "
+        "cosmic-coincidence 'why now'), the 1/8 power is fourth-root x Sorkin-sqrt and the "
+        "match to dim(O)=8 is a coincidence not leaned on, and base 3 is unforced here (base 8 "
+        "fits the volume better). The real payoff is the falsifier, not the number: CHO (Lambda "
+        "constant, w=-1) vs Sorkin everpresent-Lambda (dynamical, w(t)!=-1).",
+        assumptions=(
+            "CHO's Lambda^1/4 = (11/12) M_P/(sqrt2 3^64) and the observed Lambda are taken as "
+            "source-of-truth from cc_prediction.py; M_P is the full Planck mass.",
+            "Sorkin's law Lambda ~ +/- 1/sqrt(V) is adopted as the causal-set heuristic (an "
+            "order-of-magnitude, fluctuating-sign statement), not a rigorous identity.",
+            "The observed cosmic 4-volume ~10^244 Planck-4-volumes is computed from the Hubble "
+            "radius, the age, and the particle horizon; conventions differ at the ~10^+/-1 level.",
+            "Base 3 is imported from Bet 1 (triality) as an EXTERNAL warrant; this module shows "
+            "it is not forced by the volume match itself.",
+        ),
+        open_bridges=(
+            "No DERIVATION forces the exponent 64: the bridge consumes the observed 4-volume as "
+            "input, so it relocates the mystery to the cosmic-coincidence problem rather than "
+            "abolishing it; the exponent stays CHOSEN in model_complexity.py.",
+            "Putting CHO/Jordan internal state on causal-set elements and asking whether the "
+            "growth dynamics SEES the internal index (forcing N=3 and supplying the action) is "
+            "not done here; without it the counting law is borrowed, not derived from CHO.",
+            "Lambda is not base-3-clean (log_3 = -257.6, the same prefactor contamination Bet 1 "
+            "found), so the clean 'V=3^512' reading holds only up to an O(1) factor.",
+        ),
+        kill_conditions=(
+            "Presenting 64 = (1/8) log_3(V) as a derivation, leaning on the 1/8 = 1/dim(O) "
+            "coincidence, or moving any Bayes credit / changing a model_complexity status on the "
+            "back of this EXPLORATORY module.",
+            "Quoting the convention that lands nearest 64 while suppressing the spread (~0.5) or "
+            "the fact that base 8 fits the cosmic volume better than base 3.",
+            "If dark energy is confirmed an exact constant (w=-1 to high precision), continuing "
+            "to present the causal-set everpresent-Lambda reading as live instead of recording "
+            "that the dynamical mechanism is killed and only the static 'why-now' coincidence "
+            "survives.",
+        ),
+    ),
+    "entropic_gravity_cho": contract(
+        "entropic_gravity_cho",
+        ("GR1", "CC1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "BIG-BETS Bet 2 (gravity companion to causal_set_lambda). State only the EXACT "
+        "bookkeeping (Jacobson: S=A/(4G)=A/4 + dQ=TdS => Einstein equations; tiling a horizon "
+        "with cells of CHO internal dimension d gives the area law S=(A/a_cell)ln d ~ A; "
+        "matching S=A/4 forces a_cell=4 ln d, reproducing the textbook it-from-bit 4 ln 2=2.77 "
+        "at d=2; the identity N_cells*log2(d)=N_bits holds exactly) and the HONEST conclusion "
+        "(counting supplies the area-extensive entropy Jacobson needs but does NOT fix the "
+        "coefficient 1/4 = Newton's G: it is relocated to a_cell, and the CHO dimension is pure "
+        "bit-bookkeeping for it). Do NOT present this as a derivation of G or of black-hole "
+        "entropy. The payoff is the cross-module tension, not a number: the SAME Planck-density "
+        "causal set that reproduces Lambda would overcount horizon entropy by 4 ln d (~13x for "
+        "d=27) unless the CHO internal state is horizon-unresolved.",
+        assumptions=(
+            "Jacobson's thermodynamic derivation (Clausius dQ=TdS on local Rindler horizons with "
+            "Unruh T and Bekenstein-Hawking S=A/4) is adopted as the route from horizon entropy "
+            "to the Einstein equation of state; the coefficient 1/4 is its sole non-thermodynamic "
+            "input.",
+            "The counting ansatz tiles a horizon with independent cells each carrying a CHO "
+            "internal Hilbert space of dimension d in {2,3,4,7,8,16,26,27,28,52,78}; the entropy "
+            "is the log of the product multiplicity (no correlations / area law assumed local).",
+            "The cross-module tension uses causal_set_lambda's Planck sprinkling density (one atom "
+            "per Planck 4-volume) and the Dou-Sorkin result that horizon molecule counts scale "
+            "with area; the O(1) molecule-counting constant is taken as ~1.",
+        ),
+        open_bridges=(
+            "Newton's G (the coefficient 1/4) is NOT derived: it is relocated into the horizon "
+            "cell area a_cell=4 ln d, which CHO does not independently fix, and the bit-bookkeeping "
+            "identity shows the internal dimension carries no information about it.",
+            "Whether the CHO internal state is a genuine horizon degree of freedom or is "
+            "horizon-unresolved (gauge/projected) is not settled here; the cross-module "
+            "consistency with the Lambda module REQUIRES the latter but does not prove it.",
+            "No dynamics is derived FROM CHO: the area law is a generic consequence of local "
+            "counting (locality + extensivity), so the 'win' is the structural prerequisite "
+            "Jacobson needs, not a CHO-specific result.",
+        ),
+        kill_conditions=(
+            "Presenting a_cell=4 ln d as a derivation of Newton's G or of the Bekenstein-Hawking "
+            "1/4, leaning on any near-integer coincidence in the 4 ln d table, or moving Bayes "
+            "credit / changing a model_complexity status on the back of this EXPLORATORY module.",
+            "Quoting the area-law 'win' while suppressing that the coefficient is untouched (the "
+            "bit-bookkeeping identity) or that Planck-density tiling overcounts by 4 ln d (the "
+            "species problem).",
+            "If the CHO internal state is shown to be a genuine horizon degree of freedom at "
+            "Planck density, continuing to present the Lambda-fixing causal set as consistent "
+            "instead of recording that it is then refuted (S is 4 ln d times too large).",
+        ),
+    ),
     "prediction_registry": contract(
         "prediction_registry",
         ("N1", "N5"),
