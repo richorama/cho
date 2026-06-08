@@ -28,6 +28,7 @@ future paper should be rebuilt from the ledger, foundation notes, and executable
 audits rather than patched forward from stale drafts.
 
 - [PAPER_OPTION_A.md](PAPER_OPTION_A.md) — the conservative, falsifiable manuscript: claims only the *discrete* internal structure of one generation (charges, colour, weak isospin, hypercharge, anomaly freedom, chirality) plus `N_gen = 3` at the count-and-chirality level, and explicitly disclaims the Yukawa magnitudes, mixing magnitudes, couplings, scale hierarchies, and gravity. Every claim is pinned to an audit-PASS artifact.
+- [PAPER_JORDAN_THEOREMS.md](PAPER_JORDAN_THEOREMS.md) — a standalone *mathematics* note, deliberately **decoupled from any physical claim**: three small theorems on the exceptional Jordan algebra 𝔍₃(𝕆) — (A) the Jordan-frame `S_3` is an *inner* symmetry of the connected `F_4`, permuting three congruent `OP² = F_4/Spin(9)` points that carry the same real spinor `Δ_9` (categorically unlike the *outer* `Spin(8)` triality on the inequivalent `8v,8s,8c`); (B) Schur's lemma forces the flat weights `1/16` and `1/27` (the latter requiring the cubic-norm group `E_6`, not `F_4`); (C) Vieta on the Freudenthal cubic is a cubic-norm seesaw `m₂m₃ = |N₃|/m₁`. Every constituent fact is classical and cited; the contribution is the clean decoupled assembly, each statement backed by an audit-PASS witness ([compute/jordan_standalone_theorems.py](compute/jordan_standalone_theorems.py)).
 
 ## Blog post
 

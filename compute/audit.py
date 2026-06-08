@@ -45,6 +45,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
     *  epsilon_measure_schur        — F0 Schur: 1/16 (Spin9) and 1/27 (E6) forced by irreducibility
   *  gravity_curvature            — M-GRAV: emergent rank-2 metric from non-associativity
   *  gravity_gate_audit           — Phase 5 gate: gravity remains exploratory unless Lorentzian dynamics close
+  *  jordan_standalone_theorems   — Item 5: three J3(O) theorems published as standalone math, decoupled from physics
  25. prediction_registry           — Phase 6 locked prediction registry + update protocol
   *  scoreboard                    — does deriving prefactors move the Bayes factor? (the one-number bottom line; runs last)
 
@@ -115,6 +116,7 @@ import f0_transition_ray_gate
 import f0_direction_gate
 import gravity_curvature
 import gravity_gate_audit
+import jordan_standalone_theorems
 import prediction_registry
 import scoreboard
 
@@ -297,6 +299,9 @@ ARTIFACTS = [
     ("gravity_gate_audit",
      "Phase 5 gate: tests for canonical 4D Lorentzian reduction and dynamics; keeps gravity out of scope if absent.",
      gravity_gate_audit.main),
+    ("jordan_standalone_theorems",
+     "Item 5: three decoupled J3(O) theorems (inner frame S3, Schur-forced 1/16 & 1/27, Freudenthal seesaw) stated as standalone mathematics, no physics used.",
+     jordan_standalone_theorems.main),
     ("prediction_registry",
         "Phase 6 locked registry: prediction hashes, bridge sensitivities, and update protocol.",
      prediction_registry.main),

@@ -732,6 +732,24 @@ CONTRACTS = {
         open_bridges=("Canonical invariant four-plane, Lorentzian signature, and dynamics are absent.",),
         kill_conditions=("A hand-picked four-plane or non-dynamical metric is the only available construction.",),
     ),
+    "jordan_standalone_theorems": contract(
+        "jordan_standalone_theorems",
+        ("G1", "F0", "A3"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Publish the three results as decoupled mathematics about J3(O); do not "
+        "attach the physical (generation/measure/mass) interpretation, which is "
+        "developed and gated separately and is not established by these theorems.",
+        open_bridges=(
+            "The physical generation map (G1), the pi/432 measure (F0), and the "
+            "Yukawa spectrum (A3) stay open bridges; the decoupled math does not close them.",
+        ),
+        kill_conditions=(
+            "Presenting the decoupled theorems as evidence that the physical interpretation is derived.",
+            "Claiming novelty for the classical inputs (Albert algebra, F4 connectedness, Schur, Freudenthal cubic) instead of the assembly.",
+            "Promoting F0/G1/A3 or moving Bayes credit on the basis of this consolidation.",
+        ),
+    ),
     "prediction_registry": contract(
         "prediction_registry",
         ("N1", "N5"),
