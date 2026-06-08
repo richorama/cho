@@ -67,6 +67,15 @@ A_Weyl x J3(O), with no extra density, stabilizer volume, orbit multiplicity,
 or continuous parameter.
 ```
 
+**Status of H4 (narrowed, not closed).** Several Phase-2 witnesses have peeled the H4 hypothesis down to a single residual:
+
+- *Normalization* is closed by Schur: [compute/epsilon_measure_schur.py](../compute/epsilon_measure_schur.py) proves the flat `1/16` and `1/27` weights are forced by `Spin(9)`- and `E6`-irreducibility, not chosen.
+- *Separability / minimal multiplicity* are removed by [compute/epsilon_product_irreducible.py](../compute/epsilon_product_irreducible.py): `Delta_9 (x) J3(O)` is irreducible under the factor-wise group `Spin(9) x E6`, so by Schur every spurion (separable or entangled) averages to `I_432/432`. Assumption P collapses to one clause, "factor-wise `Spin(9) x E6` invariance".
+- *The product itself* is reframed by [compute/epsilon_symplectic_volume.py](../compute/epsilon_symplectic_volume.py): `16` and `27` are the Bohr-Sommerfeld / Borel-Weil counts of single coadjoint orbits, and quantization is multiplicative over a direct-product group, so `432 = 16 x 27` is the Liouville volume of one product orbit -- the factorization is an orbit-method theorem given a product symmetry, not an extra assumption (caveat: `OP^2 = F4/Spin(9)` is itself non-symplectic; the carriers are orbits in `so(9)^*`, `e6^*`).
+- *The choice of split* is removed by [compute/epsilon_factor_forcedness.py](../compute/epsilon_factor_forcedness.py): of the ten factorizations of `432`, only `16 x 27` has both factors independently derived, and `432` is a fundamental rep of no single simple group -- so a product realization is forced.
+
+What remains is the sharpened residual: **derive from the CHO action which two coadjoint orbits (the `Spin(9)`-spinor and the `E6`-minimal) the triality-breaking transition quantizes.** That is the single open seam; the normalization, separability, factorization-as-theorem, and choice-of-split sub-questions are discharged above.
+
 A complete proof should define:
 
 1. the exact transition bundle or quotient whose fibres are being traced;
