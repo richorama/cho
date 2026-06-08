@@ -842,6 +842,40 @@ CONTRACTS = {
                          "structural identity (it holds only because dim J3(O)=27=3^3), "
                          "or F0 is promoted / Bayes credit is moved from this module."),
     ),
+    "f0_vacuum_majorization": contract(
+        "f0_vacuum_majorization",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only that the rank-one transition ray is the MAJORIZATION-MAXIMAL "
+        "element of the J3(O) state slice {O>=0, Tr O=1}: its spectrum (1,0,0) "
+        "majorises every state and the maximally-mixed centre I/3 is majorised by "
+        "every state. By Hardy-Littlewood-Polya this one order fixes the extremiser "
+        "of an ENTIRE universality class of spectral actions at once \u2014 every "
+        "Schur-concave action (the cubic norm N3=det, the von Neumann and Renyi "
+        "entropies) is minimised at rank-one, and every Schur-convex action (purity "
+        "Tr O^2, and the leading -a Tr Phi^2 + b Tr Phi^4 term of a Connes finite "
+        "spectral action) is extremised there. This STRENGTHENS epsilon_action_selection "
+        "from one chosen functional (the cubic norm) to a functional-independent "
+        "statement, and connects the F0 vacuum to the standard spectral-action "
+        "framework: a Connes-type action selects the same rank-one ray. Honest "
+        "corrective: the spectral potential is EVEN (degree 2/4) whereas N3 is degree "
+        "3, so they are DIFFERENT functionals that agree only on the vacuum. Do NOT "
+        "promote F0: majorisation fixes the vacuum DIRECTION, not which action CHO "
+        "realises, the kinetic coefficient, or the pi/432 normalisation.",
+        open_bridges=("Derive from the full CHO dynamics WHICH action in the "
+                      "Schur-concave/convex class is physically realised (majorisation "
+                      "is agnostic to the choice within the class).",
+                      "Fix the kinetic coefficient on the great-circle Berry angle (pi) "
+                      "and the pi/432 normalisation; majorisation fixes only the vacuum "
+                      "direction, not the transition measure."),
+        kill_conditions=("The majorisation robustness is presented as deriving the "
+                         "physical CHO action, the cubic-norm identification, or the "
+                         "pi/432 normalisation.",
+                         "F0 is promoted or Bayes credit is moved from this module \u2014 it "
+                         "is a robustness theorem about the vacuum direction, not a "
+                         "closure of the measure."),
+    ),
     "f0_direction_gate": contract(
         "f0_direction_gate",
         ("F0", "STAT1"),

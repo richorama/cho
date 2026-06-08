@@ -47,6 +47,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
     *  epsilon_measure_schur        — F0 Schur: 1/16 (Spin9) and 1/27 (E6) forced by irreducibility
     *  epsilon_orbit_selection      — F0 orbit-selection: which two orbits — the MINIMAL ones, forced by Spin(9)-transitivity (16) + action rank-one (27)
     *  epsilon_action_selection     — F0 action-selection: rank-one ray = global MINIMISER of the E6-invariant cubic N3 (X#=grad N3), an OUTPUT not an input
+    *  f0_vacuum_majorization      — F0 robustness: rank-one ray is the majorization-MAXIMAL J3(O) state, so it extremises EVERY Schur-concave/convex action (cubic N3, entropies, AND the Connes spectral-action purity term) — vacuum not tied to one functional
   *  gravity_curvature            — M-GRAV: emergent rank-2 metric from non-associativity
   *  gravity_gate_audit           — Phase 5 gate: gravity remains exploratory unless Lorentzian dynamics close
   *  jordan_standalone_theorems   — Item 5: three J3(O) theorems published as standalone math, decoupled from physics
@@ -117,6 +118,7 @@ import epsilon_factor_forcedness
 import epsilon_assumption_p_gate
 import epsilon_action_stationary
 import epsilon_action_selection
+import f0_vacuum_majorization
 import f0_action_ray_gate
 import f0_action_kernel_dynamics_gate
 import f0_kernel_class_gate
@@ -299,6 +301,9 @@ ARTIFACTS = [
     ("epsilon_action_selection",
      "F0 action-selection (removes action_stationary's rank-one INPUT on the config-space side): the Freudenthal sharp IS the gradient of the E6-invariant cubic norm, X#=grad N3 (finite-diff match ~1e-8), so the rank-one variety is the critical locus of N3; on the physical slice {X>=0,Tr X=1} N3 in [0,1/27] by AM-GM with rank-one idempotents the GLOBAL MINIMISERS (N3=0) and I/3 the unique maximiser (1/27), the minimum flat exactly along the f4-orbit OP^2 (dim 16). Same N3 has symmetry E6, whose irreducibility forces the flat 1/27 measure (epsilon_measure_schur). Reduces 'rank-one assumed' to 'rank-one = minimiser of the cubic potential'; potential-origin + kinetic coeff + EoM open; F0 not promoted.",
      epsilon_action_selection.main),
+    ("f0_vacuum_majorization",
+     "F0 vacuum robustness (strengthens epsilon_action_selection from one functional to a universality class): on the J3(O) state slice {O>=0, Tr O=1} the rank-one transition ray is the MAJORIZATION-MAXIMAL element — its spectrum (1,0,0) majorises every state and I/3 is majorised by every state. By Hardy-Littlewood-Polya this single order fixes the extremiser of the WHOLE Schur class: every Schur-concave action (cubic N3=det, von Neumann/Renyi entropy) is minimised at rank-one and every Schur-convex action (purity Tr O^2, AND the Connes finite-spectral-action term -a Tr Phi^2 + b Tr Phi^4) is extremised there, so a spectral action lands on the SAME rank-one vacuum (the same KO-dim-6 triple as ko_dimension_chirality/spectral_action). Honest corrective: the spectral potential is EVEN (deg 2/4) while N3 is deg 3 — different functionals, one vacuum. F0 not promoted; which action CHO realises, the kinetic coeff, and pi/432 stay open.",
+     f0_vacuum_majorization.main),
     ("f0_action_ray_gate",
      "F0 action-ray derivation gate: derives the transition ray as the unique stationary maximizer of the effective action generator, with dynamic flow convergence checks.",
      f0_action_ray_gate.main),

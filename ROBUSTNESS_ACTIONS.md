@@ -147,3 +147,69 @@ points to that generated export path.
 ```
 
 The immediate priority is Track A, because it makes every later physics change safer. The highest-value physics target remains Track B: the sign of the Bayes scoreboard turns on whether `pi/432` is forced.
+
+## Gold-Standard Roadmap (added 2026-06-08)
+
+Honest strategic review of what separates the current framework from gold-standard
+(testable, defensible, publishable) physics. This supersedes nothing above; it
+re-prioritises Tracks B–E under one diagnosis.
+
+### The one-number state (live `compute/scoreboard.py`)
+
+- `ln B = -3.2` crediting only closed theorems — the O(1)-numerology null still
+  wins.
+- `ln B = +5.6` if `eps0^2 = pi/432` is granted as geometric. The sign flip rests
+  on the single F0 claim, and is fragile (at prior width F=2 it is only `+1.6`).
+- The CHOSEN tier is **44.1 bits** of unpaid Occam cost; of that the three hand-
+  picked integer exponents `3^36` (M_W), `3^9` (M_R), `3^64 + 11/12` (Lambda) are
+  **21.8 bits** — nearly half, the CC exponent alone 13.3 bits.
+
+### The diagnosis — the soft spot is the *kind* of math, not its rigor
+
+The classical representation theory (J3(O), F4/Spin(9), E6, triality, KO-dim 6) is
+solid and largely inherited from the literature (Furey, Todorov–Dubois-Violette,
+Baez–Huerta). Three specific things are soft:
+
+1. **Invariance arguments are substituted for dynamics.** Every F0 module has the
+   shape "assume the symmetry is G, then Schur/the orbit method/majorisation forces
+   the measure / ray / product." What forces G to be the *physical* symmetry is the
+   action — and `foundations/02_action.md` is a *candidate*, not a derivation. Gold-
+   standard is Lagrangian → equations of motion → vacuum → spectrum, with the numbers
+   as OUTPUTS. There are now ~25 `epsilon_*`/`f0_*` witnesses and the scoreboard still
+   reads "GEOMETRIC, seam open": **more invariance witnesses will not move `ln B`.**
+2. **The exponents `3^36 / 3^9 / 3^64` are unforced numerology** (21.8 bits) — the
+   most vulnerable and most expensive part.
+3. **No single operator.** Masses, CKM, PMNS are separate bridges;
+   `spectral_action.py` shows one generation forces NO mass ratio, so the hierarchy
+   must live in a cross-generation operator that has not been built.
+
+### Tiers (highest leverage first)
+
+- **Tier 1 — a genuine dynamical backbone.** Build the cross-generation Dirac
+  operator `D` on the `16 x 27 = 432` space and compute the Connes spectral action
+  `Tr f(D/Lambda)`; test whether the hierarchy and `pi/432` fall out as heat-kernel
+  coefficients. We already match Connes' KO-dim 6 (`ko_dimension_chirality.py`), and
+  `spectral_action.py` itself names this as its next step. This is the make-or-break:
+  it closes F0 with real dynamics or fails honestly. (Supersedes/sharpens Track B.)
+- **Tier 2 — derive or quarantine `3^36 / 3^9 / 3^64`.** Either an index / e-folding
+  / RG-fixed-point count, or relabel them explicit dimensional inputs and shrink the
+  headline. Removes the biggest Occam cost. (Extends Track D.)
+- **Tier 3 — one operator → CKM + PMNS + masses from one diagonalisation.** (Track C.)
+- **Tier 4 — continuum/RG with a *derived* matching scale** (`rg_scale_derivation.py`
+  currently *falsifies* a single scale: 12 GeV vs 2e5 GeV). (Track D.)
+- **Tier 5 — win a prediction.** Even a completed program (`ln B = +36`) is
+  postdictive; only a measured prediction is gold-standard. Sharpest:
+  `sin^2 theta_23 = 4/7`, upper octant, `eps0`-independent — DUNE / Hyper-K.
+
+### Execution note (2026-06-08)
+
+`compute/f0_vacuum_majorization.py` added: it does not add another invariance
+witness but strengthens the F0 *vacuum* selection to a functional-independent
+majorisation statement (rank-one ray = majorisation-maximal state, selected by the
+whole Schur-concave/convex class including the Connes spectral-action purity term),
+and bridges the F0 program to the spectral-action framework that Tier 1 requires.
+It is a robustness increment, NOT a closure: F0 stays GEOMETRIC, no Bayes credit
+moves. The next substantive step is Tier 1 proper — constructing `D` on the 432
+space and computing its spectral action — which is large and should be built on the
+verified `spectral_action.py` / `ko_dimension_chirality.py` constructions rather
+than as another normalized-trace witness.
