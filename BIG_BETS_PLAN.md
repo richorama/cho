@@ -198,6 +198,34 @@ Einstein equation of state?).
 > fluctuation, gravity's area law) while the precise *coefficients* (the Λ prefactor, the
 > `1/4 = G`) stay CHO-untouched — an honest map of the boundary, not a revival of the claim.
 
+> **RESULT (Bet 2a deepening — `compute/everpresent_lambda_tracking.py`, EXPLORATORY).**
+> Invested in the Λ bridge's single biggest debit (it consumes the *observed* 4-volume, so
+> it trades "why 64?" for the cosmic-coincidence "why *now*?") by taking Sorkin's
+> **everpresent** Λ seriously as a *dynamical* dark energy `Λ(t) ~ ±1/√V(t) ~ H(t)²` and
+> turning the constant-vs-dynamical hook into a **computed** redshift divergence. The *same*
+> exponent now has two experimentally distinct readings: CHO-**static** (`Λ` fixed, `w = −1`,
+> so `Ω_Λ(z) = Ω_{Λ,0}/E(z)²` *dilutes* to zero at high `z`) vs Sorkin-**everpresent**
+> (`Λ ~ H²` *tracks* the critical density, `Ω_Λ(z) ~ O(1)` at every epoch). **Two dividends:**
+> (1) the everpresent reading **partly repays the why-now debit** — "`O(1)` now" becomes
+> "`O(1)` always", a property of the counting law the static reading could not offer; and
+> (2) the falsifier is now **quantitative** — the readings diverge as `Ω_ever/Ω_static = E(z)²`
+> (≈3 at `z=1`, ≈`6×10⁸` at recombination), exactly the trend DESI/Euclid `w₀`–`wₐ`
+> tomography measures, with the 2024–25 hints of *evolving* dark energy (`w₀ > −1`, `wₐ < 0`)
+> pointing **away** from the CHO-static `w = −1`. **The honest core, asserted as a tripwire:**
+> the entire testable time-structure is **causal-set content** — the divergence *shape* is
+> invariant under the CHO exponent (it sets only today's normalization), so CHO is a
+> **spectator** in the dynamics. The deepening therefore sharpens the bet in *both*
+> directions: it strengthens the *causal-set* side (why-now repaid, a live falsifier) while
+> making it unmistakable that a confirmed evolving-DE signal would back **Sorkin over
+> CHO-static** — CHO's own `w = −1` is the casualty. (Caveat kept in view: a strictly smooth
+> `Λ ~ H²` is degenerate with a rescaled Newton constant; the genuine dark-energy content
+> lives in the *sign fluctuations* — Ahmed et al. 2004; Zwane et al. 2018 — not simulated
+> here, so no `w₀`–`wₐ` fit is claimed.) Verdict: `STATUS_EXPLORATORY / VERDICT_OPEN`, no
+> prediction promoted, **no Bayes credit moves**; recorded in `DERIVATION_LEDGER.md`. Net:
+> the most promising bet got more promising *as causal-set physics* and more clearly
+> *CHO-agnostic* — the next move that would actually credit CHO is the internal-state growth
+> rule (does the dynamics see the index?), the open Bet-2 question this does not close.
+
 ### Bet 3 — *Stop predicting single Yukawas; predict their distribution.* (RMT / free probability)
 
 We are *losing* the one-number coincidence game at −3.2 nats. Random-matrix theory makes the

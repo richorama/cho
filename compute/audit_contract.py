@@ -1418,6 +1418,56 @@ CONTRACTS = {
             "instead of recording that it is then refuted (S is 4 ln d times too large).",
         ),
     ),
+    "everpresent_lambda_tracking": contract(
+        "everpresent_lambda_tracking",
+        ("CC1", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "BIG-BETS Bet 2a deepening. State only the EXACT, computed facts (the present-epoch "
+        "anchors land: Hubble 4-volume today ~10^244, Lambda_everpresent today = H0^2 ~10^-122; "
+        "the everpresent fraction Omega_Lambda(z) is epoch-independent by the Sorkin scaling "
+        "Lambda~H^2 while the static fraction dilutes as Omega_L,0/E(z)^2; the two readings of "
+        "the SAME exponent diverge as Om_ever/Om_static = E(z)^2, reaching ~6e8 at recombination) "
+        "and the HONEST conclusion (the everpresent reading partly repays the why-now debit and "
+        "yields a computed, live falsifier, but the entire time-structure is CAUSAL-SET content "
+        "and CHO is a spectator in the dynamics). Do NOT present this as CHO predicting "
+        "dark-energy evolution: the divergence SHAPE is invariant under the CHO exponent (it "
+        "sets only today's normalization), and a confirmed evolving-DE signal supports Sorkin "
+        "over the CHO-static w=-1, not CHO.",
+        assumptions=(
+            "The flat background (Omega_m=0.3153, Omega_L=0.6847, Omega_r~9.2e-5, consistent with "
+            "cc_prediction) and H0, T_P are source-of-truth; the static reading is an exact "
+            "cosmological constant (w=-1) and the everpresent reading uses Lambda(t) ~ 1/sqrt(V(t)) "
+            "with the Hubble 4-volume V ~ H^-4.",
+            "The everpresent magnitude and the static-vs-tracking contrast are HEURISTIC "
+            "order-of-magnitude statements on a fixed LambdaCDM background, deliberately NOT a "
+            "self-consistent stochastic solve of the modified Friedmann equation.",
+            "Today's Lambda normalization is taken from causal_set_lambda / cc_prediction (the CHO "
+            "exponent 64); it enters only the normalization, never the redshift shape.",
+        ),
+        open_bridges=(
+            "The dynamical content (tracking, divergence, effective w!=-1) is causal-set, not CHO: "
+            "the divergence shape is independent of the CHO exponent, so this module does NOT make "
+            "CHO predict dark-energy evolution; it only makes the two readings distinguishable.",
+            "A strictly smooth Lambda~H^2 is degenerate with a rescaled Newton constant (it does "
+            "not accelerate); the genuine dark-energy content lives in the SIGN fluctuations of "
+            "Lambda (Ahmed-Dodelson-Greene-Sorkin 2004; Zwane-Afshordi-Sorkin 2018), not simulated "
+            "here, so no w0-wa fit is claimed.",
+            "Whether CHO can supply the missing dynamical ingredient (e.g. an internal-state growth "
+            "rule that fixes the fluctuation measure) is the open Bet-2 question this does not "
+            "close; without it the everpresent dynamics stays borrowed.",
+        ),
+        kill_conditions=(
+            "Presenting the everpresent tracking or the E(z)^2 divergence as a CHO prediction, or "
+            "quoting the recovered ~10^-122 / ~10^244 anchors as a derivation of dark-energy "
+            "evolution, or moving any Bayes credit on the back of this EXPLORATORY module.",
+            "Quoting the why-now 'repayment' or the falsifier while suppressing that the dynamics "
+            "is causal-set (CHO-spectator) or that the smooth limit is degenerate with rescaled G.",
+            "If dark energy is confirmed an exact constant (w=-1 to high precision), continuing to "
+            "present the everpresent reading as live; if evolving DE is confirmed, presenting it as "
+            "a CHO success rather than a result that disfavours the CHO-static w=-1.",
+        ),
+    ),
     "prediction_registry": contract(
         "prediction_registry",
         ("N1", "N5"),
