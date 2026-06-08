@@ -1002,6 +1002,53 @@ CONTRACTS = {
             "model_complexity/scoreboard credit is claimed on the back of this gate.",
         ),
     ),
+    "f0_octonionic_yukawa_gate": contract(
+        "f0_octonionic_yukawa_gate",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only the precise two-sided result, computed from explicit 8x8 / "
+        "27x27 / 216x216 matrices, of putting the SPECIFIC octonionic Jordan mass "
+        "operator L_X into the step-B KO-6 triple. The faithful SM finite geometry "
+        "is H = C^8 (x) C^27 (the step-B lepton charge factor tensored with the "
+        "J3(O) flavour 27), with the Yukawa K_Yuk (x) L_X: the charge L<->R coupling "
+        "K_Yuk is gamma1-ODD and L_X is the UNGRADED octonionic generation matrix "
+        "(gamma = gamma1 (x) I27, J = J1 (x) conj). POSITIVE half: L_X is the genuine "
+        "averaging-law operator (spectrum = three singlets {1,0.6,0.3} and three "
+        "octets {0.8,0.65,0.45} of mult 8, 27 total) and it needs NO doubling -- "
+        "because chirality sits in the charge factor, the product Dirac "
+        "D = K_Yuk (x) L_X + K_Maj (x) M_maj is self-adjoint, gamma-odd, J-real, "
+        "order-zero/order-one ~1e-15, and KO-dim 6 (eps=+1, eps''=-1). This DISSOLVES "
+        "the second Phase-1.1 obstruction (L_X chirality-even -> doubling -> the "
+        "6(x)6->4 KO collapse). SOBERING half, which must be stated with equal "
+        "weight: order-one factors through the charge sector (each charge coupling "
+        "tensored with a RANDOM Hermitian flavour operator still satisfies order-one, "
+        "~1e-14 and 0), so the gauge algebra sees the flavour factor as pure "
+        "multiplicity and ANY self-adjoint flavour operator passes -- the octonionic "
+        "texture is ADMISSIBLE but NOT FORCED by the spectral-triple axioms. Moves "
+        "NO Bayes credit: F0 stays GEOMETRIC/open, eps0^2 = pi/432 is not promoted.",
+        open_bridges=(
+            "The triple axioms do NOT fix the Yukawa; the CHO mass texture (the "
+            "averaging law) must be shown to be SELECTED by the spectral action "
+            "Tr f(D/Lambda) (Phase 1.3), not merely admitted by the triple.",
+            "Phase 1.3: show eps0^2 = pi/432 emerges as the spectral-action ratio "
+            "a4/a2 -- epsilon_heat_kernel warns the spectral pi enters only via the "
+            "Gaussian (4 pi)^(-d/2), so this test is more likely to REFUTE than "
+            "confirm the bare pi numerator.",
+            "Extend from the C^8 (x) C^27 lepton slice to the full 432 = 16 x 27 "
+            "module with the quark colour sector and three generations, confirming "
+            "the no-doubling KO-6 construction survives the full SM content.",
+        ),
+        kill_conditions=(
+            "The POSITIVE half (L_X slots into a KO-6 triple) is reported while the "
+            "SOBERING half (the axioms do not force the Yukawa) is omitted or muted.",
+            "The averaging-law spectrum of L_X is presented as if the triple axioms "
+            "DERIVED it, rather than merely admitting it as one of many self-adjoint "
+            "flavour operators.",
+            "F0 is promoted, eps0^2 = pi/432 is called geometrically forced, or "
+            "model_complexity/scoreboard credit is claimed on the back of this gate.",
+        ),
+    ),
     "f0_direction_gate": contract(
         "f0_direction_gate",
         ("F0", "STAT1"),

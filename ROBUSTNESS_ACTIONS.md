@@ -396,3 +396,42 @@ this route). Until both are done F0 stays GEOMETRIC/open; nothing here promotes 
 scoreboard ladder (`-21.3 / -3.2 / +5.6 / +36.2`) and the frozen registry manifest are
 untouched. Wired into `audit.py` and `audit_contract.py` (71/71 contracted, status PASS;
 pytest 90 passed) as an `OPEN_BRIDGE` under F0.
+
+### Execution note (2026-06-09) — Phase 1.2 step C: octonionic Yukawa `L_X`
+
+`compute/f0_octonionic_yukawa_gate.py` added: it takes the step-B KO-6 skeleton (which
+used a GENERIC Yukawa) and asks the sharp CHO question — does the SPECIFIC octonionic
+Jordan mass operator `L_X` slot into that triple, and if so do the spectral-triple axioms
+FORCE its averaging-law texture or merely admit it? The honest answer was reported
+whichever way the numerics fell; they fell two-sided. The faithful finite geometry is
+`H = C^8 (x) C^27` — the step-B lepton charge factor tensored with the `J3(O)` flavour
+`27` — with the Yukawa `K_Yuk (x) L_X`: the charge `L<->R` coupling `K_Yuk` is `gamma1`-ODD
+and `L_X` is the UNGRADED octonionic generation matrix (`gamma = gamma1 (x) I27`,
+`J = J1 (x) conj`). All numbers come from explicit `8x8` / `27x27` / `216x216` matrices:
+- **(A) `L_X` IS the octonionic averaging-law operator.** Its spectrum is exactly the
+  Jordan averaging law — three singlets `{1, 0.6, 0.3}` (mult 1) and three octets
+  `{0.8, 0.65, 0.45}` (mult 8), 27 eigenvalues total — and it is self-adjoint to `0`.
+- **(B) The second Phase-1.1 obstruction is DISSOLVED — `L_X` needs NO doubling.** Because
+  chirality lives in the charge factor (`gamma = gamma1 (x) I27`), the ungraded `L_X`
+  enters as a pure generation multiplier and the product Dirac
+  `D = K_Yuk (x) L_X + K_Maj (x) M_maj` is self-adjoint, `gamma`-ODD, `J`-REAL, with KO
+  signs `eps = +1`, `eps'' = -1` -> KO-dim 6, and order-zero (`~9e-16`) AND order-one
+  (`~9e-16`) BOTH holding for the genuine octonionic `D`. The Phase-1.1 "`L_X`
+  chirality-even -> Connes-doubling -> `6 (x) 6 -> 4` KO collapse" is gone.
+- **(C) DECISIVE — the axioms do NOT force the Yukawa.** Order-one factors through the
+  charge sector: each charge coupling tensored with a RANDOM Hermitian flavour operator
+  still satisfies order-one (`K_Yuk (x) random ~7e-15`, `K_Maj (x) random = 0`). So the
+  gauge algebra sees the flavour factor as pure multiplicity and ANY self-adjoint flavour
+  operator passes — the octonionic `L_X` is ADMISSIBLE but NOT FORCED.
+
+TWO-SIDED VERDICT. POSITIVE: the octonionic `L_X` lives in a consistent KO-6 triple,
+ungraded and undoubled, carrying its averaging-law masses into `D`'s spectrum — the second
+Phase-1.1 obstruction is closed. SOBERING: the triple axioms (order-zero/one, KO-6) are
+NECESSARY but not SUFFICIENT — they do not pin the Yukawa, so the CHO mass texture is NOT
+secured by the triple's existence; it must instead be SELECTED by the spectral ACTION
+`Tr f(D/Lambda)` (Phase 1.3). `epsilon_heat_kernel` already warns the spectral `pi` enters
+only via the Gaussian `(4 pi)^(-d/2)`, so Phase 1.3 is more likely to REFUTE than confirm
+`eps0^2 = pi/432` as `a4/a2`. F0 stays GEOMETRIC/open; the scoreboard ladder
+(`-21.3 / -3.2 / +5.6 / +36.2`) and frozen registry manifest are untouched. Wired into
+`audit.py` and `audit_contract.py` (72/72 contracted, status PASS; pytest 91 passed) as an
+`OPEN_BRIDGE` under F0.
