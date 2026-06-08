@@ -812,6 +812,36 @@ CONTRACTS = {
                          "The distinction between 'unique maximizer in class' and "
                          "'class derived from action' is collapsed."),
     ),
+    "epsilon_action_selection": contract(
+        "epsilon_action_selection",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only that the rank-one transition ray is the critical / global-"
+        "minimising locus of the E6-invariant cubic norm N3 on the J3(O) state "
+        "space, because the Freudenthal sharp is its gradient (X#=grad N3): the "
+        "unconstrained critical set is X#=0 (rank<=1); the trace-constrained "
+        "critical set X#=lam I is exactly {rank-one} U {central cI}; and on the "
+        "physical slice {O>=0, Tr O=1} the cubic is in [0,1/27] (AM-GM) with the "
+        "rank-one idempotents the global minimisers and I/3 the unique maximiser. "
+        "This removes the rank-one INPUT of epsilon_action_stationary on the "
+        "configuration-space side ('rank-one assumed' -> 'rank-one = minimiser of "
+        "the invariant cubic potential'), and ties that same N3 (whose symmetry "
+        "group E6 forces the flat 1/27 measure via epsilon_measure_schur) to the "
+        "ray selection. Do NOT promote F0: this characterises the ray variationally; "
+        "it does not derive that the CHO action's potential IS this cubic.",
+        open_bridges=("Derive from the full CHO dynamics that the action's potential "
+                      "term IS the E6-invariant cubic N3, rather than identifying it.",
+                      "Fix the kinetic coefficient multiplying the great-circle Berry "
+                      "angle (pi) and write the full time-dependent equations of motion "
+                      "whose relaxation lands on the minimal-orbit (coherent) state."),
+        kill_conditions=("The variational characterisation of the ray (minimiser of N3) "
+                         "is presented as a full action-level derivation of the CHO "
+                         "transition kernel, or as deriving the action's potential.",
+                         "The value coincidence max N3 = 1/27 = 1/dim is leaned on as a "
+                         "structural identity (it holds only because dim J3(O)=27=3^3), "
+                         "or F0 is promoted / Bayes credit is moved from this module."),
+    ),
     "f0_direction_gate": contract(
         "f0_direction_gate",
         ("F0", "STAT1"),
