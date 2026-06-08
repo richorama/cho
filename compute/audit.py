@@ -49,6 +49,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
     *  epsilon_action_selection     — F0 action-selection: rank-one ray = global MINIMISER of the E6-invariant cubic N3 (X#=grad N3), an OUTPUT not an input
     *  f0_vacuum_majorization      — F0 robustness: rank-one ray is the majorization-MAXIMAL J3(O) state, so it extremises EVERY Schur-concave/convex action (cubic N3, entropies, AND the Connes spectral-action purity term) — vacuum not tied to one functional
     *  f0_spectral_triple_gate     — F0 Phase-1.1 gate: assembles (A,H,D;J,gamma) on the 432-space and reports the Connes-axiom ledger HONESTLY — KO-dim-6 spin brick + self-adjoint chirality-odd D pass, but order-zero = the octonion associator FAILS (A must be the associative/Jordan envelope) and the Jordan Yukawa needs doubling (KO-dim 4 not 6); triple does NOT yet exist, no Bayes credit
+    *  f0_real_structure_gate      — F0 Phase-1.2 prerequisite: sharpens the Phase-1.1 order-zero FAIL into a real-structure DICHOTOMY — J=conj gives KO-dim 6 but makes the opposite algebra equal A so order-zero forces A abelian (no SU(2)/SU(3)); J=octonion-conj implements right-mult so order-zero is noncommutative but the grading is no longer J-compatible (KO-dim undefined). No single J on one brick gives both. RESOLUTION (computed): a nonabelian A on A(x)A^o satisfies order-zero by left-right commutation — octonions must GRADE the module, not be the order-zero algebra; rebuild A=C(+)H(+)M_3(C). No Bayes credit
   *  gravity_curvature            — M-GRAV: emergent rank-2 metric from non-associativity
   *  gravity_gate_audit           — Phase 5 gate: gravity remains exploratory unless Lorentzian dynamics close
   *  jordan_standalone_theorems   — Item 5: three J3(O) theorems published as standalone math, decoupled from physics
@@ -121,6 +122,7 @@ import epsilon_action_stationary
 import epsilon_action_selection
 import f0_vacuum_majorization
 import f0_spectral_triple_gate
+import f0_real_structure_gate
 import f0_action_ray_gate
 import f0_action_kernel_dynamics_gate
 import f0_kernel_class_gate
@@ -309,6 +311,9 @@ ARTIFACTS = [
     ("f0_spectral_triple_gate",
      "F0 Phase-1.1 spectral-triple gate (the make-or-break roadmap build): assembles the finite real triple (A,H,D;J,gamma) on the CHO 432-space — octonion Clifford spin brick C^8 with gamma8=i L_1..L_6 and J8=complex conjugation (KO-dim 6, eps=+1/eps''=-1), the chirality-even Jordan Yukawa L_X on J3(O) doubled to a chirality-odd Dirac D_F on C^54, product D=gamma8(x)D_F on H=C^8(x)C^54 (dim_R 864 = 2x432). Verifies the metric/real-structure HALF (D self-adjoint, gamma^2=I, gamma D=-D gamma, J^2=+I) but reports two HONEST obstructions: order-zero [a,b^o] equals the octonion associator and FAILS for A=C(x)H(x)O (~16; recovered only on a true associative bimodule ~1e-15 or the C-line), and the Yukawa doubling pushes the finite KO-dim to 6+6=4(mod8) not 6. The naive triple does NOT yet exist; both repairs (associative/Jordan envelope; Yukawa in the real structure) are known, so this is not the KILL but localises the Phase-1.2 prerequisite. F0 stays open; no Bayes credit.",
      f0_spectral_triple_gate.main),
+    ("f0_real_structure_gate",
+     "F0 Phase-1.2 prerequisite (sharpens the Phase-1.1 order-zero FAIL): a spectral triple has ONE real structure J, and every axiom must hold for that SAME J. Tests both KO signs and order-zero against each candidate J on the octonion brick C^8 and finds a DICHOTOMY: with J=complex conjugation (the KO-dim-6 choice, B=I) the opposite algebra J L_a J^-1 = L_a coincides with A, so order-zero [a,b^o]=[A,A]=0 forces A COMMUTATIVE (L(H) fails ~14, only the abelian L(C) holds ~1e-16) — no SU(2)/SU(3); with J=octonion conjugation (kappa.conj) one gets J L_a J^-1 = -R_a (genuine right mult) so order-zero is the associator (holds on the quaternion bimodule ~1e-15, allows a noncommutative A) BUT J gamma J^-1 = -0.5 gamma is not +-gamma, so the grading is not J-compatible and the KO-dimension is undefined. Hence NO single J on one irreducible brick gives BOTH KO-6 AND a noncommutative order-zero algebra. RESOLUTION (computed, standard Connes route): a nonabelian A=H acting on A(x)A^o satisfies order-zero EXACTLY (0) by left-right commutation while staying nonabelian (||[i,j]||=2) — the octonions must GRADE the module (gamma8, charges), not be the order-zero *-algebra; rebuild A=C(+)H(+)M_3(C). Converts the order-zero fail into a precise statement + named fix; F0 stays open, no Bayes credit.",
+     f0_real_structure_gate.main),
     ("f0_action_ray_gate",
      "F0 action-ray derivation gate: derives the transition ray as the unique stationary maximizer of the effective action generator, with dynamic flow convergence checks.",
      f0_action_ray_gate.main),

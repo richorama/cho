@@ -306,3 +306,48 @@ reachable. F0 stays GEOMETRIC/open, no Bayes credit moves, the scoreboard ladder
 (`-21.3 / -3.2 / +5.6 / +36.2`) and the frozen registry manifest are untouched. Wired
 into `audit.py` and `audit_contract.py` (69/69 contracted, status PASS) as an
 `OPEN_BRIDGE` under F0.
+
+### Execution note (2026-06-09) — Phase 1.2 prerequisite sharpened
+
+`compute/f0_real_structure_gate.py` added: it closes a hidden inconsistency in the
+Phase-1.1 gate (which checked the KO-dim-6 signs with `J = ` complex conjugation but
+checked order-zero against actual right-multiplication — two DIFFERENT real
+structures, whereas a triple has only ONE `J` for which EVERY axiom must hold). Testing
+both axioms against each candidate `J` on the octonion brick `C^8` turns
+Obstruction 1 into a precise DICHOTOMY plus its standard resolution — all computed, none
+hand-set:
+- **`J = ` complex conjugation (the KO-6 choice, `B = I`):** the opposite algebra
+  `J L_a J^-1 = conj(L_a) = L_a` EQUALS `A`, so order-zero `[A, A^o] = [A, A] = 0`
+  FORCES `A` COMMUTATIVE. The quaternion left-algebra `L(H)` fails order-zero (`~14`);
+  only the abelian complex line `L(C)` holds (`~1e-16`). With the KO-6 real structure
+  the largest order-zero-compatible algebra on one brick is ABELIAN — no `SU(2)`, no
+  `SU(3)`.
+- **`J = ` octonion conjugation (`kappa . conj`, `B = diag(1,-1,...,-1)`):** here
+  `J L_a J^-1 = -R_a` (genuine right multiplication; the identity `KAPPA L_i KAPPA = -R_i`
+  is exact to `0`), so order-zero becomes the associator — it holds on the quaternion
+  BIMODULE (`~1e-15`) and ALLOWS a noncommutative `A`. BUT this `J` destroys the
+  grading: `J gamma J^-1 = -0.5 gamma` is not `+/- gamma` (residual `2.0`), so the
+  KO-dimension is UNDEFINED — chirality is lost.
+- **DICHOTOMY:** on a single irreducible octonion brick NO real structure `J` gives
+  BOTH KO-dimension 6 AND a noncommutative order-zero algebra. The two requirements pull
+  `J` in incompatible directions (conjugation vs octonion-conjugation). This is the
+  SHARP form of the Phase-1.1 order-zero obstruction.
+- **RESOLUTION (standard Connes route, computed):** stop forcing the octonions to BE the
+  order-zero algebra. A nonabelian `A = H` acting on `A (x) A^o` satisfies order-zero
+  EXACTLY (`0`) by left-right commutation (left and right multiplication on a matrix
+  algebra commute regardless of how noncommutative `A` is) while staying genuinely
+  nonabelian (`||[i, j]|| = 2`). The octonions then GRADE the module (they supply
+  `gamma8` and the charges), they do NOT supply the order-zero `*`-algebra — exactly how
+  Connes' Standard Model evades the associator. This points to the concrete rebuild
+  `A = C (+) H (+) M_3(C)` on `A (x) A^o`.
+
+This neither closes nor advances F0's Bayes credit: it converts the Phase-1.1
+order-zero FAIL into a precise statement and names the rebuild it demands. Two open
+bridges remain before a spectral action can be written — (i) carry out that associative
+rebuild as a genuine product triple that RESTORES KO-dim 6, and (ii) embed the
+chirality-even Jordan Yukawa in the real-structure (Majorana) sector so the finite
+KO-dimension does not drop from 6 to 4 (Obstruction 2, still open). Until both are done
+`eps0^2 = pi/432` stays GEOMETRIC and open; nothing here promotes it. The scoreboard
+ladder (`-21.3 / -3.2 / +5.6 / +36.2`) and the frozen registry manifest are untouched.
+Wired into `audit.py` and `audit_contract.py` (70/70 contracted, status PASS; pytest
+89 passed) as an `OPEN_BRIDGE` under F0.

@@ -915,6 +915,51 @@ CONTRACTS = {
             "model_complexity/scoreboard credit is claimed on the back of this assembly.",
         ),
     ),
+    "f0_real_structure_gate": contract(
+        "f0_real_structure_gate",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only the precise real-structure DICHOTOMY and its named resolution, "
+        "computed on the octonion brick. A finite spectral triple has ONE real "
+        "structure J and EVERY axiom must hold for that SAME J; the Phase-1.1 gate "
+        "tested KO signs against J=conjugation but order-zero against right-mult, two "
+        "different J's. Testing both axioms against each J shows: with J = complex "
+        "conjugation (the KO-dim-6 choice) the opposite algebra J L_a J^-1 = L_a "
+        "coincides with A, so order-zero forces A COMMUTATIVE (quaternions fail ~14, "
+        "only the complex line holds ~1e-16) -- no SU(2)/SU(3) on one brick; with "
+        "J = octonion conjugation one gets genuine right-multiplication (J L_a J^-1 "
+        "= -R_a), order-zero becomes the associator and holds on the quaternion "
+        "bimodule (~1e-15) for a noncommutative A, BUT J gamma J^-1 = -0.5 gamma is "
+        "not +-gamma so the grading is not J-compatible and the KO-dimension is "
+        "undefined. Hence on one irreducible brick NO single J yields BOTH KO-6 AND "
+        "a noncommutative order-zero algebra. The RESOLUTION is the standard Connes "
+        "route, computed here: a nonabelian A on A (x) A^o satisfies order-zero "
+        "exactly (0) by left-right commutation, so the octonions must GRADE the "
+        "module (gamma8, charges) rather than be the order-zero *-algebra. This "
+        "SHARPENS the Phase-1.1 obstruction and names the rebuild; it does NOT build "
+        "the triple and moves NO Bayes credit: F0 stays GEOMETRIC/open, eps0^2 = "
+        "pi/432 is not promoted.",
+        open_bridges=(
+            "Carry out the associative rebuild A = C (+) H (+) M_3(C) acting on "
+            "A (x) A^o as a genuine product triple that RESTORES KO-dimension 6, with "
+            "the octonion brick supplying only the grading and charges.",
+            "Embed the chirality-even Jordan Yukawa in the real-structure (Majorana) "
+            "sector so the finite KO-dimension stays 6 rather than doubling to 4 "
+            "(the second Phase-1.1 tension, still open).",
+            "Only once that consistent KO-6 triple exists can Phase 1.2 (heat-kernel "
+            "a0/a2/a4 as traces of Y) and Phase 1.3 (is pi/432 the a4/a2 ratio?) run.",
+        ),
+        kill_conditions=(
+            "The dichotomy is spun as if a single J on one brick delivered both KO-6 "
+            "and a noncommutative order-zero algebra.",
+            "The A (x) A^o resolution is presented as a finished spectral triple, or "
+            "a spectral action is computed on it, before the KO-6-restoring rebuild "
+            "and the Yukawa real-structure embedding are actually carried out.",
+            "F0 is promoted, eps0^2 = pi/432 is called geometrically forced, or "
+            "model_complexity/scoreboard credit is claimed on the back of this gate.",
+        ),
+    ),
     "f0_direction_gate": contract(
         "f0_direction_gate",
         ("F0", "STAT1"),
