@@ -1144,6 +1144,50 @@ CONTRACTS = {
             "this consolidation, in either direction.",
         ),
     ),
+    "f0_theta_reality_gate": contract(
+        "f0_theta_reality_gate",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only the precise negative this gate computes: that the TOPOLOGICAL "
+        "route to pi/432 -- the candidate pi/432 = theta/dim with theta = pi*nu a Z2 "
+        "angle quantized by the KO-6 real structure J -- is CLOSED for the genuine "
+        "216-dim octonionic Dirac D, because all three natural sources of a theta = pi "
+        "vanish. This is a genuinely DIFFERENT channel from Phase 1.3: a theta-term is "
+        "NON-perturbative (it never enters the rational Seeley-DeWitt moments), so the "
+        "1.3 rational-moment kill does not pre-empt it. The three invariants: (A) the "
+        "spectral-asymmetry eta = #(lambda>0)-#(lambda<0) = 0 identically, forced by "
+        "gamma-oddness (gamma D = -D gamma => +/- symmetric spectrum 108/108, no zero "
+        "modes); (B) the chiral mod-2 index nu = dim ker(D:H+->H-) mod 2 = 0, the block "
+        "being full rank (108); (C) the Kramers/Fu-Kane Z2 is undefined because KO-6 has "
+        "J^2 = +1 (the real class), not the J^2 = -1 a time-reversal theta = pi needs. "
+        "So theta = 0 and pi*nu/432 = 0 != pi/432. This is the THIRD independent "
+        "converging-negative (with the 1.3 prefactor and the 1.4 ratios); pi/432 stays "
+        "the Berry half-solid-angle holonomy of the CONTINUOUS vacuum sphere -- a "
+        "property of the missing action, not a topological invariant of D. F0 stays "
+        "GEOMETRIC/open; this moves NO Bayes credit and touches no frozen artifact.",
+        open_bridges=(
+            "The lone surviving F0 bottleneck is unchanged: a DERIVED dynamical/"
+            "variational action whose stationary vacuum fixes pi/432 and selects the "
+            "seed eigenvalues. The topological-theta route does NOT supply it -- it is "
+            "now a recorded converging-negative, not an open lead.",
+            "The surviving reading of pi/432 is the Berry/Schur holonomy of the "
+            "continuous vacuum-selection sphere (the dynamics that picks the vacuum "
+            "direction), which this gate leaves untouched -- neither derived nor "
+            "demoted.",
+        ),
+        kill_conditions=(
+            "The negative is spun as a positive -- e.g. theta reported as pi (rather "
+            "than the computed 0), or the gate presented as evidence FOR a topological "
+            "origin of pi/432.",
+            "The bounded negative is over-claimed as a TOTAL kill of F0 -- the "
+            "Berry/Schur geometric reading survives and must not be reported as killed; "
+            "equally the scope (THIS finite KO-6 triple via its three natural sources) "
+            "must not be inflated to 'no topological invariant can ever be pi'.",
+            "Any F0 / pi-432 / scoreboard / registry credit is moved on the back of "
+            "this gate, in either direction.",
+        ),
+    ),
     "f0_direction_gate": contract(
         "f0_direction_gate",
         ("F0", "STAT1"),

@@ -538,3 +538,44 @@ registry manifest are untouched; the standing position is the standalone math
 (`PAPER_JORDAN_THEOREMS.md`) + the honest null until the action is derived. Wired into
 `audit.py` and `audit_contract.py` (74/74 contracted, status PASS; pytest 93 passed) as an
 `OPEN_BRIDGE` under F0.
+
+### Execution note (2026-06-09) — topological-theta route tested and CLOSED (third converging-negative)
+
+`compute/f0_theta_reality_gate.py` added: after the Phase-1 closeout the question was
+whether a *new* idea — a TOPOLOGICAL one — could close the gate that 1.3 and 1.4 left
+open. The candidate was genuinely different from the two already refuted: `pi/432 =
+theta/dim` with `theta = pi*nu`, `nu in {0,1}` a Z2 angle QUANTIZED by the KO-6 real
+structure `J` (and CHO in the `nu = 1` class). A `theta`-term is NON-perturbative — it
+never appears in the rational Seeley-DeWitt moments `Tr(D^2k)` — so the Phase-1.3
+rational-moment kill does not pre-empt it, and a first-power `pi` in the NUMERATOR (which
+`pi/432` has) is exactly the holonomy/topological signature, so this was the natural place
+to look. It was explored FIRST (throwaway `_explore_theta_ko6.py`, DELETED) then recorded.
+On the genuine 216-dim octonionic KO-6 Dirac `D`, all THREE natural sources of a
+`theta = pi` VANISH, robustly across every seed and with the Majorana sector on or off:
+- **(A) Spectral-asymmetry (`eta`) `theta`.** `theta_eta = pi*eta(D)` with
+  `eta = #(lambda>0) - #(lambda<0)`. But `D` is `gamma`-ODD (`gamma D = -D gamma`,
+  residual `0`), so its spectrum is EXACTLY `+/-` symmetric (`108/108`, no zero modes) and
+  `eta = 0` identically — the very grading that DEFINES chirality forces the
+  spectral-asymmetry `theta` to zero.
+- **(B) Chiral mod-2 index.** `nu = dim ker(D: H+ -> H-) mod 2`; the chiral block is FULL
+  RANK (rank `108`, zero kernel) so `nu = 0`, no protected Z2.
+- **(C) Kramers / Fu-Kane Z2.** The time-reversal topological-insulator `theta = pi`
+  invariant requires `J^2 = -1` (Kramers, class AII), but KO-6 has `J^2 = +1` (the REAL
+  class), so this invariant is not even defined here.
+
+VERDICT: `theta = pi*nu = 0`, so `pi*nu/432 = 0 != pi/432 = 0.00727221` — the
+topological-`theta` route is CLOSED. This is the THIRD independent converging-negative
+(joining the Phase-1.3 prefactor and the Phase-1.4 ratios): all three localise the
+remaining F0 gap to the SAME object and for the SAME reason — each is KINEMATICS/TOPOLOGY,
+and the gap is DYNAMICS. The `pi` the program legitimately has is the Berry
+half-solid-angle `(1/2)(2 pi) = pi`, a holonomy of the CONTINUOUS vacuum-selection Bloch
+sphere (a property of the still-missing action that picks the vacuum direction), NOT a
+topological invariant of the finite `D`. So `pi/432` is not a `theta`-angle of `D` either;
+it stays the Berry/Schur GEOMETRIC quantity it always was. Scope is honest: this refutes
+`theta = pi` for THIS finite KO-6 triple via its three natural sources, not for every
+conceivable construction — but it closes the concrete route proposed, so the ground is not
+re-covered. F0 stays GEOMETRIC/open (not demoted — the geometric reading is untouched; not
+promoted — no new earn-path opened); no Bayes credit moves; the scoreboard ladder
+(`-21.3 / -3.2 / +5.6 / +36.2`) and the frozen registry manifest are untouched. Wired into
+`audit.py` and `audit_contract.py` (75/75 contracted, status PASS; pytest 94 passed) as an
+`OPEN_BRIDGE` under F0.
