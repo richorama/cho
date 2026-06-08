@@ -579,3 +579,50 @@ promoted — no new earn-path opened); no Bayes credit moves; the scoreboard lad
 (`-21.3 / -3.2 / +5.6 / +36.2`) and the frozen registry manifest are untouched. Wired into
 `audit.py` and `audit_contract.py` (75/75 contracted, status PASS; pytest 94 passed) as an
 `OPEN_BRIDGE` under F0.
+
+### Execution note (2026-06-09) — program-level closeout: the seven-point scorecard made executable
+
+`compute/gold_standard_closeout.py` added: the program-level analogue of
+`f0_phase1_closeout`. The three Phase-1 converging-negatives (1.3 prefactor, 1.4 ratios,
+the topological-`theta` gate) had localised the F0 gap to one missing object; this capstone
+zooms out one level and consolidates the WHOLE seven-point gold-standard scorecard (the
+table earlier in this file) into a single executable, self-checking statement — and then
+ASSERTS the honest-null standing position against its source-of-truth modules so the
+Fail-branch position cannot SILENTLY drift into over-claim. It imports rather than restates
+every number:
+- **[1] Headline.** From `scoreboard.scoreboard()` it reads the `ln B` credit ladder —
+  historical `-21.3` (pre-`eps0`, `8/3` only) → closed-theorem floor `-3.2` (today's EARNED
+  position) → `+5.6` if the geometric `pi/432` is GRANTED → `+36.2` if the program
+  completes — and asserts it is strictly monotone with the SIGN FLIP located exactly at the
+  `pi/432` grant. On EARNED credit the numerology null still wins (floor `< 0`); the sign
+  only turns positive when `pi/432` is granted. That is the honest bottom line.
+- **[2] Scorecard.** It prints all seven criteria, each tied to its source artifact, with a
+  rigour census from `audit_contract.CONTRACTS` (`>=1` THEOREM, ~30 `OPEN_BRIDGE`) and a
+  guard that the headline F0 closeout and the one-operator gate (`yukawa_operator_full`) are
+  still `OPEN_BRIDGE` — i.e. not silently promoted — plus the frozen `prediction_registry`
+  digest `MATCH`.
+- **[3] Convergence.** It re-runs `f0_phase1_closeout`'s prefactor + ratio routes to
+  re-verify criterion 1 ABSENT, and records the structural finding: criteria 1 (dynamical
+  principle), 3 (one unifying object) and the open half of 2 (derived not fitted) are NOT
+  independent jobs — each localises to the SAME missing derived dynamical action. The
+  remaining gaps are EXTERNAL and not closable by more internal work: criterion 4 (a
+  pre-registered hit, `sin^2 th23 = 4/7`) awaits DUNE / Hyper-K; criterion 6 (single UV
+  scale) is falsified; criterion 7 (independent reproduction) needs peer review.
+- **[4] Standing position.** Ship the standalone math (`PAPER_JORDAN_THEOREMS.md`) + the
+  honest null. This capstone is a REPORTER, not a source: it grants no Bayes credit of its
+  own. Its checks are a TRIPWIRE, not a freeze — they catch *silent* drift (a refactor that
+  quietly moves a rung, an unearned promotion) and force any change to be DELIBERATE.
+
+Nothing here is published, so nothing here is permanent: the asserted numbers are today's
+EARNED position, not sacred constants. When the science actually earns a different ladder —
+when the action is derived and `pi/432` is no longer merely granted — we update the
+constant, the registry and the scoreboard deliberately and re-verify. That is following the
+evidence, which is the only real constraint. This is NOT a new physics result and NOT
+another invariance witness (the roadmap warns that ~24 of those is past diminishing
+returns) — it is the opposite, the capstone that records where the INTERNAL program
+terminates. The internal program now reduces to one object: a DERIVED dynamical/variational
+action whose stationary vacuum fixes `pi/432` and selects the seed eigenvalues. Today F0
+stays GEOMETRIC/open (not demoted, not promoted) and the scoreboard ladder
+(`-21.3 / -3.2 / +5.6 / +36.2`) and the pre-registered prediction manifest read unchanged.
+Wired into `audit.py` and `audit_contract.py` (76/76 contracted, status PASS; pytest 95
+passed) as an `OPEN_BRIDGE` under F0.

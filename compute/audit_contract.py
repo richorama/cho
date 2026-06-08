@@ -1188,6 +1188,51 @@ CONTRACTS = {
             "this gate, in either direction.",
         ),
     ),
+    "gold_standard_closeout": contract(
+        "gold_standard_closeout",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only the consolidation this capstone computes: that the WHOLE "
+        "seven-point gold-standard scorecard now reduces to one executable, "
+        "self-checking statement, and that the honest-null STANDING POSITION (ship "
+        "the standalone math PAPER_JORDAN_THEOREMS.md + the honest null) is asserted "
+        "against its source-of-truth modules so it cannot silently drift. The single "
+        "headline number is the scoreboard ln B ladder: historical -21.3 -> "
+        "closed-theorem floor -3.2 (today's EARNED position) -> +5.6 if the geometric "
+        "pi/432 is GRANTED -> +36.2 if the program completes; the SIGN FLIPS only at "
+        "the pi/432 grant, so on EARNED credit the numerology null still wins (floor < "
+        "0). The internal program TERMINATES in the precise sense that criteria 1 "
+        "(dynamical principle, ABSENT), 3 (one unifying object, OPEN) and the open half "
+        "of 2 all localise to the SAME missing derived dynamical action, while the "
+        "remaining gaps are external: criterion 4 (pre-registered hit) awaits DUNE / "
+        "Hyper-K, criterion 6 (single UV scale) is falsified, criterion 7 (independent "
+        "reproduction) needs peer review. This capstone is NOT a new physics result "
+        "and NOT another invariance witness; it is a REPORTER, not a source -- it "
+        "grants no Bayes credit of its own, and its checks forbid only SILENT drift, "
+        "never a DELIBERATE re-verified revision when the science earns one (nothing "
+        "here is published, so nothing here is permanent).",
+        open_bridges=(
+            "The lone open INTERNAL lever is unchanged: a DERIVED dynamical/variational "
+            "action whose stationary vacuum fixes pi/432 and selects the seed "
+            "eigenvalues. Every internal criterion (1, 3, the open half of 2) waits on "
+            "exactly this one object.",
+            "The open EXTERNAL levers are not closable by more internal work: an "
+            "experiment (criterion 4, sin^2 th23 = 4/7 at DUNE / Hyper-K) and peer "
+            "acceptance (criterion 7).",
+        ),
+        kill_conditions=(
+            "The honest null is spun as a positive -- e.g. the EARNED floor (ln B = "
+            "-3.2 < 0) is reported as program success, or the GRANTED +5.6 is presented "
+            "as earned rather than granted.",
+            "A scorecard criterion is flipped (ABSENT/OPEN/PENDING -> met) without the "
+            "underlying artifact being promoted first, or the capstone is read as "
+            "CLOSING criteria 4 or 7, which only an experiment / external review can do.",
+            "Any F0 / pi-432 / scoreboard / registry credit is moved on the back of "
+            "this consolidation itself, in either direction (credit is earned in the "
+            "physics artifacts it reads, never granted by this reporter).",
+        ),
+    ),
     "f0_direction_gate": contract(
         "f0_direction_gate",
         ("F0", "STAT1"),
