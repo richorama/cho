@@ -189,11 +189,11 @@ Grading CHO against what "gold-standard physics" (Standard Model / GR class) dem
 
 | # | Criterion | Status | Evidence |
 |---|---|---|---|
-| 1 | Dynamical principle (action -> EoM -> vacuum -> spectrum) | ABSENT | `02_action.md` is a candidate; ~24 of 68 artifacts are F0 invariance/normalisation witnesses, scoreboard still "GEOMETRIC, seam open" |
+| 1 | Dynamical principle (action -> EoM -> vacuum -> spectrum) | ABSENT (decisive experiment RUN) | Phase 1 fully executed (1.1-1.4); the heat-kernel `a4/a2` make-or-break (Phase 1.3) REFUTED the spectral-action route and the `L_X` spectrum (Phase 1.4, `spectral_action_432`) forces structure but not the seed -- both converge on a still-ABSENT dynamical action (`02_action.md` candidates it); ~30 of 74 artifacts are F0 invariance/normalisation witnesses, scoreboard still "GEOMETRIC, seam open" |
 | 2 | Parameters derived not fitted | PARTIAL | 7 DERIVED (31.2 bits) vs 9 CHOSEN (44.1 bits); the 3 exponents alone are 21.8 bits |
 | 3 | One unifying object | ABSENT | masses / CKM / PMNS are separate bridges; no single diagonalised operator |
 | 4 | Confirmed pre-registered prediction | PENDING | `sin^2 th23 = 4/7` frozen but unmeasured; all else postdiction |
-| 5 | Mathematical rigour (theorems) | PARTIAL | exactly 1 THEOREM-status artifact (`ladder_charges`, inherited); 23 OPEN_BRIDGE; genuine new theorems exist (idempotent `N_gen=3`, Schur `1/16` & `1/27`, Freudenthal seesaw) but the headline numbers ride bridges |
+| 5 | Mathematical rigour (theorems) | PARTIAL | exactly 1 THEOREM-status artifact (`ladder_charges`, inherited); 23 OPEN_BRIDGE; a constructive KO-dim-6 SM-type finite-triple skeleton now exists (Phase 1.2, `f0_associative_triple_gate`); genuine new theorems exist (idempotent `N_gen=3`, Schur `1/16` & `1/27`, Freudenthal seesaw) but the headline numbers ride bridges |
 | 6 | Continuum / UV control | FALSIFIED (single scale) | `rg_scale_derivation.py`: two EW boundaries over-determine the matching scale by ~1.8e4 (12 GeV vs 2e5 GeV); gravity gated out |
 | 7 | Independent reproduction / acceptance | ABSENT | self-published; MDL `R~1.19` marginal; `ln B` favours the numerology null |
 
@@ -220,14 +220,20 @@ properties of a finite spectral triple `(A, H, D)` and its spectral action
   `-3.2`, ship the standalone math + honest null.
 - 1.2 Heat-kernel expansion `a0 Lambda^4 + a2 Lambda^2 + a4 + ...`; the coefficients
   are closed traces of `Y` (`Tr(Y^dag Y)`, `Tr((Y^dag Y)^2)`).
-- 1.3 DECISIVE EXPERIMENT: is `pi/432` one of those coefficients? The measure space
+- 1.3 DECISIVE EXPERIMENT **[EXECUTED 2026-06-09 - REFUTED; see `f0_spectral_action_heatkernel`]**: is `pi/432` one of those coefficients? The measure space
   is `16x27=432`; test whether the normalised `a4/a2` (or the finite-spectrum moment)
   equals `pi/432` from the geometry. ACCEPTANCE: yes -> F0 CLOSES dynamically, the
   `+5.6` becomes EARNED, `eps0` moves DERIVED on the scoreboard, criterion 1 met.
   KILL: a different number -> F0 is not a spectral-action output, withdraw the credit,
-  `ln B` headline stays `-3.2`.
-- 1.4 Does the finite spectrum of `Y` reproduce the hierarchy as eigenvalue ratios?
-  (Seeds Phase 2.)
+  `ln B` headline stays `-3.2`. OUTCOME: the moments are EXACT `pi`-free rationals, so
+  `a4/a2 = M4/M2^2 = 0.00582895` can never equal the transcendental `pi/432 = 0.00727221`
+  -> the dynamical earn-path is CLOSED, the Berry/Schur geometric reading is untouched.
+- 1.4 **[ANSWERED - `spectral_action_432.py`: the averaging-law structure is forced,
+  the absolute seed is open]** Does the finite spectrum of `Y` reproduce the hierarchy as
+  eigenvalue ratios? The octonionic `L_X` forces the averaging law
+  `{a,b,c} u {(a+b)/2, ...}` but the best single-knob `eps0` ladder MISSES the measured
+  charged-lepton hierarchy by 1.40 decades -> the spectrum forces STRUCTURE, not the
+  absolute generation profile (one open scalar seed function). (Seeds Phase 2.)
 
 **PHASE 2 - conditional on Phase 1: one object -> spectrum.**
 - Tier 3: diagonalise the SAME `Y` for charged masses + CKM, its seesaw partner for
@@ -256,6 +262,17 @@ to a candidate spectral-action theory and the Bayes sign flips on EARNED credit.
 Fail -> the gold-standard route is closed; ship the standalone math
 (`PAPER_JORDAN_THEOREMS.md`, done) + the honest null, and stop the invariance-witness
 treadmill (24 F0 modules is already well past diminishing returns).
+
+**FORK OUTCOME (2026-06-09, executed).** Phase 1 is now fully built and its decisive
+experiment is RUN. Both decisive routes -- the `pi/432` PREFACTOR (Phase 1.3 heat-kernel
+`a4/a2`, REFUTED) and the mass RATIOS (Phase 1.4 `L_X` spectrum, structure forced / seed
+open) -- land on the bounded-Fail branch and converge on the SAME lone missing object: a
+DERIVED dynamical seed-selection action (criterion 1). Per the fork, that is the closed
+gold-standard route for now: the standing position is the standalone math + the honest
+null, and the invariance-witness phase is closed (recorded executably in
+`f0_phase1_closeout`). The fail is BOUNDED -- F0 stays GEOMETRIC/open, the Berry/Schur
+`pi/432` reading and the derived mass STRUCTURE survive -- and moves NO credit: `ln B`
+holds at `-3.2` closed-floor / `+5.6` if-granted, the frozen registry untouched.
 
 ### Execution note (2026-06-08)
 
@@ -480,4 +497,44 @@ manifest is untouched. This is the negative result the gold-standard fork antici
 the heat-kernel route closed, the honest reading is that `pi/432` is a geometric/Berry
 quantity, and the standalone math + the honest null is what stands. Wired into `audit.py`
 and `audit_contract.py` (73/73 contracted, status PASS; pytest 92 passed) as an
+`OPEN_BRIDGE` under F0.
+
+### Execution note (2026-06-09) — Phase 1 closeout: both decisive routes converge on the missing action
+
+`compute/f0_phase1_closeout.py` added: it is NOT another invariance witness (the roadmap
+warns ~24 of those is past diminishing returns) — it is the opposite, the CLOSEOUT that
+records where the make-or-break gate leaves F0, by importing the two source-of-truth
+numbers from the two Phase-1 modules and asserting their convergence. Phase 1 is now fully
+executed (1.1 obstructions -> 1.2 associative rebuild + octonionic `L_X` -> 1.3 heat-kernel
+refutation -> 1.4 `spectral_action_432` spectrum localisation). A finite spectral triple
+could secure the CHO content in exactly two independent ways — as a PREFACTOR (the single
+constant `eps0^2 = pi/432`) or as a SPECTRUM (the mass RATIOS) — and Phase 1 tested BOTH:
+- **PREFACTOR route (Phase 1.3, re-derived from the genuine 216-dim `D`):** `a2 = Tr(D^2) =
+  92.96 = 2324/25`, `a4 = Tr(D^4) = 50.3712 = 31482/625`, so `a4/a2 = M4/M2^2 = 0.00582895`
+  is a `pi`-FREE rational, bounded away from `pi/432 = 0.00727221` (gap `0.00144 > 1e-3`).
+  `pi/432` is NOT a spectral-action output (the only spectral `pi` is the continuum
+  `(4 pi)^(-d/2)`).
+- **RATIO route (Phase 1.4, imported from `spectral_action_432.ladder_mismatch`):** the
+  octonionic `L_X` forces the averaging law but the best single-knob `eps0` ladder
+  `(1, eps0, eps0^2)` MISSES the measured charged-lepton hierarchy by **1.40 decades**. The
+  spectrum forces the STRUCTURE but not the absolute generation profile.
+- **CONVERGENCE (the closeout result):** the prefactor (a single transcendental constant)
+  and the ratios (a set of multiplicative ratios) are INDEPENDENT tests, yet BOTH localise
+  the ENTIRE remaining F0 gap to the SAME missing object — a DYNAMICAL/VARIATIONAL action
+  that would have to (i) PRODUCE `pi/432` as a spectral-action output [refuted in 1.3] AND
+  (ii) SELECT the three diagonal seed eigenvalues [the lone open scalar function in 1.4].
+  The algebra + symmetry + spectral triple supply NEITHER, which is exactly gold-standard
+  criterion 1 (action -> EoM -> vacuum -> spectrum), still ABSENT; `foundations/02_action.md`
+  is a candidate, not a derivation.
+
+FORK OUTCOME (bounded; moves no credit). Phase 1's decisive experiment landed on the KILL
+side for the DYNAMICAL route — bounded: F0 stays GEOMETRIC/open. The Berry/Schur `pi/432`
+reading SURVIVES (not demoted); the mass STRUCTURE (averaging law, the `(0,2,4)` seesaw
+skeleton, the GJ `{1,3,8}` prefactors) is derived; but neither `pi/432` nor the absolute
+hierarchy is promotable to DERIVED without the missing action. PHASE 2 (one operator ->
+masses + CKM + PMNS) is GATED on this same dynamical seed selection. This consolidation
+moves NO Bayes credit: the scoreboard ladder (`-21.3 / -3.2 / +5.6 / +36.2`) and the frozen
+registry manifest are untouched; the standing position is the standalone math
+(`PAPER_JORDAN_THEOREMS.md`) + the honest null until the action is derived. Wired into
+`audit.py` and `audit_contract.py` (74/74 contracted, status PASS; pytest 93 passed) as an
 `OPEN_BRIDGE` under F0.

@@ -1097,6 +1097,53 @@ CONTRACTS = {
             "moved either way.",
         ),
     ),
+    "f0_phase1_closeout": contract(
+        "f0_phase1_closeout",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only the consolidation this gate computes: that PHASE 1 (the "
+        "make-or-break finite-spectral-triple build) is fully executed and that its "
+        "TWO independent decisive routes converge on ONE missing object. It imports "
+        "the two source-of-truth numbers rather than re-deriving them loosely. "
+        "PREFACTOR route (Phase 1.3, from f0_spectral_action_heatkernel on the "
+        "genuine 216-dim D): a2 = Tr(D^2) = 92.96, a4 = Tr(D^4) = 50.3712, so the "
+        "dimensionless a4/a2 = M4/M2^2 = 0.00582895 is a pi-FREE rational and is "
+        "bounded away from the transcendental pi/432 = 0.00727221 (gap 0.00144 > "
+        "1e-3) -- pi/432 is NOT a spectral-action output. RATIO route (Phase 1.4, "
+        "from spectral_action_432.ladder_mismatch): the octonionic L_X forces the "
+        "averaging law but the best single-knob eps0 ladder MISSES the measured "
+        "charged-lepton hierarchy by 1.40 decades -- the spectrum forces STRUCTURE, "
+        "not the absolute profile. The two routes are independent (a single "
+        "transcendental constant vs a set of multiplicative ratios) yet both "
+        "localise the entire remaining F0 gap to the SAME missing object: a "
+        "dynamical/variational ACTION (gold-standard criterion 1, ABSENT) that "
+        "would have to produce pi/432 [refuted] AND select the three seed "
+        "eigenvalues [open]. This gate is a CONSOLIDATION, not a new physics "
+        "result; it moves NO Bayes credit and touches no frozen artifact. F0 "
+        "stays GEOMETRIC/open and Phase 2 is GATED on the missing action.",
+        open_bridges=(
+            "The lone surviving F0 bottleneck is a DERIVED dynamical/variational "
+            "action (criterion 1): a principle whose stationary vacuum both fixes the "
+            "pi/432 prefactor AND selects the three diagonal seed eigenvalues. Both "
+            "decisive Phase-1 routes converge here; foundations/02_action.md only "
+            "candidates it.",
+            "Closing this bridge requires that derived action (and the Phase-2 "
+            "operator -> masses+CKM+PMNS that would follow), NOT another invariance "
+            "witness -- this gate explicitly closes the invariance-witness phase.",
+        ),
+        kill_conditions=(
+            "The closeout is spun as a positive derivation or a Phase-1 'success' -- "
+            "e.g. presenting the convergence as evidence FOR pi/432 or the hierarchy "
+            "rather than as the bounded fork outcome (the dynamical route is closed, "
+            "the geometric reading survives).",
+            "The bounded fork is over-claimed as a TOTAL kill of F0 -- the Berry/Schur "
+            "geometric pi/432 reading and the derived mass STRUCTURE (averaging law, "
+            "(0,2,4) skeleton, GJ {1,3,8}) survive and must not be reported as killed.",
+            "Any F0 / pi-432 / scoreboard / registry credit is moved on the back of "
+            "this consolidation, in either direction.",
+        ),
+    ),
     "f0_direction_gate": contract(
         "f0_direction_gate",
         ("F0", "STAT1"),
