@@ -48,6 +48,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
     *  epsilon_orbit_selection      — F0 orbit-selection: which two orbits — the MINIMAL ones, forced by Spin(9)-transitivity (16) + action rank-one (27)
     *  epsilon_action_selection     — F0 action-selection: rank-one ray = global MINIMISER of the E6-invariant cubic N3 (X#=grad N3), an OUTPUT not an input
     *  f0_vacuum_majorization      — F0 robustness: rank-one ray is the majorization-MAXIMAL J3(O) state, so it extremises EVERY Schur-concave/convex action (cubic N3, entropies, AND the Connes spectral-action purity term) — vacuum not tied to one functional
+    *  f0_spectral_triple_gate     — F0 Phase-1.1 gate: assembles (A,H,D;J,gamma) on the 432-space and reports the Connes-axiom ledger HONESTLY — KO-dim-6 spin brick + self-adjoint chirality-odd D pass, but order-zero = the octonion associator FAILS (A must be the associative/Jordan envelope) and the Jordan Yukawa needs doubling (KO-dim 4 not 6); triple does NOT yet exist, no Bayes credit
   *  gravity_curvature            — M-GRAV: emergent rank-2 metric from non-associativity
   *  gravity_gate_audit           — Phase 5 gate: gravity remains exploratory unless Lorentzian dynamics close
   *  jordan_standalone_theorems   — Item 5: three J3(O) theorems published as standalone math, decoupled from physics
@@ -119,6 +120,7 @@ import epsilon_assumption_p_gate
 import epsilon_action_stationary
 import epsilon_action_selection
 import f0_vacuum_majorization
+import f0_spectral_triple_gate
 import f0_action_ray_gate
 import f0_action_kernel_dynamics_gate
 import f0_kernel_class_gate
@@ -304,6 +306,9 @@ ARTIFACTS = [
     ("f0_vacuum_majorization",
      "F0 vacuum robustness (strengthens epsilon_action_selection from one functional to a universality class): on the J3(O) state slice {O>=0, Tr O=1} the rank-one transition ray is the MAJORIZATION-MAXIMAL element — its spectrum (1,0,0) majorises every state and I/3 is majorised by every state. By Hardy-Littlewood-Polya this single order fixes the extremiser of the WHOLE Schur class: every Schur-concave action (cubic N3=det, von Neumann/Renyi entropy) is minimised at rank-one and every Schur-convex action (purity Tr O^2, AND the Connes finite-spectral-action term -a Tr Phi^2 + b Tr Phi^4) is extremised there, so a spectral action lands on the SAME rank-one vacuum (the same KO-dim-6 triple as ko_dimension_chirality/spectral_action). Honest corrective: the spectral potential is EVEN (deg 2/4) while N3 is deg 3 — different functionals, one vacuum. F0 not promoted; which action CHO realises, the kinetic coeff, and pi/432 stay open.",
      f0_vacuum_majorization.main),
+    ("f0_spectral_triple_gate",
+     "F0 Phase-1.1 spectral-triple gate (the make-or-break roadmap build): assembles the finite real triple (A,H,D;J,gamma) on the CHO 432-space — octonion Clifford spin brick C^8 with gamma8=i L_1..L_6 and J8=complex conjugation (KO-dim 6, eps=+1/eps''=-1), the chirality-even Jordan Yukawa L_X on J3(O) doubled to a chirality-odd Dirac D_F on C^54, product D=gamma8(x)D_F on H=C^8(x)C^54 (dim_R 864 = 2x432). Verifies the metric/real-structure HALF (D self-adjoint, gamma^2=I, gamma D=-D gamma, J^2=+I) but reports two HONEST obstructions: order-zero [a,b^o] equals the octonion associator and FAILS for A=C(x)H(x)O (~16; recovered only on a true associative bimodule ~1e-15 or the C-line), and the Yukawa doubling pushes the finite KO-dim to 6+6=4(mod8) not 6. The naive triple does NOT yet exist; both repairs (associative/Jordan envelope; Yukawa in the real structure) are known, so this is not the KILL but localises the Phase-1.2 prerequisite. F0 stays open; no Bayes credit.",
+     f0_spectral_triple_gate.main),
     ("f0_action_ray_gate",
      "F0 action-ray derivation gate: derives the transition ray as the unique stationary maximizer of the effective action generator, with dynamic flow convergence checks.",
      f0_action_ray_gate.main),

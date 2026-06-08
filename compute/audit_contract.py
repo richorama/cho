@@ -876,6 +876,45 @@ CONTRACTS = {
                          "is a robustness theorem about the vacuum direction, not a "
                          "closure of the measure."),
     ),
+    "f0_spectral_triple_gate": contract(
+        "f0_spectral_triple_gate",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only the HONEST axiom ledger of the Phase-1.1 assembly: on the CHO "
+        "432-space the KO-dim-6 spin brick (gamma8 = i L_1..L_6, J8 = complex "
+        "conjugation, eps=+1/eps''=-1) is consistent and the assembled "
+        "D = gamma8 (x) D_F is a self-adjoint, chirality-odd operator with "
+        "gamma^2 = J^2 = +I -- the metric/real-structure HALF of a finite spectral "
+        "triple. But the naive (A,H,D) is NOT yet a spectral triple: (1) the "
+        "order-zero axiom [a, b^o] = 0 equals the octonion associator and FAILS for "
+        "A = C(x)H(x)O (residual ~16; recovered only on a genuine associative "
+        "bimodule ~1e-15 or on the complex line via flexibility), so A must be "
+        "replaced by its associative/special-Jordan envelope; (2) the chirality-EVEN "
+        "Jordan Yukawa L_X needs particle/antiparticle doubling, pushing the finite "
+        "KO-dimension to 6+6 = 4 (mod 8) instead of 6. Both are KNOWN, repairable "
+        "obstructions, NOT the irreparable KILL. Do NOT present the triple as "
+        "existing, do NOT compute a spectral action on this naive object, and move "
+        "NO Bayes credit: F0 stays GEOMETRIC/open and eps0^2 = pi/432 is not promoted.",
+        open_bridges=(
+            "Rebuild A as the associative/special-Jordan envelope (or a genuine "
+            "associative bimodule) so order-zero and order-one hold; the octonion "
+            "algebra acting on its own module violates both.",
+            "Embed the Yukawa in the KO-dim-6 real structure (off-diagonal of J) "
+            "rather than as an extra graded factor, so the finite KO-dimension stays "
+            "6 instead of doubling to 4.",
+            "Only once a consistent triple exists can Phase 1.2 (heat-kernel a0/a2/a4 "
+            "as traces of Y) and Phase 1.3 (is pi/432 the normalised a4/a2 ratio?) run.",
+        ),
+        kill_conditions=(
+            "The naive non-associative (A,H,D) is presented as a finished spectral "
+            "triple, or a spectral action is computed on it as if the axioms held.",
+            "The order-zero/associator failure or the KO-dimension doubling is hidden "
+            "or spun as a success.",
+            "F0 is promoted, eps0^2 = pi/432 is called geometrically forced, or "
+            "model_complexity/scoreboard credit is claimed on the back of this assembly.",
+        ),
+    ),
     "f0_direction_gate": contract(
         "f0_direction_gate",
         ("F0", "STAT1"),

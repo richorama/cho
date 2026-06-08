@@ -183,23 +183,79 @@ Baez–Huerta). Three specific things are soft:
    `spectral_action.py` shows one generation forces NO mass ratio, so the hierarchy
    must live in a cross-generation operator that has not been built.
 
-### Tiers (highest leverage first)
+### Gold-standard scorecard (where the gap is, by criterion)
 
-- **Tier 1 — a genuine dynamical backbone.** Build the cross-generation Dirac
-  operator `D` on the `16 x 27 = 432` space and compute the Connes spectral action
-  `Tr f(D/Lambda)`; test whether the hierarchy and `pi/432` fall out as heat-kernel
-  coefficients. We already match Connes' KO-dim 6 (`ko_dimension_chirality.py`), and
-  `spectral_action.py` itself names this as its next step. This is the make-or-break:
-  it closes F0 with real dynamics or fails honestly. (Supersedes/sharpens Track B.)
-- **Tier 2 — derive or quarantine `3^36 / 3^9 / 3^64`.** Either an index / e-folding
-  / RG-fixed-point count, or relabel them explicit dimensional inputs and shrink the
-  headline. Removes the biggest Occam cost. (Extends Track D.)
-- **Tier 3 — one operator → CKM + PMNS + masses from one diagonalisation.** (Track C.)
-- **Tier 4 — continuum/RG with a *derived* matching scale** (`rg_scale_derivation.py`
-  currently *falsifies* a single scale: 12 GeV vs 2e5 GeV). (Track D.)
-- **Tier 5 — win a prediction.** Even a completed program (`ln B = +36`) is
-  postdictive; only a measured prediction is gold-standard. Sharpest:
-  `sin^2 theta_23 = 4/7`, upper octant, `eps0`-independent — DUNE / Hyper-K.
+Grading CHO against what "gold-standard physics" (Standard Model / GR class) demands:
+
+| # | Criterion | Status | Evidence |
+|---|---|---|---|
+| 1 | Dynamical principle (action -> EoM -> vacuum -> spectrum) | ABSENT | `02_action.md` is a candidate; ~24 of 68 artifacts are F0 invariance/normalisation witnesses, scoreboard still "GEOMETRIC, seam open" |
+| 2 | Parameters derived not fitted | PARTIAL | 7 DERIVED (31.2 bits) vs 9 CHOSEN (44.1 bits); the 3 exponents alone are 21.8 bits |
+| 3 | One unifying object | ABSENT | masses / CKM / PMNS are separate bridges; no single diagonalised operator |
+| 4 | Confirmed pre-registered prediction | PENDING | `sin^2 th23 = 4/7` frozen but unmeasured; all else postdiction |
+| 5 | Mathematical rigour (theorems) | PARTIAL | exactly 1 THEOREM-status artifact (`ladder_charges`, inherited); 23 OPEN_BRIDGE; genuine new theorems exist (idempotent `N_gen=3`, Schur `1/16` & `1/27`, Freudenthal seesaw) but the headline numbers ride bridges |
+| 6 | Continuum / UV control | FALSIFIED (single scale) | `rg_scale_derivation.py`: two EW boundaries over-determine the matching scale by ~1.8e4 (12 GeV vs 2e5 GeV); gravity gated out |
+| 7 | Independent reproduction / acceptance | ABSENT | self-published; MDL `R~1.19` marginal; `ln B` favours the numerology null |
+
+The whole gap reduces to one number: `ln B = -3.2` (closed-theorem floor, null wins)
+-> `+5.6` (if `pi/432` is GRANTED geometric) -> `+36.2` (program complete). Today the
+`+5.6` is granted, not earned.
+
+### The closing roadmap — one make-or-break build, then conditional follow-on
+
+Criteria 1, 2, 3 and half of 6 are NOT four independent jobs: they are all
+properties of a finite spectral triple `(A, H, D)` and its spectral action
+`Tr f(D/Lambda)`. So the roadmap is ONE gated build, not five parallel tracks.
+
+**PHASE 1 - THE GATE: finite spectral triple + spectral action (make-or-break).**
+- 1.1 Assemble `(A, H, D)` explicitly. `A = C(x)H(x)O`; `H` = the physical fermion
+  module (3 generations as the J3(O) frame idempotents, 16 Weyl each, antiparticles
+  via the real structure `J`); `D = D_free (+) gamma5 (x) Y`, with `Y` the
+  cross-generation finite Dirac from the Jordan/Freudenthal structure (reuse
+  `spectral_action_432.py` `L_X`, `ko_dimension_chirality.py` `gamma`/`J`).
+  ACCEPTANCE: the NCG axioms verify numerically (`D` self-adjoint; KO-dim 6 signs
+  `(+,+,-)`, already in hand; order-zero and order-one conditions; non-degenerate
+  intersection form). KILL: an axiom fails irreparably -> the 432 space is not a
+  consistent geometry -> withdraw the geometric `pi/432` reading, `ln B` holds at
+  `-3.2`, ship the standalone math + honest null.
+- 1.2 Heat-kernel expansion `a0 Lambda^4 + a2 Lambda^2 + a4 + ...`; the coefficients
+  are closed traces of `Y` (`Tr(Y^dag Y)`, `Tr((Y^dag Y)^2)`).
+- 1.3 DECISIVE EXPERIMENT: is `pi/432` one of those coefficients? The measure space
+  is `16x27=432`; test whether the normalised `a4/a2` (or the finite-spectrum moment)
+  equals `pi/432` from the geometry. ACCEPTANCE: yes -> F0 CLOSES dynamically, the
+  `+5.6` becomes EARNED, `eps0` moves DERIVED on the scoreboard, criterion 1 met.
+  KILL: a different number -> F0 is not a spectral-action output, withdraw the credit,
+  `ln B` headline stays `-3.2`.
+- 1.4 Does the finite spectrum of `Y` reproduce the hierarchy as eigenvalue ratios?
+  (Seeds Phase 2.)
+
+**PHASE 2 - conditional on Phase 1: one object -> spectrum.**
+- Tier 3: diagonalise the SAME `Y` for charged masses + CKM, its seesaw partner for
+  PMNS. ACCEPTANCE: one diagonalisation gives masses + CKM + PMNS within stated error
+  -> criterion 3 met, ~5 DERIVED_BRIDGEs collapse into one.
+- Tier 2: the exponents `3^36 / 3^9 / 3^64` as RG running of the spectral-action
+  couplings from a DERIVED unification scale `Lambda` (Connes-Chamseddine unifies all
+  couplings at `Lambda`; the powers of 3 should be `ln(Lambda/M_Z)` e-foldings, not
+  chosen integers). ACCEPTANCE: they come out -> 21.8 bits move CHOSEN -> DERIVED,
+  `ln B` climbs toward `+36`. KILL: they do not -> relabel them explicit inputs and
+  shrink the headline.
+
+**PHASE 3 - continuum/UV consistency (Tier 4).** Resolve the over-determination
+(12 GeV vs 2e5 GeV): the two EW boundaries must become ONE unification-scale
+condition of the spectral action (the analogue of Connes' `sin^2 th_W = 3/8` at
+`Lambda`), running down to both. ACCEPTANCE: one `Lambda` reproduces both. BONUS: the
+`a2` coefficient IS Einstein-Hilbert, so doing Phase 1 properly produces a gravity
+sector for free (the Lorentzian-signature 4D reduction stays open).
+
+**PHASE 4 - external clock (parallel; no theory work closes it).** Tier 5: the
+`sin^2 th23 = 4/7` upper-octant bet is frozen; DUNE / Hyper-K resolves it. Upper
+octant confirmed = first gold-standard datum; lower octant = kill.
+
+**THE FORK.** Phase 1 is binary. Succeed -> CHO graduates from organised postdictions
+to a candidate spectral-action theory and the Bayes sign flips on EARNED credit.
+Fail -> the gold-standard route is closed; ship the standalone math
+(`PAPER_JORDAN_THEOREMS.md`, done) + the honest null, and stop the invariance-witness
+treadmill (24 F0 modules is already well past diminishing returns).
 
 ### Execution note (2026-06-08)
 
@@ -213,3 +269,40 @@ moves. The next substantive step is Tier 1 proper — constructing `D` on the 43
 space and computing its spectral action — which is large and should be built on the
 verified `spectral_action.py` / `ko_dimension_chirality.py` constructions rather
 than as another normalized-trace witness.
+
+### Execution note (2026-06-09) — Phase 1.1 attempted
+
+`compute/f0_spectral_triple_gate.py` added: the first explicit ASSEMBLY of the
+finite triple `(A, H, D; J, gamma)` on the 432 space called for by Phase 1.1, with
+an honest Connes-axiom ledger that reports the failures as loudly as the passes. It
+reuses `ko_dimension_chirality.py` (the `gamma`/`J` real structure), the octonion
+left-multiplications of `spectral_action.py`, and the Jordan `L_X` of
+`spectral_action_432.py`. RESULT — half passes, two NAMED obstructions:
+- **PASS:** the `C^8` octonion spin brick is a consistent KO-dimension-6 chirality
+  module (`gamma8^2 = I` Hermitian; `J8 = conj` gives `(eps, eps'') = (+1, -1)`), and
+  the product `H = C^8 (x) C^54` (`dim_C = 432`) carries a self-adjoint
+  `D = gamma8 (x) D_F` with `gamma^2 = J^2 = I` and `gamma D = -D gamma`. The
+  metric / real-structure half of the triple is sound.
+- **OBSTRUCTION 1 (order-zero = the octonion associator):** `[[D, a], b] = 0`
+  literally evaluates the associator of `A = C(x)H(x)O`. It FAILS on the full module
+  (residual `~16`; restricting only the algebra to `H` still fails, `~12`) and is
+  recovered to machine precision (`~1e-15`) ONLY on a genuine associative BIMODULE or
+  the complex line. Order-one fails likewise (`~26`). Non-associativity is the
+  structural obstruction; the fix is to rebuild `A` as its associative / special-Jordan
+  envelope.
+- **OBSTRUCTION 2 (Yukawa doubling → KO-dim 4):** the Jordan Yukawa `L_X` is
+  chirality-EVEN, so realising it as a Dirac requires particle/antiparticle doubling,
+  which sends the product KO-dimension `6 (x) 6 -> 4 (mod 8)`, not the 6 a single chiral
+  generation needs. The fix is to carry the Yukawa in the real structure `J`, not as an
+  even operator.
+
+Neither obstruction is the irreparable KILL (which would withdraw the geometric
+`pi/432` reading and hold `ln B` at `-3.2`); both are known and repairable, and
+together they LOCALISE the Phase-1.2 prerequisite to: **build the spectral action on
+the associative / special-Jordan envelope of `A`, with the Yukawa embedded in the real
+structure `J`.** The naive `(A, H, D)` is NOT yet a consistent triple, so the
+heat-kernel `a4/a2` test of Phase 1.3 (the decisive `pi/432` experiment) is NOT yet
+reachable. F0 stays GEOMETRIC/open, no Bayes credit moves, the scoreboard ladder
+(`-21.3 / -3.2 / +5.6 / +36.2`) and the frozen registry manifest are untouched. Wired
+into `audit.py` and `audit_contract.py` (69/69 contracted, status PASS) as an
+`OPEN_BRIDGE` under F0.
