@@ -1049,6 +1049,54 @@ CONTRACTS = {
             "model_complexity/scoreboard credit is claimed on the back of this gate.",
         ),
     ),
+    "f0_spectral_action_heatkernel": contract(
+        "f0_spectral_action_heatkernel",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only the precise, two-sided result of the Phase-1.3 decisive "
+        "experiment, computed from the explicit 216x216 step-C octonionic Dirac D. "
+        "For the finite triple the Seeley-DeWitt coefficients ARE the spectral "
+        "moments a0 = M0 = Tr(1) = 216, a2 = M2 = Tr(D^2) = 92.96, a4 = M4 = "
+        "Tr(D^4) = 50.3712. The decisive question (the gold-standard make-or-break) "
+        "is whether eps0^2 = pi/432 equals the dimensionless heat-kernel ratio "
+        "a4/a2. It does NOT: the closest natural shape M4/M2^2 = 0.00582895 is 0.80x "
+        "pi/432 (a clean 20% miss), and the result is a STRUCTURAL refutation, not a "
+        "numerical near-miss -- the moments are EXACT rationals (M2 = 2324/25, "
+        "M4 = 31482/625, residual ~1e-14) because Tr(D^2k) is a rational power sum of "
+        "the algebraic Dirac spectrum, so a4/a2 = M4/M2^2 = 15741/2700488 is an exact "
+        "rational and can NEVER equal the transcendental pi/432 (seed-independent: a "
+        "second seed gives another pi-free rational). The ONLY pi a spectral action "
+        "emits is the continuum (4 pi)^(-d/2) -- a denominator pi with half-integer "
+        "power, (4 pi)^-2 = 0.00633 != pi/432 -- confirming epsilon_heat_kernel; the "
+        "bare pi is instead the Berry half-solid-angle (1/2)(2 pi) = pi, a holonomy "
+        "flux, so pi/432 = (Berry pi) x (Schur 1/432) is a flux-per-state count, a "
+        "GEOMETRIC quantity not a spectral-action output. This gate moves NO Bayes "
+        "credit: it REFUTES the heat-kernel earn-path for the +5.6 while leaving the "
+        "Berry/Schur geometric reading untouched; F0 stays GEOMETRIC/open.",
+        open_bridges=(
+            "The spectral-action heat-kernel route to a DERIVED pi/432 is now CLOSED "
+            "(refuted); any future promotion of eps0 from GEOMETRIC to DERIVED must "
+            "come from a DIFFERENT dynamical mechanism, not the a4/a2 ratio of this "
+            "(or any finite, rational-spectrum) triple.",
+            "The Berry/Schur GEOMETRIC reading of pi/432 (pi from holonomy, 1/432 "
+            "from the Schur flat measure) survives this refutation and remains the "
+            "ceiling for pi/432 via this route -- it is neither derived nor demoted "
+            "by this gate.",
+        ),
+        kill_conditions=(
+            "The refutation is spun as a positive result -- e.g. a4/a2 is reported as "
+            "'close to' or 'confirming' pi/432, or the 0.80x miss is presented as "
+            "agreement rather than the clean structural KILL it is.",
+            "The Berry/Schur geometric reading is presented as demoted or invalidated "
+            "when only the heat-kernel CHANNEL is refuted; the geometric pi/432 maths "
+            "is untouched and must not be reported as killed.",
+            "F0 or eps0^2 = pi/432 is promoted on the back of this gate, OR the "
+            "granted +5.6 is silently dropped to a headline -3.2 as if the geometric "
+            "reading had been killed; model_complexity/scoreboard/registry credit is "
+            "moved either way.",
+        ),
+    ),
     "f0_direction_gate": contract(
         "f0_direction_gate",
         ("F0", "STAT1"),

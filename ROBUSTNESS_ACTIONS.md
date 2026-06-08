@@ -435,3 +435,49 @@ only via the Gaussian `(4 pi)^(-d/2)`, so Phase 1.3 is more likely to REFUTE tha
 (`-21.3 / -3.2 / +5.6 / +36.2`) and frozen registry manifest are untouched. Wired into
 `audit.py` and `audit_contract.py` (72/72 contracted, status PASS; pytest 91 passed) as an
 `OPEN_BRIDGE` under F0.
+
+### Execution note (2026-06-09) — Phase 1.3: heat-kernel `a4/a2` vs `pi/432` (THE decisive experiment)
+
+`compute/f0_spectral_action_heatkernel.py` added: it runs the gold-standard make-or-break
+test that the whole "EARN the `+5.6`" programme turns on. Phase 1.2 step C placed the
+octonionic `L_X` in a consistent KO-6 triple but found the axioms do NOT pin the Yukawa, so
+the CHO predictive content can only be secured DYNAMICALLY by the spectral action. For the
+finite triple the Seeley-DeWitt expansion
+`Tr f(D/Lambda) ~ Lambda^4 f4 a0 + Lambda^2 f2 a2 + f0 a4 + ...` has coefficients that ARE
+the spectral moments: `a0 = M0 = Tr(1)`, `a2 = M2 = Tr(D^2)`, `a4 = M4 = Tr(D^4)`. The
+decisive question: does `eps0^2 = pi/432` equal the dimensionless `a4/a2` of the genuine
+216-dim octonionic `D`? All numbers come from the explicit `216x216` step-C Dirac:
+- **(A) Finite heat-kernel moments.** `M0 = 216`, `M2 = Tr(D^2) = 92.96`,
+  `M4 = Tr(D^4) = 50.3712` — the `a0/a2/a4` spectral-action coefficients of the finite triple.
+- **(B) The decisive ratio MISSES.** Every dimensionless `a4/a2` normalisation misses
+  `pi/432 = 0.00727221`; the closest natural shape `M4/M2^2 = 0.00582895` is `0.80x` target,
+  a clean 20% miss. No normalisation lands on `pi/432`.
+- **(C) STRUCTURAL KILL (not a numerical accident).** The moments are EXACT rationals —
+  `M2 = 2324/25`, `M4 = 31482/625` (residual `~1e-14`) — because `Tr(D^2k)` is a rational
+  power sum of the algebraic Dirac spectrum. Hence `a4/a2 = M4/M2^2 = 15741/2700488` is an
+  EXACT rational and can NEVER equal the transcendental `pi/432` (`pi/432` has no
+  small-denominator fit, residual `5e-7`). Seed-independent: seed `(.8,.6,.4)` gives
+  `M2 = 2002/25`, `M4 = 20584/625`, another `pi`-free rational.
+- **(D) The only spectral `pi`.** A Connes-Chamseddine spectral action emits `pi` ONLY
+  through the continuum `(4 pi)^(-d/2)` — a DENOMINATOR `pi` with half-integer power
+  (`(4 pi)^-2 = 0.00633 != pi/432`) — exactly as `epsilon_heat_kernel` predicted structurally.
+- **(E) Where the bare `pi` actually lives.** The `pi` numerator of `eps0^2` is reproduced
+  by the Berry half-solid-angle `(1/2)(2 pi) = pi`, a holonomy flux. So
+  `pi/432 = (Berry pi) x (Schur 1/432)` is a flux-per-state count — a GEOMETRIC quantity,
+  NOT a spectral-action output.
+
+VERDICT (the roadmap KILL branch, executed honestly). Phase 1.3 REFUTES `eps0^2 = pi/432` as
+the heat-kernel `a4/a2`. Consequence, stated two-sided and bounded: the DYNAMICAL earn-path
+for the `+5.6` via the Connes spectral action on this triple is CLOSED — any promotion of
+`eps0` from GEOMETRIC to DERIVED now needs a DIFFERENT mechanism, not the heat kernel. But
+the refutation is of ONE channel, not of the holonomy maths: the Berry/Schur GEOMETRIC
+reading of `pi/432` (`pi` from holonomy, `1/432` from the Schur flat measure) is UNTOUCHED
+and remains the ceiling for `pi/432`. F0 therefore stays GEOMETRIC/open — NOT demoted below
+geometric, NOT promotable via this route. This moves NO Bayes credit: the scoreboard ladder
+(`-21.3 historical / -3.2 EARNED floor / +5.6 if-granted / +36.2 target`) is UNCHANGED — the
+`+5.6` was always labelled granted-not-earned and stays so — and the frozen registry
+manifest is untouched. This is the negative result the gold-standard fork anticipated: with
+the heat-kernel route closed, the honest reading is that `pi/432` is a geometric/Berry
+quantity, and the standalone math + the honest null is what stands. Wired into `audit.py`
+and `audit_contract.py` (73/73 contracted, status PASS; pytest 92 passed) as an
+`OPEN_BRIDGE` under F0.
