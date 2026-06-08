@@ -13,6 +13,7 @@ displaying agreements. Each answers a specific skeptic's question:
   *  rg_scale_derivation   — Item 3: the EW matching scale is over-determined, not one derived number
   5. predict_neutrino_sum  — "What can future data falsify?" (frozen prediction)
   *  neutrino_floor_resolution — Item 4: the 4.6sigma floor deficit is 1.2sigma once tree-level theory error is folded
+  *  theta23_octant_prediction — Item 7: the single sharpest falsifiable claim — sin^2(theta23)=4/7 (upper octant), the only eps0-independent exact mixing prediction; DUNE/Hyper-K resolve it
 
 plus the derivation-frontier experiments (the "can the algebra do more?" set):
 
@@ -70,6 +71,7 @@ import mass_ratio_rg_audit
 import predict_neutrino_sum
 import neutrino_floor_resolution
 import forward_predictions
+import theta23_octant_prediction
 import first_generation_audit
 import jordan_eigenvalue_generations
 import ko_dimension_chirality
@@ -165,6 +167,9 @@ ARTIFACTS = [
     ("forward_predictions",
         "Frozen future targets: m_betabeta prediction plus m_nu3/kappa bridge sensitivities.",
      forward_predictions.main),
+    ("theta23_octant_prediction",
+     "Item 7: the single sharpest falsifiable claim -- sin^2(theta23)=4/7 (upper octant), the only eps0-independent exact mixing prediction; the Fano partition (4 avoiding > 3 through-vacuum) fixes the octant; DUNE/Hyper-K resolve it. Forward test, no row promoted.",
+     theta23_octant_prediction.main),
     ("jordan_eigenvalue_generations",
      "Lever A: spectral route to three (degree of the J3(O) cubic norm).",
      jordan_eigenvalue_generations.main),

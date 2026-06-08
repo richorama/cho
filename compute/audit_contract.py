@@ -272,6 +272,37 @@ CONTRACTS = {
         open_bridges=("Higgs self-coupling and m_nu3 threshold targets still depend on open matching bridges.",),
         kill_conditions=("A future target depends on an adjustable bridge after data arrive.",),
     ),
+    "theta23_octant_prediction": contract(
+        "theta23_octant_prediction",
+        ("N5",),
+        STATUS_FUTURE_TEST,
+        VERDICT_FUTURE_TEST,
+        "State sin^2(theta23)=4/7 (upper octant) as the single sharpest CHO bet: the only "
+        "eps0-independent EXACT mixing rational, and a pre-registered verdict on a "
+        "currently-unresolved binary. The frozen registry (Q2, Theta23_octant) stays "
+        "authoritative; this module is the read-only analysis around it, not new evidence. "
+        "Do NOT quote the octant as already confirmed and do NOT let it move the Bayes factor.",
+        assumptions=(
+            "N5 Fano-count bridge: sin^2(theta23) = (Fano lines avoiding the vacuum, 4) / "
+            "(all Fano lines, 7) once the vacuum omega=(1+i e7)/2 fixes the point e7; the "
+            "octant follows from 4 avoiding > 3 through-vacuum.",
+            "Experimental anchors in the module are illustrative NuFIT-class normal-ordering "
+            "numbers for context only; they are printed, never asserted.",
+        ),
+        open_bridges=(
+            "The Fano-count -> physical atmospheric-angle map is a DERIVED BRIDGE (N5), not a "
+            "hand-proven CHO-action theorem; 4/7 is exact only GIVEN that bridge.",
+            "The octant is currently experimentally UNRESOLVED (T2K/NOvA tension); this is a "
+            "forward bet awaiting DUNE / Hyper-Kamiokande.",
+        ),
+        kill_conditions=(
+            "A stable lower-octant resolution (sin^2 theta23 < 1/2, the 3/7 side) at high confidence.",
+            "An upper-octant value pinned far from 4/7, beyond the few-percent N5 bridge error.",
+            "The octant claim is quoted as already-confirmed rather than a pre-registered bet.",
+            "The N5 Fano bridge is presented as a closed theorem instead of a derived bridge.",
+            "This forward test is allowed to promote a ledger row or move the Bayes factor.",
+        ),
+    ),
     "jordan_eigenvalue_generations": contract(
         "jordan_eigenvalue_generations",
         ("G1",),
