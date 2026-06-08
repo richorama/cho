@@ -63,6 +63,7 @@ import model_complexity
 import independent_observables
 import covariance_gof
 import derived_vs_residual
+import per_row_theory_error
 import rg_matching_audit
 import rg_scale_derivation
 import mass_ratio_rg_audit
@@ -140,6 +141,9 @@ ARTIFACTS = [
     ("derived_vs_residual",
      "Error bars on the DERIVED term vs the underived continuum/RG residual.",
      derived_vs_residual.main),
+    ("per_row_theory_error",
+     "Item 6: theory error keyed to each row's derivation status (tighten per row, never one global floor); the exact 4/7 theorem earns a precision test, the eps0-ladder rows honestly stay ~1.5%.",
+     per_row_theory_error.main),
     ("rg_matching_audit",
      "Phase 4 gate: continuum/RG matching scales, thresholds, and inverse matches made explicit.",
      rg_matching_audit.main),

@@ -151,6 +151,28 @@ CONTRACTS = {
         "Use to separate derived pieces from continuum/RG residuals.",
         open_bridges=("Continuum scale and threshold terms are not theorem-level.",),
     ),
+    "per_row_theory_error": contract(
+        "per_row_theory_error",
+        ("STAT1", "S1", "S4", "S5", "N1"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Quote theory errors per row by derivation status; tighten a row ONLY "
+        "when its bridge is derived. Never quote sub-percent precision for the "
+        "eps0-ladder rows (m_s, m_mu) -- a 0.5% claim is falsified at >2 sigma.",
+        open_bridges=(
+            "alpha (S1 vacuum polarization) and sin^2 theta_W (S4/S5 RG scale) are "
+            "derivation-limited: only the term is derived, so they carry no "
+            "precision evidence and are excluded from the precision chi^2.",
+            "The eps0-ladder normalization (geometric tier ~1.5%) is not derived, "
+            "so the ladder rows cannot be promoted to sub-percent predictions.",
+        ),
+        kill_conditions=(
+            "Lowering one global theory floor instead of tightening per row by status.",
+            "Setting a row's theory error from its residual rather than its bridge status.",
+            "Quoting the comfortable per-row chi^2 as evidence while hiding the stringent-core tension or the derivation-limited rows.",
+            "Promoting any row or moving the scoreboard / Bayes factor on the basis of this GoF refinement.",
+        ),
+    ),
     "rg_matching_audit": contract(
         "rg_matching_audit",
         ("A6", "S4", "S5", "CC1"),
