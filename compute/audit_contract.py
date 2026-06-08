@@ -602,6 +602,33 @@ CONTRACTS = {
             "F0 is promoted or the up/down sectors are claimed closed from this lepton unit.",
         ),
     ),
+    "sector_sphere_dichotomy": contract(
+        "sector_sphere_dichotomy",
+        ("M9", "M10", "M11", "M3"),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only the DISCRIMINANT shared by the first-generation shape factors: pi appears "
+        "IFF the transition is averaged over a CONTINUOUS manifold (the colour-singlet lepton's "
+        "two-level Bloch sphere S^2, giving k_l=1/(4pi)) and is ABSENT (rational) IFF over a "
+        "DISCRETE Fock grade (the coloured quarks, k_u=1/4, k_d=9/4). Verified: a finite group "
+        "(Q8) averages a rank-one projector to EXACTLY I/2 (rational, no pi) while the sphere "
+        "gives 1/(4pi); and k_u=(Tr P_0/2)^2, k_d=(Tr P_1/2)^2=(1/4)N_c^2 reuse the SAME derived "
+        "Fock-grade ranks (Tr P_0=1, Tr P_1=3=N_c). Do NOT claim M9/M10/M11 are closed: WHY the "
+        "colour singlet uses the continuous average while the coloured sectors project onto a "
+        "single grade (the dynamical selection) is still an input.",
+        open_bridges=(
+            "Derive from the CHO action the colour-singlet -> continuous-sphere vs coloured -> "
+            "discrete-Fock-grade SELECTION, not merely its pi-vs-rational consequence.",
+            "Promote the (Tr P_grade/2)^2 quark shape law (fit on the two quark sectors) to a "
+            "multi-sector theorem, and resolve the ~6% intrinsic m_e residual (M11).",
+        ),
+        kill_conditions=(
+            "The pi-vs-rational discriminant is presented as deriving the sector SELECTION, or "
+            "M9/M10/M11 are marked closed from this module.",
+            "The (Tr P_grade/2)^2 quark law is treated as a derived theorem rather than a "
+            "two-sector fit tied to the already-derived Fock ranks, or F0 is promoted.",
+        ),
+    ),
     "epsilon_vcb_halfangle": contract(
         "epsilon_vcb_halfangle",
         ("C2", "C3"),
@@ -705,6 +732,35 @@ CONTRACTS = {
                          "orbit.",
                          "OP^2 is treated as a symplectic carrier, or the bare pi half-flux is "
                          "conflated with the full 2pi flux quantum."),
+    ),
+    "epsilon_orbit_selection": contract(
+        "epsilon_orbit_selection",
+        ("F0",),
+        STATUS_OPEN_BRIDGE,
+        VERDICT_OPEN,
+        "Claim only that the two coadjoint orbits behind 16 and 27 are the MINIMAL "
+        "(coherent-state) orbits, and that 'minimal' is FORCED for both factors: (16) "
+        "Spin(9) acts TRANSITIVELY on the spinor sphere S^15 (orbit-tangent dim 15 "
+        "everywhere, stabiliser 21 = dim Spin(7)) so the spinor orbit is unique; (27) the "
+        "E6 minimal orbit is the rank-one variety (Freudenthal X#=0), which is EXACTLY the "
+        "action's own rank-one selection (epsilon_rank_one_kernel, epsilon_action_stationary). "
+        "Do NOT promote F0: this GRANTS coherent-state (minimal-orbit) quantization and the "
+        "external Delta_9 identification; it reduces 'which two orbits (assumed)' to 'the two "
+        "minimal orbits (forced)', it does not derive coherent-state localization from CHO dynamics.",
+        open_bridges=(
+            "Derive from the FULL CHO dynamics that the triality-breaking transition LOCALIZES "
+            "to a coherent (minimal-orbit) state -- the coherent-state hypothesis itself -- "
+            "rather than assuming minimal-orbit quantization.",
+            "Promote the Spin(9)-module isomorphism Delta_9 ~= T_E(OP^2) (route 4c) to a "
+            "dynamical identity of the external gauge spinor with the internal minimal-orbit tangent.",
+        ),
+        kill_conditions=(
+            "The coherent-state / minimal-orbit selection is presented as a full action-level "
+            "derivation of WHICH two orbits the CHO action quantizes, rather than a forcedness "
+            "result GIVEN coherent-state quantization.",
+            "Spin(9)-transitivity on S^15 or the rank-one = E6-minimal identification is glossed "
+            "as deriving the product arena, or F0 is promoted from this module.",
+        ),
     ),
     "epsilon_factor_forcedness": contract(
         "epsilon_factor_forcedness",

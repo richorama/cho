@@ -39,11 +39,13 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  20. epsilon_channel_coefficients — T1.3: mass-sector ranks (1,3,8) as Fock traces
  21. epsilon_mixing_coefficients  — M11: mixing counts (7,3,4,4/7) as Fano lines + 1/(4pi)
  21b.lepton_yukawa_action        — Item 2: ONE action -> ONE charged-lepton Yukawa, end-to-end
+ 21c.sector_sphere_dichotomy     — Item 2 seam: pi<=>continuous (lepton) vs rational<=>discrete (quark) shapes
  22. epsilon_vcb_halfangle        — C2: |V_cb| coefficient 1/2 = SU(2) spinor half-angle
  23. epsilon_a4_two_level         — R2 origin: two-level symmetry = SU(2) closure of A4
  24. epsilon_measure_audit        — Phase 2 gate: pi/432 as one conditional transition measure
     *  epsilon_measure_witness      — F0 H4 witness: normalized-measure seam isolated
     *  epsilon_measure_schur        — F0 Schur: 1/16 (Spin9) and 1/27 (E6) forced by irreducibility
+    *  epsilon_orbit_selection      — F0 orbit-selection: which two orbits — the MINIMAL ones, forced by Spin(9)-transitivity (16) + action rank-one (27)
   *  gravity_curvature            — M-GRAV: emergent rank-2 metric from non-associativity
   *  gravity_gate_audit           — Phase 5 gate: gravity remains exploratory unless Lorentzian dynamics close
   *  jordan_standalone_theorems   — Item 5: three J3(O) theorems published as standalone math, decoupled from physics
@@ -100,6 +102,7 @@ import epsilon_free_action
 import epsilon_channel_coefficients
 import epsilon_mixing_coefficients
 import lepton_yukawa_action
+import sector_sphere_dichotomy
 import epsilon_vcb_halfangle
 import epsilon_a4_two_level
 import epsilon_measure_audit
@@ -108,6 +111,7 @@ import epsilon_measure_schur
 import epsilon_phase_space_product
 import epsilon_product_irreducible
 import epsilon_symplectic_volume
+import epsilon_orbit_selection
 import epsilon_factor_forcedness
 import epsilon_assumption_p_gate
 import epsilon_action_stationary
@@ -251,6 +255,9 @@ ARTIFACTS = [
     ("lepton_yukawa_action",
      "Item 2: assembles the SINGLE charged-lepton Yukawa from ONE action's Bloch sphere -- the same S^2 whose hemisphere solid angle gives the Berry pi supplies the 1/(4pi) first-generation shape factor as its total-solid-angle (Schur invariant-average) normalization; the 8 is the derived Fock trace and the cascade square is the rank-one bottleneck. Upgrades 1/(4pi) from identified to forced; tau:mu:e at mu -2.2%, e -6.3% (known M11 outlier). OPEN: sphere-vs-discrete sector resolution, the trilinear from CHO EoM.",
      lepton_yukawa_action.main),
+    ("sector_sphere_dichotomy",
+     "Item 2 seam: isolates the discriminant behind the first-generation shapes (M9/M10/M11) -- pi appears IFF the transition averages over a CONTINUOUS manifold (the colourless lepton Bloch sphere S^2, 1/(4pi)) and is ABSENT (rational) IFF over a DISCRETE Fock grade (the coloured quarks). Verifies a finite group (Q8) averages to EXACTLY I/2 (rational) while the sphere gives 1/(4pi), and ties k_u=1/4=(Tr P_0/2)^2, k_d=9/4=(Tr P_1/2)^2=(1/4)N_c^2 to the derived Fock ranks. OPEN: deriving the colour-singlet->continuous selection; F0 not promoted.",
+     sector_sphere_dichotomy.main),
     ("epsilon_vcb_halfangle",
      "C2: the |V_cb| coefficient 1/2 is the SU(2) spinor half-angle (sin(eps/2)); tan(pi/8)=sqrt(2)-1.",
      epsilon_vcb_halfangle.main),
@@ -275,6 +282,9 @@ ARTIFACTS = [
     ("epsilon_symplectic_volume",
      "F0 symplectic-volume route: 16 and 27 are Bohr-Sommerfeld counts of single Spin(9)-spinor and E6-minimal coadjoint orbits, so 432 is the Liouville volume of one PRODUCT orbit (factorization becomes a theorem of the orbit method, not an assumption); pi is the half-flux of the minimal transition orbit CP^1, giving pi/432; live seam is which two orbits the CHO action quantizes.",
      epsilon_symplectic_volume.main),
+    ("epsilon_orbit_selection",
+     "F0 orbit-selection route (answers symplectic_volume's 'which two orbits'): the two MINIMAL (coherent-state) coadjoint orbits, FORCED -- (16) Spin(9) acts TRANSITIVELY on the spinor sphere S^15 (orbit-tangent dim 15 everywhere, stabiliser 21=dim Spin(7)) so the spinor orbit is unique; (27) the E6 minimal orbit = the rank-one variety (Freudenthal X#=0), which is EXACTLY the action's own rank-one selection (epsilon_rank_one_kernel/action_stationary). Interlock: the f4-orbit OP^2 of a rank-one idempotent has tangent dim 16=Delta_9. Reduces 'which orbits (assumed)' to 'the minimal ones (forced)'; F0 not promoted.",
+     epsilon_orbit_selection.main),
     ("epsilon_factor_forcedness",
      "F0 factorization-forcedness audit: among all ten factorizations of 432, 16x27 is the UNIQUE split whose both factors are independently-derived carriers (16=Delta_9=dim OP^2, 27=dim J3(O)), and 432 is a fundamental rep of no single simple group (G2..E8 scan) while being the Spin(9)xE6 bifundamental, so a product is forced; removes factorization freedom.",
      epsilon_factor_forcedness.main),
