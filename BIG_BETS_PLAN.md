@@ -118,6 +118,27 @@ A probe that lit up conceptually and stayed null numerically — the honest-null
 arithmetic relation (a single modular form whose q-expansion is the charge/exponent ladder —
 the Monstrous-Moonshine precedent: 196883, 432, …).
 
+**RESULT (second probe — `compute/adelic_constant_relation.py`, EXPLORATORY, no credit moved):**
+the Moonshine follow-on, built. Where the first probe read the three hierarchy *exponents*
+additively, this reads the *constants themselves* multiplicatively. **The (+) lit up further:**
+every constant that enters a CHO prediction is an S-unit over the *same* three primes `{2,3,7}` —
+`432 = 2⁴·3³ = 16·27` (so `v₂ = 4 = dim ℍ`, `v₃ = 3 =` generations), the only `ε₀`-free mixing
+prediction `sin²θ₂₃ = 4/7` (`cos² = 3/7`) is literally the Fano line-count split `7 = 4` (avoid the
+vacuum) `+ 3` (through it), the exponents `9,36,64` and arena dims `16,27,28,14` all factor on
+`{2,3,7}`, and `|Aut(Fano)| = |PSL(2,7)| = 168 = 2³·3·7` has prime support *exactly* `{2,3,7}` — the
+three octonion-distinguished primes (`2` Cayley–Dickson, `3` triality/generations, `7` `Im(𝕆)`/Fano).
+The adelic reading is internally coherent and extends Bet 1 from the exponents to the whole
+multiplicative set. **But the (−) firewall holds — HOSTING, not FORCING (the sixth face):**
+`{2,3,7}`-smoothness is generic for small integers (~12–41 % below a few hundred), it *breaks* on
+CHO's own structure-group dimensions (`dim F4 = 52 = 2²·13`, `dim E6 = 78 = 2·3·13`,
+`dim E7 = 133 = 7·19`, `dim E8 = 248 = 2³·31` — primes 13, 19, 31), so it is a property of the
+predictive *subset*, not the theory; and no single arithmetic relation generates the set (`432` is
+*not* a `j`-function or Monster coefficient — the Moonshine `196884 = 196883 + 1` has no `432`
+analogue; only the trivial `7 = 4+3` and the additive ladder already found). Verdict: constants stay
+`CHOSEN`, `F0/N1/S1` untouched, contract `STATUS_EXPLORATORY / VERDICT_OPEN`. Bet 1 lit up
+conceptually twice and stayed null numerically both times — the honest-null discipline holds, now on
+six independent faces.
+
 ### Bet 2 — *Make the dynamics primary by counting.* (causal sets × CHO)
 
 The highest-ceiling bet: it could revive the *physics* claim, not just explain the failure.
@@ -390,3 +411,27 @@ turns a losing one-number game into a winnable many-observable one.
 
 Carry the discipline into every bet: keep the scoreboard, record converging-negatives, the
 agent never commits.
+
+---
+
+## Big-bets closeout (all four bets run)
+
+All four ranked bets are now built, wired, and recorded — eight EXPLORATORY modules
+(`padic_hierarchy`, `adelic_constant_relation`; `causal_set_lambda`, `entropic_gravity_cho`,
+`everpresent_lambda_tracking`, `causal_growth_index`; `statistical_flavour_ensemble`;
+`positive_geometry_cluster`), consolidated by `compute/big_bets_closeout.py` into **six
+FORM-not-CONTENT faces**. The arc drew ONE map: **every bet supplied the FORM** the static
+algebra lacked — a counting measure (Λ), an automatic area law (gravity), a covariant
+Bell-causal growth law (N), a sharp distributional falsifier (flavour), an exact host (arena),
+an adelic reframing (constants) — **but none forced the CONTENT** (the exponent 64, the 1/4,
+the 3, a CHO texture, arena *selection*, the specific values). Six outside directions, one
+boundary. That convergence **confirms** the internal `gold_standard_closeout` from new
+directions: the lone missing object is *singular* — a derived dynamical action that selects the
+seed/value — not a different gap per sector.
+
+**The one keeper** (a diagnosis, not a derivation): the constants are arithmetic objects on the
+octonion primes `{2,3,7}` (`432 = 16·27`, `4/7 =` the Fano split `7 = 4+3`) that a
+real-analytic spectral action over ℝ could never emit — *why* Phase 1 hit its wall. The earned
+scoreboard floor is unchanged at `ln B = −3.2 < 0`; the whole arc moved **no** Bayes credit,
+and the honest-null discipline held on all six faces. The next levers are the ones no synthesis
+can move: a derived action (internal) and an experiment / peer review (external).

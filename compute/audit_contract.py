@@ -1636,6 +1636,258 @@ CONTRACTS = {
             "canonical-form construction.",
         ),
     ),
+    "adelic_constant_relation": contract(
+        "adelic_constant_relation",
+        ("F0", "N1", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "BIG-BETS Bet 1, second probe (the Moonshine follow-on). State only the EXACT "
+        "factorisations (432 = 2^4*3^3 = 16*27; sin^2 theta23 = 4/7 and cos^2 = 3/7 are the "
+        "Fano line split 7 = 4+3; the exponents 9,36,64 and arena dims 16,27,28,14 are all "
+        "S-units over the three octonion primes {2,3,7}; |Aut(Fano)| = |PSL(2,7)| = 168 = "
+        "2^3*3*7 has prime support exactly {2,3,7}) and the CONCEPTUAL gain (the predictive "
+        "constants are arithmetic objects on the octonion-distinguished primes, extending "
+        "padic_hierarchy from the exponents to the whole multiplicative set — why a "
+        "real-analytic spectral action over R could never emit them). Do NOT present the "
+        "{2,3,7} reading as deriving any constant: smoothness is generic for small integers, "
+        "it BREAKS on CHO's own structure-group dimensions (dim F4 = 52 = 2^2*13, dim E6 = 78 "
+        "= 2*3*13, dim E7 and dim E8 carry primes 13,19,31), 432 is NOT a Moonshine "
+        "coefficient, and no non-trivial single arithmetic relation links the set. The "
+        "constants stay CHOSEN; no Bayes credit moves.",
+        assumptions=(
+            "The predictive constants 432 (= the pi/432 denominator), sin^2 theta23 = 4/7, the "
+            "power-of-three exponents 9,36,64 and the arena dimensions 16,27,28,14 are taken as "
+            "source-of-truth from chi_squared / summary_table / dark_sector / cc_prediction; the "
+            "pi in pi/432 is stripped and only the arithmetic content is tested.",
+            "The three octonion-distinguished primes {2,3,7} (2 = Cayley-Dickson doubling, 3 = "
+            "triality / Jordan rank 3 / generations, 7 = Im(O) / the 7 Fano points and lines) are "
+            "declared BEFORE the smoothness test so the look-elsewhere size is fixed; the "
+            "structure-group dimensions are the pre-declared control set.",
+            "S-unit / smoothness is exact-integer arithmetic (trial-division factorisation); the "
+            "Moonshine reference data (j-function and Monster irrep dimensions) is a fixed, "
+            "pre-declared list, not fitted.",
+        ),
+        open_bridges=(
+            "Hosting is not forcing: {2,3,7}-smoothness is generic for small integers and "
+            "reflects the octonionic INPUT dimensions, so it does not derive any exponent, the "
+            "mixing 4/7, or the generation count — the constants stay CHOSEN (F0, N1, S1 as "
+            "charged).",
+            "The pattern is not a theory-wide law: it BREAKS on the dimensions of CHO's own "
+            "structure groups (dim F4 = 52 and dim E6 = 78 are divisible by 13, dim E7 = 133 by "
+            "19, dim E8 = 248 by 31), so {2,3,7}-arithmetic is a property only of the subset that "
+            "enters numerical predictions, not of the algebra.",
+            "No single arithmetic object generates the set: 432 is not a j-function or Monster "
+            "coefficient (the McKay 196884 = 196883 + 1 has no 432 analogue), and the only S-unit "
+            "equations among the constants are trivial (7 = 4+3 and the additive increment ladder "
+            "already recorded in padic_hierarchy).",
+        ),
+        kill_conditions=(
+            "Presenting the {2,3,7} S-unit reading (432 = 16*27, the Fano split 4/7) as deriving "
+            "any CHO constant or the generation count, or moving any Bayes credit on the back of "
+            "this EXPLORATORY module.",
+            "Quoting the (+) octonion-prime coherence while suppressing that smoothness is generic "
+            "for small integers and BREAKS on CHO's own F4/E6/E7/E8 dimensions (primes 13,19,31), "
+            "i.e. is a property of the predictive subset, not the theory.",
+            "Claiming a single modular form / Moonshine relation behind the constant set, or that "
+            "432 is a j-function or Monster coefficient, without an explicit exact arithmetic "
+            "identity (the trivial 7 = 4+3 and the additive ladder do not count).",
+        ),
+    ),
+    "big_bets_closeout": contract(
+        "big_bets_closeout",
+        ("F0", "G1", "CC1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "BIG-BETS branch CAPSTONE (a REPORTER, the analogue of gold_standard_closeout). "
+        "Claim only the CONSOLIDATION this module computes: that the four ranked bets / eight "
+        "EXPLORATORY modules reduce to SIX FORM-not-CONTENT faces, that every bet supplied the "
+        "FORM (a dynamical/structural principle of the right shape — a counting measure, an "
+        "automatic area law, a covariant Bell-causal growth law, a sharp distributional "
+        "falsifier, an exact positive-geometry host, an adelic reframing) but none forced the "
+        "CONTENT (the exponent 64, the 1/4, the 3, a CHO texture, arena selection, the specific "
+        "values), and that this convergence CONFIRMS the internal gold_standard_closeout from "
+        "six outside directions — the lone missing object is a single derived dynamical action "
+        "that selects the seed/value. State the honest null: all eight probes stay "
+        "STATUS_EXPLORATORY/VERDICT_OPEN, the earned scoreboard floor is unchanged at ln B = "
+        "-3.2 < 0, and the whole arc moved NO Bayes credit. The one (+) keeper is a DIAGNOSIS, "
+        "not a derivation: the constants are arithmetic objects on the octonion primes {2,3,7} "
+        "(432 = 16*27) that a real-analytic spectral action over R could never emit — why Phase "
+        "1 failed; it reframes the gap, it does not close it. Do NOT present any face's FORM win "
+        "as deriving a CHO constant or moving credit; this module is a REPORTER, not a source.",
+        assumptions=(
+            "The eight big-bets modules and their verdicts are taken as source-of-truth from "
+            "audit_contract.CONTRACTS; this capstone re-derives no physics — it only reads the "
+            "contracts and the scoreboard and asserts they have not drifted.",
+            "The six-faces partition is an editorial grouping of the eight modules; it is asserted "
+            "to cover exactly those eight (no probe unaccounted, none double-counted), but the "
+            "grouping itself carries no new claim beyond the per-module contracts.",
+            "The EARNED floor ln B = -3.2 is read to 0.25 nat from scoreboard.scoreboard(F=3.0) "
+            "as a drift tripwire, not a frozen constant — a deliberately re-verified change is "
+            "allowed; only SILENT drift is forbidden.",
+        ),
+        open_bridges=(
+            "The six-direction convergence is NEGATIVE evidence, not a derivation: it LOCALISES "
+            "the missing object (one derived dynamical action that selects the seed/value) but "
+            "does not supply it — the same open INTERNAL lever gold_standard_closeout names.",
+            "The one (+) keeper (the constants are adelic objects a real-analytic action cannot "
+            "emit) DIAGNOSES the failure mode but forces no constant; F0, G1, CC1 stay exactly "
+            "as charged.",
+            "Closing the gap needs the levers no synthesis can move — a derived action (internal) "
+            "and an experiment / peer review (external); further probes would only re-read the "
+            "same six faces.",
+        ),
+        kill_conditions=(
+            "Presenting the consolidation, any face's FORM win, or the six-direction convergence "
+            "as deriving a CHO constant, forcing N = 3, or moving any Bayes credit — this "
+            "reporter grants none.",
+            "Spinning the honest null as a positive: reporting the earned floor (ln B = -3.2 < 0) "
+            "as success, or the adelic keeper as a derivation rather than a diagnosis of WHY "
+            "Phase 1 failed.",
+            "Letting a big-bets probe be promoted off EXPLORATORY/OPEN, or the scoreboard floor "
+            "move, SILENTLY — any such change must be deliberate, re-verified, and reflected "
+            "here, never absorbed without notice.",
+        ),
+    ),
+    "berry_sigma_model_op2": contract(
+        "berry_sigma_model_op2",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "DECISIVE topological-route test for pi/432, run as a Berry/Wess-Zumino sigma-model on "
+        "the triality-vacuum manifold OP^2 (the rank-one idempotent variety of J3(O), dim 16 = "
+        "the E6 minimal orbit) with the E6-invariant cubic norm N3 as potential, S = (Berry/WZ "
+        "kinetic) - (N3 potential). Claim ONLY what the computation shows. [FORM] the Berry/WZ "
+        "kinetic term's holonomy on the minimal great-circle (geodesic) loop of genuine rank-one "
+        "J3(O) idempotents is pi (= 1/2 * 2pi solid angle, cross-checked against the "
+        "source-of-truth great-circle phase; a non-geodesic loop gives pi/2, so pi is "
+        "geodesic-selected), so the topological kinetic term DOES emit pi where the analytic "
+        "spectral action provably cannot (Phase 1.3: a4/a2 = 0.00582895 is a pi-free rational). "
+        "[CONTENT] the N3 potential — and EVERY F4-invariant, since F4 preserves the J3(O) "
+        "spectrum — is CONSTANT on OP^2 (N3 = X# = 0, spectrum (1,0,0) there), so it cannot lift "
+        "the vacuum degeneracy to select three distinct eigenvalue-seeds; the measured "
+        "charged-lepton hierarchy is a non-symmetric triple that is NOT an N3 critical point (the "
+        "global maximum 1/27 is the all-EQUAL anti-hierarchy), and the single-knob eps0 ladder "
+        "misses by ~1.40 decades. NET: the sigma-model SEPARATES pi/432 — FORM (pi) is reachable "
+        "by the topological route (kinetic term settled), CONTENT (the seeds) is NOT reachable "
+        "from any invariant potential and REQUIRES an F4-BREAKING term (a NEW symmetry no-go). "
+        "The scoreboard sign does NOT flip (CONTENT failed): pi/432 is NOT promoted, no Bayes "
+        "credit moves, F0 stays GEOMETRIC/open. This CONFIRMS Phase 1.4 (structure forced, seed "
+        "open) from an independent dynamical direction. Do NOT present the FORM pass as deriving "
+        "a constant.",
+        assumptions=(
+            "The OP^2 vacuum manifold, the cubic norm N3 and its gradient X#, the J3(O) spectrum, "
+            "the great-circle Berry phase, and the single-knob ladder miss are taken as "
+            "source-of-truth from epsilon_orbit_selection / epsilon_action_selection / "
+            "spectral_action_432; this module assembles them into the sigma-model and tests the "
+            "two halves, re-deriving none of them.",
+            "The candidate action S = (Berry/WZ kinetic) - (N3 potential) with target OP^2 and "
+            "potential the E6-invariant N3 is the specific topological model the Phase-1.3 + "
+            "adelic triangulation points at; it is asserted as a NAMED candidate, not proven to "
+            "be the unique CHO action.",
+            "The holonomy is computed on a CP^1 ⊂ OP^2 built from a complex (associative) 2-plane "
+            "of O^3; the great circle is the minimal/geodesic loop and pi = 1/2 * (2pi solid "
+            "angle) is read as its geodesic-selected Berry phase (a non-geodesic loop gives a "
+            "different value, shown explicitly).",
+        ),
+        open_bridges=(
+            "The FORM result settles only the KINETIC term: the Berry/WZ holonomy emits pi, but "
+            "deriving that the FULL CHO dynamics realises THIS sigma-model (this target, this "
+            "kinetic normalisation) rather than positing it remains open — the same architecture "
+            "seam epsilon_action_selection / epsilon_orbit_selection carry.",
+            "The CONTENT no-go (no F4-invariant potential selects the seeds) LOCALISES the missing "
+            "object to a single F4-breaking seed-selection term on OP^2; it does not SUPPLY that "
+            "term — F0 and S1 stay charged.",
+            "Even granting the kinetic pi, pi/432 is not promoted: the 432 = 16*27 measure "
+            "normalisation is Schur-forced elsewhere (epsilon_measure_schur) but the seed half — "
+            "the absolute hierarchy — has no derived selector here.",
+        ),
+        kill_conditions=(
+            "Presenting the FORM pass (pi emerges) as deriving pi/432, promoting F0, or moving any "
+            "Bayes credit — only BOTH halves passing would flip the sign, and CONTENT fails.",
+            "Spinning the result as positive: reporting that the topological route 'works' without "
+            "the decisive CONTENT failure (N3 flat on OP^2, the hierarchy not an N3 critical "
+            "point, the ~1.40-decade ladder miss) stated equally loudly.",
+            "Hiding the no-go's scope: claiming seed-selection is merely 'not yet done' rather "
+            "than IMPOSSIBLE for any F4-invariant potential (the symmetry obstruction), or letting "
+            "the OP^2-flatness / great-circle-pi facts drift silently.",
+        ),
+    ),
+    "berry_pi_intrinsic_op2": contract(
+        "berry_pi_intrinsic_op2",
+        ("F0", "G1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "HARDENS the FORM (the pi) of pi/432 — the pi that berry_sigma_model_op2 emitted was the "
+        "Berry holonomy of ONE associative CP^1 slice of OP^2; this module proves the pi is "
+        "INTRINSIC to OP^2 and explains WHY it is a half-turn, claiming ONLY what the computation "
+        "shows. [A] ORIGIN: the transition CP^1's two antipodal poles are ORTHOGONAL primitive "
+        "idempotents E1, E2 of J3(O) (Tr(E1 o E2) = 0 — two of the three generations); the Berry "
+        "phase obeys gamma(theta) = pi(1 - cos theta) exactly, rising monotonically to the great "
+        "circle — the unique closed geodesic, the locus EQUIDISTANT from the two orthogonal "
+        "generations — which encloses the hemisphere (Omega = 2pi) and gives pi (a non-geodesic "
+        "latitude gives < pi). So pi is the holonomy that SEPARATES two orthogonal generations, "
+        "not an input. [B] INTRINSIC: F4 = Aut(J3(O)) preserves the Jordan product and trace, "
+        "hence is an ISOMETRY of the trace metric (verified ~1e-13); transporting the great-circle "
+        "loop by a random F4 automorphism keeps it a loop of genuine rank-one idempotents "
+        "(P o P = P, N3 = 0), preserves EVERY consecutive overlap Tr(P_i o P_{i+1}) — the full "
+        "metric data the Berry phase = 1/2 * (round area) depends on — yet moves it into GENUINELY "
+        "OCTONIONIC directions (the e2..e7 components, zero on the associative slice, become ~0.2). "
+        "Since OP^2 = F4/Spin(9) is two-point-homogeneous, every geodesic 2-sphere is an F4-image "
+        "of the base CP^1 and the isometry-invariant Berry phase is the SAME pi: the pi belongs to "
+        "OP^2, not to the complex slice. [C] SIGN: the great-circle Bargmann product is a NEGATIVE "
+        "real number (e^{i pi} = -1, the vacuum ray returns to MINUS itself) — the SU(2) "
+        "double-cover half-turn, the same sqrt/half-angle epsilon_vcb_halfangle reads as "
+        "tan(pi/8). NET: the kinetic pi of pi/432 is hardened against the octonionic directions "
+        "and tied to generation-orthogonality, WITHOUT evaluating an (ill-defined, non-associative) "
+        "octonionic Bargmann product — it proves the phase-determining trace data is F4-invariant. "
+        "This does NOT touch the CONTENT half (the three seeds): berry_sigma_model_op2 showed every "
+        "F4-invariant is flat on OP^2, so seed-selection still needs an F4-BREAKING term. No Bayes "
+        "credit moves, pi/432 is NOT promoted, F0 stays GEOMETRIC/open. Do NOT present hardening "
+        "the FORM as deriving the constant or as closing the seed half.",
+        assumptions=(
+            "The J3(O) trace metric Tr(P o Q), the primitive idempotents E1,E2,E3, the cubic norm "
+            "N3, the F4 automorphism action, and the great-circle Berry phase are taken as "
+            "source-of-truth from epsilon_orbit_selection / epsilon_action_selection; this module "
+            "embeds complex coherent states as rank-one J3(O) projectors (verified: embed(e_i)=E_i, "
+            "P o P = P, N3 = 0, Tr(P o Q) = |<psi|phi>|^2) and measures the holonomy and its "
+            "F4-invariance, re-deriving none of them.",
+            "The transition sphere is the CP^1 in a complex (associative) 2-plane of O^3; its two "
+            "poles are the orthogonal idempotents E1, E2 and the great circle is the "
+            "minimal/geodesic loop. The phase is computed by the well-defined COMPLEX Bargmann "
+            "product on this slice; the F4-transport argument proves INVARIANCE of the "
+            "phase-determining trace data, NOT a re-evaluation of an octonionic Bargmann product "
+            "(which is non-associative and ill-defined).",
+            "Intrinsicness rests on F4 being an isometry (verified here to ~1e-13) PLUS the "
+            "standard fact that the Berry phase = 1/2 * (round area) is isometry-invariant on a "
+            "two-point-homogeneous (rank-one symmetric) space; that differential-geometric fact is "
+            "CITED, not re-derived. The claim is that the phase-determining data is F4-invariant "
+            "and the loop genuinely octonionic, hence the phase is the same pi.",
+        ),
+        open_bridges=(
+            "This hardens only the FORM (the pi): it shows the kinetic holonomy is intrinsic and a "
+            "half-turn, but deriving that the FULL CHO dynamics realises THIS Berry/WZ kinetic term "
+            "(this target, this normalisation) rather than positing it stays open — the same "
+            "architecture seam berry_sigma_model_op2 / epsilon_action_selection carry.",
+            "The CONTENT half is untouched: every F4-invariant is flat on OP^2 "
+            "(berry_sigma_model_op2), so the three eigenvalue-seeds still require an F4-BREAKING "
+            "seed-selection term that this module does NOT supply — F0 and G1 stay charged.",
+            "Even with the pi shown intrinsic and orthogonality-forced, pi/432 is NOT promoted: the "
+            "432 = 16*27 measure is Schur-forced elsewhere (epsilon_measure_schur) and the "
+            "seed/absolute-hierarchy half has no derived selector; the half-turn ties pi to N_gen=3 "
+            "geometrically but does not by itself DERIVE the constant.",
+        ),
+        kill_conditions=(
+            "Presenting the FORM hardening (pi intrinsic, half-turn from orthogonality) as DERIVING "
+            "pi/432, promoting F0, or moving any Bayes credit — this module moves none; only the "
+            "CONTENT half (the seeds), still open, could flip the sign.",
+            "Letting the F4-invariance be read as a re-evaluated octonionic Bargmann phase (it is "
+            "NOT — octonionic Tr(P1 P2 P3) is associator-ambiguous); the honest claim is INVARIANCE "
+            "of the real trace data plus the cited isometry-invariance of the half-area phase.",
+            "Claiming the CONTENT/seed half is closed or 'nearly closed' by this FORM result, or "
+            "letting the orthogonal-poles / gamma=pi(1-cos theta) / F4-isometry / octonionic-support "
+            "/ -1-sign facts drift silently.",
+        ),
+    ),
     "prediction_registry": contract(
         "prediction_registry",
         ("N1", "N5"),

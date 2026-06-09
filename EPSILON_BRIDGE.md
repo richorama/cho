@@ -280,3 +280,91 @@ python3 compute/primitive_projector_derivation.py
 ```
 
 The scripts print the normalized-trace ansatz, compare it to `m_c/m_t`, show nearby alternatives such as `1/(16*27)`, `2pi/(16*27)`, and `pi/(64*27)`, expose the rank ladder from Fano incidence to the full bridge projector, and show the normalized action penalty that selects the primitive product. Those alternatives are not proofs or disproofs, but they make the bridge pressure points visible.
+
+## Topological-Route Test (2026-06-09)
+
+`compute/berry_sigma_model_op2.py` runs the decisive experiment the Phase 1.3
+refutation pointed at. Phase 1.3 (`f0_spectral_action_heatkernel.py`) proved the
+ANALYTIC route to obligation 3 is closed: the finite spectral-action ratio
+`a4/a2 = 0.00582895` is a `pi`-FREE rational, so it can never be `pi/432`; the
+only `pi` a spectral action emits is the continuum `(4 pi)^(-d/2)`. The object
+that can carry `pi` is therefore TOPOLOGICAL, not analytic. So this module
+assembles the natural candidate — a Berry/Wess-Zumino sigma-model on the
+triality-vacuum manifold `OP^2` (the rank-one `J3(O)` idempotents, `dim 16` =
+the E6 minimal orbit) with the E6-invariant cubic norm `N3` as potential,
+`S = (Berry/WZ kinetic) - (N3 potential)` — and tests the two halves that must
+BOTH pass for `pi/432` to become a derived OUTPUT rather than a granted value.
+
+- **[FORM, obligation 3] PASSES.** The Berry holonomy of the minimal great-circle
+  (geodesic) loop of ACTUAL rank-one `J3(O)` idempotents is `pi`
+  (`= 1/2 * 2pi` enclosed solid angle), cross-checked against the source-of-truth
+  great-circle phase (`epsilon_action_selection.candidate_action_angle`); a
+  non-geodesic latitude loop gives `pi/2`, so `pi` is the geodesic-selected
+  holonomy specifically. The topological kinetic term DOES emit `pi` exactly
+  where the analytic spectral action provably cannot. The kinetic term is settled.
+
+- **[CONTENT, obligation 4/5 — the seeds] FAILS, structurally.** `N3 = det = 0`
+  on ALL of `OP^2` (every point is rank-one; `X# = 0`) and the spectrum is
+  identically `(1,0,0)` there, so `N3` — and indeed EVERY `F4`-invariant, since
+  `F4` preserves the spectrum — is CONSTANT on the vacuum manifold and cannot
+  lift its degeneracy to select three distinct eigenvalue-seeds. The measured
+  charged-lepton hierarchy is a non-symmetric triple that is NOT an `N3` critical
+  point (the global maximum `1/27` is the all-EQUAL anti-hierarchy), and the
+  single-knob `eps0` ladder misses by `~1.40` decades.
+
+**Net.** The sigma-model SEPARATES `pi/432`: the FORM (`pi`) is reachable by the
+topological route — the kinetic term is settled — but the CONTENT (the seeds) is
+NOT reachable from any `F4`-invariant potential and REQUIRES an `F4`-BREAKING
+seed-selection term. This is a NEW symmetry no-go: it localises the entire
+remaining gap to one object (an `F4`-breaking seed-selection potential on `OP^2`)
+with the kinetic `pi` now topological and fixed. The scoreboard sign does NOT
+flip (CONTENT failed): `pi/432` is NOT promoted, no Bayes credit moves, F0 stays
+GEOMETRIC/open. This CONFIRMS the Phase 1.4 result (`spectral_action_432`:
+structure forced, absolute seed open) from an independent dynamical direction.
+EXPLORATORY.
+
+## Intrinsic-Pi Hardening (2026-06-09)
+
+`compute/berry_pi_intrinsic_op2.py` pushes the FORM half above past the slice it
+was measured on. The `pi` of the topological-route test was the Berry holonomy of
+ONE associative `CP^1 ⊂ OP^2` (a complex 2-plane of `O^3`); the honest next
+question — "is the `pi` a feature of that slice, and why is it a half-turn?" — is
+settled here without ever evaluating an (ill-defined) octonionic Bargmann product.
+
+- **[A] The half-turn is FORCED by generation-orthogonality.** The transition
+  sphere's two antipodal POLES are ORTHOGONAL primitive idempotents `E1, E2` of
+  `J3(O)` (`Tr(E1 o E2) = 0` — two of the three generations). The Berry phase
+  obeys `gamma(theta) = pi(1 - cos theta)` exactly and rises monotonically to the
+  great circle — the unique closed geodesic, the locus EQUIDISTANT from the two
+  orthogonal generations — which encloses the hemisphere (`Omega = 2pi`) and gives
+  `gamma = pi`. A non-geodesic latitude loop encloses less and gives `< pi`. So
+  `pi` is the holonomy that SEPARATES two orthogonal generations, not an input.
+
+- **[B] The `pi` is INTRINSIC to `OP^2` (`F4`-invariant), not a slice artifact.**
+  `F4 = Aut(J3(O))` preserves the Jordan product and trace, hence the trace metric
+  `Tr(P o Q)` — it is an ISOMETRY of `OP^2` (verified to `~1e-13`). Transporting
+  the great-circle loop by a random automorphism (i) keeps it a loop of genuine
+  rank-one idempotents (`PoP = P`, `N3 = 0`), (ii) preserves EVERY consecutive
+  overlap `Tr(P_i o P_{i+1})` — the full metric data the Berry phase `= 1/2 *`
+  (round area) depends on — yet (iii) moves the loop into GENUINELY OCTONIONIC
+  directions (the `e2..e7` components, zero on the associative slice, become
+  `~0.2`). Since `OP^2 = F4/Spin(9)` is two-point-homogeneous, every geodesic
+  2-sphere is an `F4`-image of the base `CP^1` and the isometry-invariant Berry
+  phase is the SAME `pi`. The `pi` belongs to `OP^2`, not to the complex slice.
+
+- **[C] The half-turn IS the SU(2) sign flip.** Around the great circle the
+  Bargmann product of the transition states is a NEGATIVE real number:
+  `e^{i pi} = -1`. The vacuum ray returns to MINUS itself after one loop — the
+  spin-1/2 double-cover signature, the same `sqrt`/half-angle structure
+  `epsilon_vcb_halfangle.py` reads as `tan(pi/8) = sqrt 2 - 1`.
+
+**Net.** The kinetic `pi` of `pi/432` is now hardened: it is the `F4`-INTRINSIC
+holonomy of `OP^2` (not an artifact of the associative slice), it equals `pi`
+because the great circle is the geodesic separating two ORTHOGONAL generations,
+and it is the SU(2) half-turn (`-1`). The intrinsicness rests on the verified
+`F4`-isometry plus the standard isometry-invariance of the half-area Berry phase
+on a two-point-homogeneous space — it proves the phase-determining trace data is
+`F4`-invariant, NOT a re-evaluated octonionic Bargmann product. This does NOT
+touch the CONTENT half: the three seeds stay open (every `F4`-invariant is flat
+on `OP^2`, so seed-selection still needs an `F4`-BREAKING term). No Bayes credit
+moves, `pi/432` is NOT promoted, F0 stays GEOMETRIC/open. EXPLORATORY.
