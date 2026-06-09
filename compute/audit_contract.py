@@ -1888,6 +1888,84 @@ CONTRACTS = {
             "/ -1-sign facts drift silently.",
         ),
     ),
+    "f4_breaking_seed_op2": contract(
+        "f4_breaking_seed_op2",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "LOCALIZES the CONTENT (the three seeds) of pi/432 — berry_sigma_model_op2 proved a no-go "
+        "(N3 and every F4-invariant is flat on OP^2, so seed-selection requires an F4-BREAKING "
+        "term); this module tests whether the framework's OWN canonical F4-breaking object — the "
+        "rank-one triality-breaking vacuum spurion |tau><tau| (epsilon_rank_one_kernel, "
+        "spurion_bridge) — supplies it, and reports a TWO-SIDED result claiming ONLY what the "
+        "computation shows. [POSITIVE — the no-go is EVADED] the linear frame-breaking height "
+        "V_A(P) = Tr(P o A) has, on OP^2, critical points EXACTLY at the three primitive "
+        "idempotents E1,E2,E3 of A's eigenframe (the standard Morse theory of a height function on "
+        "the flag manifold F4/Spin(9)): the F4-gradient g_D = Tr((D.P) o A) vanishes (~1e-16) at "
+        "all three generations for a frame-diagonal A, gradient ASCENT from random OP^2 points "
+        "flows to the top generation (overlap 1.0000), and the F4-INVARIANT control A = I is flat "
+        "(V = Tr P = 1, gradient ~1e-15 — reproduces the no-go). So the three generations ARE the "
+        "critical set of the canonical frame-breaking potential, and the DIRECTION is "
+        "frame-canonical, NOT circular: any distinct-spectrum A in the generation frame gives the "
+        "SAME three critical points (only the values change). [HONEST OPEN — the magnitudes are "
+        "INPUT] the critical VALUES are V_A(E_i) = spec(A), so the seed MAGNITUDES are the spurion "
+        "spectrum (a tautology: seed in, seed out); and the canonical vacuum spurion is RANK-ONE, "
+        "lifting EXACTLY ONE level (V(E_tau) = 1, the whole OP^1 of idempotents orthogonal to "
+        "E_tau degenerate at value 0 — the geometric form of spurion_perturbation FACT 1), so "
+        "three ISOLATED tiers require CUMULATIVE orders A = E1 + eps0 E2 + eps0^2 E3 whose spectrum "
+        "(1, eps0, eps0^2) reproduces the generation cascade ladder, leaving the absolute scale "
+        "eps0^2 = pi/432 (the geometric measure) as the lone surviving input. NET: tightens "
+        "berry_sigma_model_op2's open clause 'seed-selection requires an F4-BREAKING term' into "
+        "'the F4-breaking term IS the rank-one vacuum spurion; it makes the three generations the "
+        "critical points (real, frame-canonical/non-circular DIRECTION), rank-one-ness forces the "
+        "cumulative-order cascade, and the lone open scalar is the absolute scale eps0^2 = pi/432'. "
+        "The CONTENT half is LOCALIZED to one scalar (the measure) but NOT closed: the seed "
+        "magnitudes are still input. No Bayes credit moves, pi/432 is NOT promoted, F0 stays "
+        "GEOMETRIC/open. Do NOT present evading the no-go (the FORM of selection) as deriving the "
+        "seeds.",
+        assumptions=(
+            "The J3(O) trace metric Tr(P o Q), the three primitive idempotents E1,E2,E3 (the "
+            "generation frame), the cubic norm N3, and the F4 = Aut(J3(O)) derivation/automorphism "
+            "action are taken source-of-truth from epsilon_orbit_selection / "
+            "epsilon_action_selection; this module forms the linear height V_A(P) = Tr(P o A) and "
+            "its F4-orbit gradient g_D = Tr((D.P) o A) and measures the critical set, re-deriving "
+            "none of the underlying algebra.",
+            "That the three primitive idempotents are the critical points of a frame-diagonal "
+            "height function is the STANDARD Morse theory of a height function on the flag manifold "
+            "OP^2 = F4/Spin(9) (critical points = torus-fixed points = the eigenframe idempotents); "
+            "it is CITED, not re-derived. The NEW content is the identification of the height "
+            "function's linear term A with the framework's canonical rank-one vacuum spurion, and "
+            "the rank-one => one-level => cascade chain.",
+            "The canonical F4-breaking object is taken to be the rank-one triality-breaking vacuum "
+            "spurion |tau><tau| = a primitive idempotent (epsilon_rank_one_kernel, spurion_bridge), "
+            "and eps0^2 = pi/432 is taken from the measure (spurion_bridge); this module does NOT "
+            "re-derive either — it tests what spectrum that spurion's height function selects.",
+        ),
+        open_bridges=(
+            "The seed MAGNITUDES are not derived: V_A(E_i) = spec(A) is a tautology (the seed is "
+            "put in as A's spectrum and read back as the critical values). The module localizes "
+            "WHERE the input sits (the spurion spectrum) and WHY it is forced into cascade form "
+            "(rank-one-ness), but does NOT remove it — F0 and S1 stay charged.",
+            "The generation ASSIGNMENT (which idempotent is the heaviest) is the residual S3/Weyl "
+            "freedom — the 'which channel' input — untouched here; the height function fixes the "
+            "critical SET (the three generations) but not the ordering.",
+            "Even with the three generations shown to be the critical points of the canonical "
+            "spurion's height function, pi/432 is NOT promoted: the absolute scale eps0^2 = pi/432 "
+            "is the lone surviving input and is fixed by the measure (epsilon_measure_schur, "
+            "spurion_bridge) elsewhere, not derived here; localizing the seam is not closing it.",
+        ),
+        kill_conditions=(
+            "Presenting the no-go EVASION (the three generations = critical points of the canonical "
+            "frame-breaking height) as DERIVING the seed magnitudes, promoting F0/S1, or moving any "
+            "Bayes credit — this module moves none; the magnitudes remain spec(A) input.",
+            "Letting the frame-canonical (non-circular) DIRECTION be read as implying the "
+            "MAGNITUDES are non-circular — they are not: spec(A) is the input. The honest claim is "
+            "that the critical-point SET (the generations) is magnitude-free, NOT the values.",
+            "Claiming the CONTENT/seed half is closed or 'nearly closed', or letting the "
+            "critical-points-at-the-generations / values=spec(A) / rank-one-lifts-one-level / "
+            "(1,eps0,eps0^2)-cascade / eps0^2=pi/432 facts drift silently.",
+        ),
+    ),
     "prediction_registry": contract(
         "prediction_registry",
         ("N1", "N5"),

@@ -368,3 +368,51 @@ on a two-point-homogeneous space — it proves the phase-determining trace data 
 touch the CONTENT half: the three seeds stay open (every `F4`-invariant is flat
 on `OP^2`, so seed-selection still needs an `F4`-BREAKING term). No Bayes credit
 moves, `pi/432` is NOT promoted, F0 stays GEOMETRIC/open. EXPLORATORY.
+
+## Seed Localization — the F4-breaking spurion selects the generations (2026-06-09)
+
+`compute/f4_breaking_seed_op2.py` attacks the CONTENT half the intrinsic-pi
+hardening left open. `berry_sigma_model_op2` proved a no-go: every `F4`-invariant
+(including `N3 = det`) is flat on `OP^2`, so seed-selection requires an
+`F4`-BREAKING term. This module tests whether the framework's OWN canonical
+`F4`-breaking object — the rank-one triality-breaking vacuum spurion
+`|tau><tau|` (`epsilon_rank_one_kernel`, `spurion_bridge`) — is that term, and
+finds a TWO-SIDED result.
+
+- **[POSITIVE — the no-go is EVADED].** The linear frame-breaking height
+  `V_A(P) = Tr(P o A)` has, on `OP^2`, critical points EXACTLY at the three
+  primitive idempotents `E1, E2, E3` of `A`'s eigenframe (the standard Morse
+  theory of a height function on the flag manifold `OP^2 = F4/Spin(9)`: critical
+  points = torus-fixed points = the eigenframe idempotents). The `F4`-orbit
+  gradient `g_D = Tr((D.P) o A)` vanishes (`~1e-16`) at all three generations for
+  a frame-diagonal `A`; gradient ASCENT from random `OP^2` points flows to the
+  top generation (overlap `1.0000`); and the `F4`-INVARIANT control `A = I` is
+  flat (`V = Tr P = 1`, gradient `~1e-15` — reproducing the no-go). So the three
+  generations ARE the critical set of the canonical frame-breaking potential.
+
+- **[DIRECTION is frame-canonical, NOT circular].** Any distinct-spectrum `A` in
+  the SAME (generation) frame yields the SAME three critical points — only the
+  VALUES change. The critical SET (the three generations) is fixed by the frame,
+  independent of the seed magnitudes: the DIRECTION is canonical, the magnitudes
+  are a separate input.
+
+- **[HONEST OPEN — the magnitudes are INPUT].** The critical VALUES are
+  `V_A(E_i) = spec(A)`, so the seed MAGNITUDES are the spurion spectrum (a
+  tautology: seed in, seed out). And the canonical vacuum spurion is RANK-ONE:
+  its height function lifts EXACTLY ONE level (`V(E_tau) = 1`, the whole `OP^1`
+  of idempotents orthogonal to `E_tau` degenerate at value `0` — the geometric
+  form of `spurion_perturbation` FACT 1). So three ISOLATED tiers require
+  CUMULATIVE orders `A = E1 + eps0 E2 + eps0^2 E3`, whose spectrum
+  `(1, eps0, eps0^2)` reproduces the generation cascade ladder, leaving the
+  absolute scale `eps0^2 = pi/432` (the measure) as the lone surviving input.
+
+**Net.** This tightens `berry_sigma_model_op2`'s open clause "seed-selection
+requires an `F4`-BREAKING term" into: "the `F4`-breaking term IS the canonical
+rank-one vacuum spurion; it makes the three generations the critical points of
+its height function (real, frame-canonical/non-circular DIRECTION); rank-one-ness
+forces the three-tier hierarchy to be the cumulative-order cascade; and the lone
+surviving input is the absolute scale `eps0^2 = pi/432`." The CONTENT half is
+therefore LOCALIZED to one scalar — the same `pi/432` of the measure — but NOT
+closed: the seed magnitudes are still input, and the generation ASSIGNMENT is the
+residual `S3`/Weyl freedom. No Bayes credit moves, `pi/432` is NOT promoted, F0
+stays GEOMETRIC/open. EXPLORATORY.
