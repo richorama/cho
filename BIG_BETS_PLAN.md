@@ -312,6 +312,34 @@ the open frontier.
 - **(C) hook + kill:** find the octonionic positive geometry or don't — highest build cost,
   fuzziest near-term kill.
 
+> **RESULT (Bet 4 first probe — `compute/positive_geometry_cluster.py`, EXPLORATORY).** Probed
+> the positive geometry through its computable skeleton — the finite-type cluster algebra
+> (Fomin–Zelevinsky `<->` Dynkin), since the full octonionic amplituhedron is not constructible
+> in numpy (and may not exist). All exact integer arithmetic from the Dynkin degree tables.
+> **The real win (criterion B — hosting is exact):** the exact exceptional types CHO privileges
+> carry its arena integers as cluster/root invariants — `D4` (triality `= ` 3 generations) has
+> exactly **16** cluster variables (`= dim C(x)H`) and dimension **28** (`= dim so(8)`); `E6`
+> (`J3(O)`) has exactly **36** positive roots (the repo's own `M_W` exponent label
+> “‖Roots₊(E6)‖”) and a minuscule **27** (`= dim J3(O) = ` 27 lines on a cubic surface
+> `= |W(E6)|/|W(D5)|`); the hierarchy increments `{27,28} = {36-9, 64-36} = {E6 minuscule,
+> D4 adjoint}`; and `E6` is the **unique** exceptional with a `Z/3` centre, so base-3 is
+> structurally distinguished for exactly CHO's algebra (`Gr(3,6)~D4`, `Gr(3,7)/Gr(4,7)~E6` — the
+> amplitude bridge is real). **The honest null (criterion A — forcing fails):** those integers
+> are root-system data CHO already ingests (reuse, not a new forcing); the genuinely
+> cluster-specific invariant — the cluster count `= ` the *cell* number of the positive geometry
+> — is NEVER a CHO integer and NEVER **3** (cells `{5,8,14,20,42,50,105,132,182,429,833,4160,
+> 25080}`), so the geometry does not force the generation count; the matches are non-unique
+> (`27 = ` `A6` cluster vars too) and multi-hosted (`D4, E6, F4, G2` all carry a CHO integer —
+> the arena is NOT selected, a humility tripwire); `432 = 16*27` vs `A6`'s 429 cells and `64` vs
+> `E7`'s 63 roots are near-miss traps; the `Z/3` centre is `E6` rep theory (a CHO input), not
+> canonical-form dynamics, and is not the triality/generation `Z/3`; and the actual octonionic
+> positive geometry (cells `= ` generations) is **not** constructed — non-associativity obstructs
+> the standard totally-positive cluster coordinates (the open frontier, exactly why this bet is
+> highest-cost / fuzziest-kill). **Verdict:** positive geometry HOSTS the CHO exceptional arena
+> exactly (and even sharpens “why base-3”) but the canonical-form/cluster machinery forces
+> nothing new — the **fifth face** of the same FORM-not-CONTENT boundary. EXPLORATORY, no credit
+> moved (`F0`, `G1` stay as charged).
+
 ---
 
 ## Dusty pure-maths to dust off (tools, aligned with what already worked)

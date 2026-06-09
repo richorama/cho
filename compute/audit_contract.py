@@ -1576,6 +1576,66 @@ CONTRACTS = {
             "ensemble statistics.",
         ),
     ),
+    "positive_geometry_cluster": contract(
+        "positive_geometry_cluster",
+        ("F0", "G1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "BIG-BETS Bet 4. State only the EXACT, computed facts (all exact integer arithmetic from "
+        "the Dynkin degree tables: the exceptional types CHO privileges carry its arena integers "
+        "as cluster / root invariants — D4 = triality has 16 cluster variables and dimension 28 = "
+        "dim so(8), E6 = J3(O) has 36 positive roots and a 27-dimensional minuscule rep, the "
+        "hierarchy increments {27,28} are the E6 minuscule and D4 adjoint dimensions, and E6 is "
+        "the unique exceptional with a Z/3 centre; while the cluster count = the cell number of "
+        "the positive geometry is NEVER a CHO integer and never 3, the 27 match is non-unique "
+        "(also the A6 cluster-variable count), four exceptional types each carry a CHO integer, "
+        "and 432=16*27 / 64 are near-misses to the A6 cell count 429 / the E7 root count 63) and "
+        "the HONEST conclusion (positive geometry HOSTS the CHO exceptional arena — a real "
+        "criterion-B consistency — but the canonical-form / cluster machinery FORCES nothing new: "
+        "it does not select the arena, does not force base-3, and the octonionic positive "
+        "geometry is not constructed). Do NOT present the hosting as deriving any CHO constant: "
+        "the integers 16, 27, 28, 36 are root-system data CHO already ingests, the hosting is a "
+        "consistency not a derivation, and no constant moves from CHOSEN to derived.",
+        assumptions=(
+            "The positive geometry is probed through its computable combinatorial skeleton, the "
+            "finite-type cluster algebra (Fomin-Zelevinsky classification by Dynkin diagrams); "
+            "the full canonical form / amplituhedron is not evaluated, only its cluster / "
+            "generalized-associahedron invariants.",
+            "Every integer is computed exactly from the Dynkin fundamental-invariant degrees "
+            "(rank, Coxeter number, positive roots = sum(deg)-rank, cluster variables = sum(deg), "
+            "clusters = prod (h+d_i)/d_i, Weyl order = prod(deg)); the minuscule 27 is the coset "
+            "count |W(E6)|/|W(D5)|.",
+            "The CHO arena integers (8, 16, 27, 28, 36, 64) and the generation count 3 are "
+            "kinematic inputs under test, NOT outputs of this combinatorics; the amplitude bridge "
+            "(Gr(3,6)~D4, Gr(3,7)/Gr(4,7)~E6) is cited from the cluster-algebra literature.",
+        ),
+        open_bridges=(
+            "Hosting is not forcing: positive geometry carries the CHO integers because they are "
+            "root-system data, but the cell count never equals a CHO integer or the 3, and more "
+            "than one exceptional type hosts a CHO integer, so the machinery does NOT select the "
+            "CHO arena or derive any constant (F0 hierarchy exponents and G1 generation count "
+            "stay as charged).",
+            "The Z/3 centre that distinguishes E6 (hence base-3) lives in E6 representation "
+            "theory — a CHO input — not in the canonical-form dynamics, and it is not the "
+            "triality/generation Z/3 that permutes the three J3(O) blocks; the rep-theoretic "
+            "distinction is real but does not by itself force the physics.",
+            "The actual octonionic positive geometry (a canonical form whose cells are the three "
+            "generations) is not constructed: octonion non-associativity obstructs the standard "
+            "commutative, totally-positive cluster-coordinate construction, so whether such a "
+            "geometry exists is the open Bet-4 frontier this probe does not settle.",
+        ),
+        kill_conditions=(
+            "Presenting the hosting (D4->16, E6->36/27, Z(E6)=Z/3) as deriving the CHO constants "
+            "or the generation count, or moving any Bayes credit on the back of this EXPLORATORY "
+            "module.",
+            "Quoting the criterion-B win while suppressing that the cell count is blind to the 3, "
+            "that the matches are non-unique and multi-hosted, or that 432/64 are near-miss traps "
+            "(429/63), not exact cluster invariants.",
+            "Claiming an octonionic positive geometry / amplituhedron has been built, or that the "
+            "exceptional cluster algebras force base-3, without an explicit non-associative "
+            "canonical-form construction.",
+        ),
+    ),
     "prediction_registry": contract(
         "prediction_registry",
         ("N1", "N5"),
