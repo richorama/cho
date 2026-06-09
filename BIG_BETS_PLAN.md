@@ -226,6 +226,40 @@ Einstein equation of state?).
 > *CHO-agnostic* — the next move that would actually credit CHO is the internal-state growth
 > rule (does the dynamics see the index?), the open Bet-2 question this does not close.
 
+> **RESULT (Bet 2 crux — `compute/causal_growth_index.py`, EXPLORATORY).** Ran the
+> make-or-break test the two prior probes deferred: *does the causal-set growth dynamics
+> SEE an internal CHO index, and thereby force `N = 3` while supplying the action?* Put an
+> internal index `sᵢ ∈ {1..N}` on each element of a Rideout–Sorkin classical-sequential-growth
+> causet (the transitive-percolation case, i.i.d. pre-closure pairs + transitive closure, so
+> both CSG axioms are explicit) and let it couple to the birth probabilities. **What growth
+> gives (criterion A, real):** index-blind growth is covariant on every poset — *counting
+> supplies a genuine measure on histories*, exactly the object the static algebra never had.
+> **What it does NOT give (the decisive negative):** discrete general covariance is
+> *equivalent to a symmetric coupling* — a related pair always has its lower element born
+> first (its factor is birth-order independent automatically), while an incomparable pair
+> `{a,b}` enters as `1 − p(sₐ,s_b)` in one birth order and `1 − p(s_b,sₐ)` in another, so
+> covariance ⟺ `p` symmetric (the `V` poset splits `0.042` vs `0.126` under an asymmetric
+> coupling, collapses under a symmetric one). That constrains the *coupling*, never the
+> *cardinality*: covariance leaves an `N(N+1)/2`-parameter family that is never empty, so a
+> covariant non-spectator coupling exists for `N ∈ {2,3,4,5,6}` — **`N = 3` is not singled
+> out.** Bell causality is automatic (the measure factorises over pairs) for every `N`, and
+> the index-blind causet marginal is exactly `N`-independent (the spectator limit, `TV = 0`).
+> **CHO's best shot, also closed:** even a non-trivial *inheritance* (child index = product
+> of the parents') is covariant + commutative + associative for every `N` (`ℤ/N`); the
+> exceptional rank-3 Albert algebra `J₃(𝕆)` is picked out only by the *non-associative*
+> octonionic composition — a kinematic (Hurwitz/Jordan classification) input, **not** anything
+> the order-theoretic growth provides. **Verdict:** the growth dynamics is provably *blind to
+> the internal index's cardinality* — it can carry a CHO index as a covariant passenger but
+> cannot SELECT `N = 3`. Counting gives the FORM (a covariant, Bell-causal measure on
+> histories) but never the CONTENT (`N = 3`) — the *same* boundary the Λ and gravity probes
+> drew, now shown from the dynamics side. `STATUS_EXPLORATORY / VERDICT_OPEN`, `N = 3` stays a
+> kinematic input (`G1` untouched), **no Bayes credit moves**; recorded in
+> `DERIVATION_LEDGER.md`. **This resolves the Bet-2 crux as a NEGATIVE:** causal-set growth
+> revives the *measure* CHO lacked, but cannot revive the *physics* claim (it does not derive
+> the generation count or the action from the internal structure). The honest map of Bet 2 is
+> now complete on all three faces — Λ magnitude, gravity area-law, and the growth measure are
+> CHO-agnostic *form*; the CHO *content* (the exponent, the `1/4`, the `3`) stays kinematic.
+
 ### Bet 3 — *Stop predicting single Yukawas; predict their distribution.* (RMT / free probability)
 
 We are *losing* the one-number coincidence game at −3.2 nats. Random-matrix theory makes the
@@ -239,6 +273,28 @@ emergent near-AdS₂ gravity from pure disorder). The CKM/PMNS data genuinely lo
 - **(C) hook + kill:** turns one fragile coincidence into *many* correlated, falsifiable
   statistical observables (mass-ratio and mixing-angle distributions). Kill: if a
   symmetry-blind ensemble fits as well as the CHO-constrained one, CHO adds nothing.
+
+> **RESULT (Bet 3 — `compute/statistical_flavour_ensemble.py`, EXPLORATORY).** Ran the
+> kill-condition comparison directly: four Monte-Carlo ensembles of 3×3 complex Yukawas
+> (CKM = U_u†U_d), **A** anarchy (symmetry-blind Ginibre), **B** Froggatt–Nielsen hierarchy
+> `eps0^(q_i+q_j)` only, **C** the NNI texture zeros, **D** the single zero triality actually
+> derives. **The real win:** distributions *do* turn the losing one-number game into a sharp
+> many-observable one — they **decisively falsify symmetry-blind anarchy for quarks** (anarchy
+> gives large mixing, median sin² ≈ 0.3–0.5, and reproduces the tiny quark CKM moduli with
+> probability ≈ 0) while leaving the **same** anarchy viable for the anarchic lepton sector (a
+> PMNS-sized θ₁₃ a few % of the time). The observed quark/lepton dichotomy falls straight out.
+> **The honest null:** what beats anarchy is the mass **hierarchy**, not the CHO texture. The
+> Gatto–Sartori–Tonin correlation corr(|V_us|, √(m_d/m_s)) — the observed coincidence
+> 0.2243 ≈ 0.2236 — is ≈ 0 for anarchy but ≈ +0.48 for the Froggatt–Nielsen hierarchy *alone*
+> (both scale as eps0^(q1−q2)); CHO's derived triality zero lifts it only ≈ +0.07 more, and the
+> hierarchy's contribution **strictly exceeds** the texture zero's (asserted). The discriminator
+> is the eps-ladder — the *same* charged input the scoreboard already debits (F0) — and NNI is
+> emitted by every Froggatt–Nielsen model. So distributions give the FORM (a falsification that
+> kills anarchy) but not the CONTENT (a CHO-specific texture that beats same-hierarchy
+> symmetry-blindness): the same boundary the Λ, gravity, and growth-index probes drew, now on
+> the flavour-statistics face. **C1..C4 untouched; no Bayes credit moves.** The methodological
+> upgrade (predict distributions, kill the symmetry-blind null) is real and worth keeping; it
+> just does not, by itself, credit CHO over a generic hierarchical flavour model.
 
 ### Bet 4 — *Geometry that **is** the amplitude.* (positive geometry / amplituhedron / surfaceology)
 

@@ -1468,6 +1468,114 @@ CONTRACTS = {
             "a CHO success rather than a result that disfavours the CHO-static w=-1.",
         ),
     ),
+    "causal_growth_index": contract(
+        "causal_growth_index",
+        ("G1",),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "BIG-BETS Bet 2 crux. State only the EXACT, computed facts (index-blind sequential "
+        "growth is covariant — a genuine measure on histories; discrete general covariance is "
+        "equivalent to a SYMMETRIC index coupling, demonstrated by the V poset splitting "
+        "0.042 vs 0.126 under an asymmetric coupling and collapsing under a symmetric one; "
+        "covariance leaves an N(N+1)/2 coupling family that is never empty, so a covariant "
+        "non-spectator coupling exists for N in {2,3,4,5,6}; the index-blind causet marginal is "
+        "exactly N-independent; Z/N inheritance is covariant for every N) and the HONEST "
+        "conclusion (the growth dynamics is BLIND to the internal index's cardinality — it can "
+        "carry a CHO index as a covariant passenger but cannot SELECT N=3). Do NOT present this "
+        "as growth deriving the generation count: N=3 is NOT singled out by either CSG axiom; it "
+        "remains a kinematic input (G1, from jordan_eigenvalue_generations / three_generations_frame).",
+        assumptions=(
+            "The dynamics is Rideout-Sorkin classical sequential growth in the transitive-"
+            "percolation case, realised as i.i.d. pre-closure pair inclusions + transitive "
+            "closure, so internal temporality, discrete general covariance, and Bell causality "
+            "are all explicit and checkable on small (n=3) causets.",
+            "Discrete general covariance is used in its computable form: all linear extensions "
+            "(birth orders) of a fixed decorated poset must have equal sequential-growth "
+            "probability.",
+            "The internal index couples to the growth only through a pairwise inclusion "
+            "probability p(s_i,s_j); inheritance is tested separately as a commutative associative "
+            "product (Z/N) on the index.",
+        ),
+        open_bridges=(
+            "The growth dynamics is blind to the index CARDINALITY: covariance constrains the "
+            "coupling (symmetric) and Bell causality is automatic, but neither places any "
+            "constraint on N, so this module does NOT derive N=3 — it remains a kinematic input "
+            "(G1).",
+            "A richer coupling (index-dependent t_n couplings beyond percolation, or a measure on "
+            "internal states that feeds back into the growth) is not explored here; the negative "
+            "is established for the percolation family + commutative inheritance, not for every "
+            "conceivable index-growth coupling.",
+            "The exceptional rank-3 selection lives in the kinematic Hurwitz/Jordan classification "
+            "(non-associative octonionic composition), which this order-theoretic dynamics does "
+            "not supply; whether any growth rule can internalise that classification is open.",
+        ),
+        kill_conditions=(
+            "Presenting the covariant measure on histories as deriving N=3, or the symmetric-"
+            "coupling result as growth 'selecting' the generation count, or moving any Bayes "
+            "credit on the back of this EXPLORATORY module.",
+            "Quoting the criterion-A win (counting gives a measure) while suppressing the "
+            "N-blindness (that the same axioms admit a covariant non-spectator coupling for every "
+            "tested N, so 3 is not singled out).",
+            "Claiming the Z/N inheritance or any commutative closure forces 3, or presenting the "
+            "octonionic/non-associative input as a dynamical output rather than a kinematic "
+            "classification fact.",
+        ),
+    ),
+    "statistical_flavour_ensemble": contract(
+        "statistical_flavour_ensemble",
+        ("C1",),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "BIG-BETS Bet 3. State only the EXACT, computed facts (a symmetry-blind anarchy "
+        "ensemble produces LARGE mixing and reproduces the observed quark CKM moduli with "
+        "probability ~ 0, so it is decisively falsified for quarks, yet the SAME anarchy reaches "
+        "a PMNS-sized sin^2 theta13 a few percent of the time, so it stays viable for leptons — "
+        "the observed quark/lepton dichotomy; the Gatto-Sartori-Tonin correlation "
+        "corr(|V_us|, sqrt(m_d/m_s)) is ~ 0 for anarchy but ~ +0.48 for the Froggatt-Nielsen "
+        "hierarchy ALONE, and CHO's derived triality texture zero lifts it only ~ +0.07 more) "
+        "and the HONEST conclusion (going to distributions is a real methodological win — it "
+        "kills symmetry-blind anarchy for quarks — but what beats anarchy is the mass HIERARCHY, "
+        "an input the ledger already charges, not the CHO texture). Do NOT present this as CHO "
+        "predicting the flavour distribution: the single-value bridges C1..C4 are untouched, and "
+        "the texture zero is a sub-dominant refinement on top of the hierarchy, not the "
+        "discriminator.",
+        assumptions=(
+            "Yukawas are 3x3 complex matrices; the up and down sectors are independent draws and "
+            "the CKM matrix is U_u^dag U_d read from the left singular vectors, with the singular "
+            "values identified as the masses (the standard random-texture setup).",
+            "The hierarchy is modelled by a Froggatt-Nielsen scaling M_ij ~ eps0^(q_i+q_j) with "
+            "charges (2,1,0) and eps0^2 = pi/432 (the CHO triality-breaking parameter, ledger F0); "
+            "the CHO texture is the NNI zero set, of which triality derives only the (1,3),(3,1) "
+            "entry (gen1<->gen3 needs two tau steps).",
+            "The ensembles are Monte-Carlo at a FIXED seed and finite sample, so the medians, "
+            "tail fractions, and correlations are estimates with sampling noise; the asserted "
+            "thresholds carry margin around the seed-stable values.",
+        ),
+        open_bridges=(
+            "The discriminating power is carried by the mass hierarchy (the eps-ladder, an F0 "
+            "input the scoreboard already charges), not by the CHO texture: a symmetry-blind "
+            "ensemble with the same hierarchy already reproduces the small angles and most of the "
+            "GST correlation, so this module does NOT credit CHO — the single-value C1..C4 "
+            "bridges stand exactly as charged.",
+            "The NNI texture is emitted by every Froggatt-Nielsen model, so even the small "
+            "texture-zero increment is not unique to CHO; whether the octonionic structure "
+            "selects FN charges or the texture zeros dynamically is not addressed here.",
+            "Only the percolation-like Gaussian ensemble with a fixed FN charge assignment is "
+            "swept; a genuine large-N free-probability limit (where RMT universality is sharp) is "
+            "not reachable at 3 generations, so the universality argument is heuristic.",
+        ),
+        kill_conditions=(
+            "Presenting the anarchy falsification or the GST correlation as a CHO derivation of "
+            "the flavour distribution, or moving any Bayes credit on the back of this EXPLORATORY "
+            "module.",
+            "Quoting the real positive (distributions kill symmetry-blind anarchy) while "
+            "suppressing that the hierarchy — not the CHO texture — is what does it (the hierarchy "
+            "increment to the correlation strictly exceeds the texture increment).",
+            "Claiming the triality texture zero or the NNI form is a unique CHO prediction, or "
+            "promoting any single-value CKM/PMNS bridge to 'derived' on the strength of the "
+            "ensemble statistics.",
+        ),
+    ),
     "prediction_registry": contract(
         "prediction_registry",
         ("N1", "N5"),
