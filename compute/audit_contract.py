@@ -2314,6 +2314,40 @@ CONTRACTS = {
             "near-equivalent alternatives rather than explicit misses.",
         ),
     ),
+    "f4_breaking_calibrated_source_action_gate": contract(
+        "f4_breaking_calibrated_source_action_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking calibrated source-action gate. Claim the robustness narrowing: the beta stationarity "
+        "result does not depend on the special Bernoulli/KL source functional. KL/log-score, Brier/quadratic, "
+        "Hellinger, and logit-quadratic calibrated local source actions all have the same strict stationary "
+        "point q=d for q(beta)=exp(-2 beta), so beta=-log(eps0). Improper controls fail, and wrong source/channel "
+        "choices still miss. This narrows the live assumption from 'KL source term' to 'calibrated source coupling'; "
+        "it does not derive that calibration or the CHO action term, and it must not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The selected density d=pi/432 and projective channel q(beta)=exp(-2 beta) are imported from the "
+            "prior carrier, Born-geometry, and source-stationarity gates.",
+            "The action class is local and calibrated on the projective probability: its strict minimum occurs "
+            "when model probability q equals source probability d. The gate tests robustness inside this class, "
+            "not a derivation of the class from CHO dynamics.",
+            "The improper controls are negative witnesses only; failing them does not prove uniqueness of the "
+            "calibrated class among all conceivable CHO-natural functionals.",
+        ),
+        open_bridges=(
+            "Derive from CHO/F4-breaking dynamics why the source-channel action must be calibrated on the "
+            "projective probability q rather than on amplitude, angle, or another coordinate.",
+            "Derive the actual action density or transfer functional that supplies this calibrated source coupling, "
+            "rather than selecting a member or class of source actions by hand.",
+            "Classify competing CHO-natural nonlocal or constrained source functionals and show whether they reduce "
+            "to the same calibrated stationarity condition.",
+        ),
+        kill_conditions=(
+            "Presenting robustness across calibrated source actions as a derivation of the CHO action or source coupling.",
+            "Suppressing the imported assumptions: selected d=pi/432, projective channel q=exp(-2 beta), and source calibration.",
+            "Claiming KL uniqueness, Bayes-credit movement, or F0/S1 promotion from this robustness result.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),

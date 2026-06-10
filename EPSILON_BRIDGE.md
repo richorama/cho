@@ -568,3 +568,24 @@ using `1/432` without the Berry `pi`, or using the `k=2` density.
 granted: the stationarity equation selects it. The remaining live object is the
 origin of that source-channel coupling in the CHO/F4-breaking action. No Bayes
 credit moves.
+
+## Calibrated Source-Action Gate (2026-06-10)
+
+`compute/f4_breaking_calibrated_source_action_gate.py` checks whether the KL/log
+source action was a fragile special choice. It was not. The same stationary beta
+is selected by several calibrated local source actions on the projective
+probability channel: KL/log score, Brier/quadratic score, Hellinger distance, and
+logit-quadratic distance.
+
+Each has a strict local minimum at `q=d`; with `q(beta)=exp(-2 beta)` this gives
+the same
+
+`beta = -0.5 log(pi/432) = -log(eps0)`.
+
+Improper controls fail: a linear probability reward is not stationary at `q=d`,
+and an amplitude-calibrated square loss targets the wrong coordinate. The wrong
+source/channel controls from the stationarity gate still miss.
+
+**Net.** The live assumption is no longer the specific KL functional. It is the
+broader calibrated source coupling on projective probability. Deriving that
+calibration from the CHO/F4-breaking action remains open. No Bayes credit moves.

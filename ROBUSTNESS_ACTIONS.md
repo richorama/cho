@@ -726,3 +726,15 @@ probability, state-count-only `1/432`, and the `k=2` density) miss. This derives
 beta stationarity only inside the granted source-channel functional; the CHO
 action term that supplies that coupling remains open. F0/S1 stay open; no Bayes
 credit moves.
+
+### Execution note (2026-06-10) — calibrated source-action gate
+
+`compute/f4_breaking_calibrated_source_action_gate.py` added. It pressure-tests
+whether the stationarity result relies on the special KL/log-score source action.
+KL, Brier/quadratic, Hellinger, and logit-quadratic calibrated source actions all
+select the same stationary point `q=d` for `q(beta)=exp(-2 beta)`, hence the same
+`beta=-log(eps0)`. Improper controls fail, and the previous wrong source/channel
+controls still miss. This narrows the remaining assumption from a KL source term
+to calibrated source coupling on the projective probability; deriving that
+calibration from the CHO/F4-breaking action remains open. F0/S1 stay open; no
+Bayes credit moves.
