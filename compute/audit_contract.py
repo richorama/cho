@@ -1966,6 +1966,79 @@ CONTRACTS = {
             "(1,eps0,eps0^2)-cascade / eps0^2=pi/432 facts drift silently.",
         ),
     ),
+    "f0_sigma_model_closeout": contract(
+        "f0_sigma_model_closeout",
+        ("F0", "S1", "G1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "CLOSEOUT of the OP^2 Berry/Wess-Zumino sigma-model route to pi/432 — a REPORTER (it "
+        "re-derives nothing and grants NO Bayes credit) that consolidates the three sigma-model "
+        "EXPLORATORY modules (berry_sigma_model_op2 #86, berry_pi_intrinsic_op2 #87, "
+        "f4_breaking_seed_op2 #88) and records the route as the FOURTH independent "
+        "converging-negative on the one missing dynamical action. Claim ONLY what the consolidation "
+        "shows. [CONVERGENCE] the sigma-model route reaches the SAME wall as the spectral-triple "
+        "route (f0_phase1_closeout: prefactor a4/a2 REFUTED, L_X-spectrum ratios PARTIAL) and the "
+        "topological-theta route (f0_theta_reality_gate: theta = 0): the entire remaining F0 gap is "
+        "ONE derived dynamical action that must both PRODUCE pi/432 and SELECT the three seeds — "
+        "now confirmed from the dynamical/topological side (asserted: all four routes name real "
+        "audited contracts). [SHARPENING — the one genuinely-new thing] the route says what KIND of "
+        "action is missing: #86's no-go proves any F4-INVARIANT action is flat on the vacuum "
+        "manifold OP^2, so the missing action must BREAK F4; #88 then shows the canonical "
+        "F4-breaking rank-one vacuum spurion supplies the DIRECTION (the three generations are "
+        "EXACTLY the Morse critical points of the frame-breaking height V_A(P)=Tr(P o A)) but NOT "
+        "the MAGNITUDE (the critical values are spec(A); the absolute scale is pi/432, the lone "
+        "surviving input). So 'need a derived action' sharpens to 'need a derived F4-BREAKING action "
+        "whose flux is pi/432 and whose spectrum is the seed' — DIRECTION solved, MAGNITUDE open. "
+        "[STANDING] the scoreboard sign does NOT flip (CONTENT/magnitude stays open): pi/432 stays "
+        "Berry/Schur GEOMETRIC, F0 stays GEOMETRIC/open, no Bayes credit moves, the earned floor "
+        "stays ln B = -3.2 < 0 (asserted). Source-of-truth tripwires (asserted): the three "
+        "sigma-model probes are still STATUS_EXPLORATORY/VERDICT_OPEN and still humble (>=1 open "
+        "bridge AND >=1 kill condition). Do NOT present the convergence or the F4-breaking "
+        "sharpening as deriving pi/432 or the seeds; recorded STATUS_EXPLORATORY / VERDICT_OPEN, "
+        "forbids only SILENT drift.",
+        assumptions=(
+            "The three sigma-model module results (#86 FORM-passes/CONTENT-no-go, #87 pi "
+            "F4-intrinsic, #88 generations = Morse critical points / values = spec(A)) and the four "
+            "converging-negative contracts (f0_spectral_action_heatkernel, spectral_action_432, "
+            "f0_theta_reality_gate, f4_breaking_seed_op2) are taken source-of-truth from their own "
+            "modules; this reporter re-derives NONE of them — it asserts their status/verdict and "
+            "consolidates the convergence and the sharpening.",
+            "The 'fourth converging-negative' framing rests on f0_phase1_closeout (the prefactor "
+            "and ratio routes) and f0_theta_reality_gate (the topological-theta route) being the "
+            "prior three independent routes to the same missing object; this module CITES that "
+            "established convergence, it does not re-run those routes.",
+            "The honest fork (the sign does not flip; the FORM/pi is settled, the MAGNITUDE/seed "
+            "stays open) and the lone input eps0^2 = pi/432 are taken from f4_breaking_seed_op2 / "
+            "spurion_bridge / epsilon_measure_schur; this module records them, it does not "
+            "re-derive the constant.",
+        ),
+        open_bridges=(
+            "The CONTENT/magnitude half stays open: the missing F4-BREAKING action that would "
+            "supply the absolute scale (= pi/432) and the seed magnitudes is LOCALISED by this "
+            "consolidation, not SUPPLIED — F0 and S1 stay charged.",
+            "This is a REPORTER over an EXPLORATORY arc: it adds no new derivation, and the "
+            "architecture seam the three sigma-model modules carry (deriving that the FULL CHO "
+            "dynamics realises THIS Berry/WZ sigma-model — this target, this normalisation, this "
+            "F4-breaking term — rather than positing it) is untouched here.",
+            "The four-route convergence is strong (negative) evidence that the missing object is "
+            "SINGULAR, but it does not PROVE uniqueness or exhaust all routes; the genuinely new "
+            "lever that could move the bottom line is the EXTERNAL datum sin^2 theta23 = 4/7 "
+            "(theta23_octant_prediction; DUNE / Hyper-K), not another internal derivation.",
+        ),
+        kill_conditions=(
+            "Presenting the convergence or the F4-breaking sharpening as DERIVING pi/432 or the "
+            "seed magnitudes, promoting F0/S1/G1, or moving any Bayes credit — only BOTH halves "
+            "(FORM and CONTENT) passing would flip the sign, and the CONTENT/magnitude half stays "
+            "open.",
+            "Spinning the route as a positive result: reporting that the sigma-model 'works' or "
+            "that the FORM (pi) being settled and F4-intrinsic CLOSES the lever, without the "
+            "CONTENT/magnitude failure (the seeds are spec(A) input, the absolute scale is the lone "
+            "open pi/432) stated equally loudly.",
+            "Letting the reporter drift: a sigma-model probe silently promoted out of "
+            "EXPLORATORY/OPEN, the earned scoreboard floor silently moved off ln B = -3.2, or the "
+            "four-route convergence silently reduced — the tripwire assertions must stay live.",
+        ),
+    ),
     "prediction_registry": contract(
         "prediction_registry",
         ("N1", "N5"),
