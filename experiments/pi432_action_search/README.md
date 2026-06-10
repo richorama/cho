@@ -70,11 +70,16 @@ The broader sweep tries parked radical routes without promoting them:
 
 - `candidate_wz_jordan_entropy_action.py`
 - `wz_flux_normalization_gate.py`
+- `wz_level_integrality_gate.py`
 - `peirce_gap_derivation.py`
 - `entropy_principle_derivation.py`
 - `frame_lift_f4_breaking.py`
 - `unified_boundary_wz_jordan_action.py`
 - `boundary_variation_gate.py`
+- `boundary_metric_origin_gate.py`
+- `oriented_wz_boundary_gate.py`
+- `wz_chain_origin_gate.py`
+- `action_origin_unification_gate.py`
 - `exceptional_cs_higher_gauge.py`
 - `freudenthal_unfolding.py`
 - `exceptional_harmonic_analysis.py`
@@ -106,6 +111,10 @@ derivation. Supporting gates now reduce the assumptions:
 
 - `wz_flux_normalization_gate.py`: `Phi = pi/432` follows conditionally from WZ
   half-flux normalized over the Schur carrier `16*27`.
+- `wz_level_integrality_gate.py`: filling-independence quantizes the WZ
+  coefficient to an integer level; the primitive nonzero level gives half-flux
+  `pi`, so the continuous coefficient is killed, while level-one primitiveness
+  and the carrier still need the full CHO action.
 - `peirce_gap_derivation.py`: rank-3 primitive Peirce grading gives `N=(0,1,2)`,
   and endpoint flux gives `Delta_Phi=-1/2 log(Phi)`.
 - `entropy_principle_derivation.py`: relative entropy is the canonical Gibbs
@@ -129,3 +138,34 @@ on `OP2 x OP2` with the overlap functional `B(P,Q)=Tr(P o Q)`. Gradient descent
 forces `B -> 0`, so the endpoints become an orthogonal primitive pair and
 complete to a Jordan frame. The result is real progress, but the overlap term is
 symmetric: it gives an unordered pair. The WZ orientation/order remains open.
+
+`boundary_metric_origin_gate.py` narrows why the overlap term is the natural
+boundary cost. For primitive idempotents, `Tr(P o Q)` is the rank-one transition
+probability; on the boundary `CP1` it is `cos^2(theta/2)`, so minimizing it
+maximizes Fubini-Study endpoint distance. It is preserved by `F4`, so it is the
+canonical two-point contrast. What remains open is the dynamical choice of the
+linear monotone/coefficient and its coupling to the WZ term.
+
+`oriented_wz_boundary_gate.py` attacks that orientation gap. It tracks the
+oriented WZ action rather than only the unit holonomy: at the geodesic half-turn
+`exp(i*pi)=exp(-i*pi)=-1`, so the U(1) phase alone cannot orient the pair, but
+the oriented action distinguishes `+pi` from `-pi`. Conditional on the oriented
+WZ boundary, the completed frame carries grades `(0,1,2)` and the reversed
+boundary carries `(2,1,0)`. What remains is deriving this oriented boundary term
+from full CHO dynamics.
+
+`wz_chain_origin_gate.py` connects orientation and integrality. On the transition
+`CP1`, the primitive Berry/WZ curvature is half the solid-angle form, so its
+full-sphere action is `2*pi` and its first Chern number is `1`. Thus level one is
+the primitive nontrivial integral WZ chain rather than a continuous coefficient;
+level zero is trivial and higher levels are multiples. The remaining open step is
+deriving that CHO dynamics includes this WZ chain in the boundary action.
+
+`action_origin_unification_gate.py` assembles the current gates into one
+effective boundary action and audits their origin. It confirms that the overlap
+boundary variation, oriented WZ term, integer WZ level, Schur carrier density,
+Peirce grading, and Gibbs seed law are mutually compatible. It also refuses the
+overclaim: the metric gate makes the overlap cost canonical but not dynamical;
+the WZ-chain gate makes the oriented level-one sector canonical on the transition
+`CP1` but not yet dynamical; the `Delta_9 x J3(O)` carrier and entropy principle
+are still imported effective ingredients until derived from CHO dynamics.

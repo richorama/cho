@@ -14,11 +14,16 @@ PROBES = (
     "anomaly_wz_inflow.py",
     "jordan_nonassoc_spectral_action.py",
     "wz_flux_normalization_gate.py",
+    "wz_level_integrality_gate.py",
     "peirce_gap_derivation.py",
     "entropy_principle_derivation.py",
     "frame_lift_f4_breaking.py",
     "unified_boundary_wz_jordan_action.py",
     "boundary_variation_gate.py",
+    "boundary_metric_origin_gate.py",
+    "oriented_wz_boundary_gate.py",
+    "wz_chain_origin_gate.py",
+    "action_origin_unification_gate.py",
     "candidate_wz_jordan_entropy_action.py",
     "exceptional_cs_higher_gauge.py",
     "freudenthal_unfolding.py",
@@ -60,11 +65,16 @@ def main() -> int:
     print("FULL SANDBOX SWEEP: PASS")
     print("No final derivation from full CHO dynamics yet. A unified boundary")
     print("CHO/Jordan/WZ action candidate now combines the gates: WZ-normalized")
-    print("Phi, F4-covariant ordered boundary pair, Jordan-frame completion,")
+    print("level-one Phi, F4-covariant ordered boundary pair, Jordan-frame completion,")
     print("Peirce grading, Gibbs entropy, and seed ratios. The boundary variation")
-    print("gate now forces an unordered orthogonal endpoint pair; the remaining")
-    print("theorem is to derive the WZ orientation and the full boundary free-energy")
-    print("action itself from CHO dynamics.")
+    print("gate forces an unordered orthogonal endpoint pair, and the metric-origin")
+    print("gate identifies the overlap as the canonical F4 two-point contrast. The")
+    print("oriented WZ gate supplies the sign that orders the grades, while the WZ-chain")
+    print("origin gate identifies level one as the primitive integral CP1 class. WZ")
+    print("integrality kills the continuous coefficient. The action-origin gate confirms the pieces")
+    print("assemble as one effective boundary action, but the remaining theorem is")
+    print("still to derive the F4-breaking oriented level-one boundary action, carrier,")
+    print("and entropy principle from CHO dynamics.")
     return 0
 
 

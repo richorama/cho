@@ -80,11 +80,16 @@ Entry probe: `jordan_nonassoc_spectral_action.py`.
 
 Concrete candidate: `candidate_wz_jordan_entropy_action.py`.
 Flux gate: `wz_flux_normalization_gate.py`.
+Level/integrality gate: `wz_level_integrality_gate.py`.
 Gap derivation gate: `peirce_gap_derivation.py`.
 Entropy gate: `entropy_principle_derivation.py`.
 Frame lift gate: `frame_lift_f4_breaking.py`.
 Unified action candidate: `unified_boundary_wz_jordan_action.py`.
 Boundary variation gate: `boundary_variation_gate.py`.
+Boundary metric-origin gate: `boundary_metric_origin_gate.py`.
+Oriented WZ boundary gate: `oriented_wz_boundary_gate.py`.
+WZ chain-origin gate: `wz_chain_origin_gate.py`.
+Action-origin unification gate: `action_origin_unification_gate.py`.
 
 This candidate action uses `Phi = pi/432` as a WZ/Schur flux and tests a
 Jordan-frame entropy functional
@@ -103,6 +108,13 @@ is therefore the strongest concrete candidate so far, but it remains conditional
 until one CHO/WZ/Jordan action derives the flux normalization, entropy principle,
 and full F4 frame lift together.
 
+`wz_level_integrality_gate.py` sharpens the flux side: for `S_WZ=(k/2)Omega`,
+changing the disk filling by a full sphere shifts the action by `2*pi*k`, so
+single-valuedness forces integer `k`. The primitive nonzero level gives the
+half-turn `pi`, and Schur normalization gives `pi/432`. This kills the continuous
+coefficient but does not derive the oriented WZ term, the carrier, or the choice
+of primitive level from CHO dynamics.
+
 `unified_boundary_wz_jordan_action.py` now provides that single effective action
 candidate at the sandbox level. It is F4-covariant because the ordered boundary
 pair and its completed Jordan frame are transported by `F4`; it breaks `F4` only
@@ -115,6 +127,35 @@ it variationally forces an orthogonal primitive endpoint pair and hence a Jordan
 frame completion. This removes the need to impose orthogonality by hand. It does
 not derive the ordering: `B(P,Q)=B(Q,P)`, so the WZ orientation remains the live
 boundary-data gap.
+
+`boundary_metric_origin_gate.py` narrows the origin of that overlap term. It
+checks that `Tr(P o Q)` is the rank-one transition probability, equals
+`cos^2(theta/2)` on the boundary `CP1`, and is preserved by `F4`; therefore it is
+the canonical invariant two-point contrast on `OP2`. This still does not derive
+the boundary action coefficient or explain why CHO dynamics chooses the linear
+monotone, but it removes the sense that the overlap cost is an arbitrary scalar.
+
+`oriented_wz_boundary_gate.py` narrows that gap. It distinguishes the oriented WZ
+action `+pi(1-cos theta)` from the reversed action `-pi(1-cos theta)`. At the
+great-circle half-turn the unit holonomies coincide because `exp(i*pi)=exp(-i*pi)`,
+so the orientation cannot be read from U(1) alone; it must be carried by the
+oriented WZ chain/action. Conditional on that oriented boundary, grade order is
+fixed as `(0,1,2)` and reverses to `(2,1,0)` under boundary reversal. The remaining
+frontier is deriving this oriented boundary term from the CHO action.
+
+`wz_chain_origin_gate.py` narrows the WZ origin. The primitive Berry/WZ curvature
+on the transition `CP1` has full-sphere action `2*pi`, hence first Chern number
+`1`; level one is the primitive nontrivial integral WZ chain, level zero is
+trivial, and higher levels are multiples. This connects orientation and
+integrality, but the microscopic CHO action still has to supply this boundary
+chain.
+
+`action_origin_unification_gate.py` is the current anti-treadmill check. It
+assembles the overlap boundary term, oriented WZ term, integer level, Schur
+carrier, Peirce grades, and entropy variation into one effective boundary action
+and verifies that the outputs cohere. It also machine-checks the honest negative:
+the metric origin of the overlap and the primitive WZ chain are narrowed, but the
+full CHO-derived action is still open.
 
 ## Graduation Rule
 
