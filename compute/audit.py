@@ -180,6 +180,7 @@ import f4_breaking_born_geometry_gate
 import f4_breaking_source_stationarity_gate
 import f4_breaking_calibrated_source_action_gate
 import f4_breaking_large_deviation_source_gate
+import f4_breaking_maxcal_ensemble_gate
 import theory_probation_closeout
 import prediction_registry
 import scoreboard
@@ -474,6 +475,9 @@ ARTIFACTS = [
     ("f4_breaking_large_deviation_source_gate",
      "F0 large-deviation source gate (EXPLORATORY): tests an out-of-the-box origin for the KL source term. If the projective transition channel is sampled as repeated two-outcome trials and the selected WZ/Born density d=pi/432 is the empirical frequency, finite binomial counting gives the relative negative log-likelihood density exactly as KL(d_hat||q), whose large-deviation limit is the Bernoulli source action. Stationarity again gives q=d and beta=-log(eps0). This derives the KL rate only conditional on an independent projective-transition ensemble; the CHO origin of that ensemble/coupling remains open, and no Bayes credit moves.",
      f4_breaking_large_deviation_source_gate.main),
+    ("f4_breaking_maxcal_ensemble_gate",
+     "F0 maximum-caliber ensemble gate (EXPLORATORY): tests whether the independent projective-transition ensemble granted by the large-deviation gate can be obtained from a weaker path-entropy principle. For binary histories with only the mean transition count constrained, Shannon maximum caliber gives P(history)=exp(-lambda K)/Z and factorizes exactly into iid Bernoulli trials with q=d. Same-mean correlated controls have lower entropy. This derives independence only conditional on MaxCal and the selected mean constraint; deriving those from CHO/F4-breaking dynamics remains open, and no Bayes credit moves.",
+     f4_breaking_maxcal_ensemble_gate.main),
     ("theory_probation_closeout",
     "THEORY PROBATION CLOSEOUT: preserves the theorem-level core (J3(O) idempotent frame, Schur weights, Freudenthal seesaw, OP^2/Berry geometry), archives failed routes as null records, and states that the SM-constant physics claim can only advance via a derived F4-breaking action whose flux gives pi/432 and whose spectrum gives the seed. If that fails, demote to beautiful algebraic numerology with strong structure, not a theory of nature. Reporter only; no Bayes credit.",
     theory_probation_closeout.main),

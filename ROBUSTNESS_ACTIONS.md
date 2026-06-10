@@ -750,3 +750,15 @@ pi/432`, this is the Bernoulli source action, and stationarity again gives
 `beta=-log(eps0)`. This derives the KL rate only conditional on an independent
 projective-transition ensemble/source interpretation; deriving that ensemble from
 CHO/F4-breaking dynamics remains open. F0/S1 stay open; no Bayes credit moves.
+
+### Execution note (2026-06-10) — maximum-caliber ensemble gate
+
+`compute/f4_breaking_maxcal_ensemble_gate.py` added. It tests whether the
+independent counting ensemble can be derived from a weaker least-biased path
+principle. For binary projective-transition histories with only the mean transition
+count constrained, Shannon maximum caliber gives `P(history)=exp(-lambda K)/Z` and
+factorizes exactly into iid Bernoulli trials with `q=d`. Same-mean correlated
+controls have lower entropy per trial. This derives independence only conditional
+on binary histories, MaxCal, and the selected mean constraint `d=pi/432`; deriving
+those from CHO/F4-breaking dynamics remains open. F0/S1 stay open; no Bayes credit
+moves.

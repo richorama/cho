@@ -2381,6 +2381,39 @@ CONTRACTS = {
             "Moving Bayes/model-complexity credit or promoting F0/S1 before the ensemble and source coupling are derived from CHO dynamics.",
         ),
     ),
+    "f4_breaking_maxcal_ensemble_gate": contract(
+        "f4_breaking_maxcal_ensemble_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking maximum-caliber ensemble gate. Claim the path-entropy narrowing: for binary projective-transition "
+        "histories, if the only constrained observable is the mean transition count with density d=pi/432, Shannon "
+        "maximum caliber gives P(history)=exp(-lambda K)/Z, Z=(1+exp(-lambda))^N, and factorizes exactly into iid "
+        "Bernoulli trials with q=d. Same-mean correlated controls have strictly lower entropy per trial. This derives "
+        "the independent counting ensemble only conditional on MaxCal and the imported mean constraint; it must not "
+        "promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The selected density d=pi/432 and projective probability channel q(beta)=exp(-2 beta) are imported from "
+            "the prior carrier, Born-geometry, source-stationarity, calibrated-action, and large-deviation gates.",
+            "Binary projective-transition histories are granted as the path space; the gate optimizes measures on this "
+            "path space rather than deriving it from CHO/F4 dynamics.",
+            "Shannon maximum caliber with only a single mean-count constraint is granted as the inference/action principle; "
+            "extra constraints or a different microscopic action could produce correlated histories.",
+        ),
+        open_bridges=(
+            "Derive the maximum-caliber or path-entropy principle from the CHO/F4-breaking action instead of importing it "
+            "as an inference principle.",
+            "Derive why the only relevant path constraint is the selected mean projective transition density d=pi/432, "
+            "rather than additional memory, energy, orientation, or F4-breaking constraints.",
+            "Derive the binary projective-transition history space and source coupling from OP^2 WZ/Jordan dynamics, and "
+            "test CHO-natural correlated-history alternatives.",
+        ),
+        kill_conditions=(
+            "Presenting maximum caliber as a full derivation of the CHO action, path space, or source constraint.",
+            "Suppressing the conditional imports: d=pi/432, q=exp(-2 beta), binary histories, single mean-count constraint, and MaxCal.",
+            "Moving Bayes/model-complexity credit or promoting F0/S1 before MaxCal, the path space, and the source constraint are derived from CHO dynamics.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),

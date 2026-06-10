@@ -613,3 +613,28 @@ independent projective-transition ensemble is granted: it is the universal
 large-deviation rate function. The remaining live object is deriving that
 ensemble/source interpretation from the CHO/F4-breaking action. No Bayes credit
 moves.
+
+## Maximum-Caliber Ensemble Gate (2026-06-10)
+
+`compute/f4_breaking_maxcal_ensemble_gate.py` asks whether the independent
+projective-transition ensemble used by the large-deviation gate can itself be a
+least-biased consequence. For binary histories with transition count `K`, Shannon
+maximum caliber with only the mean-count constraint gives
+
+`P(history)=exp(-lambda K)/Z`, with `Z=(1+exp(-lambda))^N`.
+
+This factorizes exactly into iid Bernoulli trials. Setting the constrained mean to
+the selected WZ/Born density `d=pi/432` gives `q=d`, and the existing source
+stationarity rung again gives
+
+`beta = -log(eps0)`.
+
+The gate explicitly enumerates finite binary histories to check factorization,
+normalization, marginal independence, and entropy per trial. Same-mean correlated
+controls (all-or-none, paired blocks, and finite fixed-count histories) have lower
+entropy per trial.
+
+**Net.** Independence is no longer an independent primitive once binary histories,
+MaxCal, and the single mean constraint are granted. The remaining live object is
+deriving the MaxCal/path-entropy principle, binary projective path space, and mean
+source constraint from the CHO/F4-breaking action. No Bayes credit moves.
