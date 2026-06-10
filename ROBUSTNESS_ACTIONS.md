@@ -703,3 +703,14 @@ Wrong maps (`d` as amplitude, `1/432` without Berry `pi`, or `k=2`) miss visibly
 This closes the density-to-amplitude map conditionally; the live object is now the
 CHO action coupling or stationarity equation that makes the Born map dynamical.
 F0/S1 stay open; no Bayes credit moves.
+
+### Execution note (2026-06-10) — projective Born geometry gate
+
+`compute/f4_breaking_born_geometry_gate.py` added. It hardens the Born square map
+used by the beta-map gate: in rank-one `OP^2`/`CP^1` projector geometry,
+`Tr(P o Q)=|<psi|phi>|^2`, so the selected density `pi/432` is a transition
+probability and the amplitude is forced to be `sqrt(pi/432)=eps0`. The same trace
+probability adds correctly on the orthogonal generation frame and survives `F4`
+transport into genuinely octonionic directions. This removes the local
+Born-geometry ambiguity, but it does not derive the CHO action coupling or beta
+stationarity equation. F0/S1 stay open; no Bayes credit moves.

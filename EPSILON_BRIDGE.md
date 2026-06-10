@@ -525,3 +525,22 @@ without Berry `pi`, or using the `k=2` WZ sector.
 interpretation is granted. The remaining live object is dynamical: derive the
 `F4`-breaking action or transfer operator whose stationarity equation makes that
 Born map physical rather than assigned. No Bayes credit moves.
+
+## Projective Born Geometry Gate (2026-06-10)
+
+`compute/f4_breaking_born_geometry_gate.py` hardens the granted Born step. In the
+rank-one projector geometry of `CP^1` inside `OP^2`,
+
+`Tr(P o Q) = |<psi|phi>|^2`.
+
+Thus the trace overlap is a transition probability, not an amplitude. Realising
+the selected density as `Tr(P o Q)=pi/432` forces the local projective amplitude
+to be `sqrt(pi/432)=eps0`. The gate also checks that frame probabilities against
+the three orthogonal generation idempotents add to one, and that the same trace
+probability is preserved after `F4` transport into genuinely octonionic
+directions.
+
+**Net.** The square root in the beta-map gate is now projective geometry rather
+than an interpretive convention. The remaining live object is still dynamical:
+derive why the selected WZ density sources this transition channel, and derive
+the beta stationarity equation. No Bayes credit moves.

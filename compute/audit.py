@@ -176,6 +176,7 @@ import f4_breaking_beta_selection_gate
 import f4_breaking_primitive_level_gate
 import f4_breaking_level_one_carrier_gate
 import f4_breaking_born_beta_map_gate
+import f4_breaking_born_geometry_gate
 import theory_probation_closeout
 import prediction_registry
 import scoreboard
@@ -458,6 +459,9 @@ ARTIFACTS = [
     ("f4_breaking_born_beta_map_gate",
      "F0 Born beta-map gate (EXPLORATORY): tests the local map from the selected level-one WZ density to the Gibbs seed amplitude. The carrier gate gives a probability/flux density d=pi/432; the F4-breaking cascade uses amplitude ratios. Under the Born square map r=sqrt(d), beta=-log(r), so exp(-beta)=eps0 and exp(-2 beta)=pi/432 exactly. Wrong maps visibly miss: treating d as the amplitude, omitting the Berry pi, or using k=2. This closes the density-to-amplitude half-log map once the Born-amplitude interpretation is granted, but it still does not derive the beta-dependent CHO action coupling or a stationarity equation; no Bayes credit moves.",
      f4_breaking_born_beta_map_gate.main),
+    ("f4_breaking_born_geometry_gate",
+     "F0 projective Born geometry gate (EXPLORATORY): hardens the Born interpretation granted by the Born beta-map gate. In rank-one OP^2/CP^1 projector geometry, Tr(P o Q)=|<psi|phi>|^2, so the selected WZ/carrier density d=pi/432 is a transition probability and the projective amplitude is necessarily sqrt(d)=eps0. The gate checks trace probabilities add to one on an orthogonal generation frame, survive F4 transport into genuinely octonionic directions, and reject wrong readings such as density-as-amplitude, state-count-only, or projective-angle-as-amplitude. This removes the local Born-geometry ambiguity but still does not derive the CHO action coupling or beta stationarity equation; no Bayes credit moves.",
+     f4_breaking_born_geometry_gate.main),
     ("theory_probation_closeout",
     "THEORY PROBATION CLOSEOUT: preserves the theorem-level core (J3(O) idempotent frame, Schur weights, Freudenthal seesaw, OP^2/Berry geometry), archives failed routes as null records, and states that the SM-constant physics claim can only advance via a derived F4-breaking action whose flux gives pi/432 and whose spectrum gives the seed. If that fails, demote to beautiful algebraic numerology with strong structure, not a theory of nature. Reporter only; no Bayes credit.",
     theory_probation_closeout.main),

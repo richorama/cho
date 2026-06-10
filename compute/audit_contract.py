@@ -2236,6 +2236,46 @@ CONTRACTS = {
             "near-equivalent alternatives rather than explicit misses.",
         ),
     ),
+    "f4_breaking_born_geometry_gate": contract(
+        "f4_breaking_born_geometry_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking projective Born geometry gate. Claim the local geometric hardening: "
+        "in rank-one OP^2/CP^1 projector geometry, Tr(P o Q)=|<psi|phi>|^2. Therefore "
+        "the selected WZ/carrier density d=pi/432 is naturally a transition probability, "
+        "and the seed amplitude is its projective square root sqrt(d)=eps0. The gate checks "
+        "probabilities against an orthogonal generation frame, F4-invariance after transporting "
+        "the pair into genuinely octonionic directions, and wrong readings that miss. This "
+        "removes the local Born-geometry ambiguity behind the previous beta-map gate. It does "
+        "not derive why the selected WZ density dynamically enters this transition channel, nor "
+        "does it derive beta stationarity; do not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The level-one WZ/carrier density d=pi/432 and eps0 convention are imported from "
+            "the prior F4-breaking gates; this module does not rederive level selection.",
+            "The CP^1 transition pair embedded in OP^2 is accepted as a faithful local model of "
+            "rank-one primitive-idempotent transition geometry, and F4 transport tests off-slice "
+            "intrinsicness rather than defining an octonionic Bargmann product.",
+            "Trace overlap Tr(P o Q) is the probability density; the projective amplitude is "
+            "the positive square root. The action still has to explain why this channel is sourced.",
+        ),
+        open_bridges=(
+            "Derive the CHO/F4-breaking action coupling that places the selected WZ density into "
+            "this projective transition probability channel, instead of merely realising such a channel.",
+            "Derive the beta-dependent stationarity or transfer equation whose solution is the "
+            "Born relation exp(-2 beta)=Tr(P o Q)=pi/432.",
+            "Tie the projective Born geometry to the spurion height spectrum without adding a separate "
+            "source-channel postulate.",
+        ),
+        kill_conditions=(
+            "Presenting Tr(P o Q)=|<psi|phi>|^2 as a full dynamical derivation of beta, pi/432, "
+            "or the F4-breaking action.",
+            "Suppressing the conditional scope: level-one density is imported, F4 transport hardens "
+            "geometry only, and the action-coupling/stationarity bridge remains open.",
+            "Allowing density-as-amplitude, state-count-only, or angle-as-amplitude readings to appear "
+            "as equivalent alternatives rather than explicit misses.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),
