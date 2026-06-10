@@ -762,3 +762,16 @@ controls have lower entropy per trial. This derives independence only conditiona
 on binary histories, MaxCal, and the selected mean constraint `d=pi/432`; deriving
 those from CHO/F4-breaking dynamics remains open. F0/S1 stay open; no Bayes credit
 moves.
+
+### Execution note (2026-06-10) — binary projector history gate
+
+`compute/f4_breaking_binary_projector_history_gate.py` added. It tests the binary
+path-space input of the MaxCal gate. A primitive `OP^2`/Jordan projector question
+`Q` generates the yes/no effects `{Q, I-Q}`; for a rank-one source `P`, the
+probabilities are `Tr(P o Q)` and `1-Tr(P o Q)`. Repeated readout gives histories
+in `{0,1}^N` and binomial counting. The selected primitive event has probability
+`pi/432`; level-two and state-count-only binary sources miss, and a scaled
+non-idempotent effect fails the projective-event test. This derives the binary
+alphabet only conditional on selecting the primitive source question; deriving
+that selection, the mean/source constraint, and the MaxCal action from
+CHO/F4-breaking dynamics remains open. F0/S1 stay open; no Bayes credit moves.

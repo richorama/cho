@@ -2414,6 +2414,36 @@ CONTRACTS = {
             "Moving Bayes/model-complexity credit or promoting F0/S1 before MaxCal, the path space, and the source constraint are derived from CHO dynamics.",
         ),
     ),
+    "f4_breaking_binary_projector_history_gate": contract(
+        "f4_breaking_binary_projector_history_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking binary-projector history gate. Claim the path-space narrowing: in OP2/Jordan projector geometry, "
+        "a primitive transition question Q generates exactly the yes/no effects {Q, I-Q}. For a rank-one source P, "
+        "Born probabilities are Tr(P o Q) and 1-Tr(P o Q), and repeated yes/no readout gives the binary history "
+        "alphabet {0,1}^N with binomial counting multiplicities. The selected primitive event has Tr(P o Q)=pi/432. "
+        "This derives the binary history space only conditional on selecting that primitive source question; it must "
+        "not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The OP2 rank-one projector/Born geometry and selected density d=pi/432 are imported from the prior Born-geometry, "
+            "carrier, source-stationarity, large-deviation, and MaxCal gates.",
+            "The physical source question is assumed to be a primitive projective yes/no event Q; the gate derives the binary "
+            "alphabet from that event, not the event's dynamical selection from CHO/F4 dynamics.",
+            "Repeated readout of the same primitive question is treated as the history space to be fed into MaxCal; the MaxCal "
+            "principle and mean constraint remain separate conditional inputs.",
+        ),
+        open_bridges=(
+            "Derive from CHO/F4-breaking dynamics why the physical source observable is this primitive projective question Q.",
+            "Derive why the selected primitive event has mean transition density d=pi/432 rather than a wrong binary source such as k=2 or state-count-only.",
+            "Derive the MaxCal/path-entropy action and source coupling for repeated primitive-projector readout, including possible orientation or memory constraints.",
+        ),
+        kill_conditions=(
+            "Presenting the primitive yes/no event algebra as a full derivation of the CHO source action or mean constraint.",
+            "Suppressing the conditional imports: OP2 Born geometry, primitive source question, selected density d=pi/432, and repeated readout.",
+            "Moving Bayes/model-complexity credit or promoting F0/S1 before the primitive source question and mean/source constraint are derived from CHO dynamics.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),

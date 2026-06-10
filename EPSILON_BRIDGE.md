@@ -638,3 +638,31 @@ entropy per trial.
 MaxCal, and the single mean constraint are granted. The remaining live object is
 deriving the MaxCal/path-entropy principle, binary projective path space, and mean
 source constraint from the CHO/F4-breaking action. No Bayes credit moves.
+
+## Binary Projector History Gate (2026-06-10)
+
+`compute/f4_breaking_binary_projector_history_gate.py` asks where the binary
+history alphabet used by MaxCal comes from. In the `OP^2`/Jordan projector
+geometry, a primitive transition question `Q` generates the two effects
+
+`yes = Q`, `no = I-Q`.
+
+These are orthogonal idempotents and sum to the identity. For a rank-one source
+state `P`, their probabilities are
+
+`p_yes = Tr(P o Q)`, `p_no = Tr(P o (I-Q)) = 1-p_yes`.
+
+At the selected primitive transition, `p_yes=pi/432`. Repeated readout of this
+single primitive question gives histories in `{0,1}^N`, with multiplicities
+`C(N,k)`, which is the binary path space used by the MaxCal and large-deviation
+gates.
+
+The gate checks the idempotent/orthogonality identities, F4 transport into genuine
+octonionic directions, binomial history counting, and wrong binary sources. A
+state-count scaled effect has the same superficial normalization but fails the
+projective idempotent-event test.
+
+**Net.** The binary alphabet is no longer an arbitrary statistical wrapper once a
+primitive projective transition question is granted. The remaining live object is
+deriving why CHO/F4-breaking dynamics selects that primitive question, its mean
+`d=pi/432`, and the MaxCal/path-entropy action. No Bayes credit moves.
