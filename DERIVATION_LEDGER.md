@@ -1,10 +1,12 @@
 # CHO Derivation Ledger
 
-Frozen date: 2026-06-06
+Frozen date: 2026-06-10
 
 Purpose: make the logical status of each CHO claim explicit. This ledger separates theorem-level consequences, derived bridge claims, motivated ansaetze, and numerical comparisons so the project can progress by tightening the weakest links instead of adding more formulas.
 
 Parameter convention: describe CHO as a **few-input** framework. The audit does not fit a separate continuous low-energy parameter for each row, but it does rely on explicit algebraic inputs, bridge assumptions, and continuum/RG matching prescriptions.
+
+Probation convention: the durable core is the theorem-level mathematics — `PAPER_JORDAN_THEOREMS.md`, the `J3(O)` idempotent-frame result, Schur weights, the Freudenthal cubic seesaw, and the `OP^2` / Berry geometry. The SM-constant physics claim is on probation. The only active internal promotion route is `compute/theory_probation_closeout.py`'s guarded path from `compute/f0_sigma_model_closeout.py`: derive an `F4`-breaking dynamical action whose flux gives `pi/432` and whose spectrum gives the seed. If that action cannot be derived without inserting the scale or seed by hand, demote the SM-constant program to structured algebraic numerology rather than call it a theory of nature.
 
 ## Status Key
 

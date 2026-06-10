@@ -4,6 +4,23 @@ Frozen date: 2026-06-06
 
 This project should be presented as a **few-input algebraic framework**, not as a completed zero-parameter theory. The strongest current result is the interlocking pattern of low-energy relations. The weakest current layer is the derivation of the continuum action, RG matching, and several algebra-to-physics bridge rules.
 
+## Probation Policy
+
+Preserve and polish the theorem-level mathematics: `PAPER_JORDAN_THEOREMS.md`,
+the `J3(O)` idempotent-frame result, the Schur weights `1/16` and `1/27`, the
+Freudenthal cubic seesaw, and the `OP^2` / Berry geometry. These are the durable
+core even if the physical interpretation is rejected.
+
+The SM-constant physics claim is on probation. The only internal route worth
+more time is the one named in `compute/f0_sigma_model_closeout.py`: derive an
+`F4`-breaking dynamical action whose flux gives `pi/432` and whose spectrum gives
+the seed. Heat-kernel `a4/a2`, topological theta, single-scale RG matching,
+big-bets outside routes, and more invariance/trace witnesses are preserved as
+null records, not active proof routes. If the `F4`-breaking action cannot be
+derived without inserting the scale or seed by hand, public prose should demote
+the program to structured algebraic numerology rather than call it a theory of
+nature.
+
 ## Parameter Language
 
 Use this wording:

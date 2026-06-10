@@ -626,3 +626,23 @@ stays GEOMETRIC/open (not demoted, not promoted) and the scoreboard ladder
 (`-21.3 / -3.2 / +5.6 / +36.2`) and the pre-registered prediction manifest read unchanged.
 Wired into `audit.py` and `audit_contract.py` (76/76 contracted, status PASS; pytest 95
 passed) as an `OPEN_BRIDGE` under F0.
+
+### Probation decision (2026-06-10) — durable core preserved, physics claim on probation
+
+The durable core is the theorem-level mathematics: `PAPER_JORDAN_THEOREMS.md`, the
+`J3(O)` idempotent-frame / `OP^2` count-and-chirality result, the Schur-forced weights
+`1/16` and `1/27`, the Freudenthal cubic seesaw, and the `OP^2` / Berry geometry. Keep
+and polish these as mathematics, decoupled from any need to defend the full physics claim.
+
+The SM-constant program is now on probation. The only internal route worth more time is
+the one named by `compute/f0_sigma_model_closeout.py`: derive an `F4`-breaking dynamical
+action whose flux gives `pi/432` and whose spectrum gives the seed. If that action cannot
+be derived without inserting `pi/432` or the seed spectrum by hand, the program should be
+demoted to beautiful algebraic numerology with strong structure, not described as a theory
+of nature.
+
+Archived / inactive as proof routes: heat-kernel `a4/a2`, topological theta, single-scale
+RG matching, the big-bets outside routes, and additional invariance / normalized-trace
+witnesses. Preserve them as null records so the ground is not re-covered; do not treat them
+as active paths to promotion. Wired into `compute/theory_probation_closeout.py`,
+`audit.py`, and `audit_contract.py` as a diagnostic reporter that grants no Bayes credit.

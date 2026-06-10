@@ -2,7 +2,7 @@
 
 A few-input algebraic framework for the Standard Model, built from the tensor product of the three largest normed division algebras.
 
-> **Scope (updated 2026-06-07).** This project is framed as *an algebraic
+> **Scope (updated 2026-06-10).** This project is framed as *an algebraic
 > framework for Standard Model parameters from division algebras* — **not** a
 > completed Theory of Everything. Phase 5 explicitly keeps gravity out of scope:
 > [foundations/11_gravity_gate.md](foundations/11_gravity_gate.md) and
@@ -11,6 +11,17 @@ A few-input algebraic framework for the Standard Model, built from the tensor pr
 > or dynamics. The defensible claim is a constrained, hard-to-vary
 > parametrization of SM masses, mixings, and couplings plus a conditional
 > three-generations result.
+>
+> **Probation note.** The durable core is the theorem-level mathematics:
+> [PAPER_JORDAN_THEOREMS.md](PAPER_JORDAN_THEOREMS.md), the `J3(O)`
+> idempotent-frame result, Schur weights, the Freudenthal cubic seesaw, and the
+> `OP^2`/Berry geometry. The SM-constant physics claim is on probation. The only
+> active internal route is the one named by
+> [compute/f0_sigma_model_closeout.py](compute/f0_sigma_model_closeout.py): derive
+> an `F4`-breaking dynamical action whose flux gives `pi/432` and whose spectrum
+> gives the seed. If that route fails without hand-inserting the scale or seed,
+> this becomes beautiful algebraic numerology with strong structure, not a theory
+> of nature.
 
 ## What is this?
 

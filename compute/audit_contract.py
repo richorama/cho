@@ -2039,6 +2039,50 @@ CONTRACTS = {
             "four-route convergence silently reduced — the tripwire assertions must stay live.",
         ),
     ),
+    "theory_probation_closeout": contract(
+        "theory_probation_closeout",
+        ("F0", "S1", "G1"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Governance reporter only. Claim that the durable theorem-level core is to be "
+        "preserved and polished (PAPER_JORDAN_THEOREMS.md / J3(O) idempotent frame / "
+        "Schur weights / Freudenthal cubic seesaw / OP^2-Berry geometry), while the "
+        "SM-constant physics claim is on probation. The only internal route worth more "
+        "time is the f0_sigma_model_closeout route: derive an F4-BREAKING dynamical "
+        "action whose flux gives pi/432 and whose spectrum gives the seed. If that "
+        "cannot be done without inserting the scale/seed by hand, demote the SM-constant "
+        "program to beautiful algebraic numerology with strong structure, not a theory "
+        "of nature. Do NOT present this reporter as a derivation, a new physics result, "
+        "or a Bayes-credit-moving artifact; it archives failed routes as null records "
+        "and guards the probation policy against silent overclaiming.",
+        assumptions=(
+            "Durable-core artifacts are source-of-truth contracts already in the audit "
+            "harness: jordan_standalone_theorems, three_generations_frame, "
+            "epsilon_measure_schur, generation_cascade, berry_sigma_model_op2, "
+            "berry_pi_intrinsic_op2, and f4_breaking_seed_op2.",
+            "Inactive routes are preserved as negative/closeout records rather than "
+            "deleted: f0_spectral_action_heatkernel, f0_theta_reality_gate, "
+            "rg_scale_derivation, big_bets_closeout, and gold_standard_closeout.",
+            "The earned scoreboard floor is read from scoreboard.scoreboard(F=3.0) as "
+            "a tripwire against silent drift, not as a frozen constant; deliberate "
+            "re-verified scientific changes are allowed.",
+        ),
+        open_bridges=(
+            "This reporter closes no physics bridge. The live bridge remains exactly "
+            "the one named by f0_sigma_model_closeout: derive the F4-breaking action "
+            "whose flux is pi/432 and whose spectrum gives the seed.",
+        ),
+        kill_conditions=(
+            "Citing the durable-core preservation as evidence that the SM constants are "
+            "derived, or using this reporter to promote F0/S1/G1 or move Bayes credit.",
+            "Treating archived null routes as active proof routes again without a new "
+            "mechanism that directly derives the F4-breaking action.",
+            "Suppressing the demotion rule: if the action cannot be derived without "
+            "hand-inserting pi/432 or the seed spectrum, the physics claim must be "
+            "demoted to structured algebraic numerology rather than defended as a "
+            "theory of nature.",
+        ),
+    ),
     "prediction_registry": contract(
         "prediction_registry",
         ("N1", "N5"),
