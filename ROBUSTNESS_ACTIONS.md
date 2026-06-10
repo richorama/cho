@@ -714,3 +714,15 @@ probability adds correctly on the orthogonal generation frame and survives `F4`
 transport into genuinely octonionic directions. This removes the local
 Born-geometry ambiguity, but it does not derive the CHO action coupling or beta
 stationarity equation. F0/S1 stay open; no Bayes credit moves.
+
+### Execution note (2026-06-10) — source-stationarity gate
+
+`compute/f4_breaking_source_stationarity_gate.py` added. It tests the next
+conditional rung: if the selected WZ/carrier density `d=pi/432` is coupled as the
+source probability for the projective channel `q(beta)=exp(-2 beta)`, then the
+Bernoulli/KL stationarity equation has a unique local minimum at `q=d`, giving
+`beta=-0.5 log(d)=-log(eps0)`. Wrong source/coupling choices (`exp(-beta)` as
+probability, state-count-only `1/432`, and the `k=2` density) miss. This derives
+beta stationarity only inside the granted source-channel functional; the CHO
+action term that supplies that coupling remains open. F0/S1 stay open; no Bayes
+credit moves.

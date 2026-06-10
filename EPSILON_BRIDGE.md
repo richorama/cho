@@ -544,3 +544,27 @@ directions.
 than an interpretive convention. The remaining live object is still dynamical:
 derive why the selected WZ density sources this transition channel, and derive
 the beta stationarity equation. No Bayes credit moves.
+
+## Source-Stationarity Gate (2026-06-10)
+
+`compute/f4_breaking_source_stationarity_gate.py` tests the next conditional
+rung. Once the selected density is read as the projective probability source,
+
+`d = pi/432`,
+
+and the cascade channel has
+
+`q(beta)=exp(-2 beta)`,
+
+the Bernoulli/KL stationarity equation gives `q=d`. Therefore
+
+`beta = -0.5 log(d) = -log(eps0)`.
+
+The gate checks the selected solution against the projective geometry witness and
+rejects nearby wrong couplings: treating `exp(-beta)` itself as probability,
+using `1/432` without the Berry `pi`, or using the `k=2` density.
+
+**Net.** Beta is no longer merely assigned once the sourced projective channel is
+granted: the stationarity equation selects it. The remaining live object is the
+origin of that source-channel coupling in the CHO/F4-breaking action. No Bayes
+credit moves.

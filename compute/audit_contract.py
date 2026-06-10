@@ -2276,6 +2276,44 @@ CONTRACTS = {
             "as equivalent alternatives rather than explicit misses.",
         ),
     ),
+    "f4_breaking_source_stationarity_gate": contract(
+        "f4_breaking_source_stationarity_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking source-stationarity gate. Claim the next conditional narrowing: once the "
+        "selected WZ/carrier density d=pi/432 is coupled as the source probability for the "
+        "projective channel q(beta)=exp(-2 beta), the Bernoulli/KL stationarity equation has a "
+        "unique local minimum at q=d, so beta=-0.5 log(d)=-log(eps0). Wrong source/coupling "
+        "choices are checked and miss. This derives beta stationarity only conditional on the "
+        "source-channel coupling; it does not derive the CHO action term that supplies that coupling, "
+        "and it must not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The selected level-one WZ/carrier density d=pi/432 is imported from the prior F4-breaking "
+            "gates, and its projective transition-probability reading is imported from the Born geometry gate.",
+            "The functional class is the Bernoulli/KL or cross-entropy source coupling between a fixed source "
+            "density d and q(beta)=exp(-2 beta); this stationarity equation is granted rather than derived "
+            "from the CHO action.",
+            "The beta coordinate is the F4-breaking cascade amplitude coordinate, so exp(-beta) is the grade-one "
+            "amplitude and exp(-2 beta) is the projective probability.",
+        ),
+        open_bridges=(
+            "Derive the CHO/F4-breaking source-channel action term whose variation is the Bernoulli/KL equation "
+            "used here, rather than postulating that coupling.",
+            "Tie the source stationarity law to the full OP^2 WZ/sigma-model dynamics and the spurion height "
+            "spectrum without inserting q(beta)=exp(-2 beta) by hand.",
+            "Show that no competing CHO-natural source functional selects a different beta while satisfying the "
+            "same projective geometry and carrier constraints.",
+        ),
+        kill_conditions=(
+            "Presenting the KL/source stationarity calculation as a full derivation of the CHO action, pi/432, "
+            "or the F4-breaking source coupling.",
+            "Suppressing the conditional imports: level-one density, projective Born probability, and the granted "
+            "source functional.",
+            "Allowing amplitude-as-probability, state-count-only, or level-two source choices to appear as "
+            "near-equivalent alternatives rather than explicit misses.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),

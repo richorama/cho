@@ -177,6 +177,7 @@ import f4_breaking_primitive_level_gate
 import f4_breaking_level_one_carrier_gate
 import f4_breaking_born_beta_map_gate
 import f4_breaking_born_geometry_gate
+import f4_breaking_source_stationarity_gate
 import theory_probation_closeout
 import prediction_registry
 import scoreboard
@@ -462,6 +463,9 @@ ARTIFACTS = [
     ("f4_breaking_born_geometry_gate",
      "F0 projective Born geometry gate (EXPLORATORY): hardens the Born interpretation granted by the Born beta-map gate. In rank-one OP^2/CP^1 projector geometry, Tr(P o Q)=|<psi|phi>|^2, so the selected WZ/carrier density d=pi/432 is a transition probability and the projective amplitude is necessarily sqrt(d)=eps0. The gate checks trace probabilities add to one on an orthogonal generation frame, survive F4 transport into genuinely octonionic directions, and reject wrong readings such as density-as-amplitude, state-count-only, or projective-angle-as-amplitude. This removes the local Born-geometry ambiguity but still does not derive the CHO action coupling or beta stationarity equation; no Bayes credit moves.",
      f4_breaking_born_geometry_gate.main),
+    ("f4_breaking_source_stationarity_gate",
+     "F0 source-stationarity gate (EXPLORATORY): tests the next conditional rung after projective Born geometry. If the selected WZ/carrier density d=pi/432 is coupled as the source probability for q(beta)=exp(-2 beta), the Bernoulli/KL stationarity equation gives q=d and beta=-log(eps0) uniquely. Wrong source/coupling choices miss. This derives beta stationarity only conditional on the source-channel coupling; the CHO action term that supplies that coupling remains open, and no Bayes credit moves.",
+     f4_breaking_source_stationarity_gate.main),
     ("theory_probation_closeout",
     "THEORY PROBATION CLOSEOUT: preserves the theorem-level core (J3(O) idempotent frame, Schur weights, Freudenthal seesaw, OP^2/Berry geometry), archives failed routes as null records, and states that the SM-constant physics claim can only advance via a derived F4-breaking action whose flux gives pi/432 and whose spectrum gives the seed. If that fails, demote to beautiful algebraic numerology with strong structure, not a theory of nature. Reporter only; no Bayes credit.",
     theory_probation_closeout.main),
