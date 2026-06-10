@@ -173,6 +173,7 @@ import f4_breaking_seed_op2
 import f0_sigma_model_closeout
 import f4_breaking_action_origin_gate
 import f4_breaking_beta_selection_gate
+import f4_breaking_primitive_level_gate
 import theory_probation_closeout
 import prediction_registry
 import scoreboard
@@ -446,6 +447,9 @@ ARTIFACTS = [
     ("f4_breaking_beta_selection_gate",
      "F0 beta-selection gate (EXPLORATORY): tries the next scalar-fixing mechanisms after the modulus gate. Entropy constraints select beta only after a mean grade is supplied; natural means such as 1/16, 1/27, 1/8, 1/7, 1/3 miss the target, while the target mean is fitted. Dimension-only selectors give 1/432, 1/16, 1/27, 1/7, not pi/432; the exact target appears only by postulating exp(-2 beta)=Berry flux/state count=pi/432. WZ level quantisation leaves the family k*pi/432, so k=1 requires an extra primitive-sector rule. Additive Berry/Schur constants drop out of beta stationarity. Narrows the live bridge to deriving a genuine beta-dependent CHO variational term; no Bayes credit moves.",
      f4_breaking_beta_selection_gate.main),
+    ("f4_breaking_primitive_level_gate",
+     "F0 primitive-level gate (EXPLORATORY): promotes the WZ-level sub-bridge into the audit harness. Filling-independence of exp(iS_WZ) for S_WZ=(k/2)Omega forces k to be an integer, killing continuous WZ-normalisation freedom. With Schur carrier weight 1/432 the half-turn density is k*pi/432; primitive positive k=1 gives exp(-2 beta)=pi/432 exactly. But integrality alone leaves many positive admissible levels (1..137 with k*pi/432<1), so k=1 remains a primitive-sector selection rule, not a derived dynamical output. Narrows the live bridge to deriving primitive level-one selection from CHO dynamics; no Bayes credit moves.",
+     f4_breaking_primitive_level_gate.main),
     ("theory_probation_closeout",
     "THEORY PROBATION CLOSEOUT: preserves the theorem-level core (J3(O) idempotent frame, Schur weights, Freudenthal seesaw, OP^2/Berry geometry), archives failed routes as null records, and states that the SM-constant physics claim can only advance via a derived F4-breaking action whose flux gives pi/432 and whose spectrum gives the seed. If that fails, demote to beautiful algebraic numerology with strong structure, not a theory of nature. Reporter only; no Bayes credit.",
     theory_probation_closeout.main),

@@ -670,3 +670,14 @@ quantisation gives `k*pi/432`, so `k=1` still requires a primitive-sector rule. 
 Berry/Schur constants do not affect beta stationarity. The next live object is therefore
 a genuine beta-dependent CHO variational term; without it, the scalar remains inserted.
 F0/S1 stay open; no Bayes credit moves.
+
+### Execution note (2026-06-10) — primitive-level gate
+
+`compute/f4_breaking_primitive_level_gate.py` added. It promotes the WZ-level
+sub-bridge into the audit harness. Filling-independence of `exp(iS_WZ)` for
+`S_WZ=(k/2)Omega` forces integer `k`, so continuous WZ-normalisation freedom is
+killed. With carrier weight `1/432`, the half-turn density is `k*pi/432`; primitive
+positive `k=1` gives `exp(-2 beta)=pi/432` exactly. But integrality alone leaves
+many positive admissible levels (`1..137` with `k*pi/432<1`), so `k=1` remains a
+primitive-sector selection rule. The next live object is deriving primitive level-one
+selection from CHO dynamics. F0/S1 stay open; no Bayes credit moves.

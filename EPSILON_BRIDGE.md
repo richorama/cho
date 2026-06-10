@@ -465,3 +465,24 @@ yet a consequence.
 variational term whose stationarity equation outputs `beta = 0.5 log(432/pi)`,
 including the flux/state map and primitive level selection. Otherwise the scalar
 modulus remains inserted. No Bayes credit moves.
+
+## Primitive-Level Gate (2026-06-10)
+
+`compute/f4_breaking_primitive_level_gate.py` isolates the discrete half of the
+beta-selection obstruction. For a CP1 WZ disk action
+
+`S_WZ = (k/2) Omega`,
+
+changing the filling by a full sphere shifts the action by `2*pi*k`, so
+single-valuedness of `exp(i S_WZ)` forces integer `k`. With Schur carrier weight
+`1/432`, the half-turn density is `k*pi/432`; the primitive positive level
+`k=1` gives the target exactly.
+
+The honest obstruction is that integrality alone does not pick `k=1`. Positive
+admissible levels `k*pi/432 < 1` run from `k=1` through `k=137`. Thus continuous
+WZ normalization freedom is killed, but primitive level-one selection is still a
+discrete CHO-dynamics obligation.
+
+**Net.** The scalar problem has split cleanly: continuous normalization is no
+longer the issue; the remaining issue is a primitive-sector selection rule tying
+the WZ level to the F4-breaking seed spectrum. No Bayes credit moves.

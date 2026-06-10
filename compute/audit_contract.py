@@ -2118,6 +2118,44 @@ CONTRACTS = {
             "scalar-selection no-go/localisation rather than a closure.",
         ),
     ),
+    "f4_breaking_primitive_level_gate": contract(
+        "f4_breaking_primitive_level_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking primitive-level gate. Claim only the conditional narrowing: WZ filling "
+        "independence for S_WZ=(k/2)Omega forces k to be an integer, killing continuous WZ "
+        "normalisation freedom. With carrier weight 1/432, the half-turn density is k*pi/432; "
+        "primitive positive k=1 gives exp(-2 beta)=pi/432 exactly. But integrality alone leaves "
+        "many positive admissible levels, so k=1 remains a primitive-sector selection rule rather "
+        "than a derived dynamical output. The remaining bridge is deriving primitive level-one "
+        "selection from CHO dynamics; do not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The Berry half-turn pi and Schur carrier count 432 are source-of-truth from the "
+            "existing OP^2/Berry and measure gates; this module only tests the WZ level sub-bridge.",
+            "The WZ action is assumed to have the CP^1 disk form S_WZ=(k/2)Omega, so changing the "
+            "filling by one sphere shifts the action by 2*pi*k; single-valuedness of exp(iS) is the "
+            "integrality criterion under test.",
+            "Positive Gibbs ratios require 0<k*pi/432<1; this leaves a finite but non-singleton "
+            "integer family, so minimal positive level is treated as an extra primitive-sector rule.",
+        ),
+        open_bridges=(
+            "Derive from CHO dynamics that the physical sector is primitive level one, rather than "
+            "any other admissible positive integer level.",
+            "Derive the oriented WZ term itself and its coupling to the F4-breaking seed spectrum; "
+            "this gate only quantises its level once the term is assumed.",
+            "Tie primitive level-one selection to the beta-dependent variational principle named by "
+            "f4_breaking_beta_selection_gate, so exp(-2 beta)=pi/432 is selected rather than imposed.",
+        ),
+        kill_conditions=(
+            "Presenting WZ integrality as deriving beta or the seed scale while suppressing the "
+            "non-singleton integer level family.",
+            "Treating primitive k=1 as forced by this gate rather than conditional on a separate "
+            "primitive-sector selection principle.",
+            "Promoting F0/S1, moving scoreboard/model_complexity credit, or hiding that this kills "
+            "continuous normalization freedom but leaves discrete level selection open.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),
