@@ -681,3 +681,14 @@ positive `k=1` gives `exp(-2 beta)=pi/432` exactly. But integrality alone leaves
 many positive admissible levels (`1..137` with `k*pi/432<1`), so `k=1` remains a
 primitive-sector selection rule. The next live object is deriving primitive level-one
 selection from CHO dynamics. F0/S1 stay open; no Bayes credit moves.
+
+### Execution note (2026-06-10) — level-one carrier gate
+
+`compute/f4_breaking_level_one_carrier_gate.py` added. It combines WZ integrality
+with the already-audited two-level transition carrier. `CP^1` quantization at level
+`k` has Hilbert dimension `k+1`; the `A4/Q8` carrier is the fundamental two-state
+qubit, so carrier matching selects `k=1` uniquely from the positive admissible WZ
+family. This removes the discrete primitive-level ambiguity once the two-level
+carrier is granted. The remaining live object is the beta-dependent `F4`-breaking
+action map `exp(-2 beta)=pi/432`, not the integer WZ level. F0/S1 stay open; no
+Bayes credit moves.

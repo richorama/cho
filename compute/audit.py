@@ -174,6 +174,7 @@ import f0_sigma_model_closeout
 import f4_breaking_action_origin_gate
 import f4_breaking_beta_selection_gate
 import f4_breaking_primitive_level_gate
+import f4_breaking_level_one_carrier_gate
 import theory_probation_closeout
 import prediction_registry
 import scoreboard
@@ -450,6 +451,9 @@ ARTIFACTS = [
     ("f4_breaking_primitive_level_gate",
      "F0 primitive-level gate (EXPLORATORY): promotes the WZ-level sub-bridge into the audit harness. Filling-independence of exp(iS_WZ) for S_WZ=(k/2)Omega forces k to be an integer, killing continuous WZ-normalisation freedom. With Schur carrier weight 1/432 the half-turn density is k*pi/432; primitive positive k=1 gives exp(-2 beta)=pi/432 exactly. But integrality alone leaves many positive admissible levels (1..137 with k*pi/432<1), so k=1 remains a primitive-sector selection rule, not a derived dynamical output. Narrows the live bridge to deriving primitive level-one selection from CHO dynamics; no Bayes credit moves.",
      f4_breaking_primitive_level_gate.main),
+    ("f4_breaking_level_one_carrier_gate",
+     "F0 level-one carrier gate (EXPLORATORY): adds the already-audited two-level transition carrier to the WZ integrality result. CP^1 geometric quantization at integer level k has Hilbert dimension k+1; the A4/Q8 carrier is the fundamental two-state system, so only k=1 matches the transition qubit. This removes the discrete primitive-level ambiguity once the two-level carrier is granted: k=1 gives density pi/432 and beta=-log(eps0). It still does not derive the beta-dependent CHO variational map exp(-2 beta)=density or the full F4-breaking action, so no Bayes credit moves.",
+     f4_breaking_level_one_carrier_gate.main),
     ("theory_probation_closeout",
     "THEORY PROBATION CLOSEOUT: preserves the theorem-level core (J3(O) idempotent frame, Schur weights, Freudenthal seesaw, OP^2/Berry geometry), archives failed routes as null records, and states that the SM-constant physics claim can only advance via a derived F4-breaking action whose flux gives pi/432 and whose spectrum gives the seed. If that fails, demote to beautiful algebraic numerology with strong structure, not a theory of nature. Reporter only; no Bayes credit.",
     theory_probation_closeout.main),

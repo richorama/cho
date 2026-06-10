@@ -486,3 +486,21 @@ discrete CHO-dynamics obligation.
 **Net.** The scalar problem has split cleanly: continuous normalization is no
 longer the issue; the remaining issue is a primitive-sector selection rule tying
 the WZ level to the F4-breaking seed spectrum. No Bayes credit moves.
+
+## Level-One Carrier Gate (2026-06-10)
+
+`compute/f4_breaking_level_one_carrier_gate.py` adds the two-level carrier that
+was missing from the integrality-only test. For `CP^1` with WZ level `k`,
+Borel-Weil quantization gives the `SU(2)` spin-`k/2` representation, hence
+
+`dim H_k = k + 1`.
+
+The transition carrier from the `A4 -> Q8 -> M2(C)` audit is a fundamental
+two-state system. Matching the WZ-quantized carrier to that qubit selects
+`k=1` uniquely: `k=0` is trivial, and `k>1` gives higher-spin sectors with more
+than two states. Thus the discrete primitive-level ambiguity is removed once the
+two-level carrier is granted.
+
+**Net.** The remaining scalar bridge is now the beta-dependent action map, not
+the WZ integer: derive a CHO variational term whose stationarity equation sets
+`exp(-2 beta)` equal to the selected density `pi/432`. No Bayes credit moves.

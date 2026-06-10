@@ -2156,6 +2156,46 @@ CONTRACTS = {
             "continuous normalization freedom but leaves discrete level selection open.",
         ),
     ),
+    "f4_breaking_level_one_carrier_gate": contract(
+        "f4_breaking_level_one_carrier_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking level-one carrier gate. Claim the conditional but nontrivial narrowing: "
+        "WZ integrality leaves many positive integer levels, but CP^1 geometric quantization "
+        "at level k has Hilbert dimension k+1. The already-audited A4/Q8 transition carrier "
+        "is the fundamental two-state system, so matching the WZ quantized carrier to that "
+        "qubit selects k=1 uniquely. This removes the discrete primitive-level ambiguity once "
+        "the two-level carrier is granted: k=1 gives density pi/432 and beta=-log(eps0). It "
+        "does not derive the beta-dependent CHO variational map exp(-2 beta)=density or the "
+        "full F4-breaking action; do not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The two-level transition carrier is taken from epsilon_free_action and "
+            "epsilon_a4_two_level: A4 lifts to Q8, Q8 is irreducible on C^2, and the Bloch "
+            "sphere CP^1 is the fundamental transition space.",
+            "The WZ/CP^1 level is interpreted by standard Borel-Weil quantization: integer "
+            "level k quantizes to the SU(2) spin-k/2 representation of dimension k+1.",
+            "The carrier-matching criterion is that the physical transition remains the "
+            "fundamental two-state qubit; higher k are allowed higher-spin sectors but not "
+            "the carrier used for the OP^2 Berry half-turn.",
+        ),
+        open_bridges=(
+            "Derive the beta-dependent F4-breaking variational term whose stationarity equation "
+            "sets exp(-2 beta) equal to the selected WZ density pi/432.",
+            "Derive the full CHO action coupling between the CP^1 WZ line bundle and the OP^2 "
+            "generation-seed height potential, rather than importing the coupling as a bridge.",
+            "Keep the A4/two-level carrier origin explicit; if that carrier is later revised, "
+            "the level-one selection must be rechecked deliberately.",
+        ),
+        kill_conditions=(
+            "Presenting the two-state carrier match as a full derivation of beta or of the "
+            "F4-breaking seed scale, rather than as discrete level selection inside a granted carrier.",
+            "Suppressing the fact that higher integer levels still exist as higher-spin sectors, "
+            "or that integrality alone did not select k=1.",
+            "Promoting F0/S1, moving scoreboard/model_complexity credit, or hiding that the "
+            "remaining bridge is the beta-dependent action map.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),
