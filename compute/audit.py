@@ -183,6 +183,7 @@ import f4_breaking_large_deviation_source_gate
 import f4_breaking_maxcal_ensemble_gate
 import f4_breaking_binary_projector_history_gate
 import f4_breaking_repeated_measurement_gate
+import f4_breaking_vacuum_relaxation_gate
 import theory_probation_closeout
 import prediction_registry
 import scoreboard
@@ -486,6 +487,9 @@ ARTIFACTS = [
     ("f4_breaking_repeated_measurement_gate",
      "F0 repeated-measurement gate (EXPLORATORY): tests whether the independent ensemble has a physical (non-inference) origin. Repeated projective measurement of a primitive question Q on a re-prepared rank-one source P gives, by the Born rule, p_yes=Tr(P o Q)=pi/432 on every trial and history-independent outcomes, so the path measure is exactly the product Bernoulli(d) measure -- identical to the MaxCal exp(-lambda K)/Z and large-deviation measures. The persistent (no re-preparation) control is a correlated two-state Markov chain whose quantum-Zeno limit Tr(Q o Q)=1 freezes outcomes; same-marginal correlated chains have strictly lower path-entropy rate, so the memoryless re-prepared process uniquely saturates H(d). This reduces 'why MaxCal' to 'why memoryless re-preparation'; deriving memorylessness and the source question from CHO/F4-breaking dynamics remains open, and no Bayes credit moves.",
      f4_breaking_repeated_measurement_gate.main),
+    ("f4_breaking_vacuum_relaxation_gate",
+     "F0 vacuum-relaxation gate (EXPLORATORY): tests whether the memorylessness used by the repeated-measurement gate has a physical origin. Model the inter-probe dynamics as a depolarizing-toward-P channel C_r(rho)=r P+(1-r) rho that relaxes every post-measurement state toward the vacuum primitive idempotent P with relaxation fraction r. Using the measured Born overlaps Tr(P o Q)=pi/432, Tr(Q o Q)=1, Tr(Q o (I-Q))=0, the relaxed conditionals give a stationary two-state chain with correlation 1-r and marginal d for all r>0; at r=1 (complete relaxation) p(yes|yes)=p(yes|no)=d and the path measure is the memoryless iid Bernoulli(d)=MaxCal=Born product. With r=1-exp(-Delta_t/tau) the memoryless limit is the Born-Markov regime Delta_t>>tau, and only relaxation toward the vacuum source (overlap d) reproduces the mean (toward Q or its complement gives 1 or 0). This reduces 'why memoryless' to 'why fast vacuum relaxation / timescale separation'; deriving the relaxation time, probe interval, and separation from CHO/F4-breaking dynamics remains open, and no Bayes credit moves.",
+     f4_breaking_vacuum_relaxation_gate.main),
     ("theory_probation_closeout",
     "THEORY PROBATION CLOSEOUT: preserves the theorem-level core (J3(O) idempotent frame, Schur weights, Freudenthal seesaw, OP^2/Berry geometry), archives failed routes as null records, and states that the SM-constant physics claim can only advance via a derived F4-breaking action whose flux gives pi/432 and whose spectrum gives the seed. If that fails, demote to beautiful algebraic numerology with strong structure, not a theory of nature. Reporter only; no Bayes credit.",
     theory_probation_closeout.main),

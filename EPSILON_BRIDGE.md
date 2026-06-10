@@ -706,3 +706,49 @@ This reduces "why MaxCal" to the more physical "why memoryless re-preparation".
 The remaining live object is deriving from CHO/F4-breaking dynamics why the
 transition process re-prepares (is memoryless) and why the source question `Q` has
 mean `d=pi/432`. No Bayes credit moves.
+
+## Vacuum-Relaxation Gate (2026-06-10)
+
+`compute/f4_breaking_vacuum_relaxation_gate.py` asks where the *memorylessness*
+used by the repeated-measurement gate comes from. It is not a free assumption: it
+is the complete-relaxation limit of a standard open-system dynamics whose stable
+fixed point is the vacuum primitive idempotent `P`.
+
+Model the inter-probe dynamics as a depolarizing-toward-`P` channel
+
+`C_r(rho) = r P + (1 - r) rho`,
+
+a trace-preserving map that attracts every state to the vacuum source `P` with
+relaxation fraction `r in [0,1]`. From the measured Born overlaps
+
+`Tr(P o Q) = d = pi/432`,  `Tr(Q o Q) = 1`,  `Tr(Q o (I-Q)) = 0`
+
+(the last by Lueders orthogonality, ~`2.6e-17`), the relaxed conditional
+yes-probabilities are
+
+`p(yes | prev=yes) = r d + (1-r) = 1 - r(1-d)`,  `p(yes | prev=no) = r d`,
+
+a stationary two-state chain with lag-1 correlation `1-r` and stationary mean `d`
+for every `r>0`. At `r=1` (complete vacuum relaxation) the two conditionals
+collapse to `d`: the process is memoryless and its path measure is exactly the iid
+`Bernoulli(d) = MaxCal = Born` product. At `r=0` (no relaxation) it freezes into
+the persistent / quantum-Zeno chain.
+
+The relaxation fraction is fixed by a timescale separation: with
+`r = 1 - exp(-Delta_t/tau)` for inter-probe interval `Delta_t` and relaxation time
+`tau`, memorylessness is the Born-Markov limit `Delta_t >> tau` (slow probing of a
+fast-relaxing source). The path-entropy rate increases monotonically with
+`Delta_t/tau` and saturates `H(d)` (gap `3.8e-2 -> 1.8e-5` across the sampled
+ratios). A vacuum-specificity control confirms the attractor must be the vacuum
+source: full relaxation toward `P` (overlap `d`) gives mean `d`, while relaxing
+toward the measured ray `Q` (overlap `1`) or its complement (overlap `0`) gives
+the wrong absorbing means `1` and `0`.
+
+**Net.** Memorylessness has a standard physical origin — complete relaxation of
+the probed state back to the vacuum source `P` — and the memoryless ensemble is
+the `Delta_t >> tau` Born-Markov limit of that dynamics, agreeing exactly with the
+MaxCal and Born product measures. This reduces "why memoryless" to "why fast
+vacuum relaxation / timescale separation". The remaining live object is deriving
+the relaxation channel, its time `tau`, the probe interval `Delta_t`, the
+separation `Delta_t >> tau`, and the source question `Q` (overlap `d=pi/432`) from
+CHO/F4-breaking dynamics. No Bayes credit moves.

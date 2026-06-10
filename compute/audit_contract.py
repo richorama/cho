@@ -2477,6 +2477,40 @@ CONTRACTS = {
             "Moving Bayes/model-complexity credit or promoting F0/S1 before memorylessness and the source question are derived from CHO dynamics.",
         ),
     ),
+    "f4_breaking_vacuum_relaxation_gate": contract(
+        "f4_breaking_vacuum_relaxation_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking vacuum-relaxation gate. Claim a physical origin for the memorylessness assumed by the "
+        "repeated-measurement gate: model the inter-probe dynamics as a depolarizing-toward-P channel "
+        "C_r(rho)=r P+(1-r) rho that relaxes every post-measurement state toward the vacuum primitive idempotent P "
+        "with relaxation fraction r. From the measured Born overlaps Tr(P o Q)=pi/432, Tr(Q o Q)=1, Tr(Q o (I-Q))=0, "
+        "the relaxed conditionals give a stationary two-state chain with lag-1 correlation 1-r and marginal d for all "
+        "r>0; at r=1 the conditionals collapse to d and the path measure is the memoryless iid Bernoulli(d)=MaxCal=Born "
+        "product, while r=0 recovers the persistent/Zeno chain. With r=1-exp(-Delta_t/tau) memorylessness is the "
+        "Born-Markov regime Delta_t>>tau, and only relaxation toward the vacuum source (overlap d) reproduces the mean. "
+        "This derives memorylessness only conditional on fast vacuum relaxation; it must not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The OP2 rank-one Born geometry, primitive question Q, vacuum source P, and selected density d=pi/432 are "
+            "imported from the prior Born-geometry, binary-projector, repeated-measurement, source-stationarity, and MaxCal gates.",
+            "The inter-probe dynamics is modelled as a depolarizing-toward-P (Born-Markov) channel whose unique fixed "
+            "point is the vacuum primitive idempotent P; the gate derives memorylessness from complete relaxation, not "
+            "the channel or its timescale from CHO/F4 dynamics.",
+            "The exponential relaxation law r=1-exp(-Delta_t/tau) parametrizes a timescale separation; the inter-probe "
+            "interval Delta_t and relaxation time tau are inputs, not derived quantities.",
+        ),
+        open_bridges=(
+            "Derive from CHO/F4-breaking dynamics the relaxation channel and its time tau toward the vacuum source P.",
+            "Derive the inter-probe interval Delta_t and justify the Born-Markov separation Delta_t>>tau that yields memorylessness.",
+            "Derive why the vacuum source question Q has overlap d=pi/432 with the measured ray.",
+        ),
+        kill_conditions=(
+            "Presenting the depolarizing-toward-P relaxation model as a derivation of the CHO dissipative dynamics or its timescale.",
+            "Suppressing the conditional imports: OP2 Born geometry, vacuum source P, selected density d=pi/432, and the relaxation/timescale-separation assumption.",
+            "Moving Bayes/model-complexity credit or promoting F0/S1 before the relaxation channel, its timescale, and the source question are derived from CHO dynamics.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),

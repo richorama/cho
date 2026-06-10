@@ -792,3 +792,23 @@ memoryless re-prepared process uniquely saturates `H(d)`. This reduces "why MaxC
 to the more physical "why memoryless re-preparation"; deriving memorylessness and
 the source question from CHO/F4-breaking dynamics remains open. F0/S1 stay open;
 no Bayes credit moves.
+
+### Execution note (2026-06-10) — vacuum-relaxation gate
+
+`compute/f4_breaking_vacuum_relaxation_gate.py` added. It gives the memorylessness
+of the repeated-measurement gate a standard physical origin. The inter-probe
+dynamics is modelled as a depolarizing-toward-`P` channel `C_r(rho)=r P+(1-r) rho`
+that relaxes every post-measurement state toward the vacuum primitive idempotent
+`P` with relaxation fraction `r`. From the measured Born overlaps `Tr(P o Q)=pi/432`,
+`Tr(Q o Q)=1`, `Tr(Q o (I-Q))=0` (Lueders orthogonality, ~`2.6e-17`), the relaxed
+conditionals give a stationary two-state chain with lag-1 correlation `1-r` and
+marginal `d` for all `r>0`; at `r=1` the conditionals collapse to `d` and the path
+measure is the memoryless iid `Bernoulli(d)=MaxCal=Born` product, while `r=0`
+recovers the persistent/Zeno chain. With `r=1-exp(-Delta_t/tau)` memorylessness is
+the Born-Markov regime `Delta_t>>tau` (entropy-rate gap shrinks `3.8e-2 -> 1.8e-5`),
+and a vacuum-specificity control shows only relaxation toward the source `P`
+(overlap `d`) gives mean `d` — toward `Q` or its complement gives `1` or `0`. This
+reduces "why memoryless" to "why fast vacuum relaxation / timescale separation";
+deriving the relaxation channel, its time `tau`, the probe interval `Delta_t`, and
+the source question from CHO/F4-breaking dynamics remains open. F0/S1 stay open;
+no Bayes credit moves.
