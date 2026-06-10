@@ -2624,6 +2624,49 @@ CONTRACTS = {
             "Moving Bayes/model-complexity credit or promoting F0/S1 before the cooling direction and the frame-breaking field are derived from CHO dynamics.",
         ),
     ),
+    "f4_breaking_cooling_arrow_gate": contract(
+        "f4_breaking_cooling_arrow_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking cooling-arrow gate. Claim only the honest, two-sided RELOCATION of the vacuum-purity gate's first "
+        "open bridge -- the COOLING direction. Generalise the CHO Lindbladian to a finite bath temperature nbar by adding "
+        "the detailed-balance partner of the vacuum-damping jumps: L_down,k=sqrt(gamma(1+nbar))|p><e_k| (de-excitation into "
+        "the vacuum p) and L_up,k=sqrt(gamma nbar)|e_k><p| (excitation out of p); nbar=0 recovers exactly the CHO "
+        "Lindbladian gate's amplitude-damping-into-p generator. The unique Gibbs steady state has purity strictly "
+        "decreasing in nbar (verified against exact analytics, unique gapped steady manifold): nbar=0 (zero temperature) "
+        "gives the PURE primitive vacuum P (purity 1), nbar>0 gives a MIXED vacuum (purity<1, not an idempotent), and "
+        "nbar->inf gives the maximally mixed I/d (purity 1/3 on the J3(O) slice = the vacuum-purity gate's HEATING "
+        "attractor). Two facts make the verdict honest: (1) Spohn's H-theorem holds for every nbar -- relative entropy "
+        "S(rho_t||rho_ss) is monotone non-increasing (1.386->0), so relaxation TO the steady state is a THEOREM; (2) WHICH "
+        "steady state (pure vs mixed) is set by the bath temperature nbar, NOT by the time-symmetric CHO algebra, whose "
+        "time-reversed up-only generator is an equally valid GKSL semigroup that cools to the EXCITED anti-vacuum (purity "
+        "1, vacuum overlap 0). Controls miss (finite-T mixed, infinite-T I/3, reverse anti-vacuum). This RELOCATES the "
+        "cooling direction to the zero-temperature / arrow-of-time boundary condition (DEEPER and more general than pi/432) "
+        "and shows it cannot be grounded in the CHO Lindbladian without circularity (its down-only jumps already encode "
+        "nbar=0). It must not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The CHO Lindbladian (amplitude damping into the vacuum ray p), its jump operators, the rate gamma, the "
+            "faithful two-level/three-level representation, and the source overlap d=pi/432 are imported from the prior "
+            "CHO-Lindbladian, Peirce-jump, and vacuum-purity gates; only the finite-temperature partner jump is added here.",
+            "The bath occupation nbar (the temperature / Bose factor) is an external thermodynamic parameter; nbar=0 (a "
+            "zero-temperature bath / low-entropy past) is the cooling boundary condition and is NOT derived from the CHO "
+            "algebra, which admits every nbar>=0 and the time-reversed generator equally.",
+            "Spohn's H-theorem (monotone relative entropy under a CPTP semigroup toward its steady state) is a general "
+            "theorem of open quantum systems applied here; it gives relaxation to the steady state, not the choice of which "
+            "steady state.",
+        ),
+        open_bridges=(
+            "Derive the cooling direction (the zero-temperature limit nbar=0 / the thermodynamic arrow of time) from a concrete CHO action or cosmological boundary condition, rather than relocating it.",
+            "Derive the generic frame-breaking field and the generation assignment that, together with cooling, pin the unique physical vacuum (cited open from the vacuum-purity and seed gates).",
+            "Derive the bath coupling, the rate gamma, and the source overlap d=pi/432 from the F4-breaking action.",
+        ),
+        kill_conditions=(
+            "Presenting the zero-temperature limit as a derivation of the cooling direction or the arrow of time rather than a relocation of it to a deeper boundary condition.",
+            "Grounding the cooling direction in the CHO Lindbladian itself (its down-only jumps already encode nbar=0 -- the circularity this gate forbids), or suppressing the time-symmetric reverse generator.",
+            "Moving Bayes/model-complexity credit or promoting F0/S1 before the cooling direction, the frame-breaking field, and pi/432 are derived from CHO dynamics.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),

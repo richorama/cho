@@ -912,3 +912,43 @@ two inputs the dissipative ladder and the seed gate already name. Deriving the
 cooling direction (the arrow of time), the frame-breaking field `A`, the
 generation assignment, and `pi/432` from the CHO action remains open. F0/S1 stay
 open; no Bayes credit moves.
+
+## Cooling-Arrow Gate (2026-06-10)
+
+`compute/f4_breaking_cooling_arrow_gate.py` climbs underneath the vacuum-purity
+gate's FIRST open bridge: that gate forced the vacuum to be a primitive idempotent
+GIVEN a COOLING (entropy-decreasing) flow, but took the cooling DIRECTION as an
+input — the arrow of time. This gate asks whether cooling is a CONSEQUENCE of the
+CHO dynamics or a separate boundary condition. The honest answer is the latter.
+
+**Finite-temperature CHO Lindbladian.** Generalise the (already established) CHO
+dissipator to a finite bath occupation `nbar >= 0` by adding the detailed-balance
+partner of the vacuum-damping jumps:
+`L_down,k = sqrt(gamma(1+nbar)) |p><e_k|` (de-excitation into the vacuum `p`) and
+`L_up,k = sqrt(gamma nbar) |e_k><p|` (excitation out of `p`). At `nbar = 0` this is
+EXACTLY the CHO Lindbladian gate's amplitude-damping-into-`p` generator. The unique
+Gibbs steady state has purity strictly decreasing in `nbar` (verified against exact
+analytics; unique gapped steady manifold throughout):
+
+- `nbar = 0` (zero temperature) → the PURE primitive vacuum `P` (`pi = 1`);
+- `nbar > 0` (finite temperature) → a MIXED vacuum (`pi < 1`, not an idempotent);
+- `nbar -> inf` (infinite temperature) → the maximally mixed `I/d` (`pi = 1/3` on
+  the `J3(O)` slice) — exactly the vacuum-purity gate's HEATING attractor.
+
+**Relaxation is a theorem; the direction is not.** Spohn's H-theorem holds for
+every `nbar`: the relative entropy `S(rho_t || rho_ss)` is monotone non-increasing
+(`1.386 -> 0`), so the dynamics ALWAYS relaxes to its steady state. The only open
+choice is WHICH steady state — pure (cooling) or mixed (heating) — and that is set
+by the bath temperature `nbar`, NOT by the CHO/F4 algebra, which is time-symmetric:
+the time-reversed up-only generator is an equally valid GKSL semigroup that cools to
+the EXCITED anti-vacuum (`pi = 1`, vacuum overlap `0`).
+
+**Net.** The vacuum-purity gate's cooling input is precisely the zero-temperature
+limit `nbar = 0` of the CHO Lindbladian. This RELOCATES the cooling direction to the
+zero-temperature / arrow-of-time boundary condition (a low-entropy past) — DEEPER and
+more general than `pi/432` — and shows it cannot be grounded in the CHO Lindbladian
+itself without circularity (its down-only jumps already encode `nbar = 0`). This is
+the TERMINAL rung of the dissipative ladder: the residual that remains is the
+thermodynamic arrow of time, not a shallower sub-problem. Deriving the cooling
+direction, `nbar`, the frame-breaking field, the generation assignment, and `pi/432`
+from the CHO action remains open. F0/S1 stay open; no Bayes credit moves.

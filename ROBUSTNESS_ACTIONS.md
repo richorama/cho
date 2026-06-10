@@ -880,3 +880,25 @@ primitive-idempotent vacuum" to "why a cooling dynamics + a generic frame-breaki
 field"; deriving the cooling direction, the field `A`, the generation assignment,
 and `pi/432` from the CHO action remains open. F0/S1 stay open; no Bayes credit
 moves.
+
+### Execution note (2026-06-10) — Cooling-arrow gate
+
+`compute/f4_breaking_cooling_arrow_gate.py` added. It climbs underneath the
+vacuum-purity gate's first open bridge — the COOLING direction. Generalise the CHO
+Lindbladian to a finite bath temperature `nbar` by adding the detailed-balance
+partner jumps `L_down,k=sqrt(gamma(1+nbar))|p><e_k|`,
+`L_up,k=sqrt(gamma nbar)|e_k><p|`; `nbar=0` recovers the CHO gate EXACTLY. The unique
+Gibbs steady state has purity strictly decreasing in `nbar` (exact analytics, unique
+gapped manifold): `nbar=0` → the PURE primitive vacuum (`pi=1`), `nbar>0` → a MIXED
+vacuum (`pi<1`), `nbar→inf` → the maximally mixed `I/3` (the vacuum-purity gate's
+heating attractor). Spohn's H-theorem holds for every `nbar` (relative entropy
+monotone `1.386→0`), so relaxation TO the steady state is a THEOREM; WHICH steady
+state is set by the bath temperature, NOT by the time-symmetric CHO algebra (the
+reversed up-only generator cools to the EXCITED anti-vacuum). Controls miss:
+finite-T mixed, infinite-T `I/3`, reverse anti-vacuum. This RELOCATES the cooling
+direction to the zero-temperature / arrow-of-time boundary condition — DEEPER than
+`pi/432` — and shows it cannot be grounded in the CHO Lindbladian without
+circularity (its down-only jumps already encode `nbar=0`). Terminal rung of the
+dissipative ladder; deriving the cooling direction, `nbar`, the frame-breaking
+field, the generation assignment, and `pi/432` from the CHO action remains open.
+F0/S1 stay open; no Bayes credit moves.
