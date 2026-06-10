@@ -2039,6 +2039,43 @@ CONTRACTS = {
             "four-route convergence silently reduced — the tripwire assertions must stay live.",
         ),
     ),
+    "f4_breaking_action_origin_gate": contract(
+        "f4_breaking_action_origin_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking action-origin modulus gate. Claim only the narrowing result: "
+        "the OP^2 height dynamics fixes the generation frame and the cascade form, "
+        "but the family A(r)=E1+rE2+r^2E3 has the same critical set for a continuum "
+        "of r, and the entropy/free-energy completion gives Gibbs ratios "
+        "(1, exp(-beta), exp(-2 beta)) with beta a continuous Lagrange multiplier. "
+        "Matching eps0 requires beta=-log(eps0)=0.5 log(432/pi), but this scalar "
+        "is not selected by the current action. The live bridge is therefore narrowed "
+        "to deriving beta or r=eps0 from CHO dynamics; do not promote F0/S1 or move "
+        "Bayes credit.",
+        assumptions=(
+            "The generation-frame critical-set result and F4-orbit height dynamics are "
+            "taken source-of-truth from f4_breaking_seed_op2; this module varies the "
+            "spurion spectrum modulus and checks that the critical set persists.",
+            "The entropy/free-energy completion is the standard constrained-entropy "
+            "calculation with grade energy (0,1,2); it supplies the Gibbs form but not "
+            "the inverse-temperature value.",
+            "eps0^2=pi/432 is taken from the existing Berry/Schur measure reading; this "
+            "module tests whether the current dynamics selects it and reports that it does not.",
+        ),
+        open_bridges=(
+            "Derive the scalar modulus beta=0.5 log(432/pi) or r=eps0 from the actual "
+            "CHO dynamics rather than inserting it as spec(A) or a Lagrange multiplier.",
+            "Derive why the F4-breaking spurion's effective spectrum is cumulative "
+            "(1, eps0, eps0^2) with this absolute scale, not merely why that form is stationary.",
+        ),
+        kill_conditions=(
+            "Presenting the persistence of the critical set for A(r) as a derivation of eps0.",
+            "Treating the Gibbs beta that matches eps0 as selected rather than fitted/inserted.",
+            "Promoting F0/S1, moving model_complexity or scoreboard credit, or hiding that the "
+            "new result is a modulus no-go/localization rather than a closure.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),

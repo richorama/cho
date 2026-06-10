@@ -416,3 +416,32 @@ therefore LOCALIZED to one scalar — the same `pi/432` of the measure — but N
 closed: the seed magnitudes are still input, and the generation ASSIGNMENT is the
 residual `S3`/Weyl freedom. No Bayes credit moves, `pi/432` is NOT promoted, F0
 stays GEOMETRIC/open. EXPLORATORY.
+
+## Action-Origin Modulus Gate (2026-06-10)
+
+`compute/f4_breaking_action_origin_gate.py` attacks the exact residual left by
+the seed-localization result. The height dynamics does not merely work for the
+target spectrum: the whole family
+
+`A(r) = E1 + r E2 + r^2 E3`
+
+has the same generation critical set and the same qualitative ascent dynamics
+for a continuum of `r`. Thus the OP2 height action fixes the frame and the
+cascade form, but not the modulus `r`; choosing `r = eps0` inserts the scale.
+
+The same obstruction appears in the entropy/free-energy completion. Maximising
+entropy with grade energy `(0,1,2)` gives Gibbs ratios
+
+`(1, exp(-beta), exp(-2 beta))`.
+
+Matching the target cascade requires
+
+`beta = -log(eps0) = 0.5 log(432/pi)`,
+
+but `beta` is a continuous Lagrange multiplier, not selected by the current
+action.
+
+**Net.** The live bridge is now sharply localized: derive the scalar
+`beta = 0.5 log(432/pi)` (equivalently `r = eps0`) from CHO dynamics. The
+generation frame, the Berry/WZ `pi`, and the cascade form are narrowed; the
+absolute scale `eps0^2 = pi/432` remains open. No Bayes credit moves.

@@ -646,3 +646,15 @@ RG matching, the big-bets outside routes, and additional invariance / normalized
 witnesses. Preserve them as null records so the ground is not re-covered; do not treat them
 as active paths to promotion. Wired into `compute/theory_probation_closeout.py`,
 `audit.py`, and `audit_contract.py` as a diagnostic reporter that grants no Bayes credit.
+
+### Execution note (2026-06-10) — F4-breaking action-origin modulus gate
+
+`compute/f4_breaking_action_origin_gate.py` added. It attacks the exact residual left by
+`f4_breaking_seed_op2`: whether the F4-breaking height/free-energy dynamics derives the
+spurion spectrum rather than inserting it. The result is a sharpened negative/localization:
+the family `A(r)=E1+rE2+r^2E3` has the same generation critical set and qualitative ascent
+dynamics for a continuum of `r`, and the entropy/free-energy completion gives Gibbs ratios
+`(1, exp(-beta), exp(-2 beta))` with `beta` a continuous Lagrange multiplier. Matching the
+target requires `beta=-log(eps0)=0.5 log(432/pi)`, but the current action does not select it.
+So the live internal route is now one scalar-selection problem: derive `beta` or `r=eps0`
+from CHO dynamics. F0/S1 stay open; no Bayes credit moves.
