@@ -666,3 +666,43 @@ projective idempotent-event test.
 primitive projective transition question is granted. The remaining live object is
 deriving why CHO/F4-breaking dynamics selects that primitive question, its mean
 `d=pi/432`, and the MaxCal/path-entropy action. No Bayes credit moves.
+
+## Repeated-Measurement Gate (2026-06-10)
+
+`compute/f4_breaking_repeated_measurement_gate.py` asks where the *independence*
+used by the MaxCal and large-deviation gates comes from, without invoking a
+maximum-entropy inference at all. It reads independence straight off the quantum
+measurement structure.
+
+Repeated projective measurement of the primitive question `Q` on a **re-prepared**
+rank-one source `P` gives, by the Born rule,
+
+`p_yes = Tr(P o Q) = pi/432`
+
+on every trial, *independent of the history*, because re-preparation erases the
+post-measurement state. The path measure is therefore the product `Bernoulli(d)`
+measure exactly. Enumerating all histories for `N=4,8,12` shows this Born product
+equals the MaxCal measure `exp(-lambda K)/Z` and the large-deviation Bernoulli
+measure to ~`1e-16`: three independent routes, one measure.
+
+The control is the **persistent** process with no re-preparation. After a `yes`
+outcome the post-measurement state is the question ray `Q` itself, and
+re-measuring `Q` is certain,
+
+`Tr(Q o Q) = 1`  (quantum-Zeno absorption),
+
+so the persistent outcomes form a correlated two-state Markov chain, not an iid
+sequence. A one-parameter family of stationary chains with the *same* marginal `d`
+but lag-1 correlation `r in {0, 0.3, 0.6, 0.9, 0.99}` has path-entropy rate that
+falls strictly as `r` grows (gaps below `H(d)`: `0 -> 6.9e-3 -> 1.8e-2 -> 3.5e-2
+-> 4.2e-2`). The memoryless `r=0` re-prepared process is the unique point that
+saturates the iid bound `H(d)` — memorylessness is maximum caliber.
+
+**Net.** Independence is not only a least-biased inference: it is the Born-rule
+path measure of a memoryless re-prepared projective measurement, coinciding exactly
+with the MaxCal and large-deviation measures, with the persistent (non-re-prepared)
+Markov chain and its `Tr(Q o Q)=1` Zeno absorption as the correlated alternative.
+This reduces "why MaxCal" to the more physical "why memoryless re-preparation".
+The remaining live object is deriving from CHO/F4-breaking dynamics why the
+transition process re-prepares (is memoryless) and why the source question `Q` has
+mean `d=pi/432`. No Bayes credit moves.

@@ -775,3 +775,20 @@ non-idempotent effect fails the projective-event test. This derives the binary
 alphabet only conditional on selecting the primitive source question; deriving
 that selection, the mean/source constraint, and the MaxCal action from
 CHO/F4-breaking dynamics remains open. F0/S1 stay open; no Bayes credit moves.
+
+### Execution note (2026-06-10) — repeated-measurement gate
+
+`compute/f4_breaking_repeated_measurement_gate.py` added. It gives the independent
+ensemble a physical (non-inference) origin and cross-checks MaxCal. Repeated
+projective measurement of the primitive question `Q` on a **re-prepared** rank-one
+source `P` gives, by the Born rule, `p_yes = Tr(P o Q) = pi/432` on every trial
+with history-independent outcomes, so the path measure is exactly the product
+`Bernoulli(d)` measure — identical (max error ~`1e-16` over `N=4,8,12`) to the
+MaxCal `exp(-lambda K)/Z` and large-deviation measures. The **persistent** (no
+re-preparation) control is a correlated two-state Markov chain whose quantum-Zeno
+limit `Tr(Q o Q)=1` freezes outcomes; same-marginal chains have strictly lower
+path-entropy rate (gaps `0 -> 6.9e-3 -> 1.8e-2 -> 3.5e-2 -> 4.2e-2`), so the
+memoryless re-prepared process uniquely saturates `H(d)`. This reduces "why MaxCal"
+to the more physical "why memoryless re-preparation"; deriving memorylessness and
+the source question from CHO/F4-breaking dynamics remains open. F0/S1 stay open;
+no Bayes credit moves.

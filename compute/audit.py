@@ -182,6 +182,7 @@ import f4_breaking_calibrated_source_action_gate
 import f4_breaking_large_deviation_source_gate
 import f4_breaking_maxcal_ensemble_gate
 import f4_breaking_binary_projector_history_gate
+import f4_breaking_repeated_measurement_gate
 import theory_probation_closeout
 import prediction_registry
 import scoreboard
@@ -482,6 +483,9 @@ ARTIFACTS = [
     ("f4_breaking_binary_projector_history_gate",
      "F0 binary-projector history gate (EXPLORATORY): tests whether the binary history alphabet granted by the MaxCal gate is forced by primitive OP2 projector geometry. A primitive transition question Q generates the yes/no effects {Q, I-Q}; for a rank-one source P the Born probabilities are Tr(P o Q) and 1-Tr(P o Q). Repeated yes/no readout gives {0,1}^N and binomial counting. This derives the binary path alphabet only conditional on selecting the primitive source question; deriving that question, its mean d=pi/432, and the MaxCal/action principle from CHO/F4-breaking dynamics remains open, and no Bayes credit moves.",
      f4_breaking_binary_projector_history_gate.main),
+    ("f4_breaking_repeated_measurement_gate",
+     "F0 repeated-measurement gate (EXPLORATORY): tests whether the independent ensemble has a physical (non-inference) origin. Repeated projective measurement of a primitive question Q on a re-prepared rank-one source P gives, by the Born rule, p_yes=Tr(P o Q)=pi/432 on every trial and history-independent outcomes, so the path measure is exactly the product Bernoulli(d) measure -- identical to the MaxCal exp(-lambda K)/Z and large-deviation measures. The persistent (no re-preparation) control is a correlated two-state Markov chain whose quantum-Zeno limit Tr(Q o Q)=1 freezes outcomes; same-marginal correlated chains have strictly lower path-entropy rate, so the memoryless re-prepared process uniquely saturates H(d). This reduces 'why MaxCal' to 'why memoryless re-preparation'; deriving memorylessness and the source question from CHO/F4-breaking dynamics remains open, and no Bayes credit moves.",
+     f4_breaking_repeated_measurement_gate.main),
     ("theory_probation_closeout",
     "THEORY PROBATION CLOSEOUT: preserves the theorem-level core (J3(O) idempotent frame, Schur weights, Freudenthal seesaw, OP^2/Berry geometry), archives failed routes as null records, and states that the SM-constant physics claim can only advance via a derived F4-breaking action whose flux gives pi/432 and whose spectrum gives the seed. If that fails, demote to beautiful algebraic numerology with strong structure, not a theory of nature. Reporter only; no Bayes credit.",
     theory_probation_closeout.main),

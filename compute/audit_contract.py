@@ -2444,6 +2444,39 @@ CONTRACTS = {
             "Moving Bayes/model-complexity credit or promoting F0/S1 before the primitive source question and mean/source constraint are derived from CHO dynamics.",
         ),
     ),
+    "f4_breaking_repeated_measurement_gate": contract(
+        "f4_breaking_repeated_measurement_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking repeated-measurement gate. Claim a physical (non-inference) origin for the independent ensemble: "
+        "repeated projective measurement of a primitive question Q on a re-prepared rank-one source P gives, by the "
+        "Born rule, p_yes=Tr(P o Q)=pi/432 on every trial with history-independent outcomes, so the path measure is "
+        "exactly the product Bernoulli(d) measure -- identical to the MaxCal exp(-lambda K)/Z measure and the "
+        "large-deviation Bernoulli measure. The persistent (no re-preparation) control is a correlated two-state Markov "
+        "chain whose quantum-Zeno limit Tr(Q o Q)=1 freezes outcomes; same-marginal correlated chains have strictly "
+        "lower path-entropy rate, so the memoryless re-prepared process uniquely saturates H(d). This derives "
+        "independence only conditional on memoryless re-preparation; it must not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The OP2 rank-one Born geometry, primitive question Q, and selected density d=pi/432 are imported from the "
+            "prior Born-geometry, binary-projector, source-stationarity, large-deviation, and MaxCal gates.",
+            "The physical transition process is assumed to re-prepare the source P before each measurement (memoryless); "
+            "the gate derives independence from that assumption, not the assumption from CHO/F4 dynamics.",
+            "The persistent control's quantum-Zeno absorption Tr(Q o Q)=1 and the one-parameter Markov family share the "
+            "same marginal d by construction; only the lag-1 correlation, and hence the path-entropy rate, is varied.",
+        ),
+        open_bridges=(
+            "Derive from CHO/F4-breaking dynamics why the physical transition process is memoryless (re-prepared) rather "
+            "than persistent or otherwise correlated.",
+            "Derive why the measured primitive question Q has mean transition density d=pi/432.",
+            "Derive the MaxCal/path-entropy action jointly with the measurement back-action structure that fixes memorylessness.",
+        ),
+        kill_conditions=(
+            "Presenting Born + memoryless re-preparation as a full derivation of the CHO source action or the memorylessness itself.",
+            "Suppressing the conditional imports: OP2 Born geometry, primitive question Q, selected density d=pi/432, and the re-preparation assumption.",
+            "Moving Bayes/model-complexity credit or promoting F0/S1 before memorylessness and the source question are derived from CHO dynamics.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),
