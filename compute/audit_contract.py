@@ -2546,6 +2546,44 @@ CONTRACTS = {
             "Moving Bayes/model-complexity credit or promoting F0/S1 before the Lindblad generator, its rate, and the source question are derived from CHO dynamics.",
         ),
     ),
+    "f4_breaking_peirce_jump_gate": contract(
+        "f4_breaking_peirce_jump_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking Peirce-jump gate. Claim the jump-operator STRUCTURE of the CHO Lindbladian is fixed by the Jordan "
+        "geometry rather than chosen by hand: the vacuum-damping modes L_k=sqrt(gamma)|p><e_k| and their target are the "
+        "Peirce decomposition of the exceptional Jordan algebra J3(O) relative to a PRIMITIVE idempotent P. The Jordan "
+        "left-multiplication L_P is trace-form self-adjoint and, for an idempotent (verified by the exact Peirce minimal "
+        "polynomial |L(L-1/2)(L-1)|=0), splits the 27 into trace-orthogonal eigenspaces; for a primitive (rank-one) "
+        "idempotent the multiplicities are dim J_1=1 (vacuum ray span(P)), dim J_{1/2}=16=dim OP^2=Delta_9 (coherence "
+        "modes), dim J_0=10 (population modes), 1+16+10=27. The Peirce projectors are exact idempotents (rational "
+        "structure constants, error 0), the trace-orthogonal complement of the vacuum ray is exactly J_{1/2}(+)J_0 (the "
+        "26 off-vacuum jump modes), and the depolarizing-toward-vacuum channel R_r(X)=(1-r)X+r tr(X)P (the Jordan image "
+        "of the Lindbladian C_r) has a unique steady ray span(P) with all 26 off-vacuum modes decaying by (1-r). Only a "
+        "primitive idempotent gives a one-dimensional vacuum ray (rank-two leaves a 10-dim J_1, the identity has no "
+        "off-vacuum modes, non-idempotents have no Peirce structure). This identifies the jump structure with the OP^2/F4 "
+        "geometry conditional on a primitive-idempotent vacuum; it must not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The exceptional Jordan algebra J3(O), its trace form, the rank-one variety OP^2=Delta_9 (dim 16), and the "
+            "primitive idempotents are imported from the OP^2 orbit/Weyl machinery; the relaxation channel and the "
+            "Lindblad rate gamma are imported from the CHO Lindbladian gate.",
+            "The vacuum is taken to be a PRIMITIVE (rank-one) idempotent of J3(O); the gate shows this primitivity is what "
+            "makes the vacuum ray one-dimensional, but does NOT derive that the dynamics selects a primitive idempotent.",
+            "The depolarizing-toward-vacuum channel R_r is the Jordan image of the assumed Lindbladian channel; its rate "
+            "gamma (timescale) is an input, not a derived quantity.",
+        ),
+        open_bridges=(
+            "Derive from CHO/F4-breaking dynamics WHY the vacuum is a primitive (rank-one) idempotent rather than a rank-two or rank-three idempotent.",
+            "Derive the relaxation rate gamma (the timescale) of the vacuum-damping Peirce flow from a concrete CHO action.",
+            "Derive why the vacuum source question has overlap d=pi/432 with the measured ray.",
+        ),
+        kill_conditions=(
+            "Presenting the Peirce identification as a derivation of the CHO dynamics, the vacuum selection, or the rate gamma.",
+            "Suppressing the conditional inputs: J3(O)/OP^2 geometry, the assumed Lindbladian channel and rate, and the primitive-idempotent vacuum assumption.",
+            "Moving Bayes/model-complexity credit or promoting F0/S1 before the primitive-idempotent vacuum selection, the rate, and the source question are derived from CHO dynamics.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),

@@ -832,3 +832,29 @@ non-vacuum state. This reduces "why the relaxation channel" to "why this jump ra
 `gamma` and vacuum-damping jumps from CHO dynamics"; deriving `gamma`, the jump
 operators, `Delta_t`, and `pi/432` from the F4-breaking action remains open. F0/S1
 stay open; no Bayes credit moves.
+
+### Execution note (2026-06-10) — Peirce-jump gate
+
+`compute/f4_breaking_peirce_jump_gate.py` added. It shows the CHO Lindbladian's
+vacuum-damping jump STRUCTURE is fixed by the Jordan geometry, not chosen by hand.
+The jump operators `L_k=sqrt(gamma)|p><e_k|` damp the directions orthogonal to the
+vacuum ray `p` into `p`; this gate identifies those modes and their target with the
+Peirce decomposition of `J3(O)` at a PRIMITIVE idempotent `P`. The Jordan
+left-multiplication `L_P` is trace-form self-adjoint and (for an idempotent,
+verified by the exact Peirce minimal polynomial `|L(L-1/2)(L-1)|=0`, error 0)
+splits the 27 into trace-orthogonal eigenspaces; for a primitive (rank-one)
+idempotent `dim J_1=1` (vacuum ray `span(P)`), `dim J_{1/2}=16=dim OP^2=Delta_9`
+(coherence modes), `dim J_0=10` (population modes), `1+16+10=27`. The Peirce
+projectors are exact idempotents (rational structure constants, idempotent/
+orthogonal/sum errors 0), and the trace-orthogonal complement of the vacuum ray is
+exactly `J_{1/2}(+)J_0` (the 26 off-vacuum jump modes, `<P,off>=0` exactly). The
+depolarizing-toward-vacuum channel `R_r(X)=(1-r)X+r tr(X)P` (the Jordan image of
+the Lindbladian `C_r`) has a unique steady ray `span(P)`, all 26 off-vacuum modes
+decaying by `(1-r)`, exponential relaxation `-> 1.6e-11` at `t=25`, and exact
+semigroup composition `~1e-16`. Controls miss: rank-two idempotent leaves a 10-dim
+`J_1`, the identity has no off-vacuum modes, non-idempotent targets have `L`-spectrum
+outside `{0,1/2,1}`. Cross-check: arena dim `16 x 27=432` is the denominator of
+`eps0^2=pi/432`, and `16=dim J_{1/2}=dim OP^2` is the Berry-FORM manifold. This
+reduces "why these vacuum-damping jumps" to "why a primitive-idempotent vacuum";
+deriving the vacuum primitivity, the rate `gamma`, and `pi/432` from the CHO action
+remains open. F0/S1 stay open; no Bayes credit moves.

@@ -800,3 +800,69 @@ reduces "why the relaxation channel" to "why this Lindblad jump structure and ra
 from CHO dynamics". The remaining live object is deriving the jump operators, the
 rate `gamma` (hence `tau`), the probe interval `Delta_t`, and the source question
 `Q` (overlap `d=pi/432`) from the CHO/F4-breaking action. No Bayes credit moves.
+
+## Peirce-Jump Gate (2026-06-10)
+
+`compute/f4_breaking_peirce_jump_gate.py` asks where the CHO Lindbladian's
+vacuum-damping jump operators come from. The Lindbladian wrote
+
+`L_k = sqrt(gamma) |p><e_k|`   (amplitude damping into the vacuum ray p),
+
+but the directions `e_k` orthogonal to `p`, and the choice to damp toward `p`,
+were written by hand on the faithful qubit. This gate climbs underneath and shows
+those modes and their target are the Peirce decomposition of the exceptional
+Jordan algebra `J3(O)` relative to a PRIMITIVE idempotent.
+
+For an element `P` of `J3(O)` the Jordan left-multiplication `L_P(X) = P o X` is
+self-adjoint for the trace form, so its eigenspaces are trace-orthogonal. The
+Peirce theorem says that when `P` is an idempotent (`P o P = P`) the spectrum of
+`L_P` lies in `{0, 1/2, 1}` -- verified here by the exact minimal polynomial
+`|L_P (L_P - 1/2)(L_P - 1)| = 0` (machine zero, rational structure constants) --
+splitting the 27-dimensional algebra into
+
+`J3(O) = J_1(P)  (+)  J_{1/2}(P)  (+)  J_0(P)`.
+
+For a PRIMITIVE (rank-one) idempotent the multiplicities are
+
+`dim J_1 = 1`     the vacuum ray `span(P)`,
+`dim J_{1/2} = 16` the coherence / transition modes ( = `dim OP^2 = Delta_9` ),
+`dim J_0 = 10`    the orthogonal population modes ( the `J2(O)` block ),
+
+with `1 + 16 + 10 = 27`. The Lagrange-interpolation spectral projectors
+`E_1 = 2L^2 - L`, `E_{1/2} = 4L - 4L^2`, `E_0 = 2L^2 - 3L + I` are exact
+idempotents, mutually orthogonal and summing to the identity to machine zero, and
+the trace-orthogonal complement of the vacuum ray is exactly
+`J_{1/2}(P) (+) J_0(P)` -- the 26 off-vacuum modes (`<P, off-vacuum> = 0`
+exactly). So the abstract `e_k orthogonal to p` of the Lindbladian jump operators
+are concretely these Peirce modes: 16 coherences plus 10 populations.
+
+The depolarizing-toward-vacuum channel on `J3(O)`,
+
+`R_r(X) = (1 - r) X + r tr(X) P`,
+
+the Jordan-algebra image of the Lindbladian `C_r`, has eigenvalue 1 on the vacuum
+ray and `(1 - r)` on all 26 off-vacuum modes, a UNIQUE steady ray `span(P)`
+(exponential relaxation `|R_{r(t)} X - tr(X) P| -> 1.6e-11` at `t = 25`), and an
+exact composing semigroup `R_{r(s)} R_{r(t)} = R_{r(s+t)}` with
+`r(t) = 1 - exp(-gamma t)` (`~1e-16`) -- reproducing the Lindbladian's unique
+vacuum steady state at the full-Jordan level. Controls miss cleanly: a rank-two
+idempotent leaves a 10-dimensional `J_1` (no single ray), the identity has
+`L_I = I` and no off-vacuum modes, and non-idempotent targets (`diag(2,0,0)`,
+`diag(1/2,0,0)`) have `L`-spectrum outside `{0, 1/2, 1}` so no Peirce structure
+exists. Only a PRIMITIVE idempotent gives a one-dimensional vacuum ray.
+
+A cross-check ties this dissipative structure to the measure: the arena dimension
+`Delta_9 x J3(O) = 16 x 27 = 432` is the denominator of `eps0^2 = pi/432`, and
+the coherence space `J_{1/2}(P)` of dimension `16 = dim OP^2` is the SAME
+topological manifold whose Berry holonomy supplies the FORM `pi`. The 16-fold
+that carries the holonomy `pi` is the 16-fold of coherences that the vacuum
+damping kills.
+
+**Net.** The jump-operator STRUCTURE of the CHO Lindbladian -- amplitude damping
+of the orthogonal modes into a unique vacuum ray -- is forced by the Peirce
+decomposition of `J3(O)` at a primitive idempotent, not chosen by hand. This
+reduces "why these vacuum-damping jump operators" to "why a primitive-idempotent
+vacuum". The remaining live object is deriving from CHO/F4-breaking dynamics WHY
+the vacuum is a primitive (rank-one) idempotent rather than rank-two or rank-three,
+together with the rate `gamma` and the source overlap `d = pi/432`. No Bayes
+credit moves.
