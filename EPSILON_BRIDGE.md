@@ -589,3 +589,27 @@ source/channel controls from the stationarity gate still miss.
 **Net.** The live assumption is no longer the specific KL functional. It is the
 broader calibrated source coupling on projective probability. Deriving that
 calibration from the CHO/F4-breaking action remains open. No Bayes credit moves.
+
+## Large-Deviation Source Gate (2026-06-10)
+
+`compute/f4_breaking_large_deviation_source_gate.py` tries to explain why the KL
+source term appears at all. If the projective transition is sampled as a repeated
+two-outcome process and the selected WZ/Born density is the empirical source
+frequency, then binomial counting gives
+
+`[-log P(m|q)+log P(m|m/N)]/N = KL(m/N || q)`
+
+exactly at finite `N`. In the large-deviation limit `m/N -> d=pi/432`, this is
+the Bernoulli source action used by the stationarity gate. With
+`q(beta)=exp(-2 beta)`, stationarity again selects
+
+`beta = -log(eps0)`.
+
+The gate checks finite rational approximants converging to `pi/432`, verifies the
+exact counting identity, and reruns the wrong source/channel controls.
+
+**Net.** KL is no longer merely selected from the calibrated class once the
+independent projective-transition ensemble is granted: it is the universal
+large-deviation rate function. The remaining live object is deriving that
+ensemble/source interpretation from the CHO/F4-breaking action. No Bayes credit
+moves.

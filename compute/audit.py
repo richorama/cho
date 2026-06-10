@@ -179,6 +179,7 @@ import f4_breaking_born_beta_map_gate
 import f4_breaking_born_geometry_gate
 import f4_breaking_source_stationarity_gate
 import f4_breaking_calibrated_source_action_gate
+import f4_breaking_large_deviation_source_gate
 import theory_probation_closeout
 import prediction_registry
 import scoreboard
@@ -470,6 +471,9 @@ ARTIFACTS = [
     ("f4_breaking_calibrated_source_action_gate",
      "F0 calibrated source-action gate (EXPLORATORY): tests whether the source-stationarity result depends on the special KL/log-score choice. KL, Brier/quadratic, Hellinger, and logit-quadratic calibrated local source actions all have the same strict stationary point q=d for the projective channel q(beta)=exp(-2 beta), so beta=-log(eps0) is robust inside this calibrated class. Improper controls fail. This narrows the remaining assumption from a KL source term to calibrated source coupling; the CHO action origin of that calibration remains open, and no Bayes credit moves.",
      f4_breaking_calibrated_source_action_gate.main),
+    ("f4_breaking_large_deviation_source_gate",
+     "F0 large-deviation source gate (EXPLORATORY): tests an out-of-the-box origin for the KL source term. If the projective transition channel is sampled as repeated two-outcome trials and the selected WZ/Born density d=pi/432 is the empirical frequency, finite binomial counting gives the relative negative log-likelihood density exactly as KL(d_hat||q), whose large-deviation limit is the Bernoulli source action. Stationarity again gives q=d and beta=-log(eps0). This derives the KL rate only conditional on an independent projective-transition ensemble; the CHO origin of that ensemble/coupling remains open, and no Bayes credit moves.",
+     f4_breaking_large_deviation_source_gate.main),
     ("theory_probation_closeout",
     "THEORY PROBATION CLOSEOUT: preserves the theorem-level core (J3(O) idempotent frame, Schur weights, Freudenthal seesaw, OP^2/Berry geometry), archives failed routes as null records, and states that the SM-constant physics claim can only advance via a derived F4-breaking action whose flux gives pi/432 and whose spectrum gives the seed. If that fails, demote to beautiful algebraic numerology with strong structure, not a theory of nature. Reporter only; no Bayes credit.",
     theory_probation_closeout.main),

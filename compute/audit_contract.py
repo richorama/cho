@@ -2348,6 +2348,39 @@ CONTRACTS = {
             "Claiming KL uniqueness, Bayes-credit movement, or F0/S1 promotion from this robustness result.",
         ),
     ),
+    "f4_breaking_large_deviation_source_gate": contract(
+        "f4_breaking_large_deviation_source_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking large-deviation source gate. Claim the statistical-mechanical narrowing: if the projective "
+        "transition channel is sampled as repeated two-outcome trials and the selected WZ/Born density d=pi/432 "
+        "is the empirical source frequency, finite binomial counting gives the relative negative log-likelihood "
+        "density exactly as KL(d_hat||q); in the large-deviation limit this is the Bernoulli source action. "
+        "Stationarity then gives q=d and beta=-log(eps0). This derives the KL source rate only conditional on "
+        "the independent projective-transition ensemble/source interpretation; it must not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The selected density d=pi/432 and projective probability channel q(beta)=exp(-2 beta) are imported "
+            "from the prior carrier, Born-geometry, source-stationarity, and calibrated-action gates.",
+            "The projective transition is modelled as an independent Bernoulli/two-outcome counting ensemble; this "
+            "statistical ensemble is granted here, not derived from CHO dynamics.",
+            "The empirical source density is identified with the selected WZ/Born density in the large-N limit; finite "
+            "rational approximants are only convergence witnesses, not new exact values for pi/432.",
+        ),
+        open_bridges=(
+            "Derive the independent or exchangeable projective-transition ensemble from OP^2 WZ/Jordan/F4-breaking "
+            "dynamics rather than adding a statistical source interpretation.",
+            "Derive why the empirical frequency of that ensemble is the selected WZ/Born density d=pi/432 and why the "
+            "F4-breaking action is the corresponding large-deviation rate functional.",
+            "Test whether correlated, non-Bernoulli, or constrained CHO-natural transition histories change the rate "
+            "function or reduce to the same KL action in the relevant limit.",
+        ),
+        kill_conditions=(
+            "Presenting binomial large deviations as a full derivation of the CHO action or projective source ensemble.",
+            "Suppressing the conditional imports: d=pi/432, q=exp(-2 beta), empirical-frequency interpretation, and independence/exchangeability.",
+            "Moving Bayes/model-complexity credit or promoting F0/S1 before the ensemble and source coupling are derived from CHO dynamics.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),

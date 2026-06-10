@@ -738,3 +738,15 @@ controls still miss. This narrows the remaining assumption from a KL source term
 to calibrated source coupling on the projective probability; deriving that
 calibration from the CHO/F4-breaking action remains open. F0/S1 stay open; no
 Bayes credit moves.
+
+### Execution note (2026-06-10) — large-deviation source gate
+
+`compute/f4_breaking_large_deviation_source_gate.py` added. It tests a statistical
+origin for the KL source action: if the projective transition channel is sampled
+as repeated two-outcome trials and the selected WZ/Born density is the empirical
+frequency, finite binomial counting gives the relative negative log-likelihood
+density exactly as `KL(d_hat || q)`. In the large-deviation limit `d_hat ->
+pi/432`, this is the Bernoulli source action, and stationarity again gives
+`beta=-log(eps0)`. This derives the KL rate only conditional on an independent
+projective-transition ensemble/source interpretation; deriving that ensemble from
+CHO/F4-breaking dynamics remains open. F0/S1 stay open; no Bayes credit moves.
