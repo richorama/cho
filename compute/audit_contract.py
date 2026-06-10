@@ -2076,6 +2076,48 @@ CONTRACTS = {
             "new result is a modulus no-go/localization rather than a closure.",
         ),
     ),
+    "f4_breaking_beta_selection_gate": contract(
+        "f4_breaking_beta_selection_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking beta-selection gate. Claim only the narrowed negative: after "
+        "f4_breaking_action_origin_gate reduced the live bridge to beta=-log(eps0), "
+        "this module tests the obvious scalar-fixing mechanisms and finds none selected "
+        "by the current CHO dynamics. Entropy fixes beta only after a mean grade is supplied; "
+        "dimension-only selectors miss pi/432; the exact identity exp(-2 beta)=pi/432 "
+        "appears only if one postulates the Berry-flux/state-count map; WZ integrality "
+        "leaves k*pi/432 and does not select k=1 by itself; additive Berry/Schur constants "
+        "drop out of beta stationarity. The remaining bridge is a genuine beta-dependent "
+        "CHO variational term or primitive-sector rule. Do not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The previous modulus gate is source-of-truth that the height dynamics and "
+            "Gibbs cascade leave beta continuous; this module tests candidate scalar-fixing "
+            "rules rather than re-proving the critical-set result.",
+            "Entropy calculations use the grade set (0,1,2) and standard Gibbs duality: "
+            "beta is conjugate to a supplied mean grade, so a target mean that reproduces "
+            "eps0 is treated as fitted unless independently derived.",
+            "The Berry flux pi and Schur state count 432 are existing source-of-truth pieces; "
+            "the conditional identity exp(-2 beta)=pi/432 is tested as a map, not claimed as "
+            "selected by the present action.",
+        ),
+        open_bridges=(
+            "Derive a beta-dependent CHO variational term whose stationarity equation outputs "
+            "beta=0.5 log(432/pi) rather than accepting beta as a Lagrange multiplier.",
+            "Derive why the primitive WZ level k=1 is selected for the seed spectrum, rather "
+            "than merely noting that k=1 reproduces the target while k>1 is also admissible.",
+            "Derive the flux/state-to-spectrum map exp(-2 beta)=pi/432 from the action; otherwise "
+            "it remains an inserted identification of the geometric measure with the spurion scale.",
+        ),
+        kill_conditions=(
+            "Presenting exp(-2 beta)=pi/432 as a derivation of beta without deriving the map that "
+            "turns Berry flux divided by state count into the Gibbs inverse temperature.",
+            "Quoting the fitted target mean grade or primitive k=1 level while suppressing the "
+            "natural-mean misses and the k*pi/432 family.",
+            "Promoting F0/S1, moving scoreboard/model_complexity credit, or hiding that this is a "
+            "scalar-selection no-go/localisation rather than a closure.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),

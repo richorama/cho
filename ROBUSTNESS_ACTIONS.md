@@ -658,3 +658,15 @@ dynamics for a continuum of `r`, and the entropy/free-energy completion gives Gi
 target requires `beta=-log(eps0)=0.5 log(432/pi)`, but the current action does not select it.
 So the live internal route is now one scalar-selection problem: derive `beta` or `r=eps0`
 from CHO dynamics. F0/S1 stay open; no Bayes credit moves.
+
+### Execution note (2026-06-10) — beta-selection gate
+
+`compute/f4_breaking_beta_selection_gate.py` added. It tests the next scalar-fixing
+mechanisms after the modulus gate. Entropy constraints select `beta` only after a mean
+grade is supplied; natural means (`1/16`, `1/27`, `1/8`, `1/7`, `1/3`) miss, and the
+target mean is fitted. Dimension-only selectors miss `pi/432`; the exact target appears
+only by postulating `exp(-2 beta)=pi/432`, i.e. the flux/state-to-spectrum map. WZ level
+quantisation gives `k*pi/432`, so `k=1` still requires a primitive-sector rule. Additive
+Berry/Schur constants do not affect beta stationarity. The next live object is therefore
+a genuine beta-dependent CHO variational term; without it, the scalar remains inserted.
+F0/S1 stay open; no Bayes credit moves.

@@ -445,3 +445,23 @@ action.
 `beta = 0.5 log(432/pi)` (equivalently `r = eps0`) from CHO dynamics. The
 generation frame, the Berry/WZ `pi`, and the cascade form are narrowed; the
 absolute scale `eps0^2 = pi/432` remains open. No Bayes credit moves.
+
+## Beta-Selection Gate (2026-06-10)
+
+`compute/f4_breaking_beta_selection_gate.py` tries the next rung directly. The
+conditional identity
+
+`exp(-2 beta) = pi/432`
+
+is exact, but the current machinery does not select it. Entropy constraints fix
+`beta` only after a mean grade is supplied; the natural means `1/16`, `1/27`,
+`1/8`, `1/7`, and `1/3` miss the target, while the target mean is fitted.
+Dimension-only selectors give `1/432`, `1/16`, `1/27`, or `1/7`; the `pi` enters
+only if one postulates the flux/state-to-spectrum map. WZ level quantisation
+leaves a family `k*pi/432`, so `k=1` is another primitive-sector assumption, not
+yet a consequence.
+
+**Net.** The live bridge is now maximally narrow: derive a beta-dependent CHO
+variational term whose stationarity equation outputs `beta = 0.5 log(432/pi)`,
+including the flux/state map and primitive level selection. Otherwise the scalar
+modulus remains inserted. No Bayes credit moves.
