@@ -504,3 +504,24 @@ two-level carrier is granted.
 **Net.** The remaining scalar bridge is now the beta-dependent action map, not
 the WZ integer: derive a CHO variational term whose stationarity equation sets
 `exp(-2 beta)` equal to the selected density `pi/432`. No Bayes credit moves.
+
+## Born Beta-Map Gate (2026-06-10)
+
+`compute/f4_breaking_born_beta_map_gate.py` tests the local half-log map left by
+the carrier gate. The selected WZ object is a probability/flux density
+
+`d = pi/432`.
+
+The spurion cascade, however, is written in amplitude ratios. Under the Born
+square map, the grade-one amplitude is `r=sqrt(d)`, so
+
+`beta = -log(r)` and `exp(-2 beta)=d`.
+
+This gives `r=eps0` exactly. The gate checks nearby wrong interpretations and
+they miss visibly: treating `d` itself as an amplitude, using state count `1/432`
+without Berry `pi`, or using the `k=2` WZ sector.
+
+**Net.** The density-to-amplitude map is no longer the obstruction once the Born
+interpretation is granted. The remaining live object is dynamical: derive the
+`F4`-breaking action or transfer operator whose stationarity equation makes that
+Born map physical rather than assigned. No Bayes credit moves.

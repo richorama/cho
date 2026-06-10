@@ -692,3 +692,14 @@ family. This removes the discrete primitive-level ambiguity once the two-level
 carrier is granted. The remaining live object is the beta-dependent `F4`-breaking
 action map `exp(-2 beta)=pi/432`, not the integer WZ level. F0/S1 stay open; no
 Bayes credit moves.
+
+### Execution note (2026-06-10) — Born beta-map gate
+
+`compute/f4_breaking_born_beta_map_gate.py` added. It tests the remaining local
+half-log map after carrier selection: the WZ result is a probability/flux density
+`d=pi/432`, while the seed cascade uses amplitudes. Under the Born square map
+`r=sqrt(d)`, `beta=-log(r)`, giving `r=eps0` and `exp(-2 beta)=pi/432` exactly.
+Wrong maps (`d` as amplitude, `1/432` without Berry `pi`, or `k=2`) miss visibly.
+This closes the density-to-amplitude map conditionally; the live object is now the
+CHO action coupling or stationarity equation that makes the Born map dynamical.
+F0/S1 stay open; no Bayes credit moves.

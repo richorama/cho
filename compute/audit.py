@@ -175,6 +175,7 @@ import f4_breaking_action_origin_gate
 import f4_breaking_beta_selection_gate
 import f4_breaking_primitive_level_gate
 import f4_breaking_level_one_carrier_gate
+import f4_breaking_born_beta_map_gate
 import theory_probation_closeout
 import prediction_registry
 import scoreboard
@@ -454,6 +455,9 @@ ARTIFACTS = [
     ("f4_breaking_level_one_carrier_gate",
      "F0 level-one carrier gate (EXPLORATORY): adds the already-audited two-level transition carrier to the WZ integrality result. CP^1 geometric quantization at integer level k has Hilbert dimension k+1; the A4/Q8 carrier is the fundamental two-state system, so only k=1 matches the transition qubit. This removes the discrete primitive-level ambiguity once the two-level carrier is granted: k=1 gives density pi/432 and beta=-log(eps0). It still does not derive the beta-dependent CHO variational map exp(-2 beta)=density or the full F4-breaking action, so no Bayes credit moves.",
      f4_breaking_level_one_carrier_gate.main),
+    ("f4_breaking_born_beta_map_gate",
+     "F0 Born beta-map gate (EXPLORATORY): tests the local map from the selected level-one WZ density to the Gibbs seed amplitude. The carrier gate gives a probability/flux density d=pi/432; the F4-breaking cascade uses amplitude ratios. Under the Born square map r=sqrt(d), beta=-log(r), so exp(-beta)=eps0 and exp(-2 beta)=pi/432 exactly. Wrong maps visibly miss: treating d as the amplitude, omitting the Berry pi, or using k=2. This closes the density-to-amplitude half-log map once the Born-amplitude interpretation is granted, but it still does not derive the beta-dependent CHO action coupling or a stationarity equation; no Bayes credit moves.",
+     f4_breaking_born_beta_map_gate.main),
     ("theory_probation_closeout",
     "THEORY PROBATION CLOSEOUT: preserves the theorem-level core (J3(O) idempotent frame, Schur weights, Freudenthal seesaw, OP^2/Berry geometry), archives failed routes as null records, and states that the SM-constant physics claim can only advance via a derived F4-breaking action whose flux gives pi/432 and whose spectrum gives the seed. If that fails, demote to beautiful algebraic numerology with strong structure, not a theory of nature. Reporter only; no Bayes credit.",
     theory_probation_closeout.main),

@@ -2196,6 +2196,46 @@ CONTRACTS = {
             "remaining bridge is the beta-dependent action map.",
         ),
     ),
+    "f4_breaking_born_beta_map_gate": contract(
+        "f4_breaking_born_beta_map_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking Born beta-map gate. Claim the local conditional narrowing: the level-one "
+        "carrier gate selects a WZ probability/flux density d=pi/432, while the F4-breaking "
+        "seed cascade is expressed in amplitude ratios. Under the Born square map r=sqrt(d), "
+        "beta=-log(r), so exp(-beta)=eps0 and exp(-2 beta)=pi/432 exactly. Wrong maps are "
+        "checked and miss: treating d itself as an amplitude, omitting the Berry pi, or using "
+        "k=2. This closes the density-to-amplitude half-log map once the Born-amplitude "
+        "interpretation is granted. It does not derive the beta-dependent CHO action coupling "
+        "or a stationarity equation; do not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The selected density d=pi/432 is imported from f4_breaking_level_one_carrier_gate, "
+            "which already assumes the two-state CP^1 carrier and level-one WZ sector.",
+            "The Born square interpretation is granted: WZ/Schur density is probability/flux, "
+            "whereas the spurion seed spectrum uses grade-one amplitudes whose squares give "
+            "grade-two probabilities.",
+            "The amplitude/probability split is consistent with epsilon_mixing_coefficients and "
+            "the existing eps0 convention EPS0^2=pi/432, but this gate is not a first-principles "
+            "derivation of the CHO action coupling.",
+        ),
+        open_bridges=(
+            "Derive from CHO dynamics why the F4-breaking height spectrum coefficients are Born "
+            "amplitudes sourced by the selected WZ density, not merely assigned that interpretation.",
+            "Derive the beta-dependent variational or transfer operator whose stationarity equation "
+            "produces the Born map exp(-2 beta)=density as an equation of motion.",
+            "Tie the Born-amplitude map to the full F4-breaking seed action and the generation-frame "
+            "height potential without adding a separate postulate.",
+        ),
+        kill_conditions=(
+            "Presenting the Born square-root map as the full dynamical derivation of beta or as a "
+            "Bayes-credit-moving closure of F0/S1.",
+            "Suppressing the granted assumptions: level-one carrier selection, probability-vs-amplitude "
+            "interpretation, and the absence of a CHO stationarity equation.",
+            "Allowing wrong maps such as density-as-amplitude, state-count-only, or k=2 to appear as "
+            "near-equivalent alternatives rather than explicit misses.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),
