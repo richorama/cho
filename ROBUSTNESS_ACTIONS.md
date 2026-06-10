@@ -858,3 +858,25 @@ outside `{0,1/2,1}`. Cross-check: arena dim `16 x 27=432` is the denominator of
 reduces "why these vacuum-damping jumps" to "why a primitive-idempotent vacuum";
 deriving the vacuum primitivity, the rate `gamma`, and `pi/432` from the CHO action
 remains open. F0/S1 stay open; no Bayes credit moves.
+
+### Execution note (2026-06-10) — Vacuum-purity gate
+
+`compute/f4_breaking_vacuum_purity_gate.py` added. It climbs underneath the
+Peirce-jump gate's residual ("why a primitive-idempotent vacuum"). On the `J3(O)`
+state slice `{rho>=0, Tr rho=1}` the purity `pi(rho)=Tr(rho o rho)` is in
+`[1/3,1]`, `=1` exactly at the primitive idempotents (pure = extreme points =
+`OP^2`, dim 16) and `1/3` at the maximally mixed centre `I/3` — the cited statics
+(`f0_vacuum_majorization`, `epsilon_rank_one_kernel`). NEW dynamical content:
+purity is F4-invariant (`~8e-14`), so cooling (purity ascent) reduces to a
+projected gradient flow of `pi(lam)=sum lam^2` on the eigenvalue simplex, where
+`pi` is strictly convex (tangent Hessian `=2I`). The only stable attractors are
+the rank-one vertices (cooling drives `pi->1`); rank-two midpoints are saddles
+and the rank-three centre `I/3` is a repeller (perturb-and-cool: rank-one stays,
+moved `0.0`; rank-two/rank-three flee, moved `0.71`/`0.82`). A generic
+frame-breaking field `V_A=Tr(P o A)` then pins the unique top vertex `E1` while
+purity stays 1 (overlap `1.0000`); the F4-invariant `A=I` is flat (no vertex),
+and heating flows to `I/3` (the wrong vacuum). This reduces "why a
+primitive-idempotent vacuum" to "why a cooling dynamics + a generic frame-breaking
+field"; deriving the cooling direction, the field `A`, the generation assignment,
+and `pi/432` from the CHO action remains open. F0/S1 stay open; no Bayes credit
+moves.

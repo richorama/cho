@@ -866,3 +866,49 @@ vacuum". The remaining live object is deriving from CHO/F4-breaking dynamics WHY
 the vacuum is a primitive (rank-one) idempotent rather than rank-two or rank-three,
 together with the rate `gamma` and the source overlap `d = pi/432`. No Bayes
 credit moves.
+
+## Vacuum-Purity Gate (2026-06-10)
+
+`compute/f4_breaking_vacuum_purity_gate.py` climbs underneath the Peirce-jump
+gate's one residual: that gate derived the vacuum-damping jump STRUCTURE from the
+Peirce decomposition of `J3(O)` at a PRIMITIVE idempotent, but had to ASSUME the
+vacuum is primitive (only a rank-one idempotent gives a single vacuum ray). This
+gate asks whether that primitivity is free or forced.
+
+**Statics (cited, not re-derived).** On the `J3(O)` state slice `{rho >= 0,
+Tr rho = 1}` the purity `pi(rho) = Tr(rho o rho)` lies in `[1/3, 1]`, equal to 1
+EXACTLY at the primitive idempotents (the pure states = extreme points = `OP^2`,
+dim 16) and `1/3` at the maximally mixed centre `I/3`. The rank-one ray is the
+majorisation-maximal element (`f0_vacuum_majorization`) and the unique
+zero-entropy state (`epsilon_rank_one_kernel`).
+
+**New dynamical content.** Purity is F4-invariant (`pi(g.rho) = pi(rho)` for
+`g in F4 = Aut(J3(O))`, verified `~8e-14`): it depends only on the three
+Freudenthal eigenvalues, so a COOLING (purity-increasing / entropy-decreasing)
+flow reduces EXACTLY to a projected gradient ascent of `pi(lam) = sum lam_i^2` on
+the eigenvalue simplex `{lam_i >= 0, sum lam_i = 1}`. There `pi` is strictly
+convex (tangent Hessian `= 2 I`), so its only stable attractors are the three
+VERTICES — the rank-one primitive idempotents (`pi = 1`). Cooling from random
+states drives `pi -> 1` and the top eigenvalue `-> 1` (a rank-one vertex); the
+rank-two EDGE midpoints (`pi = 1/2`) are SADDLES and the rank-three CENTRE `I/3`
+(`pi = 1/3`) is a REPELLER. Perturb-and-cool confirms it: the rank-one vertex
+stays put (moved `0.0`), while the rank-two and rank-three strata flee to a
+vertex (moved `0.71`, `0.82`).
+
+**Frame-breaking picks the vertex.** Cooling alone is degenerate over `OP^2`
+(every rank-one vertex has `pi = 1`); a generic frame-breaking field
+`V_A(P) = Tr(P o A)` then pins the unique top vertex `E1` while purity stays 1
+(the height-function selection of `f4_breaking_seed_op2`, overlap `1.0000`). The
+F4-invariant control `A = I` is flat (`|grad| ~ 8e-16`, no vertex selected — the
+seed-gate no-go), and the HEATING control (purity descent) flows instead to the
+maximally mixed `I/3` (the wrong, rank-three vacuum).
+
+**Net.** Conditional on a COOLING (entropy-decreasing) dynamics and a GENERIC
+frame-breaking field, the vacuum is FORCED to be a primitive (rank-one)
+idempotent: purity's only stable attractors are the rank-one extreme points, and
+the higher-rank idempotents are unstable equilibria. This turns the Peirce-jump
+assumption into a dynamical consequence of cooling + frame-breaking — the same
+two inputs the dissipative ladder and the seed gate already name. Deriving the
+cooling direction (the arrow of time), the frame-breaking field `A`, the
+generation assignment, and `pi/432` from the CHO action remains open. F0/S1 stay
+open; no Bayes credit moves.

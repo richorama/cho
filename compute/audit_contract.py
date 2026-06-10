@@ -2584,6 +2584,46 @@ CONTRACTS = {
             "Moving Bayes/model-complexity credit or promoting F0/S1 before the primitive-idempotent vacuum selection, the rate, and the source question are derived from CHO dynamics.",
         ),
     ),
+    "f4_breaking_vacuum_purity_gate": contract(
+        "f4_breaking_vacuum_purity_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking vacuum-purity gate. Claim only the conditional DYNAMICAL narrowing of the Peirce-jump residual: "
+        "that the vacuum is a PRIMITIVE (rank-one) idempotent is forced by a COOLING dynamics plus a GENERIC frame-breaking "
+        "field, not assumed. On the J3(O) state slice {rho>=0, Tr rho=1} the purity pi(rho)=Tr(rho o rho) is in [1/3,1], =1 "
+        "exactly at the primitive idempotents (pure states = extreme points = OP^2, dim 16) and =1/3 at the maximally mixed "
+        "centre I/3 -- the cited static facts (f0_vacuum_majorization majorisation-max, epsilon_rank_one_kernel zero-entropy). "
+        "The NEW dynamical content: purity is F4-invariant (depends only on the three Freudenthal eigenvalues), so a cooling "
+        "(purity-increasing) flow reduces to projected gradient ascent of pi(lam)=sum lam_i^2 on the eigenvalue simplex, "
+        "where pi is strictly convex (tangent Hessian=2I). The only stable attractors are the rank-one vertices (cooling "
+        "drives pi->1); the rank-two edge midpoints are saddles and the rank-three centre I/3 is a repeller (verified by "
+        "perturb-and-cool: rank-one stays put, rank-two and rank-three flee to a vertex). A generic frame-breaking field "
+        "V_A(P)=Tr(P o A) then pins the unique top vertex E1 while purity stays 1 (the seed-gate Morse selection); the "
+        "F4-invariant A=I is flat (no vertex), and the heating control flows to the maximally mixed I/3 (the wrong vacuum). "
+        "This reduces 'why a primitive-idempotent vacuum' to 'why a cooling dynamics + a generic frame-breaking field'; it "
+        "must not promote F0/S1 or move Bayes credit.",
+        assumptions=(
+            "The exceptional Jordan algebra J3(O), its trace form, the primitive idempotents, the rank-one variety "
+            "OP^2=Delta_9 (dim 16), and the F4 derivations are imported from the OP^2 orbit/Weyl machinery; the frame-breaking "
+            "height V_A and its gradient flow are imported from the seed gate (f4_breaking_seed_op2).",
+            "The COOLING direction (purity-increasing / entropy-decreasing) is an INPUT -- the arrow-of-time / second-law "
+            "assumption; heating flows instead to the maximally mixed I/3. The cooling flow is a purity-gradient model, not "
+            "itself derived from the CHO Lindbladian.",
+            "The frame-breaking field A is taken GENERIC (non-degenerate spectrum); its origin is not derived here (cited from "
+            "f4_breaking_seed_op2), and which vertex is the heaviest generation (the S3/Weyl assignment) is left open.",
+        ),
+        open_bridges=(
+            "Derive the COOLING direction (why entropy decreases -- the arrow of time) from a concrete CHO action, rather than assuming it.",
+            "Derive the generic frame-breaking field A from CHO/F4-breaking dynamics (cited open from f4_breaking_seed_op2).",
+            "Derive the generation assignment (which rank-one vertex is the vacuum) and the source overlap d=pi/432 from the CHO action.",
+        ),
+        kill_conditions=(
+            "Presenting the dynamical purity selection as a derivation of the cooling direction, the frame-breaking field, or pi/432.",
+            "Suppressing the conditional inputs: the cooling (entropy-decreasing) arrow, the generic frame-breaking field, and the cited J3(O)/OP^2 statics.",
+            "Moving Bayes/model-complexity credit or promoting F0/S1 before the cooling direction and the frame-breaking field are derived from CHO dynamics.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),
