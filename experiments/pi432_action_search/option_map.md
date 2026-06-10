@@ -1,0 +1,127 @@
+# pi/432 Option Map
+
+This is the working map after the probation closeout. It separates what has been
+tried from what remains plausible. The goal is to avoid repeating dead routes
+while keeping enough lateral freedom to find the actual action.
+
+## Already Tried And Ruled Out As Direct Solutions
+
+1. Finite spectral-action heat-kernel coefficient `a4/a2`.
+   - Ruled out because the finite moments are exact rationals and cannot equal
+     transcendental `pi/432`.
+
+2. KO/topological theta term in the current finite-triple channels.
+   - Ruled out because the natural theta data collapse to zero.
+
+3. Any `F4`-invariant potential on `OP2`.
+   - Ruled out because `F4` preserves the `J3(O)` spectrum, so all such potentials
+     are flat on the rank-one vacuum manifold.
+
+4. Direct cubic norm `N3` on `OP2`.
+   - Ruled out because `N3 = 0` on rank-one idempotents.
+
+5. One more Schur / normalized-trace / invariant-average witness.
+   - Ruled out as a solution. These explain the `1/(16 x 27)` factor, but do not
+     derive the dynamical selection.
+
+6. Single electroweak RG matching scale.
+   - Ruled out as a route to the constants: the relevant boundaries require
+     incompatible scales.
+
+7. Generic outside big-bet routes.
+   - Causal-set counting, entropic gravity, growth dynamics, flavour statistics,
+     positive geometry, and adelic patterning supplied form but not CHO content.
+
+## Second-Wave Probes
+
+These are no longer just parked; each has a cheap executable gate in this sandbox.
+They remain lower priority than the top three unless they produce an actual action
+principle.
+
+- exceptional Chern-Simons / higher gauge theory: `exceptional_cs_higher_gauge.py`;
+- Freudenthal cubic universal unfolding: `freudenthal_unfolding.py`;
+- exceptional harmonic analysis on `F4/Spin(9)` or `E6` spaces: `exceptional_harmonic_analysis.py`;
+- adelic variational principle: `adelic_variational.py`;
+- motivic / period geometry: `motivic_period_geometry.py`;
+- topological string or enumerative exceptional geometry: `topological_string_geometry.py`;
+- exceptional matrix model: `exceptional_matrix_model.py`;
+- categorical state-sum / TQFT construction: `categorical_state_sum.py`;
+- accept the result as geometric numerology and stop the physics claim.
+
+Current sweep result: no route is solved. The routes that survive all cheap gates
+still require an explicit action, descent class, motive, category, matrix saddle,
+or unfolding theorem. The top three remain the most concentrated attacks.
+
+## Active Top Three
+
+### 1. Moment-Map / Symplectic Reduction
+
+Best hope: derive the `16 x 27` carrier as quantized orbit data and the bare `pi`
+as minimal transition flux, while the same moment map supplies an `F4`-breaking
+Hamiltonian whose eigenvalues are not hand-inserted.
+
+Entry probe: `moment_map_orbit_quantization.py`.
+
+### 2. WZ / Anomaly / Inflow
+
+Best hope: derive the action coefficient as a level-one Wess-Zumino or anomaly
+inflow term normalized over the `16 x 27` carrier, with the half-turn Berry phase
+giving the `pi` numerator.
+
+Entry probe: `anomaly_wz_inflow.py`.
+
+### 3. Jordan / Nonassociative Spectral Action
+
+Best hope: replace the killed associative finite spectral-action coefficient with
+a genuinely Jordan/nonassociative action that includes topological flux and cubic
+or Peirce dynamics, so the spurion spectrum is generated rather than inserted.
+
+Entry probe: `jordan_nonassoc_spectral_action.py`.
+
+Concrete candidate: `candidate_wz_jordan_entropy_action.py`.
+Flux gate: `wz_flux_normalization_gate.py`.
+Gap derivation gate: `peirce_gap_derivation.py`.
+Entropy gate: `entropy_principle_derivation.py`.
+Frame lift gate: `frame_lift_f4_breaking.py`.
+Unified action candidate: `unified_boundary_wz_jordan_action.py`.
+Boundary variation gate: `boundary_variation_gate.py`.
+
+This candidate action uses `Phi = pi/432` as a WZ/Schur flux and tests a
+Jordan-frame entropy functional
+
+```text
+S_seed(rho) = Tr(rho log rho) + Delta_Phi Tr(rho N),
+Delta_Phi = -1/2 log(Phi), N = diag(0,1,2).
+```
+
+Its Euler-Lagrange equations output the unnormalized seed spectrum
+`(1, sqrt(Phi), Phi)`. The Peirce gap probe conditionally derives
+`N=(0,1,2)` and `Delta_Phi=-1/2 log(Phi)` from rank-3 primitive grading plus
+endpoint flux. The entropy gate derives the Gibbs form from a large-deviation
+principle, and the frame-lift gate checks the finite S3 shadow of F4 breaking. It
+is therefore the strongest concrete candidate so far, but it remains conditional
+until one CHO/WZ/Jordan action derives the flux normalization, entropy principle,
+and full F4 frame lift together.
+
+`unified_boundary_wz_jordan_action.py` now provides that single effective action
+candidate at the sandbox level. It is F4-covariant because the ordered boundary
+pair and its completed Jordan frame are transported by `F4`; it breaks `F4` only
+through boundary data. It still remains below theorem status because the boundary
+free-energy action itself has not been derived from full CHO dynamics.
+
+`boundary_variation_gate.py` attacks the first missing input. On `OP2 x OP2`, the
+endpoint-overlap functional `B(P,Q)=Tr(P o Q)` has gradient descent to `B=0`, so
+it variationally forces an orthogonal primitive endpoint pair and hence a Jordan
+frame completion. This removes the need to impose orthogonality by hand. It does
+not derive the ordering: `B(P,Q)=B(Q,P)`, so the WZ orientation remains the live
+boundary-data gap.
+
+## Graduation Rule
+
+A track may affect core code only after it supplies all of the following:
+
+1. an explicit action functional;
+2. a derivation of the `F4`-breaking term;
+3. flux `pi/432` without hand-normalizing the coefficient;
+4. a seed spectrum or hierarchy without inserting `spec(A)`;
+5. a kill condition that would falsify the route.
