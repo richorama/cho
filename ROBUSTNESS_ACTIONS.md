@@ -812,3 +812,23 @@ reduces "why memoryless" to "why fast vacuum relaxation / timescale separation";
 deriving the relaxation channel, its time `tau`, the probe interval `Delta_t`, and
 the source question from CHO/F4-breaking dynamics remains open. F0/S1 stay open;
 no Bayes credit moves.
+
+### Execution note (2026-06-10) — CHO Lindbladian gate
+
+`compute/f4_breaking_cho_lindbladian_gate.py` added. It grounds the vacuum-relaxation
+channel in a concrete generator of dynamics — the first rung to write down an actual
+Lindbladian. The GKSL dissipator `L(rho)=gamma(Tr(rho)P-rho)`, jump operators
+`L_k=sqrt(gamma)|p><e_k|` (amplitude damping into the vacuum ray), has finite-time
+propagator `exp(tL)(rho)=e^{-gamma t}rho+(1-e^{-gamma t})P=C_{r(t)}` with
+`r(t)=1-exp(-gamma t)`, `tau=1/gamma`. Verified on a faithful two-level representation
+(`|<p|q>|^2=Tr(P o Q)=pi/432`, cross-checked against the Jordan trace form) using an
+independent scaling-and-squaring matrix exponential (no SciPy): semigroup match
+~`1e-16`, unique steady state `P` (manifold dim `1`, overlap `1`), spectral gap
+`gamma`, CPTP (Choi PSD), survival composition exact. Feeding `r(Delta_t)` into the
+vacuum-relaxation conditionals reproduces mean `d` for every interval and the
+memoryless gap `2.7e-2 -> 1.0e-9`. Controls fail: unitary-only does not relax (zero
+decay gap), wrong-target relaxes to `Q` (mean `1`), dephasing-only relaxes to a mixed
+non-vacuum state. This reduces "why the relaxation channel" to "why this jump rate
+`gamma` and vacuum-damping jumps from CHO dynamics"; deriving `gamma`, the jump
+operators, `Delta_t`, and `pi/432` from the F4-breaking action remains open. F0/S1
+stay open; no Bayes credit moves.

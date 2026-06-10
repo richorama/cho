@@ -752,3 +752,51 @@ vacuum relaxation / timescale separation". The remaining live object is deriving
 the relaxation channel, its time `tau`, the probe interval `Delta_t`, the
 separation `Delta_t >> tau`, and the source question `Q` (overlap `d=pi/432`) from
 CHO/F4-breaking dynamics. No Bayes credit moves.
+
+## CHO Lindbladian Gate (2026-06-10)
+
+`compute/f4_breaking_cho_lindbladian_gate.py` asks where the depolarizing-toward-`P`
+relaxation channel of the vacuum-relaxation gate comes from. It is the finite-time
+propagator of a concrete generator of dynamics — the first rung in the ladder to
+write down an actual Lindbladian rather than measurement statistics.
+
+Take the standard GKSL (Lindblad) dissipator that damps every basis direction into
+the vacuum ray `p` (`P=|p><p|`), with jump operators
+
+`L_k = sqrt(gamma) |p><e_k|`  (amplitude damping into the vacuum),
+
+so that
+
+`L(rho) = sum_k ( L_k rho L_k^dag - 1/2 { L_k^dag L_k, rho } ) = gamma ( Tr(rho) P - rho )`.
+
+This is a genuine completely-positive trace-preserving (CPTP) semigroup generator,
+verified against random `rho` to ~`2e-16`. Its finite-time propagator is exactly
+the depolarizing-toward-`P` channel,
+
+`exp(t L)(rho) = e^{-gamma t} rho + (1 - e^{-gamma t}) P = C_{r(t)}(rho)`,
+`r(t) = 1 - exp(-gamma t)`,  `tau = 1/gamma`,
+
+with a UNIQUE steady state `P` (the vacuum primitive idempotent; steady-manifold
+dimension `1`, overlap `Tr(P rho_ss)=1`) and spectral gap `gamma`. The dynamics is
+verified on a faithful two-level (qubit) representation of the `{P, Q}` effect
+statistics, where `|<p|q>|^2 = Tr(P o Q) = d = pi/432` exactly (cross-checked
+against the Jordan trace form), and the matrix exponential is computed independently
+by scaling-and-squaring Taylor series (no SciPy), so the semigroup match (~`1e-16`)
+is a real verification. The channel is CPTP at every time (Choi matrix PSD), and
+survival fractions compose, `(1-r(s))(1-r(t)) = 1-r(s+t)`, to ~`1e-17`.
+
+Feeding `r(Delta_t) = 1 - exp(-gamma Delta_t)` into the vacuum-relaxation
+conditionals reproduces the mean `d` for every probe interval and the memoryless
+Born-Markov limit as `gamma Delta_t -> infinity` (memoryless gap shrinking
+`2.7e-2 -> 1.0e-9`). Controls fail cleanly: a unitary-only generator `-i[H,rho]`
+does not relax (degenerate steady manifold, zero decay gap), a wrong-target
+dissipator relaxes to `Q` (mean `1`), and a dephasing-only dissipator relaxes to a
+mixed non-vacuum state (mean `!= d`).
+
+**Net.** The relaxation channel assumed by the vacuum-relaxation gate is the exact
+CPTP semigroup of a concrete Lindblad generator whose unique steady state is the
+vacuum `P` and whose relaxation is exponential with time `tau = 1/gamma`. This
+reduces "why the relaxation channel" to "why this Lindblad jump structure and rate
+from CHO dynamics". The remaining live object is deriving the jump operators, the
+rate `gamma` (hence `tau`), the probe interval `Delta_t`, and the source question
+`Q` (overlap `d=pi/432`) from the CHO/F4-breaking action. No Bayes credit moves.

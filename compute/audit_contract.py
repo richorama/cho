@@ -2511,6 +2511,41 @@ CONTRACTS = {
             "Moving Bayes/model-complexity credit or promoting F0/S1 before the relaxation channel, its timescale, and the source question are derived from CHO dynamics.",
         ),
     ),
+    "f4_breaking_cho_lindbladian_gate": contract(
+        "f4_breaking_cho_lindbladian_gate",
+        ("F0", "S1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "F4-breaking CHO Lindbladian gate. Claim a concrete dynamical generator for the relaxation channel assumed by "
+        "the vacuum-relaxation gate: the GKSL/Lindblad dissipator L(rho)=gamma(Tr(rho)P-rho), with jump operators "
+        "L_k=sqrt(gamma)|p><e_k| (amplitude damping into the vacuum ray p), has finite-time propagator "
+        "exp(tL)(rho)=e^{-gamma t}rho+(1-e^{-gamma t})P=C_{r(t)}, r(t)=1-exp(-gamma t), tau=1/gamma. Verified on a "
+        "faithful two-level representation of the {P,Q} effect statistics (|<p|q>|^2=Tr(P o Q)=pi/432, cross-checked "
+        "against the Jordan trace form) with an independent scaling-and-squaring matrix exponential. The generator has a "
+        "unique steady state P (the vacuum primitive idempotent), spectral gap gamma, and CPTP propagator (Choi PSD); "
+        "controls fail (unitary-only does not relax, wrong-target relaxes to Q, dephasing-only relaxes to a mixed state). "
+        "This derives the relaxation channel only conditional on the jump structure and rate; it must not promote F0/S1 "
+        "or move Bayes credit.",
+        assumptions=(
+            "The OP2 rank-one Born geometry, vacuum source P, question Q, and selected density d=pi/432 are imported from "
+            "the prior Born-geometry, binary-projector, repeated-measurement, and vacuum-relaxation gates.",
+            "The repeated yes/no readout dynamics is represented faithfully on the two-level subspace spanned by the rays "
+            "p and q, where |<p|q>|^2=Tr(P o Q)=d exactly; this is a representation of the effect statistics, not a claim "
+            "that the qubit is the full CHO Hilbert space.",
+            "The dissipator is the standard amplitude-damping-into-p GKSL generator with a single jump rate gamma; the "
+            "value of gamma (hence tau=1/gamma) and the probe interval Delta_t are inputs, not derived quantities.",
+        ),
+        open_bridges=(
+            "Derive from CHO/F4-breaking dynamics the Lindblad jump operators and the rate gamma (relaxation time tau) toward the vacuum P.",
+            "Derive the probe interval Delta_t and justify the Born-Markov separation gamma Delta_t >> 1 that yields memorylessness.",
+            "Derive why the vacuum source question Q has overlap d=pi/432 with the measured ray.",
+        ),
+        kill_conditions=(
+            "Presenting the amplitude-damping GKSL generator as a derivation of the CHO dissipative dynamics, its jump operators, or its rate.",
+            "Suppressing the conditional inputs: faithful two-level representation, vacuum source P, selected density d=pi/432, and the assumed jump rate gamma.",
+            "Moving Bayes/model-complexity credit or promoting F0/S1 before the Lindblad generator, its rate, and the source question are derived from CHO dynamics.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),
