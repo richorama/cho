@@ -76,6 +76,7 @@ The broader sweep tries parked radical routes without promoting them:
 - `f4_invariant_action_census.py`
 - `peirce_gap_derivation.py`
 - `peirce_grade_reflection_gate.py`
+- `seed_spectrum_reduction_gate.py`
 - `entropy_principle_derivation.py`
 - `frame_lift_f4_breaking.py`
 - `unified_boundary_wz_jordan_action.py`
@@ -164,6 +165,18 @@ derivation. Supporting gates now reduce the assumptions:
   seed law `rho_1^2 = rho_0 rho_2` (it survives even if `pi/432` is wrong);
   specialising `exp(-Delta)=sqrt(Phi)` reproduces `(1,sqrt(Phi),Phi)`. Diagnostic;
   moves no credit. `Phi` itself stays open.
+- `seed_spectrum_reduction_gate.py`: consolidates criterion (4). Realises the
+  full frame-permutation group `S3` as Jordan automorphisms of `J3(O)` (not just
+  the single endpoint swap) and computes, exactly, the stabiliser of each grade
+  vector: equally spaced `(0,1,2)` keeps the `Z2` endpoint reflection, unequal
+  `(0,1,3)` keeps nothing, constant keeps all of `S3`. So equal spacing is the
+  UNIQUE rank-3 grade compatible with a residual reflection, and full `S3` would
+  force a constant grade (no hierarchy). It then proves Gibbs UNIQUENESS exactly
+  on a rational instance (`S(p)-S(q)=D(q||p)>=0`, not just a sampled minimum). Net
+  reduction: given carrier `J3(O)` + reflection + max-entropy, the seed law is
+  fixed up to the SINGLE number `Phi=rho_2/rho_0`, so criterion (4) reduces to
+  criterion (3) plus two structural postulates -- the seed spectrum has zero
+  independent continuous knobs beyond the one flux. Diagnostic; moves no credit.
 - `entropy_principle_derivation.py`: relative entropy is the canonical Gibbs
   free-energy form once the seed problem is posed as a large-deviation problem.
 - `frame_lift_f4_breaking.py`: the fixed-frame candidate passes the finite S3

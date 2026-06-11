@@ -234,6 +234,26 @@ now derived from the Jordan/Peirce geometry, leaving the flux value and the
 entropy principle as the remaining open inputs. Diagnostic only; moves no Bayes
 credit.
 
+`seed_spectrum_reduction_gate.py` consolidates that into a reduction theorem. It
+realises the full frame-permutation group `S3` as Jordan automorphisms (not just
+the one endpoint swap) and computes the exact stabiliser of each grade vector
+under the affine grade gauge: equally spaced `(0,1,2)` is fixed by the `Z2`
+endpoint reflection, unequal `(0,1,3)` is fixed by nothing, and a constant grade
+is fixed by all of `S3`. So requiring the full `S3` would erase the hierarchy
+(constant grade), while the endpoint reflection is the unique maximal frame
+symmetry that leaves a non-trivial rank-3 hierarchy -- and it selects equal
+spacing. It also upgrades the entropy step from a sampled minimum to an exact
+uniqueness proof (`S(p)-S(q)=D(q||p)>=0` on a rational Gibbs instance). The net:
+given the carrier `J3(O)` (three levels), the residual endpoint reflection (equal
+spacing, middle = geometric mean) and the maximum-entropy principle (exponential
+weights), the entire seed law `(1,sqrt(Phi),Phi)` is forced up to the SINGLE
+number `Phi=rho_2/rho_0`. Criterion (4) therefore reduces to criterion (3) (the
+endpoint flux equals `pi/432`) plus two structural postulates; the seed spectrum
+carries zero independent continuous parameters beyond that one flux. Still open:
+`Phi=pi/432` itself, and that the reflection symmetry and entropy principle are
+selected by CHO dynamics rather than postulated. Diagnostic only; moves no Bayes
+credit.
+
 ## Graduation Rule
 
 A track may affect core code only after it supplies all of the following:
