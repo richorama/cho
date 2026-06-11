@@ -17,6 +17,7 @@ PROBES = (
     "wz_level_integrality_gate.py",
     "uniqueness_gate.py",
     "multi_factor_carrier_gate.py",
+    "f4_invariant_action_census.py",
     "peirce_gap_derivation.py",
     "entropy_principle_derivation.py",
     "frame_lift_f4_breaking.py",

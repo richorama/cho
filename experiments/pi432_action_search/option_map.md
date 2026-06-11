@@ -190,6 +190,30 @@ and verifies that the outputs cohere. It also machine-checks the honest negative
 the metric origin of the overlap and the primitive WZ chain are narrowed, but the
 full CHO-derived action is still open.
 
+`f4_invariant_action_census.py` attacks the dynamic side head-on by counting the
+free continuous parameters of the most general F4-invariant action on
+`OP^2 = F4/Spin(9)`. It builds `Spin(9)` explicitly from octonion
+left-multiplications (Clifford `Cl(9,0)` on `R^16`) and certifies each invariant
+dimension by an exact modular rank. Results: (kinetic) the commutant of `so(9)`
+on the 16 is exactly `R.I`, so the invariant metric is unique up to a single
+overall scale and there is no invariant 2-form (matching `b_2=0`); (potential)
+the 16 has no invariant vector and `dim F4 - dim Spin(9) = 16 = dim OP^2`, so F4
+is transitive and every invariant function is constant -- hence no F4-invariant
+potential can break F4; (topological) `H*(OP^2;Z)=Z[x]/(x^3)` with Euler
+characteristic `|W(F4)|/|W(Spin(9))| = 1152/384 = 3`, so the WZ/theta couplings
+in degrees 8 and 16 are integer levels, not continuous coefficients. Net census:
+ZERO continuous internal (vacuum-distinguishing) knobs. This bears directly on
+the graduation rule below: criterion (3) is structurally satisfiable because the
+WZ coefficient cannot be a free continuous knob in this arena, and the F4-breaking
+of criterion (2) is necessarily spontaneous (configuration/boundary-selected),
+not explicit -- consistent with `boundary_variation_gate.py` and
+`frame_lift_f4_breaking.py`. It does NOT derive `pi/432`, achieve the breaking,
+or address the seed spectrum (4) or the measure (5); those stay open. Diagnostic
+only; moves no Bayes credit. KILL: had the most general invariant action carried
+any free continuous internal coefficient (non-unique metric, non-constant
+invariant potential, or a continuous topological coupling), `pi/432` could be
+dialed and never forced here, killing the route; the census finds none.
+
 ## Graduation Rule
 
 A track may affect core code only after it supplies all of the following:

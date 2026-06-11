@@ -73,6 +73,7 @@ The broader sweep tries parked radical routes without promoting them:
 - `wz_level_integrality_gate.py`
 - `uniqueness_gate.py`
 - `multi_factor_carrier_gate.py`
+- `f4_invariant_action_census.py`
 - `peirce_gap_derivation.py`
 - `entropy_principle_derivation.py`
 - `frame_lift_f4_breaking.py`
@@ -133,6 +134,20 @@ derivation. Supporting gates now reduce the assumptions:
   the E6-irreducible `J3(O)` already forces the two-factor shape: knob (1)
   collapses into knob (2), and the F4 alternative `26` cannot even divide 432.
   The three named residual knobs reduce to two. Diagnostic; moves no credit.
+- `f4_invariant_action_census.py`: attacks the DYNAMIC side. Builds `Spin(9)`
+  explicitly from octonion left-multiplications (Clifford `Cl(9,0)` on `R^16`)
+  and counts the free continuous parameters of the most general F4-invariant
+  action on `OP^2 = F4/Spin(9)` (kinetic + potential + Wess-Zumino, leading
+  order). Exact (modular-certified) linear algebra shows: the invariant metric
+  is unique up to one overall scale (the commutant of `so(9)` on the 16 is
+  exactly `R.I`); there is no invariant potential (F4 is transitive, so invariant
+  functions are constant) so F4 cannot be broken by the action -- only
+  spontaneously; and the topological coefficients are integer-quantized (because
+  `H*(OP^2)=Z[x]/x^3`, with Euler characteristic `1152/384=3`). Net: ZERO
+  continuous internal knobs. So criterion (3) (force `pi/432` without a tunable
+  coefficient) is structurally satisfiable, and the F4-breaking of criterion (2)
+  must be spontaneous. Seed spectrum (4) and measure (5) stay open. Diagnostic;
+  moves no credit.
 - `peirce_gap_derivation.py`: rank-3 primitive Peirce grading gives `N=(0,1,2)`,
   and endpoint flux gives `Delta_Phi=-1/2 log(Phi)`.
 - `entropy_principle_derivation.py`: relative entropy is the canonical Gibbs
