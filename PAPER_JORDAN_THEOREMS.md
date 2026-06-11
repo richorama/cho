@@ -4,7 +4,7 @@
 
 Richard Astbury
 Developed as a human–AI collaboration (with Claude, Anthropic)
-Frozen: 2026-06-08
+Revised: 2026-06-11 (Theorem D added) · core (Theorems A–C) frozen: 2026-06-08
 
 ---
 
@@ -382,6 +382,7 @@ with [foundations/08_epsilon_measure_theorem.md](foundations/08_epsilon_measure_
 - C. Chevalley, R. D. Schafer, *The exceptional simple Lie algebras $F_4$ and $E_6$*, Proc. Natl. Acad. Sci. USA **36** (1950) 137–141.
 - H. Freudenthal, *Oktaven, Ausnahmegruppen und Oktavengeometrie* (1951); *Lie groups in the foundations of geometry*, Adv. Math. **1** (1964) 145–190.
 - T. A. Springer, *Characterization of a class of cubic forms*, Indag. Math. **24** (1962) 259–265.
+- N. Jacobson, *Structure and Representations of Jordan Algebras*, American Mathematical Society Colloquium Publications **39** (1968).
 - N. Jacobson, *Exceptional Lie Algebras*, Marcel Dekker (1971).
 - K. McCrimmon, *A Taste of Jordan Algebras*, Springer (2004).
 - I. Yokota, *Exceptional Lie groups*, arXiv:0902.0431 (2009).

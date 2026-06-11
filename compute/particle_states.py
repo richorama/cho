@@ -383,7 +383,10 @@ def derive_hypercharges():
 
 def analyze_generation_structure():
     """
-    Show how three generations emerge from SO(8) triality.
+    Show the historical SO(8)-triality route to three generations, and the
+    obstruction that supersedes it as the generation map (see DERIVATION_LEDGER
+    G1/A3): the count and chirality are recovered instead by the inner J3(O)
+    Jordan-frame S3 (three_generations_frame.py; PAPER_JORDAN_THEOREMS.md Thm A).
     """
     print("\n" + "=" * 70)
     print("THREE GENERATIONS FROM TRIALITY")
@@ -397,6 +400,15 @@ def analyze_generation_structure():
    8_c (right spinor):   Right-multiplication operators R_a: x → xa
    
    These are permuted by the S₃ outer automorphism group of Spin(8).
+   
+   STATUS (superseded as the generation map): identifying each generation
+   with a triality rep {8_v, 8_s, 8_c} faces two Distler–Garibaldi obstructions
+   — triality mixes the vector 8_v with the spinors, and 8_s, 8_c are
+   opposite-chirality mirror partners (three_generations_nogo_audit.py). The
+   COUNT and CHIRALITY are recovered obstruction-free by the INNER frame route:
+   the three generations are the three primitive idempotents of a J₃(𝕆) Jordan
+   frame, permuted by S₃ ⊂ F₄ (three_generations_frame.py; ledger G1/A3). The
+   block below is the original (historical) conjecture.
    
    CONJECTURE: Each generation lives in one triality sector:
    
@@ -486,7 +498,7 @@ if __name__ == "__main__":
    │ ✓ Electric charge quantization (automatic from 3 ladder operators) │
    │ ✓ Fractional quark charges Q = n/3 (from octonionic structure)     │
    │ ✓ Correct hypercharge assignments for all particles                │
-   │ ✓ Three generations (from SO(8) triality)                          │
+   │ ✓ Three generations (count: J3(O) rank 3)                          │
    │ ✓ Right-handed neutrino exists (fills out the algebra)             │
    ├─────────────────────────────────────────────────────────────────────┤
    │ STILL NEEDED:                                                       │

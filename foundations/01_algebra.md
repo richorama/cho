@@ -214,6 +214,8 @@ i.e., the full Standard Model + GR Lagrangian, with coupling constants determine
 
 The mass hierarchy (mₜ/mᵤ ~ 10⁵) would emerge from the *breaking of triality symmetry* by the specific octonionic multiplication table (which distinguishes left from right multiplication).
 
+> **Status update — superseded as the generation map.** Identifying the generations with the triality reps `{8_v, 8_s, 8_c}` above faces two Distler–Garibaldi-style obstructions: triality mixes the vector `8_v` with the spinors, and `8_s, 8_c` are opposite-chirality mirror partners (`compute/three_generations_nogo_audit.py`). The **count** (three) and **chirality** are instead recovered obstruction-free by an *inner*-automorphism route — the three generations are the three primitive idempotents of a `J₃(𝕆)` Jordan frame, permuted by an `S₃ ⊂ F₄`, each with a `16`-dimensional tangent equal to one real `Spin(9)` spinor `Δ₉` (Theorem A of `PAPER_JORDAN_THEOREMS.md`; `compute/three_generations_frame.py`). The map from idempotents to fermion content/masses remains open (ledger A3).
+
 ---
 
 ## Open Questions for Phase 1

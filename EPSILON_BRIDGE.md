@@ -1,6 +1,6 @@
 # Epsilon Bridge Scaffold
 
-Frozen date: 2026-06-06
+Core frozen: 2026-06-06 · progress sections appended through 2026-06-10
 
 Purpose: turn the triality-breaking rule
 

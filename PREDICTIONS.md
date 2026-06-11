@@ -76,7 +76,7 @@ At early times: Λ was LARGER (∝ H²). This is consistent with "dark energy tr
 ---
 
 ### 6. Three Generations Only (No Fourth)
-**Prediction:** Exactly 3 generations of fermions exist (from triality of SO(8), which has exactly S₃ = 3-element permutation group).
+**Prediction:** Exactly 3 generations of fermions exist — three primitive idempotents of a J₃(𝕆) Jordan frame (the algebra's rank), permuted by an *inner* S₃ ⊂ F₄, so the count and chirality are obstruction-free. (The older "three outer-SO(8)-triality reps" reading is obstructed; see ledger G1/A3.)
 
 **Status:** Already confirmed (Z-boson width → N_ν = 2.984 ± 0.008). ✓
 
@@ -141,7 +141,7 @@ $$\varepsilon_0^2 = \frac{\pi}{432} = \frac{\pi}{\dim_\mathbb{C}(\mathcal{A}) \t
 
 **Proposed physical content:**
 - π: half-rotation on the G₂/SU(3) ≅ S⁶ coset manifold
-- 16 = dim_ℂ(𝒜): complex Weyl fermion states per generation
+- 16 = dim 𝕆P² = Δ₉: the real Spin(9) spinor — the rank-one idempotent manifold of J₃(𝕆), derived geometrically in `epsilon_state_count.py` (no longer the hand-chosen `dim_ℂ(A_Weyl)`)
 - 27 = dim(J₃(𝕆)): exceptional Jordan algebra dimensionality
 
 **Connection:** ε₀² = λ_Higgs/18, linking the fermion bridge target to the Higgs quartic coupling λ = π/24. The operator proof is tracked in `EPSILON_BRIDGE.md`.
@@ -248,7 +248,7 @@ $$\frac{\Delta m^2_{21}}{\Delta m^2_{31}} = \left(\frac{m_{\nu_2}}{m_{\nu_3}}\ri
 - m_ν₃ = v²/(2M_P/3⁹) = 48.9 meV (obs: ≥50.2 meV, 2.7%) — the central value sits just below the oscillation floor; folding the tree-level seesaw theory error calibrated from the `M_W` and `y_t=1` sister rows (~2.0%) makes this a ~1.2σ undershoot, not a 4.6σ falsification, so N1 is **demoted** to order-1 consistency (see `compute/neutrino_floor_resolution.py`, Item 4)
 - m_ν₂ = 2ε₀·m_ν₃ = 8.3 meV
 - m_ν₁ ≈ 0 (normal hierarchy)
-- Σmᵢ ≈ 57 meV (testable by Euclid/DESI)
+- Σmᵢ ≈ 60 meV — frozen central prediction, normal-ordering band 57–62 meV (`predict_neutrino_sum.py`). The masses above give the m₁→0 floor ≈57 meV; the central value allows the lightest state m₁ up to ~5 meV. Testable by Euclid/DESI.
 
 ---
 
@@ -289,7 +289,7 @@ $$\frac{\Delta m^2_{21}}{\Delta m^2_{31}} = \left(\frac{m_{\nu_2}}{m_{\nu_3}}\ri
 
 | Observation | Our Prediction | Match? |
 |---|---|---|
-| 3 generations | From SO(8) triality | ✓ |
+| 3 generations | From J₃(𝕆) frame S₃ (inner; rank 3) | ✓ |
 | Charge quantization | From 3 ladder operators | ✓ |
 | SU(3)×SU(2)×U(1) gauge group | From Aut(ℂ⊗ℍ⊗𝕆) | ✓ |
 | 16 fermions per generation | From dim_ℂ(𝒜) = 32 | ✓ |
