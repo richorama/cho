@@ -363,6 +363,40 @@ CONTRACTS = {
             "Letting this diagnostic promote a ledger row or move the Bayes factor.",
         ),
     ),
+    "theta23_data_tracker": contract(
+        "theta23_data_tracker",
+        ("N5",),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Supply the forward bet's DISCIPLINE around sin^2(theta23)=4/7: a dated, append-only "
+        "snapshot log scored read-only against the frozen Q2 payload, plus a SHA-256 "
+        "hash-locked decision rule (5-sigma octant needs sigma<=1/70~0.0143; a stable lower "
+        "octant KILLS; a stable upper value >=5 sigma from 4/7 kills the rational while the "
+        "octant survives). The point is pre-registration: the falsification protocol is fixed "
+        "BEFORE the deciding data. The bet is staked in theta23_octant_prediction and the "
+        "frozen registry (Q2, Theta23_octant) stays authoritative; this only watches. Do NOT "
+        "quote the tracker as evidence and do NOT let it move the Bayes factor.",
+        assumptions=(
+            "The exact spine (3/7, 1/2, 4/7 with 1/2 the exact midpoint; gaps 1/14 and 1/7) "
+            "follows from the N5 Fano counts; 4/7 is exact only GIVEN that bridge.",
+            "The logged global-fit anchors are the representative NuFIT-class values carried "
+            "read-only from theta23_experimental_reach.GLOBAL_FITS; chi^2 profiles are "
+            "non-Gaussian, so the clause classifications on them are rough context -- printed, "
+            "never asserted as data.",
+        ),
+        open_bridges=(
+            "The Fano-count -> physical atmospheric-angle map is the N5 bridge itself and stays "
+            "the open CHO-action obligation; this tracker does not derive it.",
+            "The octant is currently experimentally UNRESOLVED and ordering-dependent; the "
+            "tracker awaits DUNE / Hyper-Kamiokande and the rule fires no clause yet.",
+        ),
+        kill_conditions=(
+            "Editing the hash-locked decision rule after the fact (the SHA-256 lock would drift) instead of adding a new dated protocol.",
+            "Rewriting an existing dated snapshot instead of appending a new one.",
+            "Touching the frozen Q2 payload or presenting the tracker's classifications as a measurement.",
+            "Letting this diagnostic promote a ledger row or move the Bayes factor.",
+        ),
+    ),
     "prediction_defensibility": contract(
         "prediction_defensibility",
         ("N5", "STAT1"),

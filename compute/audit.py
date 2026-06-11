@@ -17,6 +17,7 @@ displaying agreements. Each answers a specific skeptic's question:
   *  theta23_fano_invariance — N5 hardening: PROVES the 4/7 is a Fano-plane invariant (octonion triples = PG(2,2)=S(2,3,7); the (3,4) split holds at EVERY vacuum point; Aut=PSL(2,7) order 168 is point-transitive) — so neither the e7 choice nor a multiplication convention manufactures the 4; the physical map stays the open obligation
   *  theta23_experimental_reach — Item 7c: quantified forward reach of sin^2(theta23)=4/7 (1/2 is the EXACT midpoint of 3/7 and 4/7; separation = gap/sigma; the sigma needed for an n-sigma octant verdict) plus an HONEST current-data confrontation that includes the normal-ordering minimum disfavouring it; forecast diagnostic, no row promoted
   *  prediction_defensibility — Item 7d: machine-checks the editorial claim 'theta23=4/7 is THE single sharpest' by classifying every frozen prediction along objective defensibility axes read off the registry's own strings (eps0-independent, no measured scale, exact rational, sharp binary) and PROVING theta23 is the unique top-tier entry; portfolio diagnostic, no row promoted
+  *  theta23_data_tracker — Item 7e: the forward bet's DISCIPLINE — a dated, append-only snapshot log scored read-only against the frozen Q2=4/7, plus a SHA-256 hash-locked decision rule (5-sigma octant needs sigma<=1/70; lower-octant kills, far-upper kills the value); current data stays honestly UNRESOLVED; registration diagnostic, no row promoted
 
 plus the derivation-frontier experiments (the "can the algebra do more?" set):
 
@@ -105,6 +106,7 @@ import forward_predictions
 import theta23_octant_prediction
 import theta23_fano_invariance
 import theta23_experimental_reach
+import theta23_data_tracker
 import prediction_defensibility
 import first_generation_audit
 import jordan_eigenvalue_generations
@@ -255,6 +257,9 @@ ARTIFACTS = [
     ("theta23_experimental_reach",
      "Item 7c: forward-reach forecast for sin^2(theta23)=4/7 -- 1/2 is the EXACT midpoint of 3/7 and 4/7 (each 1/14 away), separation from maximal/mirror = gap/sigma, and the sigma needed for an n-sigma octant verdict; plus an HONEST confrontation with current global fits including the NO minimum that disfavours 4/7. Forecast diagnostic, no row promoted.",
      theta23_experimental_reach.main),
+    ("theta23_data_tracker",
+     "Item 7e: the forward bet's DISCIPLINE -- a dated, append-only snapshot log scored read-only against the frozen Q2=4/7, plus a SHA-256 hash-locked decision rule (5-sigma octant needs sigma<=1/70~0.0143; a stable lower octant KILLS, a far-upper value kills the rational while the octant survives). Current representative data stays honestly UNRESOLVED. Registration diagnostic, no row promoted.",
+     theta23_data_tracker.main),
     ("prediction_defensibility",
      "Item 7d: ranks all frozen predictions by objective defensibility axes read off the registry's own strings (eps0-independent, no measured scale, exact rational, sharp binary) and machine-checks that sin^2(theta23)=4/7 is the UNIQUE top-tier entry -- turning the prose 'single sharpest claim' into a registry-derived fact. Portfolio diagnostic, no row promoted.",
      prediction_defensibility.main),
