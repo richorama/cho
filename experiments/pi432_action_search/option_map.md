@@ -115,6 +115,20 @@ half-turn `pi`, and Schur normalization gives `pi/432`. This kills the continuou
 coefficient but does not derive the oriented WZ term, the carrier, or the choice
 of primitive level from CHO dynamics.
 
+`uniqueness_gate.py` sharpens the carrier side, reframing existence as
+uniqueness. It does not produce 432 again; it measures how much freedom survives
+the Schur-flat requirement. Exact divisor arithmetic shows: (i) 432 has nine
+nontrivial factor pairs and at least three are CHO-meaningful (e.g. `16*27`,
+`18*24`, `6*72`), so naive integer numerology is non-unique and KILLED; but
+(ii) among the divisors of 432, only `16` and `27` are dimensions of irreducible
+modules of the CHO structure-group chain, so `(16, 27)` is the UNIQUE
+two-irreducible-factor carrier. This is a genuine conditional rigidity. It is
+conditional on three named knobs the gate does not derive: the two-factor
+ansatz, E6-vs-F4 normalization of the `27` (under F4 it splits `1 + 26`, weight
+`1/3` not `1/27`), and primitive WZ level one. KILL: any inequivalent CHO-
+consistent `(carrier, group, level)` that also gives `pi/432` would make it a
+genuine free knob.
+
 `unified_boundary_wz_jordan_action.py` now provides that single effective action
 candidate at the sandbox level. It is F4-covariant because the ordered boundary
 pair and its completed Jordan frame are transported by `F4`; it breaks `F4` only

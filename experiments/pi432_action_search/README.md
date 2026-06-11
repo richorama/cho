@@ -71,6 +71,7 @@ The broader sweep tries parked radical routes without promoting them:
 - `candidate_wz_jordan_entropy_action.py`
 - `wz_flux_normalization_gate.py`
 - `wz_level_integrality_gate.py`
+- `uniqueness_gate.py`
 - `peirce_gap_derivation.py`
 - `entropy_principle_derivation.py`
 - `frame_lift_f4_breaking.py`
@@ -115,6 +116,12 @@ derivation. Supporting gates now reduce the assumptions:
   coefficient to an integer level; the primitive nonzero level gives half-flux
   `pi`, so the continuous coefficient is killed, while level-one primitiveness
   and the carrier still need the full CHO action.
+- `uniqueness_gate.py`: reframes the carrier `16*27` from existence to
+  uniqueness. Naive integer numerology is non-unique (432 has nine factor pairs,
+  several CHO-meaningful), but among the divisors of 432 only `16` and `27` are
+  irreducible-module dimensions of the CHO structure-group chain, so the
+  Schur-flat carrier `(16,27)` is unique -- conditional on the two-factor ansatz,
+  E6-over-F4 normalization of the `27`, and primitive WZ level.
 - `peirce_gap_derivation.py`: rank-3 primitive Peirce grading gives `N=(0,1,2)`,
   and endpoint flux gives `Delta_Phi=-1/2 log(Phi)`.
 - `entropy_principle_derivation.py`: relative entropy is the canonical Gibbs

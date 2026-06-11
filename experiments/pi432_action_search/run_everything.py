@@ -15,6 +15,7 @@ PROBES = (
     "jordan_nonassoc_spectral_action.py",
     "wz_flux_normalization_gate.py",
     "wz_level_integrality_gate.py",
+    "uniqueness_gate.py",
     "peirce_gap_derivation.py",
     "entropy_principle_derivation.py",
     "frame_lift_f4_breaking.py",
