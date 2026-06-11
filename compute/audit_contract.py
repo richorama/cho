@@ -397,6 +397,41 @@ CONTRACTS = {
             "Letting this diagnostic promote a ledger row or move the Bayes factor.",
         ),
     ),
+    "theta23_mixing_operator": contract(
+        "theta23_mixing_operator",
+        ("N5",),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Harden the VALUE half of N5 from an incidence-table COUNT to an OPERATOR fact: "
+        "recast sin^2(theta23)=4/7 as the normalized trace (spectral mean) of an explicit "
+        "rank-4 vacuum-avoidance projector on Fano line-space, and PROVE that normalized "
+        "trace is a single-orbit class invariant under the full automorphism group "
+        "(Pi_g P_avoid(v) Pi_g^T = P_avoid(g(v)) for all 168 elements; the point action is "
+        "transitive, so all seven vacuum operators are conjugate and share one trace 4/7). "
+        "This shows 4/7 = 1/2 + 1/14 is basis-free, not a label choice. The bet is staked in "
+        "theta23_octant_prediction and the frozen registry (Q2, Theta23_octant) stays "
+        "authoritative; this reads it back read-only. Do NOT quote the operator as evidence "
+        "the prediction is confirmed and do NOT let it move the Bayes factor.",
+        assumptions=(
+            "The operator lives on Fano line-space; the avoiding (broken) sector over the "
+            "through (SU(3) stabiliser) sector is the octant choice 4/7 vs 3/7, selected by "
+            "the physical input 'mixing lives in the broken directions' -- motivated, not derived.",
+            "The Fano lines are the octonion multiplication triples from spurion_bridge "
+            "(PG(2,2)=S(2,3,7)); 4/7 is exact only GIVEN the N5 physical map.",
+        ),
+        open_bridges=(
+            "The identification 'atmospheric oscillation probability = normalized trace of the "
+            "avoidance projector' is the N5 bridge itself; this module makes it a precise "
+            "operator statement but does NOT derive it from the CHO action.",
+            "The octant (avoiding vs through) is a binary input resolved only by experiment.",
+        ),
+        kill_conditions=(
+            "Presenting the operator invariance as the derived physical map or as evidence the prediction is confirmed.",
+            "The exact spine (rank-4 projector, spectrum {1^4,0^3}, trace 4/7 = 1/2 + 1/14, equivariance over all 168 automorphisms, point-transitivity) silently drifting in the witness.",
+            "Touching the frozen Q2 payload.",
+            "Letting this diagnostic promote a ledger row or move the Bayes factor.",
+        ),
+    ),
     "prediction_defensibility": contract(
         "prediction_defensibility",
         ("N5", "STAT1"),
