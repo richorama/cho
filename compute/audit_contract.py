@@ -1371,6 +1371,41 @@ CONTRACTS = {
             "Promoting F0/G1/A3 or moving Bayes credit on the basis of this consolidation.",
         ),
     ),
+    "higgs_quartic_geometry": contract(
+        "higgs_quartic_geometry",
+        ("S3", "F0"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "State only the EXACT arithmetic: 432 = 18 x 24, so lambda = pi/24 = 18 * eps0^2, "
+        "i.e. the Higgs quartic and the flavour seed share ONE Berry pi and differ by a pure "
+        "integer (given the established result that eps0^2 = pi/432 carries the Berry pi, the "
+        "pi in lambda is the same holonomy, not an independent 'D4 root geometry' assumption). "
+        "Do NOT present this as a derivation of lambda: the integer 24 is NOT uniquely forced "
+        "(>=3 framework origins), so like 432 it is a dimension count no F4-breaking action "
+        "selects. S3 stays a derived bridge whose normalization is the same open obligation as "
+        "F0; this moves no Bayes credit and promotes no row.",
+        assumptions=(
+            "lambda = pi/24 and eps0^2 = pi/432 are taken as the published CHO formulas "
+            "(top_yukawa / forward_predictions / mass_relations); only the relation between "
+            "them and the forcedness of the integer 24 are analysed here.",
+            "That eps0^2 = pi/432 carries the Berry half-solid-angle pi is the established "
+            "result (epsilon_heat_kernel / 02_action), cited not re-derived; the shared-pi "
+            "conclusion for lambda is conditional on it.",
+        ),
+        open_bridges=(
+            "The integer 24 has at least three distinct framework-dimension origins "
+            "(|roots(D4)|=28-4, off-diagonal J3(O)=27-3=3*dim O, |2T|=2|A4|), so it is not "
+            "uniquely forced; no F4-breaking action selects it -- the same FORM-not-CONTENT "
+            "wall as F0's 432.",
+            "The integer ratio 18 = 432/24 (= 2 x 9) is itself look-elsewhere-cheap; the "
+            "shared-pi collapse removes a transcendental, not the integer freedom.",
+        ),
+        kill_conditions=(
+            "Presenting lambda = pi/24 as DERIVED, or the integer 24 as uniquely forced, on the basis of this module.",
+            "Letting the lambda = 18 * eps0^2 collapse move Bayes credit or promote S3/F0.",
+            "The exact arithmetic (432 = 18 x 24 = 16 x 27 = 12 x 36, lambda/eps0^2 = 18, the >=2 distinct origins of 24) silently drifting in the witness.",
+        ),
+    ),
     "padic_hierarchy": contract(
         "padic_hierarchy",
         ("S1", "N1", "CC1"),
