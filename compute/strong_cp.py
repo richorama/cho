@@ -1,12 +1,18 @@
 """
-Strong CP Problem: θ̄_QCD = 0 from Fano Plane Parity
-=====================================================
+Strong CP Problem: θ̄_QCD = 0 from Fano Plane Parity (candidate mechanism)
+=========================================================================
 
-THEOREM: In the CHO framework, the strong CP parameter θ̄ vanishes
-identically due to a discrete Z₂ symmetry of the octonionic algebra.
+STATUS (per STATUS.md discipline): this is a CANDIDATE SYMMETRY MECHANISM —
+a derived bridge with an OPEN OBLIGATION, not a closed theorem.  It sketches
+why θ̄ might vanish via a discrete Z₂ of the octonionic algebra, but the steps
+that would actually settle the strong-CP problem are NOT established here (see
+OPEN OBLIGATIONS at the end of this header).
 
-ARGUMENT:
----------
+CANDIDATE CLAIM: in the CHO framework the strong CP parameter θ̄ is argued to
+vanish due to a discrete Z₂ symmetry of the octonionic algebra (Fano parity).
+
+ARGUMENT (the candidate mechanism):
+-----------------------------------
 The strong CP parameter is:
     θ̄ = θ_QCD + arg(det(Y_u · Y_d))
 
@@ -36,6 +42,9 @@ Both terms vanish independently:
 WHY THIS DOESN'T KILL WEAK CP VIOLATION:
 - The CKM phase δ = arccos(1/3) arises from the RELATIVE orientation
   of the up and down NNI textures, not from complex Yukawa entries.
+  (The VALUE arccos(1/3) is proved a forced Fano-incidence invariant in
+  cp_phase_fano_invariance.py; the physical map δ_CKM = that angle is the
+  still-open ledger-C4 obligation, NOT settled here.)
 - Specifically: the unitary matrices that diagonalize Y_u and Y_d 
   differ because the octonionic direction vectors for up vs down quarks
   point along different Fano plane lines (related by triality rotation).
@@ -46,14 +55,27 @@ WHY THIS DOESN'T KILL WEAK CP VIOLATION:
 COMPARISON WITH OTHER SOLUTIONS:
 - Peccei-Quinn: introduces axion (new particle). We predict NO axion.
 - Nelson-Barr: introduces new heavy quarks. We predict NO new quarks.
-- Our solution: θ̄ = 0 is a SYMMETRY, not fine-tuning. The symmetry
-  is the discrete Z₂ ⊂ G₂ = Aut(O) (Fano orientation reversal).
+- Our route: θ̄ = 0 is argued from a SYMMETRY, not fine-tuning — the
+  candidate symmetry is a discrete Z₂ ⊂ G₂ = Aut(O) (Fano orientation
+  reversal).  Whether it actually does the job is the open obligation below.
+
+OPEN OBLIGATIONS (why this is a bridge, not a theorem):
+- Measure, not just action: a Z₂ that flips the θ-term in the ACTION forces
+  θ ∈ {0, π} (two fixed points), and only removes θ̄ nonperturbatively if it
+  is ALSO a symmetry of the fermion MEASURE (non-anomalous).  Not shown here.
+- Identification: the θ-term is odd under P/CP, not under colour charge
+  conjugation alone; identifying the internal Fano Z₂ (3 ↔ 3̄) with the
+  spacetime CP/P operation the θ-term is odd under is ASSUMED, not derived.
+- Weak-CP value: arccos(1/3) is proved a forced Fano-incidence invariant in
+  cp_phase_fano_invariance.py, but the physical map δ_CKM = that angle stays
+  the open ledger-C4 obligation.
 
 FALSIFICATION:
 - If θ̄ ≠ 0 is ever measured (neutron EDM > 0 from QCD θ-term), 
   our framework is wrong.
 - Current bound: |θ̄| < 10⁻¹⁰ (from neutron EDM: d_n < 1.8×10⁻²⁶ e·cm)
-- Our prediction: θ̄ = 0 exactly. No contribution at any loop order.
+- Candidate prediction: θ̄ = 0, PENDING the obligations above; the framework
+  does not yet establish a vanishing θ̄ to all loop orders.
 """
 import numpy as np
 
@@ -155,9 +177,9 @@ def nni_determinant_reality():
 
 def strong_cp_summary():
     """
-    Complete argument for θ̄ = 0.
+    Candidate argument for θ̄ = 0 (derived bridge, open obligation).
     """
-    print("\n\nSTRONG CP SOLUTION: COMPLETE ARGUMENT")
+    print("\n\nSTRONG CP: CANDIDATE ARGUMENT (derived bridge, not closed)")
     print("=" * 60)
     
     print("""
@@ -169,10 +191,12 @@ def strong_cp_summary():
   • G₂ = Aut(𝕆) contains SU(3)_c as maximal subgroup
   • G₂ has a Z₂: Fano plane orientation reversal = octonionic conjugation
   • This Z₂ acts on SU(3)_c as the outer automorphism: 3 ↔ 3̄
-  • Under 3 ↔ 3̄: the instanton density F∧F̃ → −F∧F̃
-  • The action must be invariant under Aut(𝕆) → θ_QCD = 0
-  • Equivalent statement: on the causal lattice, the G₂ holonomy
-    is real (lies in the identity component), so no θ-vacuum forms.
+  • Under 3 ↔ 3̄: the instanton density F∧F̃ → −F∧F̃ (ASSUMED; the θ-term is
+    odd under P/CP, not colour conjugation alone — identification is open)
+  • IF the action AND the fermion measure are invariant under this Z₂,
+    then θ_QCD ∈ {0, π}; selecting 0 and proving measure-invariance is open
+  • Heuristic: on the causal lattice, if the G₂ holonomy stays real
+    (identity component), no θ-vacuum forms.
 
   Term 2: arg(det(Y_u · Y_d)) = 0
   ─────────────────────────────────
@@ -181,7 +205,7 @@ def strong_cp_summary():
   • det(Y_d) = m_d·m_s·m_b ∈ ℝ (product of positive reals)
   • Therefore arg(det(Y_u·Y_d)) = 0
 
-  TOTAL: θ̄ = 0 + 0 = 0  ✓
+  TOTAL (IF the measure/identification obligations hold): θ̄ = 0 + 0 = 0
 
   Why weak CP is PRESERVED:
   ─────────────────────────
@@ -194,10 +218,10 @@ def strong_cp_summary():
 
   Experimental status:
   ────────────────────
-  • Prediction: θ̄ = 0 exactly (no axion needed)
-  • Bound: |θ̄| < 10⁻¹⁰ (neutron EDM)  ✓
+  • Candidate prediction: θ̄ = 0 (pending the open obligations above)
+  • Bound: |θ̄| < 10⁻¹⁰ (neutron EDM)  ✓ (consistent with θ̄ = 0)
   • Falsification: any nonzero θ̄ measurement
-  • Corollary: NO AXION exists. Axion searches should yield null.
+  • Corollary (only IF the mechanism holds): no QCD axion is required.
 """)
 
 
@@ -209,7 +233,7 @@ def verify_weak_cp_survives():
     print("=" * 60)
     
     # The Jarlskog invariant from our framework
-    delta_CP = np.arccos(1.0/3)  # Fano plane angle
+    delta_CP = np.arccos(1.0/3)  # Fano incidence angle (value proved forced in cp_phase_fano_invariance.py; map = open C4)
     
     # CKM angles from ε₀
     s12 = np.sqrt(7) * EPS0           # |V_us|
@@ -235,9 +259,12 @@ def verify_weak_cp_survives():
     print(f"    Observed: (3.08 ± 0.15) × 10⁻⁵")
     print(f"    Agreement: {abs(J - 3.08e-5)/3.08e-5*100:.1f}%")
     
-    print(f"\n  CONCLUSION: Weak CP (J ≠ 0) and strong CP (θ̄ = 0) coexist")
-    print(f"  because Fano parity is a COLOR symmetry that commutes with")
-    print(f"  the weak-sector phase δ = arccos(1/3).")
+    print(f"\n  CONCLUSION (candidate): Weak CP (J ≠ 0) and a vanishing strong")
+    print(f"  CP (θ̄ = 0) can coexist because Fano parity is a COLOR symmetry")
+    print(f"  that commutes with the weak-sector phase δ = arccos(1/3).")
+    print(f"  NOTE: θ̄ = 0 is pending the measure/identification obligations")
+    print(f"  (see module docstring); the arccos(1/3) VALUE is proved forced in")
+    print(f"  cp_phase_fano_invariance.py, but δ_CKM = that angle stays open (C4).")
 
 
 if __name__ == "__main__":
