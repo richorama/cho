@@ -2667,6 +2667,84 @@ CONTRACTS = {
             "Moving Bayes/model-complexity credit or promoting F0/S1 before the cooling direction, the frame-breaking field, and pi/432 are derived from CHO dynamics.",
         ),
     ),
+    "f4_breaking_action_closeout": contract(
+        "f4_breaking_action_closeout",
+        ("F0", "S1", "G1"),
+        STATUS_EXPLORATORY,
+        VERDICT_OPEN,
+        "CLOSEOUT of the 17-rung F4-breaking action-derivation ladder — a REPORTER (it "
+        "re-derives nothing and grants NO Bayes credit) that consolidates the entire "
+        "f4_breaking_* ladder from f4_breaking_action_origin_gate to the self-declared "
+        "TERMINAL f4_breaking_cooling_arrow_gate. This ladder IS the execution of the "
+        "ONE internal route theory_probation_closeout named worth more time: 'derive an "
+        "F4-BREAKING dynamical action whose flux gives pi/432 and whose spectrum gives "
+        "the seed.' Claim ONLY what the consolidation shows. [CONVERGENCE] the ladder is "
+        "the longest single internal push at F0 and reaches the same wall from the "
+        "dynamical side: the VALUE d=pi/432 is an INPUT at every one of the 17 rungs "
+        "(source_overlap_derived_from_cho=False everywhere); the dynamics is built to be "
+        "CONSISTENT WITH an assumed d, never to PRODUCE it, and the chain of structural "
+        "'why's bottoms out at the cooling DIRECTION, which the terminal rung relocates "
+        "to the zero-temperature / arrow-of-time boundary (DEEPER and more general than "
+        "pi/432, not CHO-specific). [EARNED — real and kept] the scaffold is not nothing: "
+        "Spohn's H-theorem (relaxation is automatic), the J3(O) Peirce decomposition "
+        "27=1+16+10 with EXACT rational projectors (jump structure FORCED, not chosen), "
+        "purity strict-convexity forcing rank-one attractors, and the unique robust "
+        "KL/calibrated-source stationary point q=d are theorems that stand without the F0 "
+        "grant. [UNEARNED — the headway gap] the seed MAGNITUDES stay spec(A) input and "
+        "the value pi/432 is never produced — STRUCTURAL headway, ZERO headway on the "
+        "number that flips the sign. [GOVERNANCE] theory_probation_closeout pre-registered "
+        "'if that cannot be done without inserting the scale/seed by hand, demote the "
+        "SM-constant program to beautiful algebraic numerology'; the ladder inserts the "
+        "scale (d=pi/432) and seed (spec(A)) by hand at every rung, so the pre-registered "
+        "demotion condition is MET for the internal action-derivation route. [STANDING] "
+        "the scoreboard sign does NOT flip: pi/432 stays Berry/Schur GEOMETRIC, F0 stays "
+        "GEOMETRIC/open, no Bayes credit moves, the earned floor stays ln B = -3.2 < 0 "
+        "(asserted). Source-of-truth tripwires (asserted): all 17 rungs are still "
+        "STATUS_EXPLORATORY/VERDICT_OPEN and still humble (>=1 open bridge AND >=1 kill "
+        "condition), each still names the pi/432 target and disclaims moving credit, the "
+        "ladder is exactly 17 rungs (an 18th must be DELIBERATE), and the terminal rung is "
+        "cooling_arrow. Do NOT present the convergence or the earned scaffold as deriving "
+        "pi/432 or the seeds; recorded STATUS_EXPLORATORY / VERDICT_OPEN, forbids only "
+        "SILENT drift.",
+        assumptions=(
+            "The 17 ladder rung results are taken source-of-truth from their own modules; "
+            "this reporter re-derives NONE of them — it asserts each rung's status/verdict, "
+            "that each still names pi/432 and disclaims credit, and consolidates the "
+            "convergence (value stayed input) and the earned structure (the theorems).",
+            "The 'only active internal route' framing is taken from theory_probation_closeout "
+            "and the route-localisation from f0_sigma_model_closeout (the missing object is a "
+            "derived F4-breaking action whose flux is pi/432 and whose spectrum is the seed); "
+            "this module CITES that localisation, it does not re-run those closeouts.",
+            "The terminal-rung verdict (the residual is the cooling direction / arrow of "
+            "time, deeper than pi/432) is taken from f4_breaking_cooling_arrow_gate; this "
+            "module records it, it does not re-derive the Lindbladian or the H-theorem.",
+        ),
+        open_bridges=(
+            "The value half stays open: the missing F4-BREAKING action that would PRODUCE "
+            "d=pi/432 and the seed magnitudes is pursued to the ladder's terminus, not "
+            "supplied — F0 and S1 stay charged, and the terminal residual (the cooling "
+            "direction / arrow of time) is now a deeper, more general open problem.",
+            "This is a REPORTER over an EXPLORATORY arc: it adds no new derivation. Re-opening "
+            "the route (an 18th rung) is allowed but must be DELIBERATE — the length-17 and "
+            "terminal-rung assertions force any extension to be a conscious re-opening.",
+            "The genuinely new lever that could move the bottom line is the EXTERNAL datum "
+            "sin^2 theta23 = 4/7 (theta23_octant_prediction; DUNE / Hyper-K), not another "
+            "internal pi/432 rung.",
+        ),
+        kill_conditions=(
+            "Presenting the convergence or the earned dynamical scaffold (the theorems) as "
+            "DERIVING pi/432 or the seed magnitudes, promoting F0/S1/G1, or moving any Bayes "
+            "credit — the value half stays input at every rung.",
+            "Spinning the ladder as a positive result: reporting that the dissipative "
+            "dynamics 'derives the vacuum' without the value failure (d=pi/432 is input "
+            "everywhere, the residual is the arrow of time) stated equally loudly, or "
+            "suppressing the pre-registered demotion condition that the ladder meets.",
+            "Letting the reporter drift: a rung silently promoted out of EXPLORATORY/OPEN, a "
+            "rung silently dropping the pi/432 target or the credit disclaimer, the ladder "
+            "silently extended past 17 rungs, or the earned floor silently moved off "
+            "ln B = -3.2 — the tripwire assertions must stay live.",
+        ),
+    ),
     "theory_probation_closeout": contract(
         "theory_probation_closeout",
         ("F0", "S1", "G1"),

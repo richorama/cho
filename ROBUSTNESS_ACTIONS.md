@@ -902,3 +902,29 @@ circularity (its down-only jumps already encode `nbar=0`). Terminal rung of the
 dissipative ladder; deriving the cooling direction, `nbar`, the frame-breaking
 field, the generation assignment, and `pi/432` from the CHO action remains open.
 F0/S1 stay open; no Bayes credit moves.
+
+### Execution note (2026-06-10) — Dissipative-ladder action closeout
+
+`compute/f4_breaking_action_closeout.py` added — a REPORTER (re-derives nothing,
+grants NO Bayes credit) consolidating the **whole 17-rung `f4_breaking_*` ladder**,
+from `f4_breaking_action_origin_gate` to the self-declared TERMINAL
+`f4_breaking_cooling_arrow_gate`. That ladder is the execution of the one internal
+route `theory_probation_closeout` named worth more time: derive an F4-breaking
+action whose flux gives `pi/432` and whose spectrum gives the seed. **The headway
+verdict:** the ladder reached the same wall from the dynamical side — the VALUE
+`d=pi/432` is an INPUT at every one of the 17 rungs
+(`source_overlap_derived_from_cho=False` everywhere); the dynamics is built to be
+CONSISTENT WITH an assumed `d`, never to PRODUCE it, and the chain of structural
+"why"s bottoms out at the cooling direction = the arrow of time (deeper than
+`pi/432`, not CHO-specific). The ladder DID earn real, durable structure (Spohn's
+H-theorem; the `J3(O)` Peirce `27=1+16+10` with exact projectors; purity
+strict-convexity forcing rank-one attractors; the unique robust KL stationary
+point) but ZERO headway on the number that flips the scoreboard sign. This MEETS
+`theory_probation_closeout`'s pre-registered demotion condition (the scale and seed
+are inserted by hand at every rung). **Decision recorded: this internal route is
+closed — an 18th rung is the treadmill the standing notes forbid; the only live
+lever is EXTERNAL (`sin^2 theta23 = 4/7`, DUNE / Hyper-K) or shipping the standalone
+math.** Tripwires assert all 17 rungs stay EXPLORATORY/OPEN and humble, each still
+names `pi/432` and disclaims credit, the ladder is exactly 17 rungs (extension must
+be deliberate), the terminal rung is `cooling_arrow`, and the earned floor stays
+`ln B = -3.2 < 0`. F0/S1 stay open; no Bayes credit moves.
