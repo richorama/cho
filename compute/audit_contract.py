@@ -432,6 +432,45 @@ CONTRACTS = {
             "Letting this diagnostic promote a ledger row or move the Bayes factor.",
         ),
     ),
+    "cp_phase_fano_invariance": contract(
+        "cp_phase_fano_invariance",
+        ("C4",),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Harden the VALUE-source of the weak-CP angle by PROVING that delta=arccos(1/3) is a "
+        "Fano-incidence invariant, not a hand-picked pair: every two distinct octonion-triple "
+        "lines meet in exactly one of three points, so the indicator-vector cosine "
+        "<L,M>/(||L|| ||M||) = |L cap M|/3 is exactly 1/3 for ALL 21 unordered pairs -- "
+        "literally the framework's cos(delta)=dim(shared)/dim(line). It is preserved by all 168 "
+        "automorphisms and the 42 ordered distinct-line pairs form a SINGLE orbit (PSL(2,7) is "
+        "2-transitive on lines), so arccos(1/3) is the unique, convention-independent inter-line "
+        "angle. This does NOT establish that the physical CKM CP phase equals it; the C4 "
+        "phase-placement (which monotone function, the channel assignment, the Jarlskog target) "
+        "stays open. Promote no row and move no Bayes credit.",
+        assumptions=(
+            "The octonion imaginary-unit multiplication triples are the seven FANO_LINES of "
+            "spurion_bridge; 'adjacent quaternionic subalgebras' means two lines sharing one unit.",
+            "The framework's angle is the INCIDENCE cosine of the line indicator vectors "
+            "(cos=dim(shared)/dim(line)), not the principal angles of the 3-dim imaginary "
+            "subspaces -- the module computes both and shows only the incidence reading gives 1/3.",
+        ),
+        open_bridges=(
+            "The PHYSICAL map 'CKM CP phase = (a monotone function of) this incidence angle' is "
+            "the C4 obligation and stays open; this module hardens only the VALUE the map would "
+            "deliver, not the map.",
+            "Which monotone function is physical (the repo uses arccos(1/3) for CKM and "
+            "pi+arccos(1/3) for PMNS as a documented scaffold convention) is unresolved.",
+            "The up/down channel assignment of the two lines, and the Jarlskog target "
+            "J=3.01e-5 from one charged diagonalization, stay open at the operator level.",
+        ),
+        kill_conditions=(
+            "Presenting the incidence-angle invariance as the derived physical CP phase or as evidence C4 is closed.",
+            "Claiming the channel/line assignment (which two lines are up vs down) is forced rather than an input.",
+            "Quoting arccos(1/3) as the measured CKM phase (it is ~8% above the PDG value; the comparison is descriptive only).",
+            "Claiming novelty for the classical facts (PG(2,2)=S(2,3,7), |PSL(2,7)|=168, 2-transitivity) instead of the hardening assembly.",
+            "Letting this diagnostic promote a ledger row or move the Bayes factor.",
+        ),
+    ),
     "prediction_defensibility": contract(
         "prediction_defensibility",
         ("N5", "STAT1"),
