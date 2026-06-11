@@ -45,6 +45,12 @@ The sign flips **only** on the `pi/432` grant. That is why Track 2 is the lever 
 Tracks 1 and 3 are scope/credibility plays, not scoreboard plays. Be honest about
 which is which.
 
+> **Progress (2026-06-11).** Track 2 step 1 and all of Track 3 are DONE — see the
+> `✓ DONE` markers in the steps below. **All of it is diagnostic: the scoreboard is
+> unchanged at `ln B = −3.2`.** Track 2 produced the *conditional* uniqueness result
+> (not the jackpot), and Track 3 hardened the `theta23` value to an operator
+> invariant while the physical `N5` map stays open. Track 1 is not started.
+
 ---
 
 ## Track 1 — Causal-set / discrete spacetime (grow the theory)
@@ -167,6 +173,15 @@ skeptic.
      actions give `pi/432` (non-uniqueness), so the theory has **exactly one
      irreducible free knob** → scoreboard stays `−3.2`, but the claim is now honest
      instead of hopeful. Record it and demote `F0` to a declared single knob.
+   - **✓ DONE (2026-06-11).** [uniqueness_gate.py](experiments/pi432_action_search/uniqueness_gate.py)
+     built and wired into the quarantined sandbox sweep (moves no Bayes credit).
+     The outcome is the *conditional* positive, not the jackpot: among the divisors
+     of `432`, only `16` and `27` are irreducible-module dimensions of the CHO
+     structure-group chain, so the Schur-flat carrier `(16, 27)` is **unique** —
+     but conditional on three named residual knobs (the two-factor ansatz,
+     `E6`-over-`F4` for the `27`, and primitive WZ level). Naive numerology is
+     killed (`432` has nine factor pairs, several CHO-meaningful). So
+     `pi/432`-forced-from-CHO-dynamics stays **OPEN** and the scoreboard stays `−3.2`.
 
 2. **Attack the carrier-selection via the moment-map route.** The top probe
    [moment_map_orbit_quantization.py](experiments/pi432_action_search/moment_map_orbit_quantization.py)
@@ -244,6 +259,13 @@ The *value* `4/7` is forced; the *bridge* to physics is not yet an operator theo
    - **Kill:** if the operator can produce other octant ratios just as naturally,
      `N5` stays an open bridge — say so; the forward bet still stands on the frozen
      value.
+   - **✓ DONE (2026-06-11).** [theta23_mixing_operator.py](compute/theta23_mixing_operator.py)
+     recasts `4/7` as the normalized trace of an explicit rank-`4` Fano-line
+     projector and proves it is a single-orbit **symmetry-class invariant** under
+     all `168` automorphisms (`Pi_g P(v) Pi_g^T = P(g(v))`, point-transitive). The
+     *value-half* is now an operator invariant; the **physical map** (oscillation
+     probability = projector trace) is *not* derived, so `N5` stays the one open
+     bridge, exactly as the kill clause anticipated. Diagnostic; no row promoted.
 
 2. **Freeze and track — the discipline of a verdict you don't control.** Build a
    thin `compute/theta23_data_tracker.py` that ingests each new
@@ -252,6 +274,9 @@ The *value* `4/7` is forced; the *bridge* to physics is not yet an operator theo
    prediction was registered *before* the data; the tracker only watches.
    - **Acceptance:** a dated, append-only log of the octant tension over time,
      cross-checking `Q2` read-only.
+   - **✓ DONE (2026-06-11).** [theta23_data_tracker.py](compute/theta23_data_tracker.py):
+     dated, append-only snapshot log scored read-only against the frozen `Q2`;
+     current representative data is honestly **UNRESOLVED**.
 
 3. **Pre-register the decision rule (formalize what already exists).** Lock the
    verdict protocol from `theta23_experimental_reach.py` as the registered rule:
@@ -259,6 +284,11 @@ The *value* `4/7` is forced; the *bridge* to physics is not yet an operator theo
    an upper-octant value far from `4/7` ⇒ value killed, octant survives.
    - **Acceptance:** the rule lives in the registry as a dated, hash-locked decision
      protocol, so no post-hoc reinterpretation is possible.
+   - **✓ DONE (2026-06-11).** Implemented as a **SHA-256 hash-locked `DECISION_RULE`**
+     inside [theta23_data_tracker.py](compute/theta23_data_tracker.py) (folded into
+     step 2's module rather than a separate registry entry): `sigma <= 1/70` ⇒ `5s`
+     octant verdict; a stable lower octant ⇒ KILL; a far-upper value ⇒ value killed,
+     octant survives. Editing the rule after the fact trips the lock.
 
 ### Honest scoreboard impact
 

@@ -122,6 +122,13 @@ evidence about *where* the program is actually stuck.
 
 ## How to resume
 
+A broader multi-track resume plan now exists: [NEXT_PHASE_PLAN.md](NEXT_PHASE_PLAN.md).
+A first resume pass (2026-06-11) executed its diagnostic pieces — a `pi/432`
+carrier-uniqueness gate (Track 2) and the `theta23` operator-hardening plus a
+hash-locked data tracker (Track 3). **None moved the scoreboard** (still
+`ln B = −3.2`); they sharpen seams and tighten discipline, nothing more. The verdict
+still hinges on the one item below.
+
 1. The only move that flips the verdict is the one named in
    [compute/f0_sigma_model_closeout.py](compute/f0_sigma_model_closeout.py) and
    [ROBUSTNESS_ACTIONS.md](ROBUSTNESS_ACTIONS.md): **construct the `F4`-breaking
