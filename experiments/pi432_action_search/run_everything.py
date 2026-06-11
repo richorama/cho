@@ -19,6 +19,7 @@ PROBES = (
     "multi_factor_carrier_gate.py",
     "f4_invariant_action_census.py",
     "peirce_gap_derivation.py",
+    "peirce_grade_reflection_gate.py",
     "entropy_principle_derivation.py",
     "frame_lift_f4_breaking.py",
     "unified_boundary_wz_jordan_action.py",

@@ -214,6 +214,26 @@ any free continuous internal coefficient (non-unique metric, non-constant
 invariant potential, or a continuous topological coupling), `pi/432` could be
 dialed and never forced here, killing the route; the census finds none.
 
+`peirce_grade_reflection_gate.py` sharpens the seed-spectrum side, criterion (4).
+`peirce_gap_derivation.py` showed rank-3 forces three levels and called `(0,1,2)`
+"canonical", but left the non-consecutive primitive gradings (e.g. `(0,1,3)`)
+un-excluded and checked the Gibbs law only numerically. This gate builds the
+actual Albert algebra `J3(O)` exactly (Fractions) and supplies the missing step:
+the boundary reversal that swaps the two ordered WZ endpoints (`E11<->E33`, fixing
+the midpoint `E22`) is a genuine Jordan automorphism, and the grade operator obeys
+`L_N + L_(sigma N) = 2*Id` -- an identity equivalent to equal grade spacing
+`d_0 + d_2 = 2 d_1`. Among primitive rank-3 gradings only `(0,1,2)` is
+reversal-covariant, so the grade vector is FORCED, not chosen. (En route it also
+shows the octonionic Peirce spaces `J_ij` sit at the half levels `1/2,1,3/2`, the
+WZ half-flux appearing intrinsically.) The exact Gibbs minimiser then yields the
+geometric-mean seed law `rho_1^2 = rho_0 rho_2`, which is INDEPENDENT of the value
+of `Phi` and hence falsifiable on its own; specialising `exp(-Delta)=sqrt(Phi)`
+reproduces `(1,sqrt(Phi),Phi)`. It does NOT derive `pi/432` or the locking
+`exp(-Delta)=sqrt(Phi)`; those stay open. So criterion (4)'s grade structure is
+now derived from the Jordan/Peirce geometry, leaving the flux value and the
+entropy principle as the remaining open inputs. Diagnostic only; moves no Bayes
+credit.
+
 ## Graduation Rule
 
 A track may affect core code only after it supplies all of the following:

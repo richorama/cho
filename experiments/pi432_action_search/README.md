@@ -75,6 +75,7 @@ The broader sweep tries parked radical routes without promoting them:
 - `multi_factor_carrier_gate.py`
 - `f4_invariant_action_census.py`
 - `peirce_gap_derivation.py`
+- `peirce_grade_reflection_gate.py`
 - `entropy_principle_derivation.py`
 - `frame_lift_f4_breaking.py`
 - `unified_boundary_wz_jordan_action.py`
@@ -150,6 +151,19 @@ derivation. Supporting gates now reduce the assumptions:
   moves no credit.
 - `peirce_gap_derivation.py`: rank-3 primitive Peirce grading gives `N=(0,1,2)`,
   and endpoint flux gives `Delta_Phi=-1/2 log(Phi)`.
+- `peirce_grade_reflection_gate.py`: closes the gap `peirce_gap_derivation.py`
+  left open -- *why* the consecutive grade `(0,1,2)` rather than another
+  primitive triple like `(0,1,3)`. Builds the actual Albert algebra `J3(O)`
+  exactly (Fractions), verifies the Peirce decomposition (diagonal idempotents at
+  integer levels `0,1,2`, octonionic Peirce spaces `J_ij` at the HALF levels
+  `1/2,1,3/2`), and shows the boundary reversal (swap the ordered endpoints
+  `E11<->E33`, fix `E22`) is a Jordan automorphism with `L_N + L_(sigma N) = 2 Id`
+  -- an identity that holds iff the grades are equally spaced. So `(0,1,2)` is the
+  UNIQUE reversal-covariant primitive grading: the grade vector is forced, not
+  chosen. The exact Gibbs minimiser then gives the falsifiable, Phi-INDEPENDENT
+  seed law `rho_1^2 = rho_0 rho_2` (it survives even if `pi/432` is wrong);
+  specialising `exp(-Delta)=sqrt(Phi)` reproduces `(1,sqrt(Phi),Phi)`. Diagnostic;
+  moves no credit. `Phi` itself stays open.
 - `entropy_principle_derivation.py`: relative entropy is the canonical Gibbs
   free-energy form once the seed problem is posed as a large-deviation problem.
 - `frame_lift_f4_breaking.py`: the fixed-frame candidate passes the finite S3
