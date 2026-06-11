@@ -1,4 +1,4 @@
-# Three Theorems on the Exceptional Jordan Algebra 𝔍₃(𝕆)
+# Four Theorems on the Exceptional Jordan Algebra 𝔍₃(𝕆)
 
 **Standalone mathematics, decoupled from any physical interpretation**
 
@@ -10,9 +10,9 @@ Frozen: 2026-06-08
 
 ## Abstract
 
-We isolate and machine-verify three small results about the rank-3 exceptional
+We isolate and machine-verify four small results about the rank-3 exceptional
 (Albert) Jordan algebra $\mathfrak{J}_3(\mathbb{O})$ of $3\times 3$ Hermitian
-octonionic matrices. None of the three uses, asserts, or depends on a physical
+octonionic matrices. None of the four uses, asserts, or depends on a physical
 interpretation: there are no generations, masses, Yukawa couplings, no spurion,
 and the number $\pi/432$ does not appear. The objects are $\mathfrak{J}_3(\mathbb{O})$,
 its automorphism group $F_4=\mathrm{Aut}(\mathfrak{J}_3(\mathbb{O}))$, the point
@@ -42,13 +42,22 @@ can still check every line here, by hand and by machine.
   $t^3-T_1t^2+T_2t-N_3$ of an element (coefficients the three $F_4$ invariants),
   Vieta gives eigenvalue product $m_1m_2m_3=N_3$, hence $m_2m_3=|N_3|/m_1$: the
   light pair's product is the cubic norm divided by the heaviest eigenvalue.
+- **Theorem D (Cayley–Hamilton / degree-3 minimal identity).** Every element
+  $X\in\mathfrak{J}_3(\mathbb{O})$ satisfies its own characteristic cubic,
+  $X^3-T_1X^2+T_2X-N_3E=0$ (Jordan powers, $E$ the identity) — the degree-3
+  generic minimal identity of a cubic Jordan algebra. This is the *operator*
+  face of the same cubic whose *roots* Theorem C reads through Vieta; the two
+  share the three $F_4$ invariants $(T_1,T_2,N_3)$, and the generic minimal
+  polynomial has degree exactly $3$.
 
 Every constituent fact is **classical** and is cited rather than claimed. The
-contribution is the *assembly* into three clean, decoupled, checkable statements,
-plus three observations: (A) that the frame $S_3$ being inner is exactly what
+contribution is the *assembly* into four clean, decoupled, checkable statements,
+plus four observations: (A) that the frame $S_3$ being inner is exactly what
 exempts the idempotent picture from an *outer-triality* obstruction; (B) the
 crisp $F_4$-reducible / $E_6$-irreducible dichotomy that pins the flat $1/27$ to
-the cubic-norm group; and (C) reading Vieta on the cubic norm as a seesaw. Each
+the cubic-norm group; (C) reading Vieta on the cubic norm as a seesaw; and (D)
+recording the *spectral* (C) and *operator* (Cayley–Hamilton) faces of the one
+characteristic cubic side by side. Each
 is backed by an executable witness ([compute/jordan_standalone_theorems.py](compute/jordan_standalone_theorems.py))
 that returns `PASS` inside the project's audit harness.
 
@@ -70,12 +79,13 @@ Albert algebra and its frames (Jordan–von Neumann–Wigner; Springer; McCrimmo
 $F_4=\mathrm{Aut}(\mathfrak{J}_3(\mathbb{O}))$ connected with no outer
 automorphism, and $\mathbb{O}P^2=F_4/\mathrm{Spin}(9)$ (Freudenthal; Yokota); the
 $16$-dimensional real $\mathrm{Spin}(9)$ spinor; $E_6$ as the reduced structure
-group preserving the cubic norm with irreducible $27$; Schur's lemma; and Vieta's
-formulae. We do **not** claim any of these as new theorems. What we claim is the
-clean *assembly* — three statements decoupled from physics, each with a machine
-witness — and three specific observations that, to our knowledge, are not usually
-stated together in this crisp form. The value is clarity and checkability, not
-depth.
+group preserving the cubic norm with irreducible $27$; Schur's lemma; Vieta's
+formulae; and the degree-3 minimal (Cayley–Hamilton) identity of a cubic Jordan
+algebra (Springer; Jacobson; McCrimmon). We do **not** claim any of these as new
+theorems. What we claim is the clean *assembly* — four statements decoupled from
+physics, each with a machine witness — and four specific observations that, to
+our knowledge, are not usually stated together in this crisp form. The value is
+clarity and checkability, not depth.
 
 Throughout, "verified" means: a hand proof or a citation, plus an executable
 check that returns `PASS` in [compute/audit.py](compute/audit.py). The witness for
@@ -252,7 +262,50 @@ own.
 
 ---
 
-## 6. Provenance and novelty (stated plainly)
+## 6. Theorem D — Cayley–Hamilton for the cubic Jordan algebra
+
+> **Theorem D.** Let $X\in\mathfrak{J}_3(\mathbb{O})$ have characteristic cubic
+> $t^3-T_1t^2+T_2t-N_3$. Then $X$ satisfies that cubic as an element identity,
+> $$
+> X^3-T_1\,X^2+T_2\,X-N_3\,E=0,
+> $$
+> where $E$ is the identity and the powers are Jordan powers. Moreover the
+> generic minimal polynomial has degree exactly $3$: $\{E,X,X^2\}$ are linearly
+> independent under the (positive-definite) trace form for generic $X$.
+
+**Proof.** $\mathfrak{J}_3(\mathbb{O})$ is a cubic (degree-3) Jordan algebra: the
+generic minimal polynomial of a degree-$n$ Jordan algebra is its generic
+characteristic polynomial, and every element is a root of it (Springer 1962;
+Jacobson 1968; McCrimmon 2004). For the Albert algebra $n=3$, which gives the
+displayed identity with the three $F_4$ invariants $(T_1,T_2,N_3)$ as
+coefficients. The powers are unambiguous because the Jordan product is
+power-associative, so $X^3=X\circ(X\circ X)=(X\circ X)\circ X$. The degree is at
+most $3$ by the identity; it is at least $3$ generically because the trace form
+$\langle A,B\rangle=T_1(A\circ B)$ is positive definite (the algebra is formally
+real) and $\{E,X,X^2\}$ is generically independent, so its Gram determinant is
+strictly positive. $\qquad\blacksquare$
+
+**Witness.** [compute/jordan_standalone_theorems.py](compute/jordan_standalone_theorems.py)
+`cubic_minimal_identity` evaluates $\lVert X^3-T_1X^2+T_2X-N_3E\rVert\sim
+10^{-13}$ and the power-associativity residual $\lVert X\circ(X\circ X)-(X\circ
+X)\circ X\rVert=0$ over random Hermitian elements, using the verified dense
+octonionic Jordan product from
+[compute/jordan_eigenvalue_generations.py](compute/jordan_eigenvalue_generations.py);
+`generic_minimal_degree` reports a strictly positive Gram determinant for
+$\{E,X,X^2\}$, confirming degree exactly $3$. The two exact identities are the
+asserted theorem; the Gram positivity is the degree diagnostic.
+
+**The observation.** Theorems C and D are the two faces of one object. The
+characteristic cubic $t^3-T_1t^2+T_2t-N_3$ has a *spectral* face — its **roots**,
+the eigenvalues, related by Vieta (Theorem C) — and an *operator* face — the
+**element** $X$ is itself annihilated by the cubic (Theorem D). Both are governed
+by exactly the three $F_4$ invariants $(T_1,T_2,N_3)$. Recording them together
+makes explicit that the cubic norm $N_3$ controls both the eigenvalue seesaw and
+the element's own algebraic closure.
+
+---
+
+## 7. Provenance and novelty (stated plainly)
 
 | Ingredient | Status | Source |
 |---|---|---|
@@ -262,33 +315,36 @@ own.
 | $E_6$ = reduced structure group; $27$ irreducible | classical | Springer 1962; Jacobson 1971 |
 | Schur's lemma; Reynolds/Haar averaging | classical | standard |
 | Vieta's formulae for the monic cubic | classical | standard |
-| **Decoupled assembly of A, B, C with machine witnesses** | this note | — |
+| Generic minimal (Cayley–Hamilton) identity of a cubic Jordan algebra | classical | Springer 1962; Jacobson 1968; McCrimmon 2004 |
+| **Decoupled assembly of A, B, C, D with machine witnesses** | this note | — |
 | **Obs. A:** inner frame $S_3$ exempts the picture from an outer-triality obstruction | this note | — |
 | **Obs. B:** $F_4$-reducible / $E_6$-irreducible dichotomy pins flat $1/27$ to $E_6$ | this note | — |
 | **Obs. C:** Vieta on the cubic norm read as a seesaw | this note | — |
+| **Obs. D:** spectral (C) and operator (Cayley–Hamilton) faces of one cubic recorded together | this note | — |
 
-We make no claim that A, B, or C is a deep new theorem. Each follows from
+We make no claim that A, B, C, or D is a deep new theorem. Each follows from
 classical structure by a short argument. The contribution is to *separate* this
 mathematics cleanly from any physical reading, to state it precisely, and to back
 each statement with a reproducible check.
 
 ---
 
-## 7. Decoupling from the physical program
+## 8. Decoupling from the physical program
 
 This is the load-bearing disclaimer. **Nothing in this note establishes, or is
 evidence for, any physical claim.** In particular:
 
-- Theorems A, B, C are statements about $\mathfrak{J}_3(\mathbb{O})$, about
-  $F_4/\mathrm{Spin}(9)/E_6$ representation theory, and about Vieta. They are true
-  irrespective of whether the wider project's physical interpretation is correct.
+- Theorems A, B, C, D are statements about $\mathfrak{J}_3(\mathbb{O})$, about
+  $F_4/\mathrm{Spin}(9)/E_6$ representation theory, about Vieta, and about the
+  degree-3 Cayley–Hamilton identity. They are true irrespective of whether the
+  wider project's physical interpretation is correct.
 - The physical interpretation — identifying frame idempotents with fermion
   generations (ledger bridge `G1`), reading the invariant mean as a flavour
   measure with $\varepsilon_0=\sqrt{\pi/432}$ (bridge `F0`), and the cubic
   seesaw as a mass hierarchy (bridge `A3`) — is developed and gated **separately**
   in [DERIVATION_LEDGER.md](DERIVATION_LEDGER.md). Those bridges remain **open**.
   This note does **not** close them, and must not be cited as if it did.
-- Conversely, the validity of A, B, C does not depend on those bridges. That
+- Conversely, the validity of A, B, C, D does not depend on those bridges. That
   independence is the entire point of publishing this layer on its own.
 
 The audit harness enforces this separation: the witness module is registered with
@@ -299,10 +355,10 @@ the basis of this consolidation (see [compute/audit_contract.py](compute/audit_c
 
 ---
 
-## 8. Reproducibility
+## 9. Reproducibility
 
 ```bash
-# the decoupled witness for this note (states A, B, C as pure mathematics)
+# the decoupled witness for this note (states A, B, C, D as pure mathematics)
 PYTHONDONTWRITEBYTECODE=1 python3 compute/jordan_standalone_theorems.py
 
 # the same results inside the full self-audit (every artifact + its contract)
@@ -313,8 +369,9 @@ PYTHONDONTWRITEBYTECODE=1 python3 compute/audit_contract.py
 Supporting modules: [compute/three_generations_frame.py](compute/three_generations_frame.py)
 (Theorem A mechanics), [compute/epsilon_measure_schur.py](compute/epsilon_measure_schur.py)
 with [foundations/08_epsilon_measure_theorem.md](foundations/08_epsilon_measure_theorem.md)
-(Theorem B), and [compute/generation_cascade.py](compute/generation_cascade.py)
-(Theorem C).
+(Theorem B), [compute/generation_cascade.py](compute/generation_cascade.py)
+(Theorem C), and [compute/jordan_eigenvalue_generations.py](compute/jordan_eigenvalue_generations.py)
+(the dense octonionic Jordan product used by Theorem D).
 
 ---
 

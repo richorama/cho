@@ -14,6 +14,9 @@ displaying agreements. Each answers a specific skeptic's question:
   5. predict_neutrino_sum  — "What can future data falsify?" (frozen prediction)
   *  neutrino_floor_resolution — Item 4: the 4.6sigma floor deficit is 1.2sigma once tree-level theory error is folded
   *  theta23_octant_prediction — Item 7: the single sharpest falsifiable claim — sin^2(theta23)=4/7 (upper octant), the only eps0-independent exact mixing prediction; DUNE/Hyper-K resolve it
+  *  theta23_fano_invariance — N5 hardening: PROVES the 4/7 is a Fano-plane invariant (octonion triples = PG(2,2)=S(2,3,7); the (3,4) split holds at EVERY vacuum point; Aut=PSL(2,7) order 168 is point-transitive) — so neither the e7 choice nor a multiplication convention manufactures the 4; the physical map stays the open obligation
+  *  theta23_experimental_reach — Item 7c: quantified forward reach of sin^2(theta23)=4/7 (1/2 is the EXACT midpoint of 3/7 and 4/7; separation = gap/sigma; the sigma needed for an n-sigma octant verdict) plus an HONEST current-data confrontation that includes the normal-ordering minimum disfavouring it; forecast diagnostic, no row promoted
+  *  prediction_defensibility — Item 7d: machine-checks the editorial claim 'theta23=4/7 is THE single sharpest' by classifying every frozen prediction along objective defensibility axes read off the registry's own strings (eps0-independent, no measured scale, exact rational, sharp binary) and PROVING theta23 is the unique top-tier entry; portfolio diagnostic, no row promoted
 
 plus the derivation-frontier experiments (the "can the algebra do more?" set):
 
@@ -99,6 +102,9 @@ import predict_neutrino_sum
 import neutrino_floor_resolution
 import forward_predictions
 import theta23_octant_prediction
+import theta23_fano_invariance
+import theta23_experimental_reach
+import prediction_defensibility
 import first_generation_audit
 import jordan_eigenvalue_generations
 import ko_dimension_chirality
@@ -241,6 +247,15 @@ ARTIFACTS = [
     ("theta23_octant_prediction",
      "Item 7: the single sharpest falsifiable claim -- sin^2(theta23)=4/7 (upper octant), the only eps0-independent exact mixing prediction; the Fano partition (4 avoiding > 3 through-vacuum) fixes the octant; DUNE/Hyper-K resolve it. Forward test, no row promoted.",
      theta23_octant_prediction.main),
+    ("theta23_fano_invariance",
+     "N5 hardening: PROVES sin^2(theta23)=4/7 is a Fano-plane INVARIANT -- the octonion triples are PG(2,2)=S(2,3,7), the (3,4) split holds at EVERY vacuum point, and Aut=PSL(2,7) (order 168) is point-transitive, so neither the e7 choice nor a multiplication convention manufactures the 4. Value-half only; the physical map stays open. Diagnostic, no row promoted.",
+     theta23_fano_invariance.main),
+    ("theta23_experimental_reach",
+     "Item 7c: forward-reach forecast for sin^2(theta23)=4/7 -- 1/2 is the EXACT midpoint of 3/7 and 4/7 (each 1/14 away), separation from maximal/mirror = gap/sigma, and the sigma needed for an n-sigma octant verdict; plus an HONEST confrontation with current global fits including the NO minimum that disfavours 4/7. Forecast diagnostic, no row promoted.",
+     theta23_experimental_reach.main),
+    ("prediction_defensibility",
+     "Item 7d: ranks all frozen predictions by objective defensibility axes read off the registry's own strings (eps0-independent, no measured scale, exact rational, sharp binary) and machine-checks that sin^2(theta23)=4/7 is the UNIQUE top-tier entry -- turning the prose 'single sharpest claim' into a registry-derived fact. Portfolio diagnostic, no row promoted.",
+     prediction_defensibility.main),
     ("jordan_eigenvalue_generations",
      "Lever A: spectral route to three (degree of the J3(O) cubic norm).",
      jordan_eigenvalue_generations.main),

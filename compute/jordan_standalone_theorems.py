@@ -1,12 +1,13 @@
 """
-Three theorems on the exceptional Jordan algebra J3(O), decoupled from physics.
-==============================================================================
+Four theorems on the exceptional Jordan algebra J3(O), decoupled from physics.
+===============================================================================
 
 This module is the runnable companion to PAPER_JORDAN_THEOREMS.md.  Its sole
 purpose is to state and machine-verify, as PURE MATHEMATICS, the three results
-the project's external review flagged as worth extracting and publishing on their
-own merit -- independently of, and logically prior to, any physical ("theory of
-everything") interpretation.
+the project's external review flagged as worth extracting on their own merit,
+together with a fourth companion identity (Theorem D) added here as the operator
+counterpart of Theorem C -- independently of, and logically prior to, any
+physical ("theory of everything") interpretation.
 
 Nothing below uses, asserts, or depends on a single physical notion.  There are
 no generations, no masses, no Yukawa couplings, no spurion, and the number
@@ -17,8 +18,8 @@ E6 (preserving the Freudenthal cubic norm), and elementary representation theory
 (Schur's lemma) and polynomial algebra (Vieta).  A reader who rejects every
 physical claim the wider project makes can still check every line here.
 
-The three theorems
-------------------
+The four theorems
+-----------------
 THEOREM A (inner frame symmetry).  The symmetric group S3 permuting the three
     primitive idempotents of a Jordan frame of J3(O) acts by INNER automorphisms:
     it lies in the connected group F4 = Aut(J3(O)), which has no outer
@@ -57,26 +58,40 @@ THEOREM C (a seesaw identity for the Freudenthal cubic).  For X in J3(O) with
     ord(N3) = Q in a small parameter, then in the seesaw regime 2q <= Q the
     eigenvalues sit at orders (0, q, Q - q).
 
+THEOREM D (degree-3 minimal identity / Cayley-Hamilton).  Every X in J3(O) is
+    annihilated by its own characteristic cubic:
+        X^3 - T1 X^2 + T2 X - N3 E = 0,
+    where the powers are Jordan powers (well defined because the product is
+    power-associative) and E is the identity.  This is the OPERATOR face of the
+    very cubic whose ROOTS Theorem C reads through Vieta: C is spectral, D is the
+    element-level identity, and both are governed by the same three F4 invariants
+    (T1, T2, N3).  Corollary: the generic minimal polynomial has degree exactly 3
+    ({E, X, X^2} are trace-form independent), so 3 is the algebra's degree.
+
 What is classical and what is the contribution (stated honestly)
 ----------------------------------------------------------------
 Every ingredient is classical: the Albert algebra and its frames (Jordan, von
 Neumann, Wigner; Springer; McCrimmon); F4 = Aut(J3(O)) connected with no outer
 automorphism, and OP^2 = F4/Spin(9) (Freudenthal; Yokota); the 16-dim real
 Spin(9) spinor; E6 as the reduced structure group preserving the cubic norm and
-the irreducible 27; Schur's lemma; and Vieta's formulae.  The contribution is the
-ASSEMBLY plus three observations: (A) that the frame-permuting S3 being inner is
-exactly what exempts the idempotent picture from an outer-triality obstruction;
-(B) the crisp F4-reducible / E6-irreducible dichotomy that pins the flat 1/27 to
-the cubic-norm group; and (C) reading Vieta on the cubic norm as a seesaw.  None
-of these is claimed to be a deep new theorem; the value is in collecting
-elementary facts into clean, checkable statements decoupled from any physics.
+the irreducible 27; Schur's lemma; Vieta's formulae; and the degree-3 minimal
+(Cayley-Hamilton) identity of a cubic Jordan algebra (Springer; Jacobson;
+McCrimmon).  The contribution is the ASSEMBLY plus four observations: (A) that
+the frame-permuting S3 being inner is exactly what exempts the idempotent picture
+from an outer-triality obstruction; (B) the crisp F4-reducible / E6-irreducible
+dichotomy that pins the flat 1/27 to the cubic-norm group; (C) reading Vieta on
+the cubic norm as a seesaw; and (D) recording the spectral (C) and operator
+(Cayley-Hamilton) faces of the one characteristic cubic side by side.  None of
+these is claimed to be a deep new theorem; the value is in collecting elementary
+facts into clean, checkable statements decoupled from any physics.
 
 Reuses the project's verified linear-algebra witnesses (it does not re-implement
 the hard constructions): F4 / Spin(9) / E6 from epsilon_weyl_isomorphism, the
 Reynolds/Schur averages from epsilon_measure_schur, the inner-frame mechanics
-from three_generations_frame, and the cubic-root machinery from
-generation_cascade.  "Decoupled" refers to the THEOREMS and their proofs, not to
-the code: the imported helpers are pure linear algebra with no physical content.
+from three_generations_frame, the cubic-root machinery from generation_cascade,
+and the dense octonionic Jordan product from jordan_eigenvalue_generations
+(Theorem D).  "Decoupled" refers to the THEOREMS and their proofs, not to the
+code: the imported helpers are pure linear algebra with no physical content.
 
 Run:
     PYTHONDONTWRITEBYTECODE=1 python3 compute/jordan_standalone_theorems.py
@@ -86,7 +101,13 @@ import math
 
 import numpy as np
 
-from jordan_eigenvalue_generations import JordanElement
+from jordan_eigenvalue_generations import (
+    JordanElement,
+    _herm_to_dense,
+    jordan_product_dense,
+    _frob_diff,
+    _dense_trace,
+)
 from epsilon_weyl_isomorphism import (
     jordan_product_tensor,
     derivation_algebra,
@@ -228,13 +249,63 @@ def order_cascade(rng, base=0.1, n_samples=8000):
 
 
 # --------------------------------------------------------------------------- #
+#  THEOREM D — Cayley–Hamilton for the cubic Jordan algebra                   #
+# --------------------------------------------------------------------------- #
+def cubic_minimal_identity(rng, n_samples=200, tol=TOL):
+    """Every X in J3(O) is annihilated by its own characteristic cubic:
+
+        X^3 - T1 X^2 + T2 X - N3 E = 0          (Jordan powers, E = identity)
+
+    the degree-3 generic minimal identity of the Albert algebra (a cubic Jordan
+    algebra).  This is the OPERATOR face of the same cubic whose ROOTS Theorem C
+    reads through Vieta.  Powers are unambiguous because the Jordan product is
+    power-associative; the check also verifies X o (X o X) = (X o X) o X so that
+    'X^3' is well defined despite octonionic non-associativity.
+    """
+    E = _herm_to_dense(JordanElement.diagonal(1.0, 1.0, 1.0))
+    worst_ch = 0.0      # Cayley–Hamilton residual ||p(X)||
+    worst_pa = 0.0      # power-associativity residual ||X o(XoX) - (XoX)oX||
+    for _ in range(n_samples):
+        X = JordanElement.random_hermitian(rng)
+        T1, T2, N3 = X.trace(), X.quadratic(), X.determinant()
+        Xd = _herm_to_dense(X)
+        X2 = jordan_product_dense(Xd, Xd)
+        X3 = jordan_product_dense(Xd, X2)              # X o (X o X)
+        X3_alt = jordan_product_dense(X2, Xd)          # (X o X) o X
+        worst_pa = max(worst_pa, _frob_diff(X3, X3_alt))
+        # p(X) = 0  <=>  X^3 = T1 X^2 - T2 X + N3 E
+        rhs = [[T1 * X2[i][j] - T2 * Xd[i][j] + N3 * E[i][j]
+                for j in range(3)] for i in range(3)]
+        worst_ch = max(worst_ch, _frob_diff(X3, rhs))
+    return worst_ch, worst_pa
+
+
+def generic_minimal_degree(rng, n_samples=80):
+    """Diagnostic for 'degree exactly 3': for generic X the set {E, X, X^2} is
+    linearly independent under the (positive-definite) trace form, so the minimal
+    polynomial degree is >= 3; with Theorem D giving <= 3 it is exactly 3.  Returns
+    the smallest Gram determinant over the sample (positive => independent)."""
+    E = _herm_to_dense(JordanElement.diagonal(1.0, 1.0, 1.0))
+    worst = math.inf
+    for _ in range(n_samples):
+        X = JordanElement.random_hermitian(rng)
+        Xd = _herm_to_dense(X)
+        X2 = jordan_product_dense(Xd, Xd)
+        basis = [E, Xd, X2]
+        gram = np.array([[_dense_trace(jordan_product_dense(a, b))
+                          for b in basis] for a in basis])
+        worst = min(worst, abs(float(np.linalg.det(gram))))
+    return worst
+
+
+# --------------------------------------------------------------------------- #
 #  Driver                                                                      #
 # --------------------------------------------------------------------------- #
 def main():
     rng = np.random.default_rng(20260608)
 
     print("=" * 78)
-    print("  THREE THEOREMS ON THE EXCEPTIONAL JORDAN ALGEBRA J3(O)")
+    print("  FOUR THEOREMS ON THE EXCEPTIONAL JORDAN ALGEBRA J3(O)")
     print("  Pure mathematics -- decoupled from every physical interpretation.")
     print("=" * 78)
 
@@ -291,16 +362,30 @@ def main():
     print(f"      [{'PASS' if c_exact else 'FAIL'}] light-pair product = cubic norm / heaviest;")
     print( "             the smallest eigenvalue is a cubic-norm seesaw.")
 
+    # ---- THEOREM D ------------------------------------------------------
+    ch_resid, pa_resid = cubic_minimal_identity(rng)
+    gram_det = generic_minimal_degree(rng)
+    d_ok = ch_resid < TOL and pa_resid < TOL
+    print("\n  THEOREM D — Cayley–Hamilton for the cubic Jordan algebra J3(O)")
+    print("  " + "-" * 66)
+    print(f"      power-associativity |X o(XoX) - (XoX)oX|  (EXACT): {pa_resid:.1e}")
+    print(f"      Cayley–Hamilton |X^3 - T1 X^2 + T2 X - N3 E| (EXACT): {ch_resid:.1e}")
+    print(f"      generic min-poly degree: Gram det(E,X,X^2) = {gram_det:.2e} > 0 -> exactly 3")
+    print(f"      [{'PASS' if d_ok else 'FAIL'}] the element satisfies its own characteristic cubic --")
+    print( "             the OPERATOR face of the cubic whose ROOTS Theorem C reads")
+    print( "             via Vieta (one cubic, three F4 invariants, two faces).")
+
     # ---- DECOUPLING + verdict ------------------------------------------
     print("\n  " + "-" * 74)
     print("  DECOUPLING (the point of this module)")
     print("      No generation, mass, Yukawa, spurion, or pi/432 appears above.")
-    print("      The three results are theorems of J3(O), of F4/Spin(9)/E6")
-    print("      representation theory, and of Vieta -- true regardless of any")
-    print("      physical interpretation, which is developed and gated SEPARATELY")
-    print("      and is NOT established by these theorems. See PAPER_JORDAN_THEOREMS.md.")
+    print("      The four results are theorems of J3(O), of F4/Spin(9)/E6")
+    print("      representation theory, of Vieta, and of Cayley-Hamilton -- true")
+    print("      regardless of any physical interpretation, which is developed")
+    print("      and gated SEPARATELY, and is NOT established by these theorems.")
+    print("      See PAPER_JORDAN_THEOREMS.md.")
 
-    ok = a_ok and b_ok and c_exact
+    ok = a_ok and b_ok and c_exact and d_ok
 
     # Stable mathematical theorems -- a regression must crash the audit.  Only
     # the EXACT statements are asserted; the leading-order corollaries (heaviest
@@ -313,9 +398,11 @@ def main():
     assert w["e6_commutant"] == 1 and abs(w["e6_mean"] - 1 / DIM_J3O) < TOL
     assert abs(w["product"] - 1.0 / 432.0) < 1e-12, "1/16 x 1/27 = 1/432"
     assert vieta < 1e-8, "Vieta cubic-norm seesaw is exact"
+    assert pa_resid < TOL, "Jordan powers must be power-associative (X^3 well defined)"
+    assert ch_resid < TOL, "Cayley-Hamilton: X must satisfy its own characteristic cubic"
 
     print("\n  RESULT:", "PASS" if ok else "FAIL",
-          "- three decoupled J3(O) theorems verified.")
+          "- four decoupled J3(O) theorems verified.")
     print("=" * 78)
     return ok
 

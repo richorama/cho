@@ -303,6 +303,97 @@ CONTRACTS = {
             "This forward test is allowed to promote a ledger row or move the Bayes factor.",
         ),
     ),
+    "theta23_fano_invariance": contract(
+        "theta23_fano_invariance",
+        ("N5",),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Harden the VALUE-half of the N5 bridge by PROVING that sin^2(theta23)=4/7 is a "
+        "Fano-plane invariant, not a cherry-pick: machine-checked finite geometry only. "
+        "This answers the referee question 'did you pick e7 / a multiplication convention "
+        "to manufacture the 4?' with NO. It does NOT establish the physical atmospheric-"
+        "angle map and must not be read as closing the prediction; the frozen registry "
+        "(Q2, Theta23_octant) stays authoritative. Promote no row and move no Bayes credit.",
+        assumptions=(
+            "The octonion imaginary-unit multiplication triples are the seven FANO_LINES of "
+            "spurion_bridge; the vacuum omega=(1+i e7)/2 conventionally singles out point e7.",
+        ),
+        open_bridges=(
+            "The PHYSICAL map 'atmospheric mixing probability = avoiding-lines/total-lines' is "
+            "the N5 bridge itself and stays an open CHO-action obligation; this module hardens "
+            "only the VALUE that map would deliver, not the map.",
+        ),
+        kill_conditions=(
+            "Presenting the combinatorial invariance as evidence that the physical theta23 map is derived or closed.",
+            "Claiming novelty for the classical facts (PG(2,2)=S(2,3,7), |PSL(2,7)|=168, point-transitivity) instead of the hardening assembly.",
+            "Letting the proof promote a ledger row or move the Bayes factor.",
+            "The proved (3,4) split, point-transitivity, or 4/7+3/7=1 complementarity silently drifting in the witness.",
+        ),
+    ),
+    "theta23_experimental_reach": contract(
+        "theta23_experimental_reach",
+        ("N5",),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Quantify the experimental reach around the Item 7 bet sin^2(theta23)=4/7 -- the "
+        "separation from maximal (1/2) and from the 3/7 mirror at a given precision, and the "
+        "sigma needed for an n-sigma octant verdict -- and confront it HONESTLY with current "
+        "global fits, including the normal-ordering minimum that DISFAVOURS it. The bet itself "
+        "is staked in theta23_octant_prediction and the frozen registry (Q2, Theta23_octant) "
+        "stays authoritative; this is the forecast around it, not new evidence. Do NOT quote "
+        "the reach as a result and do NOT let it move the Bayes factor.",
+        assumptions=(
+            "The exact spine (3/7, 1/2, 4/7 with 1/2 the exact midpoint; gaps 1/14 and 1/7) "
+            "follows from the N5 Fano counts; 4/7 is exact only GIVEN that bridge.",
+            "Projected precisions and current global-fit anchors are representative "
+            "NuFIT / DUNE / Hyper-K-class illustrative numbers; the chi^2 profiles are "
+            "non-Gaussian, so the Gaussian pulls/probabilities are rough indicators -- printed, "
+            "never asserted.",
+        ),
+        open_bridges=(
+            "The Fano-count -> physical atmospheric-angle map is the N5 bridge itself and stays "
+            "the open CHO-action obligation; this forecast does not derive it.",
+            "The octant is currently experimentally UNRESOLVED and ordering-dependent; the "
+            "forecast awaits DUNE / Hyper-Kamiokande.",
+        ),
+        kill_conditions=(
+            "Presenting the forecast/reach numbers as a measurement or as evidence the prediction is confirmed.",
+            "Asserting the illustrative global-fit anchors or projected precisions as data instead of printing them as context.",
+            "The exact spine (the 1/14 and 1/7 gaps, the 1/2 midpoint, mirror = 2 x maximal, the gap/sigma reach) silently drifting in the witness.",
+            "Letting this diagnostic promote a ledger row or move the Bayes factor.",
+        ),
+    ),
+    "prediction_defensibility": contract(
+        "prediction_defensibility",
+        ("N5", "STAT1"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Rank the frozen predictions by objective defensibility and machine-check that "
+        "sin^2(theta23)=4/7 is the UNIQUE top-tier entry (exact rational AND independent of "
+        "the open pi/432 seam), turning the program's prose 'single sharpest claim' into a "
+        "registry-derived fact and a drift tripwire. This ranks DEFENSIBILITY only; it makes "
+        "no prediction more true, derives no physical bridge, and the frozen registry stays "
+        "authoritative. Do NOT read the crown as confirmation and do NOT move the Bayes factor.",
+        assumptions=(
+            "The defensibility axes (eps0-independence, absence of a measured scale, bare-ratio "
+            "exactness, discrete-alternative kill condition) are read off the registry's own "
+            "frozen formula/inputs/kill strings, not hand-set per prediction.",
+            "The integer score weights (3 exact / 2 eps0-independent / 1 binary) only fix the "
+            "DISPLAY order; the headline verdict is proven WEIGHT-INDEPENDENT -- theta23 is the "
+            "unique Pareto-maximal entry (best-or-equal on every axis, the only exact rational), "
+            "so it is sharpest under any non-negative weighting.",
+        ),
+        open_bridges=(
+            "Defensibility is not truth: the N5 Fano-count -> physical atmospheric-angle map "
+            "stays the open CHO-action obligation; crowning theta23 does not derive it.",
+        ),
+        kill_conditions=(
+            "Reading the top-tier crown as evidence the prediction is confirmed or the bridge closed.",
+            "Quoting the score weights as if they were derived rather than an explicit editorial ordering.",
+            "The classification drifting from the registry strings (e.g. scoring an eps0-dependent or scale-bearing entry as an exact rational).",
+            "Letting this diagnostic promote a ledger row or move the Bayes factor.",
+        ),
+    ),
     "jordan_eigenvalue_generations": contract(
         "jordan_eigenvalue_generations",
         ("G1",),
@@ -1267,7 +1358,7 @@ CONTRACTS = {
         ("G1", "F0", "A3"),
         STATUS_DIAGNOSTIC,
         VERDICT_DIAGNOSTIC,
-        "Publish the three results as decoupled mathematics about J3(O); do not "
+        "Publish the four results as decoupled mathematics about J3(O); do not "
         "attach the physical (generation/measure/mass) interpretation, which is "
         "developed and gated separately and is not established by these theorems.",
         open_bridges=(
@@ -1276,7 +1367,7 @@ CONTRACTS = {
         ),
         kill_conditions=(
             "Presenting the decoupled theorems as evidence that the physical interpretation is derived.",
-            "Claiming novelty for the classical inputs (Albert algebra, F4 connectedness, Schur, Freudenthal cubic) instead of the assembly.",
+            "Claiming novelty for the classical inputs (Albert algebra, F4 connectedness, Schur, Freudenthal cubic, the degree-3 Cayley-Hamilton identity) instead of the assembly.",
             "Promoting F0/G1/A3 or moving Bayes credit on the basis of this consolidation.",
         ),
     ),
