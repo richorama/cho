@@ -72,6 +72,7 @@ The broader sweep tries parked radical routes without promoting them:
 - `wz_flux_normalization_gate.py`
 - `wz_level_integrality_gate.py`
 - `uniqueness_gate.py`
+- `multi_factor_carrier_gate.py`
 - `peirce_gap_derivation.py`
 - `entropy_principle_derivation.py`
 - `frame_lift_f4_breaking.py`
@@ -122,6 +123,16 @@ derivation. Supporting gates now reduce the assumptions:
   irreducible-module dimensions of the CHO structure-group chain, so the
   Schur-flat carrier `(16,27)` is unique -- conditional on the two-factor ansatz,
   E6-over-F4 normalization of the `27`, and primitive WZ level.
+- `multi_factor_carrier_gate.py`: attacks the *two-factor ansatz* the uniqueness
+  gate left open. Enumerating every irreducible-dimension decomposition of 432
+  shows two factors are NOT forced by irreducibility alone (five carriers exist:
+  one `k=2`, two `k=3`, two `k=4`), so knob (1) is real. But the exceptional
+  Jordan factor `27=J3(O)` appears in exactly ONE of the five (the carrier
+  `16*27`); the dim-27 look-alike `3*3*3` is SU(3)-reducible (`10+8+8+1`) and so
+  cannot carry the flat `1/27` Schur weight. Hence requiring the `27` to enter as
+  the E6-irreducible `J3(O)` already forces the two-factor shape: knob (1)
+  collapses into knob (2), and the F4 alternative `26` cannot even divide 432.
+  The three named residual knobs reduce to two. Diagnostic; moves no credit.
 - `peirce_gap_derivation.py`: rank-3 primitive Peirce grading gives `N=(0,1,2)`,
   and endpoint flux gives `Delta_Phi=-1/2 log(Phi)`.
 - `entropy_principle_derivation.py`: relative entropy is the canonical Gibbs

@@ -129,6 +129,25 @@ ansatz, E6-vs-F4 normalization of the `27` (under F4 it splits `1 + 26`, weight
 consistent `(carrier, group, level)` that also gives `pi/432` would make it a
 genuine free knob.
 
+`multi_factor_carrier_gate.py` attacks the first of those three knobs -- the
+two-factor ansatz. It enumerates every multiplicative decomposition of 432 into
+irreducible-module dimensions and finds FIVE (one `k=2`: `16*27`; two `k=3`:
+`3*9*16`, `6*8*9`; two `k=4`: `3*3*3*16`, `3*3*6*8`). So two factors are NOT
+forced by irreducibility alone, and knob (1) is real. But of the five, the
+exceptional Jordan factor `27=J3(O)` appears in exactly ONE -- the carrier
+`16*27`; every other decomposition avoids the `27` or shatters it into `3*3*3`,
+whose tensor cube is SU(3)-reducible (`10+8+8+1`) and therefore cannot carry the
+flat `1/27` Schur weight that fixes the `1/432`. Hence requiring the `27` to
+enter as the E6-irreducible `J3(O)` (knob 2) ALREADY forces the two-factor shape
+(knob 1): the two knobs collapse into one structural requirement about how the
+`27` enters. A supporting exact fact points the same way -- the F4 alternative
+dimension `26` does not divide 432 at all, so no multiplicative carrier can use
+it. Net effect: the three named residual knobs reduce to two independent ones
+(how the `27` enters; the WZ level). Diagnostic only; it sharpens the rigidity
+and moves no Bayes credit. KILL: any inequivalent `k>=3` carrier built from
+irreducible factors that ALSO contained the irreducible `27` would keep knob (1)
+independent and break the collapse.
+
 `unified_boundary_wz_jordan_action.py` now provides that single effective action
 candidate at the sandbox level. It is F4-covariant because the ordered boundary
 pair and its completed Jordan frame are transported by `F4`; it breaks `F4` only
