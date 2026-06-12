@@ -770,6 +770,66 @@ CONTRACTS = {
         "Claim Fano counts and the lepton sphere-measure identification; keep the operator reduction open.",
         open_bridges=("Derive the lepton Yukawa trace reduction and PMNS perturbation dynamically.",),
     ),
+    "epsilon_free_mixing_web": contract(
+        "epsilon_free_mixing_web",
+        ("C1", "N2", "N3"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "State only that dividing the measured mixing relations cancels pi/432, leaving "
+        "parameter-free exact rationals (sin^2 th13=(3/7)|V_us|^2; the sum rule) that hold "
+        "at <~1.2 sigma. These are a synthesis of the existing C1/N2/N3 count bridges, not "
+        "new inputs; do not present them as derived from a CHO action.",
+    ),
+    "epsilon_free_mass_mixing_bridge": contract(
+        "epsilon_free_mass_mixing_bridge",
+        ("M3", "C1", "N2", "N3"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "State only that the mass counts (1,3,8) and mixing counts (3,4,7) share eps0^2, "
+        "forcing m_s/m_b=sin^2 th13 (shared 3, ~0.5 sigma). Report the |V_us|^2-anchored "
+        "tension honestly; do not bury it. Tests the counting GIVEN the open count "
+        "assignments, not a derivation.",
+    ),
+    "epsilon_knob_consistency": contract(
+        "epsilon_knob_consistency",
+        ("C1", "C2", "N2", "N3", "M3"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "State only the back-solved-eps0 clustering (amplitudes ~0.8% below, probabilities "
+        "~0.8% above sqrt(pi/432)) as a printed observation. Use the fractional deviation, "
+        "not the precision-dominated sigma-pull, as the framework metric.",
+    ),
+    "epsilon_power_split_test": contract(
+        "epsilon_power_split_test",
+        ("C1", "N3"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Claim only the proved exclusion theorem (the back-solved-eps0 spread is "
+        "reference-invariant, so no value of pi/432 creates or removes the split) and the "
+        "exact permutation p=1/21. State the split as ~2 sigma suggestive, not decisive; "
+        "flag the b~-2a / geometric-mean coincidence as not asserted.",
+    ),
+    "epsilon_bridge_rule_split_test": contract(
+        "epsilon_bridge_rule_split_test",
+        ("C1", "N3"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Claim only that the sqrt(n)-vs-n rule is self-consistent (a single eps0 gives no "
+        "split) and that the mean-vs-RMS alternative is ~7x too big and n-dependent, so the "
+        "bridge-rule cause is eliminated and the RMS convention is validated. Do not claim "
+        "the surviving cause is settled.",
+    ),
+    "epsilon_rg_running_estimate": contract(
+        "epsilon_rg_running_estimate",
+        ("M3", "C1", "N3"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "Flag this as a PHYSICS ESTIMATE, not exact arithmetic: assert only the top-Yukawa "
+        "rate kappa~0.0056/e-fold (size) and the same-sector mass-ratio RG-invariance "
+        "(structure, per mass_ratio_rg_audit). State the verdict as RG-disfavoured-as-"
+        "dominant-cause and the O(eps0^2) bridge term as the size-matched lead; a full "
+        "multi-scale RGE run is the only decider.",
+    ),
     "lepton_yukawa_action": contract(
         "lepton_yukawa_action",
         ("M11", "M3"),
