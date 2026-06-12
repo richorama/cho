@@ -830,6 +830,18 @@ CONTRACTS = {
         "dominant-cause and the O(eps0^2) bridge term as the size-matched lead; a full "
         "multi-scale RGE run is the only decider.",
     ),
+    "epsilon_higher_order_split_test": contract(
+        "epsilon_higher_order_split_test",
+        ("C1", "N3", "M3"),
+        STATUS_DIAGNOSTIC,
+        VERDICT_DIAGNOSTIC,
+        "State the NEGATIVE result honestly: the sin-vs-angle O(eps0^2) correction is the "
+        "right size but does NOT tighten the back-solved-eps0 split (it loosens the "
+        "mixing-only spread and cannot apply to the mass ratios), so the ~2 sigma split "
+        "deflates toward noise plus a possible mass-bridge imprecision. Do not present the "
+        "correction as a successful explanation or a confirmed test; assert only the exact "
+        "trigonometry, print all data.",
+    ),
     "lepton_yukawa_action": contract(
         "lepton_yukawa_action",
         ("M11", "M3"),

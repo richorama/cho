@@ -50,6 +50,7 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
   *  epsilon_power_split_test     — significance + exclusion theorem: the spread is reference-invariant (wrong-pi/432 excluded); perfect split p=1/21 (~2 sigma); b~-2a / geometric-mean hint
   *  epsilon_bridge_rule_split_test — sqrt(n)-vs-n rule is self-consistent (single eps0 -> no split); the mean-vs-RMS alternative is ~7x too big -> bridge-rule cause eliminated, RMS validated
   *  epsilon_rg_running_estimate  — physics ESTIMATE: RG is the right SIZE (~1%/decade) but wrong STRUCTURE (split lives in RG-invariant observables) -> disfavoured; O(eps0^2) bridge term is the lead
+  *  epsilon_higher_order_split_test — tests that O(eps0^2) lead and CLOSES it (negative): the sin-vs-angle correction is the right size but does NOT tighten the split (loosens mixing-only 1.73->2.21%) and cannot touch the mass ratios -> the ~2 sigma split deflates toward noise + mass-bridge imprecision
  21b.lepton_yukawa_action        — Item 2: ONE action -> ONE charged-lepton Yukawa, end-to-end
  21c.sector_sphere_dichotomy     — Item 2 seam: pi<=>continuous (lepton) vs rational<=>discrete (quark) shapes
  22. epsilon_vcb_halfangle        — C2: |V_cb| coefficient 1/2 = SU(2) spinor half-angle
@@ -151,6 +152,7 @@ import epsilon_knob_consistency
 import epsilon_power_split_test
 import epsilon_bridge_rule_split_test
 import epsilon_rg_running_estimate
+import epsilon_higher_order_split_test
 import lepton_yukawa_action
 import sector_sphere_dichotomy
 import epsilon_vcb_halfangle
@@ -381,6 +383,9 @@ ARTIFACTS = [
     ("epsilon_rg_running_estimate",
      "Could RG running cause the split (a physics ESTIMATE, flagged as such): the top-Yukawa rate kappa=y_t^2/(16 pi^2)~0.0056/e-fold makes ~1% the right SIZE, but the split lives mostly in RG-invariant observables (the three same-sector mass ratios + Cabibbo), so RG is disfavoured as the dominant cause; the size-matched O(eps0^2)=0.73% bridge correction is the better lead. Asserts only the arithmetic + RG-invariance structure; verdict printed. Diagnostic, no row promoted.",
      epsilon_rg_running_estimate.main),
+    ("epsilon_higher_order_split_test",
+     "Tests the O(eps0^2) bridge-correction lead and CLOSES it with a NEGATIVE result: the natural sin-vs-angle / half-angle refinement (the framework's own |V_cb| via tan(pi/8)) is the right SIZE (~0.1-0.9%) but the WRONG SHAPE -- it raises amplitudes and probabilities together so it does NOT tighten the back-solved-eps0 spread (mixing-only 1.73% -> 2.21%), and it cannot apply to the mass ratios (not sines) that carry much of the split. With wrong-pi/432, the sqrt(n)-vs-n rule, and RG already excluded, the ~2 sigma split deflates toward noise + a possible ~1% mass-bridge imprecision. Asserts only the exact trig; data printed. Diagnostic, no row promoted.",
+     epsilon_higher_order_split_test.main),
     ("lepton_yukawa_action",
      "Item 2: assembles the SINGLE charged-lepton Yukawa from ONE action's Bloch sphere -- the same S^2 whose hemisphere solid angle gives the Berry pi supplies the 1/(4pi) first-generation shape factor as its total-solid-angle (Schur invariant-average) normalization; the 8 is the derived Fock trace and the cascade square is the rank-one bottleneck. Upgrades 1/(4pi) from identified to forced; tau:mu:e at mu -2.2%, e -6.3% (known M11 outlier). OPEN: sphere-vs-discrete sector resolution, the trilinear from CHO EoM.",
      lepton_yukawa_action.main),
