@@ -44,6 +44,12 @@ plus the derivation-frontier experiments (the "can the algebra do more?" set):
  19. epsilon_free_action          — eps0 R2: free action forced by two-level symmetry
  20. epsilon_channel_coefficients — T1.3: mass-sector ranks (1,3,8) as Fock traces
  21. epsilon_mixing_coefficients  — M11: mixing counts (7,3,4,4/7) as Fano lines + 1/(4pi)
+  *  epsilon_free_mixing_web      — eps0-free web: dividing the mixing relations cancels pi/432 -> parameter-free rationals (sin^2 th13=(3/7)|V_us|^2; sum rule); all <~1.2 sigma
+  *  epsilon_free_mass_mixing_bridge — eps0-free mass<->mixing: counts (1,3,8)&(3,4,7) share eps0^2 -> m_s/m_b=sin^2 th13 exactly (~0.5 sigma); |V_us|^2-anchored rows in tension
+  *  epsilon_knob_consistency     — is the one knob ONE knob: back-solve eps0 from every relation -> amplitudes ~0.8% low, probabilities ~0.8% high (power-correlated ~2% spread)
+  *  epsilon_power_split_test     — significance + exclusion theorem: the spread is reference-invariant (wrong-pi/432 excluded); perfect split p=1/21 (~2 sigma); b~-2a / geometric-mean hint
+  *  epsilon_bridge_rule_split_test — sqrt(n)-vs-n rule is self-consistent (single eps0 -> no split); the mean-vs-RMS alternative is ~7x too big -> bridge-rule cause eliminated, RMS validated
+  *  epsilon_rg_running_estimate  — physics ESTIMATE: RG is the right SIZE (~1%/decade) but wrong STRUCTURE (split lives in RG-invariant observables) -> disfavoured; O(eps0^2) bridge term is the lead
  21b.lepton_yukawa_action        — Item 2: ONE action -> ONE charged-lepton Yukawa, end-to-end
  21c.sector_sphere_dichotomy     — Item 2 seam: pi<=>continuous (lepton) vs rational<=>discrete (quark) shapes
  22. epsilon_vcb_halfangle        — C2: |V_cb| coefficient 1/2 = SU(2) spinor half-angle
@@ -139,6 +145,12 @@ import epsilon_rank_one_kernel
 import epsilon_free_action
 import epsilon_channel_coefficients
 import epsilon_mixing_coefficients
+import epsilon_free_mixing_web
+import epsilon_free_mass_mixing_bridge
+import epsilon_knob_consistency
+import epsilon_power_split_test
+import epsilon_bridge_rule_split_test
+import epsilon_rg_running_estimate
 import lepton_yukawa_action
 import sector_sphere_dichotomy
 import epsilon_vcb_halfangle
@@ -351,6 +363,24 @@ ARTIFACTS = [
     ("epsilon_mixing_coefficients",
      "M11: mixing multiplicities (7,3,4,4/7) as Fano-line counts; lepton 1/(4pi) as the sphere measure.",
      epsilon_mixing_coefficients.main),
+    ("epsilon_free_mixing_web",
+     "eps0-free mixing web: dividing the measured mixing relations (|V_us|^2=7eps0^2, sin^2 th13=3eps0^2, dm21/dm31=4eps0^2) cancels pi/432, leaving parameter-free exact rationals -- sin^2 th13=(3/7)|V_us|^2 (the 3/7 twin of the 4/7 octant bet) and the sum rule sin^2 th13+dm21/dm31=|V_us|^2; all hold <~1.2 sigma. Asserts only the exact arithmetic + knob-cancellation; data printed. Diagnostic, no row promoted.",
+     epsilon_free_mixing_web.main),
+    ("epsilon_free_mass_mixing_bridge",
+     "eps0-free mass<->mixing bridge: the mass counts (1,3,8) and mixing counts (3,4,7) share eps0^2, forcing m_s/m_b=sin^2 th13 exactly (shared 3; ~0.5 sigma) and m_c/m_t=(1/3)sin^2 th13 (~0.04 sigma). Lepton-anchored identities <~1.4 sigma; |V_us|^2-anchored ones in tension, pinpointing |V_us|=sqrt7 eps0 as the weak link. Asserts only the exact arithmetic; data printed. Diagnostic, no row promoted.",
+     epsilon_free_mass_mixing_bridge.main),
+    ("epsilon_knob_consistency",
+     "Is the one knob ONE knob: back-solves eps0 from every count relation; the two amplitudes (power 1) sit ~0.8% below sqrt(pi/432) and the five probabilities (power 2) ~0.8% above -- a power-correlated ~2% spread, not a single bad count. Asserts only the exact inversion + counts; the clustering is printed (sigma-pulls are precision-dominated). Diagnostic, no row promoted.",
+     epsilon_knob_consistency.main),
+    ("epsilon_power_split_test",
+     "Power-split significance + exclusion theorem: PROVES the back-solved-eps0 spread is reference-invariant, so no value of pi/432 can create or remove the split (the 'wrong constant' reading is excluded); the perfect amplitude/probability separation has exact permutation p=1/21 (~2 sigma); a printed b~-2a / geometric-mean hint. Diagnostic, no row promoted.",
+     epsilon_power_split_test.main),
+    ("epsilon_bridge_rule_split_test",
+     "Can the sqrt(n)-vs-n bridge rule make the split: PROVES the rule is self-consistent (a single eps0 -> no split) and that the one concrete alternative (mean resultant vs RMS: ratios 1, 2sqrt2/pi, sqrt(pi/4)) is ~7x too big and n-dependent -- eliminating the bridge-rule cause AND validating the framework's RMS convention. Diagnostic, no row promoted.",
+     epsilon_bridge_rule_split_test.main),
+    ("epsilon_rg_running_estimate",
+     "Could RG running cause the split (a physics ESTIMATE, flagged as such): the top-Yukawa rate kappa=y_t^2/(16 pi^2)~0.0056/e-fold makes ~1% the right SIZE, but the split lives mostly in RG-invariant observables (the three same-sector mass ratios + Cabibbo), so RG is disfavoured as the dominant cause; the size-matched O(eps0^2)=0.73% bridge correction is the better lead. Asserts only the arithmetic + RG-invariance structure; verdict printed. Diagnostic, no row promoted.",
+     epsilon_rg_running_estimate.main),
     ("lepton_yukawa_action",
      "Item 2: assembles the SINGLE charged-lepton Yukawa from ONE action's Bloch sphere -- the same S^2 whose hemisphere solid angle gives the Berry pi supplies the 1/(4pi) first-generation shape factor as its total-solid-angle (Schur invariant-average) normalization; the 8 is the derived Fock trace and the cascade square is the rank-one bottleneck. Upgrades 1/(4pi) from identified to forced; tau:mu:e at mu -2.2%, e -6.3% (known M11 outlier). OPEN: sphere-vs-discrete sector resolution, the trilinear from CHO EoM.",
      lepton_yukawa_action.main),
