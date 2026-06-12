@@ -2,11 +2,11 @@
 
 A few-input algebraic framework for the Standard Model, built from the tensor product of the three largest normed division algebras.
 
-> **Status (2026-06-11): parked.** [STATUS.md](STATUS.md) is the canonical
+> **Status (2026-06-12): closed.** [STATUS.md](STATUS.md) is the canonical
 > current-state snapshot — the PROVED-vs-NOT scorecard, the one live external
 > lever (`sin^2(theta23) = 4/7`), and a "how to resume" section.
 
-> **Scope (updated 2026-06-11).** This project is framed as *an algebraic
+> **Scope (updated 2026-06-12).** This project is framed as *an algebraic
 > framework for Standard Model parameters from division algebras* — **not** a
 > completed Theory of Everything. Phase 5 explicitly keeps gravity out of scope:
 > [foundations/11_gravity_gate.md](foundations/11_gravity_gate.md) and
@@ -51,7 +51,7 @@ audits rather than patched forward from stale drafts.
 
 ## Audit trail
 
-- [STATUS.md](STATUS.md) — parked-project status snapshot: the PROVED-vs-NOT scorecard, the Bayes-ladder bottom line, the one live external lever, and how to resume
+- [STATUS.md](STATUS.md) — closed-project status snapshot: the PROVED-vs-NOT scorecard, the Bayes-ladder bottom line, the one live external lever, and how to resume
 - [DERIVATION_LEDGER.md](DERIVATION_LEDGER.md) — canonical status ledger for theorem-level claims, bridge assumptions, open derivations, and ansaetze
 - [PUBLIC_CLAIMS.md](PUBLIC_CLAIMS.md) — public-facing claim table: what can be said today, what remains conditional, and what must not be claimed yet
 - [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md) — caveats on postdictions, statistical dependence, continuum/RG gaps, dimensional counting, and null tests

@@ -1,9 +1,9 @@
-# STATUS — parked
+# STATUS — closed
 
-Parked: 2026-06-11 · branch merged to `master` · HEAD `2ae2d8d` lineage
+Closed: 2026-06-12 · `master` · HEAD `2f6ff36` · 157 commits (2026-06-03 → 2026-06-12)
 
 This is the single "where it stands" snapshot for the **C⊗H⊗O** framework, written
-to park the project cleanly. It is a PROVED-vs-NOT scorecard, not a pitch. If any
+to close the project cleanly. It is a PROVED-vs-NOT scorecard, not a pitch. If any
 public wording is stronger than this file, weaken the wording — do not strengthen
 this file. Canonical detail lives in [DERIVATION_LEDGER.md](DERIVATION_LEDGER.md),
 [PUBLIC_CLAIMS.md](PUBLIC_CLAIMS.md), and [METHODOLOGY_LIMITS.md](METHODOLOGY_LIMITS.md).
@@ -99,9 +99,11 @@ bet is on an unmeasured quantity:
   lower-octant resolution (`sin^2 < 1/2`, the `3/7` side). **Reach:** DUNE,
   Hyper-Kamiokande.
 
-## Last research pass — the "different integer"
+## Last research passes
 
-The final swing turned the one remaining hard, `pi`-carrying, still-*chosen*
+### The "different integer"
+
+A late pass turned the one remaining hard, `pi`-carrying, still-*chosen*
 constant that had never been triangulated like `pi/432` was: the Higgs quartic
 `lambda = pi/24`. See [compute/higgs_quartic_geometry.py](compute/higgs_quartic_geometry.py).
 
@@ -120,14 +122,42 @@ Conclusion: the stone is turned. It yields one structural simplification and
 confirms the wall is general (it is not specific to `432`), which is itself useful
 evidence about *where* the program is actually stuck.
 
+### Structural line + predictions web (final pass, 2026-06-12)
+
+The last working session ran two arcs to their natural ends; **both are
+diagnostic and neither moved the scoreboard** (still `ln B = −3.2`).
+
+- **The `pi/432` structural line** (eight exact, quarantined gates in
+  [experiments/pi432_action_search/](experiments/pi432_action_search/)): the
+  `F4 → Spin(9)` vacuum is built explicitly (16 Goldstones = one generation,
+  `432 = 16 × 27` from the breaking); the numerator `pi` is an exact geometric
+  half-turn (`(1+i)^4 = −4 → pi`, Chern number `1`); the `1/16` is Schur-forced
+  and the `1/27` needs one extra democracy/traciality principle; that democracy
+  and the seed Gibbs cascade collapse to **one** max-entropy (spectral-action)
+  principle; and central simplicity of `J3(O)` proves the chiral doubling is
+  **forced**, with `pi` shown to be a topological index (not a finite spectral
+  moment), so a finite-⊗-continuous product triple is required. Every gate
+  converges on the **same one missing object** — a derived `F4`-breaking action —
+  so the internal structural line has converged, not closed.
+- **The `eps0`-free predictions web** (six `compute/` diagnostics,
+  `epsilon_free_mixing_web` … `epsilon_higher_order_split_test`): the one-knob
+  `eps0^2 = pi/432` hypothesis holds to `~1–2%`, and its single `~2σ` structured
+  residual (amplitudes `~0.8%` low, probabilities `~0.8%` high) is provably **not**
+  a wrong `pi/432` (exclusion theorem), **not** the `√n`-vs-`n` bridge rule,
+  **not** dominantly RG running, and **not** a single `O(eps0^2)` geometric
+  correction — so it deflates toward noise. The web also exposes parameter-free,
+  `pi/432`-independent cross-sector relations (`sin^2 θ13 = (3/7)|V_us|^2`, the
+  completeness sum rule, `m_s/m_b = sin^2 θ13`) that hold at `~1σ` today.
+
 ## How to resume
 
-A broader multi-track resume plan now exists: [NEXT_PHASE_PLAN.md](NEXT_PHASE_PLAN.md).
-A first resume pass (2026-06-11) executed its diagnostic pieces — a `pi/432`
-carrier-uniqueness gate (Track 2) and the `theta23` operator-hardening plus a
-hash-locked data tracker (Track 3). **None moved the scoreboard** (still
-`ln B = −3.2`); they sharpen seams and tighten discipline, nothing more. The verdict
-still hinges on the one item below.
+A broader multi-track resume plan exists: [NEXT_PHASE_PLAN.md](NEXT_PHASE_PLAN.md).
+Resume passes through 2026-06-12 executed its diagnostic pieces — a `pi/432`
+carrier-uniqueness gate (Track 2), the `theta23` operator-hardening plus a
+hash-locked data tracker (Track 3), the eight-gate structural line, and the
+`eps0`-free predictions web. **None moved the scoreboard** (still `ln B = −3.2`);
+they sharpen seams and tighten discipline, nothing more. The verdict still hinges
+on the one item below.
 
 1. The only move that flips the verdict is the one named in
    [compute/f0_sigma_model_closeout.py](compute/f0_sigma_model_closeout.py) and
