@@ -330,6 +330,33 @@ principle by CHO dynamics, shared with criterion (1). Diagnostic only; moves no
 Bayes credit. KILL: had `Delta_9`'s commutant not been 1, or `J3(O)`'s commutant
 been 1, the clean "16 = Schur, 27 = democracy" split would be false.
 
+`free_energy_unification_gate.py` collapses the two open "principle" postulates
+those gates left -- the flux gate's *democracy* (why the uniform/tracial weight?)
+and the seed gate's *Gibbs cascade* (why the max-entropy spectrum?) -- into ONE.
+Both are members of a single free-energy functional
+`F_beta(rho) = Tr(rho log rho) + beta Tr(rho N)` minimised over states, where `N`
+is the genuine `J3(O)` Peirce-grade element (imported from the sibling, diagonal
+`(0,1,2)`). The `beta = 0` (infinite-temperature, no grade constraint) member is
+the uniform state = the democratic / tracial weight `1/n` of the flux gate; the
+`beta = Delta_Phi = -1/2 log Phi` member is the seed cascade `(1, sqrt Phi, Phi)`,
+verified exactly at the rational instance `Phi = 1/4 -> (4/7, 2/7, 1/7)` with
+exact stationarity `rho_i (sqrt Phi)^{-grade_i} = const`. The Gibbs state is the
+UNIQUE minimiser by the exact Gibbs' inequality
+`F_beta(rho) - F_beta(rho*) = D(rho || rho*) >= 0` (checked on rational
+competitors). The democratic member is moreover singled out intrinsically as the
+unique central state (`[rho, x] = 0` for all `x`, verified exactly against the
+off-diagonal generators of `M_3`) -- equivalently the unique state with trivial
+modular flow, since a tracial state has `rho ~ I`; the cascade is the genuine KMS
+state of the grade modular flow. So the residual freedom in criteria (3) and (4)
+is ONE principle (max entropy at a prescribed mean grade = the grade KMS state),
+not two, sharpening what criterion (1)'s action must supply. The gate is careful
+NOT to conflate this with the flux gate's `1/16`, which is forced separately by
+`Spin(9)` irreducibility (Schur). Diagnostic only; moves no Bayes credit. KILL:
+had the `beta = 0` minimiser not been the democratic uniform state, or the
+`beta = Delta_Phi` minimiser not been the seed cascade, or the democratic state
+not been the unique central (trivial-modular-flow) one, the unification would be
+false.
+
 ## Graduation Rule
 
 A track may affect core code only after it supplies all of the following:

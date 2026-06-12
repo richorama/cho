@@ -82,6 +82,7 @@ The broader sweep tries parked radical routes without promoting them:
 - `f4_breaking_vacuum_gate.py`
 - `berry_halfturn_pi_gate.py`
 - `flux_normalization_uniqueness_gate.py`
+- `free_energy_unification_gate.py`
 - `unified_boundary_wz_jordan_action.py`
 - `boundary_variation_gate.py`
 - `boundary_metric_origin_gate.py`
@@ -231,6 +232,23 @@ derivation. Supporting gates now reduce the assumptions:
   `Tr/27` is singled out only as the unique tracial one. So `pi/432` has no free
   continuous parameter once the democracy (traciality / maximal-entropy) principle
   is adopted; what stays open is that CHO dynamics must SELECT that one principle.
+- `free_energy_unification_gate.py`: shows the residual that the previous two
+  gates left -- the flux gate's *democracy* and the seed gate's *Gibbs cascade* --
+  is a SINGLE principle. Both are members of one free-energy functional
+  `F_beta(rho) = Tr(rho log rho) + beta Tr(rho N)` minimised over states: the
+  `beta = 0` member is the uniform/democratic weight `1/n` (the flux gate's
+  `1/27`), and the `beta = Delta_Phi = -1/2 log Phi` member with the genuine
+  `J3(O)` grade `N = (0,1,2)` is the seed cascade `(1, sqrt Phi, Phi)` -- verified
+  exactly at the rational instance `Phi = 1/4 -> (4/7, 2/7, 1/7)`, with the Gibbs
+  state pinned as the unique minimiser by the exact identity
+  `F_beta(rho) - F_beta(rho*) = D(rho || rho*) >= 0`. The democratic member is
+  singled out intrinsically as the unique central state (`[rho, x] = 0`), i.e. the
+  one with trivial modular flow, while the cascade is the genuine KMS state of the
+  grade flow. So the two open "why this normalisation / why this spectrum"
+  postulates collapse to one max-entropy/KMS principle. (It deliberately does NOT
+  fold in the flux gate's `1/16`, which is Schur/irreducibility -- a separate
+  symmetry input.) What stays open is that CHO dynamics must SELECT that one
+  principle (criterion (1)).
 
 The remaining theorem is to derive all of these gates from one CHO/Jordan/WZ
 action rather than postulating them separately.
