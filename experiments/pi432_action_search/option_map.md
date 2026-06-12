@@ -357,6 +357,36 @@ had the `beta = 0` minimiser not been the democratic uniform state, or the
 not been the unique central (trivial-modular-flow) one, the unification would be
 false.
 
+`spectral_action_selection_gate.py` names the principle behind the free-energy
+unification and shows it is the SPECTRAL ACTION PRINCIPLE -- the carrier action
+depends only on the spectrum of a self-adjoint operator (unitary invariance) and
+is extensive over orthogonal sectors. (i) The space of unitarily-invariant linear
+functionals on `M_n` is exactly 1-dimensional `= span Tr` (verified `n = 2..6` by
+exact rational nullspace of the commutator constraints), so a spectral linear
+action term IS the trace. (ii) Extensivity forces one weight per mode: a rank-one
+projector has spectrum `{1,0,...}` regardless of which sector it sits in, so a
+spectral functional must assign it the same value -- forcing the democratic
+`1/27`; the flux gate's 5-parameter family of non-democratic Spin(9)-invariant
+weights is sector-dependent and fails this rank-one spectral test, while `Tr`
+passes. So democracy is not an extra arbitrary choice -- it is exactly
+"the normalisation is a spectral invariant". (iii) The spectral action's heat
+kernel `Z(t) = Tr exp(-tD)` IS the Gibbs family of free_energy_unification: the
+`t -> 0` member is the uniform/democratic weight and the `t = Delta_Phi` member
+with `D` the genuine `J3(O)` grade `(0,1,2)` is the exact cascade
+`(4/7, 2/7, 1/7)`. (iv) It respects the finite-spectral-action kill recorded in
+`jordan_nonassoc_spectral_action.py`: `Tr(D^k)` is an integer for `k = 1..6`, so no
+finite spectral moment can be the transcendental `pi`. The division of labour is
+thus exact -- the spectral action supplies the rational MEASURE (`1/432`, the
+inverse of the leading heat-kernel coefficient `Z(0) = dim = 432`) and the rational
+STATE (the cascade), while `pi` remains the WZ/Berry period. Net: the residual
+"why democracy / why Gibbs" of criteria (3)/(4) reduces to ONE named,
+independently-motivated principle (Connes-Chamseddine spectral action), sharpening
+exactly what criterion (1)'s action must satisfy. Diagnostic only; moves no Bayes
+credit. KILL: had the invariant-functional space not been 1-dimensional, or a
+non-democratic Spin(9)-invariant weight passed the rank-one spectral test, or the
+spectral moments been irrational, the "democracy = the action is a spectral
+invariant" identification would be false.
+
 ## Graduation Rule
 
 A track may affect core code only after it supplies all of the following:

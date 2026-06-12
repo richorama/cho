@@ -83,6 +83,7 @@ The broader sweep tries parked radical routes without promoting them:
 - `berry_halfturn_pi_gate.py`
 - `flux_normalization_uniqueness_gate.py`
 - `free_energy_unification_gate.py`
+- `spectral_action_selection_gate.py`
 - `unified_boundary_wz_jordan_action.py`
 - `boundary_variation_gate.py`
 - `boundary_metric_origin_gate.py`
@@ -249,6 +250,26 @@ derivation. Supporting gates now reduce the assumptions:
   fold in the flux gate's `1/16`, which is Schur/irreducibility -- a separate
   symmetry input.) What stays open is that CHO dynamics must SELECT that one
   principle (criterion (1)).
+- `spectral_action_selection_gate.py`: names that one principle and shows it is
+  the SPECTRAL ACTION PRINCIPLE (the action depends only on the spectrum of a
+  self-adjoint carrier operator and is extensive over orthogonal sectors). (i) A
+  unitarily-invariant linear functional on `M_n` is exactly `Tr` -- the invariant
+  functional space is 1-dimensional, verified `n = 2..6` by exact rational
+  nullspace -- so a spectral action term IS the trace. (ii) Extensivity fixes one
+  weight per mode: a rank-one projector (a single mode) has spectrum `{1,0,...}`
+  wherever it sits, so a spectral functional must give it the same value, forcing
+  the democratic `1/27`; the flux gate's non-democratic Spin(9)-invariant weights
+  are sector-dependent and fail this rank-one test. (iii) The heat kernel
+  `Z(t) = Tr exp(-tD)` is the Gibbs family of free_energy_unification: `t -> 0`
+  gives the uniform/democratic weight, `t = Delta_Phi` with `D = (0,1,2)` gives the
+  exact cascade `(4/7, 2/7, 1/7)`. (iv) It respects the finite-spectral-action
+  kill: `Tr(D^k)` is integer for `k = 1..6`, so no finite spectral moment can be
+  the transcendental `pi`; the spectral action supplies the rational MEASURE
+  (`1/432`, the inverse leading heat-kernel coefficient `Z(0) = dim = 432`) and the
+  rational STATE (the cascade), while `pi` stays the WZ/Berry period. So the
+  residual postulate of criteria (3)/(4) reduces to one named, independently
+  motivated principle; what stays open is whether the CHO action actually IS such a
+  spectral action (criterion (1)).
 
 The remaining theorem is to derive all of these gates from one CHO/Jordan/WZ
 action rather than postulating them separately.
