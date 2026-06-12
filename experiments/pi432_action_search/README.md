@@ -84,6 +84,7 @@ The broader sweep tries parked radical routes without promoting them:
 - `flux_normalization_uniqueness_gate.py`
 - `free_energy_unification_gate.py`
 - `spectral_action_selection_gate.py`
+- `product_triple_realisation_gate.py`
 - `unified_boundary_wz_jordan_action.py`
 - `boundary_variation_gate.py`
 - `boundary_metric_origin_gate.py`
@@ -270,6 +271,26 @@ derivation. Supporting gates now reduce the assumptions:
   residual postulate of criteria (3)/(4) reduces to one named, independently
   motivated principle; what stays open is whether the CHO action actually IS such a
   spectral action (criterion (1)).
+- `product_triple_realisation_gate.py`: sharpens the SHAPE that spectral action
+  must have, with an exact no-go. A finite-dimensional spectral triple has spectral
+  dimension 0, so all of its spectral invariants -- the moments `Tr(D^k)`, the eta
+  invariant / spectral asymmetry `eta(D) = sum sign(lambda_i)`, the zeta-determinant
+  `prod lambda` -- are algebraic in the eigenvalues, hence rational for the
+  integer-spectrum carrier (verified exactly). But `pi` is transcendental
+  (Lindemann), so `pi` is NOT a finite spectral invariant of the carrier; the
+  `1/432`, by contrast, IS the leading local heat coefficient `a_0 = Tr(1) = dim`.
+  The resolution is a PRODUCT spectral triple `(finite carrier, dim 432, data
+  rational) (x) (continuous CP^1 monopole, index c1 = 1, period pi)`: the finite
+  factor supplies the dimension `432`, the continuous factor supplies the
+  topological period `pi = (1/2)(2 pi c1)` via Chern-Weil (an integral over the
+  continuum, NOT a local heat coefficient), and the product spectral action gives
+  `Phi = period/dim = pi/432`. The `c1 = 1` is cross-checked here by importing
+  `berry_halfturn_pi_gate`'s exact Bargmann machinery (the equatorial loop
+  `(1+i)^4 = -4`, argument exactly `pi`). One Dirac operator, two channels: local
+  heat (`-> 432`) and topological index (`-> pi`). This explains WHY the project
+  always splits `pi` (a period) from `432` (a dimension) -- different spectral
+  dimensions of one triple. OPEN: that CHO dynamics produces exactly this product
+  triple (the genuine realisation theorem).
 
 The remaining theorem is to derive all of these gates from one CHO/Jordan/WZ
 action rather than postulating them separately.

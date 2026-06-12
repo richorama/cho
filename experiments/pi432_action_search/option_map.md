@@ -387,6 +387,37 @@ non-democratic Spin(9)-invariant weight passed the rank-one spectral test, or th
 spectral moments been irrational, the "democracy = the action is a spectral
 invariant" identification would be false.
 
+`product_triple_realisation_gate.py` sharpens the SHAPE the spectral action must
+have, with an exact no-go. A finite-dimensional spectral triple has spectral (KO)
+dimension 0, so every spectral invariant of it -- the moments `Tr(D^k)`, the eta
+invariant / spectral asymmetry `eta(D) = sum sign(lambda_i)`, the zeta-regularised
+determinant `det'(D) = prod lambda` -- is an algebraic function of the eigenvalues,
+hence a rational number for the integer-spectrum carrier (verified exactly:
+`Tr(N^k)` for `k = 1..6`, `eta` an integer on several spectra, `det'` integer).
+But `pi` is transcendental (Lindemann 1882; cited, not computed), so `pi` is NOT a
+spectral invariant of any finite triple. The `1/432`, by contrast, IS the leading
+LOCAL invariant: the Seeley-DeWitt heat coefficient `a_0 = Tr(1) = dim = 432`. So
+the rational denominator is exactly what a finite spectral triple supplies, and the
+transcendental numerator cannot come from there. The resolution is a PRODUCT
+spectral triple -- `(finite carrier; dim 432; spectral data rational)` tensor
+`(continuous CP^1 monopole; topological index c1 = 1; period pi)` -- whose spectral
+action factorises: the finite factor contributes its dimension `432`, the
+continuous factor contributes the period `pi = (1/2)(2 pi c1)` via Chern-Weil (an
+integral over the continuum, not a local heat coefficient), and `Phi = period/dim
+= pi/432`. The `c1 = 1` is cross-checked by importing `berry_halfturn_pi_gate`'s
+exact Gaussian-rational Bargmann machinery (equatorial loop `(1+i)^4 = -4`, argument
+exactly `pi`). One Dirac operator, two channels -- LOCAL heat-kernel coefficients
+(rational, `-> 432`) and the TOPOLOGICAL index (`-> pi`) -- which is why the project
+always splits `pi` (a period) from `432` (a dimension): they live in different
+spectral dimensions of the same triple. Net: criterion (1)'s target is now not just
+"a spectral action" but specifically "a spectral action on a finite-`(x)`-continuous
+product triple", and the continuous OP^2 geometry is shown to be IRREDUCIBLE (a
+finite/combinatorial carrier alone provably cannot produce `pi`). Diagnostic only;
+moves no Bayes credit. KILL: had any finite spectral invariant of the carrier
+equalled `pi` (impossible -- algebraic vs transcendental), the continuous factor
+would be unnecessary; had the CP^1 index not been `c1 = 1`, the period would not be
+`pi`; either way the product-triple shape would be wrong.
+
 ## Graduation Rule
 
 A track may affect core code only after it supplies all of the following:

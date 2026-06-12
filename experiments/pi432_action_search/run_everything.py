@@ -17,6 +17,7 @@ PROBES = (
     "flux_normalization_uniqueness_gate.py",
     "free_energy_unification_gate.py",
     "spectral_action_selection_gate.py",
+    "product_triple_realisation_gate.py",
     "wz_level_integrality_gate.py",
     "uniqueness_gate.py",
     "multi_factor_carrier_gate.py",
