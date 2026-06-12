@@ -86,6 +86,7 @@ The broader sweep tries parked radical routes without promoting them:
 - `spectral_action_selection_gate.py`
 - `product_triple_realisation_gate.py`
 - `order_one_obstruction_gate.py`
+- `central_simplicity_gate.py`
 - `unified_boundary_wz_jordan_action.py`
 - `boundary_variation_gate.py`
 - `boundary_metric_origin_gate.py`
@@ -312,6 +313,24 @@ derivation. Supporting gates now reduce the assumptions:
   finite-`(x)`-continuous split that `product_triple` inferred from `pi`'s
   transcendence. OPEN: the full real/chiral finite Dirac with a real structure
   realising the opposite algebra (how genuine NCG triples satisfy order-one).
+- `central_simplicity_gate.py`: settles whether the chiral doubling that fix needs
+  is OPTIONAL or FORCED -- and it is forced. A real structure needs a nontrivial
+  opposite (right) action commuting with the left action, i.e. an element of the
+  COMMUTANT of the multiplication algebra `M = alg{L_a}`. That commutant is
+  computed exactly (rational nullspace of `[T, L_a] = 0`) to be 1-dimensional --
+  only the scalars -- so `J3(O)` is CENTRAL SIMPLE. Since the `L_a` are
+  self-adjoint for the (positive-definite) trace form, `M` is a *-algebra, so by
+  the double-commutant theorem `M = M'' = End(J) = M_27(R)` (dim `729 = 27^2`).
+  Hence `H = J` carries no nontrivial opposite algebra: a single-copy real spectral
+  triple is impossible and the doubling `H = J (+) J` is FORCED, with the finite
+  Dirac necessarily OFF-DIAGONAL `D = [[0,T*],[T,0]]` (the Standard-Model
+  finite-triple shape) -- which is exactly why the naive diagonal `D = L_N` of the
+  order-one gate had to fail. Three independent lines (pi's transcendence,
+  order-one defect = f4, central simplicity) now force the same doubled
+  finite-`(x)`-continuous structure. OPEN: the explicit off-diagonal `T` and the
+  proof the doubled triple satisfies order-one -- the genuine criterion (1)
+  realisation theorem (this gate proves the doubling necessary, it does not build
+  the operator).
 
 The remaining theorem is to derive all of these gates from one CHO/Jordan/WZ
 action rather than postulating them separately.

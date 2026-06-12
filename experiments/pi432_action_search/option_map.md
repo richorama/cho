@@ -451,6 +451,36 @@ defect is nonzero exactly off the frame -- the informative outcome. OPEN: the fu
 real (even) spectral triple with an off-diagonal/chiral finite Dirac and a real
 structure realising the opposite algebra, the genuine criterion (1) theorem.
 
+`central_simplicity_gate.py` settles a sharp binary question that the order-one
+gate raised: is the chiral doubling (real structure + opposite algebra) an OPTIONAL
+modelling choice or mathematically FORCED? A real structure needs a nontrivial
+opposite (right) action `b^circ` commuting with the left action -- an element of
+the COMMUTANT of the multiplication algebra `M = alg{L_a}`. This gate computes that
+commutant EXACTLY (rational nullspace of `[T, L_a] = 0`, pinned to dimension 1
+after 12 generators) and finds it is just the scalars: `J3(O)` is CENTRAL SIMPLE.
+Because the `L_a` are self-adjoint for the positive-definite trace form, `M` is a
+*-algebra, so the double-commutant theorem gives `M = M'' = End(J) = M_27(R)`
+(dim `729 = 27^2`) -- the multiplication algebra is the full matrix algebra.
+Consequently `H = J` admits no nontrivial opposite algebra, a single-copy real
+spectral triple is impossible, and the doubling `H = J (+) J` is FORCED, with the
+finite Dirac necessarily off-diagonal `D = [[0,T*],[T,0]]` (the Standard-Model
+finite-triple shape) -- which is exactly why the naive diagonal `D = L_N` of
+`order_one_obstruction_gate` had to fail. So three independent lines now converge
+on the same doubled finite-`(x)`-continuous structure: the transcendence of `pi`
+(`product_triple_realisation_gate`), the order-one defect being `f4`-valued
+(`order_one_obstruction_gate`), and central simplicity forcing the doubling (this
+gate). Net: criterion (1)'s realisation target is now not just sharp but rigidly
+constrained -- a doubled triple with an off-diagonal finite Dirac is the only
+option -- which both narrows the remaining construction and is a strong
+internal-consistency signal. Diagnostic only; moves no Bayes credit. KILL: had the
+commutant been larger than the scalars, a single-copy real structure would be
+possible and the doubling an optional choice rather than a theorem, leaving the
+product/doubled-triple shape under-determined. OPEN: the explicit off-diagonal `T`
+(the finite Dirac / Yukawa block) and the proof the doubled triple satisfies
+order-one with a concrete real structure -- the genuine criterion (1) realisation
+theorem; this gate proves the doubling necessary, it does not construct the
+operator.
+
 ## Graduation Rule
 
 A track may affect core code only after it supplies all of the following:
