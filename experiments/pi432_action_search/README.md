@@ -85,6 +85,7 @@ The broader sweep tries parked radical routes without promoting them:
 - `free_energy_unification_gate.py`
 - `spectral_action_selection_gate.py`
 - `product_triple_realisation_gate.py`
+- `order_one_obstruction_gate.py`
 - `unified_boundary_wz_jordan_action.py`
 - `boundary_variation_gate.py`
 - `boundary_metric_origin_gate.py`
@@ -291,6 +292,26 @@ derivation. Supporting gates now reduce the assumptions:
   always splits `pi` (a period) from `432` (a dimension) -- different spectral
   dimensions of one triple. OPEN: that CHO dynamics produces exactly this product
   triple (the genuine realisation theorem).
+- `order_one_obstruction_gate.py`: stress-tests the FINITE factor against the
+  defining axiom of a spectral triple -- the order-one (first-order) condition
+  `[[D, a], b^circ] = 0` -- and finds exactly where it bites. A spectral triple
+  needs an associative algebra, but `J3(O)` is non-associative (the associator
+  `(E11,E11,e3) = (1/4) e3 != 0`, so `a -> L_a` is not a homomorphism:
+  `L_E11 != L_E11^2`), so it is represented by left multiplications `L_a` on
+  `H = J`. For the naive finite Dirac `D = L_N` (`N = diag(0,1,2)` the grade) the
+  order-one defect has the closed form `[[L_N, L_a], L_b] = L_{[L_N, L_a](b)}`
+  (because `[L_a, L_b]` is always a derivation in `f4 = Der(J)` and
+  `[delta, L_b] = L_{delta(b)}`; verified exactly). That defect is NON-zero on all
+  24 octonionic off-diagonal directions (order-one fails for the naive triple) but
+  VANISHES for every element of the associative diagonal frame
+  `Delta = <E11,E22,E33>` (the frame multiplication operators commute). So
+  order-one holds on the 3-dimensional associative algebra of the generation grades
+  and fails exactly on the 24-dim octonionic Peirce-1/2 space where `OP^2` lives:
+  `27 = 3 + 24`. The obstruction to a purely finite triple is precisely
+  `f4 = Der(J3(O)) != 0`, and the order-one axiom INDEPENDENTLY re-derives the
+  finite-`(x)`-continuous split that `product_triple` inferred from `pi`'s
+  transcendence. OPEN: the full real/chiral finite Dirac with a real structure
+  realising the opposite algebra (how genuine NCG triples satisfy order-one).
 
 The remaining theorem is to derive all of these gates from one CHO/Jordan/WZ
 action rather than postulating them separately.

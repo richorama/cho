@@ -418,6 +418,39 @@ equalled `pi` (impossible -- algebraic vs transcendental), the continuous factor
 would be unnecessary; had the CP^1 index not been `c1 = 1`, the period would not be
 `pi`; either way the product-triple shape would be wrong.
 
+`order_one_obstruction_gate.py` stress-tests the FINITE factor of that product
+triple against the defining structural axiom of a spectral triple -- the order-one
+(first-order) condition `[[D, a], b^circ] = 0` -- and finds exactly where
+non-associativity bites. A spectral triple needs an associative *-algebra; the
+carrier's natural algebra `J3(O)` is non-associative (the associator
+`(E11,E11,e3) = (1/4) e3 != 0`; equivalently `L_E11 != L_E11^2`, so `a -> L_a` is
+not a homomorphism), so `J3(O)` is represented by left multiplications `L_a` on
+`H = J`. For the naive finite Dirac `D = L_N` (`N = diag(0,1,2)` the grade) the
+order-one defect has the exact closed form `[[L_N, L_a], L_b] = L_{[L_N, L_a](b)}`,
+because `[L_a, L_b]` is always a derivation of `J` (an element of `f4 = Der(J)`)
+and `[delta, L_b] = L_{delta(b)}` for any derivation `delta` (the bridge identity,
+verified exactly by matrix equality). That defect is NON-zero on all 24 octonionic
+off-diagonal directions -- the naive finite triple is NOT order-one -- but VANISHES
+for every element of the associative diagonal frame `Delta = <E11,E22,E33>`
+(the frame multiplication operators commute, so `[L_N, L_{E_i}] = 0`). So the
+order-one condition holds on the 3-dimensional associative algebra of the three
+generation grades and fails exactly on the 24-dim octonionic Peirce-1/2 space where
+the continuous `OP^2` geometry lives: `27 = 3 + 24`. The obstruction to a purely
+finite triple is therefore precisely `f4 = Der(J3(O)) != 0`, and the order-one
+axiom INDEPENDENTLY re-derives the finite-`(x)`-continuous split that
+`product_triple_realisation_gate` inferred from the transcendence of `pi`: the
+finite associative factor is the generation frame, the continuous factor is the
+octonionic `OP^2`. Net: criterion (1)'s residual is now not just "a spectral action
+on a product triple" but specifically one whose finite factor lives on the
+associative frame and whose order-one-breaking octonionic directions are carried by
+the continuous geometry -- a sharp, falsifiable target. Diagnostic only; moves no
+Bayes credit. KILL: had the defect not vanished on the associative frame, even the
+generation-grade finite triple would be order-one-inconsistent and the spectral
+route dead; had it vanished everywhere, `J3(O)` would be associative (false). The
+defect is nonzero exactly off the frame -- the informative outcome. OPEN: the full
+real (even) spectral triple with an off-diagonal/chiral finite Dirac and a real
+structure realising the opposite algebra, the genuine criterion (1) theorem.
+
 ## Graduation Rule
 
 A track may affect core code only after it supplies all of the following:
