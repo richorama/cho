@@ -81,6 +81,7 @@ The broader sweep tries parked radical routes without promoting them:
 - `frame_lift_f4_breaking.py`
 - `f4_breaking_vacuum_gate.py`
 - `berry_halfturn_pi_gate.py`
+- `flux_normalization_uniqueness_gate.py`
 - `unified_boundary_wz_jordan_action.py`
 - `boundary_variation_gate.py`
 - `boundary_metric_origin_gate.py`
@@ -213,6 +214,23 @@ derivation. Supporting gates now reduce the assumptions:
   carrier itself. With the breaking gate, `pi/432 = (half-turn pi)/(16 x 27)`
   has both factors derived from geometry; what stays open is the
   flux-over-carrier normalisation and the CHO action that contains the term.
+- `flux_normalization_uniqueness_gate.py`: sharpens exactly that open
+  normalisation -- the *division* itself. The earlier
+  `wz_flux_normalization_gate.py` declared a single "Schur weight 1/432" for
+  both factors; this gate proves what is actually forced, and the answer splits.
+  (i) Unique-trace theorem: on `M_n` the commutators span the codimension-one
+  traceless subspace (verified `n = 2..6`), so the only normalised tracial
+  functional is `Tr/n`; on the carrier algebra `M_432` that is `Tr/432`, the
+  maximally-mixed equal-weight state. (ii) `Delta_9` (the 16-dim Peirce-1/2
+  spinor) is irreducible under `Spin(9)` -- its commutant is exactly
+  1-dimensional -- so the `1/16` is genuinely Schur-forced. (iii) But `J3(O)` is
+  REDUCIBLE under `Spin(9)`: its commutant has dimension exactly `6 = 2^2+1^2+1^2`
+  with exactly two invariant vectors (`E11` and `E22+E33`), i.e.
+  `27 = 1 + 1 + 9 + 16`, so the `1/27` is NOT forced by invariance -- the
+  Spin(9)-invariant normalisations form a 5-parameter family and the democratic
+  `Tr/27` is singled out only as the unique tracial one. So `pi/432` has no free
+  continuous parameter once the democracy (traciality / maximal-entropy) principle
+  is adopted; what stays open is that CHO dynamics must SELECT that one principle.
 
 The remaining theorem is to derive all of these gates from one CHO/Jordan/WZ
 action rather than postulating them separately.

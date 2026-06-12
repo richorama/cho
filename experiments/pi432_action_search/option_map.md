@@ -309,6 +309,27 @@ been a negative real (argument `pi`), or the half-solid-angle identity failed at
 these exact points, the "numerator = geometric half-turn" identification would be
 false and the `pi` side of the route would die.
 
+`flux_normalization_uniqueness_gate.py` closes the last input on the *value* of
+`pi/432`: the division itself. The numerator `pi` (berry_halfturn) and the
+denominator `432 = 16 x 27` (f4_breaking_vacuum) were both derived, but why the
+coupling is flux divided by the FULL carrier was only declared -- a single "Schur
+weight" in `wz_flux_normalization_gate.py`. This gate proves the split exactly.
+The unique-trace theorem -- the commutators in `M_n` span the codimension-one
+traceless subspace, verified `n = 2..6` -- makes `Tr/n` the unique normalised
+tracial functional, so on the carrier algebra `M_432` the democratic weight
+`1/432` (the maximally-mixed carrier state) is forced by traciality. Symmetry
+alone gives strictly less: `Delta_9` is irreducible under `Spin(9)` (commutant
+exactly 1), so the `1/16` IS Schur-forced; but `J3(O)` is reducible (commutant
+exactly `6 = 2^2 + 1^2 + 1^2`, two invariant vectors `E11` and `E22+E33`, i.e.
+`27 = 1 + 1 + 9 + 16`), so the `1/27` is NOT -- the Spin(9)-invariant
+normalisations form a 5-parameter family and the democratic `Tr/27` is singled
+out only as the unique tracial one. Net: criterion (3)'s value has no remaining
+free continuous parameter once democracy (= traciality = maximal entropy = the
+uniform carrier state) is adopted; the residual is the SELECTION of that
+principle by CHO dynamics, shared with criterion (1). Diagnostic only; moves no
+Bayes credit. KILL: had `Delta_9`'s commutant not been 1, or `J3(O)`'s commutant
+been 1, the clean "16 = Schur, 27 = democracy" split would be false.
+
 ## Graduation Rule
 
 A track may affect core code only after it supplies all of the following:
