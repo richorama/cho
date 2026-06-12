@@ -79,6 +79,7 @@ The broader sweep tries parked radical routes without promoting them:
 - `seed_spectrum_reduction_gate.py`
 - `entropy_principle_derivation.py`
 - `frame_lift_f4_breaking.py`
+- `f4_breaking_vacuum_gate.py`
 - `unified_boundary_wz_jordan_action.py`
 - `boundary_variation_gate.py`
 - `boundary_metric_origin_gate.py`
@@ -181,6 +182,19 @@ derivation. Supporting gates now reduce the assumptions:
   free-energy form once the seed problem is posed as a large-deviation problem.
 - `frame_lift_f4_breaking.py`: the fixed-frame candidate passes the finite S3
   frame-selection shadow, but the full F4 lift is still open.
+- `f4_breaking_vacuum_gate.py`: does that full F4 lift. It builds the real
+  52-dimensional Lie algebra `f4 = Der(J3(O))` as the span of the inner
+  derivations `[L_a,L_b]`, picks the order parameter `<X>=E11` (a primitive
+  idempotent), and computes -- exactly, over the rationals -- the unbroken
+  subalgebra `{D: D(E11)=0}` to be 36-dimensional (`= so(9)`) and the Goldstone
+  image `D -> D(E11)` to be exactly the 16-dimensional Peirce-1/2 spinor space
+  (`= dim F4/Spin(9) = OP^2`), with `52 = 36 + 16`. A concrete invariant
+  potential `V(X)=Tr((XoX-X)^2)` vanishes precisely on the rank-one idempotents
+  (`OP^2`) and is positive off them, so the vacuum is dynamically selected and is
+  flat along exactly those 16 Goldstone directions. The breaking data give
+  `432 = 16 x 27` intrinsically. So criterion (2)'s spontaneous F4 -> Spin(9) is
+  exhibited on the real f4, not just the S3 shadow; only the `pi` numerator and
+  the WZ level remain open.
 
 The remaining theorem is to derive all of these gates from one CHO/Jordan/WZ
 action rather than postulating them separately.

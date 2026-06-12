@@ -254,6 +254,31 @@ carries zero independent continuous parameters beyond that one flux. Still open:
 selected by CHO dynamics rather than postulated. Diagnostic only; moves no Bayes
 credit.
 
+`f4_breaking_vacuum_gate.py` attacks criterion (2) head-on. The census proved any
+F4-breaking must be spontaneous, and `frame_lift_f4_breaking.py` only tested the
+finite `S3` shadow; this gate does the real F4 computation. It builds the actual
+52-dimensional `f4 = Der(J3(O))` as the exact rational span of the inner
+derivations `[L_a,L_b]`, takes the order parameter to be a primitive idempotent
+`<X>=E11`, and computes the unbroken subalgebra `{D in f4 : D(E11)=0}` to be
+exactly 36-dimensional (`= dim Spin(9)`, a subalgebra preserving the 16-dim
+Peirce-1/2 spinor space) and the broken/Goldstone image `D -> D(E11)` to be
+exactly the 16-dimensional Peirce-1/2 spinor (`= dim F4/Spin(9) = dim OP^2`), with
+`52 = 36 + 16`. The concrete F4-invariant potential `V(X)=Tr((XoX-X)^2)` vanishes
+exactly on the rank-one idempotents (the `OP^2` vacuum manifold) and is strictly
+positive off them (`1/8` on a rank-two point, `4/27` on the maximally mixed
+state), so the vacuum is selected by an invariant potential and is flat along
+precisely the 16 Goldstone directions. The two intrinsic numbers of the vacuum,
+16 Goldstones and `27 = dim J3(O)`, multiply to the carrier `432`, so the
+denominator of `pi/432` is the breaking data rather than an inserted integer.
+This lifts criterion (2) from "spontaneous in principle / S3 shadow" to an
+explicit F4 -> Spin(9) vacuum on the real Lie algebra; what stays open is the
+`pi` numerator (Berry/WZ half-turn) and the WZ level one, i.e. criterion (3)'s
+value. Diagnostic only; moves no Bayes credit. KILL: had the stabiliser not been
+36-dimensional, or the Goldstone image not been exactly the 16-dim spinor, or the
+invariant potential not vanished precisely on the rank-one idempotents, the
+spontaneous F4 -> Spin(9) breaking with one generation of Goldstones would be
+false and this route would die.
+
 ## Graduation Rule
 
 A track may affect core code only after it supplies all of the following:

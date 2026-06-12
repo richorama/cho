@@ -23,6 +23,7 @@ PROBES = (
     "seed_spectrum_reduction_gate.py",
     "entropy_principle_derivation.py",
     "frame_lift_f4_breaking.py",
+    "f4_breaking_vacuum_gate.py",
     "unified_boundary_wz_jordan_action.py",
     "boundary_variation_gate.py",
     "boundary_metric_origin_gate.py",
