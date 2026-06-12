@@ -279,6 +279,36 @@ invariant potential not vanished precisely on the rank-one idempotents, the
 spontaneous F4 -> Spin(9) breaking with one generation of Goldstones would be
 false and this route would die.
 
+`berry_halfturn_pi_gate.py` is the numerator partner of the breaking gate. The
+breaking gate fixed the denominator `432 = 16 x 27`; this gate derives the `pi`
+numerator, exactly and without floating point. On the `OP^2` vacuum manifold the
+minimal transition two-sphere is the `CP^1` of rank-one idempotents built from a
+complex 2-plane. Five of its points (`|0>,|+>,|+i>,|->,|-i>`) have
+Gaussian-rational projectors, verified here to be genuine primitive idempotents of
+`J3(O)` (`P o P = P`, `Tr P = 1`) carrying the exact transition metric
+`Tr(P o Q) = |<v|w>|^2` (so `|+>,|->` are antipodal orthogonal generations). The
+geometric Pancharatnam phase of a closed geodesic polygon is then the exact
+argument of a Gaussian-rational Bargmann product. The octant geodesic triangle
+gives `<0|+><+|+i><+i|0> = 1+i`, argument exactly `pi/4` = half the `pi/2` octant
+solid angle (so the half-solid-angle law is an output, not an assumption); the
+equatorial great circle gives `(1+i)^4 = -4`, argument exactly `pi` with loop
+holonomy `exp(i pi) = -1` (the SU(2) double-cover sign flip), so the minimal
+half-turn flux is exactly `pi` and the Berry line bundle has first Chern number
+`c1 = 1` (primitive WZ level one). This hardens the prior float computations
+(`compute/berry_pi_intrinsic_op2.py`, `wz_chain_origin_gate.py`, which assume the
+`pi(1-cos theta)` law and check it numerically) into an exact statement on the
+carrier's own idempotents. Net: `pi/432 = (half-turn pi)/(16 x 27)` now has both
+factors derived from the carrier geometry, advancing criterion (3) -- the
+numerator is a forced geometric invariant rather than physical input. What stays
+open is the flux-over-carrier normalisation (why the coupling is flux divided by
+the full carrier; the Schur-flatness input of `wz_flux_normalization_gate.py`)
+and that CHO dynamics must place exactly this oriented level-one WZ term in the
+action (criterion (1)). Diagnostic only; moves no Bayes credit. KILL: had the
+octant Bargmann invariant not had argument `pi/4`, or the equatorial 4-gon not
+been a negative real (argument `pi`), or the half-solid-angle identity failed at
+these exact points, the "numerator = geometric half-turn" identification would be
+false and the `pi` side of the route would die.
+
 ## Graduation Rule
 
 A track may affect core code only after it supplies all of the following:

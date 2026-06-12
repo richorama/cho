@@ -29,6 +29,7 @@ PROBES = (
     "boundary_metric_origin_gate.py",
     "oriented_wz_boundary_gate.py",
     "wz_chain_origin_gate.py",
+    "berry_halfturn_pi_gate.py",
     "action_origin_unification_gate.py",
     "candidate_wz_jordan_entropy_action.py",
     "exceptional_cs_higher_gauge.py",

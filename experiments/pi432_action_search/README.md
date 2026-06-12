@@ -80,6 +80,7 @@ The broader sweep tries parked radical routes without promoting them:
 - `entropy_principle_derivation.py`
 - `frame_lift_f4_breaking.py`
 - `f4_breaking_vacuum_gate.py`
+- `berry_halfturn_pi_gate.py`
 - `unified_boundary_wz_jordan_action.py`
 - `boundary_variation_gate.py`
 - `boundary_metric_origin_gate.py`
@@ -195,6 +196,23 @@ derivation. Supporting gates now reduce the assumptions:
   `432 = 16 x 27` intrinsically. So criterion (2)'s spontaneous F4 -> Spin(9) is
   exhibited on the real f4, not just the S3 shadow; only the `pi` numerator and
   the WZ level remain open.
+- `berry_halfturn_pi_gate.py`: derives that `pi` numerator, exactly. It is the
+  partner of the breaking gate (which fixed the denominator `432 = 16 x 27`). On
+  the `OP^2` vacuum manifold the minimal transition two-sphere is the `CP^1` of
+  rank-one idempotents; five of its points (`|0>,|+>,|+i>,|->,|-i>`) have
+  Gaussian-rational projectors, verified here to be genuine primitive idempotents
+  of `J3(O)` with the exact transition metric `Tr(P o Q)=|<v|w>|^2`. The
+  geometric (Pancharatnam) phase of a closed geodesic polygon is then the exact
+  argument of a Gaussian-rational Bargmann product -- no floats anywhere. The
+  octant triangle gives `<0|+><+|+i><+i|0> = 1+i` (argument exactly `pi/4`, half
+  the `pi/2` octant solid angle), and the equatorial great circle gives
+  `(1+i)^4 = -4` (argument exactly `pi`, holonomy `exp(i pi) = -1`, the SU(2)
+  sign flip), so the minimal half-turn flux is exactly `pi` and the Berry bundle
+  has first Chern number `c1 = 1`. This hardens the prior float computations
+  (`berry_pi_intrinsic_op2.py`, `wz_chain_origin_gate.py`) to exactness on the
+  carrier itself. With the breaking gate, `pi/432 = (half-turn pi)/(16 x 27)`
+  has both factors derived from geometry; what stays open is the
+  flux-over-carrier normalisation and the CHO action that contains the term.
 
 The remaining theorem is to derive all of these gates from one CHO/Jordan/WZ
 action rather than postulating them separately.
