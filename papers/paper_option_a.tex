@@ -1,0 +1,805 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Encoding and fonts ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+
+% --- Math ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+
+% --- Layout and tables ---
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% Ragged paragraph columns and a breakable monospace for narrow table cells
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\bcode}[1]{\texttt{\small #1}}
+
+% --- Links (load last) ---
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,
+            urlcolor=blue!55!black,breaklinks=true]{hyperref}
+
+% --- Theorem environments ---
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}
+
+% --- Convenience macros ---
+\newcommand{\CHO}{\mathbb{C}\otimes\mathbb{H}\otimes\mathbb{O}}
+\newcommand{\Alg}{\mathcal{A}}
+\newcommand{\JO}{\mathfrak{J}_3(\mathbb{O})}
+\newcommand{\OP}{\mathbb{OP}^2}
+\newcommand{\ffour}{\mathfrak{f}_4}
+\newcommand{\Spin}{\mathrm{Spin}}
+\newcommand{\Der}{\mathrm{Der}}
+\newcommand{\Cl}{\mathrm{Cl}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\epso}{\varepsilon_0}
+
+\hypersetup{
+  pdftitle  = {What C x H x O and J3(O) Fix and Do Not Fix About One Standard-Model Generation and the Family Count},
+  pdfauthor = {Richard Astbury},
+  pdfkeywords = {division algebras; octonions; exceptional Jordan algebra; Standard Model;
+                 three generations; KO-dimension; reproducible computation}
+}
+
+\title{\bfseries What $\CHO$ and $\JO$ Fix---and Do Not Fix---About\\
+One Standard-Model Generation and the Family Count\\[4pt]
+\large A conservative, falsifiable delimitation}
+
+\author{Richard Astbury\thanks{Contact: \href{mailto:richard.astbury@gmail.com}{richard.astbury@gmail.com}.
+Developed with the assistance of AI tools. The author is solely
+responsible for all claims, code, and errors.}}
+
+\date{Version 1.0 \quad (content frozen 7 June 2026; typeset June 2026)}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+We state and defend a deliberately narrow claim about $\Alg = \CHO$, the tensor
+product of the division algebras $\mathbb{C}$, $\mathbb{H}$, and $\mathbb{O}$
+(64 real dimensions). We note at once that $\Alg$ is \emph{not} itself a division
+algebra---tensor products of division algebras carry zero divisors (already
+$\mathbb{C}\otimes\mathbb{O}$, the complex octonions, does)---so we never use that
+term for it. We do \emph{not} claim a
+theory of the Standard Model's continuous parameters, nor a theory of everything.
+We claim only that the \emph{discrete internal structure} of one fermion
+generation---its electric charges and colour multiplicities, its weak-isospin and
+hypercharge assignments, its gauge-anomaly cancellation, and its chirality---is
+determined, once a complex structure is fixed, by $\Alg$ and its automorphisms,
+with no per-observable continuous input. The qualifier ``once a complex structure
+is fixed'' is load-bearing: that choice is \emph{adopted} (from Furey), not
+derived, and is the single most consequential of the discrete choices below, so
+this part of the claim is in substance Furey's result, which we inherit rather
+than reclaim. The family count \emph{three} enters
+separately, as the \emph{rank} of the exceptional Jordan algebra $\JO$, which we
+adopt---following Dubois-Violette--Todorov and Boyle---rather than derive from
+$\Alg$; we are explicit that connecting the two algebras is an \emph{open
+bridge}, not a theorem. We are equally explicit that this is a constrained
+discrete model space, not a parameter-free theory: the construction rests on a
+fixed complex structure and on the order of seventeen discrete algebraic choices
+(Section~\ref{sec:stats}). Each component of this
+claim is backed by an explicit, self-contained numerical check, collected in a
+single reproducible harness with pre-registered falsification conditions
+(described in Appendix~\ref{app:repro}); such a check certifies that the
+finite-dimensional computation matches the stated spectrum, not that the physical
+interpretation is correct.
+The algebraic content (minimal left ideals, charge operators, the gauge group) is
+\emph{established prior work} (Furey; Dixon; Dubois-Violette and Todorov; Boyle);
+we cite it rather than claim it. Our own contribution is twofold and modest: (i)
+the observation that identifying generations with the three primitive idempotents
+of an $\JO$ frame---rather than with triality-permuted representations---is
+\emph{not subject to} the Distler--Garibaldi obstruction \emph{at the level of
+count and chirality}; and (ii) two elementary lemmas on the cross-generation Yukawa
+operator that delimit precisely what the algebra does and does not fix about
+flavour---in particular, that it fixes a mixing \emph{law} but selects no
+hierarchy. We are explicit throughout that the \emph{continuous} flavour data (the
+mass hierarchy and mixing magnitudes) is \emph{not} derived here, and we localise
+the single open problem to one scalar function.
+\end{abstract}
+
+\noindent\textbf{Keywords:}\; division algebras; octonions; exceptional Jordan
+algebra $\JO$; Standard Model generations; KO-dimension~6; Distler--Garibaldi
+obstruction; reproducible computation.
+
+\bigskip
+
+\section{Scope and stance}
+\label{sec:scope}
+
+The literature on division-algebra approaches to particle physics contains a
+recurring failure mode: a suggestive numerical coincidence is promoted to a
+``derivation'' without an accounting of how many choices were spent to reach it.
+The most prominent cautionary example is the $E_8$ embedding of
+Lisi~\cite{lisi2007}, shown by Distler and Garibaldi~\cite{distler2010} to be
+obstructed because a single $E_8$
+cannot contain three generations of the correct chirality. We adopt the opposite
+stance: we make the \emph{smallest} claim the algebra actually forces, we attach a
+falsifiable check to each piece, and we keep a separate, public account of
+everything we cannot yet derive (see Section~\ref{sec:not-claimed} and the
+accompanying \code{METHODOLOGY\_LIMITS} and \code{PUBLIC\_CLAIMS} documents).
+
+Concretely, this paper claims \textbf{(A)}, and explicitly disclaims \textbf{(B)}:
+
+\begin{description}[leftmargin=2.2em,style=nextline]
+\item[(A) --- claimed.] Once a complex structure is fixed, the discrete internal
+  quantum numbers of one generation---charges, colour, weak isospin, hypercharge,
+  anomaly freedom, and chirality---follow from $\Alg$ and its automorphism
+  structure. The family count $N_{\mathrm{gen}}=3$, at the level of \emph{count and
+  chirality}, and---conditionally---the absence of a fourth family, follow instead
+  from the rank of an \emph{adopted} $\JO$ frame; connecting that frame to $\Alg$
+  is an open bridge (Section~\ref{sec:threegen}).
+\item[(B) --- disclaimed here.] The Yukawa magnitudes (fermion mass ratios), the
+  mixing-angle magnitudes, the gauge couplings, the electroweak and Planck-scale
+  hierarchies, and gravity are \emph{not} derived in this paper. Where the wider
+  project offers candidate bridges for these, they carry open-bridge or diagnostic
+  status and are out of scope for the conservative claim.
+\end{description}
+
+This division is not rhetorical. It is enforced mechanically: every statement in
+Sections~\ref{sec:discrete}--\ref{sec:yukawa} corresponds to a self-contained
+numerical check with a recorded status, and the claim that any item in (B) is
+derived is pre-registered as a falsification condition (Appendix~\ref{app:repro}).
+
+We state our purpose plainly at the outset, so the reader does not mistake the
+scope: this paper is a \emph{delimitation}, not a derivation. Its unit of
+publication is a precise, falsifiable account of what $\Alg$ and $\JO$ do and do
+not fix about one generation and the family count---a boundary result that, scored
+on its own diagnostics, carries \emph{no} positive evidential case against an
+$O(1)$-numerology null (Section~\ref{sec:stats}). We argue in
+Section~\ref{sec:conclusion} that, for a program at this stage, such a delimitation
+is the correct thing to publish; we make the case here rather than only in the
+conclusion.
+
+\section{The algebra and the one-generation module}
+\label{sec:algebra}
+
+We take the internal algebra to be $\Alg = \CHO$, the tensor product of the
+complex numbers, quaternions, and octonions. The construction of a single fermion
+generation as a space of minimal left ideals of (the complexification of) this
+algebra, and the appearance of the Standard-Model gauge group
+$SU(3)_c \times SU(2)_L \times U(1)_Y$ as the subgroup of automorphisms commuting
+with a fixed complex structure, are \emph{prior results} of
+Furey~\cite{furey2015,furey2018} and of Dubois-Violette~\cite{duboisviolette2016},
+with closely related constructions by Dixon~\cite{dixon1994},
+Dubois-Violette and Todorov~\cite{todorov2018}, and Boyle~\cite{boyle2020}; for the
+broader division-algebra and grand-unification background see Baez and
+Huerta~\cite{baez2010}. We use
+them as the foundation and do not reproduce or reclaim them. The choice of complex
+structure is the step that singles out the Standard-Model gauge subgroup; we adopt
+Furey's choice and do not here examine which complex structure is selected, or
+why. We stress that this fix is the \emph{single most consequential} of the
+discrete choices catalogued in Section~\ref{sec:stats}: it is what selects
+$SU(3)_c \times SU(2)_L \times U(1)_Y$ from the automorphisms, and the conservative
+claim~(A) is conditioned on it throughout. We therefore locate it explicitly in the
+choice budget there rather than treat it as free, and we regard ``how constrained
+is the complex structure?'' as the most important open question bearing on the
+weight of~(A).
+
+Our computational toolkit (\code{octonion\_toolkit.py}) builds the octonion
+multiplication table from the Fano plane and provides the left/right
+multiplication operators used throughout. All checks below run on this explicit
+table; none rely on closed-form identities we have not verified numerically.
+
+Our own contribution begins only in Sections~\ref{sec:threegen}
+and~\ref{sec:yukawa}. The one-generation gauge content of
+Section~\ref{sec:discrete} is inherited from the works above; we include it for
+completeness and to fix notation, and we claim no novelty for it.
+
+\section{The derived discrete structure of one generation}
+\label{sec:discrete}
+
+Each subsection states a claim, its algebraic source, and a pointer to the
+self-contained numerical check that reproduces it; the checks are collected in a
+reproducible harness whose conventions, and the pre-registered conditions that
+would falsify each claim, are described in Appendix~\ref{app:repro} and summarised
+in Table~\ref{tab:witnesses}. Each check is a reproducibility and consistency test
+on an explicit finite-dimensional computation---it verifies the stated
+representations, spectra, and multiplicities to machine precision and, for the
+inherited results of this section, reproduces the prior-work derivations rather
+than independently \emph{forcing} them---and is not, by itself, a substitute for
+proof. The two genuinely novel claims of Section~\ref{sec:yukawa} are accordingly
+accompanied by short proofs, not only numerical checks.
+
+\subsection{Electric charge and colour multiplicity}
+
+\noindent\textbf{Claim.} The one-generation electric charges are
+$\{0,\tfrac13,\tfrac23,1\}$ with colour multiplicities $(1,3,3,1)$.
+
+\noindent\textbf{Source.} The $\mathbb{C}\otimes\mathbb{O}$ number operator built
+from the octonionic ladder (Furey; Dubois-Violette). The eigenvalues of the charge
+operator and the dimensions of its eigenspaces are read directly off the ladder.
+
+\noindent\textbf{Check.} \code{ladder\_charges.py} reproduces the charges and
+multiplicities numerically as an \emph{output} of the algebra.
+This is the standard hypercharge filter and is granted by the prior literature.
+
+\subsection{Weak isospin and hypercharge}
+
+\noindent\textbf{Claim.} The weak $SU(2)_L$ acts through the $\mathbb{H}$ factor,
+and the Gell-Mann--Nishijima relation $Y = 2(Q - T_3)$ then fixes the full
+one-generation hypercharge spectrum.
+
+\noindent\textbf{Source.} The quaternionic factor supplies the weak doublet
+structure; combined with the charges above it determines $Y$ with no free
+assignment.
+
+\noindent\textbf{Check.} \code{weak\_isospin\_hypercharge.py}
+derives the hypercharges; the chiral doublet/singlet split is provided by
+Section~\ref{sec:chirality}.
+
+\subsection{Anomaly cancellation}
+
+\noindent\textbf{Claim.} The one-generation content assembled above is free of
+gauge anomalies.
+
+\noindent\textbf{Check.} \code{physics\_map\_audit.py} freezes the quantum-number
+map, verifies algebraic $Q$/$T_3$/$Y$ consistency, and checks Standard-Model
+anomaly cancellation. The three-generation content map and the Yukawa spectrum are
+left explicitly open.
+
+\subsection{Chirality without fermion doubling}
+\label{sec:chirality}
+
+\noindent\textbf{Claim.} The internal space carries a chiral structure of
+\emph{KO-dimension~6}---the value at which one obtains chirality without a mirror
+fermion.
+
+\noindent\textbf{Source.} Building the Clifford algebra $\Cl(0,7)$ from octonion
+left-multiplications, with the real structure given by complex conjugation, the
+three real-structure signs (in the Connes convention $J^2 = \epsilon$,
+$JD = \epsilon' DJ$, and $J\gamma = \epsilon'' \gamma J$) come out
+$(\epsilon,\epsilon',\epsilon'') = (+1,+1,-1)$, i.e.\
+KO-dimension~6---the same value Connes' noncommutative-geometry Standard
+Model~\cite{connes2006,chamseddine1997} requires so that the order-two axiom
+removes fermion doubling.
+
+\noindent\textbf{Check.} Verified numerically in \code{ko\_dimension\_chirality.py}.
+This is the structural cure for the mirror-pair problem that otherwise sinks
+generation claims (Section~\ref{sec:threegen}).
+
+\begin{table}[t]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}L{2.9cm}L{3.1cm}L{2.9cm}L{4.0cm}@{}}
+\toprule
+\textbf{Quantity} & \textbf{Result} & \textbf{Algebraic source} & \textbf{Numerical check} \\
+\midrule
+Electric charge / colour & $\{0,\tfrac13,\tfrac23,1\}$, mult.\ $(1,3,3,1)$ & $\mathbb{C}\otimes\mathbb{O}$ ladder & \bcode{ladder\_charges} \\
+Weak isospin, hypercharge & $Y = 2(Q-T_3)$, full spectrum & $\mathbb{H}$ doublet $+$ charge & \bcode{weak\_isospin\_}\newline\bcode{hypercharge} \\
+Gauge anomalies & cancel & frozen quantum-number map & \bcode{physics\_map\_audit} \\
+Chirality & KO-dimension $6$, no mirror & $\Cl(0,7)$, real structure & \bcode{ko\_dimension\_}\newline\bcode{chirality} \\
+Family count & $N_{\mathrm{gen}}=3$ (count $+$ chirality) & rank of $\JO$, inner $S_3<F_4$ & \bcode{jordan\_eigenvalue\_}\newline\bcode{generations},\newline\bcode{three\_generations\_}\newline\bcode{frame} \\
+No fourth family & excluded (conditional) & $H_n(\mathbb{O})$ Jordan only for $n\le 3$ & conditional theorem \\
+\bottomrule
+\end{tabular}
+\caption{The discrete internal structure of one generation. Each row is an
+\emph{output} of the algebra and its automorphisms; the first five are verified by
+a self-contained numerical check (Appendix~\ref{app:repro}), while the exclusion
+of a fourth family is a conditional theorem. None requires a per-observable
+continuous input.}
+\label{tab:witnesses}
+\end{table}
+
+\section{The family count: three generations, count and chirality}
+\label{sec:threegen}
+
+The headline integer of the framework is $N_{\mathrm{gen}}=3$. We are careful to
+claim it at exactly the level it is established---\emph{count and chirality}---and
+no further.
+
+\paragraph{Two algebras, and the bridge between them.}
+Sections~\ref{sec:algebra}--\ref{sec:discrete} build one generation
+inside $\Alg = \CHO$, whose relevant module is
+$\mathbb{C}\otimes\mathbb{O} = \mathbb{C}^8$ ($16$ real dimensions). The
+generation \emph{count} of this section, by contrast, lives in the exceptional
+Jordan algebra $\JO$ ($27$ real dimensions), which is \emph{not} a subalgebra or a
+tensor factor of $\Alg$---indeed $27 \nmid 64$. We do not derive $\JO$ from
+$\Alg$; we adopt it as an additional algebraic structure, following
+Dubois-Violette--Todorov and Boyle, motivated by the observation below that the
+tangent space at each of its primitive idempotents is a real $\Spin(9)$ spinor
+$\Delta_9 \cong \mathbb{C}\otimes\mathbb{O}$---the same $16$-dimensional
+one-generation module. The integer ``three'' is therefore the \emph{rank} of
+$\JO$; reading it as the Standard-Model family count, and identifying $\JO$ with
+the generation structure of $\Alg$, is an \emph{open bridge}, not a theorem. We
+flag this prominently because the claim is otherwise easily over-read: the count
+follows from positing a rank-three object, and what $\Alg$ contributes is the
+one-generation module that sits at each idempotent.
+
+\subsection{Why the naive route fails}
+
+The intuitive identification ``three triality representations $=$ three
+generations'' is \emph{obstructed}, and we say so first. Our own stress test
+(\code{three\_generations\_nogo\_audit.py}) reproduces the Distler--Garibaldi
+failure mode: the three 8-dimensional $\Spin(8)$ representations are a vector
+$8_v$ and a chirality-mirror pair of spinors $8_s, 8_c$. Identifying generations
+with them would (i) require the outer triality to map a vector to a spinor, and
+(ii) hand each generation a mirror partner. This is the same obstruction that
+defeats the $E_8$ proposal~\cite{distler2010}, and it downgrades the naive bridge
+to conjecture.
+
+\subsection{The idempotent-frame resolution}
+
+The resolution is to identify the three generations \emph{not} with
+triality-permuted representations but with the three \emph{primitive idempotents}
+of a maximal frame of the exceptional Jordan algebra $\JO$---three identical
+points of the Cayley plane $\OP = F_4/\Spin(9)$. Two independent results support
+this.
+
+\paragraph{Spectral count.}
+\code{jordan\_eigenvalue\_generations.py} verifies that the Freudenthal
+characteristic polynomial of a Hermitian $\JO$ element is a cubic with three real
+roots and three orthogonal primitive idempotents resolving the identity (checked
+on 4000 random samples). ``Three'' is the \emph{rank} of the algebra---the degree
+of the cubic norm---and is therefore immune to the representation-theoretic mirror
+obstruction entirely.
+
+\paragraph{Frame equivalence and chirality.}
+\code{three\_generations\_frame.py} builds $\ffour = \Der(\JO)$ (dimension 52) and
+the idempotent stabiliser $\mathfrak{spin}(9)$ (dimension 36, semisimple) from the
+octonion table, and shows the three idempotents are permuted by the \emph{inner}
+frame $S_3 < F_4$. Because $F_4$ is connected with no outer automorphism, this
+$S_3$ cannot carry a representation to an inequivalent one, so Obstruction~(i)
+cannot even be posed. The 16-dimensional tangent space at each idempotent is a
+single \emph{real} $\Spin(9)$ spinor $\Delta_9$ (the octonionic $\Cl(9)$ module,
+commutant dimension 1)---identical to the KO-dimension-6 module of
+Section~\ref{sec:chirality}---so three identical self-conjugate copies share one
+chirality with no mirror partner, and Obstruction~(ii) cannot arise either.
+
+Because this last point carries real weight---it is both the chirality cure of
+Section~\ref{sec:chirality} and the evasion of Obstruction~(ii)---we give the
+argument explicitly rather than leave it to the numerical check. $\Spin(9)$ is the spin
+group of an \emph{odd}-dimensional space, so it has a \emph{single} irreducible
+spinor representation $\Delta_9$: there is no $\Delta_9^{L}/\Delta_9^{R}$ chirality
+splitting of the kind that exists in even dimension. Moreover $\Delta_9$ is of
+\emph{real} type---its commutant is $\mathbb{R}$ (dimension~1, as the numerical
+check verifies)---so it admits a $\Spin(9)$-invariant real structure and is
+isomorphic to its own conjugate, $\overline{\Delta_9} \cong \Delta_9$. A mirror
+partner would have to be an \emph{inequivalent} conjugate (opposite-chirality)
+module; for a single self-conjugate real representation no such module exists.
+Hence three identical copies of $\Delta_9$ cannot furnish mirror fermions,
+independently of any content map.
+
+The $8_v/8_s/8_c$ triple that the no-go attacks is shown (Part~D of the same
+module) to be the \emph{off-diagonal} Peirce decomposition, a genuinely different
+object that does mix chirality---confirming the obstruction is real for the naive
+route and absent for the idempotent route.
+
+\paragraph{Relation to Boyle and Dubois-Violette--Todorov.} The closest prior work
+places one generation in (the tangent space of) the complex exceptional Jordan
+algebra and relates the \emph{three} generations to $SO(8)$ triality:
+Boyle~\cite{boyle2020} states exactly this, and Dubois-Violette--Todorov
+\cite{duboisviolette2016,todorov2018} locate the three families in the three
+off-diagonal octonionic directions of $\JO$. By the analysis above, those are
+precisely the objects ($8_v, 8_s, 8_c$; the off-diagonal Peirce slots) on which
+the Distler--Garibaldi obstruction bites. Our contribution is narrow and specific:
+the \emph{same count} is available \emph{without} triality, from the three
+\emph{diagonal} primitive idempotents of a single real $\JO$ frame, permuted by an
+\emph{inner} $S_3 \subset F_4$. We do not claim a different or better physical
+generation structure than these works---only a different \emph{route to the count}
+that is not subject to the obstruction \emph{at the level of count and chirality}.
+We are careful not to overstate this: the Distler--Garibaldi obstruction is
+ultimately about realising three generations \emph{with the correct chiral gauge
+action}, and that fermion-content map is exactly what we leave open below. Our
+route is therefore better described as \emph{not yet engaging} the obstruction on
+the content map than as \emph{defeating} it there; what we do establish is that the
+count and the shared chirality are obstruction-free.
+The price is real, and we state it: because the three
+idempotents are $F_4$-equivalent, this structure carries \emph{no} flavour
+information beyond the integer three (all flavour must come from the
+symmetry-breaking of Section~\ref{sec:yukawa})---arguably weaker, in that respect,
+than triality routes in which $8_v, 8_s, 8_c$ are at least distinct objects.
+
+\subsection{No fourth generation}
+
+This is the most conditional of our claims, and we flag it as such. Within the
+present construction the family count is the \emph{rank} of the Jordan algebra,
+and that rank is capped at three for a structural reason: the Hermitian
+$n \times n$ octonionic matrices $H_n(\mathbb{O})$ satisfy the Jordan axioms only
+for $n \le 3$ (Jordan--von Neumann--Wigner~\cite{jvnw1934}); there is no
+exceptional Jordan algebra $\mathfrak{J}_4(\mathbb{O})$, and the naive extension
+passes to the non-alternative sedenions. A fourth family is therefore excluded
+\emph{relative to} the identification of generations with a primitive-idempotent
+frame of $\mathfrak{J}_3(\mathbb{O})$. We state it as a conditional
+exclusion, not an unconditional no-go: it would not bind if generations were
+realised by some construction other than such a frame. Because the cap follows
+from the \emph{same} rank-three identification that produces the count, it carries
+essentially no \emph{independent} predictive content, and we do not present it as a
+separate success of the framework.
+
+\subsection{What this section does \emph{not} claim}
+
+We do not claim the \emph{fermion-content map}: the assignment of the $16$ real
+dimensions of $\Delta_9$ to the $16$ Weyl fields of one Standard-Model generation,
+\emph{with their correct chiral gauge action}, is not established here. Until that
+map exists, the result of this section is a counting statement about the three
+primitive idempotents of a $\JO$ frame---together with the verified fact that their
+tangent spaces are three identical real $\Spin(9)$ spinors---rather than a
+statement about three Standard-Model generations. A flavour-diagonal Jordan
+element still returns only its seeded diagonal (a genuine negative). The count and
+the chirality \emph{type} are obstruction-free; the content map and the
+\emph{magnitudes} that distinguish the generations are the subject of
+Section~\ref{sec:yukawa} and remain open.
+
+\section{The cross-generation Yukawa operator: two elementary lemmas}
+\label{sec:yukawa}
+
+Because the three generations are \emph{identical} points of $\OP$, nothing in
+Section~\ref{sec:threegen} distinguishes them---the mass hierarchy and mixing live
+entirely in the Yukawa operator. Here we record two elementary lemmas that delimit
+what the algebra fixes about that operator. Both are immediate from the diagonal
+action on the Peirce slots (the proofs are two lines each); we state them
+carefully because their \emph{net} content---that the algebra fixes a mixing law
+but selects no hierarchy---is the boundary of what $\JO$ contributes to
+flavour.
+
+\subsection{Setup}
+
+A single algebra-internal Dirac operator on the one-generation module
+$\mathbb{C}\otimes\mathbb{O} = \mathbb{C}^8$ is isospectral and carries \emph{no}
+forced mass ratio (the elimination argument of \code{spectral\_action.py}); a
+generation spectrum must therefore come from a structure that carries the three
+families, which in the present setting is the $\JO$ frame of
+Section~\ref{sec:threegen}---with the three generations as its primitive
+idempotents, subject to the open bridge flagged there. The natural algebra-internal Yukawa operators on $\JO$ are the Jordan
+\emph{left multiplication} $L_X : Y \mapsto X \circ Y$ and the canonical Jordan
+\emph{quadratic representation} $U_X : Y \mapsto 2X\circ(X\circ Y) - (X\circ X)\circ Y$.
+We build both from the explicit $\JO$ structure tensor.
+
+\subsection{Lemma 1 --- the averaging law (additive mixing)}
+
+\begin{lemma}[Averaging law]
+\label{thm:avg}
+For $X = \mathrm{diag}(a,b,c)$, the spectrum of $L_X$ is exactly $\{a,b,c\}$
+together with $\bigl\{\tfrac{a+b}{2}, \tfrac{b+c}{2}, \tfrac{c+a}{2}\bigr\}$, the
+latter each with multiplicity $8$. Every inter-generation level is the
+\emph{arithmetic mean} of two generation levels.
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+In the diagonal frame, $\JO$ decomposes as the three real diagonal entries
+together with the three off-diagonal octonionic slots $z_1, z_2, z_3$ (each
+$\cong \mathbb{O} \cong \mathbb{R}^8$), giving $3 + 24 = 27$. For
+$X = \mathrm{diag}(a,b,c)$ the Jordan product $X \circ Y = \tfrac12(XY + YX)$ acts
+on a diagonal entry $y_{ii}$ as multiplication by $x_i$, and on a slot entry
+$y_{ij}$ ($i \neq j$) as
+\[
+  (X \circ Y)_{ij} = \tfrac12\bigl(x_i\, y_{ij} + y_{ij}\, x_j\bigr)
+                   = \tfrac12 (x_i + x_j)\, y_{ij},
+\]
+since the $x_i$ are real and commute with octonions. Hence $L_X$ is block-diagonal
+in this decomposition, with eigenvalues $a,b,c$ on the diagonal entries and
+$\tfrac{a+b}{2}, \tfrac{b+c}{2}, \tfrac{c+a}{2}$ on the three $8$-dimensional
+slots. The averaging law and the multiplicities $[1,1,1,8,8,8]$ follow.
+\end{proof}
+
+\noindent\textbf{Check.} \code{spectral\_action\_432.py} verifies this over 200
+random seeds with residual $\sim 10^{-7}$ and the multiplicity pattern
+$[1,1,1,8,8,8]$. This is three parameter-free relations among the 27 eigenvalues,
+holding for \emph{all} $X$.
+
+\noindent\textbf{Consequence.} The single existing triality-breaking spurion
+$\epso^2 = \pi/432$ (used here only as a symmetry-breaking \emph{scale}; we do
+\emph{not} claim its value is geometrically forced---see
+Section~\ref{sec:not-claimed}) breaks the inner $S_3$ and reduces the generation
+freedom from
+three eigenvalues to \emph{one} scale. But because $L_X$ mixing is \emph{additive}
+(arithmetic means), a one-knob $\epso$ ladder cannot reproduce a steep
+multiplicative hierarchy: it misses the charged-lepton spectrum by $\approx 1.4$
+decades on the lightest state. The open problem is thereby \emph{localised to one
+scalar seed function}---the profile of the three diagonal eigenvalues---with the
+mixing law itself derived.
+
+\subsection{Lemma 2 --- multiplicative mixing from the quadratic operator}
+
+\begin{lemma}[Multiplicative mixing]
+\label{thm:mult}
+For $X = \mathrm{diag}(a,b,c)$, the spectrum of the canonical quadratic
+representation $U_X$ is exactly $\{a^2,b^2,c^2\}$ together with
+$\{ab, bc, ca\}$, the latter each with multiplicity $8$. Every inter-generation
+level is the \emph{geometric mean} (product) of two generation levels.
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+Write $s = \tfrac12(x_i + x_j)$ for the scalar by which $X \circ (\cdot)$ acts on
+the slot $y_{ij}$ (proof of Lemma~\ref{thm:avg}), and note that
+$X \circ X = \mathrm{diag}(a^2,b^2,c^2)$ acts there as $t = \tfrac12(x_i^2 +
+x_j^2)$. The quadratic representation $U_X Y = 2\,X\circ(X\circ Y) - (X\circ
+X)\circ Y$ then acts on $y_{ij}$ as
+\[
+  2 s^2 - t = \tfrac12 (x_i + x_j)^2 - \tfrac12 (x_i^2 + x_j^2) = x_i x_j,
+\]
+and as $x_i^2$ on the diagonal entries. The product (geometric-mean) law and the
+multiplicities $[1,1,1,8,8,8]$ follow.
+\end{proof}
+
+\noindent\textbf{Check.} \code{spurion\_perturbation.py} verifies this over 200
+random seeds with residual \emph{exactly} $0$ and multiplicity $[1,1,1,8,8,8]$.
+
+\noindent\textbf{Significance.} Under $U_X$, log-mass is \emph{additive} in the
+generation exponents. Multiplicative mixing is the structural prerequisite for any
+power-law hierarchy; switching from the linear Yukawa $L_X$ to the canonical Jordan
+quadratic $U_X$ is therefore the algebraic step that \emph{permits} a power-law
+ladder at all. We are candid that the \emph{motivation} for preferring $U_X$ is
+phenomenological---one wants multiplicativity because the observed hierarchy is
+roughly power-law; the lemma itself, however, is a fixed property of the operator,
+independent of any data. Neither lemma \emph{selects} a hierarchy: the off-diagonal
+levels are means or products of $(a,b,c)$, so all hierarchy must be seeded in the
+diagonal profile, which the algebra leaves unexplained.
+
+\subsection{A companion structural fact, and the boundary}
+
+One further observation sharpens---but does \emph{not} close---the magnitude
+problem.
+
+\begin{itemize}[leftmargin=1.4em]
+\item \textbf{Rank-one bottleneck.} The project's single spurion is rank one,
+  $T_{\mathrm{break}} = \theta\,|\tau\rangle\langle\tau|$. A rank-one perturbation
+  of a degenerate level lifts exactly one eigenvalue at first order (verified
+  numerically in \code{spurion\_perturbation.py}). Hence a three-tier hierarchy
+  cannot arise from one first-order insertion; the tiers must appear at cumulative
+  orders $\epso^1, \epso^2, \dots$
+\end{itemize}
+
+We deliberately exclude from this paper any numerical pattern in the diagonal
+exponents---for example the $\epso = \sqrt{\pi/432}$ ladder explored in the wider
+project---because such patterns are post-hoc targets over small, self-chosen
+windows and would invite the very look-elsewhere critique the conservative claim is
+designed to avoid. We refer them to the companion materials and do not display them
+here.
+
+The boundary of this paper is exactly here: Section~\ref{sec:yukawa} fixes
+the \emph{mixing law} and the \emph{operator class}, and localises the residue to
+one diagonal seed profile. The \emph{dynamical selection} of that profile is not
+supplied by the algebra and is the single genuinely open research item. We state
+it as such rather than fitting it.
+
+\section{Statistical assessment}
+\label{sec:stats}
+
+A discrete-structure claim must be defended against the charge that integers are
+cheap. We therefore report the project's adversarial diagnostics rather than
+suppress them.
+
+\begin{itemize}[leftmargin=1.4em]
+\item \textbf{Parameter count (MDL).} The framework carries roughly 17 discrete
+  structural choices plus one continuous input (the Planck mass), not zero
+  (\code{model\_complexity.py}). The data-compression ratio is marginal today
+  ($R \approx 1.19$).
+\item \textbf{Goodness-of-fit on independent observables.} Once dependent rows are
+  removed and a stated theory floor is applied, the independent set is
+  statistically consistent (reduced $\chi^2 \approx 0.92$), with the
+  first-generation electron mass a visible outlier
+  (\code{independent\_observables.py}, \code{covariance\_gof.py}). The 22 nominal
+  rows collapse to $N_{\mathrm{eff}} \approx 10$ effective observables under the
+  shared-$\epso$ common mode---we do not count them as 22 independent successes.
+\item \textbf{Model-comparison Bayes factor.} Crediting only the
+  numerically-closed discrete results (the conservative floor of this paper), the
+  Bayes factor against an $O(1)$-numerology null is approximately
+  $\ln B \approx -3.2$; it rises to $\approx +5.6$ only if the geometric origin of
+  $\pi/432$ is granted (\code{bayesian\_evidence.py}, \code{scoreboard.py}). The
+  verdict
+  therefore hinges on a single named seam, which we keep on the disclaimed side
+  (B). The conservative paper does \emph{not} rely on $\ln B > 0$.
+\item \textbf{Look-elsewhere on scale relations.} The power-of-three scale hits
+  ($M_W$, $M_R$, $\Lambda$) are \emph{cheap}: a simple prefactor times an integer
+  exponent already covers $\approx 93\%$ of one exponent window
+  (\code{scale\_look\_elsewhere.py}). These are explicitly \emph{not} part of claim
+  (A).
+\end{itemize}
+
+The conservative claim survives all of these because it rests on \emph{discrete},
+structure-level results (charges, multiplicities, anomaly cancellation,
+KO-dimension, the rank-three count) whose evidential weight does not depend on the
+continuous-parameter accounting that the diagnostics (correctly) discount.
+
+\section{What this paper does not claim}
+\label{sec:not-claimed}
+
+For the avoidance of doubt, the following are \emph{not} claimed here and are
+pre-registered as falsification conditions (Appendix~\ref{app:repro}):
+
+\begin{enumerate}[leftmargin=1.8em]
+\item The fermion mass ratios / Yukawa eigenvalue magnitudes are not derived.
+\item The mixing-angle magnitudes are not derived; the integer multiplicities
+  $\sqrt{7}, \tfrac12, 3, 4$ and $4/7$ in the wider project are open bridges, not
+  closed.
+\item $\epso^2 = \pi/432$ is not claimed as geometrically forced; it is an open
+  bridge.
+\item The gauge couplings and the electroweak / Planck-scale hierarchies are not
+  derived; the relevant rows carry continuum/RG-matching gaps obtained partly by
+  inverse running.
+\item Gravity is out of scope: the internal metric brick yields no canonical 4D
+  Lorentzian reduction or dynamics (\code{gravity\_gate\_audit.py}).
+\end{enumerate}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+The defensible \emph{content} of the $\CHO$ program is sharp and small: the
+\emph{discrete internal anatomy of one Standard-Model generation}---charges,
+colour, weak isospin, hypercharge, anomaly freedom, and chirality---is determined,
+once a complex structure is fixed, by the algebra and its automorphisms; and the
+family count $N_{\mathrm{gen}}=3$, at the level of count and chirality, is the
+rank of an $\JO$ frame whose primitive idempotents are permuted by an inner $S_3$
+---a route that is not subject to the
+Distler--Garibaldi no-go that defeats representation-counting bridges.
+We are explicit that this last step rests on adopting $\JO$ (an open
+$\Alg \to \JO$ bridge and an unestablished fermion-content map) and that the
+$F_4$-equivalent idempotents carry no flavour information beyond the integer
+three.
+
+Our new contribution to the flavour question is delimitation rather than
+solution: the cross-generation Yukawa obeys an \emph{averaging law} under linear Jordan
+multiplication (Lemma~\ref{thm:avg}) and a \emph{multiplicative-mixing law} under
+the canonical quadratic operator (Lemma~\ref{thm:mult}), and the rank-one spurion
+forces any hierarchy to be cumulative. These results reduce the open flavour problem from ``derive the entire
+Yukawa spectrum'' to ``supply a dynamical principle selecting one diagonal seed
+profile.'' That residual is stated plainly as the program's lone high-risk open
+item---not papered over with a fit.
+
+We stress, finally, what this paper does \emph{not} establish: a \emph{positive}
+evidential case. Scored on its own diagnostics (Section~\ref{sec:stats}), the
+conservative results do not beat an $O(1)$-numerology null ($\ln B \approx -3.2$)
+unless the
+geometric origin of $\pi/432$ is granted---which we keep on the disclaimed side
+(B). The content here is therefore offered as a precise, falsifiable
+\emph{delimitation} of what $\CHO$ and $\JO$ do and do not fix, not as positive
+evidence for the framework. We regard that delimitation as the correct unit of
+publication: every component is individually falsifiable, the inherited results
+are attributed rather than reclaimed, and the open bridges are named rather than
+papered over.
+
+\section*{Code and data availability}
+\addcontentsline{toc}{section}{Code and data availability}
+
+All claims in this paper are checked by a single reproducible harness that
+accompanies this deposit and is openly available in the project repository,
+\url{https://github.com/richorama/cho}. The numerical-check modules of
+Sections~\ref{sec:discrete}--\ref{sec:yukawa} are:
+
+\begin{quote}\ttfamily\small\raggedright
+ladder\_charges.py, weak\_isospin\_hypercharge.py, physics\_map\_audit.py,
+ko\_dimension\_chirality.py, jordan\_eigenvalue\_generations.py,
+three\_generations\_frame.py, spectral\_action\_432.py, spurion\_perturbation.py
+\end{quote}
+
+\noindent together with the statistical diagnostics of Section~\ref{sec:stats}.
+They reside in the \code{compute/} directory of that repository. The full
+suite, the per-claim contracts, and the test harness run with:
+
+\begin{quote}\ttfamily\small
+python3 compute/audit.py \quad\textrm{\# run every artifact}\\
+python3 compute/audit.py <name> \quad\textrm{\# run one}\\
+python3 compute/audit\_contract.py \quad\textrm{\# validate claim contracts}\\
+python3 -m pytest -q \quad\textrm{\# one test per audit artifact}
+\end{quote}
+
+The numerical inputs use NumPy only. The status of every claim is pinned in the
+companion ledger (\code{DERIVATION\_LEDGER.md}); the public-claim policy is in
+\code{PUBLIC\_CLAIMS.md}; caveats are in \code{METHODOLOGY\_LIMITS.md}.
+
+\paragraph{License.}
+This work is released under the Creative Commons Attribution 4.0 International
+(CC~BY~4.0) license.
+
+\appendix
+
+\section{Reproducibility apparatus}
+\label{app:repro}
+
+The numerical checks cited in the body are organised by a small, project-internal
+bookkeeping layer. We collect its conventions here so that the main text can refer
+to them in plain language; none of this vocabulary is required to follow the
+physics.
+
+\paragraph{Vocabulary.}
+A \emph{check} (a \emph{witness}, in the repository) is the executable script that
+reproduces a stated claim on the explicit octonion multiplication table. The
+\emph{ledger} (\code{DERIVATION\_LEDGER.md}) records the status of each claim. A
+\emph{kill condition} is a pre-registered statement whose truth would falsify a
+claim, and a \emph{contract} ties each check to its ledger status---so that
+asserting any disclaimed item (B) is derived would itself fail the harness. A
+check returning \textsc{pass} certifies only that the finite-dimensional
+computation matches the stated representations, spectra, and multiplicities to
+machine precision; it is not a proof and says nothing about the physical
+interpretation.
+
+\paragraph{Internal labels.}
+``Lever A/B/C/D'' are repository labels for four one-generation results: the
+spectral generation count~(A), the KO-dimension-6 chirality~(B), the charge
+ladder~(C), and weak isospin and hypercharge~(D). They are retained for
+traceability only and carry no content beyond the results they name.
+
+\paragraph{Per-claim checks.}
+The body pointers map to modules as follows: electric charge and colour,
+\code{ladder\_charges.py}; weak isospin and hypercharge,
+\code{weak\_isospin\_hypercharge.py}; anomaly cancellation,
+\code{physics\_map\_audit.py}; KO-dimension-6 chirality,
+\code{ko\_dimension\_chirality.py}; the spectral generation count,
+\code{jordan\_eigenvalue\_generations.py}; frame equivalence and chirality,
+\code{three\_generations\_frame.py}; the averaging law (Lemma~\ref{thm:avg}),
+\code{spectral\_action\_432.py}; and multiplicative mixing (Lemma~\ref{thm:mult})
+together with the rank-one bottleneck, \code{spurion\_perturbation.py}. The
+exclusion of a fourth family is the conditional ledger entry~G2, with no separate
+module. Run instructions are given in the \emph{Code and data availability}
+section above.
+
+\begin{thebibliography}{11}
+
+\bibitem{lisi2007}
+A.~G.~Lisi,
+\emph{An Exceptionally Simple Theory of Everything},
+\texttt{arXiv:0711.0770} (2007).
+
+\bibitem{furey2015}
+C.~Furey,
+\emph{Standard model physics from an algebra?},
+Ph.D.\ thesis, University of Waterloo (2015); \texttt{arXiv:1611.09182} (2016).
+
+\bibitem{furey2018}
+C.~Furey,
+\emph{Three generations, two unbroken gauge symmetries, and one
+eight-dimensional algebra},
+Phys.\ Lett.\ B \textbf{785} (2018) 84--89, \texttt{arXiv:1910.08395}.
+
+\bibitem{dixon1994}
+G.~M.~Dixon,
+\emph{Division Algebras: Octonions, Quaternions, Complex Numbers and the
+Algebraic Design of Physics},
+Kluwer Academic Publishers (1994).
+
+\bibitem{duboisviolette2016}
+M.~Dubois-Violette,
+\emph{Exceptional quantum geometry and particle physics},
+Nucl.\ Phys.\ B \textbf{912} (2016) 426--449, \texttt{arXiv:1604.01247}.
+
+\bibitem{todorov2018}
+M.~Dubois-Violette and I.~Todorov,
+\emph{Exceptional quantum geometry and particle physics II},
+Nucl.\ Phys.\ B \textbf{938} (2019) 751--761, \texttt{arXiv:1808.08110}.
+
+\bibitem{baez2010}
+J.~C.~Baez and J.~Huerta,
+\emph{The algebra of grand unified theories},
+Bull.\ Amer.\ Math.\ Soc.\ \textbf{47} (2010) 483--552, \texttt{arXiv:0904.1556}.
+
+\bibitem{boyle2020}
+L.~Boyle,
+\emph{The Standard Model, the Exceptional Jordan Algebra, and Triality},
+\texttt{arXiv:2006.16265} (2020).
+
+\bibitem{jvnw1934}
+P.~Jordan, J.~von Neumann, and E.~Wigner,
+\emph{On an algebraic generalization of the quantum mechanical formalism},
+Ann.\ Math.\ \textbf{35} (1934) 29--64.
+
+\bibitem{connes2006}
+A.~Connes,
+\emph{Noncommutative geometry and the standard model with neutrino mixing},
+JHEP \textbf{0611} (2006) 081, \texttt{arXiv:hep-th/0608226}.
+
+\bibitem{chamseddine1997}
+A.~H.~Chamseddine and A.~Connes,
+\emph{The Spectral Action Principle},
+Commun.\ Math.\ Phys.\ \textbf{186} (1997) 731--750, \texttt{arXiv:hep-th/9606001}.
+
+\bibitem{distler2010}
+J.~Distler and S.~Garibaldi,
+\emph{There is no ``Theory of Everything'' inside $E_8$},
+Commun.\ Math.\ Phys.\ \textbf{298} (2010) 419--436, \texttt{arXiv:0905.2658}.
+
+\end{thebibliography}
+
+\end{document}
