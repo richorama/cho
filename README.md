@@ -6,6 +6,34 @@ A few-input algebraic framework for the Standard Model, built from the tensor pr
 > current-state snapshot — the PROVED-vs-NOT scorecard, the one live external
 > lever (`sin^2(theta23) = 4/7`), and a "how to resume" section.
 
+> **Successor branch (2026-07-14): dynamics first.** The
+> [theory crucible](experiments/theory_crucible/README.md) reverses the old
+> explanatory direction: it compares candidate structures under selection rules
+> that do not assume CHO, rank three, or measured constants. Its first three
+> adversarial gates show that the Fano `4/7` is canonical as an incidence count
+> but generic as a projector trace, is not selected by Fano symmetry, and in the
+> minimal Gibbs model occurs only when the two sectors are energetically
+> indistinguishable. The observable-map and unitary-dynamics gates further close
+> the direct linear, equivariant, stabilizer-preserving route: it yields either
+> free intertwiners, the mirror trace `3/7`, no oscillation, or at most `4/9`.
+> A matched `PG(2,q)` census also shows that `4/7` is the minimum projective-plane
+> avoidance fraction, not an exceptional-geometry discriminator by itself.
+> Gates 07-09 find the first positive discriminator: neutral norm and
+> alternativity tests select one octonion multiplication class from all `128`
+> signed Fano products, the class is locally isolated, and its rank-four
+> associator Gram spectrum is unmatched by every non-octonionic control.
+> Gates 10-11 then separate measurement from dynamics: the seven Gram projectors
+> are rigid but all commute, while the unsquared signed transports are genuinely
+> noncommuting and generate all of `so(7)`. This proves broad kinematic control,
+> not a physical prediction. Gate 12 shows the transports and projector phases
+> jointly generate all of `u(7)`, with exactly the octonion copies supplying a
+> valid package in the signed census. Gate 13 is the decisive selector: full
+> symmetry gives only a global phase, while one oriented vacuum gives a canonical
+> `1+3+3` spectrum but leaves two physical coefficients free. The route therefore
+> stops unless independent vacuum dynamics fixes those coefficients.
+> This work is quarantined from the closed CHO audit and moves no prediction or
+> Bayes credit.
+
 > **Scope (updated 2026-06-12).** This project is framed as *an algebraic
 > framework for Standard Model parameters from division algebras* — **not** a
 > completed Theory of Everything. Phase 5 explicitly keeps gravity out of scope:
