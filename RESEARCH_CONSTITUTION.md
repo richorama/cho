@@ -26,15 +26,18 @@ strong changes of description selects a narrow class of process theories.
 5. Freeze models before evaluating physical holdouts.
 6. Count surviving parameters and report all failed families.
 7. Prefer exact finite enumeration before stochastic search.
+8. Encode every scientific claim, control, and promotion condition as a named
+  unit test. Production code computes results but never declares them proved.
 
 ## Initial Gates
 
 - **Gate 00, representation invariance:** exact relabelings cannot change an
-  operational probability. This is implemented.
+  operational probability. Implemented and passing.
 - **Gate 01, coarse-graining commutator:** independently specified microscopic
-  evolution and blocking must approximately commute with an effective update.
+  evolution and blocking must commute with an effective update. Implemented and
+  passing for the first exact deterministic and rational-stochastic censuses.
 - **Gate 02, blocking robustness:** the same effective law must survive at least
-  two non-equivalent blocking schemes.
+  two non-equivalent blocking schemes. This is the next target.
 - **Gate 03, records and causal influence:** stable records must coexist with a
   bounded influence cone.
 

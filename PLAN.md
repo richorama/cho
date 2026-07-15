@@ -101,16 +101,21 @@ probabilities exactly. Label-sensitive diagnostics must be rejected.
 
 ### Gate 01: Exact Coarse-Graining
 
-Enumerate small deterministic and stochastic processes together with blocking
-maps chosen independently of their dynamics. Classify when an autonomous
-effective update exists:
+Status: **implemented and passing**.
+
+Small deterministic and rational stochastic processes are exhaustively paired
+with blocking maps chosen independently of their dynamics. The tests classify
+when an autonomous effective update exists:
 
 ```text
 B U^m = U_B B.
 ```
 
-Primary output: a complete census of exact survivors, failures, and degeneracies.
-The gate must distinguish genuine closure from trivial constant blocking.
+The deterministic census checks `159659` nontrivial rule/partition pairs through
+five states and finds `34311` survivors. The denominator-two stochastic census
+checks `130648` pairs through four states and finds `25480` survivors. Constant
+and identity blocking are excluded. Every deterministic partition count matches
+an independent closed formula.
 
 ### Gate 02: Blocking Robustness
 
@@ -162,6 +167,11 @@ Every candidate is reported with:
 Do not combine these into a scalar fitness function unless its weights and kill
 conditions are frozen before the search. Keep training objectives and holdout
 diagnostics in separate files and code paths.
+
+Every statement presented as a project result must correspond to a named
+`unittest` method. Tests contain expected census values, matched controls, and
+promotion criteria. Package code contains only representations, transformations,
+and pure computations. `run_all.py` performs test discovery and nothing else.
 
 ## Promotion Levels
 
@@ -239,10 +249,11 @@ pivot, rerun the same gates and measure what the new premise buys.
 
 ## Immediate Objective
 
-Implement Gate 01 as an exact census of the smallest deterministic and rational
-stochastic processes under dynamics-independent partitions. Establish a known
-lumpability result as a cross-check, reject constant blocking as trivial, and
-produce the first survivor-frequency baseline.
+Implement Gate 02 as a robustness test across inequivalent blocking families.
+First quotient partitions by microscopic relabeling and define independence
+without inspecting the update rule. Then classify which Gate 01 survivors close
+under more than one partition shape and whether their induced coarse laws agree
+up to coarse relabeling.
 
-Do not begin Gate 02 until Gate 01 prints a complete **PROVED / NOT PROVED /
-VERDICT** report and its enumerator is independently tested.
+Do not begin Gate 03 until Gate 02 has named tests for partition independence,
+matched shuffled controls, survivor rarity, and invariance under relabeling.

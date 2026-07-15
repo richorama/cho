@@ -1,13 +1,18 @@
-"""Run every executable observer-consistency gate."""
+"""Discover and run every observer-consistency scientific test contract."""
 
-from experiments.gate_00_representation_invariance import main as gate_00
+from pathlib import Path
+import sys
+import unittest
 
 
-def main() -> None:
-    gate_00()
-    print()
-    print("BOOTSTRAP: 1/1 GATES PASS")
+def main() -> int:
+    root = Path(__file__).resolve().parent
+    suite = unittest.defaultTestLoader.discover(
+        str(root / "tests"), pattern="test_gate_*.py"
+    )
+    result = unittest.TextTestRunner(verbosity=2).run(suite)
+    return 0 if result.wasSuccessful() else 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

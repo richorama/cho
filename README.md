@@ -15,15 +15,17 @@ The longer-term conjecture is stronger: descriptions related by admissible
 coarse-graining should predict the same operational probabilities. Laws would
 then be fixed points, or short cycles, of changes of description.
 
-## First Question
+## Current Result
 
-Before defining coarse-graining, Gate 00 tests the exact finite precursor:
-representation invariance under relabeling. A preparation, reversible update,
-and measurement effect are transformed together. Their observable probability
-must remain unchanged. A deliberately label-sensitive diagnostic must fail.
+Gate 00 establishes representation invariance under relabeling. Gate 01 then
+enumerates deterministic processes through five states and denominator-two
+stochastic processes through four states under every nontrivial partition.
+Exact autonomous coarse laws exist, but most rule/partition pairs fail.
 
-This gate does not derive quantum theory or physics. It establishes the software
-contract that later coarse-graining experiments must satisfy.
+Every scientific claim is a named `unittest` contract. Production modules only
+compute finite processes and censuses; tests own all expected values, controls,
+and promotion criteria. Passing tests establish the stated finite results, not
+quantum theory or physics.
 
 The project mission, staged gates, promotion levels, and stop conditions are
 defined in [PLAN.md](PLAN.md). Methodological constraints are kept separately in
