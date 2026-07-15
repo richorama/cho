@@ -54,6 +54,17 @@ window. Six of 20 survivors beat chance for both symbols, compared with 88 of
 is not selected or enriched. Under the project kill conditions, the elementary
 cellular-automaton route is therefore parked at Level 2.
 
+Gate 05 changes one premise explicitly by adding a previous-state channel and
+the reversible update `(current, previous) -> (f(current) XOR previous, current)`.
+All 256 local rules become exactly invertible. A phase-correct trajectory test,
+which blocks states sampled at times `0`, `2`, and `4`, selects exactly the 16
+affine Boolean rules under both spatial blockings at sizes `6` and `8`; eight are
+interacting and rules `60`, `90`, `102`, and `150` remain common fixed points.
+The full two-channel state permits radius-one recovery after two steps for every
+rule, as required by the local inverse. But the declared record channel is only
+a one-step delay and is then masked by the unknown previous bit. Reversibility
+preserves recoverability, not a durable autonomous record subsystem.
+
 Every scientific claim is a named `unittest` contract. Production modules only
 compute finite processes and censuses; tests own all expected values, controls,
 and promotion criteria. Passing tests establish the stated finite results, not

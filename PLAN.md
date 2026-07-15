@@ -184,9 +184,21 @@ causal interaction.
 
 ### Gate 05: Defects And Composition
 
-Introduce localized deviations from a fixed-point background. Ask whether they
-persist, move, scatter, and compose without a particle interpretation being
-inserted.
+Status: **reversible premise tested; split result, no Level 3 promotion**.
+
+Each site is enlarged to `(current, previous)` and every elementary local rule is
+lifted to `(f(current) XOR previous, current)`. The inverse is exact for all 256
+rules. Instantaneous componentwise blocking again leaves only four noninteracting
+controls. Because that map is phase-incompatible with factor-two time sampling,
+the valid scale test blocks trajectories at times `0`, `2`, and `4` instead.
+
+Exactly 16 rules close under both trajectory blockings at source sizes `6` and
+`8`: the complete affine Boolean family. Eight are interacting, and `60`, `90`,
+`102`, and `150` remain common fixed points. The full two-channel future state
+locally recovers an initial bit after two steps for every rule, which is an exact
+inverse identity rather than selection. The ancillary channel itself copies the
+current bit for one step, then becomes one-time-padded by the unknown previous
+bit. It is not a durable independent record.
 
 Primary output: holdout statistics for lifetimes, propagation, scattering, and
 fusion classes.
@@ -293,7 +305,8 @@ selected bounded causal transport but neither worst-case passive records nor a
 predeclared encoded statistical memory. Do not tune further encodings, readout
 windows, times, blockings, or ECA subsets around the four fixed points.
 
-A future campaign must change one premise explicitly and start with new frozen
-tests. The most defensible next option is reversible local dynamics with an
-ancillary record subsystem, where information cannot be erased microscopically;
-it must not inherit a decoder optimized on these ECA outcomes.
+Do not promote the reversible affine family to Level 3. The next premise, if
+tested, must provide a protected record degree of freedom whose write and
+transport phases are fixed independently of the local interaction rule. Require
+records to remain readable from that subsystem alone for more than one update,
+and compare every survivor with the complete matched reversible control family.

@@ -45,6 +45,10 @@ strong changes of description selects a narrow class of process theories.
   readable record through four steps. A frozen repetition-code/statistical
   readout is also not enriched and rejects every interacting fixed point.
   Influence passes; records do not. The ECA route is parked below Level 3.
+- **Gate 05, reversible local records:** adding a previous-state channel makes
+  every local rule invertible. Phase-correct trajectory blocking selects exactly
+  the 16 affine rules, but the ancillary channel is overwritten after one step.
+  Local inverse recovery passes; durable subsystem memory does not.
 
 ## Kill Conditions
 
