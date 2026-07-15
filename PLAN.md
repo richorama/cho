@@ -156,9 +156,21 @@ rules, with basin sizes and surviving parameter counts.
 
 ### Gate 04: Records And Influence
 
-Test whether survivors can create persistent, locally readable records while
-retaining a bounded influence cone. Constant rules, permutations with no
-interaction, and globally mixing rules are explicit controls.
+Status: **implemented with a split result; no Level 3 promotion**.
+
+The frozen Gate 03 family is tested under a single-site intervention while every
+other microscopic bit ranges over all backgrounds. At size `11` through four
+steps, `16/20` survivors have a background-independent response, `14/20` retain
+it at every step, and `8/20` replicate it to multiple final sites. The matched
+unselected census is `0/236` for all three properties. Rules `60`, `90`, `102`,
+and `150` all carry persistent replicated influence within the exact causal cone.
+
+This causal imprint is not silently called a record. A stricter passive decoder
+must recover the original source bit from one bounded future window while all
+unobserved background bits remain unknown. Exhaustive tests of every time
+`1..4` and every window radius up to that time find no decoder for any of the
+four interacting fixed points. Scale consistency strongly selects transport,
+but this additive family has not demonstrated locally readable memory.
 
 Primary output: a classification of rules supporting both memory and nontrivial
 causal interaction.
@@ -269,11 +281,12 @@ pivot, rerun the same gates and measure what the new premise buys.
 
 ## Immediate Objective
 
-Begin Gate 04 as a holdout evaluation of the frozen 20-rule family. Define local
-records, perturbation transport, and influence-cone measurements without changing
-the Gate 03 selection criteria. Compare the four interacting fixed points against
-the remaining survivors and matched elementary-rule controls.
+Do not promote the additive family to Gate 05 or Level 3. First decide whether
+the worst-case decoder is the intended operational record criterion or whether
+observers may use a dynamics-independent encoded preparation and statistical
+readout. Any weaker criterion must be frozen before testing and applied to all
+256 rules; it may not be chosen to rescue rules `60`, `90`, `102`, or `150`.
 
-Do not broaden the update family or tune the blocking maps during Gate 04. A
-failure to support persistent locally readable records is evidence that exact
-additive scale invariance is dynamically sterile.
+If strict passive readability remains required, park this ECA route as a clean
+result: exact scale invariance selected bounded causal transport but not stable
+records.

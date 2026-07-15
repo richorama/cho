@@ -40,8 +40,9 @@ strong changes of description selects a narrow class of process theories.
   two non-equivalent blocking schemes. Implemented and passing; arbitrary set
   partitions select only identity/reset dynamics.
 - **Gate 03, records and causal influence:** stable records must coexist with a
-  bounded influence cone. Compositional locality and recursive blocking now pass
-  for a narrow additive cellular-automaton family; records are the next holdout.
+  bounded influence cone. The additive fixed points carry persistent replicated
+  causal imprints, but exhaustive worst-case local decoding finds no passively
+  readable record through four steps. Influence passes; strict records do not.
 
 ## Kill Conditions
 

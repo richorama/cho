@@ -37,6 +37,15 @@ common fixed points survive: rules `60`, `90`, `102`, and `150`. All are additiv
 XOR rules, so this is a Level 2 finite universality result, not evidence for a
 physical theory.
 
+Gate 04 freezes that family and measures single-site interventions without using
+them for selection. Eight of the 20 survivors carry a background-independent,
+persistent, replicated causal imprint through four steps; none of the other 236
+elementary rules does. All four interacting fixed points pass, with influence
+inside the exact radius-one light cone. However, exhaustive local decoders over
+all unknown backgrounds fail for every fixed point at every time and window
+through four steps. The family transports counterfactual influence but has not
+produced a passively readable stable record, so it remains below Level 3.
+
 Every scientific claim is a named `unittest` contract. Production modules only
 compute finite processes and censuses; tests own all expected values, controls,
 and promotion criteria. Passing tests establish the stated finite results, not
