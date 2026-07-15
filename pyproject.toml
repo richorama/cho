@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "observer-consistency-bootstrap"
+version = "0.0.0"
+description = "Finite experiments in representation and coarse-graining consistency"
+requires-python = ">=3.8"
+license = {text = "CC-BY-4.0"}
+
+[tool.setuptools.packages.find]
+include = ["observer_bootstrap*"]
