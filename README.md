@@ -127,7 +127,12 @@ coarse-graining. Gate Q05 adds a structurally different third blocking (a rotate
 factorisation via CNOT) that keeps a different survivor set, and shows the
 non-interacting survivors contract from 36 realisations to 6 environment-free
 effective channels that are closed under composition — the surviving structure
-shrinks, not grows, under recursion. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
+shrinks, not grows, under recursion. Gate Q06 removes the two-qubit caveat with a
+genuine nested spatial coarse-graining of a three-qubit chain (trace qubit C, then
+trace qubit B): each blocking discards exactly the dynamics coupling across the newly
+erased boundary, only fully non-interacting products reach the bottom, and distinct
+effective channels contract monotonically 81 to 18 to 3 as traced factors are
+forgotten. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
 [AMPLITUDE_CONSTITUTION.md](AMPLITUDE_CONSTITUTION.md). The package is
 `amplitude_bootstrap/`; its contracts are the `tests/test_gate_q0*.py` gates.
 

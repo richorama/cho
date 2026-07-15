@@ -169,6 +169,33 @@ parameters and is closed under composition. Honest caveat: this is a two-qubit
 system, so "recursive" here means time-composition, not spatial recursion; a genuine
 spatial-recursion gate would need larger systems and is left for future work.
 
+### Gate Q06: Genuine Spatial Recursion On A Three-Qubit Chain
+
+Status: **implemented and passing; delivers the nested spatial blocking Q05 deferred.**
+
+Q06 removes the two-qubit caveat. Three qubits `A-B-C` are coarse-grained by tracing
+qubit `C` to a two-qubit effective channel on `A-B`, and that channel is coarse-grained
+*again* by tracing qubit `B` to a one-qubit channel on `A`. The reduction is defined for
+any completely-positive map, so the second level genuinely acts on the channel produced
+by the first — nested spatial blocking, not repeated time-composition. From `81`
+ensemble members (three single-qubit gates per site, three entangler layers): the first
+blocking keeps `54` (non-interacting products and `A-B` interactions, since tracing `C`
+respects those boundaries) and discards every `B-C` interaction; the second blocking
+keeps only the `27` fully non-interacting products, discarding every `A-B` interaction
+too. So each nested blocking removes exactly the dynamics coupling across the newly
+erased boundary, and `0` interacting members reach the bottom. Every bottom-level channel
+is reversible (Choi rank one). Parameter contraction is monotone: distinct effective
+channels shrink `81 → 18 → 3` as the traced factors are forgotten in turn (`c`, then
+`b`), leaving the single surviving factor `a`. Owner: `tests/test_gate_q06_spatial.py`.
+
+This is Level 2 proper: one effective structure (reversible single-qubit conjugation)
+survives a genuine nested spatial coarse-graining with strictly and monotonically fewer
+parameters at each level. Honest caveat: the surviving family is the non-interacting one,
+exactly as in the classical campaign's additive Level-2 survivors — the amplitude premise
+sharpens *why* interaction is filtered (it couples across the erased boundary) but does
+not yet manufacture a nonclassical structure that survives recursively. That is the
+Level-3 question.
+
 ## Promotion Levels
 
 Identical ladder to the classical campaign. Level 0 is the software contract

@@ -31,6 +31,14 @@ from .recursion import (
     rotated_survivors_all_reversible,
     survivor_comparison,
 )
+from .spatial import (
+    ChainMember,
+    RecursionSummary,
+    chain_ensemble,
+    partial_trace_qubit,
+    recursion_summary,
+    reduce_map,
+)
 
 __all__ = [
     "AmplitudeExperiment",
@@ -56,6 +64,12 @@ __all__ = [
     "rotated_reduced_channel",
     "rotated_survivors_all_reversible",
     "survivor_comparison",
+    "ChainMember",
+    "RecursionSummary",
+    "chain_ensemble",
+    "partial_trace_qubit",
+    "recursion_summary",
+    "reduce_map",
     "Gaussian",
     "born_probability",
 ]
