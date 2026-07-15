@@ -71,23 +71,27 @@ reversible microscopic dynamics — is impossible under this strong all-states
 condition. It is deferred to Gate Q02, whose weaker premise fixes the environment
 state, the standard open-systems coarse-graining where irreversibility can appear.
 
-### Gate Q02: Coarse-Graining Robustness (next)
+### Gate Q02: Fixed-Environment Decoherence Channel
 
-Require one unitary to close under at least two inequivalent amplitude
-coarse-graining channels, with induced laws agreeing up to a coarse basis change.
-Measure whether robustness is generic (kill condition) or selective.
+Status: **implemented and passing; first genuinely nonclassical emergence.**
 
-### Gate Q02: Fixed-Environment Decoherence Channel (next)
+Weakening the coarse-graining to a declared environment state `rho_B` and the
+open-systems map `rho_A -> Tr_B(U (rho_A kron rho_B) U^dagger)` makes the effective
+channel always autonomous, so the question becomes its character. Across the
+`144`-unitary ensemble and five exact environments, every induced map is trace
+preserving, but reversible microscopic unitaries now produce genuinely *irreversible*
+(Choi rank two) effective channels. Decoherence arises exactly from the entangling
+members: for every environment the decohering count equals the entangling decohering
+count, so no local product unitary ever decoheres. Under a maximally mixed
+environment the split is exact — all `36` local unitaries stay reversible and all
+`108` entangling unitaries decohere — and the effect is environment dependent (CNOT
+decoheres against `|+i>` but stays reversible against its target eigenstate `|+>`).
 
-Status: **specified, not yet implemented.**
-
-Weaken the coarse-graining: fix a declared environment state `rho_B` and reduce by
-`rho_A -> Tr_B(U (rho_A kron rho_B) U^dagger)`. This is the standard open-systems
-map and always yields an autonomous channel, so the question shifts from existence
-to *character*: which unitaries induce a genuinely decohering (Choi rank > 1)
-effective channel, how that depends on `rho_B`, and whether the induced calculus is
-still classically simulable. This is the second, inequivalent coarse-graining
-required before any resolution-independence claim.
+This is the first result the classical campaign provably could not produce:
+reversible microscopic dynamics yielding irreversible effective behaviour, selected
+by interaction. Paired with Gate Q01 it isolates what the environment premise buys —
+decoherence is impossible under global autonomy yet generic under fixed-environment
+reduction. Owner: `tests/test_gate_q02_fixed_environment_decoherence.py`.
 
 ### Gate Q03: Interference As A Holdout (next)
 

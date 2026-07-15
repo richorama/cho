@@ -220,3 +220,105 @@ def reduced_dynamics_census() -> ReducedCensus:
         autonomous_entangling=autonomous_entangling,
         entangling_total=entangling_total,
     )
+
+
+# --- Gate Q02: fixed-environment coarse-graining and emergent decoherence. ----
+
+def _density(entries: Tuple[Tuple[Gaussian, ...], ...]) -> Matrix:
+    return tuple(tuple(row) for row in entries)
+
+
+_HALF = Fraction(1, 2)
+
+# Declared environment states, all exact density matrices over Q(i).
+ENVIRONMENTS: Tuple[Tuple[str, Matrix], ...] = (
+    ("zero", ((ONE, ZERO), (ZERO, ZERO))),
+    ("one", ((ZERO, ZERO), (ZERO, ONE))),
+    ("plus", ((Gaussian(_HALF), Gaussian(_HALF)), (Gaussian(_HALF), Gaussian(_HALF)))),
+    (
+        "plus_i",
+        (
+            (Gaussian(_HALF), Gaussian(Fraction(0), -_HALF)),
+            (Gaussian(Fraction(0), _HALF), Gaussian(_HALF)),
+        ),
+    ),
+    ("mixed", ((Gaussian(_HALF), ZERO), (ZERO, Gaussian(_HALF)))),
+)
+
+
+def fixed_environment_channel(unitary: Matrix, environment: Matrix) -> Matrix:
+    """The open-systems channel ``rho_A -> Tr_B(U (rho_A kron rho_B) U^dagger)``.
+
+    Returns the 4x4 vec-matrix of an always-autonomous quantum channel on qubit A.
+    """
+    unitary_dagger = dagger(unitary)
+    images = []
+    for i in range(_COARSE):
+        for j in range(_COARSE):
+            joint = kron(_basis_operator(_COARSE, i, j), environment)
+            evolved = matmul(matmul(unitary, joint), unitary_dagger)
+            images.append(partial_trace_b(evolved))
+    return _superoperator(images)
+
+
+def channel_preserves_trace(channel: Matrix) -> bool:
+    """Exact trace-preservation check for a qubit channel in vec form."""
+    for i in range(_COARSE):
+        for j in range(_COARSE):
+            image = _apply_channel(channel, _basis_operator(_COARSE, i, j))
+            trace = image[0][0] + image[1][1]
+            expected = ONE if i == j else ZERO
+            if trace != expected:
+                return False
+    return True
+
+
+class DecoherenceRow(NamedTuple):
+    environment: str
+    reversible: int
+    decohering: int
+    decohering_entangling: int
+    trace_preserving: int
+
+
+def environment_decoherence_census() -> Tuple[DecoherenceRow, ...]:
+    """Per-environment tally of reversible vs genuinely decohering channels."""
+    members = ensemble()
+    rows = []
+    for name, environment in ENVIRONMENTS:
+        reversible = 0
+        decohering = 0
+        decohering_entangling = 0
+        trace_preserving = 0
+        for tag, unitary in members:
+            channel = fixed_environment_channel(unitary, environment)
+            if channel_preserves_trace(channel):
+                trace_preserving += 1
+            if choi_rank(channel) == 1:
+                reversible += 1
+            else:
+                decohering += 1
+                if tag != "local":
+                    decohering_entangling += 1
+        rows.append(
+            DecoherenceRow(
+                environment=name,
+                reversible=reversible,
+                decohering=decohering,
+                decohering_entangling=decohering_entangling,
+                trace_preserving=trace_preserving,
+            )
+        )
+    return tuple(rows)
+
+
+def local_channels_are_environment_independent(unitary_a: Matrix) -> bool:
+    """A local ``a kron b`` channel equals ``a(.)a^dagger`` for every environment."""
+    reference = None
+    for _, environment in ENVIRONMENTS:
+        channel = fixed_environment_channel(kron(unitary_a, _I2), environment)
+        if reference is None:
+            reference = channel
+        elif channel != reference:
+            return False
+    return True

@@ -8,6 +8,9 @@ from .amplitude_process import (
 )
 from .coarse_graining import (
     choi_rank,
+    channel_preserves_trace,
+    environment_decoherence_census,
+    fixed_environment_channel,
     partial_trace_b,
     reduced_channel,
     reduced_dynamics_census,
@@ -20,6 +23,9 @@ __all__ = [
     "conjugate_experiment",
     "monomial_group",
     "choi_rank",
+    "channel_preserves_trace",
+    "environment_decoherence_census",
+    "fixed_environment_channel",
     "partial_trace_b",
     "reduced_channel",
     "reduced_dynamics_census",

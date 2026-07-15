@@ -111,11 +111,12 @@ partial-trace coarse-graining) is also passing as a no-go: over a declared
 ensemble of 144 two-qubit unitaries, autonomous reduced dynamics exists for
 exactly the 36 non-interacting product unitaries, all reversible, so no
 decoherence emerges — the amplitude echo of the classical interaction
-obstruction. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
+obstruction. Gate Q02 (fixed-environment reduction) then produces the first
+result the classical route could not: reversible microscopic unitaries yielding
+genuinely irreversible (decohering) effective channels, exactly for the entangling
+members. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
 [AMPLITUDE_CONSTITUTION.md](AMPLITUDE_CONSTITUTION.md). The package is
-`amplitude_bootstrap/`; its contracts are
-`tests/test_gate_q00_representation_invariance.py` and
-`tests/test_gate_q01_reduced_dynamics.py`.
+`amplitude_bootstrap/`; its contracts are the `tests/test_gate_q0*.py` gates.
 
 The project mission, staged gates, promotion levels, and stop conditions are
 defined in [PLAN.md](PLAN.md). Methodological constraints are kept separately in
