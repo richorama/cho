@@ -26,8 +26,16 @@ Gate 02 distinguishes finding one favorable partition from surviving every
 relabeling-equivalent partition family. The weak condition is nearly generic.
 The strong condition leaves only identity/reset dynamics, so arbitrary set
 partitions are too strong to support an interacting observer-compatible world.
-The next experiment adds one declared premise: compositional locality, with
-blocking maps fixed by that structure before dynamics are inspected.
+
+Gate 03 adds one declared premise: a periodic binary product lattice with
+nearest-neighbor elementary cellular-automaton updates. Pair decimation and pair
+parity are fixed before inspecting the 256 rules. One-step blocking again leaves
+only four noninteracting controls. With the factor-two spacetime rescaling
+`B U^2 = U_B B`, exactly 20 rules close under both blockings on rings `6`, `8`,
+and held-out size `10`; both induced flows remain in that family. Four interacting
+common fixed points survive: rules `60`, `90`, `102`, and `150`. All are additive
+XOR rules, so this is a Level 2 finite universality result, not evidence for a
+physical theory.
 
 Every scientific claim is a named `unittest` contract. Production modules only
 compute finite processes and censuses; tests own all expected values, controls,

@@ -136,10 +136,20 @@ route rather than licensing a custom partition.
 
 ### Gate 03: Recursive Consistency
 
-Introduce one new premise, compositional locality, independently of the update
-rule. Define blockings only from the product/adjacency structure, then apply them
-repeatedly. Determine whether induced laws approach a fixed point, a short cycle,
-a trivial absorber, or uncontrolled drift.
+Status: **implemented and passing at Level 2**.
+
+The process space is the 256 elementary cellular automata on periodic binary
+rings. Nearest-neighbor locality, pair decimation, and pair parity are declared
+before inspecting any rule. Exact one-step blocking leaves only rules `0`, `51`,
+`204`, and `255`, reproducing the noninteraction obstruction. Under the natural
+factor-two spacetime rescaling `B U^2 = U_B B`, exactly 20 rules close under both
+blockings at source sizes `6`, `8`, and held-out size `10`. Both induced flow
+edges stay inside the 20-rule family, permitting indefinite recursive blocking.
+
+Eight rules are common fixed points of both flows. Four are interacting: `60`,
+`90`, `102`, and `150`. They are precisely additive XOR dynamics within this
+fixed-point set. The result establishes a small exact universality class but does
+not establish records, defects, nonlinearity, continuum behavior, or physics.
 
 Primary output: exact finite flow graphs over equivalence classes of update
 rules, with basin sizes and surviving parameter counts.
@@ -259,11 +269,11 @@ pivot, rerun the same gates and measure what the new premise buys.
 
 ## Immediate Objective
 
-Specify the smallest compositional-local process space for Gate 03. The locality
-structure must be declared before enumerating update rules and must provide at
-least two non-equivalent, dynamics-independent blocking schemes. Re-run Gates 01
-and 02 inside that restricted blocking class before testing recursive flows.
+Begin Gate 04 as a holdout evaluation of the frozen 20-rule family. Define local
+records, perturbation transport, and influence-cone measurements without changing
+the Gate 03 selection criteria. Compare the four interacting fixed points against
+the remaining survivors and matched elementary-rule controls.
 
-Do not search for physical behavior until tests show that locality-preserving
-blockings admit a non-reset survivor under both schemes. If they do not, record
-the no-go and pivot one premise at a time as specified above.
+Do not broaden the update family or tune the blocking maps during Gate 04. A
+failure to support persistent locally readable records is evidence that exact
+additive scale invariance is dynamically sterile.
