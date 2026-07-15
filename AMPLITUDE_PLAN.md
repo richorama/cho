@@ -222,6 +222,33 @@ amplitudes are irreducible resolution-independent content — a genuine departur
 real-amplitude dynamics — not that a specific interference pattern, contextual set, or
 gauge structure emerges. Those remain sharper Level-3 targets for larger systems.
 
+### Gate Q08: State-Independent Contextuality, And Its Coarse-Graining Fate
+
+Status: **implemented and passing; a second, sharper Level-3 fingerprint with the
+opposite fate under coarse-graining.**
+
+Q07 found nonclassical content the recursion preserves. Q08 exhibits a second,
+independent and much sharper nonclassical structure — state-independent contextuality —
+and measures its opposite fate. The Peres-Mermin magic square is nine two-qubit
+observables, all Hermitian and squaring to the identity (dichotomic `±1`), arranged so
+the three on each line commute and are jointly measurable. Five lines multiply to `+I`
+and exactly one to `−I`. A noncontextual observer assigns each observable a fixed value
+independent of its line; the six line signs then demand incompatible parities, and
+exactly `0` of the `512` assignments satisfy all six — a Kochen-Specker contradiction,
+exact over Q(i), holding at every state. This is observer inconsistency along the
+measurement-context axis: no observer can pretend the values were fixed before the line
+was chosen. Owner: `tests/test_gate_q08_contextuality.py`.
+
+The fate under coarse-graining is the sharp point. Tracing out the erased qubit sends
+seven of the nine observables to the zero operator; only the `2` that act trivially on
+the erased qubit survive (the contextuality analogue of Q06's boundary-respecting
+dynamics), so every line loses a member and the contradiction cannot even be stated. The
+coarse world is a single qubit, dimension two, which is provably noncontextual. So
+contextuality is a *fine-grained*, resolution-dependent resource that the recursion
+destroys — the exact opposite of Q07's complex phase, which survives it. Level 3 now has
+two contrasting nonclassical fingerprints: one resolution-independent (complex phase),
+one fine-grained (contextuality), both exact and neither selected for.
+
 ## Promotion Levels
 
 Identical ladder to the classical campaign. Level 0 is the software contract

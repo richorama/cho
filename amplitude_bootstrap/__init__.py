@@ -49,6 +49,16 @@ from .phase import (
     real_gates_are_real_superoperators,
     witness_invariant_under_real_basis_change,
 )
+from .contextuality import (
+    MAGIC_SQUARE,
+    coarse_grained_surviving_observables,
+    kochen_specker_contradiction,
+    line_products_match_signs,
+    lines_are_jointly_measurable,
+    no_line_survives_coarse_graining,
+    noncontextual_assignment_count,
+    observables_are_dichotomic,
+)
 
 __all__ = [
     "AmplitudeExperiment",
@@ -88,6 +98,14 @@ __all__ = [
     "phase_gate_is_genuinely_complex",
     "real_gates_are_real_superoperators",
     "witness_invariant_under_real_basis_change",
+    "MAGIC_SQUARE",
+    "coarse_grained_surviving_observables",
+    "kochen_specker_contradiction",
+    "line_products_match_signs",
+    "lines_are_jointly_measurable",
+    "no_line_survives_coarse_graining",
+    "noncontextual_assignment_count",
+    "observables_are_dichotomic",
     "Gaussian",
     "born_probability",
 ]

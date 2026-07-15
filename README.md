@@ -137,7 +137,12 @@ forgotten. Gate Q07 supplies the first Level-3 evidence: an irreducible complex 
 the recursion that filters interaction to zero. Real-orthogonal gates give real
 channels; the phase gate S gives a genuinely complex one that survives to the bottom
 of the three-qubit recursion and the rotated blocking, though it was never selected
-for. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
+for. Gate Q08 adds a second, sharper Level-3 fingerprint with the opposite fate: the
+Peres-Mermin magic square is an exact state-independent Kochen-Specker contradiction
+over Q(i) (0 of 512 value assignments consistent), but coarse-graining sends seven of
+its nine observables to zero and leaves a noncontextual single qubit — contextuality is
+a fine-grained resource the recursion destroys, whereas the complex phase survives it.
+See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
 [AMPLITUDE_CONSTITUTION.md](AMPLITUDE_CONSTITUTION.md). The package is
 `amplitude_bootstrap/`; its contracts are the `tests/test_gate_q0*.py` gates.
 
