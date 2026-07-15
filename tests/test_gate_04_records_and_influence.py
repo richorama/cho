@@ -2,10 +2,14 @@ import unittest
 
 from observer_bootstrap.local_dynamics import local_blocking_flow_census
 from observer_bootstrap.records import (
+    EncodedRecall,
     RecordCensus,
     background_independent_response,
+    encoded_recall_passers,
     has_persistent_redundant_imprint,
     record_census,
+    recalls_both_values_above_chance,
+    repetition_recall,
     response_respects_light_cone,
     source_is_locally_decodable,
 )
@@ -50,6 +54,37 @@ class Gate04RecordsAndInfluence(unittest.TestCase):
                 for steps in range(1, 5)
                 for radius in range(steps + 1)
             )
+        )
+
+    def test_encoded_protocol_is_fixed_and_exact(self) -> None:
+        self.assertEqual(repetition_recall(204), EncodedRecall(256, 240, 240))
+        self.assertEqual(repetition_recall(0), EncodedRecall(256, 256, 0))
+
+    def test_encoded_recall_does_not_select_interacting_fixed_points(self) -> None:
+        self.assertEqual(
+            tuple(repetition_recall(rule) for rule in self.fixed_interacting),
+            (
+                EncodedRecall(256, 168, 88),
+                EncodedRecall(256, 128, 128),
+                EncodedRecall(256, 168, 88),
+                EncodedRecall(256, 128, 128),
+            ),
+        )
+        self.assertFalse(
+            any(
+                recalls_both_values_above_chance(repetition_recall(rule))
+                for rule in self.fixed_interacting
+            )
+        )
+
+    def test_encoded_recall_is_not_enriched_among_survivors(self) -> None:
+        selected_passers = encoded_recall_passers(self.survivors)
+        control_passers = encoded_recall_passers(self.controls)
+        self.assertEqual(selected_passers, (15, 51, 85, 170, 204, 240))
+        self.assertEqual(len(control_passers), 88)
+        self.assertLess(
+            len(selected_passers) * len(self.controls),
+            len(control_passers) * len(self.survivors),
         )
 
 

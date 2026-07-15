@@ -42,7 +42,9 @@ strong changes of description selects a narrow class of process theories.
 - **Gate 03, records and causal influence:** stable records must coexist with a
   bounded influence cone. The additive fixed points carry persistent replicated
   causal imprints, but exhaustive worst-case local decoding finds no passively
-  readable record through four steps. Influence passes; strict records do not.
+  readable record through four steps. A frozen repetition-code/statistical
+  readout is also not enriched and rejects every interacting fixed point.
+  Influence passes; records do not. The ECA route is parked below Level 3.
 
 ## Kill Conditions
 

@@ -172,6 +172,13 @@ unobserved background bits remain unknown. Exhaustive tests of every time
 four interacting fixed points. Scale consistency strongly selects transport,
 but this additive family has not demonstrated locally readable memory.
 
+One weaker operational alternative was frozen before evaluation: prepare a
+central three-bit repetition word in every possible size-`11` background, evolve
+two steps, and majority-decode its fixed seven-site future light-cone window.
+Only `6/20` selected rules recall both symbols above chance, versus `88/236`
+controls. None of rules `60`, `90`, `102`, or `150` passes. The weaker record
+criterion is generic rather than selected and does not rescue the fixed points.
+
 Primary output: a classification of rules supporting both memory and nontrivial
 causal interaction.
 
@@ -281,12 +288,12 @@ pivot, rerun the same gates and measure what the new premise buys.
 
 ## Immediate Objective
 
-Do not promote the additive family to Gate 05 or Level 3. First decide whether
-the worst-case decoder is the intended operational record criterion or whether
-observers may use a dynamics-independent encoded preparation and statistical
-readout. Any weaker criterion must be frozen before testing and applied to all
-256 rules; it may not be chosen to rescue rules `60`, `90`, `102`, or `150`.
+Park the elementary-cellular-automaton route at Level 2. Exact scale invariance
+selected bounded causal transport but neither worst-case passive records nor a
+predeclared encoded statistical memory. Do not tune further encodings, readout
+windows, times, blockings, or ECA subsets around the four fixed points.
 
-If strict passive readability remains required, park this ECA route as a clean
-result: exact scale invariance selected bounded causal transport but not stable
-records.
+A future campaign must change one premise explicitly and start with new frozen
+tests. The most defensible next option is reversible local dynamics with an
+ancillary record subsystem, where information cannot be erased microscopically;
+it must not inherit a decoder optimized on these ECA outcomes.

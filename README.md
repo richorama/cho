@@ -46,6 +46,14 @@ all unknown backgrounds fail for every fixed point at every time and window
 through four steps. The family transports counterfactual influence but has not
 produced a passively readable stable record, so it remains below Level 3.
 
+A predeclared weaker observer protocol also fails to rescue the family. A central
+three-bit repetition word is embedded in every possible binary background,
+evolved for two steps, and decoded by majority over its fixed future light-cone
+window. Six of 20 survivors beat chance for both symbols, compared with 88 of
+236 controls; none of the four interacting fixed points passes. Encoded recall
+is not selected or enriched. Under the project kill conditions, the elementary
+cellular-automaton route is therefore parked at Level 2.
+
 Every scientific claim is a named `unittest` contract. Production modules only
 compute finite processes and censuses; tests own all expected values, controls,
 and promotion criteria. Passing tests establish the stated finite results, not
