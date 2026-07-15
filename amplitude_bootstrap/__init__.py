@@ -39,6 +39,16 @@ from .spatial import (
     recursion_summary,
     reduce_map,
 )
+from .phase import (
+    PhaseSurvival,
+    complex_phase_survives_recursion,
+    complex_phase_survives_rotated_blocking,
+    conjugation_channel,
+    is_genuinely_complex,
+    phase_gate_is_genuinely_complex,
+    real_gates_are_real_superoperators,
+    witness_invariant_under_real_basis_change,
+)
 
 __all__ = [
     "AmplitudeExperiment",
@@ -70,6 +80,14 @@ __all__ = [
     "partial_trace_qubit",
     "recursion_summary",
     "reduce_map",
+    "PhaseSurvival",
+    "complex_phase_survives_recursion",
+    "complex_phase_survives_rotated_blocking",
+    "conjugation_channel",
+    "is_genuinely_complex",
+    "phase_gate_is_genuinely_complex",
+    "real_gates_are_real_superoperators",
+    "witness_invariant_under_real_basis_change",
     "Gaussian",
     "born_probability",
 ]

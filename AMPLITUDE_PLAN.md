@@ -196,6 +196,32 @@ sharpens *why* interaction is filtered (it couples across the erased boundary) b
 not yet manufacture a nonclassical structure that survives recursively. That is the
 Level-3 question.
 
+### Gate Q07: An Irreducible Complex Phase Survives The Recursion
+
+Status: **implemented and passing; the first Level-3 evidence.**
+
+Q06 left the Level-3 question open: does *any* unselected nonclassical structure survive
+the recursion that filters out interaction? Q07 answers yes, for the irreducible complex
+phase. A channel is realisable with real amplitudes exactly when its exact superoperator
+over Q(i) has zero imaginary part, and that property is invariant under every real change
+of basis (conjugation by a real matrix sends the imaginary part to `R B R⁻¹`, zero only
+if `B` is). So a nonzero imaginary entry is a basis-independent witness that the `i` is
+irreducible — no real recombination or real coarse-graining can launder it away. Every
+real-orthogonal gate (`I, X, Z, R, XR`) yields a real channel; the phase gate `S`
+yields a genuinely complex one. Because `S` is a legal non-interacting factor, the
+complex phase survives the three-qubit recursion to the bottom: of the `3` distinct
+bottom channels exactly `1` is genuinely complex (`10` of `18` at the intermediate
+level), and it also survives the rotated blocking (`3` distinct complex survivors).
+Owner: `tests/test_gate_q07_phase.py`.
+
+The contrast with Q06 is the whole point: recursion drives interacting survivors to
+`0` but leaves the complex phase untouched, and that phase was never rewarded by any
+objective. An unselected nonclassical structure surviving multiple independent blockings
+robustly is the definition of Level 3. Honest scope: this establishes that complex
+amplitudes are irreducible resolution-independent content — a genuine departure from
+real-amplitude dynamics — not that a specific interference pattern, contextual set, or
+gauge structure emerges. Those remain sharper Level-3 targets for larger systems.
+
 ## Promotion Levels
 
 Identical ladder to the classical campaign. Level 0 is the software contract

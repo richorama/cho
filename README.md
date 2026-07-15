@@ -132,7 +132,12 @@ genuine nested spatial coarse-graining of a three-qubit chain (trace qubit C, th
 trace qubit B): each blocking discards exactly the dynamics coupling across the newly
 erased boundary, only fully non-interacting products reach the bottom, and distinct
 effective channels contract monotonically 81 to 18 to 3 as traced factors are
-forgotten. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
+forgotten. Gate Q07 supplies the first Level-3 evidence: an irreducible complex phase
+(a channel superoperator with nonzero imaginary part, a real-basis invariant) survives
+the recursion that filters interaction to zero. Real-orthogonal gates give real
+channels; the phase gate S gives a genuinely complex one that survives to the bottom
+of the three-qubit recursion and the rotated blocking, though it was never selected
+for. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
 [AMPLITUDE_CONSTITUTION.md](AMPLITUDE_CONSTITUTION.md). The package is
 `amplitude_bootstrap/`; its contracts are the `tests/test_gate_q0*.py` gates.
 
