@@ -17,6 +17,22 @@ class ReversibleFlowRow(NamedTuple):
     parity_rule: int
 
 
+class TrajectoryConflict(NamedTuple):
+    rule: int
+    blocking_name: str
+    first: ReversibleConfiguration
+    first_coarse_site: int
+    second: ReversibleConfiguration
+    second_coarse_site: int
+
+
+class BlockingAuditRow(NamedTuple):
+    blocking_code: int
+    is_constant: bool
+    is_affine: bool
+    survivors: Tuple[int, ...]
+
+
 def reversible_configurations(size: int) -> Iterator[ReversibleConfiguration]:
     if size < 1:
         raise ValueError("size must be positive")
@@ -121,6 +137,27 @@ def decimate_channel(left: int, right: int) -> int:
 
 def parity_channel(left: int, right: int) -> int:
     return left ^ right
+
+
+def boolean_pair_blocking(code: int) -> ChannelBlocking:
+    if code < 0 or code > 15:
+        raise ValueError("pair blocking code must be a four-bit truth table")
+
+    def blocking(left: int, right: int) -> int:
+        return (code >> (2 * left + right)) & 1
+
+    return blocking
+
+
+def pair_blocking_is_affine(code: int) -> bool:
+    blocking = boolean_pair_blocking(code)
+    nonlinear_coefficient = (
+        blocking(0, 0)
+        ^ blocking(0, 1)
+        ^ blocking(1, 0)
+        ^ blocking(1, 1)
+    )
+    return nonlinear_coefficient == 0
 
 
 def block_reversible_pairs(
@@ -248,6 +285,83 @@ def induced_reversible_trajectory_rule(
     )
 
 
+def _trajectory_local_observations(
+    rule: int,
+    configuration: ReversibleConfiguration,
+    blocking: ChannelBlocking,
+    temporal_stride: int,
+) -> Tuple[Tuple[Tuple[int, int, int, int], int], ...]:
+    coarse_previous = block_reversible_pairs(configuration, blocking)
+    evolved = configuration
+    for _ in range(temporal_stride):
+        evolved = reversible_step(rule, evolved)
+    coarse_current = block_reversible_pairs(evolved, blocking)
+    for _ in range(temporal_stride):
+        evolved = reversible_step(rule, evolved)
+    coarse_next = block_reversible_pairs(evolved, blocking)
+
+    previous_values = tuple(cell[0] for cell in coarse_previous)
+    current_values = tuple(cell[0] for cell in coarse_current)
+    next_values = tuple(cell[0] for cell in coarse_next)
+    size = len(current_values)
+    return tuple(
+        (
+            (
+                previous_values[index],
+                current_values[(index - 1) % size],
+                current_values[index],
+                current_values[(index + 1) % size],
+            ),
+            next_values[index] ^ previous_values[index],
+        )
+        for index in range(size)
+    )
+
+
+def trajectory_conflict_certificate(
+    rule: int, source_size: int = 6, temporal_stride: int = 2
+) -> Optional[TrajectoryConflict]:
+    """Return a bounded witness against a radius-one coarse trajectory law."""
+    for blocking_name, blocking in (
+        ("decimation", decimate_channel),
+        ("parity", parity_channel),
+    ):
+        seen = {}
+        for configuration in reversible_configurations(source_size):
+            observations = _trajectory_local_observations(
+                rule, configuration, blocking, temporal_stride
+            )
+            for coarse_site, (coarse_input, output) in enumerate(observations):
+                previous = seen.get(coarse_input)
+                if previous is not None and previous[1] != output:
+                    return TrajectoryConflict(
+                        rule,
+                        blocking_name,
+                        previous[0],
+                        previous[2],
+                        configuration,
+                        coarse_site,
+                    )
+                seen[coarse_input] = (configuration, output, coarse_site)
+    return None
+
+
+def validates_trajectory_conflict(certificate: TrajectoryConflict) -> bool:
+    blocking = {
+        "decimation": decimate_channel,
+        "parity": parity_channel,
+    }.get(certificate.blocking_name)
+    if blocking is None:
+        return False
+    first = _trajectory_local_observations(
+        certificate.rule, certificate.first, blocking, 2
+    )[certificate.first_coarse_site]
+    second = _trajectory_local_observations(
+        certificate.rule, certificate.second, blocking, 2
+    )[certificate.second_coarse_site]
+    return first[0] == second[0] and first[1] != second[1]
+
+
 def reversible_trajectory_flow_census(
     source_size: int = 6,
     temporal_stride: int = 2,
@@ -263,6 +377,31 @@ def reversible_trajectory_flow_census(
         )
         if decimation_rule is not None and parity_rule is not None:
             rows.append(ReversibleFlowRow(rule, decimation_rule, parity_rule))
+    return tuple(rows)
+
+
+def pair_blocking_audit(
+    source_size: int = 6, temporal_stride: int = 2
+) -> Tuple[BlockingAuditRow, ...]:
+    rows = []
+    for code in range(16):
+        blocking = boolean_pair_blocking(code)
+        survivors = tuple(
+            rule
+            for rule in range(256)
+            if induced_reversible_trajectory_rule(
+                rule, source_size, blocking, temporal_stride
+            )
+            is not None
+        )
+        rows.append(
+            BlockingAuditRow(
+                code,
+                code in (0, 15),
+                pair_blocking_is_affine(code),
+                survivors,
+            )
+        )
     return tuple(rows)
 
 

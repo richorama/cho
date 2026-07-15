@@ -203,6 +203,28 @@ bit. It is not a durable independent record.
 Primary output: holdout statistics for lifetimes, propagation, scattering, and
 fusion classes.
 
+### Gate 06: Affine Classification And Blocking Audit
+
+Status: **theorem and audit implemented; campaign complete**.
+
+Every elementary truth table is converted uniquely to algebraic normal form over
+`GF(2)`. The 16 reversible trajectory survivors are exactly the rules with no
+quadratic or cubic coefficients. For affine rules, eliminating odd time slices
+gives a symbolic stride-two identity valid for every even ring size at least six
+and explicit effective rules under decimation and parity.
+
+Necessity is finite and exact: every one of the 240 non-affine rules has a
+replayable size-six local conflict under decimation. It therefore cannot close
+for every admissible ring size. The size-six audit of all 16 Boolean pair maps
+finds that each of the six nonconstant affine maps independently selects all 16
+affine rules; each of the eight nonlinear maps leaves only rules `0` and `255`;
+constant maps are operationally degenerate. Pair parity is not uniquely
+responsible, but the second theorem blocking is redundant because decimation
+already supplies the universal classification.
+
+Primary output: [AFFINE_CLASSIFICATION_NOTE.md](AFFINE_CLASSIFICATION_NOTE.md),
+the symbolic coefficient map, and 240 executable obstruction certificates.
+
 ## Search Discipline
 
 Use hard gates and Pareto fronts rather than one adjustable weighted score.
@@ -300,13 +322,12 @@ pivot, rerun the same gates and measure what the new premise buys.
 
 ## Immediate Objective
 
-Park the elementary-cellular-automaton route at Level 2. Exact scale invariance
-selected bounded causal transport but neither worst-case passive records nor a
-predeclared encoded statistical memory. Do not tune further encodings, readout
-windows, times, blockings, or ECA subsets around the four fixed points.
+Freeze the classical cellular-automaton campaign at Level 2 after final
+validation. Exact scale consistency selected affine dynamics and bounded causal
+transport, but neither passive, encoded, nor ancillary-subsystem records. Do not
+tune further encodings, readout windows, temporal strides, blockings, or rule
+subsets around the surviving family.
 
-Do not promote the reversible affine family to Level 3. The next premise, if
-tested, must provide a protected record degree of freedom whose write and
-transport phases are fixed independently of the local interaction rule. Require
-records to remain readable from that subsystem alone for more than one update,
-and compare every survivor with the complete matched reversible control family.
+No next model is authorized by this plan. A future project must begin from a new
+independently motivated premise and a new constitution rather than adding a
+protected memory mechanism to rescue this result.

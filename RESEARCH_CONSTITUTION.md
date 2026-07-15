@@ -49,6 +49,11 @@ strong changes of description selects a narrow class of process theories.
   every local rule invertible. Phase-correct trajectory blocking selects exactly
   the 16 affine rules, but the ancillary channel is overwritten after one step.
   Local inverse recovery passes; durable subsystem memory does not.
+- **Gate 06, affine classification:** symbolic sufficiency and 240 bounded
+  obstruction certificates prove universal-in-size closure exactly for the 16
+  affine rules. Auditing every Boolean pair map shows decimation alone already
+  enforces the result. The second blocking adds no selection pressure. The
+  classical campaign is complete and parked at Level 2.
 
 ## Kill Conditions
 

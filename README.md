@@ -65,6 +65,16 @@ rule, as required by the local inverse. But the declared record channel is only
 a one-step delay and is then masked by the unknown previous bit. Reversibility
 preserves recoverability, not a durable autonomous record subsystem.
 
+Gate 06 closes the proof campaign. Boolean algebraic normal form and a symbolic
+`GF(2)` identity prove affine sufficiency for every even ring size at least six.
+All 240 non-affine rules have replayable size-six decimation conflicts, proving
+they cannot satisfy universal-in-size closure. The complete size-six audit of
+all 16 pair maps shows that each nonconstant affine map selects the same 16
+affine rules, while nonlinear maps leave only constants. Decimation alone
+supplies the universal classification, so agreement between two blockings adds
+no selection pressure in this model. The theorem and limitations are stated in
+[AFFINE_CLASSIFICATION_NOTE.md](AFFINE_CLASSIFICATION_NOTE.md).
+
 Every scientific claim is a named `unittest` contract. Production modules only
 compute finite processes and censuses; tests own all expected values, controls,
 and promotion criteria. Passing tests establish the stated finite results, not
