@@ -118,7 +118,12 @@ members. Gate Q03 measures interference as an unselected holdout and proves an
 exact channel-by-channel equivalence over all 720 cases: an effective law
 transmits coherence iff it is reversible, so decoherence and loss of interference
 coincide and a classical coarse world emerges, under a generic environment, exactly
-from interacting dynamics. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
+from interacting dynamics. Gate Q04 re-runs the campaign under a second,
+inequivalent coarse-graining and separates robust laws from artefacts: only
+non-interacting unitaries admit an autonomous coarse law, they stay reversible and
+nonclassical, and interaction is the sole source of decoherence under both maps —
+but the exact "coherence iff reversible" identity holds only for the first
+coarse-graining. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
 [AMPLITUDE_CONSTITUTION.md](AMPLITUDE_CONSTITUTION.md). The package is
 `amplitude_bootstrap/`; its contracts are the `tests/test_gate_q0*.py` gates.
 

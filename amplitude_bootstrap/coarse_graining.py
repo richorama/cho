@@ -49,6 +49,26 @@ def partial_trace_b(operator: Matrix) -> Matrix:
     return tuple(tuple(row) for row in result)
 
 
+def partial_trace(operator: Matrix, traced: int) -> Matrix:
+    """Trace out one qubit of a two-qubit operator.
+
+    ``traced == 1`` removes the second factor (keep qubit A); ``traced == 0`` removes
+    the first factor (keep qubit B). Fine index is ``i = 2 * a + b``.
+    """
+    result = [[ZERO, ZERO], [ZERO, ZERO]]
+    for keep in range(_COARSE):
+        for keep_prime in range(_COARSE):
+            total = ZERO
+            for gone in range(_COARSE):
+                if traced == 1:
+                    row, col = 2 * keep + gone, 2 * keep_prime + gone
+                else:
+                    row, col = 2 * gone + keep, 2 * gone + keep_prime
+                total = total + operator[row][col]
+            result[keep][keep_prime] = total
+    return tuple(tuple(row) for row in result)
+
+
 def _vec(operator: Matrix) -> Tuple[Gaussian, ...]:
     return tuple(value for row in operator for value in row)
 
@@ -71,22 +91,26 @@ def _fine_basis_images(transform) -> List[Matrix]:
     return images
 
 
-def reduced_channel(unitary: Matrix) -> Optional[Matrix]:
+def reduced_channel(unitary: Matrix, traced: int = 1) -> Optional[Matrix]:
     """Return the autonomous coarse channel ``E`` as a 4x4 vec-matrix, or None.
 
     ``E`` acts on row-major vectorised 2x2 operators. It exists exactly when the
     reduced dynamics factors through the partial trace for every global operator.
+    ``traced`` selects the coarse-graining: trace out qubit B (default) or A.
     """
     unitary_dagger = dagger(unitary)
 
+    def trace(operator: Matrix) -> Matrix:
+        return partial_trace(operator, traced)
+
     def evolve_then_trace(operator: Matrix) -> Matrix:
-        return partial_trace_b(matmul(matmul(unitary, operator), unitary_dagger))
+        return trace(matmul(matmul(unitary, operator), unitary_dagger))
 
     evolved = _superoperator(_fine_basis_images(evolve_then_trace))
-    traced = _superoperator(_fine_basis_images(partial_trace_b))
+    traced_super = _superoperator(_fine_basis_images(trace))
 
     # Solve E @ traced = evolved for the 4x4 channel matrix E, exactly.
-    solution = solve_columns(_transpose(traced), _transpose(evolved))
+    solution = solve_columns(_transpose(traced_super), _transpose(evolved))
     if solution is None:
         return None
     return _transpose(solution)
@@ -183,7 +207,7 @@ class ReducedCensus(NamedTuple):
     entangling_total: int
 
 
-def reduced_dynamics_census() -> ReducedCensus:
+def reduced_dynamics_census(traced: int = 1) -> ReducedCensus:
     """Classify the ensemble by existence and reversibility of the coarse channel."""
     ensemble_size = 0
     autonomous = 0
@@ -198,7 +222,7 @@ def reduced_dynamics_census() -> ReducedCensus:
         is_entangling = tag != "local"
         if is_entangling:
             entangling_total += 1
-        channel = reduced_channel(unitary)
+        channel = reduced_channel(unitary, traced)
         if channel is None:
             continue
         autonomous += 1
@@ -246,18 +270,26 @@ ENVIRONMENTS: Tuple[Tuple[str, Matrix], ...] = (
 )
 
 
-def fixed_environment_channel(unitary: Matrix, environment: Matrix) -> Matrix:
-    """The open-systems channel ``rho_A -> Tr_B(U (rho_A kron rho_B) U^dagger)``.
+def fixed_environment_channel(
+    unitary: Matrix, environment: Matrix, traced: int = 1
+) -> Matrix:
+    """The open-systems channel ``rho_S -> Tr_env(U (rho_S kron rho_env) U^dagger)``.
 
-    Returns the 4x4 vec-matrix of an always-autonomous quantum channel on qubit A.
+    ``traced`` selects the environment qubit: with ``traced == 1`` the system is
+    qubit A and the environment is qubit B (default); with ``traced == 0`` the roles
+    swap. Returns the 4x4 vec-matrix of an always-autonomous channel on the system.
     """
     unitary_dagger = dagger(unitary)
     images = []
     for i in range(_COARSE):
         for j in range(_COARSE):
-            joint = kron(_basis_operator(_COARSE, i, j), environment)
+            system = _basis_operator(_COARSE, i, j)
+            if traced == 1:
+                joint = kron(system, environment)
+            else:
+                joint = kron(environment, system)
             evolved = matmul(matmul(unitary, joint), unitary_dagger)
-            images.append(partial_trace_b(evolved))
+            images.append(partial_trace(evolved, traced))
     return _superoperator(images)
 
 
@@ -281,7 +313,7 @@ class DecoherenceRow(NamedTuple):
     trace_preserving: int
 
 
-def environment_decoherence_census() -> Tuple[DecoherenceRow, ...]:
+def environment_decoherence_census(traced: int = 1) -> Tuple[DecoherenceRow, ...]:
     """Per-environment tally of reversible vs genuinely decohering channels."""
     members = ensemble()
     rows = []
@@ -291,7 +323,7 @@ def environment_decoherence_census() -> Tuple[DecoherenceRow, ...]:
         decohering_entangling = 0
         trace_preserving = 0
         for tag, unitary in members:
-            channel = fixed_environment_channel(unitary, environment)
+            channel = fixed_environment_channel(unitary, environment, traced)
             if channel_preserves_trace(channel):
                 trace_preserving += 1
             if choi_rank(channel) == 1:

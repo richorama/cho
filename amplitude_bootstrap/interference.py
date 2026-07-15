@@ -85,7 +85,7 @@ class ClassicalityRow(NamedTuple):
     nonclassical_entangling: int
 
 
-def classicality_census() -> Tuple[ClassicalityRow, ...]:
+def classicality_census(traced: int = 1) -> Tuple[ClassicalityRow, ...]:
     """Per-environment tally of coherence-transmitting (nonclassical) channels."""
     members = ensemble()
     rows = []
@@ -95,7 +95,7 @@ def classicality_census() -> Tuple[ClassicalityRow, ...]:
         nonclassical_local = 0
         nonclassical_entangling = 0
         for tag, unitary in members:
-            channel = fixed_environment_channel(unitary, environment)
+            channel = fixed_environment_channel(unitary, environment, traced)
             if transmits_coherence(channel):
                 nonclassical += 1
                 if tag == "local":
@@ -116,11 +116,11 @@ def classicality_census() -> Tuple[ClassicalityRow, ...]:
     return tuple(rows)
 
 
-def coherence_matches_reversibility() -> bool:
+def coherence_matches_reversibility(traced: int = 1) -> bool:
     """Exact equivalence: transmits coherence iff reversible, over every case."""
     for _, environment in ENVIRONMENTS:
         for _, unitary in ensemble():
-            channel = fixed_environment_channel(unitary, environment)
+            channel = fixed_environment_channel(unitary, environment, traced)
             if transmits_coherence(channel) != (choi_rank(channel) == 1):
                 return False
     return True

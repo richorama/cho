@@ -22,6 +22,7 @@ from .interference import (
     interference_visibility,
     transmits_coherence,
 )
+from .robustness import COARSE_GRAININGS, robustness_summary
 
 __all__ = [
     "AmplitudeExperiment",
@@ -39,6 +40,8 @@ __all__ = [
     "coherence_matches_reversibility",
     "interference_visibility",
     "transmits_coherence",
+    "COARSE_GRAININGS",
+    "robustness_summary",
     "Gaussian",
     "born_probability",
 ]

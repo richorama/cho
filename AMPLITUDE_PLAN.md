@@ -107,25 +107,45 @@ unitaries and five environments the census tracks the Q02 decoherence tally exac
 non-interacting product unitaries stay nonclassical under every environment, while a
 maximally mixed environment leaves every interacting unitary classical.
 
-The sharp result is an exact channel-by-channel equivalence over all `720` cases: an
-effective channel transmits coherence if and only if it is reversible (Choi rank
-one). Decoherence and the loss of interference are the same phenomenon, and both are
-induced precisely by interaction. A classical macroscopic world therefore emerges,
-under a generic environment, exactly from interacting microscopic dynamics — an
-unselected structural fact, not an objective term. Owner:
-`tests/test_gate_q03_interference.py`.
+The sharp result under this coarse-graining is an exact channel-by-channel
+equivalence over all `720` cases: an effective channel transmits coherence if and
+only if it is reversible (Choi rank one). Under trace-B, decoherence and the loss of
+interference are the same phenomenon, and both are induced precisely by interaction.
+**Gate Q04 shows this exact equivalence is specific to the trace-B coarse-graining,
+not fundamental** — the robust content is the one-way law that reversibility implies
+a nonclassical effective law, plus the invariant that interaction is required for any
+decoherence. Owner: `tests/test_gate_q03_interference.py`.
+
+### Gate Q04: Robustness Under A Second Coarse-Graining
+
+Status: **implemented and passing; separates robust laws from an artefact.**
+
+Every Q01–Q03 result used one coarse-graining (trace out qubit B). Q04 re-runs the
+campaign under a second, inequivalent coarse-graining (trace out qubit A), genuinely
+independent because the ensemble is A/B asymmetric. Robust across both maps: only the
+`36` non-interacting product unitaries admit an autonomous coarse law; those unitaries
+stay reversible and coherence preserving under every environment; all decoherence and
+all loss of coherence require interaction; and reversibility always implies a
+nonclassical effective law. Not robust: the exact "coherence iff reversible"
+equivalence holds only for trace-B — under trace-A there are `108` irreversible
+channels that still transmit coherence (partial decoherence). So "decoherence equals
+total loss of interference" was a coarse-graining artefact, while "interaction is the
+sole source of classicality" is resolution independent. Owner:
+`tests/test_gate_q04_robustness.py`.
 
 ## What The Amplitude Premise Bought
 
-Across Q01 to Q03 the pivot is decisive where the classical route was silent. The
+Across Q01 to Q04 the pivot is decisive where the classical route was silent. The
 classical crucible produced bounded transport but never records, defects, or a
 nonclassical calculus. The amplitude premise, under an independently declared
-environment, produces genuine irreversibility from reversible dynamics and a genuine
-interference-versus-classicality dichotomy, both tied by an exact law to whether the
-microscopic update interacts. The next honest step is a robustness gate: a second,
-inequivalent coarse-graining (a different declared factorisation or a projective
-blocking) must reproduce the same dichotomy before any resolution-independence or
-Level 2 claim.
+environment, produces genuine irreversibility from reversible dynamics; and Q04
+certifies the resolution-independent core: **interaction is the sole and necessary
+source of decoherence and classicality**, non-interacting dynamics remaining exactly
+reversible and nonclassical under two independent coarse-grainings. The exact
+interference-equals-reversibility identity, by contrast, is coarse-graining specific.
+The next step toward Level 2 is a third, structurally different blocking (a rotated
+factorisation or projective coarse-graining) and a parameter count showing the
+survivor family shrinks rather than grows under recursive coarse-graining.
 
 ## Promotion Levels
 
