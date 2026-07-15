@@ -93,14 +93,39 @@ by interaction. Paired with Gate Q01 it isolates what the environment premise bu
 decoherence is impossible under global autonomy yet generic under fixed-environment
 reduction. Owner: `tests/test_gate_q02_fixed_environment_decoherence.py`.
 
-### Gate Q03: Interference As A Holdout (next)
+### Gate Q03: Interference As A Holdout
 
-The decisive test of the pivot. Freeze the survivors of Q01/Q02, then measure — as
-a holdout never used for selection — whether the induced effective calculus is
-genuinely nonclassical: a two-path recombination whose coarse probabilities cannot
-be reproduced by any classical stochastic model on the coarse states. If survivors
-are always classically simulable, the amplitude premise bought nothing and the
-campaign parks.
+Status: **implemented and passing; interference equals reversibility.**
+
+Nonclassicality is measured on the frozen channels of Q01 and Q02 and never used
+for selection. A configuration-independent witness asks whether a channel transmits
+a computational-basis coherence to a nonzero output coherence, something no
+classical stochastic channel can do; an exact Mach-Zehnder visibility
+`p(both) - p(which-path)` gives the operational picture, with a fully dephasing
+control pinned to zero and a reversible control at `-288/625`. Across all `144`
+unitaries and five environments the census tracks the Q02 decoherence tally exactly:
+non-interacting product unitaries stay nonclassical under every environment, while a
+maximally mixed environment leaves every interacting unitary classical.
+
+The sharp result is an exact channel-by-channel equivalence over all `720` cases: an
+effective channel transmits coherence if and only if it is reversible (Choi rank
+one). Decoherence and the loss of interference are the same phenomenon, and both are
+induced precisely by interaction. A classical macroscopic world therefore emerges,
+under a generic environment, exactly from interacting microscopic dynamics — an
+unselected structural fact, not an objective term. Owner:
+`tests/test_gate_q03_interference.py`.
+
+## What The Amplitude Premise Bought
+
+Across Q01 to Q03 the pivot is decisive where the classical route was silent. The
+classical crucible produced bounded transport but never records, defects, or a
+nonclassical calculus. The amplitude premise, under an independently declared
+environment, produces genuine irreversibility from reversible dynamics and a genuine
+interference-versus-classicality dichotomy, both tied by an exact law to whether the
+microscopic update interacts. The next honest step is a robustness gate: a second,
+inequivalent coarse-graining (a different declared factorisation or a projective
+blocking) must reproduce the same dichotomy before any resolution-independence or
+Level 2 claim.
 
 ## Promotion Levels
 

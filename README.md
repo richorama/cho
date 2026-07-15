@@ -114,7 +114,11 @@ decoherence emerges — the amplitude echo of the classical interaction
 obstruction. Gate Q02 (fixed-environment reduction) then produces the first
 result the classical route could not: reversible microscopic unitaries yielding
 genuinely irreversible (decohering) effective channels, exactly for the entangling
-members. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
+members. Gate Q03 measures interference as an unselected holdout and proves an
+exact channel-by-channel equivalence over all 720 cases: an effective law
+transmits coherence iff it is reversible, so decoherence and loss of interference
+coincide and a classical coarse world emerges, under a generic environment, exactly
+from interacting dynamics. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
 [AMPLITUDE_CONSTITUTION.md](AMPLITUDE_CONSTITUTION.md). The package is
 `amplitude_bootstrap/`; its contracts are the `tests/test_gate_q0*.py` gates.
 

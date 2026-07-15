@@ -16,6 +16,12 @@ from .coarse_graining import (
     reduced_dynamics_census,
 )
 from .gaussian import Gaussian, born_probability
+from .interference import (
+    classicality_census,
+    coherence_matches_reversibility,
+    interference_visibility,
+    transmits_coherence,
+)
 
 __all__ = [
     "AmplitudeExperiment",
@@ -29,6 +35,10 @@ __all__ = [
     "partial_trace_b",
     "reduced_channel",
     "reduced_dynamics_census",
+    "classicality_census",
+    "coherence_matches_reversibility",
+    "interference_visibility",
+    "transmits_coherence",
     "Gaussian",
     "born_probability",
 ]
