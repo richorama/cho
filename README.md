@@ -25,6 +25,10 @@ must remain unchanged. A deliberately label-sensitive diagnostic must fail.
 This gate does not derive quantum theory or physics. It establishes the software
 contract that later coarse-graining experiments must satisfy.
 
+The project mission, staged gates, promotion levels, and stop conditions are
+defined in [PLAN.md](PLAN.md). Methodological constraints are kept separately in
+[RESEARCH_CONSTITUTION.md](RESEARCH_CONSTITUTION.md).
+
 ## Run
 
 ```bash
