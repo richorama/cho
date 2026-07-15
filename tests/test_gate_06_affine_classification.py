@@ -1,4 +1,7 @@
+import json
 import unittest
+
+import export_affine_certificates
 
 from observer_bootstrap.boolean_algebra import (
     affine_effective_rules,
@@ -61,6 +64,46 @@ class Gate06AffineClassification(unittest.TestCase):
         self.assertTrue(
             all(certificate.blocking_name == "decimation" for certificate in certificates)
         )
+        self.assertTrue(all(map(self._independently_validates_conflict, certificates)))
+
+    @staticmethod
+    def _independently_validates_conflict(certificate) -> bool:
+        def step(configuration):
+            size = len(configuration)
+            current = tuple(cell[0] for cell in configuration)
+            return tuple(
+                (
+                    ((certificate.rule >> (
+                        4 * current[(index - 1) % size]
+                        + 2 * current[index]
+                        + current[(index + 1) % size]
+                    )) & 1) ^ configuration[index][1],
+                    current[index],
+                )
+                for index in range(size)
+            )
+
+        def observation(configuration, coarse_site):
+            previous = tuple(configuration[index][0] for index in range(0, 6, 2))
+            current_configuration = step(step(configuration))
+            current = tuple(
+                current_configuration[index][0] for index in range(0, 6, 2)
+            )
+            next_configuration = step(step(current_configuration))
+            next_values = tuple(
+                next_configuration[index][0] for index in range(0, 6, 2)
+            )
+            coarse_input = (
+                previous[coarse_site],
+                current[(coarse_site - 1) % 3],
+                current[coarse_site],
+                current[(coarse_site + 1) % 3],
+            )
+            return coarse_input, next_values[coarse_site] ^ previous[coarse_site]
+
+        first = observation(certificate.first, certificate.first_coarse_site)
+        second = observation(certificate.second, certificate.second_coarse_site)
+        return first[0] == second[0] and first[1] != second[1]
 
     def test_affine_rules_have_no_conflict_certificate(self) -> None:
         self.assertTrue(
@@ -105,6 +148,19 @@ class Gate06AffineClassification(unittest.TestCase):
         rows = tuple(row for row in self.blocking_audit if row.is_constant)
         self.assertEqual(tuple(row.blocking_code for row in rows), (0, 15))
         self.assertTrue(all(not row.survivors for row in rows))
+
+    def test_portable_certificate_payload_replays_independently(self) -> None:
+        artifact_text = export_affine_certificates.ARTIFACT_PATH.read_text(
+            encoding="ascii"
+        )
+        payload = json.loads(artifact_text)
+        export_affine_certificates.verify_payload(payload)
+        self.assertEqual(
+            artifact_text,
+            export_affine_certificates.canonical_json(
+                export_affine_certificates.certificate_payload()
+            ),
+        )
 
 
 if __name__ == "__main__":

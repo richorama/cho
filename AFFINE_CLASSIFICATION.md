@@ -19,9 +19,12 @@ radius-one reversible second-order law.
 
 ## Classification Theorem
 
-An elementary rule has blocked trajectory laws under pair decimation and pair
-parity for every even ring size at least six if and only if it is affine over
-`GF(2)`.
+For an elementary rule `f`, the following statements are equivalent:
+
+1. for every even ring size `N >= 6`, pair decimation and pair parity each induce
+    a reversible radius-one trajectory law, which may differ from `f` and from
+    each other;
+2. `f` is affine over `GF(2)`.
 
 Equivalently, write the unique algebraic normal form
 
@@ -30,7 +33,7 @@ f(l,c,r) = a0 XOR al*l XOR ac*c XOR ar*r
            XOR alc*l*c XOR alr*l*r XOR acr*c*r XOR alcr*l*c*r.
 ```
 
-The survivors are exactly the 16 rules with
+The universal-in-size survivors are exactly the 16 rules with
 `alc = alr = acr = alcr = 0`.
 
 ## Sufficiency Identity
@@ -48,19 +51,25 @@ radius-one shifts after pair blocking. Decimation retains the constant
 The function `affine_effective_rules` implements these two coefficient maps.
 
 This identity is independent of ring size. It proves sufficiency for every even
-ring whose coarse ring has at least three sites.
+ring whose coarse ring has at least three distinct sites. The lower bound
+`N >= 6` avoids the size-two coarse ring, where left and right neighbors alias.
 
 ## Necessity Certificates
 
 Every one of the 240 non-affine rules has a machine-checkable size-six pair of
 microscopic trajectories. Each pair presents the same decimated coarse previous
 value and current radius-one neighborhood but demands different next values.
-Therefore no radius-one decimated trajectory law exists at size six. Such a rule
-cannot satisfy closure for every even size at least six.
+Therefore no reversible radius-one decimated trajectory law exists at size six.
+The certificate does not exclude larger-radius, stateful, or nonlocal coarse
+laws. It does prove that such a rule cannot satisfy the stated radius-one closure
+condition for every even size at least six.
 
-The certificate generator and independent replay validator are exercised by
-`test_every_non_affine_rule_has_a_bounded_conflict_certificate`. All 240
-certificates already fail decimation; parity is unnecessary for necessity.
+The certificate generator, production replay validator, and a definition-level
+test verifier are exercised by
+`test_every_non_affine_rule_has_a_bounded_conflict_certificate`. The latter
+reimplements the truth-table update and decimation directly instead of calling
+the generator's observation helper. All 240 certificates already fail
+decimation; parity is unnecessary for necessity.
 
 ## Size-Six Blocking Audit
 
@@ -71,9 +80,11 @@ All 16 Boolean pair maps were frozen and enumerated at source size six:
 - the eight nonlinear maps retain only constant microscopic rules `0` and `255`;
 - no nonconstant pair map admits a non-affine rule.
 
-The theorem is not specifically caused by parity. Agreement between the two
-theorem blockings also adds no selection pressure here: decimation by itself
-already gives the complete universal-in-size affine classification.
+The theorem is a closure classification, not a common-fixed-point theorem: the
+effective laws may differ by blocking and from the microscopic law. It is not
+specifically caused by parity. Agreement between the two theorem blockings also
+adds no selection pressure here: decimation by itself already gives the complete
+universal-in-size affine classification.
 
 ## Reversible Record Propositions
 

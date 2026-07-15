@@ -6,8 +6,8 @@
 
 We classify elementary binary local rules whose reversible second-order lifts
 admit exact radius-one trajectory laws after factor-two spatial and temporal
-coarse-graining. Requiring closure for every even periodic ring of size at least
-six selects exactly the 16 affine Boolean rules. Sufficiency follows from a
+coarse-graining. Requiring radius-one closure for every even periodic ring of
+size at least six selects exactly the 16 affine Boolean rules. Sufficiency follows from a
 `GF(2)` operator identity; necessity is certified by a size-six local conflict
 for each of the 240 non-affine rules. An audit of all Boolean pair maps shows
 that decimation alone already enforces the classification, while nonlinear pair
@@ -27,13 +27,16 @@ x[t+1,i] = f(x[t,i-1], x[t,i], x[t,i+1]) XOR x[t-1,i].
 Microscopic trajectories are sampled at times `0`, `2`, and `4`. Pair
 decimation keeps one site from each adjacent pair; pair parity XORs the pair.
 Closure means that the blocked samples obey a reversible radius-one recurrence
-with one effective elementary rule.
+with one effective elementary rule. The effective rule may depend on the
+blocking and need not equal the microscopic rule.
 
 ## 2. Theorem
 
-**Theorem.** A microscopic elementary rule closes under both pair decimation
-and pair parity for every even periodic ring of size at least six if and only if
-its algebraic normal form is affine.
+**Theorem.** For a microscopic elementary rule `f`, the following are equivalent:
+
+1. at every even periodic ring size `N >= 6`, both pair decimation and pair
+	parity induce reversible radius-one trajectory laws;
+2. the algebraic normal form of `f` is affine.
 
 Thus
 
@@ -56,18 +59,23 @@ In characteristic two, all cross terms in `A^2` cancel. Only shifts by `-2`,
 `0`, and `2` remain, becoming nearest-neighbor shifts after pair blocking.
 Decimation retains the constant `a0*(al XOR ac XOR ar)`; parity cancels the
 constant field. This supplies the two effective affine rules at every size.
+The bound `N >= 6` ensures the coarse ring has at least three distinct sites;
+at `N = 4`, coarse left and right neighbors coincide.
 
 ### Necessity
 
 For each non-affine truth table, exhaustive exact search at size six produces
-two trajectories with the same decimated coarse input but incompatible next
-outputs. An independent validator replays every certificate. Since universal
-closure includes size six, each certificate disproves universal closure for its
-rule. All 240 non-affine rules have such a decimation certificate.
+two trajectories with the same decimated coarse previous value and current
+radius-one neighborhood but incompatible next outputs. A definition-level test
+verifier independently replays every certificate. Since universal radius-one
+closure includes size six, each certificate disproves that universal property
+for its rule. The certificates do not exclude larger-radius, stateful, or
+nonlocal coarse laws. All 240 non-affine rules have a decimation certificate.
 
 ## 3. Size-Six Blocking Dependence
 
-At source size six, the 16 Boolean pair maps split into:
+At source size six, with disjoint adjacent pairs and temporal stride two, the 16
+Boolean pair maps split into:
 
 | Pair-map class | Maps | Microscopic survivors |
 |---|---:|---:|
@@ -96,7 +104,7 @@ dynamics therefore does not imply an autonomous durable record subsystem.
 
 ## 5. Interpretation
 
-The classification is exact and reusable, but its conceptual reach is narrow.
+The closure classification is exact and reusable, but its conceptual reach is narrow.
 It shows that a natural local coarse-graining condition is algebraically severe
 and selects affine dynamics. It does not show that observer consistency forces
 physics, because one simple blocking already supplies the full restriction and
@@ -112,8 +120,12 @@ Run:
 
 ```bash
 python3 run_all.py
+python3 export_affine_certificates.py --verify
 ```
 
 The scientific contracts cover ANF uniqueness, the 16 affine rules, symbolic
 effective flows, 240 replayable obstruction certificates, the complete pair-map
 audit, exact reversibility, causal transport controls, and record failures.
+The checked-in JSON artifact contains all 240 microscopic witness pairs and can
+be replayed without invoking certificate search. Its canonical SHA-256 digest is
+`c485b2f8e075921ddc97b3e83b0d258aa89c270a5113183d17e3d9810edf1cab`.
