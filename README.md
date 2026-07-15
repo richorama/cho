@@ -75,10 +75,42 @@ supplies the universal classification, so agreement between two blockings adds
 no selection pressure in this model. The theorem and limitations are stated in
 [AFFINE_CLASSIFICATION_NOTE.md](AFFINE_CLASSIFICATION_NOTE.md).
 
+Gate 07 extends affine sufficiency through the complete dyadic hierarchy. At
+every matched spatial and temporal scale `b = 2^k`, every nonconstant affine
+block functional induces an exact reversible radius-one law with unchanged
+linear coefficients. The constant coefficient reaches a fixed point after at
+most one step, except for complemented odd-weight observers, which produce a
+two-cycle. Direct trajectory checks cover scales `2`, `4`, and `8`; symbolic
+Laurent-polynomial algebra proves the all-scale statement. Rule `150` at stride
+three retains non-block-aligned shifts, providing a non-dyadic control. The
+theorem and its scope are stated in
+[DYADIC_RENORMALIZATION.md](DYADIC_RENORMALIZATION.md).
+
+Gate 08 completes the matched-scale classification. Universal affine closure
+under all nonconstant affine block functionals occurs exactly when the common
+spatial and temporal scale is a power of two. Necessity uses rule `60`: writing
+`m = 2^v*q` with odd `q > 1`, its sampled operator contains the hidden shift
+`-(m-2^v)`, which prevents decimation from defining an autonomous coarse law.
+The proof and its nonclaims are in
+[INTEGER_SCALE_CLASSIFICATION.md](INTEGER_SCALE_CLASSIFICATION.md).
+
 Every scientific claim is a named `unittest` contract. Production modules only
 compute finite processes and censuses; tests own all expected values, controls,
 and promotion criteria. Passing tests establish the stated finite results, not
 quantum theory or physics.
+
+## Amplitude Campaign (Pivot)
+
+The classical route is parked at Level 2. Following the plan's one authorised
+continuation — change exactly one premise — a separate campaign replaces classical
+bits with complex amplitudes in `Q(i)` and reruns the same observer-consistency
+gates to measure what the amplitude premise buys. Gate Q00 (representation
+invariance under the monomial-unitary group) is implemented and passing; the
+permutation subgroup recovers the classical Gate 00 exactly. See
+[AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
+[AMPLITUDE_CONSTITUTION.md](AMPLITUDE_CONSTITUTION.md). The package is
+`amplitude_bootstrap/`; its first contract is
+`tests/test_gate_q00_representation_invariance.py`.
 
 The project mission, staged gates, promotion levels, and stop conditions are
 defined in [PLAN.md](PLAN.md). Methodological constraints are kept separately in

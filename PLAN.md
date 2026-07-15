@@ -322,11 +322,23 @@ pivot, rerun the same gates and measure what the new premise buys.
 
 ## Immediate Objective
 
-Freeze the classical cellular-automaton campaign at Level 2 after final
-validation. Exact scale consistency selected affine dynamics and bounded causal
-transport, but neither passive, encoded, nor ancillary-subsystem records. Do not
-tune further encodings, readout windows, temporal strides, blockings, or rule
-subsets around the surviving family.
+Freeze the physical cellular-automaton campaign at Level 2. Exact scale
+consistency selected affine dynamics and bounded causal transport, but neither
+passive, encoded, nor ancillary-subsystem records. Do not tune encodings,
+readout windows, or rule subsets around the surviving family.
+
+Gate 07 is a mathematical extension, not a model rescue. It proves that the
+affine family closes under every nonconstant affine block functional at every
+dyadic spacetime scale, classifies the resulting fixed points and two-cycles,
+and retains stride three as a non-dyadic control. Its primary output is
+[DYADIC_RENORMALIZATION.md](DYADIC_RENORMALIZATION.md).
+
+Gate 08 completes the scale classification: universal matched-scale affine
+closure holds if and only if the scale is a power of two. The characteristic-two
+doubling identity supplies sufficiency, while rule `60` supplies a uniform
+hidden-site obstruction at every non-dyadic scale. Its primary output is
+[INTEGER_SCALE_CLASSIFICATION.md](INTEGER_SCALE_CLASSIFICATION.md). This remains
+a mathematical closeout and does not change the Level 2 physical freeze.
 
 No next model is authorized by this plan. A future project must begin from a new
 independently motivated premise and a new constitution rather than adding a

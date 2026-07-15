@@ -110,6 +110,15 @@ and selects affine dynamics. It does not show that observer consistency forces
 physics, because one simple blocking already supplies the full restriction and
 the selected family does not support the required records.
 
+The surviving affine family is subsequently proved to close under every
+nonconstant affine block functional throughout the full dyadic scale hierarchy
+in [DYADIC_RENORMALIZATION.md](DYADIC_RENORMALIZATION.md). The converse scale
+classification in
+[INTEGER_SCALE_CLASSIFICATION.md](INTEGER_SCALE_CLASSIFICATION.md) proves that
+powers of two are exactly the matched scales that work universally for the
+affine family. These extensions do not alter the physical interpretation or the
+record limitation established here.
+
 The justified endpoint is a Level 2 algebraic universality class plus a record
 limitation. No claim is made about spacetime, quantum theory, particles,
 observers, or experiment.

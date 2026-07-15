@@ -10,4 +10,4 @@ requires-python = ">=3.8"
 license = {text = "CC-BY-4.0"}
 
 [tool.setuptools.packages.find]
-include = ["observer_bootstrap*"]
+include = ["observer_bootstrap*", "amplitude_bootstrap*"]
