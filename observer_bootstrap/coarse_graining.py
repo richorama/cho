@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
+from collections import Counter
 from fractions import Fraction
-from itertools import product
+from itertools import permutations, product
 from typing import Iterator, Optional, Tuple
 
 
@@ -43,6 +44,12 @@ def block_count(partition: Partition) -> int:
 def is_nontrivial_partition(partition: Partition) -> bool:
     blocks = block_count(partition)
     return 1 < blocks < len(partition)
+
+
+def partition_shape(partition: Partition) -> Tuple[int, ...]:
+    """Relabeling-invariant block-size signature in descending order."""
+    block_count(partition)
+    return tuple(sorted(Counter(partition).values(), reverse=True))
 
 
 def induced_deterministic_update(
@@ -119,3 +126,40 @@ def rational_stochastic_updates(
 ) -> Iterator[StochasticUpdate]:
     rows = rational_stochastic_rows(dimension, denominator)
     yield from product(rows, repeat=dimension)
+
+
+def canonical_deterministic_law(update: DeterministicUpdate) -> DeterministicUpdate:
+    """Lexicographically least representative under state relabeling."""
+    dimension = len(update)
+    representatives = []
+    for relabeling in permutations(range(dimension)):
+        inverse = [0] * dimension
+        for source, target in enumerate(relabeling):
+            inverse[target] = source
+        representatives.append(
+            tuple(
+                relabeling[update[inverse[new_source]]]
+                for new_source in range(dimension)
+            )
+        )
+    return min(representatives)
+
+
+def canonical_stochastic_law(update: StochasticUpdate) -> StochasticUpdate:
+    """Lexicographically least row/column-conjugate representative."""
+    dimension = len(update)
+    representatives = []
+    for relabeling in permutations(range(dimension)):
+        inverse = [0] * dimension
+        for source, target in enumerate(relabeling):
+            inverse[target] = source
+        representatives.append(
+            tuple(
+                tuple(
+                    update[inverse[new_source]][inverse[new_target]]
+                    for new_target in range(dimension)
+                )
+                for new_source in range(dimension)
+            )
+        )
+    return min(representatives)

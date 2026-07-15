@@ -37,9 +37,11 @@ strong changes of description selects a narrow class of process theories.
   evolution and blocking must commute with an effective update. Implemented and
   passing for the first exact deterministic and rational-stochastic censuses.
 - **Gate 02, blocking robustness:** the same effective law must survive at least
-  two non-equivalent blocking schemes. This is the next target.
+  two non-equivalent blocking schemes. Implemented and passing; arbitrary set
+  partitions select only identity/reset dynamics.
 - **Gate 03, records and causal influence:** stable records must coexist with a
-  bounded influence cone.
+  bounded influence cone. The next campaign introduces compositional locality
+  and locality-preserving blocking before testing recursive consistency.
 
 ## Kill Conditions
 

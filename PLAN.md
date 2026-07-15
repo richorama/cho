@@ -119,17 +119,27 @@ an independent closed formula.
 
 ### Gate 02: Blocking Robustness
 
-Require one microscopic rule to induce compatible effective laws under at least
-two non-equivalent blocking families. A rule does not pass merely because one
-custom partition makes it lumpable.
+Status: **implemented and passing as a no-go**.
 
-Primary output: survivor rarity relative to matched random rules and shuffled
-blocking controls.
+One microscopic rule is required to close under every relabeling-equivalent
+partition in each shape, with induced laws agreeing up to coarse relabeling.
+The weak control, existence of one favorable partition in two shapes, is nearly
+generic: `242/256` deterministic four-state rules and `3101/3125` five-state
+rules pass. Strong robustness leaves only identity and constant maps (`5` and
+`6` rules respectively). Among `10000` denominator-two four-state stochastic
+rules, `15` are universally lumpable and only `9` have shape-compatible induced
+laws: identity, four resets, and four half-identity/half-reset mixtures.
+
+Therefore arbitrary set partitions are not an admissible universal notion of
+resolution for nontrivial dynamics. The result kills the unstructured finite-set
+route rather than licensing a custom partition.
 
 ### Gate 03: Recursive Consistency
 
-Apply blocking repeatedly. Determine whether the induced laws approach a fixed
-point, a short cycle, a trivial absorber, or uncontrolled drift.
+Introduce one new premise, compositional locality, independently of the update
+rule. Define blockings only from the product/adjacency structure, then apply them
+repeatedly. Determine whether induced laws approach a fixed point, a short cycle,
+a trivial absorber, or uncontrolled drift.
 
 Primary output: exact finite flow graphs over equivalence classes of update
 rules, with basin sizes and surviving parameter counts.
@@ -249,11 +259,11 @@ pivot, rerun the same gates and measure what the new premise buys.
 
 ## Immediate Objective
 
-Implement Gate 02 as a robustness test across inequivalent blocking families.
-First quotient partitions by microscopic relabeling and define independence
-without inspecting the update rule. Then classify which Gate 01 survivors close
-under more than one partition shape and whether their induced coarse laws agree
-up to coarse relabeling.
+Specify the smallest compositional-local process space for Gate 03. The locality
+structure must be declared before enumerating update rules and must provide at
+least two non-equivalent, dynamics-independent blocking schemes. Re-run Gates 01
+and 02 inside that restricted blocking class before testing recursive flows.
 
-Do not begin Gate 03 until Gate 02 has named tests for partition independence,
-matched shuffled controls, survivor rarity, and invariance under relabeling.
+Do not search for physical behavior until tests show that locality-preserving
+blockings admit a non-reset survivor under both schemes. If they do not, record
+the no-go and pivot one premise at a time as specified above.

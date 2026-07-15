@@ -22,6 +22,13 @@ enumerates deterministic processes through five states and denominator-two
 stochastic processes through four states under every nontrivial partition.
 Exact autonomous coarse laws exist, but most rule/partition pairs fail.
 
+Gate 02 distinguishes finding one favorable partition from surviving every
+relabeling-equivalent partition family. The weak condition is nearly generic.
+The strong condition leaves only identity/reset dynamics, so arbitrary set
+partitions are too strong to support an interacting observer-compatible world.
+The next experiment adds one declared premise: compositional locality, with
+blocking maps fixed by that structure before dynamics are inspected.
+
 Every scientific claim is a named `unittest` contract. Production modules only
 compute finite processes and censuses; tests own all expected values, controls,
 and promotion criteria. Passing tests establish the stated finite results, not
