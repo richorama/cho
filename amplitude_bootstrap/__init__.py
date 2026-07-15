@@ -23,6 +23,14 @@ from .interference import (
     transmits_coherence,
 )
 from .robustness import COARSE_GRAININGS, robustness_summary
+from .recursion import (
+    ROTATION,
+    composition_is_closed_and_reversible,
+    effective_channel_contraction,
+    rotated_reduced_channel,
+    rotated_survivors_all_reversible,
+    survivor_comparison,
+)
 
 __all__ = [
     "AmplitudeExperiment",
@@ -42,6 +50,12 @@ __all__ = [
     "transmits_coherence",
     "COARSE_GRAININGS",
     "robustness_summary",
+    "ROTATION",
+    "composition_is_closed_and_reversible",
+    "effective_channel_contraction",
+    "rotated_reduced_channel",
+    "rotated_survivors_all_reversible",
+    "survivor_comparison",
     "Gaussian",
     "born_probability",
 ]

@@ -123,7 +123,11 @@ inequivalent coarse-graining and separates robust laws from artefacts: only
 non-interacting unitaries admit an autonomous coarse law, they stay reversible and
 nonclassical, and interaction is the sole source of decoherence under both maps —
 but the exact "coherence iff reversible" identity holds only for the first
-coarse-graining. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
+coarse-graining. Gate Q05 adds a structurally different third blocking (a rotated
+factorisation via CNOT) that keeps a different survivor set, and shows the
+non-interacting survivors contract from 36 realisations to 6 environment-free
+effective channels that are closed under composition — the surviving structure
+shrinks, not grows, under recursion. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
 [AMPLITUDE_CONSTITUTION.md](AMPLITUDE_CONSTITUTION.md). The package is
 `amplitude_bootstrap/`; its contracts are the `tests/test_gate_q0*.py` gates.
 

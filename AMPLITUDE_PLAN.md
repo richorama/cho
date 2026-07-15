@@ -143,9 +143,31 @@ certifies the resolution-independent core: **interaction is the sole and necessa
 source of decoherence and classicality**, non-interacting dynamics remaining exactly
 reversible and nonclassical under two independent coarse-grainings. The exact
 interference-equals-reversibility identity, by contrast, is coarse-graining specific.
-The next step toward Level 2 is a third, structurally different blocking (a rotated
-factorisation or projective coarse-graining) and a parameter count showing the
-survivor family shrinks rather than grows under recursive coarse-graining.
+
+### Gate Q05: A Different Blocking, And Parameter Contraction
+
+Status: **implemented and passing; supplies a third blocking and a strict parameter
+count reduction.**
+
+Q04 used two tensor-factor traces. Level 2 also needs a *structurally* different
+blocking and evidence that repeated coarse-graining does not grow the surviving
+parameter count. A rotated factorisation conjugates each unitary by a fixed non-local
+Clifford `W` (CNOT, self-inverse) before tracing, so autonomy under it is autonomy of
+`W U W†` under the plain trace — a genuinely different bipartition. On the fixed
+ensemble it keeps `16` survivors versus the `36` of the plain trace, sharing only
+`12`, so the two maps are inequivalent rather than relabellings. Every rotated
+survivor still induces a reversible, coherence-preserving law: the robust core holds
+in the third frame too. Parameter contraction: the `36` non-interacting survivors
+`a ⊗ b` all reduce to the environment-free single-qubit conjugation `E(σ) = a σ a†`,
+forgetting `b` entirely and collapsing to `6` distinct effective channels. These
+channels compose as `conj(a₂ a₁)` and stay Choi rank one, so recursion never grows
+the parameter class. Owner: `tests/test_gate_q05_recursion.py`.
+
+This is Level 2 for the non-interacting family: one effective structure (reversible
+single-qubit conjugation) survives three independent blockings with strictly fewer
+parameters and is closed under composition. Honest caveat: this is a two-qubit
+system, so "recursive" here means time-composition, not spatial recursion; a genuine
+spatial-recursion gate would need larger systems and is left for future work.
 
 ## Promotion Levels
 
