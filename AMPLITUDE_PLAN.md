@@ -49,23 +49,45 @@ effect/state/unitary triples, finds zero operational mismatches, and confirms
 permutation subgroup reproduces the classical Gate 00 relabeling exactly, so the
 premise is a strict extension. Owner: `tests/test_gate_q00_representation_invariance.py`.
 
-### Gate Q01: Exact Unitary Coarse-Graining (next)
+### Gate Q01: Exact Unitary Coarse-Graining
 
-Status: **specified, not yet implemented.**
+Status: **implemented and passing as a no-go (Level 0 contract; no Level 1
+promotion).**
 
-Enumerate small unitary updates in `Q(i)` and independently specified
-coarse-graining channels `B` (partial trace over a declared factor, and a second,
-inequivalent decoherence/blocking channel). Classify when an autonomous effective
-update `U_B` exists with `B U^m = U_B B` exactly. Report the survivor count, the
-matched-control prevalence, and the number of surviving continuous phase
-parameters. Primary planned output: an exact survivor census with a formula check,
-mirroring classical Gate 01.
+The microscopic update is a two-qubit unitary over `Q(i)`; the coarse-graining is
+the partial trace over the second qubit. An autonomous effective law exists when a
+fixed channel `E` satisfies `Tr_B(U rho U^dagger) = E(Tr_B rho)` for *every* global
+state `rho`. Over a declared finite ensemble of `144` unitaries
+`(a kron b) . entangler`, exactly `36` admit an autonomous coarse channel: precisely
+the non-interacting product unitaries (`entangler = local`). All `108` entangling
+members fail, and every survivor reduces to reversible conjugation `E(sigma) = a
+sigma a^dagger` with Choi rank one, so no decoherence emerges. Strong reduced
+autonomy therefore selects exactly non-coupling dynamics, the amplitude echo of the
+classical interaction obstruction. Owner:
+`tests/test_gate_q01_reduced_dynamics.py`.
+
+The interesting nonclassical regime — an autonomous *decohering* channel from
+reversible microscopic dynamics — is impossible under this strong all-states
+condition. It is deferred to Gate Q02, whose weaker premise fixes the environment
+state, the standard open-systems coarse-graining where irreversibility can appear.
 
 ### Gate Q02: Coarse-Graining Robustness (next)
 
 Require one unitary to close under at least two inequivalent amplitude
 coarse-graining channels, with induced laws agreeing up to a coarse basis change.
 Measure whether robustness is generic (kill condition) or selective.
+
+### Gate Q02: Fixed-Environment Decoherence Channel (next)
+
+Status: **specified, not yet implemented.**
+
+Weaken the coarse-graining: fix a declared environment state `rho_B` and reduce by
+`rho_A -> Tr_B(U (rho_A kron rho_B) U^dagger)`. This is the standard open-systems
+map and always yields an autonomous channel, so the question shifts from existence
+to *character*: which unitaries induce a genuinely decohering (Choi rank > 1)
+effective channel, how that depends on `rho_B`, and whether the induced calculus is
+still classically simulable. This is the second, inequivalent coarse-graining
+required before any resolution-independence claim.
 
 ### Gate Q03: Interference As A Holdout (next)
 

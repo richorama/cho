@@ -38,6 +38,16 @@ class Gaussian:
             self.real * other.imag + self.imag * other.real,
         )
 
+    def __neg__(self) -> "Gaussian":
+        return Gaussian(-self.real, -self.imag)
+
+    def __truediv__(self, other: "Gaussian") -> "Gaussian":
+        denominator = other.norm2()
+        if denominator == 0:
+            raise ZeroDivisionError("division by the zero Gaussian rational")
+        numerator = self * other.conjugate()
+        return Gaussian(numerator.real / denominator, numerator.imag / denominator)
+
     def conjugate(self) -> "Gaussian":
         return Gaussian(self.real, -self.imag)
 

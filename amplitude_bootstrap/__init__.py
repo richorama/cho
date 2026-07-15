@@ -6,6 +6,12 @@ from .amplitude_process import (
     conjugate_experiment,
     monomial_group,
 )
+from .coarse_graining import (
+    choi_rank,
+    partial_trace_b,
+    reduced_channel,
+    reduced_dynamics_census,
+)
 from .gaussian import Gaussian, born_probability
 
 __all__ = [
@@ -13,6 +19,10 @@ __all__ = [
     "MonomialUnitary",
     "conjugate_experiment",
     "monomial_group",
+    "choi_rank",
+    "partial_trace_b",
+    "reduced_channel",
+    "reduced_dynamics_census",
     "Gaussian",
     "born_probability",
 ]

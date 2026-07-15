@@ -106,11 +106,16 @@ continuation — change exactly one premise — a separate campaign replaces cla
 bits with complex amplitudes in `Q(i)` and reruns the same observer-consistency
 gates to measure what the amplitude premise buys. Gate Q00 (representation
 invariance under the monomial-unitary group) is implemented and passing; the
-permutation subgroup recovers the classical Gate 00 exactly. See
-[AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
+permutation subgroup recovers the classical Gate 00 exactly. Gate Q01 (exact
+partial-trace coarse-graining) is also passing as a no-go: over a declared
+ensemble of 144 two-qubit unitaries, autonomous reduced dynamics exists for
+exactly the 36 non-interacting product unitaries, all reversible, so no
+decoherence emerges — the amplitude echo of the classical interaction
+obstruction. See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
 [AMPLITUDE_CONSTITUTION.md](AMPLITUDE_CONSTITUTION.md). The package is
-`amplitude_bootstrap/`; its first contract is
-`tests/test_gate_q00_representation_invariance.py`.
+`amplitude_bootstrap/`; its contracts are
+`tests/test_gate_q00_representation_invariance.py` and
+`tests/test_gate_q01_reduced_dynamics.py`.
 
 The project mission, staged gates, promotion levels, and stop conditions are
 defined in [PLAN.md](PLAN.md). Methodological constraints are kept separately in
