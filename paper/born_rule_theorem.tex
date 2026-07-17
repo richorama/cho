@@ -1,0 +1,221 @@
+\documentclass[11pt,a4paper]{article}
+
+% arXiv-ready standalone draft of BORN_RULE_THEOREM.md.
+% Compile: pdflatex born_rule_theorem.tex
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage[hidelinks]{hyperref}
+\usepackage{braket}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Hil}{\mathcal{H}}
+\newcommand{\basis}{\mathcal{B}}
+\DeclareMathOperator{\Zframe}{Z}
+
+\title{The Born Rule from Observer-Consistency:\\
+a self-contained selection theorem}
+\author{Richard Astbury\thanks{With machine-checked certificates over the Gaussian
+rationals $\Q(i)$; see the \texttt{cho} repository.}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Among the one-parameter family of ``$r$-norm'' probability rules
+$q_r(e)\propto|\braket{e|s}|^{r}$ on a finite-dimensional complex Hilbert space, we prove
+that exactly one member---the $2$-norm, i.e.\ the Born rule---assigns a measurement outcome
+a probability that is independent of the surrounding sharp measurement, in every dimension
+$d\ge 3$. The argument is elementary and self-contained: it does \emph{not} presuppose
+Gleason's theorem but reconstructs the relevant selection constructively. Sufficiency is
+Parseval's identity; necessity is a single explicit complement-rotation witness realised
+exactly over the Gaussian rationals $\Q(i)$; the $d=2$ case is shown to be degenerate. A
+short remark isolates \emph{why superposition is essential}: the classical relabelling
+(monomial) group can never expose the alternatives. Every asserted rational value is owned
+by an automated test.
+\end{abstract}
+
+\section{Setup}
+
+Let $\Hil$ be a complex Hilbert space of finite dimension $d$, and fix a nonzero state
+vector $s$. A \emph{sharp measurement} is a rank-one projective measurement, given by an
+orthonormal basis $\basis=\{e_1,\dots,e_d\}$; its outcomes are the directions $e_k$.
+
+For a real exponent $r>0$, the \emph{$r$-norm rule} assigns the measurement $\basis$ on
+state $s$ the outcome distribution
+\begin{equation}
+q_r(e_k\mid\basis,s)=\frac{|\braket{e_k|s}|^{r}}{\Zframe_r(\basis,s)},
+\qquad
+\Zframe_r(\basis,s)=\sum_{j=1}^{d}|\braket{e_j|s}|^{r}.
+\label{eq:rnorm}
+\end{equation}
+By construction each $q_r(\cdot\mid\basis,s)$ is a probability distribution. The exponent
+$r=2$ is the Born rule, for which $\Zframe_2(\basis,s)=\braket{s|s}$ and
+$q_2(e\mid\basis,s)=|\braket{e|s}|^{2}/\braket{s|s}$.
+
+Write $g_r^{s}(e)=|\braket{e|s}|^{r}$ for the (unnormalised) \emph{frame weight} of a unit
+effect $e$, so that $\Zframe_r(\basis,s)=\sum_{e\in\basis}g_r^{s}(e)$ is the \emph{frame
+total} of the basis.
+
+\section{The observer-consistency demand}
+
+An outcome direction $e$ can belong to many different sharp measurements. An internal
+observer who registers outcome $e$ cannot tell which surrounding measurement produced it, so
+consistency requires that the probability assigned to $e$ not depend on that choice.
+
+\begin{definition}[Non-contextuality]
+For every state $s$ and every pair of bases $\basis,\basis'$ with $e\in\basis$ and
+$e\in\basis'$, the rule assigns $q_r(e\mid\basis,s)=q_r(e\mid\basis',s)$.
+\end{definition}
+
+Because the numerator $g_r^{s}(e)$ in \eqref{eq:rnorm} is shared, non-contextuality at $e$
+is equivalent to equality of the frame totals $\Zframe_r(\basis,s)=\Zframe_r(\basis',s)$.
+Since two bases sharing $e$ differ only in how the orthogonal complement $e^{\perp}$ (a
+$(d-1)$-dimensional space) is resolved into an orthonormal frame, the demand is exactly:
+\begin{quote}
+\textbf{(C)}\; The frame total over $e^{\perp}$ is independent of the orthonormal frame
+chosen for $e^{\perp}$, for every state $s$.
+\end{quote}
+Equivalently, in Gleason's language, $g_r^{s}$ must be a \emph{regular frame function}: its
+sum over every orthonormal basis is a single basis-independent constant $W(s)$.
+
+\section{The theorem}
+
+\begin{theorem}\label{thm:main}
+Let $d\ge 3$. The $r$-norm rule \eqref{eq:rnorm} is non-contextual for every state if and
+only if $r=2$. In that case
+$q_2(e\mid\basis,s)=\braket{e|\rho|e}$ with $\rho=\ket{s}\bra{s}/\braket{s|s}$, the Born
+rule. For $d=2$ the non-contextuality demand is degenerate and selects no exponent.
+\end{theorem}
+
+The proof has three parts: sufficiency ($r=2$ works, every $d$), necessity ($r\neq 2$ fails,
+$d\ge 3$), and the $d=2$ degeneracy. A fourth remark isolates why superposition is essential.
+
+\subsection{Sufficiency: \texorpdfstring{$r=2$}{r=2} is non-contextual (Parseval)}
+
+Let $\basis=\{e_k\}$ be any orthonormal basis. Expanding $s$ in that basis gives Parseval's
+identity,
+\begin{equation}
+\sum_{k}|\braket{e_k|s}|^{2}=\braket{s|s}.
+\label{eq:parseval}
+\end{equation}
+The right-hand side does not mention $\basis$, so $\Zframe_2(\basis,s)$ is the
+basis-independent constant $\braket{s|s}$; condition \textbf{(C)} holds and
+\[
+q_2(e\mid\basis,s)=\frac{|\braket{e|s}|^{2}}{\braket{s|s}}=\braket{e|\rho|e}
+\]
+depends only on $e$ and $\rho$. Non-contextuality holds in every dimension. \qed
+
+\begin{remark}[Exact certificate]
+\texttt{frame\_function.born\_is\_exactly\_parseval(d)} verifies \eqref{eq:parseval} as an
+exact identity over $\Q(i)$ for every declared basis and every census state in $d=3,4$.
+\end{remark}
+
+\subsection{Necessity: \texorpdfstring{$r\neq 2$}{r!=2} is contextual for
+\texorpdfstring{$d\ge 3$}{d>=3}}
+
+It suffices to exhibit one state and one complement $e^{\perp}$ whose frame total changes
+under a rotation of $e^{\perp}$. Work in the three-dimensional subspace
+$\operatorname{span}\{e_0,e_1,e_2\}$ with $e=e_0$, and take the equal superposition
+$s=e_0+e_1+e_2$.
+\begin{itemize}
+\item \textbf{Split A} uses the frame $\{e_1,e_2\}$ for the complement. The two complement
+weights are $|\braket{e_1|s}|^{r}=1$ and $|\braket{e_2|s}|^{r}=1$, so the complement total is
+$2$.
+\item \textbf{Split B} rotates the complement by the exact rational (Pythagorean) rotation
+$u=(3e_1+4e_2)/5$, $v=(-4e_1+3e_2)/5$. Then $\braket{u|s}=(3+4)/5=7/5$ and
+$\braket{v|s}=(-4+3)/5=-1/5$, so the complement total is $(7/5)^{r}+(1/5)^{r}$.
+\end{itemize}
+For $r=2$ both totals equal $2$---consistent, as they must. For any $r\neq 2$ the map
+$\phi(r)=(7/5)^{r}+(1/5)^{r}$ does \emph{not} equal $2$; concretely $r=4$ gives
+$(2401+1)/625=2402/625$ and $r=6$ gives $(117649+1)/15625$. Hence
+$\Zframe_r(A,s)\neq\Zframe_r(B,s)$, the shared effect $e_0$ receives two different
+probabilities, and non-contextuality fails. Embedding this configuration in any $d\ge 3$
+(leaving the remaining basis vectors fixed) preserves the discrepancy. \qed
+
+\begin{remark}[Exact certificates]
+\texttt{frame\_function.theorem\_witnesses()} evaluates the two whole-basis totals on
+$s=(1,1,1)$: $r=2$ gives $3=\braket{s|s}$ for both splits, while $r=4$ gives $3$ versus
+$3027/625$ and $r=6$ gives $3$ versus $5331/625$ (the extra $1$ beyond the complement is the
+shared effect's own weight $|\braket{e_0|s}|^{r}=1$). The embedding is itself made exact by
+\texttt{dimensional\_necessity\_witnesses}$(\{3,4,5\})$: split A always totals $d$, while
+split B totals $(d-2)+c_r/625$ with $c_4=2402$ and $c_6=4706$, so the two disagree for
+$r\in\{4,6\}$ while agreeing at $d$ for $r=2$, in every dimension $d=3,4,5$. Necessity is
+therefore not an artefact of $d=3$.
+\end{remark}
+
+\subsection{The \texorpdfstring{$d=2$}{d=2} degeneracy}
+
+For $d=2$ the complement of a fixed effect $e$ is one-dimensional, so any basis containing
+$e$ is $\{e,e'\}$ with $e'$ unique up to a phase. Since $|\braket{e'|s}|$ is
+phase-independent, the frame total $\Zframe_r(\{e,e'\},s)$ is the same for every such basis
+and every $r$; the non-contextuality demand is vacuous and selects nothing. This is precisely
+why Gleason-type selection begins at $d=3$. For completeness, $d=2$ also admits irregular
+frame functions with no density-operator representation, the classical reason Gleason's
+theorem excludes the qubit. \qed
+
+\subsection{Why superposition is essential}
+
+The classical representation-change group is the group of outcome \emph{relabellings}
+(permutations); the amplitude premise extends it to the \emph{monomial} unitaries
+(permutations composed with unit phases). Neither can expose $r\neq 2$: a monomial map sends
+a basis to a permuted, rephased basis, which has the same multiset of weights
+$\{g_r^{s}(e_j)\}$, hence the same frame total for every $r$. Only a genuinely superposing
+change of basis---one that mixes distinct rays, as the Pythagorean rotation above does---
+alters the total. The selection of the Born rule is therefore powered precisely by the one
+ingredient the amplitude premise adds over classical relabelling: superposition.
+
+\begin{remark}[Exact certificate]
+\texttt{theorem\_witnesses().monomial\_invariant\_for\_all\_exponents} is \texttt{True},
+while the census \texttt{frame\_consistency\_census(d)} shows the permutation control clean
+for every exponent yet the superposing frames inconsistent for $r\neq 2$.
+\end{remark}
+
+\section{Equivalent forms of the conclusion}
+
+Theorem~\ref{thm:main} admits three interchangeable readings, all established above.
+\begin{enumerate}
+\item \textbf{Non-contextuality.} Only $r=2$ assigns a measurement outcome a probability
+independent of the surrounding sharp measurement.
+\item \textbf{Frame-function / resolution consistency.} Only $r=2$ gives a measurement a
+total probability independent of the orthonormal frame---the coarse-graining principle
+applied to a complete measurement.
+\item \textbf{Gleason representation.} The unique non-contextual rule is
+$q_2(e)=\braket{e|\rho|e}$, the Born rule for the density operator
+$\rho=\ket{s}\bra{s}/\braket{s|s}$; the constant $W(s)=\braket{s|s}$ is the Gleason frame
+constant.
+\end{enumerate}
+
+\section{Scope and non-claims}
+
+\begin{itemize}
+\item The proof of sufficiency and of the superposition and dimension mechanisms is fully
+general (all real $r>0$, all $d$). The exact $\Q(i)$ certificates realise necessity for the
+even exponents $r\in\{4,6\}$ and for enumerated rational bases in $d=3,4,5$; they are
+constructive finite witnesses, not a substitute for the analytic argument, which covers every
+$r\neq 2$.
+\item This selects the probability \emph{calculus}, i.e.\ the map from effects and states to
+numbers. It says nothing about dynamics, tensor structure, or a preferred observable.
+\item No measured constant, symmetry, or dimension is used as an input or an objective. The
+only premise beyond finite Hilbert space is the observer-consistency demand of Section~2.
+\end{itemize}
+
+\paragraph{Reproducibility.}
+The claims are certified by
+\texttt{tests/test\_gate\_q11\_born\_selection.py},
+\texttt{tests/test\_gate\_q12\_frame\_consistency.py}, and
+\texttt{tests/test\_gate\_born\_rule\_theorem.py}, all discovered by \texttt{run\_all.py}.
+The production module \texttt{amplitude\_bootstrap/frame\_function.py} computes every frame
+total as an exact rational.
+
+\end{document}

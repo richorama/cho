@@ -182,6 +182,7 @@ python3 -m unittest discover -s tests -p "test_gate_born_rule_theorem.py" -v
 ```
 
 The production module `amplitude_bootstrap/frame_function.py` computes the frame totals and
-witnesses as exact rationals; the tests own every asserted value. The broader project
-context is in [PAPER.md](PAPER.md), [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md), and
+witnesses as exact rationals; the tests own every asserted value. A typeset, arXiv-ready
+LaTeX version of this note is in [paper/born_rule_theorem.tex](paper/born_rule_theorem.tex).
+The broader project context is in [PAPER.md](PAPER.md), [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md), and
 [AMPLITUDE_CONSTITUTION.md](AMPLITUDE_CONSTITUTION.md).
