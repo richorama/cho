@@ -236,3 +236,47 @@ def theorem_witnesses() -> TheoremWitness:
         alternative_split_totals=alternatives,
         monomial_invariant_for_all_exponents=monomial_invariant,
     )
+
+
+class DimensionalWitness(NamedTuple):
+    dimension: int
+    parseval_constant: Fraction
+    splits: Tuple[Tuple[int, Fraction, Fraction], ...]  # (r, split_A, split_B)
+
+
+def dimensional_necessity_witnesses(
+    dimensions: Tuple[int, ...] = (3, 4, 5),
+) -> Tuple[DimensionalWitness, ...]:
+    """Exact complement-split necessity certificate in several dimensions at once.
+
+    For each dimension ``d >= 3`` it builds two orthonormal bases of ``C^d`` that share
+    the effect ``e0`` and differ only by a rational (Pythagorean) rotation of the
+    ``{1, 2}`` complement plane, evaluated on the equal superposition
+    ``s = (1, 1, ..., 1)``. It returns, per dimension, the Parseval constant ``<s|s> = d``
+    together with the two frame totals for ``r = 2, 4, 6``.
+
+    For ``r = 2`` the two totals agree and equal ``d`` (Parseval / Born). For ``r = 4`` and
+    ``r = 6`` they differ, so the necessity of the Born exponent is witnessed exactly in
+    *every* listed dimension, not just ``d = 3`` — the ``d = 3`` case of this construction
+    reproduces the split totals used by :func:`theorem_witnesses`.
+    """
+    rotation = (_g(3), _g(-4), _g(4), _g(3))  # exact rational rotation, columns orthogonal
+    out: List[DimensionalWitness] = []
+    for dimension in dimensions:
+        if dimension < 3:
+            raise ValueError("the complement-split witness needs dimension >= 3")
+        basis_a = _computational(dimension)
+        basis_b = _rotate_plane(dimension, 1, 2, *rotation)
+        state = tuple(ONE for _ in range(dimension))
+        splits = tuple(
+            (2 * power, _frame_sum(basis_a, state, power), _frame_sum(basis_b, state, power))
+            for power in EXPONENTS
+        )
+        out.append(
+            DimensionalWitness(
+                dimension=dimension,
+                parseval_constant=squared_norm(state),
+                splits=splits,
+            )
+        )
+    return tuple(out)

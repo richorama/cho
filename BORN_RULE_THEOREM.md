@@ -108,6 +108,14 @@ both splits, while `r = 4` gives `3` versus `3027/625` and `r = 6` gives `3` ver
 `5331/625` (the extra `1` beyond the complement is the shared effect's own weight
 `|<e_0|s>|^r = 1`). See `test_gate_born_rule_theorem.py`.
 
+*Dimension-general certificate.* The embedding "leaving the remaining basis vectors
+fixed" is itself made exact by `frame_function.dimensional_necessity_witnesses((3,4,5))`,
+which runs the identical `{1,2}`-plane rotation on `s = (1,...,1)` in each dimension. Split
+`A` always totals `d`; split `B` totals `(d-2) + c_r/625` with `c_4 = 2402` and
+`c_6 = 4706`, so the two disagree for `r in {4,6}` while agreeing at `d` for `r = 2`, in
+every dimension `d = 3, 4, 5`. The `d = 3` case reproduces the single-configuration numbers
+above (`3027/625`, `5331/625`). This confirms that necessity is not an artefact of `d = 3`.
+
 ### 3.3 The `d = 2` degeneracy
 
 For `d = 2` the complement of a fixed effect `e` is one-dimensional, so any basis containing
@@ -156,7 +164,7 @@ The theorem admits three interchangeable readings, all established above.
 - The proof of **sufficiency** (Section 3.1) and of the **superposition** and **dimension**
   necessity mechanisms is fully general (all real `r > 0`, all `d`). The exact `Q(i)`
   certificates realise **necessity** for the even exponents `r in {4, 6}` and for the
-  enumerated rational bases in `d = 3, 4`; they are constructive finite witnesses, not a
+  enumerated rational bases in `d = 3, 4, 5`; they are constructive finite witnesses, not a
   substitute for the analytic argument, which covers every `r != 2`.
 - This selects the probability **calculus**, i.e. the map from effects and states to
   numbers. It says nothing about dynamics, tensor structure, or a preferred observable, and
