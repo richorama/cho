@@ -170,3 +170,69 @@ def frame_consistency_census(dimension: int) -> FrameConsistency:
         relabelling_inconsistent=tuple(relabel),
         born_is_uniquely_consistent=unique,
     )
+
+
+# --- Focused, exact certificates for the standalone Born-rule theorem. ------------
+# See BORN_RULE_THEOREM.md. These realise the proof's three ingredients on a single
+# explicit configuration, independent of the ensemble-wide censuses above.
+
+_WITNESS_STATE: Vector = (ONE, ONE, ONE)  # genuine equal superposition in C^3
+_WITNESS_SHARED: Vector = (ONE, ZERO, ZERO)
+# Two orthonormal bases sharing the effect e0, differing only by a rational rotation
+# of the orthogonal complement {1, 2}.
+_WITNESS_A: Basis = (_WITNESS_SHARED, (ZERO, ONE, ZERO), (ZERO, ZERO, ONE))
+_WITNESS_B: Basis = (_WITNESS_SHARED, (ZERO, _g(3), _g(4)), (ZERO, _g(-4), _g(3)))
+
+
+def _monomial_image(
+    basis: Basis, order: Tuple[int, ...], phases: Tuple[Gaussian, ...]
+) -> Basis:
+    """Relabel a basis by a permutation and multiply each vector by a unit phase."""
+    return tuple(
+        tuple(phases[k] * basis[order[k]][m] for m in range(len(basis)))
+        for k in range(len(basis))
+    )
+
+
+class TheoremWitness(NamedTuple):
+    parseval_constant: Fraction
+    born_split_equal: bool
+    alternative_split_totals: Tuple[Tuple[int, Fraction, Fraction], ...]
+    monomial_invariant_for_all_exponents: bool
+
+
+def theorem_witnesses() -> TheoremWitness:
+    """Exact certificates for sufficiency, necessity, and the superposition control.
+
+    * Sufficiency: for r = 2 the complement-split totals both equal ``<s|s>`` (Parseval).
+    * Necessity: for r = 4 and r = 6 the two splits give different totals (contextual).
+    * Superposition control: a permutation-with-phase (monomial) relabelling of a basis
+      leaves the total unchanged for every exponent, so only genuine superposition can
+      expose r != 2.
+    """
+    state = _WITNESS_STATE
+    parseval = squared_norm(state)
+
+    born_a = _frame_sum(_WITNESS_A, state, 1)
+    born_b = _frame_sum(_WITNESS_B, state, 1)
+    born_equal = born_a == born_b == parseval
+
+    alternatives = tuple(
+        (power, _frame_sum(_WITNESS_A, state, power), _frame_sum(_WITNESS_B, state, power))
+        for power in (2, 3)
+    )
+
+    monomial = _monomial_image(
+        _WITNESS_A, (2, 0, 1), (ONE, _I, Gaussian(Fraction(-1), Fraction(0)))
+    )
+    monomial_invariant = all(
+        _frame_sum(monomial, state, power) == _frame_sum(_WITNESS_A, state, power)
+        for power in EXPONENTS
+    )
+
+    return TheoremWitness(
+        parseval_constant=parseval,
+        born_split_equal=born_equal,
+        alternative_split_totals=alternatives,
+        monomial_invariant_for_all_exponents=monomial_invariant,
+    )

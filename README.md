@@ -7,7 +7,9 @@ This is a clean project. It assumes no prior algebra, particle content, spacetim
 dimension, measured constant, or preferred microscopic labeling.
 
 For a consolidated, self-contained account of both campaigns — headlined by the
-derivation of the Born rule from observer-consistency — see [PAPER.md](PAPER.md).
+derivation of the Born rule from observer-consistency — see [PAPER.md](PAPER.md). The
+Born-rule selection theorem is stated and proved on its own in
+[BORN_RULE_THEOREM.md](BORN_RULE_THEOREM.md).
 
 ## Proposed Principle
 
