@@ -6,6 +6,9 @@ observers at different microscopic representations and resolutions.
 This is a clean project. It assumes no prior algebra, particle content, spacetime
 dimension, measured constant, or preferred microscopic labeling.
 
+For a consolidated, self-contained account of both campaigns — headlined by the
+derivation of the Born rule from observer-consistency — see [PAPER.md](PAPER.md).
+
 ## Proposed Principle
 
 > No internal experiment can reveal which equivalent microscopic representation
