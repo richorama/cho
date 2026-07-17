@@ -142,9 +142,22 @@ Peres-Mermin magic square is an exact state-independent Kochen-Specker contradic
 over Q(i) (0 of 512 value assignments consistent), but coarse-graining sends seven of
 its nine observables to zero and leaves a noncontextual single qubit — contextuality is
 a fine-grained resource the recursion destroys, whereas the complex phase survives it.
+Gate Q09 then answers the campaign's load-bearing question as a no-go: over a declared
+family of six independent blockings, no interacting unitary admits an autonomous coarse
+law under two structurally distinct blockings (the canonical trace-A/trace-B intersection
+holds exactly `36` non-interacting survivors and `0` interacting), and every interacting
+law that does close under any cut is reversible — so observer-consistent amplitude
+dynamics are non-interacting. Gate Q10 shows this interaction filtering and the Q07
+complex-phase survival are dimension-robust, rerunning the nested recursion on a
+four-qubit chain (survivors contract `64 → 48 → 32 → 16`, `0` interacting reach the
+bottom, the phase survives). Gate Q11 supplies the sharpest positive result: among the
+r-norm probability calculi, superposition-driven observer-consistency selects the Born
+rule (`r = 2`) uniquely as the only non-contextual one, in Hilbert dimension three and
+above — a finite exact derivation of the probability calculus, recovering Gleason's
+threshold.
 See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
 [AMPLITUDE_CONSTITUTION.md](AMPLITUDE_CONSTITUTION.md). The package is
-`amplitude_bootstrap/`; its contracts are the `tests/test_gate_q0*.py` gates.
+`amplitude_bootstrap/`; its contracts are the `tests/test_gate_q*.py` gates.
 
 The project mission, staged gates, promotion levels, and stop conditions are
 defined in [PLAN.md](PLAN.md). Methodological constraints are kept separately in

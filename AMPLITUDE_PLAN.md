@@ -249,6 +249,80 @@ destroys — the exact opposite of Q07's complex phase, which survives it. Level
 two contrasting nonclassical fingerprints: one resolution-independent (complex phase),
 one fine-grained (contextuality), both exact and neither selected for.
 
+### Gate Q09: Is Any Interacting Law Observer-Consistent? (make-or-break)
+
+Status: **implemented and passing as a no-go; the load-bearing question is answered.**
+
+Every gate through Q08 shares one honest limitation: the effective structure that
+survives coarse-graining is always the *non-interacting* family, exactly as classically.
+Q09 confronts the make-or-break question directly — does *any* interacting two-qubit
+unitary admit an autonomous coarse law under two independent blockings? If one did, the
+amplitude premise would manufacture an interacting nonclassical law the classical
+crucible could not; if none does, observer-consistent amplitude dynamics are provably
+non-interacting and the surviving nonclassical content (Q07 phase, Q10) can only ride on
+non-interacting dynamics.
+
+The answer is no. Over the fixed `144`-unitary ensemble under a declared family of six
+independent blockings — the two canonical tensor-factor traces (`traceA`, `traceB`) and
+four Clifford-rotated bipartitions (`cnot`, `rcnot`, `swap`, `cz`) — the two canonical
+traces agree on exactly `36` survivors, all non-interacting and `0` interacting. No
+interacting unitary is autonomous under more than one *structurally distinct* blocking:
+the single member that reaches two (the `CZ` gate) closes only within the
+`cnot`/`rcnot` frame pair, a bespoke rotation sharing one entangling resource — precisely
+the "one coarse-graining map per rule" pattern the constitution forbids as evidence.
+Every interacting law that does close under any single cut is reversible (Choi rank one),
+the amplitude echo of the classical interaction obstruction, while every non-interacting
+unitary is robustly autonomous under at least three blockings. Observer-consistent
+amplitude dynamics are therefore non-interacting. Owner:
+`tests/test_gate_q09_interaction.py`.
+
+### Gate Q10: Dimension Robustness Of The Recursion
+
+Status: **implemented and passing; the Q06/Q07 structure holds one dimension up.**
+
+Q06's nested-blocking findings could be artefacts of the smallest chain that admits a
+nested spatial coarse-graining. Q10 reruns the identical machinery on a *four*-qubit
+chain `A-B-C-D` with a genuine three-level recursion (trace `D`, then `C`, then `B`).
+From `64` ensemble members (gates `{I, S}` per site, four boundary entanglers), survivors
+contract `64 → 48 → 32 → 16`: each nested blocking removes exactly the coupling across the
+newly erased boundary (`cnot_cd` at level one, `cnot_bc` at level two, `cnot_ab` at level
+three), `0` interacting members reach the bottom, and every bottom-level channel is
+reversible. Distinct effective channels contract monotonically `24 → 8 → 2`, and exactly
+one of the two bottom channels is genuinely complex — the irreducible phase of Q07
+survives the deeper recursion. The interaction-filtering and phase-survival results are
+not artefacts of dimension. Owner: `tests/test_gate_q10_dimension.py`.
+
+### Gate Q11: Observer-Consistency Selects The Born Rule
+
+Status: **implemented and passing; the 2-norm is forced as an unselected holdout.**
+
+Every prior gate assumes the Born rule. Q11 turns the 2-norm itself into a holdout and
+asks whether observer-consistency forces it. For the `r`-norm outcome rules
+`q_r(k) = |<e_k|s>|^r / sum_j |<e_j|s>|^r` (written `r = 2p` to keep every quantity an
+exact rational over Q(i)), the observer demand is *non-contextuality*: an outcome
+direction shared by two complete measurements must be assigned the same probability. The
+exact three-dimensional census shows `r = 2` (Born) is the unique exponent with zero
+contextual discrepancies — Parseval makes the weights sum to one in every basis — while
+`r = 4` and `r = 6` are exposed as contextual (`24` mismatches each over two superposing
+bases). Two controls sharpen the claim: a classical relabelling of outcomes exposes
+nothing for any exponent (only genuine superposition does the selecting), and in a qubit
+every exponent is non-contextual, so the selection needs Hilbert dimension at least three
+— exactly Gleason's threshold, recovered by finite enumeration. This is a finite,
+exact, superposition-driven derivation of the Born rule from observer-consistency. Owner:
+`tests/test_gate_q11_born_selection.py`.
+
+## What Q09–Q11 Settle
+
+Q09 answers the campaign's load-bearing question in the negative: the amplitude premise
+does **not** manufacture an interacting law that survives independent coarse-grainings, so
+observer-consistent amplitude worlds are non-interacting, exactly as the classical route
+was. Q10 shows the interaction-filtering and complex-phase-survival results are
+dimension-robust rather than small-chain artefacts. Q11 supplies the campaign's sharpest
+positive result: superposition-driven observer-consistency **selects the Born rule
+uniquely** among the r-norm calculi, in dimension three and above. The amplitude premise
+buys a genuine derivation of the probability calculus and an irreducible complex phase,
+but not an interacting nonclassical dynamics — a clean, honest boundary for the pivot.
+
 ## Promotion Levels
 
 Identical ladder to the classical campaign. Level 0 is the software contract
