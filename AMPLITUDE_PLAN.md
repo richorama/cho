@@ -311,17 +311,38 @@ every exponent is non-contextual, so the selection needs Hilbert dimension at le
 exact, superposition-driven derivation of the Born rule from observer-consistency. Owner:
 `tests/test_gate_q11_born_selection.py`.
 
-## What Q09–Q11 Settle
+### Gate Q12: The Born Rule As A Resolution-Agreement Theorem
+
+Status: **implemented and passing; hardens Q11 to higher dimension and to the project's
+own coarse-graining principle.**
+
+Q11 established Born non-contextuality in dimension three. Q12 answers the two immediate
+questions — does it survive higher dimension, and is it the project's resolution-agreement
+principle rather than imported Gleason machinery — by recasting the selection as an exact
+*frame-function consistency* statement. Each `r`-norm rule assigns a unit effect `e` the
+weight `|<e|s>|^r`; observer-consistency across resolutions demands that the total weight
+of a complete measurement (the sum over any orthonormal basis) be independent of which
+frame the observer chose. Over exact bases in dimensions three and four, `r = 2` (Born) is
+the unique frame-consistent exponent: its frame sum equals `<s|s>` for every basis
+(Parseval), giving `0` inconsistent states, while `r = 4` and `r = 6` are frame dependent
+for essentially every state (`26/26` in dimension three, `78/80` in dimension four). A
+classical relabelling exposes nothing for any exponent, so superposition alone does the
+selecting. The Born selection is dimension-robust and is the coarse-graining-consistency
+principle itself. Owner: `tests/test_gate_q12_frame_consistency.py`.
+
+## What Q09–Q12 Settle
 
 Q09 answers the campaign's load-bearing question in the negative: the amplitude premise
 does **not** manufacture an interacting law that survives independent coarse-grainings, so
 observer-consistent amplitude worlds are non-interacting, exactly as the classical route
 was. Q10 shows the interaction-filtering and complex-phase-survival results are
-dimension-robust rather than small-chain artefacts. Q11 supplies the campaign's sharpest
-positive result: superposition-driven observer-consistency **selects the Born rule
-uniquely** among the r-norm calculi, in dimension three and above. The amplitude premise
-buys a genuine derivation of the probability calculus and an irreducible complex phase,
-but not an interacting nonclassical dynamics — a clean, honest boundary for the pivot.
+dimension-robust rather than small-chain artefacts. Q11 and Q12 supply the campaign's
+sharpest positive result: superposition-driven observer-consistency **selects the Born
+rule uniquely** among the r-norm calculi — as non-contextuality (Q11) and, equivalently
+and dimension-robustly, as frame-function/resolution consistency (Q12), in dimension three
+and above. The amplitude premise buys a genuine derivation of the probability calculus and
+an irreducible complex phase, but not an interacting nonclassical dynamics — a clean,
+honest boundary for the pivot.
 
 ## Promotion Levels
 

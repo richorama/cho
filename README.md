@@ -154,7 +154,10 @@ bottom, the phase survives). Gate Q11 supplies the sharpest positive result: amo
 r-norm probability calculi, superposition-driven observer-consistency selects the Born
 rule (`r = 2`) uniquely as the only non-contextual one, in Hilbert dimension three and
 above — a finite exact derivation of the probability calculus, recovering Gleason's
-threshold.
+threshold. Gate Q12 hardens that result to dimension four and recasts it in the project's
+own language: among the r-norm rules only Born gives a frame-consistent measurement total
+(the sum over any orthonormal basis equals `<s|s>`, exactly Parseval), so the Born rule is
+the resolution-agreement principle itself.
 See [AMPLITUDE_PLAN.md](AMPLITUDE_PLAN.md) and
 [AMPLITUDE_CONSTITUTION.md](AMPLITUDE_CONSTITUTION.md). The package is
 `amplitude_bootstrap/`; its contracts are the `tests/test_gate_q*.py` gates.
