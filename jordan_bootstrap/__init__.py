@@ -107,6 +107,15 @@ from .color_su3 import (
     left_mult_matrix,
     stabiliser_subalgebra,
 )
+from .fermion_charges import (
+    FermionChargeCensus,
+    charge_multiplicities,
+    clifford_generators,
+    fermion_charge_census,
+    ladder_operators,
+    number_operator,
+    su3_bilinears,
+)
 
 __all__ = [
     "E",
@@ -186,4 +195,11 @@ __all__ = [
     "is_derivation",
     "left_mult_matrix",
     "stabiliser_subalgebra",
+    "FermionChargeCensus",
+    "charge_multiplicities",
+    "clifford_generators",
+    "fermion_charge_census",
+    "ladder_operators",
+    "number_operator",
+    "su3_bilinears",
 ]

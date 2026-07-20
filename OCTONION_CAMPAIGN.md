@@ -418,6 +418,48 @@ made exact.
 
 Contract: `tests/test_gate_o10_color_su3.py`.
 
+## Gate O11 — one fermion generation's charges from ℂ⊗𝕆 (implemented, passing)
+
+Gate O10 found colour `su(3)` as the derivations of `𝕆` fixing an imaginary
+unit. This gate takes the complementary half of the Günaydin–Gürsey / Furey
+picture: it builds an explicit **fermionic Fock space** inside the complex
+octonions `ℂ⊗𝕆` and reads off the electric charges of a *single* Standard-Model
+generation — exactly over the Gaussian rationals `ℚ(i)`. The construction is
+forced, not fitted:
+
+- **A Clifford algebra.** The seven left-multiplications `L_{e_k}` by the
+  imaginary octonion units are mutually anticommuting square roots of `−1`:
+  `{L_i, L_j} = −2 δ_ij I` (checked exactly over `ℚ`). They generate `Cl(0,7)` on
+  the eight real dimensions of `𝕆`.
+- **A fermionic ladder.** Complexifying with the `ℂ` in `ℂ⊗𝕆` and pairing six of
+  those operators gives three ladder operators `α_k = (L_{2k−1} + i L_{2k})/2`
+  satisfying the canonical anticommutation relations exactly:
+  `{α_j, α_k†} = δ_jk I`, `{α_j, α_k} = 0`, `α_k² = 0`. So `ℂ⊗𝕆` (eight complex
+  dimensions) *is* the Fock space of three fermionic modes, `2³ = 8` states.
+- **Charge is the number operator.** `N = Σ_k α_k† α_k` has exact integer spectrum
+  with multiplicities **`(1, 3, 3, 1)`** across eigenvalues `0, 1, 2, 3` — the
+  graded pieces `1 ⊕ 3̄ ⊕ 3 ⊕ 1`. Dividing by three gives electric charges
+  **`0, 1/3, 2/3, 1`**: a neutrino, an anti-down quark (colour `3̄`), an up quark
+  (colour `3`) and a positron — one full isospin-up generation, with the ladder
+  lowering charge by one unit (`[N, α_k] = −α_k`).
+- **Unbroken `SU(3) × U(1)`.** The nine bilinears `α_j† α_k` preserve `N`; their
+  eight traceless combinations close under the bracket into colour `su(3)`, and
+  `N` itself generates the commuting `u(1)` of electric charge. Colour acts inside
+  each charge sector — trivially on the two singlets, as `3`/`3̄` on the two
+  three-dimensional sectors.
+
+Honest boundary (checked, not assumed): this `su(3)` is Furey's ladder-bilinear
+embedding and is a *different* embedding from Gate O10's derivation `su(3)` — the
+O10 derivations do **not** commute with `N` (only 1 of 8 do), so the two colour
+algebras are not identified here.
+
+Non-claim: this exhibits colour `SU(3) × U(1)_em` acting on **one** generation
+with the correct charges. It is not the electroweak `SU(2)`, not the origin of
+three generations, and not any dynamics — it is exact representation theory of
+`ℂ⊗𝕆`, no more.
+
+Contract: `tests/test_gate_o11_fermion_charges.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic
