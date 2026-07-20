@@ -338,6 +338,42 @@ slots, not the full continuous triality of `Spin(8)` nor all of `F_4`.
 
 Contract: `tests/test_gate_o08_triality.py`.
 
+## Gate O09 — the octonionic spectral theorem (implemented, passing)
+
+Every prior gate manipulates states; this one certifies the structure that makes
+"measure an observable" rigorous. An observable is any Hermitian octonionic `3x3` matrix
+`A`, and the spectral theorem resolves it as `A = lambda_1 P_1 + lambda_2 P_2 +
+lambda_3 P_3` with *real* eigenvalues and a Jordan frame `{P_i}` of pointer states,
+recoverable from `A` alone. Exact over the rationals:
+
+- **A cubic minimal polynomial (Cayley-Hamilton).** Although `h_3(O)` is non-associative
+  and 27-dimensional, every Hermitian `A` satisfies the *cubic*
+  `A^3 - T A^2 + S A - N I = 0`, with `T = tr A`, `S`, and the cubic norm `N` read off
+  from the traces of the Jordan powers of `A` (Newton's identities). This is the
+  degree-three structure of the *cubic* Jordan algebra, and `N` is the `E_6`-invariant
+  determinant. Verified to vanish exactly for arbitrary rational Hermitian octonionic
+  matrices -- including two with irrational eigenvalues, where only the coefficients stay
+  rational (`2 / 2` generic cases).
+- **Sylvester recovery.** For rational distinct eigenvalues the projectors come back from
+  `A` by `P_i = prod_{j != i}(A - lambda_j I)/(lambda_i - lambda_j)` (a polynomial in the
+  single element `A`, unambiguous by power-associativity). Over three cases -- two real
+  frames and one genuinely octonionic (`e_1`-valued) frame -- the recovered `P_i` equal
+  the original frame, satisfy `A o P_i = lambda_i P_i` and `sum P_i = I`, reproduce `A`,
+  and the determinant equals the eigenvalue product.
+- **Born expectation over the spectrum.** For a genuinely octonionic state `Psi`,
+  `tr(A o Psi) = sum_i lambda_i tr(P_i o Psi)` exactly (`0` mismatches) -- expectation
+  value as eigenvalue times outcome probability.
+
+So an octonionic observable has a genuine real spectrum and a measurement frame -- the
+last structural prerequisite behind the Born gates O01-O06.
+
+Non-claim: this certifies the spectral resolution on an explicit rational census (cubic
+Cayley-Hamilton on arbitrary Hermitian `A`, Sylvester recovery for rational spectra), not
+a general constructive diagonalisation of every octonionic observable over its irrational
+spectral closure.
+
+Contract: `tests/test_gate_o09_spectral_theorem.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic

@@ -90,6 +90,15 @@ from .triality import (
     slot_state,
     triality_census,
 )
+from .spectral import (
+    SpectralCensus,
+    cayley_hamilton_residual,
+    characteristic_coefficients,
+    determinant,
+    observable,
+    spectral_census,
+    sylvester_projector,
+)
 
 __all__ = [
     "E",
@@ -156,4 +165,11 @@ __all__ = [
     "occupied_slots",
     "slot_state",
     "triality_census",
+    "SpectralCensus",
+    "cayley_hamilton_residual",
+    "characteristic_coefficients",
+    "determinant",
+    "observable",
+    "spectral_census",
+    "sylvester_projector",
 ]
