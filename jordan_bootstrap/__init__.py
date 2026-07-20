@@ -40,6 +40,14 @@ from .jordan import (
     trace,
     trace_form,
 )
+from .composite import (
+    CompositeWallCensus,
+    associates,
+    associator,
+    canonical_associator_witness,
+    composite_wall_census,
+    elementary,
+)
 
 __all__ = [
     "E",
@@ -68,4 +76,10 @@ __all__ = [
     "outer",
     "trace",
     "trace_form",
+    "CompositeWallCensus",
+    "associates",
+    "associator",
+    "canonical_associator_witness",
+    "composite_wall_census",
+    "elementary",
 ]

@@ -129,8 +129,36 @@ Contract: `tests/test_gate_o02_jordan_born_selection.py`.
 
 ## Next gates (planned, continued)
 
-- **O0x** — the composite-system wall: tensoring `h_3(O)` fails, sharpening the
-  amplitude campaign's no-go for interacting octonionic dynamics.
+- **O03** — the composite-system wall: *implemented, passing* (see below).
+
+## Gate O03 — the composite-system wall (implemented, passing)
+
+Gates O00-O02 built a consistent *single* octonionic system. This gate asks
+whether two can be composed, and finds the honest wall. Composing observables (a
+tensor product of state spaces) needs an *associative* envelope: ordinary QM's
+`h_n(C)` is *special*, sitting inside `M_n(C)`, and that associative product is
+what makes `M_m(C) tensor M_n(C) = M_{mn}(C)`. Octonionic matrix multiplication is
+non-associative, so no envelope exists.
+
+- **The mechanism, exact.** Octonionic 3x3 matrix multiplication has a nonzero
+  associator: the `(e_1, e_2, e_4)` route gives the exact witness `2 e_7` at entry
+  `(0,0)`. Every declared octonionic triple fails to associate (`3 / 3`), while
+  every complex realization (`0 / 2`) and every quaternionic realization (`0 / 3`)
+  associates exactly -- because `C` and `H` are associative and give composable
+  `h_n`.
+- **Why the wall is exactly at `h_3(O)`.** By Artin's theorem any *two* octonions
+  generate an associative subalgebra (verified over a frozen set of pairs and every
+  length-3 word), so an `h_2(O)` realization would still compose; the obstruction
+  needs three independent imaginary directions -- the same size at which the
+  octonionic projective plane exists at all.
+
+Non-claim: this is the finite *mechanism*, consistent with Albert's theorem that
+`h_3(O)` is exceptional (not special) and Zelmanov's classification, not a
+re-derivation. Operationally it sharpens the amplitude campaign's boundary:
+octonionic quantum mechanics is a consistent single-system probability calculus
+with *no* composite (hence no interacting) extension.
+
+Contract: `tests/test_gate_o03_composite_wall.py`.
 
 ## Non-claims
 
