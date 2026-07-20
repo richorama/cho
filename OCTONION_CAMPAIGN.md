@@ -160,6 +160,39 @@ with *no* composite (hence no interacting) extension.
 
 Contract: `tests/test_gate_o03_composite_wall.py`.
 
+## Gate O04 — automorphism invariance (implemented, passing)
+
+O00 asked only that *relabelling* the octonionic axes (signed permutations of the
+basis) leaves the Born probabilities alone. This gate strengthens that to the real
+symmetry: the finite group of genuine *algebra automorphisms* of the octonions,
+and lifts it to `h_3(O)`.
+
+- **The group, exact.** The monomial automorphisms — those sending each basis
+  imaginary `e_i` to a signed basis element `+/- e_j` — form a group of order
+  exactly **1344 = 168 x 8**. The 168 is `|GL(3,2)| = |PSL(2,7)|`, the collineation
+  group of the Fano plane (the multiplication table of `O`); the 8 = 2^3 are the
+  independent sign changes on the three generators. This is the finite skeleton of
+  the continuous automorphism group `G_2`, computed by census, not asserted.
+- **Every element is verified.** Each of the 1344 candidates is checked to satisfy
+  `phi(x y) = phi(x) phi(y)` on the basis and to preserve the octonion norm
+  (`1344 / 1344`, zero mismatches).
+- **Born invariance, exact.** Lifting an automorphism entrywise to `h_3(O)` gives a
+  Jordan automorphism: over the full census (`4032` checks each, zero failures) it
+  preserves the trace, sends primitive idempotents (pure states) to primitive
+  idempotents, is a homomorphism for the Jordan product, and — the headline —
+  leaves every trace-form Born probability `tr(P . Q)` exactly invariant.
+
+Where O00 showed the probabilities don't care how you *name* the axes, O04 shows
+they don't care about any *symmetry of the algebra itself*: the whole `G_2`-flavoured
+1344-element group is a symmetry of the octonionic Born calculus. This is the exact,
+finite analogue of unitary invariance in the complex campaign.
+
+Non-claim: this exhibits the finite monomial subgroup and its invariance, not the
+full continuous `G_2` or a classification of Jordan automorphisms of `h_3(O)`
+(which is `F_4`).
+
+Contract: `tests/test_gate_o04_automorphism_invariance.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic

@@ -67,6 +67,47 @@ def cd_mul(x: Flat, y: Flat) -> Flat:
     return _mul(x, y)
 
 
+def _build_octonion_table() -> Tuple[Tuple[Tuple[int, int], ...], ...]:
+    """Precompute ``e_i e_j = sign * e_k`` as ``(sign, k)`` from the exact CD product."""
+    table = []
+    for i in range(8):
+        row = []
+        for j in range(8):
+            ei = tuple(Fraction(1) if t == i else Fraction(0) for t in range(8))
+            ej = tuple(Fraction(1) if t == j else Fraction(0) for t in range(8))
+            prod = _mul(ei, ej)
+            for k in range(8):
+                if prod[k] != 0:
+                    row.append((int(prod[k]), k))
+                    break
+        table.append(tuple(row))
+    return tuple(table)
+
+
+_OCT_TABLE = _build_octonion_table()
+
+
+def _oct_mul(x: Flat, y: Flat) -> Flat:
+    """Fast exact octonion product via the precomputed 8x8 basis table."""
+    out = [Fraction(0)] * 8
+    table = _OCT_TABLE
+    for i in range(8):
+        xi = x[i]
+        if xi == 0:
+            continue
+        row = table[i]
+        for j in range(8):
+            yj = y[j]
+            if yj == 0:
+                continue
+            sign, k = row[j]
+            if sign == 1:
+                out[k] += xi * yj
+            else:
+                out[k] -= xi * yj
+    return tuple(out)
+
+
 def cd_norm2(x: Flat) -> Fraction:
     """Exact squared norm ``sum x_i^2`` at any ladder level."""
     return sum((v * v for v in x), Fraction(0))
@@ -92,7 +133,7 @@ class Octonion:
         return Octonion(_sub(self.coords, other.coords))
 
     def __mul__(self, other: "Octonion") -> "Octonion":
-        return Octonion(_mul(self.coords, other.coords))
+        return Octonion(_oct_mul(self.coords, other.coords))
 
     def __neg__(self) -> "Octonion":
         return Octonion(tuple(-c for c in self.coords))

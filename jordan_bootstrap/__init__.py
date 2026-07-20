@@ -48,6 +48,15 @@ from .composite import (
     composite_wall_census,
     elementary,
 )
+from .automorphism import (
+    Automorphism,
+    AutomorphismCensus,
+    apply_jordan,
+    apply_octonion,
+    automorphism_census,
+    automorphism_group,
+    is_octonion_automorphism,
+)
 
 __all__ = [
     "E",
@@ -82,4 +91,11 @@ __all__ = [
     "canonical_associator_witness",
     "composite_wall_census",
     "elementary",
+    "Automorphism",
+    "AutomorphismCensus",
+    "apply_jordan",
+    "apply_octonion",
+    "automorphism_census",
+    "automorphism_group",
+    "is_octonion_automorphism",
 ]
