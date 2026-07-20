@@ -237,6 +237,42 @@ colouring and certifies it on the octonionic algebra.
 
 Contract: `tests/test_gate_o05_contextuality.py`.
 
+## Gate O06 — Born as the unique frame-consistent rule (implemented, passing)
+
+Gates O01-O02 *assumed* the trace-form Born rule. This gate turns the exponent into a
+holdout and asks whether observer-consistency forces it -- reproducing the amplitude
+campaign's selection (Q11/Q12) one algebra higher, on the exceptional Jordan algebra.
+
+Take the family of `p`-power rules assigning a ray `P` the weight `t(P)^p`, where
+`t(P) = tr(P o Psi)` is the exact rational Born weight of a genuinely octonionic state
+`Psi = outer(2/3, (2/3) e_1, (1/3) e_2)`. Observer-consistency is *frame-consistency*:
+the total weight over the three rays of a Jordan frame must not depend on which frame
+the observer chose. Over the rationals (bound 15: 107 contexts, 15 shared rays):
+
+- **`p = 1` (Born).** `sum_i tr(P_i o Psi) = tr(Psi o I) = tr(Psi) = 1` for *every*
+  frame -- the resolution of the identity is an octonionic Parseval identity. The frame
+  total is the single value `1` and a shared ray's normalised probability is
+  frame-independent (`0` contextual discrepancies).
+- **`p = 2` and `p = 3`.** The frame total takes 16 distinct values, so a ray shared
+  between two frames is assigned two different normalised probabilities -- `14` shared
+  rays are contextual for each exponent, exact over the rationals. Concretely the ray
+  `(0,1,0)` has Born weight `4/9`; in the computational frame its `p = 2` total is
+  `11/27` (probability `16/33`) but in `{(4,0,3),(3,0,-4),(0,1,0)}` it is `6011/16875`
+  (probability `10000/18033`).
+- **Superposition does the selecting.** Permuting the three rays of a frame (a classical
+  relabelling) leaves the total unchanged for every exponent, so only a genuinely
+  superposing change of frame exposes `p > 1`.
+
+Hence `p = 1` -- the trace-form Born rule -- is the *unique* frame-consistent exponent
+(`frame_consistent_exponents == (1,)`), and the selection survives intact on the
+non-associative `h_3(O)`.
+
+Non-claim: this selects the Born *exponent* within the `p`-power family via
+frame-consistency (a Gleason-style test), not a from-scratch re-proof of Gleason's
+theorem or a classification of all frame functions on `h_3(O)`.
+
+Contract: `tests/test_gate_o06_born_selection.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic

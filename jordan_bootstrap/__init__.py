@@ -68,6 +68,15 @@ from .contextuality import (
     rational_unit_rays,
     ray_to_state,
 )
+from .born_selection import (
+    BornSelectionCensus,
+    born_selection_census,
+    born_weight,
+    contextual_discrepancies,
+    frame_consistent_exponents,
+    frame_total,
+    octonionic_reference_state,
+)
 
 __all__ = [
     "E",
@@ -118,4 +127,11 @@ __all__ = [
     "primitive",
     "rational_unit_rays",
     "ray_to_state",
+    "BornSelectionCensus",
+    "born_selection_census",
+    "born_weight",
+    "contextual_discrepancies",
+    "frame_consistent_exponents",
+    "frame_total",
+    "octonionic_reference_state",
 ]
