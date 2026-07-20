@@ -82,6 +82,14 @@ from .spin_factor import (
     dimension_threshold_census,
     rational_unit_vectors,
 )
+from .triality import (
+    TrialityCensus,
+    all_permutations,
+    apply_permutation,
+    occupied_slots,
+    slot_state,
+    triality_census,
+)
 
 __all__ = [
     "E",
@@ -142,4 +150,10 @@ __all__ = [
     "DimensionThresholdCensus",
     "dimension_threshold_census",
     "rational_unit_vectors",
+    "TrialityCensus",
+    "all_permutations",
+    "apply_permutation",
+    "occupied_slots",
+    "slot_state",
+    "triality_census",
 ]

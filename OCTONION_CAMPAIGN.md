@@ -306,6 +306,38 @@ factor, not a general proof that no `d = 2` frame function distinguishes exponen
 
 Contract: `tests/test_gate_o07_dimension_threshold.py`.
 
+## Gate O08 — triality: the S_3 symmetry of the three octonionic slots (implemented, passing)
+
+O04 certified the *entrywise* symmetries of `h_3(O)` -- the octonion automorphisms
+(`G_2`'s finite skeleton) applied to each entry, fixing the matrix positions. This gate
+certifies the complementary symmetry O04 cannot reach: the one that *moves the
+positions*, and identifies it as triality. Writing a Hermitian octonionic matrix with
+real diagonal `a, b, c` and three off-diagonal octonion slots `x, y, z`, conjugation by
+a `3x3` permutation matrix (`phi(A)_{ij} = A_{sigma(i),sigma(j)}`) is a Jordan
+automorphism for every `sigma` -- a reindexing of the matrix-product sum that is valid
+despite non-associativity.
+
+Over the rationals the census confirms:
+
+- **The six permutations form an `S_3` of Jordan automorphisms**, each preserving the
+  trace, primitive idempotents, Jordan frames, and every Born trace-form probability
+  (`270 / 270` checks, zero mismatches).
+- **The three-cycle has order three and rotates the three off-diagonal slots**
+  `x -> z -> y -> x` (verified by slot occupancy). Those three slots carry the three
+  inequivalent eight-dimensional `Spin(8)` representations `8_v, 8_s, 8_c`, and the
+  cyclic permutation rotating them is the finite shadow of *triality* -- the order-three
+  outer automorphism of `Spin(8)` that only the octonions possess (`R, C, H` have none).
+- **It is genuinely new.** A permutation moves content between matrix positions, so it is
+  *not* an entrywise O04 automorphism (checked against the whole 1344-element group);
+  composing a permutation with an O04 monomial still preserves every Born probability
+  (`216 / 216`), so the two symmetries generate a strictly larger finite subgroup of
+  `F_4 = Aut(h_3(O))` under which the octonionic Born rule is invariant.
+
+Non-claim: this exhibits the finite `S_3` (geometric) triality that permutes the three
+slots, not the full continuous triality of `Spin(8)` nor all of `F_4`.
+
+Contract: `tests/test_gate_o08_triality.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic
