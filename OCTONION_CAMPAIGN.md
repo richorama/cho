@@ -374,6 +374,50 @@ spectral closure.
 
 Contract: `tests/test_gate_o09_spectral_theorem.py`.
 
+## Gate O10 — colour SU(3) from the octonionic complex structure (implemented, passing)
+
+Gates O00–O09 all stay *inside* a fixed octonion algebra. This gate asks what
+continuous symmetries the octonions themselves have, and finds the first bridge
+back to particle physics — done as an exact rational computation, not a numerical
+Lie-theory approximation.
+
+A **derivation** is a linear map `D` obeying the Leibniz rule
+`D(x y) = D(x) y + x D(y)`; derivations form a Lie algebra under the commutator
+bracket. We do not assume Cartan's theorem — we *solve the Leibniz system exactly
+over the rationals* (512 linear equations in the 64 entries of `D`) and count the
+null space:
+
+- **`Aut(O) = G2`.** The derivation algebra is exactly **14-dimensional**, and its
+  Killing form `K(X,Y)=tr(ad_X ad_Y)` is exactly negative definite — the compact
+  real form of the exceptional Lie algebra `g2`.
+- **Fix one imaginary unit `u` and colour SU(3) appears.** Imposing the single
+  extra linear condition `D(u)=0` collapses the algebra to exactly
+  **8 dimensions**. Three exact certificates pin it to `su(3)`: it is bracket
+  closed (a subalgebra); its Killing form is non-degenerate and negative definite
+  (compact semisimple, so no abelian `u(1)` factors); and dimension 8 is not a sum
+  of smaller compact-simple dimensions (only `su(2)=3` exists below it, and
+  `3+3=6`, `3+3+3=9`), forcing *simple* — hence the unique 8-dimensional compact
+  simple algebra `A2 = su(3)`, the colour gauge algebra of the strong force.
+- **The quark `3` and the singlet `1`, for free from the Leibniz rule.** Because
+  `D(u)=0`, every fixing derivation commutes with left multiplication `L_u`
+  (`D(u x)=D(u)x+u D(x)=u D(x)`), and octonionic alternativity gives `L_u^2=-I`.
+  So `L_u` is an exact **complex structure** on the six imaginaries orthogonal to
+  `u`: they become `C^3`, `su(3)` acts complex-linearly (the quark triplet `3` and
+  antiquark `3bar`), and the fixed direction `u` is a colourless singlet `1`. This
+  is Günaydin–Gürsey (1973) colour `SU(3)`, verified here exactly. The choice of
+  axis `u` is immaterial (checked on two axes).
+
+So the exceptional algebra that carried every prior gate *contains the strong
+force's colour symmetry* as the stabiliser of a complex direction.
+
+Non-claim: this exhibits `su(3)` (with a genuine `3 ⊕ 3bar ⊕ 1` complex
+structure) as the exact octonionic complex-structure stabiliser; it is **not** a
+derivation of the full Standard Model gauge group `SU(3)×SU(2)×U(1)`, nor of
+three generations, nor any dynamics — it is kinematics/representation theory,
+made exact.
+
+Contract: `tests/test_gate_o10_color_su3.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic

@@ -99,6 +99,14 @@ from .spectral import (
     spectral_census,
     sylvester_projector,
 )
+from .color_su3 import (
+    ColorSU3Census,
+    color_su3_census,
+    derivation_algebra,
+    is_derivation,
+    left_mult_matrix,
+    stabiliser_subalgebra,
+)
 
 __all__ = [
     "E",
@@ -172,4 +180,10 @@ __all__ = [
     "observable",
     "spectral_census",
     "sylvester_projector",
+    "ColorSU3Census",
+    "color_su3_census",
+    "derivation_algebra",
+    "is_derivation",
+    "left_mult_matrix",
+    "stabiliser_subalgebra",
 ]
