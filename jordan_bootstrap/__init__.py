@@ -30,6 +30,16 @@ from .frame import (
     is_orthogonal,
     theorem_witnesses,
 )
+from .jordan import (
+    JordanStateCensus,
+    is_jordan_frame,
+    is_primitive_idempotent,
+    jordan_product,
+    jordan_state_census,
+    outer,
+    trace,
+    trace_form,
+)
 
 __all__ = [
     "E",
@@ -50,4 +60,12 @@ __all__ = [
     "frames",
     "is_orthogonal",
     "theorem_witnesses",
+    "JordanStateCensus",
+    "is_jordan_frame",
+    "is_primitive_idempotent",
+    "jordan_product",
+    "jordan_state_census",
+    "outer",
+    "trace",
+    "trace_form",
 ]

@@ -94,10 +94,43 @@ Contract: `tests/test_gate_o01_frame_consistency.py`.
 
 ## Next gates (planned, continued)
 
-- **O02** — lift O01 from octonion coordinate vectors to primitive idempotents of
-  the exceptional Jordan algebra `h_3(O)` (the octonionic projective plane), the
-  honest home of octonionic quantum states.
+- **O02** — Born selection on the exceptional Jordan algebra `h_3(O)`:
+  *implemented, passing* (see below).
 - **O0x** — the composite-system wall and the interacting-dynamics no-go.
+
+## Gate O02 — Born selection on h_3(O) (implemented, passing)
+
+Gate O01 selected the norm rule for octonion coordinate vectors; this gate moves
+to the honest home of octonionic quantum states: the exceptional Jordan algebra
+`h_3(O)` of 3x3 Hermitian octonionic matrices under `A o B = (AB + BA)/2`. Its
+rank-one primitive idempotents (`P o P = P`, `tr P = 1`) are the pure states --
+the octonionic projective plane `OP^2` -- and a Jordan frame resolves the
+identity into three orthogonal idempotents. The Born rule is the trace form
+`tr(P o Q)`.
+
+Two genuinely Jordan-algebraic results, both exact:
+
+- **Gleason on `h_3(O)`.** For every declared state and every Jordan frame the
+  trace-form total `sum_i tr(P o Q_i)` equals `tr(P)` (`0 / 8` mismatches) -- the
+  frame resolves the identity, so the Born total is frame-independent. The two
+  declared frames are verified exact resolutions of the identity (`2 / 2`).
+- **Non-associativity obstructs statehood.** Three declared rational unit vectors
+  whose octonion entries span a non-associative triple give outer products that
+  are Hermitian and unit-trace yet are **not** idempotent (`3 / 3` fail), so they
+  are not points of `OP^2`. Not every octonionic ray is a state -- the first
+  honest wall the octonions raise, and it appears already at the level of what
+  counts as a pure state. The four quaternionic (associative) unit vectors, by
+  contrast, all give genuine primitive idempotents (`4 / 4`).
+
+The `(1,1,1)` superposition remains contextual at `r = 4` inside the idempotent
+picture, tying O02 back to O01 and the complex Born theorem.
+
+Contract: `tests/test_gate_o02_jordan_born_selection.py`.
+
+## Next gates (planned, continued)
+
+- **O0x** — the composite-system wall: tensoring `h_3(O)` fails, sharpening the
+  amplitude campaign's no-go for interacting octonionic dynamics.
 
 ## Non-claims
 
