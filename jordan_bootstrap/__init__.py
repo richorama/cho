@@ -22,6 +22,14 @@ from .census import (
     OctonionInvarianceCensus,
     representation_invariance_census,
 )
+from .frame import (
+    FrameConsistencyCensus,
+    frame_consistency_census,
+    frame_total,
+    frames,
+    is_orthogonal,
+    theorem_witnesses,
+)
 
 __all__ = [
     "E",
@@ -36,4 +44,10 @@ __all__ = [
     "octonion",
     "OctonionInvarianceCensus",
     "representation_invariance_census",
+    "FrameConsistencyCensus",
+    "frame_consistency_census",
+    "frame_total",
+    "frames",
+    "is_orthogonal",
+    "theorem_witnesses",
 ]

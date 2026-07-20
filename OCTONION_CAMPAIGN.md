@@ -62,11 +62,42 @@ Contract: `tests/test_gate_o00_representation_invariance.py`. Package:
 
 ## Next gates (planned)
 
-- **O01** — exact frame-function / Born selection on the exceptional Jordan
-  algebra `h_3(O)`: does resolution-agreement still pick the norm rule at the one
-  dimension octonions permit?
+- **O01** — exact frame-function / Born selection on octonionic amplitudes:
+  *implemented, passing* (see below).
 - **O0x** — the composite-system wall: show tensoring fails and state the sharpened
   no-go for interacting octonionic dynamics.
+
+## Gate O01 — frame-function / Born selection (implemented, passing)
+
+The octonionic successor to amplitude Gates Q11/Q12. A state is a vector in
+`O**d`; an orthonormal frame is an exact rational orthogonal matrix acting on the
+coordinates; the `r`-frame total is `sum_i |(O s)_i|^r`, an exact rational for even
+`r`. The question: which `r` gives a total independent of the frame?
+
+- **Only `r = 2` survives.** Over the declared census (10 states across `d = 3, 4`)
+  the Born total is exactly frame-invariant (`0 / 20` mismatches — Parseval for the
+  octonion norm), while `r = 4` and `r = 6` are contextual (`6 / 10` states
+  disagree between the two frames).
+- **It reproduces the complex Born theorem exactly.** The `(1,1,1)` witness state
+  gives frame totals `3` (both frames) at `r = 2`, but `3` vs **`3027/625`** at
+  `r = 4` and `3` vs **`5331/625`** at `r = 6` — the identical rationals of
+  `BORN_RULE_THEOREM.md`, now with octonionic amplitudes. The same discrepancy
+  appears for the imaginary-unit state `(e_1, e_1, e_1)`, so the selection is not a
+  real-amplitude artefact.
+- **Superposition is essential (octonionic monomial control).** Right-multiplying
+  every coordinate by a fixed *unit octonion* leaves the whole multiset of weights
+  unchanged for every `r` (`0 / 120` mismatches, Hurwitz / Gate O00), so the
+  octonionic relabeling group can never expose `r != 2`. Only a genuinely
+  superposing rational rotation does.
+
+Contract: `tests/test_gate_o01_frame_consistency.py`.
+
+## Next gates (planned, continued)
+
+- **O02** — lift O01 from octonion coordinate vectors to primitive idempotents of
+  the exceptional Jordan algebra `h_3(O)` (the octonionic projective plane), the
+  honest home of octonionic quantum states.
+- **O0x** — the composite-system wall and the interacting-dynamics no-go.
 
 ## Non-claims
 

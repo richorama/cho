@@ -97,6 +97,11 @@ class Octonion:
     def __neg__(self) -> "Octonion":
         return Octonion(tuple(-c for c in self.coords))
 
+    def scaled(self, factor: Rational) -> "Octonion":
+        """Multiply every coordinate by a rational scalar (real scaling)."""
+        f = Fraction(factor)
+        return Octonion(tuple(c * f for c in self.coords))
+
     def conjugate(self) -> "Octonion":
         return Octonion(_conj(self.coords))
 
