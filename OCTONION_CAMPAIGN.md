@@ -193,6 +193,50 @@ full continuous `G_2` or a classification of Jordan automorphisms of `h_3(O)`
 
 Contract: `tests/test_gate_o04_automorphism_invariance.py`.
 
+## Gate O05 — Kochen-Specker contextuality: the rational verdict (implemented, passing)
+
+The amplitude campaign found state-independent contextuality (Gate Q08) through the
+Peres-Mermin magic square -- a *two-qubit* construction in `M_4(C)`. That road is
+closed here: O03 proved octonions admit no composite system, so the magic square
+cannot even be assembled over `O`. The only remaining road is the original
+single-system Kochen-Specker theorem in dimension three -- exactly where `h_3(O)`
+lives. A *context* is a Jordan frame; a deterministic non-contextual value-state is a
+`{0, 1}` labelling of the rays giving exactly one `1` per context.
+
+Under this repo's exact-rational discipline a ray must be a *rational* unit vector: a
+primitive integer vector `(a, b, c)` whose norm is a perfect square (only then is the
+normalized vector rational and `outer(v)` an exact primitive idempotent of `h_3(O)`).
+Over these rays the Kochen-Specker obstruction disappears, constructively:
+
+- **Lemma 1.** A primitive integer vector with perfect-square norm has exactly one odd
+  coordinate. (Mod 4 a square is `0` or `1`; the norm is congruent to the number of
+  odd coordinates, ruling out three; primitivity rules out zero.) Verified over the
+  whole census (`219 / 219` rays at bound 13).
+- **Lemma 2.** Two orthogonal such rays carry their odd coordinate in *different*
+  positions -- else their dot product would be odd, hence nonzero. Verified on every
+  orthogonal pair (`303 / 303`).
+- **Corollary (Godsil-Zaks, 1988).** Label a ray `1` iff its unique odd coordinate is
+  in position `0`. By Lemma 2 the three rays of any context occupy distinct positions,
+  so exactly one is labelled `1`: an explicit, exact, deterministic non-contextual
+  value-state on *all* rational rays at once (`0` context violations over `69`
+  contexts). Every ray is verified to lift to a genuine primitive idempotent and every
+  context to a genuine Jordan frame over the octonion Jordan product.
+
+So both roads to contextuality close over the exact-rational octonions: the composite
+road by O03, the single-system road by an explicit rational colouring. Genuine
+Kochen-Specker contextuality in `d = 3` is an *irrational* phenomenon, invisible at the
+resolution this campaign computes in. Meanwhile the octonionic Born rule stays a
+*different*, probabilistic non-contextual assignment: for the genuinely octonionic
+state used here, each context's three Born probabilities sum to exactly `1` (`0`
+violations over `69` contexts).
+
+Non-claim: this is the exact-rational verdict, not a claim that octonionic quantum
+mechanics is non-contextual over its irrational closure, and not a re-proof of
+Kochen-Specker or of Godsil-Zaks in full generality -- it exhibits the explicit
+colouring and certifies it on the octonionic algebra.
+
+Contract: `tests/test_gate_o05_contextuality.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic

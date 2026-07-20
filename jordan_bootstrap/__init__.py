@@ -57,6 +57,17 @@ from .automorphism import (
     automorphism_group,
     is_octonion_automorphism,
 )
+from .contextuality import (
+    ContextualityCensus,
+    contexts,
+    contextuality_census,
+    godsil_zaks_value,
+    is_rational_unit_ray,
+    odd_position,
+    primitive,
+    rational_unit_rays,
+    ray_to_state,
+)
 
 __all__ = [
     "E",
@@ -98,4 +109,13 @@ __all__ = [
     "automorphism_census",
     "automorphism_group",
     "is_octonion_automorphism",
+    "ContextualityCensus",
+    "contexts",
+    "contextuality_census",
+    "godsil_zaks_value",
+    "is_rational_unit_ray",
+    "odd_position",
+    "primitive",
+    "rational_unit_rays",
+    "ray_to_state",
 ]
