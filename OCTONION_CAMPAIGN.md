@@ -460,6 +460,62 @@ three generations, and not any dynamics — it is exact representation theory of
 
 Contract: `tests/test_gate_o11_fermion_charges.py`.
 
+## Gate O12 — three generations via triality: an honest negative result (implemented, passing)
+
+The Standard Model has *three* fermion generations, and it is often speculated
+(Furey 2018 and others) that `Spin(8)` triality — the same triality made finite
+in Gate O08 — supplies them as three cyclically-related copies of the `ℂ⊗𝕆`
+ideal of Gate O11. This gate tests that hope *exactly* and reports what the
+arithmetic says, not what one would like.
+
+Three pairings of the six paired imaginary axes are cyclically permuted by an
+explicit order-three axis map `σ = (e₂ e₄ e₆)` (`σ³ = id`) — a concrete `Z₃`
+echo of triality. The exact census shows both halves of the honest picture:
+
+- **Each grading is a full generation.** All three pairings give the identical
+  charge spectrum with multiplicities **`(1, 3, 3, 1)`** — one generation each.
+- **But they are not independent generations.** Each Fock tower already spans the
+  *entire* eight-complex-dimensional `ℂ⊗𝕆`. The three towers therefore coincide as
+  a single module: their combined span is **`8`, not `24`**, and the three vacua
+  span only **`2`** dimensions, not `3`. Triality permutes three *charge-gradings
+  of one module*; it does not manufacture three linearly independent generations.
+
+So within `ℂ⊗𝕆` alone, triality does **not** solve the generation problem — a
+precise, machine-checked *no* that matches the open status of the literature. This
+is the campaign's first deliberately negative gate, and it is exactly the kind of
+claim the project's discipline exists to make honestly.
+
+Non-claim: this is a boundary result. It does not rule out generations from
+triality in the larger algebra `ℂ⊗ℍ⊗𝕆` or other constructions; it certifies only
+that the naive "three triality-related ideals of `ℂ⊗𝕆`" are one module in
+disguise.
+
+Contract: `tests/test_gate_o12_generations.py`.
+
+## Gate O13 — weak isospin SU(2) from the quaternions (implemented, passing)
+
+Colour `su(3)` (O10/O11) lives in the octonions; the Standard Model's other
+non-abelian factor, weak isospin `SU(2)_L`, does not — in the Furey/Dixon
+programme it comes from the *quaternions* `ℍ`, one rung down the same
+Cayley–Dickson ladder the octonion module already implements. Exactly over `ℚ(i)`:
+
+- **`su(2)` is the imaginary quaternion left-multiplications.** Because `ℍ` is
+  associative, `L_a L_b = L_{ab}`, so the three imaginary units obey
+  `[L_i, L_j] = 2 L_k` cyclically with `L_a² = −I` — the weak isospin algebra
+  (dimension 3, bracket closed, compact). The unit quaternions are the group
+  `SU(2) = Sp(1)`.
+- **A weak doublet.** Complexifying and pairing two generators gives a fermionic
+  ladder `β = (L_i + i L_j)/2` with `{β, β†} = I` and `β² = 0`. Its number
+  operator has eigenvalues `0, 1`; shifting by `−1/2` gives `T₃ = ∓1/2` — a
+  left-handed weak doublet (down-type, up-type). `ℂ⊗ℍ` carries two such doublets.
+
+Non-claim: this exhibits `su(2)` weak isospin and its doublet from `ℍ` alone. It
+is a *separate* algebra from the octonionic colour `su(3)`; this gate does **not**
+assemble the full gauge group `SU(3) × SU(2) × U(1)` on `ℂ⊗ℍ⊗𝕆` (Furey 2018), nor
+address chirality, the Higgs mechanism, or the dynamics that break `SU(2)_L`.
+
+Contract: `tests/test_gate_o13_weak_isospin.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic

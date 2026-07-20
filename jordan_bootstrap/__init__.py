@@ -116,6 +116,20 @@ from .fermion_charges import (
     number_operator,
     su3_bilinears,
 )
+from .generations import (
+    GenerationCensus,
+    PAIRINGS,
+    charge_spectrum,
+    fock_tower,
+    generation_census,
+)
+from .weak_isospin import (
+    WeakIsospinCensus,
+    isospin_ladder,
+    isospin_number_operator,
+    quaternion_left_mult,
+    weak_isospin_census,
+)
 
 __all__ = [
     "E",
@@ -202,4 +216,14 @@ __all__ = [
     "ladder_operators",
     "number_operator",
     "su3_bilinears",
+    "GenerationCensus",
+    "PAIRINGS",
+    "charge_spectrum",
+    "fock_tower",
+    "generation_census",
+    "WeakIsospinCensus",
+    "isospin_ladder",
+    "isospin_number_operator",
+    "quaternion_left_mult",
+    "weak_isospin_census",
 ]
