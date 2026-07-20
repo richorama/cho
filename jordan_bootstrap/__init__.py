@@ -77,6 +77,11 @@ from .born_selection import (
     frame_total,
     octonionic_reference_state,
 )
+from .spin_factor import (
+    DimensionThresholdCensus,
+    dimension_threshold_census,
+    rational_unit_vectors,
+)
 
 __all__ = [
     "E",
@@ -134,4 +139,7 @@ __all__ = [
     "frame_consistent_exponents",
     "frame_total",
     "octonionic_reference_state",
+    "DimensionThresholdCensus",
+    "dimension_threshold_census",
+    "rational_unit_vectors",
 ]

@@ -273,6 +273,39 @@ theorem or a classification of all frame functions on `h_3(O)`.
 
 Contract: `tests/test_gate_o06_born_selection.py`.
 
+## Gate O07 — the dimension threshold (implemented, passing)
+
+O06 selected `p = 1` as the unique frame-consistent exponent on `h_3(O)`. Is that real,
+or an artefact? This gate drops to the two-dimensional spin factor `h_2(O)` (`J(9)`) and
+shows the selection *switches off* -- exactly at Gleason's dimension threshold, and
+exactly where the octonions run out of room (Hurwitz caps the composition algebras and
+O03 caps the Jordan matrix size, both at three).
+
+Over a census of 82 rational unit rays (bound of witnesses on assorted octonion axes):
+
+- **Every ray is a state (Artin).** O02's wall -- a unit vector whose entries share no
+  associative subalgebra failing to be idempotent -- cannot arise with only two entries:
+  any two octonions generate an associative subalgebra, so `outer(v)` is a primitive
+  idempotent for *every* rational unit two-vector, verified `82 / 82` (including
+  cross-Fano-line placements like `e_1, e_4`).
+- **The complement is forced.** The orthogonal complement of a ray in `d = 2` is a
+  single ray, so the only frame containing `P` is `{P, I - P}`
+  (`max_frames_sharing_a_ray = 1`), and no ray is shared between distinct frames
+  (`rays_shared_across_distinct_frames = 0`).
+- **The selection is vacuous.** With no shared rays there is nothing for contextuality
+  to distinguish, so *every* exponent is frame-consistent
+  (`frame_consistent_exponents == (1, 2, 3)`), against `(1,)` on `h_3(O)`. Parseval
+  (`tr(P o Psi) + tr((I - P) o Psi) = 1`) still holds for `p = 1`, but it no longer
+  *selects* `p = 1`.
+
+So contextual selection of the Born rule is a genuinely `d >= 3` phenomenon on the
+octonions -- the same threshold Gleason's theorem carries.
+
+Non-claim: this exhibits the threshold on an explicit rational census of the spin
+factor, not a general proof that no `d = 2` frame function distinguishes exponents.
+
+Contract: `tests/test_gate_o07_dimension_threshold.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic
