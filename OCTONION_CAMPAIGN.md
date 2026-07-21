@@ -758,7 +758,40 @@ absent here), does not gauge it, and adds no dynamics.
 
 Contract: `tests/test_gate_o19_phase_u1.py`.
 
+## Gate O20 — the assembly: the Standard Model gauge algebra su(3)⊕su(2)⊕u(1) on ℂ⊗ℍ⊗𝕆 (implemented, passing)
+
+The campaign has produced the three Standard-Model gauge factors on separate
+algebras: colour `su(3)` from `ℂ⊗𝕆` (O10/O11), weak isospin `su(2)` from the
+quaternions `ℍ` (O13), and abelian `u(1)` phases (O11/O19). Gate O20 performs the
+**Furey assembly**: it realises all three at once as commuting operator algebras
+on the single one-generation module `ℂ⊗ℍ⊗𝕆` (`= ℍ⊗𝕆 = 32` complex dimensions over
+`ℚ(i)`), using Kronecker products on the two Cayley–Dickson tensor slots:
+
+- **Colour** `su(3)` acts on the `𝕆` factor — the eight O11 number-preserving
+  bilinears become `I_ℍ⊗C_a` (`a = 1..8`).
+- **Weak** `su(2)` acts on the `ℍ` factor — the three O13 imaginary quaternion
+  left-multiplications become `W_i⊗I_𝕆` (`i = 1..3`).
+- **`u(1)`** is the O11 number operator on the `𝕆` factor, `I_ℍ⊗N`.
+
+Exact facts over `ℚ(i)`: colour closes into `su(3)` (rank 8, bracket-closed); weak
+closes into `su(2)` (`[W_i,W_j]=2W_k` cyclically, rank 3); **colour and weak
+commute** (they act on different Cayley–Dickson slots, so every
+`[I_ℍ⊗C_a, W_i⊗I_𝕆]=0`); the `u(1)=I_ℍ⊗N` is central and independent; and the
+total algebra has dimension `8+3+1 = 12` — exactly `dim(su(3)⊕su(2)⊕u(1))`, the
+Standard-Model gauge algebra, realised on one octonion–quaternion generation.
+
+Non-claim: this is the standard Furey **embedding** of the SM gauge algebra into
+the left-action algebra of `ℂ⊗ℍ⊗𝕆`. The colour–weak commutation is **structural**
+— the two factors act on different Cayley–Dickson slots — so the gate exhibits a
+consistent realisation of the `su(3)⊕su(2)⊕u(1)` content, **not** a derivation that
+nature is forced to this product, nor the chirality/representation assignment, the
+Higgs sector, symmetry breaking, or any dynamics. The `u(1)` here is the O11
+colour-phase/number `u(1)`, not the fully mixed electroweak hypercharge.
+
+Contract: `tests/test_gate_o20_standard_model.py`.
+
 ## Non-claims
+
 
 This campaign selects (or fails to select) the probability calculus in an exotic
 amplitude ring. It does not derive the Standard Model. Suggestive links between

@@ -188,6 +188,18 @@ from .phase_u1 import (
     phase_u1_census,
     u3_dimension,
 )
+from .standard_model import (
+    StandardModelGaugeCensus,
+    colour_generators,
+    colour_is_closed_su3,
+    colour_weak_commute,
+    gauge_algebra_dimension,
+    hypercharge_generator,
+    hypercharge_is_central,
+    standard_model_gauge_census,
+    weak_generators,
+    weak_su2_relations,
+)
 
 __all__ = [
     "E",
@@ -329,5 +341,15 @@ __all__ = [
     "commutant_of_colour_dimension",
     "phase_is_outside_automorphisms",
     "phase_u1_census",
+    "StandardModelGaugeCensus",
+    "colour_generators",
+    "colour_is_closed_su3",
+    "colour_weak_commute",
+    "gauge_algebra_dimension",
+    "hypercharge_generator",
+    "hypercharge_is_central",
+    "standard_model_gauge_census",
+    "weak_generators",
+    "weak_su2_relations",
     "u3_dimension",
 ]
