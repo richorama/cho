@@ -694,6 +694,37 @@ algebra that *seeds* exceptional-holonomy geometry, not that geometry's dynamics
 
 Contract: `tests/test_gate_o17_calibration.py`.
 
+## Gate O18 — G₂ → SU(3): colour is the holonomy of the Calabi–Yau slice (implemented, passing)
+
+The campaign's two halves have stood apart: the *gauge* half (O10–O14) pulled
+colour `su(3)` from the octonions as the stabiliser of one imaginary unit, and the
+*geometry* half (O17) showed the associator is the `G₂` associative calibration
+`φ`. This gate joins them exactly. Fixing a preferred unit `u = e₇` splits
+`Im(𝕆) = ℝ⁷ = ⟨u⟩ ⊕ u^⊥` with `u^⊥ = span(e₁..e₆)`, and reduces the `G₂` structure
+to an `SU(3)` structure whose structure group is precisely the O10 colour algebra —
+the pointwise algebraic shadow of "a `G₂`-holonomy 7-manifold contains a
+Calabi–Yau (`SU(3)`-holonomy) slice". All exact over `ℚ`.
+
+- **Complex structure.** `J = L_u` restricted to `u^⊥` satisfies `J² = −I` and
+  preserves `u^⊥`: it makes `u^⊥` into `ℂ³`.
+- **Kähler form.** `ω(x,y) = φ(u,x,y)` is antisymmetric, nondegenerate (rank `6`),
+  `J`-invariant, and tames `J` (`ω(x,Jx) = |x|² > 0`).
+- **Holomorphic volume form.** `Re Ω = φ|_{u^⊥}` is of type `(3,0)+(0,3)`:
+  `φ(Jx,Jy,z) = −φ(x,y,z)` on `u^⊥`. Together `(ω, Ω)` are an `SU(3)` structure.
+- **The `SU(3)` is colour.** The O10 stabiliser `su(3) = {D ∈ g₂ : Du = 0}`
+  (dimension `8`) preserves `ω`, commutes with `J`, and preserves `Re Ω`. The colour
+  algebra of Gates O10–O14 is exactly the `su(3)` holonomy of the Calabi–Yau slice
+  defined by `φ`: the two halves of the campaign are one object seen two ways.
+
+Non-claim: this is the exact *pointwise linear-algebraic* reduction of the `G₂`
+structure `φ` to an `SU(3)` structure `(ω, Ω)` on the tangent space, and the
+identification of that `SU(3)` with the O10 colour algebra. It does not build a
+Calabi–Yau metric, integrate `J` to a complex manifold, solve the Ricci-flat
+equations, or claim the colour gauge field is a gravitational holonomy. It is the
+algebra of the reduction, not a compactification.
+
+Contract: `tests/test_gate_o18_su3_structure.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic

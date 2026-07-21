@@ -171,6 +171,15 @@ from .calibration import (
     g2_preserves_form,
     inner_product,
 )
+from .su3_structure import (
+    SU3StructureCensus,
+    colour_su3,
+    complex_structure,
+    holomorphic_form_is_type_three_zero,
+    kahler_form,
+    kahler_rank,
+    su3_structure_census,
+)
 
 __all__ = [
     "E",
@@ -300,4 +309,11 @@ __all__ = [
     "coassociative_component",
     "g2_preserves_form",
     "inner_product",
+    "SU3StructureCensus",
+    "colour_su3",
+    "complex_structure",
+    "holomorphic_form_is_type_three_zero",
+    "kahler_form",
+    "kahler_rank",
+    "su3_structure_census",
 ]
