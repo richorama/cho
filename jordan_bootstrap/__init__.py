@@ -149,6 +149,17 @@ from .dynamics_wall import (
     malcev_identity_holds,
     ordering_defect,
 )
+from .isometric_flow import (
+    FlowCensus,
+    flow_census,
+    homomorphism_defect,
+    is_orthogonal,
+    left_mult_gram,
+    lie_closure_dimension,
+    moufang_operator_closes,
+    octonion_power,
+    single_generator_closes,
+)
 
 __all__ = [
     "E",
@@ -260,4 +271,13 @@ __all__ = [
     "malcev_defect",
     "malcev_identity_holds",
     "ordering_defect",
+    "FlowCensus",
+    "flow_census",
+    "homomorphism_defect",
+    "is_orthogonal",
+    "left_mult_gram",
+    "lie_closure_dimension",
+    "moufang_operator_closes",
+    "octonion_power",
+    "single_generator_closes",
 ]

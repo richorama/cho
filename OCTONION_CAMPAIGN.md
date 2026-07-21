@@ -610,6 +610,46 @@ Hamiltonian, or resolve how physics evades the wall.
 
 Contract: `tests/test_gate_o15_dynamics_wall.py`.
 
+## Gate O16 — octonionic evolution as exact rotations: where the wall lives (implemented, passing)
+
+Gate O15 proved a negative in *abstract algebra*: the imaginary octonions under
+the commutator are Malcev, not Lie, so there is no octonionic unitary group. This
+gate makes the wall *operational* by representing each evolution step as a
+concrete exact linear map `x ↦ u x` on the eight-dimensional state space, and asks
+the sharp question — *where exactly* does the non-associativity obstruct dynamics?
+
+- **Every unit-octonion step is an exact rotation.** For the left-multiplication
+  matrix `L_u`, `L_uᵀ L_u = |u|² I`; a unit generator gives `L_u ∈ O(8)` and an
+  imaginary unit a skew `L_a ∈ so(8)`. Evolution steps are rigid isometries.
+- **A single generator integrates to a genuine one-parameter group.** Since the
+  subalgebra of one element associates, `L_uⁿ = L_{uⁿ}` exactly — a lone octonionic
+  clock is a real one-parameter subgroup of `SO(8)`.
+- **The generators close into a real Lie algebra, `so(8)`.** The seven imaginary
+  `L_a` are independent and their repeated commutators span exactly `28` dimensions
+  `= dim so(8)`. As *operators*, the octonionic flows form an honest Lie algebra.
+- **The wall lives in the map, not the operators.** `u ↦ L_u` is **not** a
+  homomorphism: `L_u L_v ≠ L_{uv}`, and the defect applied to a state is exactly the
+  associator of Gate O15 (`(L_u L_v − L_{uv})x = −[u,v,x]`, verified column by
+  column). The octonion Moufang loop has no faithful left-multiplication
+  representation; the entire non-associativity is this one defect.
+- **The surviving substitute is Moufang, at operator level:** `L_u L_v L_u =
+  L_{u(vu)}` holds exactly on every basis pair.
+
+The picture is exact and honest: octonionic dynamics *can* be realised as rotations
+in `SO(8)` — there is no obstruction to isometric evolution and the infinitesimal
+generators form the Lie algebra `so(8)`. The price is that the finite octonion loop
+does not act faithfully or associatively. The "algebra of generators" is Lie
+(`so(8)`); the "loop of finite steps" is Malcev/Moufang; and the associator is
+precisely the gap between them.
+
+Non-claim: this realises single-generator flow as an exact `SO(8)` one-parameter
+group and *locates* the non-associativity as the failure of `u ↦ L_u` to be a
+homomorphism. It does not build a two-generator dynamics or a Hamiltonian, and the
+`so(8)` here is the operator closure of left multiplications on one octonion copy —
+not a claimed physical (gauge or space-time) symmetry.
+
+Contract: `tests/test_gate_o16_isometric_flow.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic
