@@ -1197,6 +1197,41 @@ follows. Cross-refs master `compute/epsilon_vcb_halfangle.py`.
 
 Contract: `tests/test_gate_o30_ckm_amplitudes.py`.
 
+## Gate O31 — the knob denominator 432 = 16 × 27 = (Weyl count) × dim J₃(𝕆)
+
+O28–O30 all *adopted* the flavour scale `ε₀² = π/432` and worked in its ratios so the
+knob cancelled. This gate takes one honest step *into* the knob: the integer `432` is
+not free — it is the product of two dimensions the campaign has already computed
+exactly from the algebra:
+
+    432 = 16 × 27 = (one chirality's Weyl-fermion count) × dim J₃(𝕆),   ε₀² = π/(16·27).
+
+- **16** — Gate O25 gauged the weak su(2) with the aligned chirality γ_Q and split the
+  32-dim ℍ⊗𝕆 generation into a 16-dim left-handed weak **doublet** and 16-dim
+  right-handed **singlet**; that 16 is one generation's Weyl count of a single
+  chirality (the **16** of SO(10)). Here `chiral_weyl_count() = left_handed_dimension()`.
+- **27** — Gate O24 built J₃(𝕆) as a 27-dim real space (3 diagonal generation slots +
+  24 octonionic off-diagonal): `jordan_dimension() = generation_slot_dimension() +
+  offdiagonal_dimension() = 27`.
+
+Their product is exactly the `432` used downstream, and `π/(16·27)` reproduces the
+`π/432` of O28/O29/O30 to machine precision. A second exact factorisation `432 = 24 ×
+18` records the master's Higgs route `ε₀² = λ_Higgs/18 = (π/24)/18` (`λ_Higgs = π/24`,
+`18 = 2×9`); both factor the same `432`, but only the `16×27` reading is anchored to
+computed campaign dimensions.
+
+Non-claim: exact here is only the integer identity `432 = 16×27` with `16` and `27`
+the campaign's already-tested chiral Weyl count and dim J₃(𝕆). Still **adopted**, not
+derived: the numerator `π` (a geometric half-rotation / Berry phase on the
+`G₂/SU(3) ≅ S⁶` coset), and the very claim that the flavour scale *is* `π` over this
+product (that `ε₀²` has this form at all and equals `m_c/m_t`). `432` has other
+factorisations; `16×27` is *selected* because both factors are algebra-native
+dimensions, not forced by `432`. No new observable and no dynamics follow — this gate
+only makes the adopted denominator structural. Cross-refs master
+`compute/mass_relations.py`.
+
+Contract: `tests/test_gate_o31_knob_scale.py`.
+
 ## Non-claims
 
 

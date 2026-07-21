@@ -339,6 +339,19 @@ from .ckm_amplitudes import (
     spinor_transition_coefficient,
     vector_transition_coefficient,
 )
+from .knob_scale import (
+    KnobScaleCensus,
+    chiral_weyl_count,
+    denominator_is_432,
+    eps0_squared,
+    eps0_squared_exact_denominator,
+    factorisations_agree,
+    higgs_factorisation,
+    jordan_dimension,
+    knob_denominator,
+    knob_scale_census,
+    matches_adopted_scale,
+)
 
 __all__ = [
     "E",
@@ -610,4 +623,15 @@ __all__ = [
     "vector_channel_count",
     "spinor_transition_coefficient",
     "vector_transition_coefficient",
+    "KnobScaleCensus",
+    "chiral_weyl_count",
+    "denominator_is_432",
+    "eps0_squared",
+    "eps0_squared_exact_denominator",
+    "factorisations_agree",
+    "higgs_factorisation",
+    "jordan_dimension",
+    "knob_denominator",
+    "knob_scale_census",
+    "matches_adopted_scale",
 ]
