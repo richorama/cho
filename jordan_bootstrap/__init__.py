@@ -209,6 +209,14 @@ from .colour_forcing import (
     triplet_and_antitriplet,
     u3_bilinear_dimension,
 )
+from .generation_multiplets import (
+    GenerationMultipletCensus,
+    generation_multiplet_census,
+    lepton_dimension,
+    quark_dimension,
+    weak_casimir_is_uniform_doublet,
+    weak_singlet_dimension,
+)
 
 __all__ = [
     "E",
@@ -367,5 +375,11 @@ __all__ = [
     "fundamental_faithful_dimension",
     "triplet_and_antitriplet",
     "u3_bilinear_dimension",
+    "GenerationMultipletCensus",
+    "generation_multiplet_census",
+    "lepton_dimension",
+    "quark_dimension",
+    "weak_casimir_is_uniform_doublet",
+    "weak_singlet_dimension",
     "u3_dimension",
 ]

@@ -826,6 +826,38 @@ chirality dynamics, no Higgs.
 
 Contract: `tests/test_gate_o21_colour_forcing.py`.
 
+## Gate O22 — one generation's Standard-Model multiplets on ℂ⊗ℍ⊗𝕆 (implemented, passing)
+
+O20 assembled the gauge *algebra* `su(3)⊕su(2)⊕u(1)`; O21 forced colour's rep
+content on the `𝕆` factor. Gate O22 completes the picture on the full 32-dim module
+`ℍ⊗𝕆` (over `ℚ(i)`): under the commuting colour `su(3)` (on `𝕆`) and weak `su(2)`
+(on `ℍ`), it decomposes into exactly the quark/lepton weak-doublet pattern of one
+generation — each tensor factor's rep content proven exactly. All exact over `ℚ(i)`:
+
+1. **Weak content is pure doublets.** The weak Casimir `Σ Wᵢ² = −3·I` *uniformly*
+   on the whole space (the spin-½ value), and the weak generators have trivial
+   common kernel — **no weak singlets**. Every state is a weak doublet; the `ℍ`
+   factor is `2⊕2`.
+2. **Colour content is `1⊕3⊕3̄⊕1`** (O21). On the full module the colour
+   generators' common kernel — the colour-singlet subspace — has dimension `8` (the
+   two `𝕆`-factor singlets × the 4-dim weak factor): the **leptons**.
+3. **The multiplet pattern is one generation.** The 32 states split into `8`
+   colour-singlet weak-doublet states (**leptons**, `(1,2)`) and `24` colour-triplet
+   weak-doublet states (**quarks**, `(3,2)⊕(3̄,2)`) — the Standard Model's central
+   qualitative fact (quarks are colour-triplet weak doublets, leptons are
+   colour-singlet weak doublets), realised as an exact tensor decomposition.
+
+Non-claim: this exhibits the quark/lepton weak-doublet **multiplet pattern** of one
+generation. As in every `ℂ⊗ℍ⊗𝕆` construction it appears *doubled* (particles and
+antiparticles both present — the `3` and `3̄`, both `𝕆` singlets, both weak
+doublets); it is **not** the chiral (left-only) content, **not** the hypercharge
+assignment that splits the doublets, **not** three generations, and carries no
+dynamics. The colour–weak product is structural (independent Cayley–Dickson
+factors, O20), so this is a forced multiplet *pattern* given the `ℂ⊗ℍ⊗𝕆`
+construction, not a derivation of that construction.
+
+Contract: `tests/test_gate_o22_generation_multiplets.py`.
+
 ## Non-claims
 
 
