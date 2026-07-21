@@ -932,6 +932,62 @@ triality no-go control), which cover the F4/Spin(9) and chirality legs omitted h
 
 Contract: `tests/test_gate_o24_three_generations.py`.
 
+## Gate O25 — discharging the vector-like wall: chirality from one KO-6 idempotent
+
+Gate O23 hit an honest wall: its handedness projector `P = ½(I + iR₁)`, built from a
+quaternion *right* multiplication, split the 32-dim generation into two 16-dim
+halves — but the weak Casimir was `-3 I` *uniformly*, so **both** halves were weak
+doublets. The construction was exactly **vector-like**, and O23 flagged an "extra
+by-hand ingredient" as the missing piece. This gate supplies that ingredient
+explicitly and exactly over ℚ(i), and shows it is a *single* object.
+
+The O23 diagnosis: its projector sat on the **wrong leg** (the `ℍ` spectator that
+commutes with everything) and acted on the *module* rather than being built into the
+*generators*. The fix, following the master-branch program (`foundations/06` and
+`compute/chiral_projector.py` behind Zenodo 21107402), is the aligned
+**KO-dimension-6 chirality** on the `𝕆` leg,
+
+    γ_Q = i · L_{e₁} L_{e₂} … L_{e₆},
+
+the ordered product of the *six* charge-carrying octonion left-multiplications,
+**dropping the colour-fixing axis** `e₇`. Exactly over ℚ(i):
+
+1. **A genuine chirality.** `γ_Q² = I`, `tr γ_Q = 0`, with 4-dim `+` and 4-dim `-`
+   eigenspaces on the 8-dim `𝕆` leg.
+2. **Aligned with charge.** `[N, γ_Q] = 0` — because `e₇` is dropped, the chirality
+   commutes with the charge operator (the naive full product would not). This is
+   what makes the projector gauge-compatible.
+3. **One idempotent.** `P_L = ½(I + γ_Q)` satisfies `P_L² = P_L` (rank 4 on `𝕆`).
+4. **Projected generators still close.** With the physically **gauged** weak
+   generators `G_a = W_a ⊗ P_L`, one has `[G₁,G₂] = 2G₃` cyclically — because
+   `P_L² = P_L` (idempotency, not commutativity) rides through the bracket:
+   `[W_a⊗P_L, W_b⊗P_L] = [W_a,W_b]⊗P_L`.
+5. **The gauged Casimir is chiral.** `Σₐ G_a² = (-3 I_ℍ) ⊗ P_L` exactly. On the
+   `γ_Q = +1` sector (16-dim) the Casimir is `-3` — a weak **doublet**; on the
+   `γ_Q = -1` sector (16-dim) it is `0` — a weak **singlet**. Left-handed doublets,
+   right-handed singlets: the Standard-Model chiral pattern, from **one** idempotent.
+6. **Contrast with the wall.** The *ungauged* weak Casimir `Σₐ W_a² = -3 I` is `-3`
+   on *both* `γ_Q` sectors: applied to the module (O23's spectator) it can only give
+   doublet + doublet. Gauging — folding `P_L` into the generators — is exactly what
+   breaks the `L`/`R` symmetry.
+
+(The campaign normalises weak isospin by `[W_i,W_j] = 2W_k` with Casimir `-3 I`; the
+master branch uses `[T_a,T_b] = iε_{abc}T_c` with Casimir `¾ I`. Same `su(2)`,
+different normalisation; the doublet-vs-singlet *split* is normalisation-independent.)
+
+Non-claim: this is an *adopted* ingredient, not a forced one. The choice of the
+aligned KO-6 chirality `γ_Q` (equivalently, which sector is called "left-handed") is
+a convention inherited from the Furey/Dixon and master-branch program (Lever B), not
+something `ℂ⊗ℍ⊗𝕆` selects on its own. What this gate *does* establish exactly is
+that **a single KO-dimension-6 idempotent**, once adopted, converts the O23
+vector-like content into the genuinely chiral doublet-left / singlet-right
+Standard-Model pattern — replacing the informal "extra by-hand ingredient" with one
+explicit, exactly-checkable object. The Yukawa spectrum, the Higgs, and three
+generations remain outside this gate. See also (master, behind Zenodo 21107402)
+`foundations/06_chiral_idempotent.md` and `compute/chiral_projector.py`.
+
+Contract: `tests/test_gate_o25_chiral_projection.py`.
+
 ## Non-claims
 
 
