@@ -326,6 +326,19 @@ from .mass_mixing_bridge import (
     ratio_ms_mb_over_theta13,
     up_count,
 )
+from .ckm_amplitudes import (
+    CkmAmplitudeCensus,
+    amplitudes_agree_with_data,
+    ckm_amplitude_census,
+    double_cover_factor,
+    matches_o28_cabibbo_count,
+    tan_pi8_is_positive_root,
+    tan_pi8_satisfies_half_angle,
+    vcb_coefficient,
+    vector_channel_count,
+    spinor_transition_coefficient,
+    vector_transition_coefficient,
+)
 
 __all__ = [
     "E",
@@ -586,4 +599,15 @@ __all__ = [
     "ratio_ms_mb_over_cabibbo",
     "ratio_ms_mb_over_theta13",
     "up_count",
+    "CkmAmplitudeCensus",
+    "amplitudes_agree_with_data",
+    "ckm_amplitude_census",
+    "double_cover_factor",
+    "matches_o28_cabibbo_count",
+    "tan_pi8_is_positive_root",
+    "tan_pi8_satisfies_half_angle",
+    "vcb_coefficient",
+    "vector_channel_count",
+    "spinor_transition_coefficient",
+    "vector_transition_coefficient",
 ]

@@ -1158,6 +1158,45 @@ currently-correct relations *across* the mass and mixing sectors. Cross-refs mas
 
 Contract: `tests/test_gate_o29_mass_mixing_bridge.py`.
 
+## Gate O30 — CKM amplitudes: vector √7 vs spinor ½ (the double-cover half-angle)
+
+O28 fixed the mixing *probabilities* as Fano-line counts (`|V_us|² = 7·ε₀²`). This
+gate takes the next step of the master flavour bridge and explains the two leading
+CKM *amplitudes* — one a **vector**, one a **spinor** — removing the last `1/2` that
+the probability bridge had put in by hand as a "weak-isospin input". Exact over ℚ:
+
+1. **Vector channel `|V_us|`.** The Cabibbo transition lives on the 7-dim `Im(𝕆)`
+   (O28's seven Fano directions). A vector rotation's off-diagonal amplitude is
+   `sin θ`, leading coefficient exactly **1**; summed coherently over the 7 directions
+   this is `√7·ε₀`, so `|V_us|² = 7·ε₀²` — the very count of O28
+   (`vector_channel_count() == cabibbo_count() == 7`).
+2. **Spinor channel `|V_cb|`.** An inter-generation transition is a single qubit; in
+   the `SU(2)` fundamental `exp(−iθ n·σ/2)` the off-diagonal amplitude is `sin(θ/2)`,
+   leading coefficient exactly **1/2**, so `|V_cb| = (1/2)·ε₀`.
+3. **The `1/2` is derived, not input.** The module builds both representations as
+   exact rational generators and reads off the two leading transition coefficients as
+   `1` (vector) and `1/2` (spinor); their ratio `1/2` is the `SU(2)→SO(3)` double-cover
+   half-angle. The contrast `√7` (vector, full angle, 7 dirs) vs `1/2` (spinor, half
+   angle, one qubit) is exactly *vector vs spinor*.
+4. **Finite-angle avatar `tan(π/8) = √2 − 1`.** The transition/survival ratio
+   `tan(θ/2)` (same leading `1/2`) at the octonionic 45° reflection is `tan(π/8)`,
+   verified **exactly in ℚ(√2)** — no floating point — as the positive root of
+   `t² + 2t − 1 = 0` via the double-angle relation `2t/(1−t²) = 1`.
+
+**Data confrontation.** With PDG-2024 magnitudes: `|V_us| = √7·ε₀` +0.6%,
+`|V_cb| = (1/2)·ε₀` +1.0% (both < 1.1%).
+
+Non-claim: derived exactly over ℚ are the vector coefficient `1`, the spinor
+coefficient `1/2` as the double-cover half-angle, their ratio `1/2`, and
+`tan(π/8) = √2 − 1`. What stays *adopted* (as in the master) is the **channel
+assignment** — why `|V_cb|` is the spinor inter-generation transition while `|V_us|`
+is the `Im(𝕆)` vector — which follows the two-level/`Im(𝕆)` split but is not derived
+from the CHO Yukawa operator; and the scale `ε₀² = π/432`. The *value* `1/2` is no
+longer an input; the channel that carries it is. No mass hierarchy or CP phase
+follows. Cross-refs master `compute/epsilon_vcb_halfangle.py`.
+
+Contract: `tests/test_gate_o30_ckm_amplitudes.py`.
+
 ## Non-claims
 
 
