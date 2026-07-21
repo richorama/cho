@@ -988,6 +988,91 @@ generations remain outside this gate. See also (master, behind Zenodo 21107402)
 
 Contract: `tests/test_gate_o25_chiral_projection.py`.
 
+## Gate O26 — the atmospheric mixing angle as a Fano-plane invariant
+
+The campaign's first genuinely *falsifiable* number. The octonion multiplication
+triples `eᵢeⱼ = ±eₖ` are exactly the seven lines of the **Fano plane**
+`PG(2,2) = S(2,3,7)` (O17's associative 3-form `φ` is nonzero precisely on them).
+Pick a "vacuum" imaginary unit `e_v`; each point lies on `n+1 = 3` lines and *avoids*
+`7−3 = 4`. The campaign's sharpest bet is the atmospheric octant
+
+    sin²θ₂₃ = (lines avoiding the vacuum) / (all lines) = 4/7,
+
+the *only* vacuum-scale-independent exact mixing rational the framework emits
+(`θ₂₃ = arcsin√(4/7) ≈ 49.1°`, upper octant). The value is hardened from "read one
+row of the multiplication table" to a **basis-free spectral invariant**. On the
+7-dim line-space the vacuum-avoidance operator `P_avoid(v) = diag[1 if v∉L]` is a
+rank-4 orthogonal projector (`P² = P = Pᵀ`, spectrum `{1⁴,0³}`). Exact over ℚ:
+
+1. **Seven Fano lines.** The octonion triples give exactly `PG(2,2)` — a theorem
+   about the multiplication, not a drawing convention.
+2. **Vacuum-independence.** The split is `(3 through, 4 avoiding)` for *every* one of
+   the 7 vacuum choices, so `sin²θ₂₃ = 4/7` regardless of which unit is singled out.
+3. **A normalized trace.** `Tr P_avoid / 7 = 4/7 = ½ + 1/14` — maximal mixing plus
+   the single-line Fano asymmetry — a basis-free spectral mean, not a chosen entry.
+4. **Convention-independence.** `Aut(Fano) = PSL(2,7)`, order `168`, acts
+   *transitively* on the 7 points; the induced line-permutations satisfy
+   `Πg P_avoid(v) Πgᵀ = P_avoid(g(v))` for all 168 collineations, so `4/7` is a
+   single-orbit **class invariant** — no octonion relabelling changes it.
+5. **Octant complementarity.** The mirror `P_through` is rank 3 → `3/7`, with
+   `4/7 + 3/7 = 1`.
+
+Non-claim: what is forced, exactly and basis-free, is the *value* `4/7` **given** two
+adopted inputs: (i) the physical map "atmospheric mixing probability = avoiding/total
+lines" (the open "N5 bridge", not derived from any dynamics here), and (ii) the octant
+choice of the *avoiding* (broken) sector over the *through* (colour-`su(3)` stabiliser)
+sector. A stable lower-octant resolution near `3/7` would falsify the octant choice.
+The gate derives neither the map nor the octant; it proves that once adopted, the
+number is canonical and convention-free. Current global fits `sin²θ₂₃ ≈ 0.55–0.57`
+sit beside `4/7 ≈ 0.571` — the framework's one live contact with data. Cross-refs
+master `compute/theta23_fano_invariance.py`, `compute/theta23_mixing_operator.py`.
+
+Contract: `tests/test_gate_o26_atmospheric_mixing.py`.
+
+## Gate O27 — the bridge attempt: colour diagonal on three generation-slots
+
+The campaign's highest-risk swing: trying to *force* a link between one generation's
+algebra (`ℂ⊗ℍ⊗𝕆`, O20–O25) and the rank-3 `J₃(𝕆)` from which the family count 3 was
+adopted (O24). It delivers a genuine exact result on *one half* and is honest that
+the other stays open.
+
+**Positive half (exact over ℚ).** In `J₃(𝕆)` the three off-diagonal octonionic slots
+`(1,2),(1,3),(2,3)` are the O24 generation-slots. The colour `su(3)` of O10 — the
+`g₂` derivations of `𝕆` stabilising `e₇` (dim 8) — lifts *entrywise* to `J₃(𝕆)`:
+
+1. **Colour is a Jordan derivation.** Every one of the 8 generators obeys Leibniz
+   `D(A∘B) = D(A)∘B + A∘D(B)` *exactly* on all 27×27 basis pairs and kills the real
+   diagonal — so colour `su(3) ⊂ Der(J₃𝕆) = f₄`.
+2. **A faithful Lie embedding.** `[lift(D_a),lift(D_b)] = lift([D_a,D_b])` on all
+   27 dimensions.
+3. **Identical on all three slots — no triality permutation.** The per-slot 8×8
+   action is the *same* matrix on `(1,2)`, `(1,3)`, `(2,3)`: three identical colour
+   multiplets, each carrying (O21) one generation's `1⊕3⊕3̄⊕1`.
+
+This is the exact sense in which the idempotent-frame reading (O24) evades the
+Distler–Garibaldi obstruction at count+representation level: colour is a
+*slot-diagonal* `su(3)`, not a triality rotation mixing slots (contrast O12).
+
+**Open half (the honest wall).**
+
+4. **A hard dimension obstruction.** The three slots span `3×8 = 24` real octonionic
+   dimensions, but each single-generation gauge module is `ℍ⊗𝕆 = 32` over ℚ(i),
+   carrying the weak `ℍ` doublet of O13/O22/O25. A bare octonion slot has *no room*
+   for that `ℍ` factor: the Jordan off-diagonal carries colour and the family-count,
+   **not** weak isospin or the O25 chirality. The embedding `ℂ⊗ℍ⊗𝕆 → J₃(𝕆)` is *not
+   exhibited*.
+
+Non-claim: the bridge is **not closed**. What is forced exactly is that colour
+`su(3)` embeds in `Der(J₃𝕆) = f₄` as a slot-diagonal derivation, so the adopted
+rank-3 structure carries three identical, triality-un-permuted colour generations.
+The rank-3 itself stays *adopted* (Boyle / Dubois-Violette–Todorov), not derived; the
+weak/chiral/hypercharge structure lives *outside* the Jordan off-diagonal (the 24-vs-32
+wall); no mass hierarchy or mixing follows. A real partial result **and** a sharp
+exact no-go on the full `ℂ⊗ℍ⊗𝕆 ↔ J₃(𝕆)` bridge, which stays open. Cross-refs master
+`compute/three_generations_frame.py`, `foundations/04_generation_symmetry_theorem.md`.
+
+Contract: `tests/test_gate_o27_generation_bridge.py`.
+
 ## Non-claims
 
 
