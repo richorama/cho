@@ -1114,6 +1114,50 @@ Cross-refs master `compute/epsilon_free_mixing_web.py`, `epsilon_mixing_coeffici
 
 Contract: `tests/test_gate_o28_mixing_web.py`.
 
+## Gate O29 — the mass↔mixing bridge: one Fock module ties masses to angles
+
+O28 tied the *mixing* observables together; this gate closes the loop to the *mass*
+sector, exact over ℚ. The charged-fermion mass ratios are driven by the same knob
+`ε₀² = π/432` through integer **Fock-grade counts** of the O11 number operator `N`,
+whose grade multiplicities (eigenvalues 0,1,2,3) are exactly `(1,3,3,1)`, total
+`8 = 2³ = dim Λ*(ℂ³)`:
+
+    up      m_c/m_t     = 1·ε₀²   (Tr P₀, grade-0 vacuum / colour singlet)
+    down    m_s/m_b     = 3·ε₀²   (Tr P₁, grade-1 / colour triplet)
+    lepton  m_μ/m_τ     = 8·ε₀²   (Tr I, the full Fock module 2³)
+
+With O28's mixing counts (`|V_us|²=7`, `sin²θ₁₃=3`, `Δm²₂₁/Δm²₃₁=4`, all `·ε₀²`),
+*every* observable is `(integer)·ε₀²`, so any mass ratio ÷ any mixing observable
+cancels the knob. Exact over ℚ:
+
+1. **Headline `m_s/m_b = sin²θ₁₃`.** Both carry `3` — but from *independent* origins:
+   the mass `3` is the Fock grade-1 trace `Tr P₁` (colour-triplet dimension), the
+   mixing `3` is the count of Fano lines *through* the vacuum. Two separately-assigned
+   integers coinciding is a structural statement, not a tuning: a *down-quark mass
+   ratio equals the leptonic reactor mixing probability*.
+2. **Lepton ties.** `m_μ/m_τ = 2·(Δm²₂₁/Δm²₃₁)` (`8 = 2·4`) and
+   `m_μ/m_τ = (8/3)·sin²θ₁₃`.
+3. **Consistency with O28.** `m_s/m_b / |V_us|² = 3/7 = R1` (since `m_s/m_b = sin²θ₁₃`).
+4. **Mass-mass ratios.** Grade counts give `(m_s/m_b)/(m_c/m_t)=3`,
+   `(m_μ/m_τ)/(m_s/m_b)=8/3`, `(m_μ/m_τ)/(m_c/m_t)=8`.
+
+**Data confrontation.** The charm-free identities agree strikingly with measured
+MS-bar masses and NuFIT mixing: `m_s/m_b = sin²θ₁₃` +1.4%, `m_μ/m_τ = 2·Δm-ratio`
++0.8%, `m_μ/m_τ = (8/3)sin²θ₁₃` +1.2%, `(m_μ/m_τ)/(m_s/m_b) = 8/3` −0.1%. The
+`m_c/m_t` identities are **scale-sensitive** (the tiny up-sector ratio runs strongly)
+and sit near ~5% — reported but flagged, not asserted tightly.
+
+Non-claim: forced exactly are (i) the mass counts `{1,3,8}` as `N`-grade traces on
+the O11 Fock module, and (ii) the ε₀-free cross ratios, *given* the master's
+*adopted* assignment of counts to observables. The scale `ε₀² = π/432` and those
+assignments are adopted, not derived; the `m_c/m_t` relations are scale-dependent; no
+absolute masses, hierarchy origin, or CP phase follows. The value: a *single finite
+Fock module* — the same `ℂ⊗𝕆` ladder that gave colour and charge — forces several
+currently-correct relations *across* the mass and mixing sectors. Cross-refs master
+`compute/epsilon_channel_coefficients.py`, `epsilon_free_mass_mixing_bridge.py`.
+
+Contract: `tests/test_gate_o29_mass_mixing_bridge.py`.
+
 ## Non-claims
 
 
