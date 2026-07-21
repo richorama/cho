@@ -137,6 +137,18 @@ from .hypercharge import (
     standard_model_generation,
     weinberg_sin2,
 )
+from .dynamics_wall import (
+    DynamicsWallCensus,
+    associator,
+    commutator,
+    dynamics_wall_census,
+    flow_is_isometric,
+    flow_orbit,
+    jacobiator,
+    malcev_defect,
+    malcev_identity_holds,
+    ordering_defect,
+)
 
 __all__ = [
     "E",
@@ -238,4 +250,14 @@ __all__ = [
     "hypercharge_census",
     "standard_model_generation",
     "weinberg_sin2",
+    "DynamicsWallCensus",
+    "associator",
+    "commutator",
+    "dynamics_wall_census",
+    "flow_is_isometric",
+    "flow_orbit",
+    "jacobiator",
+    "malcev_defect",
+    "malcev_identity_holds",
+    "ordering_defect",
 ]

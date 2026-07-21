@@ -558,6 +558,58 @@ The `3/8` is the tree-level GUT value, not the laboratory one.
 
 Contract: `tests/test_gate_o14_hypercharge.py`.
 
+## Gate O15 — the octonionic dynamics wall, measured exactly (implemented, passing)
+
+Every gate up to here is *kinematics*: which states, frames, charges and gauge
+algebras the division algebras permit. This gate finally confronts what the
+octonions are famous for breaking — **dynamics** — and measures the break exactly
+over `ℚ`.
+
+Ordinary quantum evolution is a one-parameter unitary group `U(t) = exp(−iHt)`.
+It works for two reasons: a single generator associates with itself
+(`U(t)U(s)=U(t+s)`), and *independent* evolutions compose through
+Baker–Campbell–Hausdorff, whose consistency is exactly the **Jacobi identity** —
+the generators form a *Lie algebra*. Over `𝕆` the second pillar collapses.
+
+What survives, so the flow still runs:
+
+- **Alternativity / power-associativity.** The associator `[x,y,z]=(xy)z−x(yz)` is
+  totally alternating, so a *single* generator integrates to a well-defined,
+  norm-preserving one-parameter flow — a lone octonionic clock is fine.
+- **Moufang identities** hold exactly on every basis triple: `𝕆` is a Moufang
+  loop, not lawless.
+- **Isometry.** Since `𝕆` is a normed algebra, `|ux|=|u||x|` without
+  associativity, so a discrete flow `xₙ₊₁ = u xₙ` by a unit `u` preserves the norm
+  exactly — evolution is still "unitary-like".
+
+The wall:
+
+- **Jacobi fails** on `168` of the `343` imaginary basis triples, so the imaginary
+  octonions under `[,]` are **not a Lie algebra**: there is no octonionic unitary
+  group and no ordinary way to compose two independent evolutions.
+- **The obstruction is exactly the non-associativity:** `J(x,y,z) = 6·[x,y,z]`
+  identically. The failure to compose evolutions *is* six times the associator.
+- **Path-ordering defect.** Composing two flow steps two ways, `(uv)x` versus
+  `u(vx)`, yields two *different* unit-norm states whose difference is exactly the
+  associator `[u,v,x]` — the observable dynamical signature of the wall.
+
+What replaces the Lie law:
+
+- **Malcev structure.** The generators close not into a Lie algebra but into a
+  **Malcev algebra**: the Malcev identity `J(x,y,[x,z]) = [J(x,y,z),x]` holds
+  exactly on all `343` imaginary basis triples. The very triples where Jacobi
+  fails still satisfy Malcev. Octonionic infinitesimal dynamics is governed by the
+  strictly weaker, non-Lie Malcev law.
+
+Non-claim: this does **not** construct an octonionic quantum dynamics or a new
+equation of motion. It is a machine-checked *no-go plus what survives* — it proves
+the exact obstruction to the usual dynamics (Jacobi fails ⇒ no unitary group) and
+names the precise structure any octonionic dynamics must respect (Malcev, not
+Lie). It does not integrate a flow of two independent generators, derive a
+Hamiltonian, or resolve how physics evades the wall.
+
+Contract: `tests/test_gate_o15_dynamics_wall.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic
