@@ -200,6 +200,15 @@ from .standard_model import (
     weak_generators,
     weak_su2_relations,
 )
+from .colour_forcing import (
+    ColourForcingCensus,
+    colour_forcing_census,
+    colour_singlet_on_leptons,
+    commutant_dimension,
+    fundamental_faithful_dimension,
+    triplet_and_antitriplet,
+    u3_bilinear_dimension,
+)
 
 __all__ = [
     "E",
@@ -351,5 +360,12 @@ __all__ = [
     "standard_model_gauge_census",
     "weak_generators",
     "weak_su2_relations",
+    "ColourForcingCensus",
+    "colour_forcing_census",
+    "colour_singlet_on_leptons",
+    "commutant_dimension",
+    "fundamental_faithful_dimension",
+    "triplet_and_antitriplet",
+    "u3_bilinear_dimension",
     "u3_dimension",
 ]

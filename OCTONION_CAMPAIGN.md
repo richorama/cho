@@ -790,6 +790,42 @@ colour-phase/number `u(1)`, not the fully mixed electroweak hypercharge.
 
 Contract: `tests/test_gate_o20_standard_model.py`.
 
+## Gate O21 — colour is forced: the number-preserving symmetry of one generation is su(3) acting as 1⊕3⊕3̄⊕1 (implemented, passing)
+
+Gate O11 *built* colour `su(3)` inside the `ℂ⊗𝕆` Fock space. Gate O21 proves the
+**forcing** behind Furey's construction: `su(3)` is not merely available, it is the
+*unique* number-preserving internal symmetry of one generation, and its
+representation content is forced to be exactly one generation's colour content.
+All exact over `ℚ(i)` on the 8-dim Fock space (`Cl(6)=M₈(ℂ)`):
+
+1. **The symmetry of the charge grading is 20-dimensional.** The commutant of the
+   number operator `N` inside `M₈(ℂ)` — every operator preserving all four charge
+   sectors — has dimension `20 = 1²+3²+3²+1²` (Schur, for eigenspace dims
+   `1,3,3,1`). That is the *entire* internal symmetry of the grading.
+2. **The ladder bilinears carve out exactly `u(3)`.** The nine `αⱼ†αₖ` span a
+   9-dim algebra inside that commutant; its eight traceless generators close into
+   `su(3)` (colour), with `N` the commuting `u(1)`.
+3. **Colour is a singlet on both leptons.** Restricted to the charge-0 vacuum and
+   charge-3 top state, every `su(3)` generator is the zero operator.
+4. **The two triplet sectors are 3 and 3̄.** On the charge-1 sector `su(3)` acts as
+   the faithful **fundamental 3** (span dim 8); on the charge-2 sector as the
+   **antifundamental 3̄** — certified by the cubic invariant
+   `d_abc = tr(Mₐ{M_b,M_c})`, which for charge 2 is exactly *minus* that of charge
+   1 (the signature of the conjugate rep), while the charge-1 `d`-symbol is not
+   identically zero (a genuine complex `3`, not a real rep).
+
+So given the O11 Fock construction, the number-preserving symmetry is forced to
+be `su(3)⊕u(1)` acting as `1⊕3⊕3̄⊕1` — one lepton, a quark colour triplet, an
+antiquark antitriplet, one antilepton: exactly one generation's colour content.
+
+Non-claim: the forcing is *conditional on the O11 Fock construction* — it derives
+that the number-preserving symmetry of that generation is uniquely `su(3)` with
+colour representation content, not why nature realises this Fock space. Exact
+representation theory of `ℂ⊗𝕆`: no weak `su(2)`, no three generations, no
+chirality dynamics, no Higgs.
+
+Contract: `tests/test_gate_o21_colour_forcing.py`.
+
 ## Non-claims
 
 
