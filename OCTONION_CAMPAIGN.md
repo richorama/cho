@@ -516,6 +516,48 @@ address chirality, the Higgs mechanism, or the dynamics that break `SU(2)_L`.
 
 Contract: `tests/test_gate_o13_weak_isospin.py`.
 
+## Gate O14 — anomaly cancellation forces the hypercharges; sin²θ_W = 3/8 (implemented, passing)
+
+The campaign's first result aimed at a *number* rather than a group. Gates
+O10–O13 recovered the Standard Model's gauge algebra and one generation's
+colour/isospin representations from the division algebras — but representations
+are structure, and the hypercharges `Y` (the ugly rationals `1/6, −2/3, 1/3,
+−1/2, 1`) look arbitrary. This gate proves, exactly over `ℚ`, that they are
+*forced*: quantum consistency leaves no freedom.
+
+A chiral gauge theory is consistent only if its gauge and mixed
+gauge–gravitational **anomalies cancel**. For one generation of left-handed Weyl
+fermions in the representations fixed by O10–O13 (`Q=(3,2,Y_Q)`, `u^c=(3̄,1,Y_u)`,
+`d^c=(3̄,1,Y_d)`, `L=(1,2,Y_L)`, `e^c=(1,1,Y_e)`, with `Q = T₃ + Y`) all six
+conditions are computed here *from the representation content itself* — `[SU(3)]³`,
+`[SU(3)]²U(1)`, `[SU(2)]²U(1)`, `[U(1)]³`, `[grav]²U(1)`, and Witten's global
+`SU(2)` parity — and every one **vanishes exactly** for the SM assignment.
+
+The forcing is the payoff. Solving the three linear conditions leaves a
+two-parameter family; fixing the `U(1)` scale by the single electric charge Gate
+O11 already derived (the up-type quark carries `Q = 2/3`, so `Y_Q = 1/6`) reduces
+the cubic `[U(1)]³` condition to the quadratic
+
+    −3Y² − Y + 2/3 = −(1/3)(3Y − 1)(3Y + 2),
+
+whose only roots are `Y = 1/3` and `Y = −2/3` — exactly the down- and up-type
+hypercharges, the two roots being the physically irrelevant `u ↔ d` relabelling.
+The entire hypercharge spectrum is pinned to the Standard Model: **charge
+quantisation is a theorem, not an input.** Finally the weak mixing angle in the
+grand-unified normalisation,
+
+    sin²θ_W = (Σ T₃²) / (Σ Q²) = 2 / (16/3) = **3/8**,
+
+an exact rational summed over the generation — the value SU(5)/SO(10) unification
+predicts at the unification scale.
+
+Non-claim: this derives the *ratios* of the hypercharges from anomaly freedom and
+one charge normalisation; it does not derive the electroweak scale, the running of
+`sin²θ_W` down to the measured low-energy `≈ 0.231`, or why nature is anomaly-free.
+The `3/8` is the tree-level GUT value, not the laboratory one.
+
+Contract: `tests/test_gate_o14_hypercharge.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic

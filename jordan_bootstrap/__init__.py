@@ -130,6 +130,13 @@ from .weak_isospin import (
     quaternion_left_mult,
     weak_isospin_census,
 )
+from .hypercharge import (
+    HyperchargeCensus,
+    WeylField,
+    hypercharge_census,
+    standard_model_generation,
+    weinberg_sin2,
+)
 
 __all__ = [
     "E",
@@ -226,4 +233,9 @@ __all__ = [
     "isospin_number_operator",
     "quaternion_left_mult",
     "weak_isospin_census",
+    "HyperchargeCensus",
+    "WeylField",
+    "hypercharge_census",
+    "standard_model_generation",
+    "weinberg_sin2",
 ]
