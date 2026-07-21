@@ -291,6 +291,22 @@ from .generation_bridge import (
     offdiagonal_dimension,
     one_generation_module_dimension,
 )
+from .mixing_web import (
+    MixingWebCensus,
+    cabibbo_count,
+    data_confrontation,
+    mass_splitting_count,
+    max_absolute_deviation,
+    mixing_web_census,
+    octant_matches_gate_o26,
+    ratio_splitting_over_cabibbo,
+    ratio_splitting_over_theta13,
+    ratio_theta13_over_cabibbo,
+    reactor_count,
+    sum_rule_holds,
+    web_agrees_with_data,
+    web_is_two_dimensional,
+)
 
 __all__ = [
     "E",
@@ -520,4 +536,18 @@ __all__ = [
     "lift_to_jordan",
     "offdiagonal_dimension",
     "one_generation_module_dimension",
+    "MixingWebCensus",
+    "cabibbo_count",
+    "data_confrontation",
+    "mass_splitting_count",
+    "max_absolute_deviation",
+    "mixing_web_census",
+    "octant_matches_gate_o26",
+    "ratio_splitting_over_cabibbo",
+    "ratio_splitting_over_theta13",
+    "ratio_theta13_over_cabibbo",
+    "reactor_count",
+    "sum_rule_holds",
+    "web_agrees_with_data",
+    "web_is_two_dimensional",
 ]

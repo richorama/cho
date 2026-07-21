@@ -1073,6 +1073,47 @@ exact no-go on the full `ℂ⊗ℍ⊗𝕆 ↔ J₃(𝕆)` bridge, which stays op
 
 Contract: `tests/test_gate_o27_generation_bridge.py`.
 
+## Gate O28 — the parameter-free mixing web from the Fano split {3, 4, 7}
+
+O26 emitted one falsifiable rational, `sin²θ₂₃ = 4/7`. This gate follows the thread:
+the *same* Fano vacuum split (3 through, 4 avoiding, 7 total) drives an entire **web**
+of parameter-free relations among already-measured quark and lepton observables,
+exact over ℚ. The master flavour bridge assigns the three counts to four observables
+through one scale `ε₀² = π/432`:
+
+    |V_us|²         = 7·ε₀²   (Cabibbo → all lines)
+    sin²θ₁₃         = 3·ε₀²   (reactor → lines through vacuum)
+    Δm²₂₁/Δm²₃₁     = 4·ε₀²   (splitting → lines avoiding vacuum)
+    sin²θ₂₃         = 4/7     (atmospheric octant, O26)
+
+Every one of the first three is `(integer)·ε₀²`, so **the knob cancels in every
+ratio** — pure Fano-count rationals with *no free parameter*, testable today:
+
+1. **The reactor angle is tied to the Cabibbo angle:** `sin²θ₁₃/|V_us|² = 3/7`
+   (through/total) — a lepton probability bound to a quark one, parameter-free.
+2. **Two more:** `(Δm²₂₁/Δm²₃₁)/|V_us|² = 4/7` and `(Δm²₂₁/Δm²₃₁)/sin²θ₁₃ = 4/3`.
+3. **A Fano completeness sum rule:** `7 = 3+4` → `sin²θ₁₃ + Δm²₂₁/Δm²₃₁ = |V_us|²`.
+4. **Only two are independent:** `R3 = R2/R1`, `R1+R2 = 1`; the O26 octant `4/7` is
+   exactly `R2`, the avoiding-line partner of the reactor `3/7`.
+
+**Data confrontation (the falsifiable payoff).** With PDG-2024 / NuFIT-5.2 central
+values these parameter-free predictions agree with measurement at the few-percent
+level: R1 +2.2%, R2 +2.6%, R3 +0.5%, sum rule +2.4%, `sin²θ₂₃` −2.3% (worst ~2.6%).
+A precise future resolution breaking any ratio — especially `R1 = 3/7` or the sum
+rule — falsifies the assignment.
+
+Non-claim: what is forced, exactly and knob-free, is the *web of ratios* `{3/7, 4/7,
+4/3}` and the sum rule, **given** the master's *adopted* assignment of the Fano
+counts `{3,4,7}` to specific observables (which count labels which channel is a
+modelling choice) and the amplitude-vs-probability power counting. The absolute
+scale `ε₀² = π/432` is itself an adopted knob; this gate works only with the
+ε₀-free ratios where it cancels. No mass hierarchy, CP phase, or dynamics follows.
+The value: a *single* finite incidence structure — the octonion Fano plane — forces
+several independent, currently-correct relations among measured flavour observables.
+Cross-refs master `compute/epsilon_free_mixing_web.py`, `epsilon_mixing_coefficients.py`.
+
+Contract: `tests/test_gate_o28_mixing_web.py`.
+
 ## Non-claims
 
 
