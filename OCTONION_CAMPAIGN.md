@@ -893,6 +893,45 @@ in the Furey/Dixon programme, not forced here). No hypercharge split, no dynamic
 
 Contract: `tests/test_gate_o23_chirality.py`.
 
+## Gate O24 — three generations as a Jordan frame of J₃(𝕆) (implemented, passing)
+
+O12 showed the *triality* route to three generations fails (the three `ℂ⊗𝕆`
+towers coincide). Gate O24 implements the alternative that survives — following
+Dubois-Violette–Todorov, Boyle, and the author's own delimitation (Zenodo
+21107402): **identify the three generations with the three primitive idempotents of
+a Jordan frame** of the exceptional Jordan algebra `J = J₃(𝕆)` (Gate O02's `h₃(𝕆)`).
+
+A frame is a resolution of the identity into three orthogonal rank-one idempotents
+`{E₁,E₂,E₃}` — the *rank* of `J₃(𝕆)` is three, and that is the family count.
+Relative to a frame, `J` has the Peirce decomposition `J = (J₁₁⊕J₂₂⊕J₃₃) ⊕
+(J₁₂⊕J₁₃⊕J₂₃)`: three 1-dim diagonal *generation slots* (`Jᵢᵢ = ℝEᵢ`) plus three
+8-dim octonionic off-diagonals — `3 + 3·8 = 27 = dim J₃(𝕆)`. Exact over ℚ:
+
+1. **Family count three.** The frame is exactly three primitive idempotents
+   resolving the identity (`Σ Eᵢ = I`, `Eᵢ∘Eⱼ = 0`): rank `J₃(𝕆) = 3`.
+2. **Genuinely three (not one).** The three idempotents are *linearly independent*
+   in the 27-dim `J` (span dimension `3`) — unlike the O12 triality towers, which
+   coincided. This is the exact contrast between the two routes.
+3. **Peirce decomposition.** The three diagonal generation slots total dimension
+   `3`, the octonionic off-diagonals total `24`, together `27`; each `L_{Eᵢ}` has
+   the Peirce spectrum `{1: 1, ½: 16, 0: 10}`.
+
+Non-claim: the count three is the *rank* of `J₃(𝕆)`, **adopted** following Boyle /
+Dubois-Violette–Todorov, **not derived** from `ℂ⊗ℍ⊗𝕆` — the `ℂ⊗ℍ⊗𝕆 ↔ J₃(𝕆)`
+bridge is an open problem, not a theorem. The value of the idempotent
+identification is structural: because generations are a resolution of the identity
+rather than triality-permuted representations (O12), this route is *not* subject to
+the Distler–Garibaldi obstruction at the level of count and chirality. It fixes
+neither the mass hierarchy nor the mixing angles (the algebra fixes a mixing law
+but selects no hierarchy — Zenodo 21107402). This gate is the exact-over-ℚ
+count-and-Peirce core of a fuller numpy treatment on the `master` branch
+(`compute/three_generations_frame.py` — inner F4 frame-Weyl S₃, OP²=F4/Spin(9),
+isotropy 36=spin(9), 16-dim real-spinor tangent; `jordan_eigenvalue_generations.py`
+— the Freudenthal-cubic "why three"; `three_generations_nogo_audit.py` — the
+triality no-go control), which cover the F4/Spin(9) and chirality legs omitted here.
+
+Contract: `tests/test_gate_o24_three_generations.py`.
+
 ## Non-claims
 
 

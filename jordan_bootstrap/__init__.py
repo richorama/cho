@@ -229,6 +229,17 @@ from .chirality import (
     right_generators,
     right_su2_relations,
 )
+from .three_generations import (
+    GenerationFrameCensus,
+    family_count,
+    frame_resolves_identity,
+    generation_frame_census,
+    generation_slot_dimension,
+    idempotent_span_dimension,
+    offdiagonal_dimension,
+    peirce_spectrum,
+    standard_generation_frame,
+)
 
 __all__ = [
     "E",
@@ -403,5 +414,14 @@ __all__ = [
     "projector_is_idempotent",
     "right_generators",
     "right_su2_relations",
+    "GenerationFrameCensus",
+    "family_count",
+    "frame_resolves_identity",
+    "generation_frame_census",
+    "generation_slot_dimension",
+    "idempotent_span_dimension",
+    "offdiagonal_dimension",
+    "peirce_spectrum",
+    "standard_generation_frame",
     "u3_dimension",
 ]
