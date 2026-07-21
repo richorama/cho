@@ -650,6 +650,50 @@ not a claimed physical (gauge or space-time) symmetry.
 
 Contract: `tests/test_gate_o16_isometric_flow.py`.
 
+## Gate O17 — the associative calibration: non-associativity is the G₂ 3-form (implemented, passing)
+
+The dynamics gates O15/O16 treated the associator as an *obstruction*. This gate
+takes the swing the earlier honest assessments kept deferring and asks whether the
+associator is instead a recognisable *geometric* object. It is — and one of the
+most physically loaded objects in mathematics: the **associative calibration
+3-form** of `G₂` holonomy. Everything is exact over `ℚ` on `Im(𝕆) = ℝ⁷`.
+
+- **The associative 3-form.** `φ(x,y,z) = ⟨x, yz⟩` is *totally antisymmetric* on
+  imaginary arguments with values in `{−1,0,+1}` — the `42` nonzero entries are the
+  `7` Fano lines in their `6` orderings. This is Joyce's `φ`, whose calibrated
+  3-planes are the *associative* submanifolds of a `G₂` manifold.
+- **The associator IS the coassociative 4-form.** The associator of imaginary units
+  reconstructs exactly from a totally antisymmetric 4-tensor: `[eᵢ,eⱼ,eₖ] = 2·Σₗ
+  ψᵢⱼₖₗ eₗ`, with `ψᵢⱼₖₗ = ½⟨eₗ,[eᵢ,eⱼ,eₖ]⟩` having `168` nonzero entries (`7`
+  coassociative 4-planes × `24` orderings). `ψ = *φ` is the coassociative
+  calibration: the campaign's central obstruction literally *is* the coassociative
+  form.
+- **`G₂` invariance.** Every derivation of `𝕆` (the 14-dimensional `g₂ = Lie(Aut 𝕆)`
+  of Gate O10) annihilates `φ`: `φ(Dx,y,z)+φ(x,Dy,z)+φ(x,y,Dz)=0`. The infinitesimal
+  stabiliser of `φ` is exactly `g₂` — the algebraic definition of `G₂`.
+- **The Akivis structure equation.** For any algebra the Jacobiator and associator
+  obey the universal loop structure equation (commutator = torsion, associator =
+  curvature) `J(x,y,z) = Σ_σ sign(σ)·[σ(x,y,z)]`. Because `𝕆` is alternative the
+  associator is itself alternating, so the six signed terms coincide and the
+  right-hand side collapses to `6·[x,y,z]` — recovering the O15 identity
+  `J = 6·associator` as the structure equation of the calibration.
+
+The swing: the octonionic non-associativity that walls off an ordinary dynamics is,
+viewed correctly, the `G₂` calibration geometry underlying compactification of
+eleven-dimensional M-theory on a seven-dimensional `G₂`-holonomy manifold — the
+route by which exceptional geometry yields four-dimensional chiral physics. This
+gate exhibits that identification exactly and finitely: `φ`, `ψ = *φ`, their `G₂`
+invariance, and the structure equation, all machine-checked over `ℚ`.
+
+Non-claim: this exhibits the *pointwise algebraic tensors* of `G₂` geometry — the
+calibration forms, their exact `G₂` invariance, and the loop structure equation —
+and identifies the associator with the coassociative form. It does **not**
+construct a `G₂`-holonomy metric, solve the Ricci-flat / supergravity equations,
+perform a compactification, or derive any four-dimensional spectrum. It is the
+algebra that *seeds* exceptional-holonomy geometry, not that geometry's dynamics.
+
+Contract: `tests/test_gate_o17_calibration.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic
