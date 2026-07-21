@@ -858,6 +858,41 @@ construction, not a derivation of that construction.
 
 Contract: `tests/test_gate_o22_generation_multiplets.py`.
 
+## Gate O23 — handedness and the vector-like wall: chirality on ℂ⊗ℍ⊗𝕆 (implemented, passing)
+
+O22 found the multiplet *pattern* of one generation but noted it comes *doubled*,
+with no chiral (left-only) asymmetry. Gate O23 confronts chirality head-on and is
+scrupulous about where the algebra succeeds and where it stops. The quaternion
+factor carries *two* commuting `su(2)`s — `ℂ⊗ℍ = M₂(ℂ)` has `so(4)=su(2)_L⊕su(2)_R`:
+
+- **`su(2)_L`** is weak isospin (O13/O20): imaginary quaternion **left**-mults `Wᵢ`
+  (`[Wᵢ,Wⱼ]=2Wₖ`).
+- **`su(2)_R`** is imaginary quaternion **right**-mults `Rᵢ` (`[Rᵢ,Rⱼ]=−2Rₖ`); since
+  `ℍ` is associative, `[Wᵢ,Rⱼ]=0`.
+
+The right action supplies a **canonical handedness projector** `P=½(I+iR₁)`
+(`P²=P`) built from the `ℂ` of `ℂ⊗ℍ` and one right unit. It commutes with the
+*entire* SM gauge algebra, and `P`, `I−P` split the 32 states into two
+gauge-invariant 16-dim halves — the two minimal left ideals of `ℂ⊗ℍ`, a
+"left-handed" and "right-handed" copy of the generation. Exact over `ℚ(i)`:
+
+1. **Two commuting `su(2)`s.** `[Rᵢ,Rⱼ]=−2Rₖ` and `[Wᵢ,Rⱼ]=0` (`so(4)`).
+2. **Canonical handedness projector.** `P²=P`; `P`,`I−P` give gauge-invariant
+   16-dim halves (`[P,colour]=[P,weak]=0`).
+3. **The vector-like wall (honest negative).** Genuine SM chirality would need the
+   two halves to carry *inequivalent* weak reps (one doublets, one singlets).
+   Instead the weak Casimir is `−3·I` *uniformly*, so **both** halves are pure weak
+   doublets: the construction is exactly **vector-like**. `ℂ⊗ℍ⊗𝕆` alone gives one
+   generation's multiplet content but **not** its chiral asymmetry.
+
+Non-claim: this exhibits the canonical handedness splitting and proves the
+construction is vector-like — it does **not** derive the SM's chiral (`SU(2)_L`-only)
+structure, which needs an extra ingredient beyond the module (a projector that both
+selects one ideal *and* collapses the other's doublets to singlets — put in by hand
+in the Furey/Dixon programme, not forced here). No hypercharge split, no dynamics.
+
+Contract: `tests/test_gate_o23_chirality.py`.
+
 ## Non-claims
 
 

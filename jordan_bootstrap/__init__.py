@@ -217,6 +217,18 @@ from .generation_multiplets import (
     weak_casimir_is_uniform_doublet,
     weak_singlet_dimension,
 )
+from .chirality import (
+    ChiralityCensus,
+    chirality_census,
+    handedness_dimensions,
+    handedness_projector,
+    is_vector_like,
+    left_right_commute,
+    projector_commutes_with_gauge,
+    projector_is_idempotent,
+    right_generators,
+    right_su2_relations,
+)
 
 __all__ = [
     "E",
@@ -381,5 +393,15 @@ __all__ = [
     "quark_dimension",
     "weak_casimir_is_uniform_doublet",
     "weak_singlet_dimension",
+    "ChiralityCensus",
+    "chirality_census",
+    "handedness_dimensions",
+    "handedness_projector",
+    "is_vector_like",
+    "left_right_commute",
+    "projector_commutes_with_gauge",
+    "projector_is_idempotent",
+    "right_generators",
+    "right_su2_relations",
     "u3_dimension",
 ]
