@@ -180,6 +180,14 @@ from .su3_structure import (
     kahler_rank,
     su3_structure_census,
 )
+from .phase_u1 import (
+    PhaseU1Census,
+    centraliser_of_j_dimension,
+    commutant_of_colour_dimension,
+    phase_is_outside_automorphisms,
+    phase_u1_census,
+    u3_dimension,
+)
 
 __all__ = [
     "E",
@@ -316,4 +324,10 @@ __all__ = [
     "kahler_form",
     "kahler_rank",
     "su3_structure_census",
+    "PhaseU1Census",
+    "centraliser_of_j_dimension",
+    "commutant_of_colour_dimension",
+    "phase_is_outside_automorphisms",
+    "phase_u1_census",
+    "u3_dimension",
 ]

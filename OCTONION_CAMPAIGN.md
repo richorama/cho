@@ -725,6 +725,39 @@ algebra of the reduction, not a compactification.
 
 Contract: `tests/test_gate_o18_su3_structure.py`.
 
+## Gate O19 — the U(1) that completes colour to U(3): the phase of the CY slice (implemented, passing)
+
+Gate O18 reduced the `G₂` calibration to an `SU(3)` structure on the Calabi–Yau
+slice `u^⊥ = ℂ³`. But the unitary group of `ℂ³` is `U(3)`, not `SU(3)`: there is one
+extra generator, the overall *phase*. This gate exhibits it exactly, working in
+`so(6) = so(u^⊥)`, and shows it is precisely the complex structure `J` of O18.
+
+- **The phase generator is `J`.** `J = L_u` on `u^⊥` is skew (`J ∈ so(6)`) with
+  `J² = −I`; its one-parameter group `exp(θJ)` rotates `ℂ³` by an overall phase.
+- **`u(3)` is the centraliser of `J`.** The skew maps commuting with `J` (the
+  `J`-complex-linear ones) form a `9`-dimensional algebra — exactly `u(3)`.
+- **Colour and phase are mutual centralisers.** Colour `su(3)` (dim `8`) lies in
+  `u(3)`, and the centraliser of colour `su(3)` within `so(6)` is exactly the
+  one-dimensional span of `J`. Hence `u(3) = su(3) ⊕ u(1)_J`: colour `SU(3)` and the
+  phase `U(1)` are each other's commutant and fill out the full `U(3)`.
+- **The phase `U(1)` is outside `Aut(𝕆)`.** `J` is *not* a derivation (O17: it does
+  not preserve `φ`), so `u(1)_J` is a genuine symmetry beyond `g₂ = Lie(Aut 𝕆)` — the
+  abelian factor the choice of preferred direction *adds*. It is the centre of `U(3)`,
+  the overall Calabi–Yau phase (a baryon-number-like `U(1)` giving all three colours
+  the same charge), commuting with colour.
+
+So the geometric reduction of one octonion copy yields not merely colour `SU(3)` but
+`SU(3) × U(1) = U(3)` on the Calabi–Yau slice, the `U(1)` forced as the unique
+commutant of colour and realised by the complex structure.
+
+Non-claim: this exhibits the exact abelian `u(1)_J` completing colour `su(3)` to
+`u(3)` on the tangent slice, as the commutant of colour and the centre of the
+slice's unitary algebra. It does **not** identify this `U(1)` with electroweak
+hypercharge or electric charge (those need `ℂ⊗ℍ⊗𝕆` and the weak `su(2)` of O13,
+absent here), does not gauge it, and adds no dynamics.
+
+Contract: `tests/test_gate_o19_phase_u1.py`.
+
 ## Non-claims
 
 This campaign selects (or fails to select) the probability calculus in an exotic
