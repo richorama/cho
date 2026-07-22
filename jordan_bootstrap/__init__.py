@@ -352,6 +352,29 @@ from .knob_scale import (
     knob_scale_census,
     matches_adopted_scale,
 )
+from .yukawa_operator_gate import (
+    YukawaOperatorGateCensus,
+    canonical_yukawa_theorem_closed,
+    gauge_equivariant_symmetric_dimension,
+    genuine_three_generation_module_available,
+    invariant_basis_is_identity_and_all_ones,
+    invariant_operator_has_generation_degeneracy,
+    permutation_invariant_symmetric_dimension,
+    symmetric_generation_basis,
+    yukawa_operator_gate_census,
+)
+from .flavour_assignment_audit import (
+    AssignmentFit,
+    Measurement,
+    adopted_assignment,
+    adopted_assignment_rank,
+    assignment_fits,
+    fixed_scale_chi_square,
+    look_elsewhere_p_value,
+    measurements,
+    mixed_scale_mass_inputs,
+    profiled_p_value,
+)
 
 __all__ = [
     "E",
@@ -634,4 +657,23 @@ __all__ = [
     "knob_denominator",
     "knob_scale_census",
     "matches_adopted_scale",
+    "YukawaOperatorGateCensus",
+    "canonical_yukawa_theorem_closed",
+    "gauge_equivariant_symmetric_dimension",
+    "genuine_three_generation_module_available",
+    "invariant_basis_is_identity_and_all_ones",
+    "invariant_operator_has_generation_degeneracy",
+    "permutation_invariant_symmetric_dimension",
+    "symmetric_generation_basis",
+    "yukawa_operator_gate_census",
+    "AssignmentFit",
+    "Measurement",
+    "adopted_assignment",
+    "adopted_assignment_rank",
+    "assignment_fits",
+    "fixed_scale_chi_square",
+    "look_elsewhere_p_value",
+    "measurements",
+    "mixed_scale_mass_inputs",
+    "profiled_p_value",
 ]

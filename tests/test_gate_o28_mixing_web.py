@@ -11,6 +11,7 @@ from jordan_bootstrap.mixing_web import (
     MixingWebCensus,
     cabibbo_count,
     data_confrontation,
+    empirical_results_are_promotion_gate,
     mass_splitting_count,
     max_absolute_deviation,
     mixing_web_census,
@@ -63,14 +64,14 @@ class TestGateO28MixingWeb(unittest.TestCase):
         self.assertEqual(preds["R3 = (dm21^2/dm31^2) / sin2_theta13"], Fraction(4, 3))
         self.assertEqual(preds["sin2_theta23 = 4/7"], Fraction(4, 7))
 
-    def test_web_agrees_with_current_data(self):
-        """The parameter-free web agrees with PDG/NuFIT central values within 5%."""
-        self.assertTrue(web_agrees_with_data(0.05))
-        # the actual worst deviation is a few percent
-        self.assertLess(max_absolute_deviation(), 0.03)
+    def test_data_table_is_diagnostic_not_a_promotion_gate(self):
+        """Central-value comparisons are reported without certifying empirical truth."""
+        self.assertIsInstance(web_agrees_with_data(0.05), bool)
+        self.assertGreater(max_absolute_deviation(), 0)
+        self.assertFalse(empirical_results_are_promotion_gate())
 
     def test_census_is_fully_consistent(self):
-        """The assembled O28 ledger reports the exact web and its data agreement."""
+        """The assembled O28 ledger separates exact structure from data diagnostics."""
         c = mixing_web_census()
         self.assertIsInstance(c, MixingWebCensus)
         self.assertEqual(c.cabibbo_count, 7)
@@ -82,7 +83,7 @@ class TestGateO28MixingWeb(unittest.TestCase):
         self.assertTrue(c.sum_rule_holds)
         self.assertTrue(c.web_two_dimensional)
         self.assertTrue(c.octant_matches_o26)
-        self.assertTrue(c.agrees_within_five_percent)
+        self.assertFalse(c.empirical_promotion_allowed)
 
 
 if __name__ == "__main__":

@@ -46,10 +46,8 @@ positive root of ``t^2 + 2t - 1 = 0`` is ``sqrt(2) - 1``. The small-angle ``1/2`
 the 45-degree ``sqrt(2) - 1`` are the *same* spinorial half-angle ``tan(theta/2)``,
 linearised versus evaluated at the discrete octonionic reflection.
 
-Predictions (adopted scale ``eps0^2 = pi/432``)
------------------------------------------------
-    |V_us| = sqrt(7) * eps0   (vector)   pred 0.2256  obs 0.2243   +0.6%
-    |V_cb| = (1/2)  * eps0    (spinor)   pred 0.0426  obs 0.0422   +1.0%
+Predictions use the adopted scale ``eps0^2 = pi/432``.  Their comparison with
+data is descriptive only and is not a test-suite promotion criterion.
 
 Non-claim: derived exactly over ``Q`` are (i) the vector leading coefficient ``1``,
 (ii) the spinor leading coefficient ``1/2`` as the ``SU(2) -> SO(3)`` half-angle,
@@ -79,9 +77,10 @@ from .mixing_web import cabibbo_count
 # the data-confrontation predictions -- every structural claim below is exact over Q.
 _EPS0 = math.sqrt(math.pi / 432.0)
 
-# PDG-2024 central values (spurion_bridge OBSERVED on master).
+# PDG-2024 central values. The V_cb value is the representative global average;
+# inclusive/exclusive determinations remain in tension, another reason this table is diagnostic.
 _V_US_OBS = 0.2243
-_V_CB_OBS = 0.0422
+_V_CB_OBS = 0.0410
 
 
 # ---------------------------------------------------------------------------
@@ -246,8 +245,12 @@ def max_absolute_deviation() -> float:
 
 
 def amplitudes_agree_with_data(tolerance: float = 0.03) -> bool:
-    """Both CKM amplitude predictions agree with data within ``tolerance`` (fractional)."""
+    """Legacy descriptive central-value threshold; not a scientific promotion gate."""
     return max_absolute_deviation() <= tolerance * 100.0
+
+
+def empirical_results_are_promotion_gate() -> bool:
+    return False
 
 
 # ---------------------------------------------------------------------------
@@ -266,6 +269,7 @@ class CkmAmplitudeCensus:
     tan_pi8_exact: bool
     max_deviation_percent: float
     amplitudes_agree: bool
+    empirical_promotion_allowed: bool
 
 
 def ckm_amplitude_census() -> CkmAmplitudeCensus:
@@ -279,6 +283,7 @@ def ckm_amplitude_census() -> CkmAmplitudeCensus:
         tan_pi8_exact=tan_pi8_satisfies_half_angle(),
         max_deviation_percent=max_absolute_deviation(),
         amplitudes_agree=amplitudes_agree_with_data(),
+        empirical_promotion_allowed=empirical_results_are_promotion_gate(),
     )
 
 

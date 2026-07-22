@@ -3,6 +3,11 @@
 An exploratory attempt to derive physical law from agreement between internal
 observers at different microscopic representations and resolutions.
 
+> **Project status: parked.** The campaigns produced exact computational and
+> no-go results but did not derive a new physical theory. See
+> [SCIENTIFIC_STATUS.md](SCIENTIFIC_STATUS.md) for the final assessment, closure
+> criteria, and lessons for future work.
+
 This is a clean project. It assumes no prior algebra, particle content, spacetime
 dimension, measured constant, or preferred microscopic labeling.
 
@@ -11,6 +16,10 @@ derivation of the Born rule from observer-consistency — see [PAPER.md](PAPER.m
 Born-rule selection theorem is stated and proved on its own in
 [BORN_RULE_THEOREM.md](BORN_RULE_THEOREM.md) (with a typeset, arXiv-ready LaTeX version in
 [paper/born_rule_theorem.tex](paper/born_rule_theorem.tex)).
+
+For the current claim classification, flavour caveats, and canonical-operator
+go/no-go programme, see [SCIENTIFIC_STATUS.md](SCIENTIFIC_STATUS.md). It
+supersedes stronger interpretations of historical gate narratives.
 
 ## Proposed Principle
 

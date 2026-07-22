@@ -34,13 +34,10 @@ bridge with no free parameter. Exact over ``Q``:
 4. **Mass-mass ratios.** The grade counts alone give ``(m_s/m_b)/(m_c/m_t) = 3``,
    ``(m_mu/m_tau)/(m_s/m_b) = 8/3``, ``(m_mu/m_tau)/(m_c/m_t) = 8``.
 
-**Data confrontation.** The clean (charm-free) identities agree strikingly with
-measured MS-bar masses and NuFIT mixing: ``m_s/m_b = sin^2 theta13`` +1.4%,
-``m_mu/m_tau = 2 * dm-ratio`` +0.8%, ``m_mu/m_tau = (8/3) sin^2 theta13`` +1.2%,
-``(m_mu/m_tau)/(m_s/m_b) = 8/3`` -0.1%. The identities involving ``m_c/m_t`` are
-**scale-sensitive** (the tiny up-sector ratio runs strongly and depends on the
-renormalisation scale) and sit near ~5%; they are reported but flagged, not asserted
-tightly.
+**Data confrontation.** The stored quark inputs are quoted at different
+renormalisation scales.  Their apparent precision is therefore not a physical
+test until they are evolved to one declared scheme and scale.  Central-value
+comparisons remain diagnostics, not promotion criteria.
 
 Non-claim: what is forced exactly is (i) the mass counts ``{1, 3, 8}`` as ``N``-grade
 traces on the O11 Fock module, and (ii) the ``eps0``-free cross ratios once the
@@ -138,15 +135,14 @@ def ratio_lepton_over_up() -> Fraction:
 # --------------------------------------------------------------------------
 # Data confrontation -- documented measured central values.
 # --------------------------------------------------------------------------
-# Charged-fermion MS-bar masses (PDG 2024, GeV): m_c(m_c)=1.27, m_t=163 (running),
-#   m_s(2GeV)=0.0934, m_b(m_b)=4.183, m_mu=0.1056584, m_tau=1.77686.
-# Mixing (NuFIT 5.2 normal ordering): sin^2 theta13 = 0.02203,
-#   dm21^2/dm31^2 = 7.41e-5 / 2.511e-3.
+# Charged-fermion inputs (PDG 2024, GeV): m_c(m_c), m_t(m_t), m_s(2 GeV),
+# and m_b(m_b). The quark ratios below therefore mix scales and are flagged.
+# Mixing uses NuFIT 6.0 normal-ordering central values.
 _MC, _MT = 1.27, 163.0
 _MS, _MB = 0.0934, 4.183
 _MMU, _MTAU = 0.1056584, 1.77686
-_S13 = 0.02203
-_RDM = 7.41e-5 / 2.511e-3
+_S13 = 0.0222
+_RDM = 7.43e-5 / 2.500e-3
 
 _R_UP = _MC / _MT
 _R_DOWN = _MS / _MB
@@ -162,7 +158,7 @@ def data_confrontation() -> List[Tuple[str, Fraction, float, float, bool]]:
     rows: List[Tuple[str, Fraction, float, float, bool]] = []
     p = ratio_ms_mb_over_theta13()
     rows.append(("m_s/m_b = sin2_theta13", p, _R_DOWN / _S13,
-                 _dev(float(p), _R_DOWN / _S13), False))
+                 _dev(float(p), _R_DOWN / _S13), True))
     p = ratio_mmu_mtau_over_splitting()
     rows.append(("m_mu/m_tau = 2*(dm21/dm31)", p, _R_LEP / _RDM,
                  _dev(float(p), _R_LEP / _RDM), False))
@@ -171,7 +167,7 @@ def data_confrontation() -> List[Tuple[str, Fraction, float, float, bool]]:
                  _dev(float(p), _R_LEP / _S13), False))
     p = ratio_lepton_over_down()
     rows.append(("(m_mu/m_tau)/(m_s/m_b) = 8/3", p, _R_LEP / _R_DOWN,
-                 _dev(float(p), _R_LEP / _R_DOWN), False))
+                 _dev(float(p), _R_LEP / _R_DOWN), True))
     # scale-sensitive rows involving the up-sector ratio m_c/m_t
     p = ratio_down_over_up()
     rows.append(("(m_s/m_b)/(m_c/m_t) = 3", p, _R_DOWN / _R_UP,
@@ -188,8 +184,13 @@ def max_clean_deviation() -> float:
 
 
 def clean_bridge_agrees(tolerance: float = 0.03) -> bool:
-    """The charm-free cross identities agree with data within ``tolerance`` (3%)."""
+    """Legacy descriptive threshold over comparable rows; not a promotion gate."""
     return max_clean_deviation() <= tolerance
+
+
+def empirical_results_are_promotion_gate() -> bool:
+    """Mass/mixing agreement requires common-scale RG evolution and covariance."""
+    return False
 
 
 @dataclass(frozen=True)
@@ -209,6 +210,7 @@ class MassMixingBridgeCensus:
     lepton_over_up: Fraction
     max_clean_deviation: float
     clean_bridge_agrees: bool
+    empirical_promotion_allowed: bool
 
 
 def mass_mixing_bridge_census() -> MassMixingBridgeCensus:
@@ -227,4 +229,5 @@ def mass_mixing_bridge_census() -> MassMixingBridgeCensus:
         lepton_over_up=ratio_lepton_over_up(),
         max_clean_deviation=max_clean_deviation(),
         clean_bridge_agrees=clean_bridge_agrees(),
+        empirical_promotion_allowed=empirical_results_are_promotion_gate(),
     )

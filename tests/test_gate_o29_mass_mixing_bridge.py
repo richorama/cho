@@ -12,6 +12,7 @@ from jordan_bootstrap.mass_mixing_bridge import (
     clean_bridge_agrees,
     data_confrontation,
     down_count,
+    empirical_results_are_promotion_gate,
     headline_identity_holds,
     lepton_count,
     mass_counts,
@@ -65,20 +66,22 @@ class TestGateO29MassMixingBridge(unittest.TestCase):
         self.assertEqual(preds["m_mu/m_tau = 2*(dm21/dm31)"], Fraction(2))
         self.assertEqual(preds["m_mu/m_tau = (8/3)*sin2_theta13"], Fraction(8, 3))
 
-    def test_clean_bridge_agrees_with_data(self):
-        """The charm-free cross identities agree with data within 3%."""
-        self.assertTrue(clean_bridge_agrees(0.03))
-        self.assertLess(max_clean_deviation(), 0.02)
+    def test_data_table_is_diagnostic_not_a_promotion_gate(self):
+        self.assertIsInstance(clean_bridge_agrees(0.03), bool)
+        self.assertGreater(max_clean_deviation(), 0)
+        self.assertFalse(empirical_results_are_promotion_gate())
 
     def test_scale_sensitive_rows_are_flagged(self):
         """The m_c/m_t identities are reported but flagged scale-sensitive."""
         flagged = {row[0]: row[4] for row in data_confrontation()}
         self.assertTrue(flagged["(m_s/m_b)/(m_c/m_t) = 3"])
         self.assertTrue(flagged["(m_mu/m_tau)/(m_c/m_t) = 8"])
-        self.assertFalse(flagged["m_s/m_b = sin2_theta13"])
+        self.assertTrue(flagged["m_s/m_b = sin2_theta13"])
+        self.assertTrue(flagged["(m_mu/m_tau)/(m_s/m_b) = 8/3"])
+        self.assertEqual(sum(1 for row in data_confrontation() if not row[4]), 2)
 
     def test_census_is_fully_consistent(self):
-        """The assembled O29 ledger reports the bridge and its clean data agreement."""
+        """The assembled O29 ledger reports the bridge and empirical caveat."""
         c = mass_mixing_bridge_census()
         self.assertIsInstance(c, MassMixingBridgeCensus)
         self.assertEqual(c.grade_multiplicities, (1, 3, 3, 1))
@@ -89,7 +92,7 @@ class TestGateO29MassMixingBridge(unittest.TestCase):
         self.assertEqual(c.mmu_mtau_over_theta13, Fraction(8, 3))
         self.assertEqual(c.ms_mb_over_cabibbo, Fraction(3, 7))
         self.assertTrue(c.matches_o28_r1)
-        self.assertTrue(c.clean_bridge_agrees)
+        self.assertFalse(c.empirical_promotion_allowed)
 
 
 if __name__ == "__main__":

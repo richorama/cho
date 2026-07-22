@@ -31,11 +31,9 @@ testable against data today. Exact over ``Q``:
    octant ``4/7`` of Gate O26 is exactly ``R2``, the avoiding-line partner of the
    reactor ``3/7``.
 
-**Data confrontation (the falsifiable payoff).** With PDG-2024 / NuFIT-5.2 central
-values these parameter-free predictions agree with measurement at the few-percent
-level: ``R1`` +2.2%, ``R2`` +2.6%, ``R3`` +0.5%, the sum rule +2.4%, ``sin^2 theta23``
--2.3%. A future high-precision resolution that breaks any of these ratios --
-especially ``R1 = 3/7`` or the sum rule -- falsifies the assignment.
+**Data confrontation.** Current central values and approximate independent
+uncertainties are audited separately in ``flavour_assignment_audit``.  They are
+diagnostics, not test-suite promotion criteria.
 
 Non-claim: what is forced, exactly and knob-free, is the *web of ratios* ``{3/7,
 4/7, 4/3}`` and the sum rule, given the master's *adopted* assignment of the three
@@ -119,15 +117,14 @@ def octant_matches_gate_o26() -> bool:
 # --------------------------------------------------------------------------
 # Data confrontation -- documented measured central values (the falsifiable half).
 # --------------------------------------------------------------------------
-# PDG 2024 CKM |V_us| = 0.22431; NuFIT 5.2 (2022) normal ordering:
-#   sin^2 theta13 = 0.02203, dm21^2 = 7.41e-5 eV^2, dm31^2 = 2.511e-3 eV^2,
-#   sin^2 theta23 = 0.558.
-_VUS = 0.22431
+# PDG 2024 CKM and NuFIT 6.0 (2024), normal ordering. These central values are
+# descriptive only; flavour_assignment_audit owns uncertainties and assignment trials.
+_VUS = 0.2243
 _MEASURED = {
     "|V_us|^2": _VUS * _VUS,
-    "sin2_theta13": 0.02203,
-    "dm21^2/dm31^2": 7.41e-5 / 2.511e-3,
-    "sin2_theta23": 0.558,
+    "sin2_theta13": 0.0222,
+    "dm21^2/dm31^2": 7.43e-5 / 2.500e-3,
+    "sin2_theta23": 0.572,
 }
 
 
@@ -163,8 +160,13 @@ def max_absolute_deviation() -> float:
 
 
 def web_agrees_with_data(tolerance: float = 0.05) -> bool:
-    """The parameter-free web currently agrees with data within ``tolerance`` (5%)."""
+    """Legacy descriptive central-value threshold; not a scientific promotion gate."""
     return max_absolute_deviation() <= tolerance
+
+
+def empirical_results_are_promotion_gate() -> bool:
+    """Empirical agreement is never established by a unit-test tolerance."""
+    return False
 
 
 @dataclass(frozen=True)
@@ -182,6 +184,7 @@ class MixingWebCensus:
     octant_matches_o26: bool
     max_absolute_deviation: float
     agrees_within_five_percent: bool
+    empirical_promotion_allowed: bool
 
 
 def mixing_web_census() -> MixingWebCensus:
@@ -198,4 +201,5 @@ def mixing_web_census() -> MixingWebCensus:
         octant_matches_o26=octant_matches_gate_o26(),
         max_absolute_deviation=max_absolute_deviation(),
         agrees_within_five_percent=web_agrees_with_data(),
+        empirical_promotion_allowed=empirical_results_are_promotion_gate(),
     )

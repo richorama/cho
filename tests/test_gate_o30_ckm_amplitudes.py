@@ -13,6 +13,7 @@ from jordan_bootstrap.ckm_amplitudes import (
     amplitudes_agree_with_data,
     ckm_amplitude_census,
     double_cover_factor,
+    empirical_results_are_promotion_gate,
     matches_o28_cabibbo_count,
     max_absolute_deviation,
     predictions,
@@ -59,13 +60,13 @@ class TestGateO30CkmAmplitudes(unittest.TestCase):
         self.assertIn("|V_us| (vector)", names)
         self.assertIn("|V_cb| (spinor)", names)
 
-    def test_amplitudes_agree_with_data(self):
-        """Both CKM amplitude predictions agree with PDG values within 3% (actual < 1.1%)."""
-        self.assertTrue(amplitudes_agree_with_data(0.03))
-        self.assertLess(max_absolute_deviation(), 1.1)
+    def test_data_table_is_diagnostic_not_a_promotion_gate(self):
+        self.assertIsInstance(amplitudes_agree_with_data(0.03), bool)
+        self.assertGreater(max_absolute_deviation(), 0)
+        self.assertFalse(empirical_results_are_promotion_gate())
 
     def test_census(self):
-        """The census bundles the exact coefficients and the data verdict."""
+        """The census bundles exact coefficients and a non-promoting data diagnostic."""
         census = ckm_amplitude_census()
         self.assertIsInstance(census, CkmAmplitudeCensus)
         self.assertEqual(census.spinor_coefficient, Fraction(1, 2))
@@ -74,7 +75,7 @@ class TestGateO30CkmAmplitudes(unittest.TestCase):
         self.assertEqual(census.vector_channel_count, 7)
         self.assertTrue(census.matches_o28_cabibbo)
         self.assertTrue(census.tan_pi8_exact)
-        self.assertTrue(census.amplitudes_agree)
+        self.assertFalse(census.empirical_promotion_allowed)
 
 
 if __name__ == "__main__":

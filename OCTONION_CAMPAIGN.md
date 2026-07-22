@@ -2,6 +2,12 @@
 
 *Observer-consistency on the last normed division algebra.*
 
+> **Current status: parked.** This file is a historical gate narrative. The claim
+> classification, empirical caveats, and operator go/no-go verdict in
+> [SCIENTIFIC_STATUS.md](SCIENTIFIC_STATUS.md) supersede stronger interpretations
+> below. In particular, O26-O31 are conditional flavour conjectures, not derived
+> physics.
+
 The classical campaign used bits; the amplitude campaign changed exactly one
 premise to complex amplitudes over the Gaussian rationals `Q(i)`. This campaign
 changes exactly one premise again and takes the final rung of the Cayley-Dickson
@@ -1231,6 +1237,45 @@ only makes the adopted denominator structural. Cross-refs master
 `compute/mass_relations.py`.
 
 Contract: `tests/test_gate_o31_knob_scale.py`.
+
+## Gate O32 — canonical Yukawa operator: exact current-level no-go
+
+The desired next step was a single, data-independent Yukawa operator on three
+physical generations. The current structures do not select one.
+
+1. O27's `24`-versus-`32` obstruction remains: the Jordan slots do not carry the
+   complete weak/chiral one-generation module, so a genuine three-generation
+   fermion space has not been constructed.
+2. Colour acts identically on the three adopted slots, as proved in O27. By the
+   resulting Kronecker-product structure, the **six-dimensional subspace** of
+   real-symmetric `3 x 3` generation-only textures is gauge-equivariant. This is
+   a lower bound on the full commutant, already enough to leave the hierarchy free.
+3. Imposing the unbroken frame permutation `S3` reduces that space to the
+   two-dimensional span of `I` and the all-ones matrix `J`. Every `a I + b J`
+   has one singlet eigenvalue and a degenerate doublet, so it cannot produce
+   three distinct generation masses.
+
+Verdict: without frame symmetry there is arbitrary texture freedom; with it
+there is an unavoidable degeneracy. A new symmetry-breaking action or spurion
+is required, and must be selected without measured flavour inputs.
+
+Contract: `tests/test_gate_o32_yukawa_operator.py`.
+
+## Gate O33 — flavour assignment and scale audit
+
+All six permutations assigning Fano counts `{3,4,7}` to
+`{|V_us|^2, sin^2(theta13), Delta m^2_21/Delta m^2_3l}` are now enumerated with
+approximate current uncertainties. The adopted `(7,3,4)` assignment ranks first,
+but its profiled fit is borderline before accounting for assignment trials and
+is not significant after a conservative six-trial correction. The fixed
+`pi/432` scale fits less well than the profiled scale.
+
+The audit also records that O29 compares `m_c(m_c)` with `m_t(m_t)` and
+`m_s(2 GeV)` with `m_b(m_b)`. Those mixed-scale ratios cannot support precision
+claims before common-scheme RG evolution. Empirical tolerance checks have been
+demoted to diagnostics and can no longer promote a scientific claim in tests.
+
+Contract: `tests/test_gate_o33_flavour_assignment_audit.py`.
 
 ## Non-claims
 
