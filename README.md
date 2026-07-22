@@ -1,5 +1,10 @@
 # CHO: ℂ⊗ℍ⊗𝕆
 
+> **Active research branch:** `approximate-quantum-coarse-graining` starts a
+> separate quantum-information project. Its frozen scope and first exact
+> theorems are in [AQC_RESEARCH_CONSTITUTION.md](AQC_RESEARCH_CONSTITUTION.md).
+> It makes no CHO or Standard Model claim.
+
 A few-input algebraic framework for the Standard Model, built from the tensor product of the three largest normed division algebras.
 
 > **Status (2026-06-12): closed.** [STATUS.md](STATUS.md) is the canonical
