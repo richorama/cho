@@ -173,3 +173,122 @@ def partial_swap_boundary_certificate() -> bool:
             Fraction(1),
         )
     )
+
+
+def qudit_weak_threshold(dimension: int) -> Fraction:
+    """Threshold below which the identity is the optimal effective channel."""
+    if dimension < 2:
+        raise ValueError("dimension must be at least two")
+    return Fraction(dimension * dimension - 3, dimension * dimension - 1)
+
+
+def qudit_fixed_channel_terms(
+    dimension: int,
+    cosine: Fraction,
+    sine: Fraction,
+    shrinkage: Fraction,
+) -> Tuple[Fraction, Fraction, Fraction, Fraction, Fraction, Fraction]:
+    """Terms in the exact general-dimensional fixed-channel norm.
+
+    Returns ``(A, B, H0, H1, Q, C)``.  The relevant interior candidate is
+    ``D=(A H0+sqrt(Q))/C`` and the diamond norm is ``D/d``.
+    """
+    if dimension < 2:
+        raise ValueError("dimension must be at least two")
+    cosine, sine = Fraction(cosine), Fraction(sine)
+    shrinkage = Fraction(shrinkage)
+    _validate(cosine, sine)
+    lower = Fraction(-1, dimension * dimension - 1)
+    if not lower <= shrinkage <= 1:
+        raise ValueError("depolarizing shrinkage is outside the CPTP range")
+    squared_dimension = dimension * dimension
+    a = 1 - shrinkage
+    radical = (
+        a * a
+        + squared_dimension * shrinkage * sine * sine
+    )
+    h_zero = Fraction(
+        dimension * (squared_dimension - 3),
+        squared_dimension - 1,
+    )
+    h_one = Fraction(2, squared_dimension - 1)
+    quadratic = a * a * (h_zero * h_zero - h_one * h_one) + 4 * radical
+    correction = (
+        Fraction(1)
+        if radical == 0
+        else Fraction(1) - a * a * h_one * h_one / (4 * radical)
+    )
+    return a, radical, h_zero, h_one, quadratic, correction
+
+
+def qudit_fixed_channel_defect(
+    dimension: int,
+    cosine: Fraction,
+    sine: Fraction,
+    shrinkage: Fraction,
+    quadratic_root: Fraction,
+) -> Fraction:
+    """Exact fixed-depolarizing-channel norm when ``quadratic_root^2=Q``."""
+    (
+        a,
+        radical,
+        h_zero,
+        h_one,
+        quadratic,
+        correction,
+    ) = qudit_fixed_channel_terms(dimension, cosine, sine, shrinkage)
+    quadratic_root = Fraction(quadratic_root)
+    if quadratic_root < 0 or quadratic_root * quadratic_root != quadratic:
+        raise ValueError("quadratic_root must be the nonnegative square root of Q")
+    if radical == 0:
+        return Fraction(0)
+    interior = (a * h_zero + quadratic_root) / correction
+    if a * h_one * interior <= 4 * radical:
+        return interior / dimension
+    boundary = 2 * a * (h_zero + h_one)
+    return boundary / dimension
+
+
+def qudit_weak_partial_swap_defect(
+    dimension: int,
+    cosine: Fraction,
+    sine: Fraction,
+) -> Fraction:
+    """Sharp general-dimensional weak branch ``delta=2 sin(phi)``."""
+    cosine, sine = Fraction(cosine), Fraction(sine)
+    _validate(cosine, sine)
+    if cosine < 0 or sine < 0 or sine > qudit_weak_threshold(dimension):
+        raise ValueError("outside the weak qudit partial-SWAP branch")
+    return 2 * sine
+
+
+def qudit_partial_swap_certificate() -> bool:
+    """Exact qutrit certificates for the weak branch and SWAP endpoint."""
+    dimension = 3
+    weak_cosine = Fraction(4, 5)
+    weak_sine = Fraction(3, 5)
+    return (
+        qudit_weak_threshold(dimension) == Fraction(3, 4)
+        and qudit_weak_partial_swap_defect(
+            dimension,
+            weak_cosine,
+            weak_sine,
+        )
+        == Fraction(6, 5)
+        and qudit_fixed_channel_defect(
+            dimension,
+            weak_cosine,
+            weak_sine,
+            Fraction(1),
+            Fraction(18, 5),
+        )
+        == Fraction(6, 5)
+        and qudit_fixed_channel_defect(
+            dimension,
+            Fraction(0),
+            Fraction(1),
+            Fraction(0),
+            Fraction(3),
+        )
+        == Fraction(16, 9)
+    )

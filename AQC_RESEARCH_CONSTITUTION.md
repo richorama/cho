@@ -242,6 +242,96 @@ Barsse et al. signalling papers found no treatment of the continuous family or
 this two-branch formula. AQC4 therefore appears novel, while its covariance
 tools and exact SWAP endpoint are prior art.
 
+### AQC5 -- arbitrary-dimensional partial SWAP
+
+For `U_phi=cos(phi)I-i sin(phi)SWAP` on `C^d x C^d`, full `U(d)` covariance
+again reduces the effective channel to
+
+```text
+E_lambda(X)=lambda X+(1-lambda)Tr(X)I/d,
+-1/(d^2-1) <= lambda <= 1.
+```
+
+Let `A=1-lambda`,
+
+```text
+B=A^2+d^2 lambda sin^2(phi),
+H0=d(d^2-3)/(d^2-1),
+H1=2/(d^2-1).
+```
+
+For an invariant diamond witness, let `u` be its total weight on the symmetric
+subspace.  Write
+
+```text
+r_- = d(d-1)/2,  r_+ = d(d+1)/2,
+rho = x P_- + y P_+,  r_- x+r_+ y=1,
+u=r_+ y.
+```
+
+The scaled Choi operator has:
+
+```text
+-(1-lambda)y/d, multiplicity d(d-1)(d+2)/2,
+-(1-lambda)x/d, multiplicity d(d+1)(d-2)/2,
+nu_+, nu_-, each with multiplicity d.
+```
+
+Putting `P=(d-1)(d+2)/(d+1)`,
+`R=(d+1)(d-2)/(d-1)`, the last two roots obey
+
+```text
+nu_+ + nu_- = (1-lambda)[P u+R(1-u)]/d^2,
+nu_+ nu_- =
+  u(1-u){[(1-lambda)^2/d^2] P R
+         -[(1+lambda)^2-4lambda cos^2(phi)]}/d^2.
+```
+
+Their signs are opposite.  Summing all eigenvalue magnitudes and setting
+`t=2u-1` gives
+
+```text
+d_{d,phi}(lambda)
+ = max_{-1<=t<=1} (1/d) [
+     A(H0+H1 t)
+     + sqrt(A^2(H0+H1 t)^2+4B(1-t^2))
+   ],
+```
+
+where `t=2u-1`.  Put
+
+```text
+Q=A^2(H0^2-H1^2)+4B,
+C=1-A^2 H1^2/(4B),
+D=(A H0+sqrt(Q))/C.
+```
+
+If `A H1 D<=4B`, the fixed-channel norm is `D/d`; otherwise its maximum is the
+endpoint value `2A(H0+H1)/d`.  This recovers AQC4 when `d=2`.
+
+The outer optimization is convex in `lambda`.  Its left derivative at
+`lambda=1` is
+
+```text
+sin(phi) - (d^2-3)/(d^2-1).
+```
+
+Therefore the exact weak branch is
+
+```text
+0 <= sin(phi) <= (d^2-3)/(d^2-1):
+lambda_*=1,   delta_A(U_phi)=2 sin(phi).
+```
+
+At full SWAP, `lambda_*=0` and
+`delta_A=2(1-1/d^2)`, reproducing the known endpoint.  Exact qutrit
+certificates give threshold `3/4`, weak value `6/5` at
+`(cos phi,sin phi)=(4/5,3/5)`, and SWAP value `16/9`.
+For `cos(phi)>0`, the derivative at `lambda=0` is
+`-2(d^2-1)cos^2(phi)/d^2<0`; convexity therefore excludes negative
+`lambda` from the outer optimum.  Dimension-four certificates give threshold
+`13/15`, weak value `8/5` at `(3/5,4/5)`, and SWAP value `15/8`.
+
 ## Promotion and kill rules
 
 1. Exact identities must be proved analytically; code supplies finite

@@ -9,6 +9,11 @@ from quantum_coarse_graining.partial_swap import (
     fixed_channel_terms,
     partial_swap_boundary_certificate,
     partial_swap_unitary,
+    qudit_fixed_channel_defect,
+    qudit_fixed_channel_terms,
+    qudit_partial_swap_certificate,
+    qudit_weak_partial_swap_defect,
+    qudit_weak_threshold,
     strong_stationarity_holds,
     weak_partial_swap_defect,
 )
@@ -79,6 +84,69 @@ class PartialSwapTests(unittest.TestCase):
                 1,
                 Fraction(1),
             )
+
+    def test_qutrit_weak_threshold_and_defect(self):
+        self.assertEqual(qudit_weak_threshold(3), Fraction(3, 4))
+        self.assertEqual(
+            qudit_weak_partial_swap_defect(
+                3,
+                Fraction(4, 5),
+                Fraction(3, 5),
+            ),
+            Fraction(6, 5),
+        )
+        self.assertEqual(
+            qudit_fixed_channel_defect(
+                3,
+                Fraction(4, 5),
+                Fraction(3, 5),
+                1,
+                Fraction(18, 5),
+            ),
+            Fraction(6, 5),
+        )
+
+    def test_qutrit_swap_endpoint(self):
+        terms = qudit_fixed_channel_terms(3, 0, 1, 0)
+        self.assertEqual(terms[4], 9)
+        self.assertEqual(
+            qudit_fixed_channel_defect(3, 0, 1, 0, 3),
+            Fraction(16, 9),
+        )
+        self.assertTrue(qudit_partial_swap_certificate())
+
+    def test_qutrit_negative_cptp_endpoint_uses_boundary_maximum(self):
+        self.assertEqual(
+            qudit_fixed_channel_defect(
+                3,
+                0,
+                1,
+                Fraction(-1, 8),
+                Fraction(21, 8),
+            ),
+            Fraction(15, 8),
+        )
+
+    def test_dimension_four_exact_controls(self):
+        self.assertEqual(qudit_weak_threshold(4), Fraction(13, 15))
+        self.assertEqual(
+            qudit_fixed_channel_defect(
+                4,
+                Fraction(3, 5),
+                Fraction(4, 5),
+                1,
+                Fraction(32, 5),
+            ),
+            Fraction(8, 5),
+        )
+        self.assertEqual(
+            qudit_fixed_channel_defect(4, 0, 1, 0, 4),
+            Fraction(15, 8),
+        )
+
+    def test_qudit_rejects_invalid_dimension(self):
+        with self.assertRaises(ValueError):
+            qudit_weak_threshold(1)
 
 
 if __name__ == "__main__":

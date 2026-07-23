@@ -63,18 +63,18 @@ $B$ to $A$ is the diamond-norm distance
 This quantity was introduced by Barsse, Perinotti, Tosini, and Vaglini.
 Exact values were subsequently obtained for the CNOT and SWAP gates, but
 continuous interacting families have not been evaluated.  We give two such
-evaluations for qubits.  First, for the Ising family
+evaluations.  First, for the two-qubit Ising family
 $U_\theta=\exp(-i\theta Z\otimes Z)$, we prove
 $\delta_A(U_\theta)=|\sin 2\theta|$ and identify an optimal dephasing channel.
-Second, for the partial-SWAP family
+Second, for the partial-SWAP family on $\mathbb{C}^d\otimes\mathbb{C}^d$,
 $U_\phi=\cos\phi\,I-i\sin\phi\,\SWAP$, unitary covariance reduces the
 optimization to one depolarizing parameter $\lambda$.  We evaluate the
 fixed-$\lambda$ diamond norm in closed form and thereby reduce the full
 problem to a scalar convex minimization.  In the weak-interaction regime
-$0\leq\sin\phi\leq 1/3$, the result simplifies to
-$\delta_A(U_\phi)=2\sin\phi$; beyond this threshold the optimal effective
-channel moves continuously away from the identity and obeys an explicit
-algebraic stationarity equation, reaching the known SWAP value $3/2$.
+$0\leq\sin\phi\leq(d^2-3)/(d^2-1)$, the result simplifies to
+$\delta_A(U_\phi)=2\sin\phi$; beyond this dimension-dependent threshold the
+optimal effective channel moves away from the identity, reaching the known
+SWAP value $2(1-1/d^2)$.
 The proofs include matching operational witnesses.  We also distinguish
 these diamond-norm results from Hilbert--Schmidt operator-entanglement
 measures and provide exact-arithmetic computational certificates.
@@ -110,9 +110,9 @@ The present contribution is deliberately narrower than a new causal measure.
 We compute Eq.~\eqref{eq:defect} sharply for two continuous unitary families.
 The Ising result extends the CNOT endpoint.  The partial-SWAP result covers an
 interaction used in homogenization and collision models
-\cite{ziman2002,scarani2002} and reveals a transition in the optimal effective
-channel at $\sin\phi=1/3$.  A dedicated search found no previous evaluation of
-Eq.~\eqref{eq:defect} for either continuous family.
+\cite{ziman2002,scarani2002} and reveals the dimension-dependent transition
+$\sin\phi=(d^2-3)/(d^2-1)$.  A dedicated search found no previous evaluation
+of Eq.~\eqref{eq:defect} for either continuous family.
 
 The distinction from operator entanglement is important.  Hilbert--Schmidt
 distances and the linear entropy of a vectorized unitary are useful algebraic
@@ -131,7 +131,8 @@ operator
 \]
 For Hermiticity-preserving $\Phi:\cL(X)\to\cL(Y)$, the diamond norm admits the
 Watrous semidefinite-program characterization~\cite{watrous2009,watrous2018}.
-In particular, after the symmetries of an SDP have been imposed, one may use
+In the unnormalized-Choi convention used here, its Hermiticity-preserving
+specialization is
 \begin{equation}
  \diamondnorm{\Phi}
  =\max_{\rho\in\mathrm{D}(X)}
@@ -140,6 +141,8 @@ In particular, after the symmetries of an SDP have been imposed, one may use
  \label{eq:watrous}
 \end{equation}
 The maximizing $\rho$ specifies a physical witness through any purification.
+When $\Phi$ is covariant, averaging the complete primal feasible tuple over the
+symmetry group shows that an invariant maximizing density may be chosen.
 
 We use the maps
 \[
@@ -229,192 +232,208 @@ Equation~\eqref{eq:ising-result} then reproduces the exact CNOT value one,
 already obtained in Ref.~\cite{barsse2025}.  The continuous formula, rather
 than that endpoint, is the result of Theorem~\ref{thm:ising}.
 
-\section{The partial-SWAP family}
+\section{The partial-SWAP family in dimension \texorpdfstring{$d$}{d}}
 
-Consider
+Let $A\cong B\cong\mathbb{C}^d$ and consider
 \begin{equation}
  U_\phi=cI-isS,\qquad S=\SWAP,\qquad c=\cos\phi,\quad s=\sin\phi,
  \label{eq:partial-swap}
 \end{equation}
-for $0\leq\phi\leq\pi/2$.  The equal-angle Cartan interaction is this family
-up to global phase:
+for $0\leq\phi\leq\pi/2$.  For qubits, the equal-angle Cartan interaction is
+this family up to global phase:
 \[
- e^{-it(XX+YY+ZZ)}
- =e^{it}e^{-2itS},\qquad \phi=2t,
+ e^{-it(XX+YY+ZZ)}=e^{it}e^{-2itS},\qquad \phi=2t.
 \]
-because $XX+YY+ZZ=2S-I$.
 
 \subsection{Reduction to depolarizing channels}
 
-The unitary $U_\phi$ commutes with $V\otimes V$ for every $V\in U(2)$.
+The unitary $U_\phi$ commutes with $V\otimes V$ for every $V\in U(d)$.
 Lemma~\ref{lem:twirl} therefore permits an optimal effective channel to be
-chosen covariant under all unitary conjugations.  Every such qubit channel is
+chosen covariant under all unitary conjugations.  Every such channel is
 depolarizing:
 \begin{equation}
  \cE_\lambda(X)
- =\lambda X+(1-\lambda)\Tr(X)\frac{I}{2},
- \qquad -\frac13\leq\lambda\leq1.
+ =\lambda X+(1-\lambda)\Tr(X)\frac{I}{d},
+ \qquad -\frac{1}{d^2-1}\leq\lambda\leq1.
  \label{eq:depol}
 \end{equation}
-The interval is precisely the CPTP range.
-
-For reference, direct expansion of Eq.~\eqref{eq:partial-swap} gives
+This interval is precisely the CPTP range.  Direct expansion gives
 \[
  \cN_{U_\phi}(X)
- =c^2\Tr_BX+s^2\Tr_AX
-  -ics\,\Tr_B(SX-XS),
+ =c^2\Tr_BX+s^2\Tr_AX-ics\,\Tr_B(SX-XS),
 \]
-where $\Tr_A X$ is relabelled as an operator on the output copy of $A$.
+where $\Tr_A X$ is relabelled onto the output copy of $A$.
 
 \subsection{The fixed-channel diamond norm}
 
-Set
+Define
+\begin{align}
+ A&=1-\lambda,&
+ B&=A^2+d^2\lambda s^2,\nonumber\\
+ H_0&=\frac{d(d^2-3)}{d^2-1},&
+ H_1&=\frac{2}{d^2-1}.
+ \label{eq:general-terms}
+\end{align}
+For $B>0$, also put
 \begin{equation}
- a=\frac{1-\lambda}{3},\qquad
- B=(1+\lambda)^2-4\lambda c^2.
- \label{eq:aB}
+ Q=A^2(H_0^2-H_1^2)+4B,\quad
+ C=1-\frac{A^2H_1^2}{4B},\quad
+ D=\frac{AH_0+\sqrt Q}{C}.
+ \label{eq:general-D}
 \end{equation}
-For the CPTP interval in Eq.~\eqref{eq:depol}, $a\geq0$ and $B\geq0$.
 
-\begin{lemma}[Fixed depolarizing channel]
+\begin{lemma}[Fixed depolarizing channel in dimension $d$]
 \label{lem:fixed}
 Let
 \[
- d_\phi(\lambda)
+ d_{d,\phi}(\lambda)
  =\diamondnorm{\cN_{U_\phi}-\cE_\lambda\cT}.
 \]
-Then
+Apart from the identity point $B=0$, where the norm vanishes,
 \begin{equation}
- d_\phi(\lambda)=
+ d_{d,\phi}(\lambda)=
  \begin{cases}
-  4a, & B\leq4a^2,\\[3pt]
-  \displaystyle\frac{B}{\sqrt B-a}, & B>4a^2.
+  D/d, & AH_1D\leq4B,\\[2pt]
+  2A(H_0+H_1)/d, & AH_1D>4B.
  \end{cases}
  \label{eq:fixed-norm}
 \end{equation}
+The quantities $B$ and $C$ are positive and $Q$ is nonnegative on the CPTP
+interval away from that identity point, so the closed form is well defined.
 \end{lemma}
 
 \begin{proof}
-The full linear diamond-norm SDP may be averaged over the simultaneous
-$V\otimes V$ action.  This averaging applies to the complete feasible tuple,
-not to the nonlinear expression in Eq.~\eqref{eq:watrous}.  By Schur--Weyl
-duality an invariant input density has the form
+The Watrous SDP is invariant under the simultaneous $V\otimes V$ covariance
+action.  Averaging its complete primal feasible tuple therefore preserves both
+feasibility and objective value, and Schur--Weyl duality permits an optimal
+input density
 \[
- \rho=xP_-+yP_+,\qquad x+3y=1,
+ \rho=xP_-+yP_+,\qquad r_-x+r_+y=1,
+ \quad r_\pm=\frac{d(d\pm1)}2.
 \]
-where $P_-$ is the singlet projector and $P_+=I-P_-$ is the triplet
-projector.  Averaging the full SDP shows that an optimum of this form exists.
-
-Put
+Let $u=r_+y$ be its total symmetric-subspace weight.  Put
+\[
+ P=\frac{(d-1)(d+2)}{d+1},\qquad
+ R=\frac{(d+1)(d-2)}{d-1},\qquad
+ \widetilde B=(1+\lambda)^2-4\lambda c^2.
+\]
+For
 \[
  K_\rho=(I\otimes\sqrt\rho)
  J(\cN_{U_\phi}-\cE_\lambda\cT)
- (I\otimes\sqrt\rho).
+ (I\otimes\sqrt\rho),
 \]
-In a singlet/triplet basis, elementary block diagonalization produces four
-one-dimensional blocks and two identical two-dimensional blocks.  The former
-have eigenvalue $(\lambda-1)y/2$; each latter block has trace
-$(1-\lambda)y$ and determinant $-3xyB/4$.  Equivalently,
+the Schur--Weyl blocks give the spectrum
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+eigenvalue & multiplicity\\
+\midrule
+$-(1-\lambda)y/d$ & $d(d-1)(d+2)/2$\\
+$-(1-\lambda)x/d$ & $d(d+1)(d-2)/2$\\
+$\nu_+,\nu_-$ & $d$ each\\
+\bottomrule
+\end{tabular}
+\end{center}
+where
+\begin{align}
+ \nu_++\nu_-&=\frac{1-\lambda}{d^2}
+ [Pu+R(1-u)],\nonumber\\
+ \nu_+\nu_-&=\frac{u(1-u)}{d^2}
+ \left[\frac{(1-\lambda)^2}{d^2}PR-\widetilde B\right].
+ \label{eq:general-roots}
+\end{align}
+The last product is nonpositive.  Summing all eigenvalue magnitudes gives
 \begin{equation}
- \det(zI-K_\rho)
- =\left(z+\frac{(1-\lambda)y}{2}\right)^4
-  \left(z^2-(1-\lambda)yz-\frac{3xyB}{4}\right)^2.
- \label{eq:charpoly}
-\end{equation}
-Thus four eigenvalues equal $(\lambda-1)y/2$, and the remaining four are two
-copies of
-\[
- \frac{(1-\lambda)y
- \pm\sqrt{(1-\lambda)^2y^2+3xyB}}{2}.
-\]
-The two signs give opposite-sign eigenvalues because $B\geq0$.  With
-$u=3y=1-x$, Eq.~\eqref{eq:watrous} becomes
-\begin{equation}
- d_\phi(\lambda)
- =\max_{0\leq u\leq1}
- 2\left[
- au+\sqrt{a^2u^2+Bu(1-u)}
- \right].
- \label{eq:u-max}
+ d_{d,\phi}(\lambda)
+ =\max_{0\leq u\leq1}\left\{
+ \frac{1-\lambda}{d}[Pu+R(1-u)]
+ +\sqrt{\frac{(1-\lambda)^2}{d^2}[Pu-R(1-u)]^2
+              +4u(1-u)\widetilde B}
+ \right\}.
+ \label{eq:general-u}
 \end{equation}
 
-If $B\leq4a^2$, the maximum is at $u=1$ and equals $4a$.  If $B>4a^2$, the
-maximizer and value are
-\[
- u_*=\frac{\sqrt B}{2(\sqrt B-a)},\qquad
- d_\phi(\lambda)=\frac{B}{\sqrt B-a}.
-\]
-These maximizing densities, together with any purification, are matching
-operational diamond-norm witnesses.
+With $t=2u-1$, elementary algebra turns Eq.~\eqref{eq:general-u} into
+\begin{equation}
+ \max_{-1\leq t\leq1}\frac1d\left[
+ A(H_0+H_1t)
+ +\sqrt{A^2(H_0+H_1t)^2+4B(1-t^2)}
+ \right].
+ \label{eq:general-t}
+\end{equation}
+If the maximum is interior, its location is
+$t_*=AH_1D/(4B)$ and its value is $D/d$.  The condition $t_*\leq1$ gives the
+first branch of Eq.~\eqref{eq:fixed-norm}; otherwise the maximum is at $t=1$
+and gives its second branch.  The maximizing $\rho$, together with any
+purification, realizes the matching lower-bound witness; the symmetrized SDP
+calculation supplies the upper bound.
 \end{proof}
 
-\subsection{Optimization and the coupling threshold}
+\subsection{Optimization and the dimension-dependent threshold}
 
-\begin{theorem}[Exact partial-SWAP reduction]
+\begin{theorem}[Partial-SWAP signalling in arbitrary dimension]
 \label{thm:partial-swap}
-For the qubit partial-SWAP family,
+For every $d\geq2$,
 \begin{equation}
  \delta_A(U_\phi)
- =\min_{-1/3\leq\lambda\leq1}d_\phi(\lambda),
+ =\min_{-1/(d^2-1)\leq\lambda\leq1}d_{d,\phi}(\lambda),
  \label{eq:scalar-min}
 \end{equation}
-where $d_\phi$ is the explicit function in Eq.~\eqref{eq:fixed-norm}.
-Moreover,
+with $d_{d,\phi}$ given explicitly by Eq.~\eqref{eq:fixed-norm}.  Moreover,
 \begin{equation}
- 0\leq\sin\phi\leq\frac13
+ 0\leq\sin\phi\leq\frac{d^2-3}{d^2-1}
  \quad\Longrightarrow\quad
  \lambda_*=1,\qquad
  \delta_A(U_\phi)=2\sin\phi.
  \label{eq:weak-branch}
 \end{equation}
-For $1/3<\sin\phi<1$, an interior minimizer
-$0<\lambda_*<1$ obeys
+For stronger non-SWAP coupling, a minimizer lies in $0<\lambda_*<1$.
+At $\phi=\pi/2$,
 \begin{equation}
- 3(\lambda_*+1-2c^2)
- \left[
- \sqrt{B_*}-\frac{2(1-\lambda_*)}{3}
- \right]
- =B_*,
- \label{eq:stationary}
+ \lambda_*=0,\qquad
+ \delta_A(S)=2\left(1-\frac1{d^2}\right).
+ \label{eq:swap-d}
 \end{equation}
-with $B_*$ defined by Eq.~\eqref{eq:aB}.  At $\phi=\pi/2$,
-$\lambda_*=0$ and $\delta_A(U_{\pi/2})=3/2$.
 \end{theorem}
 
 \begin{proof}
-Equation~\eqref{eq:scalar-min} follows from the covariant-channel reduction and
-Lemma~\ref{lem:fixed}.  The function $d_\phi(\lambda)$ is convex because it is
-the diamond norm of a map affine in $\lambda$.  At $\lambda=1$,
-$a=0$, $B=4s^2$, and
+Equation~\eqref{eq:scalar-min} follows from covariance and
+Lemma~\ref{lem:fixed}.  The function $d_{d,\phi}(\lambda)$ is convex because it
+is the diamond norm of a map affine in $\lambda$.  At $\lambda=1$,
 \[
- d_\phi(1)=2s,\qquad
- \left.\frac{d}{d\lambda}d_\phi(\lambda)\right|_{1^-}
- =s-\frac13.
+ d_{d,\phi}(1)=2s,\qquad
+ \left.\frac{d}{d\lambda}d_{d,\phi}(\lambda)\right|_{1^-}
+ =s-\frac{d^2-3}{d^2-1}.
 \]
-Convexity therefore makes $\lambda=1$ globally optimal exactly on the weak
-branch $s\leq1/3$, proving Eq.~\eqref{eq:weak-branch}.
+Convexity proves Eq.~\eqref{eq:weak-branch}.  The matching invariant density
+has equal total symmetric and antisymmetric weights,
+\[
+ \rho=\frac{dI-S}{d(d^2-1)}.
+\]
 
-For $1/3<s<1$, moving left from $\lambda=1$ lowers the objective.  At
-$\lambda=0$ its derivative is negative when $c>0$, so a minimizer lies in
-$(0,1)$.  Differentiating the second line of Eq.~\eqref{eq:fixed-norm} and
-setting the derivative to zero yields Eq.~\eqref{eq:stationary}.  At SWAP,
-$c=0$, the solution is $\lambda_*=0$, $a=1/3$, $B=1$, and
-$d_{\pi/2}(0)=3/2$, in agreement with Ref.~\cite{barsse2025}.
+At $\lambda=0$ and $c>0$, the derivative is
+$-2(d^2-1)c^2/d^2<0$.  Convexity excludes negative $\lambda$ from the outer
+optimum, while the positive derivative at $\lambda=1$ in the strong regime
+places a minimizer in $(0,1)$.  At SWAP the minimizer is $\lambda=0$;
+Eq.~\eqref{eq:general-t} is maximized at $t=1/d$, corresponding to
+$\rho=I/d^2$, and yields Eq.~\eqref{eq:swap-d}, in agreement with
+Ref.~\cite{barsse2025}.
 \end{proof}
 
 \begin{table}[t]
 \centering
-\caption{Representative points on the partial-SWAP curve.  Interior values
-are shown only for orientation; the theorem is Eq.~\eqref{eq:scalar-min}.}
+\caption{Dimension dependence of the partial-SWAP weak threshold and the known
+full-SWAP endpoint.}
 \label{tab:values}
 \begin{tabular}{@{}lll@{}}
 \toprule
-$\phi$ & optimal $\lambda_*$ & $\delta_A(U_\phi)$\\
+$d$ & weak threshold for $\sin\phi$ & $\delta_A(S)$\\
 \midrule
-$0$ & $1$ & $0$\\
-$\arcsin(1/3)$ & $1$ & $2/3$\\
-$\pi/4$ & $\approx0.52358$ & $\approx1.31358$\\
-$\pi/2$ & $0$ & $3/2$\\
+$2$ & $1/3$ & $3/2$\\
+$3$ & $3/4$ & $16/9$\\
+$4$ & $13/15$ & $15/8$\\
+$d$ & $(d^2-3)/(d^2-1)$ & $2(1-1/d^2)$\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -424,10 +443,11 @@ $\pi/2$ & $0$ & $3/2$\\
 The two families exhibit different mechanisms.  In the Ising family, one
 dephasing channel is optimal for every coupling, and two product inputs already
 witness the exact defect.  Along the partial-SWAP family, the optimal effective
-channel itself changes: it remains the identity until $\sin\phi=1/3$, then
-moves into the depolarizing interval and reaches complete depolarization at
-SWAP.  The optimal diamond witness likewise generally uses a reference system,
-as encoded by a purification of the singlet/triplet density in
+channel itself changes: it remains the identity until
+$\sin\phi=(d^2-3)/(d^2-1)$, then moves into the depolarizing interval and
+reaches complete depolarization at SWAP.  The optimal diamond witness likewise
+generally uses a reference system, as encoded by a purification of the
+symmetric/antisymmetric density in
 Lemma~\ref{lem:fixed}.
 
 The threshold is operational rather than spectral: it is where the outer
@@ -448,11 +468,11 @@ $U(2)$ symmetry is absent.
 
 \section{Reproducibility}
 
-The accompanying repository implements all finite-dimensional identities over
+The accompanying repository implements finite-dimensional certificates over
 the Gaussian rationals $\mathbb{Q}(i)$.  It verifies the Ising residual
 factorization, the physical product-state witness, the equal-Cartan/partial-SWAP
-identity, exact weak-branch values at the Pythagorean point
-$(\cos\phi,\sin\phi)=(40/41,9/41)$, and the SWAP endpoint.  The focused suite is
+identity, exact qubit, qutrit, and dimension-four weak-branch values, the
+negative depolarizing boundary, and the SWAP endpoint.  The focused suite is
 run from the repository root with
 \begin{verbatim}
 python3 -m unittest discover -s tests -p 'test_aqc_*.py' -v
@@ -461,16 +481,17 @@ The code is a certificate and regression harness; the analytic proofs above do
 not depend on floating-point optimization.  The exact harness covers an
 interior point of the weak branch and the SWAP boundary of the strong branch;
 the generic interior strong-branch result is certified analytically by
-Eqs.~\eqref{eq:charpoly}--\eqref{eq:stationary}, not by encoding its generally
-algebraic minimizer in the rational backend.
+Eqs.~\eqref{eq:general-roots}--\eqref{eq:scalar-min}, not by encoding its
+generally algebraic minimizer in the rational backend.
 
 \section{Conclusion}
 
 Directional signalling can be evaluated sharply beyond isolated gates.
-For Ising interactions it is $|\sin2\theta|$.  For partial SWAP it is an
-explicit scalar convex minimization with a closed weak branch
-$2\sin\phi$, a transition at $\sin\phi=1/3$, and the known SWAP endpoint
-$3/2$.  The calculation provides a controlled setting in which an optimal
+For two-qubit Ising interactions it is $|\sin2\theta|$.  In every finite
+dimension, partial SWAP reduces to an explicit scalar convex minimization with
+weak branch $2\sin\phi$, transition
+$(d^2-3)/(d^2-1)$, and known SWAP endpoint $2(1-1/d^2)$.  The calculation
+provides a controlled setting in which an optimal
 autonomous effective channel changes nonperturbatively with interaction
 strength.  Extending the same operational analysis to the full Cartan
 three-parameter family is the natural next mathematical problem.
