@@ -143,6 +143,39 @@ from the identity channel. A maximally entangled B-reference input attains the
 same value. This is a known channel-discrimination identity applied as a
 boundary control, not a new theorem.
 
+### AQC3 -- Cartan symmetry reduction
+
+For
+
+```text
+U = exp[-i (alpha XX + beta YY + gamma ZZ)]
+```
+
+write `U=sum_mu a_mu sigma_mu x sigma_mu`. Coupling B to the maximally mixed
+state gives the admissible Pauli channel
+
+```text
+F(X) = sum_mu |a_mu|^2 sigma_mu X sigma_mu.
+```
+
+The nonnegative weights sum to one, so `F` is CPTP, and
+`Tr_B Ad_U(X x I/2)=F(X)` exactly. This does not yet prove that `F` is the
+globally optimal effective channel.
+
+The Cartan unitary commutes with every joint Pauli `P x P`. Consequently both
+`N=Tr_B Ad_U` and `T=Tr_B` obey the same covariance,
+
+```text
+N Ad_(P x P) = Ad_P N,    T Ad_(P x P) = Ad_P T.
+```
+
+For any candidate channel `E`, conjugating `E` by `Ad_P` preserves the diamond
+defect. Convexity then shows that its Pauli twirl cannot increase the defect.
+Therefore at least one optimal `E` is Pauli diagonal. This is a symmetry
+reduction from all qubit CPTP maps to the Pauli-channel tetrahedron, not a
+solution of the remaining diamond-norm minimization and not a novelty claim by
+itself.
+
 ## Promotion and kill rules
 
 1. Exact identities must be proved analytically; code supplies finite
@@ -162,4 +195,6 @@ Determine whether AQC1 extends from the Ising family to arbitrary two-qubit
 Cartan interactions with a sharp formula or dimension-independent rigidity
 bound. The Ising and SWAP endpoints are now exact. The Cartan target must allow
 ancilla-assisted witnesses: SWAP shows that system-only hidden-correlation
-witnesses need not attain the diamond norm.
+witnesses need not attain the diamond norm. AQC3 reduces the effective-channel
+optimization to the Pauli tetrahedron; proving which Pauli channel is optimal
+and evaluating its diamond norm remain open.

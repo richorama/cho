@@ -6,7 +6,6 @@ from fractions import Fraction
 
 from .exact import (
     Gaussian,
-    I,
     Matrix,
     ONE,
     ZERO,
@@ -16,16 +15,14 @@ from .exact import (
     dagger,
     kron,
     matmul,
-    matrix,
     matrix_unit,
     partial_trace_b,
     scale,
     subtract,
 )
-
-_Z = matrix(((1, 0), (0, -1)))
-_Y = ((ZERO, -I), (I, ZERO))
-_X = matrix(((0, 1), (1, 0)))
+from .pauli import PAULI_X as _X
+from .pauli import PAULI_Y as _Y
+from .pauli import PAULI_Z as _Z
 
 
 def ising_unitary(cosine: Fraction, sine: Fraction) -> Matrix:

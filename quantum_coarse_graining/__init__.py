@@ -6,6 +6,16 @@ from .autonomy import (
     normalized_closure_defect,
     operator_entanglement_identity_holds,
 )
+from .cartan import (
+    cartan_effective_channel,
+    cartan_effective_channel_is_cptp,
+    cartan_joint_pauli_covariance_certificate,
+    cartan_pauli_coefficients,
+    cartan_pauli_weights,
+    cartan_symmetry_certificate,
+    cartan_unitary,
+    cartan_visible_sector_certificate,
+)
 from .exact import Gaussian, I, ONE, ZERO
 from .ising import (
     diamond_autonomy_defect,
@@ -30,6 +40,14 @@ __all__ = [
     "ONE",
     "ZERO",
     "closure_defect",
+    "cartan_effective_channel",
+    "cartan_effective_channel_is_cptp",
+    "cartan_joint_pauli_covariance_certificate",
+    "cartan_pauli_coefficients",
+    "cartan_pauli_weights",
+    "cartan_symmetry_certificate",
+    "cartan_unitary",
+    "cartan_visible_sector_certificate",
     "linear_operator_entanglement",
     "normalized_closure_defect",
     "operator_entanglement_identity_holds",
