@@ -88,6 +88,35 @@ def hidden_correlation_witness() -> Matrix:
     return scale(Gaussian(Fraction(1, 4)), kron(_Y, _Z))
 
 
+def product_state_lower_bound_certificate(
+    cosine: Fraction, sine: Fraction
+) -> bool:
+    """Two physical inputs with the same A marginal attain the lower bound."""
+    plus_state = scale(
+        Gaussian(Fraction(1, 2)),
+        add(identity(2), _X),
+    )
+    b_zero = matrix_unit(2, 0, 0)
+    b_one = matrix_unit(2, 1, 1)
+    input_zero = kron(plus_state, b_zero)
+    input_one = kron(plus_state, b_one)
+    output_difference = subtract(
+        coarse_after_ising(input_zero, cosine, sine),
+        coarse_after_ising(input_one, cosine, sine),
+    )
+    expected = scale(Gaussian(2 * cosine * sine), _Y)
+    return (
+        partial_trace_b(input_zero, 2, 2) == plus_state
+        and partial_trace_b(input_one, 2, 2) == plus_state
+        and output_difference == expected
+        and matmul(output_difference, output_difference)
+        == scale(
+            Gaussian(4 * cosine * cosine * sine * sine),
+            identity(2),
+        )
+    )
+
+
 def hidden_correlation_witness_holds(
     cosine: Fraction, sine: Fraction
 ) -> bool:
@@ -165,6 +194,7 @@ def ising_theorem_certificate(cosine: Fraction, sine: Fraction) -> bool:
     """Finite exact certificate for the analytic upper and lower bounds."""
     return (
         ising_decomposition_holds(cosine, sine)
+        and product_state_lower_bound_certificate(cosine, sine)
         and hidden_correlation_witness_holds(cosine, sine)
         and witness_trace_norm_certificate(cosine, sine)
         and flagged_state_witness_certificate(cosine, sine)

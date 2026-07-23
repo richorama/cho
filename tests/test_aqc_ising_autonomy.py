@@ -9,6 +9,7 @@ from quantum_coarse_graining.ising import (
     ising_decomposition_holds,
     ising_theorem_certificate,
     ising_unitary,
+    product_state_lower_bound_certificate,
     witness_trace_norm_certificate,
 )
 
@@ -41,6 +42,14 @@ class IsingAutonomyTheoremTests(unittest.TestCase):
         )
         self.assertTrue(
             witness_trace_norm_certificate(Fraction(4, 5), Fraction(3, 5))
+        )
+
+    def test_physical_product_states_saturate_the_lower_bound(self):
+        self.assertTrue(
+            product_state_lower_bound_certificate(
+                Fraction(4, 5),
+                Fraction(3, 5),
+            )
         )
 
     def test_theorem_certificate_combines_upper_and_lower_bounds(self):

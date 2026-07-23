@@ -103,19 +103,13 @@ L(X) = -(i/2)[Z, Tr_B(Z_B X)],
 
 and `||L||_diamond=1`. The upper bound follows because
 `X -> Tr_B(Z_B X)` and `K -> -(i/2)[Z,K]` have completely bounded trace norm at
-most one. The induced-norm lower bound uses the trace-norm-one signed operator
-`W=Y_A x Z_B / 4`, whose A marginal vanishes while its evolved A output has
-trace norm `|sin(2 theta)|`. Since `W` is not positive, it is not itself a
-physical state. An operational diamond-norm witness is obtained from its
-positive and negative parts using a one-qubit classical flag:
-
-```text
-rho_RAB = |0><0| x W_+ + |1><1| x W_-.
-```
-
-This is a normalized state, and block additivity plus the triangle inequality
-gives an output trace norm at least that of `L(W)`; the upper bound makes the
-inequality sharp.
+most one. For the lower bound, take the two physical product inputs
+`|+><+|_A x |0><0|_B` and `|+><+|_A x |1><1|_B`. They have the same A marginal,
+so every candidate effective channel gives them the same simulated output.
+Their true A outputs differ by `2cs Y`, with trace norm `4|cs|`; the triangle
+inequality forces one simulation error to be at least `2|cs|`. This matches the
+upper bound without a reference ancilla. The exact code additionally certifies
+the equivalent signed-operator witness and its flagged-state realization.
 
 At `theta=pi/4`, this unitary is locally equivalent to CZ and CNOT. Hence AQC1
 also gives `S(CNOT)=1` in the convention of Barsse et al. Their 2025 follow-up

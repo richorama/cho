@@ -24,6 +24,7 @@ from .ising import (
     ising_decomposition_holds,
     ising_theorem_certificate,
     ising_unitary,
+    product_state_lower_bound_certificate,
     witness_trace_norm_certificate,
 )
 from .partial_swap import (
@@ -66,6 +67,7 @@ __all__ = [
     "ising_decomposition_holds",
     "ising_theorem_certificate",
     "ising_unitary",
+    "product_state_lower_bound_certificate",
     "witness_trace_norm_certificate",
     "equal_cartan_is_partial_swap",
     "fixed_channel_defect",
