@@ -31,6 +31,9 @@ interpretation is in scope.
   120501 (2010), arXiv:0907.5391.
 - Directional signalling and causal influence: Barsse, Perinotti, Tosini and
   Vaglini, *Phys. Rev. Research* 6, 043305 (2024), arXiv:2309.07771.
+- Exact SWAP and CNOT signalling, including parallel and asymptotic uses:
+  Barsse, Perinotti, Tosini and Vaglini, *Disentangling signalling and causal
+  influence* (2025), arXiv:2505.14120.
 - Tensor-product-structure distance: Andreadakis and Zanardi, *Quantum* 9,
   1668 (2025), arXiv:2410.02911.
 - Exact quantum model reduction: Grigoletto et al., *Quantum* 9, 1814 (2025),
@@ -44,10 +47,10 @@ the sharp channel-intertwining defect considered here.
 The quantity `delta_A(U)` is not a new measure: under the diamond norm and after
 exchanging the subsystem labels, it is exactly the directional signalling
 measure `S(U)` of Barsse et al., including its optimization over arbitrary correlated and
-ancilla-extended inputs. Their CNOT analysis proves `S(CNOT) <= 1`; AQC1 makes
-that bound sharp and extends it to a continuous locally equivalent Ising
-family. The novelty claim is therefore the exact family evaluation, not the
-definition of the measure.
+ancilla-extended inputs. The 2024 paper proves `S(CNOT)<=1`; the 2025 follow-up
+proves exact CNOT and SWAP values. AQC1 independently reproduces the CNOT value
+and extends it to a continuous locally equivalent Ising family. The novelty
+claim is therefore the exact family evaluation, not the definition or endpoint.
 
 ## Frozen results
 
@@ -115,9 +118,9 @@ gives an output trace norm at least that of `L(W)`; the upper bound makes the
 inequality sharp.
 
 At `theta=pi/4`, this unitary is locally equivalent to CZ and CNOT. Hence AQC1
-also proves `S(CNOT)=1` in the convention of Barsse et al., closing their
-published upper bound. This endpoint was not a new measure or a new
-no-signalling criterion.
+also gives `S(CNOT)=1` in the convention of Barsse et al. Their 2025 follow-up
+proves that endpoint independently, so the endpoint is prior art; the
+continuous Ising formula remains the candidate new result.
 
 ### AQC2 -- SWAP boundary control
 
@@ -141,7 +144,8 @@ effective channel to a replacement state on the relabelled B output. Unitary
 twirling shows that the maximally mixed replacement minimizes its distance
 from the identity channel. A maximally entangled B-reference input attains the
 same value. This is a known channel-discrimination identity applied as a
-boundary control, not a new theorem.
+boundary control, not a new theorem. Barsse et al. (2025) also derive this exact
+SWAP signalling value in arbitrary equal dimension.
 
 ### AQC3 -- Cartan symmetry reduction
 
@@ -176,6 +180,74 @@ reduction from all qubit CPTP maps to the Pauli-channel tetrahedron, not a
 solution of the remaining diamond-norm minimization and not a novelty claim by
 itself.
 
+### AQC4 -- partial-SWAP scalar theorem
+
+On the equal-angle Cartan line `alpha=beta=gamma=t`, the identity
+`XX+YY+ZZ=2 SWAP-I` makes the channel, up to global phase,
+
+```text
+U_phi = cos(phi) I - i sin(phi) SWAP,   phi=2t.
+```
+
+Its full `V x V` covariance strengthens AQC3: an optimal effective qubit
+channel can be chosen depolarizing,
+
+```text
+E_lambda(X)=lambda X+(1-lambda)Tr(X)I/2,  -1/3<=lambda<=1.
+```
+
+For fixed `lambda`, put
+
+```text
+a=(1-lambda)/3,
+B=(1+lambda)^2-4 lambda cos^2(phi).
+```
+
+The diamond SDP evaluates exactly to
+
+```text
+d_phi(lambda) =
+  4a                         if B <= 4a^2,
+  B/(sqrt(B)-a)              if B > 4a^2.
+```
+
+Proof: average the full linear diamond-SDP feasible tuple
+`(rho_0,rho_1,X)`, not the nonlinear trace-norm formula, over `V x V`.
+Linearity preserves its objective and produces invariant input densities.
+Schur-Weyl duality then gives `rho=x P_-+y P_+`, with `x+3y=1`. In the
+singlet/triplet basis, the scaled Choi matrix splits into two equivalent
+blocks. Four eigenvalues are `(lambda-1)y/2`; the remaining four are two copies
+of
+
+```text
+[(1-lambda)y +- sqrt((1-lambda)^2 y^2+3xyB)]/2.
+```
+
+Maximizing their trace norm over `x` gives the displayed branches. Thus
+
+```text
+delta_A(U_phi)=min_{-1/3<=lambda<=1} d_phi(lambda).
+```
+
+This scalar minimization has a closed weak-coupling branch:
+
+```text
+0 <= sin(phi) <= 1/3:
+lambda_*=1,   delta_A(U_phi)=2 sin(phi).
+```
+
+For `1/3<sin(phi)<1`, a minimizer lies in `0<lambda_*<1` and satisfies
+
+```text
+3[lambda_*+1-2cos^2(phi)] [sqrt(B_*)-2(1-lambda_*)/3] = B_*.
+```
+
+It reaches `lambda_*=0` and `delta=3/2` at SWAP. A dedicated search covering
+partial-SWAP collision models, covariant channel discrimination, and both
+Barsse et al. signalling papers found no treatment of the continuous family or
+this two-branch formula. AQC4 therefore appears novel, while its covariance
+tools and exact SWAP endpoint are prior art.
+
 ## Promotion and kill rules
 
 1. Exact identities must be proved analytically; code supplies finite
@@ -197,4 +269,5 @@ bound. The Ising and SWAP endpoints are now exact. The Cartan target must allow
 ancilla-assisted witnesses: SWAP shows that system-only hidden-correlation
 witnesses need not attain the diamond norm. AQC3 reduces the effective-channel
 optimization to the Pauli tetrahedron; proving which Pauli channel is optimal
-and evaluating its diamond norm remain open.
+and evaluating its diamond norm remain open away from the equal-angle
+partial-SWAP line solved by AQC4.

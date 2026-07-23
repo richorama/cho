@@ -26,6 +26,15 @@ from .ising import (
     ising_unitary,
     witness_trace_norm_certificate,
 )
+from .partial_swap import (
+    equal_cartan_is_partial_swap,
+    fixed_channel_defect,
+    fixed_channel_terms,
+    partial_swap_boundary_certificate,
+    partial_swap_unitary,
+    strong_stationarity_holds,
+    weak_partial_swap_defect,
+)
 from .swap import (
     swap_ancilla_witness_certificate,
     swap_decomposition_holds,
@@ -58,6 +67,13 @@ __all__ = [
     "ising_theorem_certificate",
     "ising_unitary",
     "witness_trace_norm_certificate",
+    "equal_cartan_is_partial_swap",
+    "fixed_channel_defect",
+    "fixed_channel_terms",
+    "partial_swap_boundary_certificate",
+    "partial_swap_unitary",
+    "strong_stationarity_holds",
+    "weak_partial_swap_defect",
     "swap_ancilla_witness_certificate",
     "swap_decomposition_holds",
     "swap_diamond_autonomy_defect",
