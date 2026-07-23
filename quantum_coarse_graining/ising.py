@@ -1,4 +1,4 @@
-"""Sharp operational autonomy theorem for a two-qubit Ising interaction."""
+"""Sharp directional-signalling theorem for a two-qubit Ising interaction."""
 
 from __future__ import annotations
 
@@ -87,7 +87,7 @@ def ising_decomposition_holds(cosine: Fraction, sine: Fraction) -> bool:
 
 
 def hidden_correlation_witness() -> Matrix:
-    """Trace-norm-one ``Y_A x Z_B / 4`` with zero A marginal."""
+    """Trace-norm-one signed operator ``Y_A x Z_B / 4`` with zero A marginal."""
     return scale(Gaussian(Fraction(1, 4)), kron(_Y, _Z))
 
 
@@ -97,7 +97,8 @@ def hidden_correlation_witness_holds(
     """The witness has zero coarse input and output ``-2cs X/2``.
 
     Since ``X/2`` has trace norm one, this supplies the matching diamond-norm
-    lower bound ``2|cs|`` without an ancilla.
+    induced-norm lower bound ``2|cs|``. A physical-state realization uses a
+    classical flag for the positive and negative parts.
     """
     witness = hidden_correlation_witness()
     expected = scale(Gaussian(-cosine * sine), _X)
@@ -128,8 +129,38 @@ def witness_trace_norm_certificate(
     )
 
 
+def flagged_state_witness_certificate(
+    cosine: Fraction, sine: Fraction
+) -> bool:
+    """Certify the positive/negative parts used by the physical flagged state."""
+    witness = hidden_correlation_witness()
+    plus_projector = add(
+        scale(Gaussian(Fraction(1, 2)), identity(4)),
+        scale(Gaussian(2), witness),
+    )
+    minus_projector = subtract(identity(4), plus_projector)
+    positive_part = scale(Gaussian(Fraction(1, 4)), plus_projector)
+    negative_part = scale(Gaussian(Fraction(1, 4)), minus_projector)
+    zero = tuple(tuple(ZERO for _ in range(4)) for _ in range(4))
+    return (
+        matmul(plus_projector, plus_projector) == plus_projector
+        and matmul(minus_projector, minus_projector) == minus_projector
+        and matmul(plus_projector, minus_projector) == zero
+        and subtract(positive_part, negative_part) == witness
+        and sum((positive_part[k][k] for k in range(4)), ZERO).real
+        == Fraction(1, 2)
+        and sum((negative_part[k][k] for k in range(4)), ZERO).real
+        == Fraction(1, 2)
+        and subtract(
+            ising_residual(positive_part, cosine, sine),
+            ising_residual(negative_part, cosine, sine),
+        )
+        == ising_residual(witness, cosine, sine)
+    )
+
+
 def diamond_autonomy_defect(cosine: Fraction, sine: Fraction) -> Fraction:
-    """The theorem value ``inf_E ||Tr_B Ad_U - E Tr_B||_diamond = 2|cs|``."""
+    """The sharp autonomy defect, equivalently reverse directional signalling."""
     return abs(2 * cosine * sine)
 
 
@@ -139,4 +170,5 @@ def ising_theorem_certificate(cosine: Fraction, sine: Fraction) -> bool:
         ising_decomposition_holds(cosine, sine)
         and hidden_correlation_witness_holds(cosine, sine)
         and witness_trace_norm_certificate(cosine, sine)
+        and flagged_state_witness_certificate(cosine, sine)
     )

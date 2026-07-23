@@ -4,6 +4,7 @@ from fractions import Fraction
 from quantum_coarse_graining.exact import is_unitary
 from quantum_coarse_graining.ising import (
     diamond_autonomy_defect,
+    flagged_state_witness_certificate,
     hidden_correlation_witness_holds,
     ising_decomposition_holds,
     ising_theorem_certificate,
@@ -45,6 +46,11 @@ class IsingAutonomyTheoremTests(unittest.TestCase):
     def test_theorem_certificate_combines_upper_and_lower_bounds(self):
         self.assertTrue(
             ising_theorem_certificate(Fraction(4, 5), Fraction(3, 5))
+        )
+
+    def test_signed_witness_has_a_physical_flagged_state_realization(self):
+        self.assertTrue(
+            flagged_state_witness_certificate(Fraction(4, 5), Fraction(3, 5))
         )
 
     def test_sharp_diamond_defect(self):
