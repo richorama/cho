@@ -452,9 +452,32 @@ delta_A(U_theta)
    subject to u=(1+w)/2.
 ```
 
-Its stationary points obey the characteristic cubic of `M3` together with
-its derivatives in `A` and `w`.  No elementary closed form or analytic
-active-facet proof is claimed.
+Eliminating `A` and `w` from those stationary equations gives a compact
+conditional algebraic answer.  With `t=tan(theta)` and `d=delta_A(U_theta)`,
+the physical sheet obeys
+
+```text
+Q_+(d,t) =
+ d^4(t^6+t^5+3t^4+2t^3+3t^2+t+1)
++d^3(2t^7-46t^6-122t^5-170t^4-138t^3-58t^2-14t+2)
++d^2(-84t^7+24t^6+72t^5+96t^4-68t^3-56t^2-32t)
++d(96t^7+64t^6+160t^5+384t^4+320t^3+128t^2)
++64t^5(2t^2+2t+1) = 0.
+```
+
+The degree-eight elimination over `Q(C)` is the field norm
+`Q_+(d,t)Q_+(d,-t)`.  Exact Sturm counts show that `Q_+` has exactly one root
+`d in (1/2,2)` throughout the intermediate interval, with no collisions or
+bracket crossings.  It joins the weak and strong values exactly: the first
+threshold is the relevant root of
+`t^6-2t^5-3t^4+7t^2+2t-1`, and the second is the root of
+`t^3+t^2-1`.
+
+This quartic is rigorous **conditional on the active facet**.  An attempted
+KKT/elimination proof found exact inertia and all-witness PSD identities, but
+an independent audit found that the load-bearing multiplier sign and physical
+sheet tracking still use floating-point branch selection.  Therefore no
+analytic active-facet proof, and no unconditional middle formula, is claimed.
 
 **III. Central iSWAP regime.**  Let `theta_2=0.646615513406...` be the root
 

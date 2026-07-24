@@ -5,6 +5,9 @@ from quantum_coarse_graining.exact import Gaussian, is_unitary, matrix_unit
 from quantum_coarse_graining.xy import (
     xy_block_characteristic,
     xy_boundary_certificate,
+    xy_first_threshold_tangent_polynomial,
+    xy_middle_quartic_coefficients,
+    xy_second_threshold_tangent_polynomial,
     xy_pauli_channel,
     xy_strong_defect,
     xy_strong_probabilities,
@@ -78,6 +81,26 @@ class XYSignallingTests(unittest.TestCase):
 
     def test_combined_boundary_certificate(self):
         self.assertTrue(xy_boundary_certificate())
+
+    def test_conditional_middle_quartic_control(self):
+        self.assertEqual(
+            xy_middle_quartic_coefficients(Fraction(1, 2)),
+            (
+                Fraction(175, 64),
+                Fraction(-3321, 64),
+                Fraction(-977, 32),
+                Fraction(411, 4),
+                Fraction(5),
+            ),
+        )
+        self.assertEqual(
+            xy_first_threshold_tangent_polynomial(Fraction(1, 2)),
+            Fraction(97, 64),
+        )
+        self.assertEqual(
+            xy_second_threshold_tangent_polynomial(Fraction(1, 2)),
+            Fraction(-5, 8),
+        )
 
 
 if __name__ == "__main__":

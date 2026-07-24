@@ -10,6 +10,7 @@ from .exact import Gaussian, Matrix, add, identity, matmul, scale
 from .pauli import PAULIS
 
 PauliProbabilities = Tuple[Fraction, Fraction, Fraction, Fraction]
+QuarticCoefficients = Tuple[Fraction, Fraction, Fraction, Fraction, Fraction]
 
 
 def _validate_unit_circle(cosine: Fraction, sine: Fraction) -> None:
@@ -58,6 +59,81 @@ def xy_strong_threshold_polynomial(
     cosine, sine = Fraction(transfer_cosine), Fraction(transfer_sine)
     _validate_unit_circle(cosine, sine)
     return 1 + cosine * cosine - 2 * cosine * (1 + sine)
+
+
+def xy_first_threshold_tangent_polynomial(tangent: Fraction) -> Fraction:
+    """Polynomial whose first positive root is the weak/middle threshold."""
+    tangent = Fraction(tangent)
+    return (
+        tangent**6
+        - 2 * tangent**5
+        - 3 * tangent**4
+        + 7 * tangent**2
+        + 2 * tangent
+        - 1
+    )
+
+
+def xy_second_threshold_tangent_polynomial(tangent: Fraction) -> Fraction:
+    """Polynomial whose positive root is the middle/strong threshold."""
+    tangent = Fraction(tangent)
+    return tangent**3 + tangent**2 - 1
+
+
+def xy_middle_quartic_coefficients(
+    tangent: Fraction,
+) -> QuarticCoefficients:
+    """Return the conditional middle-branch quartic coefficients.
+
+    If the numerically observed ``q_Z=0`` facet is globally optimal, the
+    intermediate defect is the unique physical root of
+    ``sum(coefficients[k] * delta**(4-k), k=0..4)``.
+    """
+    t = Fraction(tangent)
+    return (
+        t**6 + t**5 + 3 * t**4 + 2 * t**3 + 3 * t**2 + t + 1,
+        (
+            2 * t**7
+            - 46 * t**6
+            - 122 * t**5
+            - 170 * t**4
+            - 138 * t**3
+            - 58 * t**2
+            - 14 * t
+            + 2
+        ),
+        (
+            -84 * t**7
+            + 24 * t**6
+            + 72 * t**5
+            + 96 * t**4
+            - 68 * t**3
+            - 56 * t**2
+            - 32 * t
+        ),
+        (
+            96 * t**7
+            + 64 * t**6
+            + 160 * t**5
+            + 384 * t**4
+            + 320 * t**3
+            + 128 * t**2
+        ),
+        64 * t**5 * (2 * t**2 + 2 * t + 1),
+    )
+
+
+def xy_middle_quartic(
+    defect: Fraction,
+    tangent: Fraction,
+) -> Fraction:
+    """Evaluate the conditional middle-branch quartic exactly."""
+    defect = Fraction(defect)
+    coefficients = xy_middle_quartic_coefficients(tangent)
+    return sum(
+        coefficient * defect ** (4 - index)
+        for index, coefficient in enumerate(coefficients)
+    )
 
 
 def xy_weak_probabilities(
@@ -226,7 +302,19 @@ def xy_boundary_certificate() -> bool:
     weak_cosine, weak_sine = Fraction(12, 13), Fraction(5, 13)
     strong_cosine, strong_sine = Fraction(9, 41), Fraction(40, 41)
     return (
-        xy_weak_defect(weak_cosine, weak_sine) == Fraction(120, 169)
+        xy_middle_quartic_coefficients(Fraction(1, 2))
+        == (
+            Fraction(175, 64),
+            Fraction(-3321, 64),
+            Fraction(-977, 32),
+            Fraction(411, 4),
+            Fraction(5),
+        )
+        and xy_first_threshold_tangent_polynomial(Fraction(1, 2))
+        == Fraction(97, 64)
+        and xy_second_threshold_tangent_polynomial(Fraction(1, 2))
+        == Fraction(-5, 8)
+        and xy_weak_defect(weak_cosine, weak_sine) == Fraction(120, 169)
         and xy_weak_probabilities(weak_cosine, weak_sine)
         == (
             Fraction(144, 169),

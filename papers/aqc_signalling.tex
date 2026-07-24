@@ -663,8 +663,27 @@ value is $3/2$.
 In the intervening interval $\theta_1<\theta<\theta_2$,
 Eq.~\eqref{eq:xy-minmax} remains the rigorous characterization.  Numerical
 SDPs place the minimizer on the CPTP facet $q_Z=0$ and the maximizing witness
-in the interior, but we do not claim an analytic active-facet proof or an
-elementary closed form for this branch.  The full curve satisfies
+in the interior.  Conditional on that active facet, eliminating the channel
+and witness parameters gives a compact algebraic result.  With
+$t=\tan\theta$ and $\Delta=\delta_A(U_\theta)$, define
+\begin{align}
+ Q_+(\Delta,t)={}&
+ (t^6+t^5+3t^4+2t^3+3t^2+t+1)\Delta^4\nonumber\\
+ &+(2t^7-46t^6-122t^5-170t^4-138t^3-58t^2-14t+2)\Delta^3\nonumber\\
+ &+(-84t^7+24t^6+72t^5+96t^4-68t^3-56t^2-32t)\Delta^2\nonumber\\
+ &+(96t^7+64t^6+160t^5+384t^4+320t^3+128t^2)\Delta\nonumber\\
+ &+64t^5(2t^2+2t+1).
+ \label{eq:xy-middle-quartic}
+\end{align}
+Exact elimination gives $Q_+(\Delta,t)=0$.  Its degree-eight counterpart over
+$\mathbb{Q}(C)$ is the field norm proportional to
+$Q_+(\Delta,t)Q_+(\Delta,-t)$.  Sturm counts show that $Q_+$ has exactly one
+root $\Delta\in(1/2,2)$ throughout the intermediate interval, with no root
+collision or endpoint crossing, and it joins both closed branches exactly.
+This quartic is rigorous conditional information, not an unconditional formula:
+an attempted KKT proof of the $q_Z=0$ facet still contains a floating-point
+physical-sheet selection.  We therefore do not claim an analytic active-facet
+proof for the middle branch.  The full curve satisfies
 $\delta_A(\theta)=\delta_A(\pi/2-\theta)$ and returns to zero at
 $\theta=\pi/2$, where $U_{\pi/2}=Z\otimes Z$.
 
