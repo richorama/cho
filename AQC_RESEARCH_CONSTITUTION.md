@@ -332,6 +332,176 @@ For `cos(phi)>0`, the derivative at `lambda=0` is
 `lambda` from the outer optimum.  Dimension-four certificates give threshold
 `13/15`, weak value `8/5` at `(3/5,4/5)`, and SWAP value `15/8`.
 
+### AQC6 -- the XY/iSWAP line
+
+For
+
+```text
+U_theta=exp[-i theta(XX+YY)],  0<=theta<=pi/4,
+C=cos(2 theta),  S=sin(2 theta),
+```
+
+the excitation-zero and excitation-two states are fixed, while the
+one-excitation sector rotates by `C I-i S X`.  Joint-Pauli and axial `U(1)`
+covariance reduce an optimal effective channel to
+
+```text
+E(rho)=q_I rho+q(X rho X+Y rho Y)+q_Z Z rho Z.
+```
+
+Equivalently, its Bloch eigenvalues are `(u,u,w)`, with
+
+```text
+q_I=(1+2u+w)/4, q=(1-w)/4, q_Z=(1+w-2u)/4,
+-1<=w<=1, |u|<=(1+w)/2.
+```
+
+For a fixed `(u,w)`, average the complete Watrous-SDP feasible tuple over joint
+axial rotations and `X tensor X`.  The remaining odd-sector coherence changes
+sign under the antiunitary covariance
+`X -> (Z tensor I) X* (Z tensor I)` and may also be averaged away.  Thus an
+optimal input density is
+
+```text
+rho_A=A(|00><00|+|11><11|)
+      +B(|01><01|+|10><10|),  B=1/2-A,  0<=A<=1/2.
+```
+
+The scaled residual Choi operator is two unitarily equivalent four-dimensional
+blocks.  Each block is the direct spectral contribution `-alpha` together with
+the following `M3`.  Put
+
+```text
+alpha=A(1-w)/2, gamma^2=AB/2,
+g=C-u, h=S,
+beta=B[(w-(C^2-S^2))+2iSC]/2.
+```
+
+The nontrivial Hermitian block is
+
+```text
+M3 = [[alpha, gamma(g+ih),  gamma(-g+ih)],
+      [gamma(g-ih), 0,      beta],
+      [gamma(-g-ih), beta*, 0]].
+```
+
+Consequently the exact fixed-channel norm is
+
+```text
+max_{0<=A<=1/2} 2[alpha+||M3||_1].
+```
+
+On the closed branches below, `M3` has one positive and two nonpositive
+eigenvalues, so this simplifies to
+
+```text
+max_{0<=A<=1/2} 4 lambda_max(M3).
+```
+
+This gives three regimes.
+
+**I. Weak coupling.**  Let `theta_1=0.258270520262...` be the first positive
+root of
+
+```text
+2SC=3C^3+C^2-C-1.
+```
+
+For `0<=theta<=theta_1`,
+
+```text
+q=(C^2,S^2/2,S^2/2,0),
+delta_A(U_theta)=2SC=sin(4 theta).
+```
+
+The invariant one-excitation density gives the matching universal lower bound.
+For the displayed channel, positivity of
+`H_1(A)=(SC/2)I-M3(A)` for every `A` gives the upper bound.  The leading
+minor is `S(C-2AS)/2`, and the `(2,3)` principal minor is
+`A C^2(A-1)(C-1)(C+1)`.  The remaining two-by-two minor is positive because
+its residual quadratic has negative leading coefficient and negative
+discriminant throughout the weak interval.  Finally
+
+```text
+det H_1=A C(C-1)K(A)/4,
+K''(A)/2=4C(C-1)^2(C+1)>0,
+K(0)=S[2SC-(3C^3+C^2-C-1)],
+K(1/2)=-C(C+1)S(C-S).
+```
+
+Convexity of `K` and the signs of its endpoints prove `det H_1>=0`.  The first
+threshold is exactly where `K(0)` vanishes and the boundary witness at `A=0`
+ceases to maximize the norm.
+
+**II. Intermediate coupling.**  For
+`theta_1<theta<theta_2`, full SDPs consistently place the optimum on the CPTP
+facet `q_Z=0`, or `u=(1+w)/2`, with an interior witness.  This active-facet
+selection is a numerical conjecture, not yet a theorem.  The rigorous exact
+characterization remains the two-parameter saddle
+
+```text
+delta_A(U_theta)
+ = min_{(u,w) CPTP} max_{0<=A<=1/2} 2[alpha+||M3||_1].
+```
+
+Conditional on the observed `q_Z=0` facet, it reduces to
+
+```text
+delta_A(U_theta)
+ = min_w max_{0<=A<=1/2} 4 lambda_max(M3)
+   subject to u=(1+w)/2.
+```
+
+Its stationary points obey the characteristic cubic of `M3` together with
+its derivatives in `A` and `w`.  No elementary closed form or analytic
+active-facet proof is claimed.
+
+**III. Central iSWAP regime.**  Let `theta_2=0.646615513406...` be the root
+
+```text
+1+C^2=2C(1+S).
+```
+
+Equivalently, `tan(theta_2)` is the positive root of `t^3+t^2-1=0`.  For
+`theta_2<=theta<=pi/4`,
+
+```text
+u=C(1+S), w=C^2,
+q_I=[1+C^2+2C(1+S)]/4,
+q_X=q_Y=S^2/4,
+q_Z=[1+C^2-2C(1+S)]/4,
+delta_A(U_theta)=S+S^2/2.
+```
+
+The maximally mixed input density is the matching witness.  At that witness
+the largest `M3` eigenvalue is `S(2+S)/8`, with eigenvector proportional to
+`(i sqrt(2),1,1)`; its derivatives in both channel parameters vanish, proving
+the lower bound by convexity.  For the displayed channel, put
+`H_3(A)=[S(2+S)/8]I-M3(A)`.  Its determinant factors as
+
+```text
+det H_3 =
+ -S^3(4A-1)^2(S+2)
+  [A(28S^2+8S-32)+12-13S^2-4S]/512.
+```
+
+The bracket is negative at both `A=0` and `A=1/2`.  The two nontrivial
+two-by-two principal minors are `S^2G_1/64` and `S^2G_2/64`: `G_1` is a
+convex quadratic whose completed-square minimum is positive, while `G_2` is
+concave with endpoint values `13S^2+4S-12` and `(S+2)^2`.  Together with
+`H_{3,00}=S(S+2-4AS)/8`, all principal minors are nonnegative throughout
+regime III.  Hence `H_3(A)>=0` for every `A`, proving the upper bound.  At
+iSWAP, `S=1`, the effective channel is completely depolarizing and
+`delta_A=3/2`.
+
+The full curve obeys `delta_A(theta)=delta_A(pi/2-theta)` and returns to zero
+at `theta=pi/2`, where the unitary is the local gate `Z tensor Z`.  A focused
+prior-art search found only exact CNOT and SWAP signalling values, not an
+evaluation of the XY line or the iSWAP endpoint.  AQC6 therefore appears
+novel, subject to external literature review.  Exact rational controls cover
+the weak point `(C,S)=(12/13,5/13)`, the central point `(9/41,40/41)`, and
+iSWAP.
+
 ## Promotion and kill rules
 
 1. Exact identities must be proved analytically; code supplies finite
@@ -347,11 +517,9 @@ For `cos(phi)>0`, the derivative at `lambda=0` is
 
 ## Next theorem
 
-Determine whether AQC1 extends from the Ising family to arbitrary two-qubit
-Cartan interactions with a sharp formula or dimension-independent rigidity
-bound. The Ising and SWAP endpoints are now exact. The Cartan target must allow
-ancilla-assisted witnesses: SWAP shows that system-only hidden-correlation
-witnesses need not attain the diamond norm. AQC3 reduces the effective-channel
-optimization to the Pauli tetrahedron; proving which Pauli channel is optimal
-and evaluating its diamond norm remain open away from the equal-angle
-partial-SWAP line solved by AQC4.
+The Ising axis, equal-angle partial-SWAP line, and XY/iSWAP line now have sharp
+results.  Do not return directly to the full three-parameter Cartan chamber.
+The next tractable target is the two-parameter XXZ surface
+`exp[-i(theta(XX+YY)+gamma ZZ)]`, using AQC6's axial covariance and active-facet
+phase diagram.  Promote a result only if the additional `gamma` parameter
+admits sharp witnesses or a rigorous reduction beyond a generic numerical SDP.

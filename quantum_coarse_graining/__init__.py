@@ -48,6 +48,20 @@ from .swap import (
     swap_theorem_certificate,
     swap_unitary,
 )
+from .xy import (
+    xy_block_characteristic,
+    xy_boundary_certificate,
+    xy_pauli_channel,
+    xy_strong_defect,
+    xy_strong_probabilities,
+    xy_strong_spectrum_certificate,
+    xy_strong_threshold_polynomial,
+    xy_transfer_parameters,
+    xy_unitary,
+    xy_weak_defect,
+    xy_weak_probabilities,
+    xy_weak_threshold_polynomial,
+)
 
 __all__ = [
     "Gaussian",
@@ -91,4 +105,16 @@ __all__ = [
     "swap_diamond_autonomy_defect",
     "swap_theorem_certificate",
     "swap_unitary",
+    "xy_block_characteristic",
+    "xy_boundary_certificate",
+    "xy_pauli_channel",
+    "xy_strong_defect",
+    "xy_strong_probabilities",
+    "xy_strong_spectrum_certificate",
+    "xy_strong_threshold_polynomial",
+    "xy_transfer_parameters",
+    "xy_unitary",
+    "xy_weak_defect",
+    "xy_weak_probabilities",
+    "xy_weak_threshold_polynomial",
 ]
